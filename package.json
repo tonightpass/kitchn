@@ -1,0 +1,79 @@
+{
+  "name": "@tonightpass/kitchen",
+  "version": "0.0.1",
+  "main": "dist/tonightpass-kitchen.cjs.js",
+  "module": "dist/tonightpass-kitchen.esm.js",
+  "description": "Tonight Pass delicious React components.",
+  "author": "Tonight Pass <developers@tonightpass.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "preconstruct watch",
+    "postinstall": "preconstruct dev",
+    "build": "preconstruct build",
+    "release": "yarn build && npm publish",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "files": [
+    "dist",
+    "native/*"
+  ],
+  "preconstruct": {
+    "globals": {
+      "react": "React",
+      "react-dom": "ReactDOM"
+    },
+    "entrypoints": [
+      "index.{js,ts,tsx}",
+      "native/index.{js,ts,tsx}"
+    ]
+  },
+  "size-limit": [
+    {
+      "path": "dist/shared-types.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/shared-types.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint"
+    }
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0",
+    "next": ">=9"
+  },
+  "dependencies": {
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-react": "^7.18.6",
+    "@preconstruct/cli": "^2.2.2",
+    "@types/react": "^18.0.21",
+    "@types/react-native": "^0.70.6",
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "next": "^12.3.1",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.70.3",
+    "size-limit": "^8.1.0",
+    "typescript": "^4.8.4"
+  }
+}
