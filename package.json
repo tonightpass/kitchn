@@ -18,10 +18,10 @@
     "analyze": "size-limit --why"
   },
   "files": [
-    "dist",
-    "link/*",
-    "native/*",
-    "provider/*"
+    "/dist",
+    "/link",
+    "/native",
+    "/provider"
   ],
   "preconstruct": {
     "globals": {
@@ -30,7 +30,8 @@
     },
     "entrypoints": [
       "index.{js,ts,tsx}",
-      "*.{js,ts,tsx}"
+      "*.{js,ts,tsx}",
+      "native/*.{js,ts,tsx}"
     ]
   },
   "size-limit": [
