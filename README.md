@@ -40,7 +40,7 @@
 
 ## Description
 
-[Kitchen](https://github.com/tonightpass/kitchen) is the [Tonight Pass](https://tonightpass.com) delicious React components.
+[Kitchen](https://github.com/tonightpass/kitchen) is the [Tonight Pass](https://tonightpass.com)'s delicious React components.
 
 It's an UI Kit that can be used on every [React](https://reactjs.org) and [React Native](https://reactnative.dev/) project as a complete UI library with optimized and customizable components.
 
