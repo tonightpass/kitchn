@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "preconstruct watch",
+    "fix": "preconstruct fix",
     "postinstall": "preconstruct dev",
     "build": "preconstruct build",
     "release": "yarn build && npm publish",
@@ -18,7 +19,9 @@
   },
   "files": [
     "dist",
-    "native/*"
+    "link/*",
+    "native/*",
+    "provider/*"
   ],
   "preconstruct": {
     "globals": {
@@ -27,7 +30,7 @@
     },
     "entrypoints": [
       "index.{js,ts,tsx}",
-      "native/index.{js,ts,tsx}"
+      "*.{js,ts,tsx}"
     ]
   },
   "size-limit": [
