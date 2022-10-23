@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Reference : https://docs.onruntime.com/contributing/commits
+bash $(dirname -- "$0")/validate-commit-message.sh "$1"
