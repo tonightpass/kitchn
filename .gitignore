@@ -1,9 +1,4 @@
 *.log
 .DS_Store
-node_modules
-
-# build
-/dist
-/link
-/native
-/provider
+node_modules/
+dist/
