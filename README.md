@@ -40,9 +40,9 @@
 
 ## Description
 
-[Kitchen](https://github.com/tonightpass/kitchen) is the UI library of [Tonight Pass](https://tonightpass.com).
+[Kitchen](https://github.com/tonightpass/kitchen) is the [Tonight Pass](https://tonightpass.com) delicious React components.
 
-It can be used on every [React](https://reactjs.org) and [React Native](https://reactnative.dev/) project as a complete UI library with optimized and customizable components.
+It's an UI Kit that can be used on every [React](https://reactjs.org) and [React Native](https://reactnative.dev/) project as a complete UI library with optimized and customizable components.
 
 See [Kitchen Documentation](http://docs.onruntime.com/kitchen) for all details.
 
@@ -66,6 +66,7 @@ Please see our [contributing rules](https://docs.onruntime.com/contributing/intr
 
 ## Authors
 
+- Antoine Kingue ([@antoinekm](https://github.com/antoinekm))
 - Jérémy Baudrin ([@jerembdn](https://github.com/jerembdn))
 
 ## License
