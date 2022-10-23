@@ -15,7 +15,9 @@
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "prepare": "husky install && yarn build",
+    "format:staged": "pretty-quick --staged"
   },
   "files": [
     "/dist",
@@ -36,19 +38,14 @@
   },
   "size-limit": [
     {
-      "path": "dist/shared-types.cjs.production.min.js",
-      "limit": "10 KB"
+      "path": "dist/tonightpass-kitchen.cjs.prod.js",
+      "limit": "20 KB"
     },
     {
-      "path": "dist/shared-types.esm.js",
-      "limit": "10 KB"
+      "path": "dist/tonightpass-kitchen.esm.js",
+      "limit": "20 KB"
     }
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint"
-    }
-  },
   "peerDependencies": {
     "next": ">=9",
     "react": ">= 16.8.0",
@@ -61,6 +58,7 @@
     "@babel/preset-env": "^7.19.4",
     "@babel/preset-react": "^7.18.6",
     "@preconstruct/cli": "^2.2.2",
+    "@size-limit/preset-small-lib": "^8.1.0",
     "@types/react": "^18.0.21",
     "@types/react-native": "^0.70.6",
     "@types/styled-components": "^5.1.26",
@@ -75,6 +73,7 @@
     "husky": "^8.0.1",
     "next": "^12.3.1",
     "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "^0.70.3",
