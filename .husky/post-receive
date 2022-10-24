@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+branchName="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branchName" = "master" ]; then
+  packageVersion=$(cat package.json \
+    | grep version \
+    | head -1 \
+    | awk -F: '{ print $2 }' \
+    | sed 's/[",]//g')
+
+  git tag "v$packageVersion"
+  git push --tags
+
+  yarn release
+fi
