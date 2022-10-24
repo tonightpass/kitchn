@@ -3,4 +3,6 @@
 
 yarn lint:fix
 yarn format:staged
-yarn size
+
+# Reference : https://docs.onruntime.com/contributing/commits
+bash $(dirname -- "$0")/scripts/validate-branch-name.sh
