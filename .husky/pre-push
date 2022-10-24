@@ -1,10 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+yarn build
 yarn size
-
-branchName="$(git rev-parse --abbrev-ref HEAD)"
-
-if [ "$branchName" = "master" ]; then
-  yarn build
-fi
