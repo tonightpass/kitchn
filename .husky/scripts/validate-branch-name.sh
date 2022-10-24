@@ -1,7 +1,7 @@
 #!/bin/bash
 
 branchName="$(git rev-parse --abbrev-ref HEAD)"
-regex="^([a-z0-9]+)\/([a-z-]+)$"
+regex="^(develop|master)$|^([a-z0-9]+)\/([a-z-]+)$"
 
 if [[ ! $branchName =~ $regex ]];
 then
