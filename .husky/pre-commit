@@ -1,6 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+#
+# This hook is triggered first before even getting commit message.
+#
+
 yarn lint:fix
 yarn format:staged
 
