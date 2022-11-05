@@ -1,0 +1,22 @@
+{
+  "name": "@tonightpass/kitchen",
+  "version": "1.0.0",
+  "description": "A very simple React button within a monorepo",
+  "main": "dist/tonightpass-kitchen.cjs.js",
+  "module": "dist/tonightpass-kitchen.esm.js",
+  "dependencies": {
+    "styled-components": "^5.3.6"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "@types/styled-components": "^5.1.26",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  }
+}
