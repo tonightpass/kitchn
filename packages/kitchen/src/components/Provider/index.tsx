@@ -3,15 +3,15 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import themes from "../../themes";
 import GlobalStyle from "../GlobalStyle";
 
-export interface ProviderProps {
+export interface KitchenProviderProps {
   children?: React.ReactNode;
   theme?: DefaultTheme;
 }
 
-const KitchenProvider: React.FC = ({
+const KitchenProvider: React.FC<KitchenProviderProps> = ({
   children,
   theme = themes.dark,
-}: ProviderProps) => {
+}: KitchenProviderProps) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
