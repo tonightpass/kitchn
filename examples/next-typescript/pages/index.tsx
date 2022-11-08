@@ -1,12 +1,19 @@
-import { Button } from "@tonightpass/kitchen";
+import { NextPage } from "next";
+import Link from "next/link";
 import React from "react";
 
-const Index = () => {
+const IndexPage: NextPage = () => {
+  const ref = React.useRef(null);
+
+  console.log("ref", ref);
+
   return (
     <div>
-      <Button>Click me</Button>
+      <Link ref={ref} href={"/button"}>
+        Button
+      </Link>
     </div>
   );
 };
 
-export default Index;
+export default IndexPage;
