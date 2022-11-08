@@ -1,4 +1,5 @@
 import "./types/styled-components";
+import kitchen from "styled-components";
 
 import KitchenProvider from "./components/Provider";
 import Button from "./components/Button";
@@ -8,3 +9,4 @@ import Spinner from "./components/Spinner";
 import withKitchen from "./hoc/withKitchen";
 
 export { KitchenProvider, Button, Icon, Spinner, withKitchen };
+export default kitchen;
