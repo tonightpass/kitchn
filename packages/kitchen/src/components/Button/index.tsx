@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import { AccentColors, LayoutColors } from "../../types/theme";
+import { AccentColors } from "../../types/theme";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import { isNumber } from "../../utils/isNumber";
 import Spinner from "../Spinner";
