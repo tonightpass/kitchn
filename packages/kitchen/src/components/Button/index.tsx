@@ -17,6 +17,7 @@ export type ButtonProps = {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   type?: keyof AccentColors;
+  variant?: "ghost" | "shadow";
   hover?: {
     background: string;
     color: string;
@@ -92,11 +93,49 @@ const Button = styled(
     }
   }};
 
+  color: ${(props) => {
+    if (props.variant === "ghost") {
+      switch (props.type) {
+        case "light":
+          return props.theme.colors.text.lightest;
+        case "dark":
+          return props.theme.colors.text.light;
+        case "info":
+          return props.theme.colors.accent.info;
+        case "success":
+          return props.theme.colors.accent.success;
+        case "warning":
+          return props.theme.colors.accent.warning;
+        case "danger":
+          return props.theme.colors.accent.danger;
+        case "secondary":
+          return props.theme.colors.accent.secondary;
+        case "primary":
+          return props.theme.colors.accent.primary;
+      }
+    }
+
+    switch (props.type) {
+      case "light":
+        return props.theme.colors.text.darkest;
+      case "dark":
+        return props.theme.colors.text.lightest;
+      default:
+        return props.theme.colors.accent.light;
+    }
+  }};
+
   background: ${(props) => {
     if (props.loading || props.disabled)
       return `${props.theme.colors.layout.darkest}`;
 
+    if (props.variant === "ghost") return "transparent";
+
     switch (props.type) {
+      case "dark":
+        return props.theme.colors.layout.darkest;
+      case "light":
+        return props.theme.colors.layout.lightest;
       case "info":
         return props.theme.colors.accent.info;
       case "success":
@@ -116,7 +155,14 @@ const Button = styled(
   border: ${(props) => {
     if (props.loading || props.disabled)
       return `1px solid ${props.theme.colors.layout.darker}`;
+
+    if (props.variant === "ghost") return "1px solid transparent";
+
     switch (props.type) {
+      case "dark":
+        return `1px solid ${props.theme.colors.layout.darker}`;
+      case "light":
+        return `1px solid ${props.theme.colors.layout.lightest}`;
       case "info":
         return `1px solid ${props.theme.colors.accent.info}`;
       case "success":
@@ -149,21 +195,56 @@ const Button = styled(
     ${(props) =>
       props.hover?.background && `background: ${props.hover.background}`};
     ${(props) => props.hover?.color && `color: ${props.hover.background}`};
+
+    background: ${(props) => {
+      if (props.variant === "ghost") {
+        switch (props.type) {
+          case "light":
+            return convertRGBToRGBA(props.theme.colors.layout.lightest, 0.25);
+          case "dark":
+            return convertRGBToRGBA(props.theme.colors.layout.light, 0.25);
+          case "info":
+            return convertRGBToRGBA(props.theme.colors.accent.info, 0.25);
+          case "success":
+            return convertRGBToRGBA(props.theme.colors.accent.success, 0.25);
+          case "warning":
+            return convertRGBToRGBA(props.theme.colors.accent.warning, 0.25);
+          case "danger":
+            return convertRGBToRGBA(props.theme.colors.accent.danger, 0.25);
+          case "secondary":
+            return convertRGBToRGBA(props.theme.colors.accent.secondary, 0.25);
+          case "primary":
+            return convertRGBToRGBA(props.theme.colors.accent.primary, 0.25);
+        }
+      }
+
+      return "";
+    }};
+
     border: ${(props) => {
       if (props.loading || props.disabled)
         return `1px solid ${props.theme.colors.layout.darker}`;
 
+      if (props.variant === "ghost") {
+        return `1px solid ${convertRGBToRGBA(
+          props.theme.colors.accent.light,
+          0.25
+        )}`;
+      }
+
       switch (props.type) {
+        case "dark":
+          return `1px solid ${props.theme.colors.layout.dark}`;
+        case "light":
         case "info":
         case "success":
         case "warning":
         case "danger":
+        case "secondary":
           return `1px solid ${convertRGBToRGBA(
             props.theme.colors.accent.light,
             0.25
           )}`;
-        case "secondary":
-          return `1px solid ${props.theme.colors.accent.primary}`;
         case "primary":
         default:
           return `1px solid ${props.theme.colors.accent.secondary}`;
@@ -185,6 +266,7 @@ const Content = styled.span<{ width?: string | number }>`
   font-weight: ${({ theme }) => theme.weight.semiBold};
   font-size: inherit;
   font-family: inherit;
+  color: inherit;
 
   ${({ width }) =>
     width &&
@@ -193,11 +275,13 @@ const Content = styled.span<{ width?: string | number }>`
 
 const Prefix = styled.span<{ hasContent: boolean }>`
   font-size: inherit;
+  color: inherit;
   ${({ hasContent }) => hasContent && "margin-right: 7px;"}
 `;
 const Suffix = styled.span`
   font-size: inherit;
   margin-left: 7px;
+  color: inherit;
 `;
 
 export default Button;

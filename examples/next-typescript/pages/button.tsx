@@ -102,6 +102,43 @@ const ButtonPage: NextPage = () => {
           <Button type={"warning"}>Warning</Button>
           <Button type={"success"}>Success</Button>
           <Button type={"info"}>Info</Button>
+          <Button type={"dark"}>Dark</Button>
+          <Button type={"light"}>Light</Button>
+        </div>
+
+        <p>variant - ghost</p>
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Button variant={"ghost"} type={"primary"}>
+            Primary
+          </Button>
+          <Button variant={"ghost"} type={"secondary"}>
+            Secondary
+          </Button>
+          <Button variant={"ghost"} type={"danger"}>
+            Danger
+          </Button>
+          <Button variant={"ghost"} type={"warning"}>
+            Warning
+          </Button>
+          <Button variant={"ghost"} type={"success"}>
+            Success
+          </Button>
+          <Button variant={"ghost"} type={"info"}>
+            Info
+          </Button>
+          <Button variant={"ghost"} type={"dark"}>
+            Dark
+          </Button>
+          <Button variant={"ghost"} type={"light"}>
+            Light
+          </Button>
         </div>
 
         <p>loading</p>
