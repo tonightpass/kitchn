@@ -50,11 +50,11 @@
   "size-limit": [
     {
       "path": "packages/kitchen/dist/tonightpass-kitchen.cjs.prod.js",
-      "limit": "20 kB"
+      "limit": "25 kB"
     },
     {
       "path": "packages/kitchen/dist/tonightpass-kitchen.esm.js",
-      "limit": "20 kB"
+      "limit": "25 kB"
     }
   ]
 }
