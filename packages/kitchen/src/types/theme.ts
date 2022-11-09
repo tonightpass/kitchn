@@ -18,6 +18,9 @@ export type Colors = {
   accent: AccentColors;
 };
 
+/**
+ * Layout colors are used for backgrounds, borders, etc.
+ */
 export type LayoutColors = {
   darkest: string;
   darker: string;
@@ -27,6 +30,9 @@ export type LayoutColors = {
   lightest: string;
 };
 
+/**
+ * Text colors are used for text and icons.
+ */
 export type TextColors = {
   lightest: string;
   lighter: string;
@@ -36,6 +42,9 @@ export type TextColors = {
   darkest: string;
 };
 
+/**
+ * AccentColors are static colors that are used to highlight
+ */
 export type AccentColors = {
   primary: string;
   secondary: string;
@@ -47,6 +56,9 @@ export type AccentColors = {
   dark: string;
 };
 
+/**
+ * Weight is used for font weights.
+ */
 export type Weight = {
   thin: number;
   extraLight: number;
@@ -59,6 +71,9 @@ export type Weight = {
   black: number;
 };
 
+/**
+ * Size is used for font sizes.
+ */
 export type Size = {
   extraTitle: string;
   title: string;
@@ -69,6 +84,9 @@ export type Size = {
   tiny: string;
 };
 
+/**
+ * Breakpoint is used for media queries.
+ */
 export type Breakpoint = {
   /* Desktops and laptops */
   desktop: string;
