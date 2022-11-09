@@ -181,6 +181,7 @@ const GlobalStyle = createGlobalStyle`
     /* fonts */
 
     body,
+    span,
     input,
     button,
     textarea,
@@ -192,6 +193,10 @@ const GlobalStyle = createGlobalStyle`
         text-align: left;
         color: ${({ theme }) => theme.colors.text.lightest};
         line-height: 1.25;
+    }
+
+    span {
+        line-height: 1;
     }
 
     a {
