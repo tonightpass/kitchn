@@ -4,12 +4,12 @@ const dark: Theme = {
   id: 0,
   colors: {
     layout: {
-      darkest: "rgb(0, 0, 0)",
-      darker: "rgb(30, 31, 32)",
-      dark: "rgb(75, 75, 76)",
-      light: "rgb(30, 30, 30)",
-      lighter: "rgb(36, 36, 36)",
-      lightest: "rgb(45, 45, 45)",
+      darkest: "rgb(17, 19, 21)",
+      darker: "rgb(26, 29, 31)",
+      dark: "rgb(39, 43, 48)",
+      light: "rgb(130, 137, 147)",
+      lighter: "rgb(155, 155, 156)",
+      lightest: "rgb(255, 255, 255)",
     },
     text: {
       lightest: "rgb(255, 255, 255)",
@@ -21,7 +21,7 @@ const dark: Theme = {
     },
     accent: {
       primary: "rgb(176, 36, 241)",
-      secondary: "rgb(176, 36, 241)",
+      secondary: "rgb(176, 96, 241)",
       success: "rgb(46, 204, 113)",
       warning: "rgb(241, 196, 15)",
       danger: "rgb(231, 76, 60)",
