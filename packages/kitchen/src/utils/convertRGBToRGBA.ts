@@ -1,4 +1,6 @@
-// convert rgb(0, 0, 0) to rgba(0, 0, 0, 1)
+/**
+ * Converts RGB string to RGBA string
+ */
 const convertRGBToRGBA = (rgb: string, alpha: number): string => {
   const rgbArray = rgb.match(/\d+/g);
   if (rgbArray) {
