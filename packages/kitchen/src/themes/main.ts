@@ -2,7 +2,7 @@ import { MainTheme } from "../types/theme";
 
 const main: MainTheme = {
   family: {
-    primary: "Poppins, sans-serif",
+    primary: "Poppins, -apple-system, sans-serif",
   },
   weight: {
     thin: 100,
