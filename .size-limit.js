@@ -13,12 +13,12 @@ const modifyWebpackConfig = (config) => {
 module.exports = [
   {
     path: "packages/kitchen/dist/tonightpass-kitchen.cjs.prod.js",
-    limit: "1 s",
+    limit: "1.25 s",
     modifyWebpackConfig,
   },
   {
     path: "packages/kitchen/dist/tonightpass-kitchen.esm.js",
-    limit: "1 s",
+    limit: "1.25 s",
     modifyWebpackConfig,
   },
 ];
