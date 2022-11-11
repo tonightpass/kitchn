@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types/components";
+import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
 export type TextProps = KitchenComponent & {
