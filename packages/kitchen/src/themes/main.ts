@@ -16,7 +16,7 @@ const main: MainTheme = {
     black: 900,
   },
   size: {
-    extraTitle: "64px",
+    extraTitle: "48px",
     title: "32px",
     large: "24px",
     medium: "18px",
