@@ -131,7 +131,9 @@ const TextPage = () => {
           and running instantly.
         </Text>
         <Text align={"center"}>codeblock</Text>
-        <Code>{"npm i vercel -g\nvercel init nextjs"}</Code>
+        <Code title={"/components/Code.tsx"}>
+          {"npm i vercel -g\nvercel init nextjs"}
+        </Code>
       </div>
     </div>
   );
