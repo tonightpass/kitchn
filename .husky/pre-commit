@@ -5,6 +5,7 @@
 # This hook is triggered first before even getting commit message.
 #
 
+# yarn lint:fix
 yarn format:staged
 
 # Reference : https://docs.onruntime.com/contributing/commits
