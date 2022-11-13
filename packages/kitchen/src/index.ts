@@ -4,6 +4,7 @@ import kitchen from "styled-components";
 import KitchenDocument from "./components/Document";
 import KitchenProvider from "./components/Provider";
 import Button from "./components/Button";
+import Code from "./components/Codeblock";
 import OrderedList from "./components/OrderedList";
 import UnorderedList from "./components/UnorderedList";
 import ListItem from "./components/ListItem";
@@ -18,6 +19,7 @@ export {
   KitchenDocument,
   KitchenProvider,
   Button,
+  Code,
   Icon,
   InlineCode,
   OrderedList,

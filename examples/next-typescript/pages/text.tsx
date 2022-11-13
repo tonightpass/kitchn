@@ -4,6 +4,7 @@ import {
   OrderedList,
   Text,
   UnorderedList,
+  Code,
 } from "@tonightpass/kitchen";
 
 const TextPage = () => {
@@ -129,6 +130,8 @@ const TextPage = () => {
           It’s a matter of running <InlineCode>kitchen</InlineCode> to get it up
           and running instantly.
         </Text>
+        <Text align={"center"}>codeblock</Text>
+        <Code>{"npm i vercel -g\nvercel init nextjs"}</Code>
       </div>
     </div>
   );
