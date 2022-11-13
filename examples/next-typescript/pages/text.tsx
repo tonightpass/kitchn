@@ -1,4 +1,9 @@
-import { Text } from "@tonightpass/kitchen";
+import {
+  ListItem,
+  OrderedList,
+  Text,
+  UnorderedList,
+} from "@tonightpass/kitchen";
 
 const TextPage = () => {
   return (
@@ -100,6 +105,24 @@ const TextPage = () => {
         <Text align={"center"}>monospace</Text>
         <Text>This is a sans-serif font.</Text>
         <Text monospace>This is a monospace font.</Text>
+        <Text align={"center"}>unordered list</Text>
+        <UnorderedList>
+          <ListItem>
+            Static websites and static generators (React, Vue, Angular, etc)
+          </ListItem>
+          <ListItem>Code that renders HTML on the server-side</ListItem>
+          <ListItem>
+            API endpoints that query databases or web APIs and return dynamic
+            data
+          </ListItem>
+        </UnorderedList>
+        <Text align={"center"}>ordered list</Text>
+        <OrderedList>
+          <ListItem>Push a commit to trigger the deployment.</ListItem>
+          <ListItem>
+            {"You'll see the deployment status on GitHub and Vercel dashboard."}
+          </ListItem>
+        </OrderedList>
       </div>
     </div>
   );
