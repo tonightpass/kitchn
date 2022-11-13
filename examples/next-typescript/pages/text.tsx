@@ -1,4 +1,5 @@
 import {
+  InlineCode,
   ListItem,
   OrderedList,
   Text,
@@ -123,6 +124,11 @@ const TextPage = () => {
             {"You'll see the deployment status on GitHub and Vercel dashboard."}
           </ListItem>
         </OrderedList>
+        <Text align={"center"}>code</Text>
+        <Text>
+          It’s a matter of running <InlineCode>kitchen</InlineCode> to get it up
+          and running instantly.
+        </Text>
       </div>
     </div>
   );

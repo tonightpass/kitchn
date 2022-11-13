@@ -8,6 +8,7 @@ import OrderedList from "./components/OrderedList";
 import UnorderedList from "./components/UnorderedList";
 import ListItem from "./components/ListItem";
 import Icon from "./components/Icon";
+import InlineCode from "./components/InlineCode";
 import Spinner from "./components/Spinner";
 import Text from "./components/Text";
 
@@ -18,6 +19,7 @@ export {
   KitchenProvider,
   Button,
   Icon,
+  InlineCode,
   OrderedList,
   ListItem,
   UnorderedList,
