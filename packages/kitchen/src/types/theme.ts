@@ -6,6 +6,7 @@ export type Theme = {
 export type MainTheme = {
   family: {
     primary: string;
+    monospace: string;
   };
   weight: Weight;
   size: Size;

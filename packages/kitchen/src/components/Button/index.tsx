@@ -1,13 +1,12 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
+import { KitchenComponent } from "../../types";
 import { AccentColors } from "../../types/theme";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import { isNumber } from "../../utils/isNumber";
 import Spinner from "../Spinner";
 
-export type ButtonProps = {
-  as?: React.ElementType;
-  children?: React.ReactNode;
+export type ButtonProps = KitchenComponent & {
   shape?: "square" | "round";
   size?: "small" | "medium" | "large";
   loading?: boolean;

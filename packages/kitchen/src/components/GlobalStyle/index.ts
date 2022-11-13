@@ -178,6 +178,10 @@ const GlobalStyle = createGlobalStyle`
         height: 30px;
     }
 
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
     /* fonts */
 
     body,
