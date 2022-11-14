@@ -1,29 +1,29 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 import { KitchenComponent } from "../../types";
-import { IconType, IconBaseProps } from "react-icons";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
-export type IconProps = KitchenComponent &
-  IconBaseProps & {
-    icon: IconType;
-    size?: keyof Size | number | string;
-    /**
-     * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
-     */
-    color?: keyof TextColors;
-    /**
-     * The accent color. Strictly limited to colors of our design system, but can be used in combination with `color` prop.
-     */
-    accent?: keyof AccentColors;
-    align?: "top" | "middle" | "bottom";
-  };
+export type IconProps = KitchenComponent & {
+  icon: SVGElement;
+  size?: keyof Size | number | string;
+  /**
+   * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
+   */
+  color?: keyof TextColors;
+  /**
+   * The accent color. Strictly limited to colors of our design system, but can be used in combination with `color` prop.
+   */
+  accent?: keyof AccentColors;
+  align?: "top" | "middle" | "bottom";
+};
 
 const Icon = styled(({ icon: Component, size, ...props }) => {
   const theme = useTheme();
   return (
     <Component
       size={theme.size[size as keyof Size] || size || theme.size.normal}
+      height={theme.size[size as keyof Size] || size || theme.size.normal}
+      width={theme.size[size as keyof Size] || size || theme.size.normal}
       {...props}
     />
   );
