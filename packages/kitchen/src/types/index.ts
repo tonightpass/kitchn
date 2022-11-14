@@ -7,4 +7,4 @@ export type KitchenComponent = {
    * The content, duh.
    */
   children?: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLElement>;
