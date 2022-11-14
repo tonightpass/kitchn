@@ -22,6 +22,7 @@ const IndexPage: NextPage = () => {
         Button
       </Link>
       <Link href={"/text"}>Text</Link>
+      <Link href={"/icon"}>Icon</Link>
     </div>
   );
 };
