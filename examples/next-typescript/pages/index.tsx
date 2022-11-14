@@ -3,10 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 const IndexPage: NextPage = () => {
-  const ref = React.useRef(null);
-
-  console.log("ref", ref);
-
   return (
     <div
       style={{
@@ -18,9 +14,8 @@ const IndexPage: NextPage = () => {
         gap: "10px",
       }}
     >
-      <Link ref={ref} href={"/button"}>
-        Button
-      </Link>
+      <Link href={"/grid"}>Grid</Link>
+      <Link href={"/button"}>Button</Link>
       <Link href={"/text"}>Text</Link>
     </div>
   );
