@@ -5,6 +5,7 @@ import KitchenDocument from "./components/Document";
 import KitchenProvider from "./components/Provider";
 import Button from "./components/Button";
 import Code from "./components/Code";
+import Container from "./components/Container";
 import OrderedList from "./components/OrderedList";
 import UnorderedList from "./components/UnorderedList";
 import ListItem from "./components/ListItem";
@@ -20,6 +21,7 @@ export {
   KitchenProvider,
   Button,
   Code,
+  Container,
   Icon,
   InlineCode,
   OrderedList,
