@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-#
-# This hook is triggered before the execution of the push command.
-#
-
-yarn build
-yarn size
