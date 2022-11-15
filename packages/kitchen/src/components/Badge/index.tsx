@@ -1,9 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { KitchenComponent } from "../../types";
+import { AccentColors } from "../../types/theme";
 
-const Badge = styled((props) => {
+export type BadgeProps = KitchenComponent & {
+  /**
+   * The size of the badge.
+   * @default "normal"
+   */
+  size: "small" | "normal" | "large";
+
+  /**
+   * The type of the badge.
+   * @default "primary"
+   */
+
+  type?: keyof AccentColors;
+};
+
+const Badge = styled((props: BadgeProps) => {
   return <div {...props} />;
-})`
+})<BadgeProps>`
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -14,21 +31,23 @@ const Badge = styled((props) => {
   font-weight: ${({ theme }) => theme.weight.medium};
   border-radius: 5px;
 
-  height: ${({ size }) => {
+  padding: ${({ size }) => {
     switch (size) {
       case "small":
-        return "20px";
+        return "3px";
       case "normal":
-        return "30px";
+        return "6px";
       case "large":
-        return "40px";
+        return "10px";
       default:
-        return "30px";
+        return "6px";
     }
   }};
 
-  color: ${({ theme, mode }) => {
-    switch (mode) {
+  font-size: ${(props) => props.theme.size[props.size || "normal"]};
+
+  color: ${({ theme, type }) => {
+    switch (type) {
       case "light":
         return theme.colors.text.darkest;
       default:
@@ -36,8 +55,17 @@ const Badge = styled((props) => {
     }
   }};
 
-  background-color: ${({ theme, mode }) => {
-    switch (mode) {
+  border: ${({ theme, type }) => {
+    switch (type) {
+      case "dark":
+        return `1px solid ${theme.colors.layout.lighter}`;
+      default:
+        return "none";
+    }
+  }};
+
+  background-color: ${({ theme, type }) => {
+    switch (type) {
       case "primary":
         return theme.colors.accent.primary;
       case "secondary":
