@@ -1,7 +1,7 @@
 import "./types/styled-components";
 import kitchen from "styled-components";
+export * from "styled-components";
 
-import KitchenDocument from "./components/Document";
 import KitchenProvider from "./components/Provider";
 import Button from "./components/Button";
 import Code from "./components/Code";
@@ -14,10 +14,7 @@ import InlineCode from "./components/InlineCode";
 import Spinner from "./components/Spinner";
 import Text from "./components/Text";
 
-import withKitchen from "./hoc/withKitchen";
-
 export {
-  KitchenDocument,
   KitchenProvider,
   Button,
   Code,
@@ -29,6 +26,5 @@ export {
   UnorderedList,
   Spinner,
   Text,
-  withKitchen,
 };
 export default kitchen;
