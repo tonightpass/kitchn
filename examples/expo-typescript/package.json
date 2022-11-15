@@ -1,5 +1,5 @@
 {
-  "name": "expo-typescript",
+  "name": "@tonightpass/kitchen-expo-typescript",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@tonightpass/kitchen": "*",
     "expo": "~47.0.5",
     "expo-status-bar": "~1.4.2",
     "react": "^18.2.0",
-    "react-native": "0.70.5"
+    "react-native": "^0.70.6"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

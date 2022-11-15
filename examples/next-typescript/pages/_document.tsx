@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { KitchenDocument } from "@tonightpass/kitchen";
+import { KitchenDocument } from "@tonightpass/kitchen/next";
 
 export default class MyDocument extends KitchenDocument {
   render(): JSX.Element {
