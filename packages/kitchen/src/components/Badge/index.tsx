@@ -8,7 +8,7 @@ export type BadgeProps = KitchenComponent & {
    * The size of the badge.
    * @default "normal"
    */
-  size: "small" | "normal" | "large";
+  size?: "small" | "normal" | "large";
 
   /**
    * The type of the badge.
