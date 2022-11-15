@@ -3,6 +3,7 @@ import kitchen from "styled-components";
 
 import KitchenDocument from "./components/Document";
 import KitchenProvider from "./components/Provider";
+import Badge from "./components/Badge";
 import Button from "./components/Button";
 import Code from "./components/Code";
 import Container from "./components/Container";
@@ -19,6 +20,7 @@ import withKitchen from "./hoc/withKitchen";
 export {
   KitchenDocument,
   KitchenProvider,
+  Badge,
   Button,
   Code,
   Container,
