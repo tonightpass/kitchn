@@ -38,14 +38,14 @@ const BadgePage: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <Badge mode="primary">primary</Badge>
-          <Badge mode="secondary">secondary</Badge>
-          <Badge mode="success">success</Badge>
-          <Badge mode="warning">warning</Badge>
-          <Badge mode="danger">danger</Badge>
-          <Badge mode="info">info</Badge>
-          <Badge mode="light">light</Badge>
-          <Badge mode="dark">dark</Badge>
+          <Badge type="primary">primary</Badge>
+          <Badge type="secondary">secondary</Badge>
+          <Badge type="success">success</Badge>
+          <Badge type="warning">warning</Badge>
+          <Badge type="danger">danger</Badge>
+          <Badge type="info">info</Badge>
+          <Badge type="light">light</Badge>
+          <Badge type="dark">dark</Badge>
         </div>
 
         <p>sizes</p>
