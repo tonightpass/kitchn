@@ -61,6 +61,19 @@ const BadgePage: NextPage = () => {
           <Badge size="normal">Badge</Badge>
           <Badge size="large">Badge</Badge>
         </div>
+
+        <p>font size</p>
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Badge>Normal</Badge>
+          <Badge bold>Bold</Badge>
+        </div>
       </div>
     </>
   );
