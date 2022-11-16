@@ -84,6 +84,9 @@ const NotePage: NextPage = () => {
           <Note filled prefix="success">
             success
           </Note>
+          <Note filled prefix="info">
+            info
+          </Note>
         </div>
       </div>
     </>
