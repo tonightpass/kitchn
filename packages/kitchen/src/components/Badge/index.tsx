@@ -14,8 +14,12 @@ export type BadgeProps = KitchenComponent & {
    * The type of the badge.
    * @default "primary"
    */
-
   type?: keyof AccentColors;
+
+  /**
+   * The font weight of the badge.
+   */
+  bold?: boolean;
 };
 
 const Badge = styled((props: BadgeProps) => {
@@ -28,7 +32,8 @@ const Badge = styled((props: BadgeProps) => {
   user-select: none;
   white-space: nowrap;
   padding: 0 10px;
-  font-weight: ${({ theme }) => theme.weight.medium};
+  font-weight: ${({ bold, theme }) =>
+    bold ? theme.weight.bold : theme.weight.medium};
   border-radius: 5px;
 
   padding: ${({ size }) => {
