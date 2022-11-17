@@ -1,6 +1,5 @@
 import "./types/styled-components";
 import kitchen from "styled-components";
-export * from "styled-components";
 
 import KitchenProvider from "./components/Provider";
 import Button from "./components/Button";
