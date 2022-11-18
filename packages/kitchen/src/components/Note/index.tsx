@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
-import { AccentColors } from "../../types/theme";
+import capitalize from "../../utils/capitalize";
 
 export type NoteProps = KitchenComponent & {
   /**
@@ -14,54 +14,52 @@ export type NoteProps = KitchenComponent & {
    * The type of the note.
    * @default "primary"
    */
-  type?: keyof AccentColors;
+  type?: "primary" | "secondary" | "success" | "warning" | "danger";
 
   /**
-   * The prefix of the note.
+   * The action of the note.
    */
-  prefix?: "note" | "danger" | "warning" | "success" | "info";
-
-  /**
-   * The button of the note.
-   */
-  button?: string;
+  action?: JSX.Element;
 
   /**
    * The fill color of the note.
    * @default false
    */
-  filled?: boolean;
+  fill?: boolean;
+
+  /**
+   * The label of the note.
+   * @default true
+   */
+  label?: boolean | string;
 };
 
 const Note = styled(
   ({
     as: Component = "div",
-    prefix,
-    button,
-    filled,
+    type,
+    action,
+    label = true,
     children,
     ...props
   }: NoteProps) => {
     return (
       <Component {...props}>
-        {prefix && (
-          <Prefix hasContent={children != undefined}>
-            {prefix === "danger"
-              ? "Danger :"
-              : prefix === "warning"
-              ? "Warning :"
-              : prefix === "success"
-              ? "Success :"
-              : prefix === "info"
-              ? "Info :"
-              : prefix === "note"
-              ? "Note :"
-              : null}
-          </Prefix>
-        )}
+        <div>
+          {label && (
+            <Label>
+              {typeof label === "string"
+                ? label
+                : type && type !== "secondary"
+                ? capitalize(type)
+                : "Note"}
+              {label ? ": " : ""}
+            </Label>
+          )}
 
-        <Content>{children}</Content>
-        {button && <Button>{button}</Button>}
+          <Content>{children}</Content>
+        </div>
+        {action && <Action>{action}</Action>}
       </Component>
     );
   }
@@ -69,83 +67,103 @@ const Note = styled(
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   user-select: none;
-  white-space: nowrap;
-  padding: 0 10px;
+  flex: 1;
+  gap: 10px;
   font-weight: ${({ theme }) => theme.weight.medium};
-  border-radius: 5px;
-  background-color: ${({ theme, prefix, filled }) => {
-    if (filled) {
-      switch (prefix) {
+  border-radius: 8px;
+  background-color: ${({ theme, type, fill }) => {
+    if (fill) {
+      switch (type) {
         case "danger":
           return theme.colors.accent.danger;
         case "warning":
           return theme.colors.accent.warning;
         case "success":
-          return theme.colors.accent.success;
-        case "info":
           return theme.colors.accent.info;
+        case "secondary":
+          return theme.colors.layout.light;
+        case "primary":
+        default:
+          return theme.colors.layout.dark;
+      }
+    }
+    return "transparent";
+  }};
+  
+  color: ${({ theme, type, fill }) => {
+    if (fill) {
+      switch (type) {
+        case "danger":
+        case "warning":
+        case "success":
+          return theme.colors.accent.light;
+        case "secondary":
+        case "primary":
+        default:
+          return theme.colors.text.lightest;
       }
     } else {
-      return "transparent";
-    }
-  }};
-  color: ${({ theme, prefix, filled }) => {
-    if (filled) {
-      return theme.colors.text.lightest;
-    } else {
-      switch (prefix) {
+      switch (type) {
         case "danger":
           return theme.colors.accent.danger;
         case "warning":
           return theme.colors.accent.warning;
         case "success":
-          return theme.colors.accent.success;
-        case "info":
           return theme.colors.accent.info;
+        case "secondary":
+          return theme.colors.text.light;
+        case "primary":
         default:
-          return theme.colors.accent.light;
+          return theme.colors.text.lightest;
       }
     }
   }}};
 
-  padding: ${({ size }) => {
-    switch (size) {
+  padding: ${(props) => {
+    switch (props.size) {
       case "small":
-        return "3px 12px";
-      case "normal":
-        return "7px 12px";
+        return "4px 8px";
       case "large":
-        return "11px 12px";
+        return "12px 16px";
+      case "normal":
       default:
-        return "7px 12px";
+        return "8px 12px";
     }
   }};
 
-  font-size: ${(props) => props.theme.size[props.size || "normal"]};
-
-  border: ${({ theme, prefix }) => {
-    switch (prefix) {
-      case "note":
-        return `solid ${theme.colors.accent.primary}`;
-      case "danger":
-        return `solid ${theme.colors.accent.danger}`;
-      case "warning":
-        return `solid ${theme.colors.accent.warning}`;
-      case "success":
-        return `solid ${theme.colors.accent.success}`;
-      case "info":
-        return `solid ${theme.colors.accent.info}`;
+  font-size: ${(props) => {
+    switch (props.size) {
+      case "small":
+        return props.theme.size.small;
+      case "large":
+        return props.theme.size.medium;
+      case "normal":
       default:
-        return `solid ${theme.colors.accent.primary}`;
+        return props.theme.size.normal;
+    }
+  }};
+
+  border: ${({ theme, type }) => {
+    switch (type) {
+      case "danger":
+        return `1px solid ${theme.colors.accent.danger}`;
+      case "warning":
+        return `1px solid ${theme.colors.accent.warning}`;
+      case "success":
+        return `1px solid ${theme.colors.accent.info}`;
+      case "secondary":
+        return `1px solid ${theme.colors.layout.light}`;
+      case "primary":
+      default:
+        return `1px solid ${theme.colors.layout.dark}`;
     }
   }};
 `;
 
-const Prefix = styled.span<{ hasContent: boolean }>`
+const Label = styled.span`
   font-size: inherit;
-  ${({ hasContent }) => hasContent && "margin-right: 7px;"}
   font-weight: ${({ theme }) => theme.weight.semiBold};
   color: inherit;
 `;
@@ -156,18 +174,6 @@ const Content = styled.span`
   color: inherit;
 `;
 
-const Button = styled.button`
-  font-size: inherit;
-  margin-left: 7px;
-  background-color: inherit;
-  color: inherit;
-  border: 1px solid ${({ theme }) => theme.colors.layout.light};
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.layout.light};
-  }
-`;
+const Action = styled.div``;
 
 export default Note;

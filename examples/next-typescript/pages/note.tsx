@@ -1,94 +1,94 @@
-import { Note } from "@tonightpass/kitchen";
+import { Button, Container, Note } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
 
 const NotePage: NextPage = () => {
   return (
     <>
-      <div
+      <Container
+        gap={10}
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
-          gap: "10px",
+          maxWidth: 700,
+          margin: "0 auto",
         }}
       >
         <p>sizes</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Note size="small">Note</Note>
-          <Note size="normal">Note</Note>
-          <Note size="large">Note</Note>
-        </div>
+        <Container row align={"flex-start"} gap={10}>
+          <Note size="small">A small note.</Note>
+          <Note>A default note.</Note>
+          <Note size="large">A large note.</Note>
+        </Container>
 
         <p>action</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Note button="Ok">Action</Note>
-          <Note button="Upgrade">Action</Note>
-          <Note button="Cancel">Action</Note>
-        </div>
+        <Container gap={10}>
+          <Container>
+            <Note
+              action={
+                <Button
+                  size="small"
+                  onClick={() => alert("i'll take note ahah")}
+                >
+                  Upgrade
+                </Button>
+              }
+            >
+              This note details some information.
+            </Note>
+          </Container>
+
+          <Container>
+            <Note
+              action={
+                <Button
+                  size="small"
+                  onClick={() => alert("i'll take note ahah")}
+                >
+                  Upgrade
+                </Button>
+              }
+            >
+              This note details a large amount information that could
+              potentially wrap into two or more lines, forcing the height of the
+              Note to be larger.
+            </Note>
+          </Container>
+        </Container>
 
         <p>types</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Note>{"default (no prefix)"}</Note>
-          <Note filled prefix="note">
-            note
-          </Note>
-          <Note prefix="danger">danger</Note>
-          <Note prefix="warning">warning</Note>
-          <Note prefix="success">success</Note>
-          <Note prefix="info">info</Note>
-        </div>
+        <Container gap={10}>
+          <Note type={"secondary"}>This note details some information.</Note>
+          <Note type="success">success</Note>
+          <Note type="danger">danger</Note>
+          <Note type="warning">warning</Note>
+        </Container>
+
+        <p>hidden label</p>
+        <Container>
+          <Note label={false}>This note details some information.</Note>
+        </Container>
+
+        <p>custom label</p>
+        <Container>
+          <Note label={"Custom"}>This note details some information</Note>
+        </Container>
 
         <p>filled</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Note>{"default (no fill color)"}</Note>
-          <Note filled prefix="note">
-            note
+        <Container gap={10}>
+          <Note fill>This note details something important.</Note>
+          <Note fill type="secondary">
+            This note details some information.
           </Note>
-          <Note filled prefix="danger">
-            danger
+          <Note fill type="success">
+            This note details a success.
           </Note>
-          <Note filled prefix="warning">
-            warning
+          <Note fill type="danger">
+            This note details a danger.
           </Note>
-          <Note filled prefix="success">
-            success
+          <Note fill type="warning">
+            This note details a warning.
           </Note>
-          <Note filled prefix="info">
-            info
-          </Note>
-        </div>
-      </div>
+        </Container>
+      </Container>
     </>
   );
 };
