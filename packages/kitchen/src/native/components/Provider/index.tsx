@@ -1,7 +1,6 @@
 import React from "react";
-import { DefaultTheme, ThemeProvider } from "styled-components";
+import { DefaultTheme, ThemeProvider } from "styled-components/native";
 import themes from "../../themes";
-import GlobalStyle from "../GlobalStyle";
 
 export type KitchenProviderProps = {
   children?: React.ReactNode;
@@ -12,12 +11,7 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
   children,
   theme = themes.dark,
 }: KitchenProviderProps) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 export default KitchenProvider;
