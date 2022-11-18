@@ -89,12 +89,20 @@ export type Size = {
  * Breakpoint is used for media queries.
  */
 export type Breakpoint = {
-  /* Desktops and laptops */
+  /**
+   * Desktops and laptops
+   */
   desktop: string;
-  /* iPads (landscape) */
+  /**
+   * iPads (landscape)
+   */
   laptop: string;
-  /* iPads (portrait) */
+  /**
+   * iPads (portrait)
+   */
   tablet: string;
-  /* Smartphones (landscape) */
+  /**
+   * Smartphones (landscape)
+   */
   mobile: string;
 };

@@ -1,4 +1,6 @@
-const withKitchen = (nextConfig = {}) => {
+import { NextConfig } from "next/types";
+
+const withKitchen = (nextConfig: NextConfig | any = {}) => {
   return {
     ...nextConfig,
     reactStrictMode: true,
