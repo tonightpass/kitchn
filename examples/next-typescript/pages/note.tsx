@@ -57,6 +57,7 @@ const NotePage: NextPage = () => {
         <p>types</p>
         <Container gap={10}>
           <Note type={"secondary"}>This note details some information.</Note>
+          <Note type="info">info</Note>
           <Note type="success">success</Note>
           <Note type="danger">danger</Note>
           <Note type="warning">warning</Note>
@@ -77,6 +78,9 @@ const NotePage: NextPage = () => {
           <Note fill>This note details something important.</Note>
           <Note fill type="secondary">
             This note details some information.
+          </Note>
+          <Note fill type="info">
+            This note details an info.
           </Note>
           <Note fill type="success">
             This note details a success.

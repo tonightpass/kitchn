@@ -14,7 +14,7 @@ export type NoteProps = KitchenComponent & {
    * The type of the note.
    * @default "primary"
    */
-  type?: "primary" | "secondary" | "success" | "warning" | "danger";
+  type?: "primary" | "secondary" | "info" | "success" | "warning" | "danger";
 
   /**
    * The action of the note.
@@ -80,8 +80,10 @@ const Note = styled(
           return theme.colors.accent.danger;
         case "warning":
           return theme.colors.accent.warning;
-        case "success":
+        case "info":
           return theme.colors.accent.info;
+        case "success":
+          return theme.colors.accent.success;
         case "secondary":
           return theme.colors.layout.light;
         case "primary":
@@ -97,6 +99,7 @@ const Note = styled(
       switch (type) {
         case "danger":
         case "warning":
+        case "info":
         case "success":
           return theme.colors.accent.light;
         case "secondary":
@@ -110,8 +113,10 @@ const Note = styled(
           return theme.colors.accent.danger;
         case "warning":
           return theme.colors.accent.warning;
-        case "success":
+        case "info":
           return theme.colors.accent.info;
+        case "success":
+          return theme.colors.accent.success;
         case "secondary":
           return theme.colors.text.light;
         case "primary":
@@ -151,8 +156,10 @@ const Note = styled(
         return `1px solid ${theme.colors.accent.danger}`;
       case "warning":
         return `1px solid ${theme.colors.accent.warning}`;
-      case "success":
+      case "info":
         return `1px solid ${theme.colors.accent.info}`;
+      case "success":
+        return `1px solid ${theme.colors.accent.success}`;
       case "secondary":
         return `1px solid ${theme.colors.layout.light}`;
       case "primary":
