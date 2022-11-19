@@ -181,12 +181,12 @@ const Button = styled(
   font-size: ${(props) => {
     switch (props.size) {
       case "small":
-        return "12px";
+        return props.theme.size.small;
       case "large":
-        return "16px";
+        return props.theme.size.medium;
       case "medium":
       default:
-        return "14px";
+        return props.theme.size.normal;
     }
   }};
 

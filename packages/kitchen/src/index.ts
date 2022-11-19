@@ -6,6 +6,7 @@ import Badge from "./components/Badge";
 import Button from "./components/Button";
 import Code from "./components/Code";
 import Container from "./components/Container";
+import Note from "./components/Note";
 import OrderedList from "./components/OrderedList";
 import UnorderedList from "./components/UnorderedList";
 import ListItem from "./components/ListItem";
@@ -22,6 +23,7 @@ export {
   Container,
   Icon,
   InlineCode,
+  Note,
   OrderedList,
   ListItem,
   UnorderedList,
