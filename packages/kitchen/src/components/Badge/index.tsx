@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
-import { AccentColors } from "../../types/theme";
 
 export type BadgeProps = KitchenComponent & {
   /**
@@ -14,7 +13,7 @@ export type BadgeProps = KitchenComponent & {
    * The type of the badge.
    * @default "primary"
    */
-  type?: keyof AccentColors;
+  type?: "primary" | "secondary" | "info" | "success" | "warning" | "danger";
 
   /**
    * The font weight of the badge.
@@ -23,7 +22,7 @@ export type BadgeProps = KitchenComponent & {
 };
 
 const Badge = styled((props: BadgeProps) => {
-  return <div {...props} />;
+  return <span {...props} />;
 })<BadgeProps>`
   box-sizing: border-box;
   display: inline-flex;
@@ -34,61 +33,61 @@ const Badge = styled((props: BadgeProps) => {
   padding: 0 10px;
   font-weight: ${({ bold, theme }) =>
     bold ? theme.weight.bold : theme.weight.medium};
-  border-radius: 5px;
+  border-radius: 8px;
 
-  padding: ${({ size }) => {
-    switch (size) {
+  padding: ${(props) => {
+    switch (props.size) {
       case "small":
-        return "3px";
-      case "normal":
-        return "6px";
+        return "2px 4px";
       case "large":
-        return "10px";
+        return "8px 12px";
+      case "normal":
       default:
-        return "6px";
+        return "4px 8px";
     }
   }};
 
-  font-size: ${(props) => props.theme.size[props.size || "normal"]};
+  font-size: ${(props) => {
+    switch (props.size) {
+      case "small":
+        return props.theme.size.tiny;
+      case "large":
+        return props.theme.size.normal;
+      case "normal":
+      default:
+        return props.theme.size.small;
+    }
+  }};
 
   color: ${({ theme, type }) => {
     switch (type) {
-      case "light":
-        return theme.colors.text.darkest;
+      case "danger":
+      case "warning":
+      case "info":
+      case "success":
+        return theme.colors.accent.light;
+      case "secondary":
+      case "primary":
       default:
         return theme.colors.text.lightest;
     }
   }};
 
-  border: ${({ theme, type }) => {
-    switch (type) {
-      case "dark":
-        return `1px solid ${theme.colors.layout.lighter}`;
-      default:
-        return "none";
-    }
-  }};
-
   background-color: ${({ theme, type }) => {
     switch (type) {
-      case "primary":
-        return theme.colors.accent.primary;
-      case "secondary":
-        return theme.colors.accent.secondary;
-      case "success":
-        return theme.colors.accent.success;
-      case "warning":
-        return theme.colors.accent.warning;
       case "danger":
         return theme.colors.accent.danger;
+      case "warning":
+        return theme.colors.accent.warning;
       case "info":
         return theme.colors.accent.info;
-      case "light":
-        return theme.colors.accent.light;
-      case "dark":
-        return theme.colors.accent.dark;
+      case "success":
+        return theme.colors.accent.success;
+      case "secondary":
+        return theme.colors.layout.light;
+      case "primary":
       default:
-        return theme.colors.accent.primary;
+        return theme.colors.layout.dark;
     }
   }};
 `;

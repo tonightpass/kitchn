@@ -1,80 +1,39 @@
-import { Badge } from "@tonightpass/kitchen";
+import { Badge, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
 
 const BadgePage: NextPage = () => {
   return (
     <>
-      <div
+      <Container
+        gap={10}
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
-          gap: "10px",
+          maxWidth: 700,
+          margin: "0 auto",
         }}
       >
         <p>default</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Badge>The</Badge>
-          <Badge>Default</Badge>
+        <Container gap={5} align={"flex-start"}>
+          <Badge>1</Badge>
+          <Badge>5</Badge>
           <Badge>Badge</Badge>
-        </div>
-
-        <p>types</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Badge type="primary">primary</Badge>
-          <Badge type="secondary">secondary</Badge>
-          <Badge type="success">success</Badge>
-          <Badge type="warning">warning</Badge>
-          <Badge type="danger">danger</Badge>
-          <Badge type="info">info</Badge>
-          <Badge type="light">light</Badge>
-          <Badge type="dark">dark</Badge>
-        </div>
-
-        <p>sizes</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Badge size="small">Badge</Badge>
-          <Badge size="normal">Badge</Badge>
-          <Badge size="large">Badge</Badge>
-        </div>
-
-        <p>font size</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Badge>Normal</Badge>
-          <Badge bold>Bold</Badge>
-        </div>
-      </div>
+        </Container>
+        <p>size</p>
+        <Container gap={5} align={"flex-start"}>
+          <Badge size={"small"}>Small</Badge>
+          <Badge size={"normal"}>Normal</Badge>
+          <Badge size={"large"}>Large</Badge>
+        </Container>
+        <p>variants</p>
+        <Container gap={5} align={"flex-start"}>
+          <Badge type={"primary"}>Primary</Badge>
+          <Badge type={"secondary"}>Secondary</Badge>
+          <Badge type={"info"}>Info</Badge>
+          <Badge type={"success"}>Success</Badge>
+          <Badge type={"warning"}>Warning</Badge>
+          <Badge type={"danger"}>Danger</Badge>
+        </Container>
+      </Container>
     </>
   );
 };
