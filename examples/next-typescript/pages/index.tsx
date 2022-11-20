@@ -18,6 +18,7 @@ const IndexPage: NextPage = () => {
       <Link href={"/button"}>Button</Link>
       <Link href={"/text"}>Text</Link>
       <Link href={"/icon"}>Icon</Link>
+      <Link href={"/link"}>Link</Link>
       <Link href={"/note"}>Note</Link>
     </div>
   );
