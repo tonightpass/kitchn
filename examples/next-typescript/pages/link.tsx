@@ -24,7 +24,7 @@ const LinkPage: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <Link href="#">Link to some website</Link>
+          <Link href="https://tonightpass.com/">Link to our website</Link>
         </div>
 
         <p>using onClick</p>
@@ -60,7 +60,7 @@ const LinkPage: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <Link href="#">
+          <Link href="https://tonightpass.com/">
             <Content>This entire div is wrapped in a link</Content>
           </Link>
         </div>
@@ -75,16 +75,16 @@ const LinkPage: NextPage = () => {
             flexDirection: "column",
           }}
         >
-          <Link href="#" variant="primary">
+          <Link href="https://tonightpass.com/" variant="primary">
             Primary variant
           </Link>
-          <Link href="#" variant="secondary">
+          <Link href="https://tonightpass.com/" variant="secondary">
             Secondary variant
           </Link>
-          <Link href="#" variant="highlight">
+          <Link href="https://tonightpass.com/" variant="highlight">
             Highlight variant
           </Link>
-          <Link href="#" variant="blend">
+          <Link href="https://tonightpass.com/" variant="blend">
             Blend variant
           </Link>
         </div>
