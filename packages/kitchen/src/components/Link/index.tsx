@@ -24,6 +24,11 @@ export type LinkProps = KitchenComponent & {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 
   /**
+   * The link's status (if it's disabled or not).
+   */
+  disabled?: boolean;
+
+  /**
    * The link's variant.
    */
   variant?: "highlight" | "primary" | "secondary" | "blend";
@@ -35,15 +40,18 @@ const Link = styled(
     href,
     id,
     className,
+    disabled,
     onClick,
     variant,
     children,
     ...props
   }: LinkProps) => {
+    disabled = disabled || !onClick || !href;
     return (
       <Component
         className={className}
         id={id}
+        disabled={disabled}
         onClick={onClick}
         href={href}
         variant={variant}
@@ -68,12 +76,12 @@ const Link = styled(
     return "transparent";
   }};
 
-  color: ${({ theme, variant, onClick, href }) => {
+  color: ${({ theme, variant, disabled }) => {
     if (variant === "highlight") {
       return theme.colors.accent.info;
     } else if (variant === "blend") {
       return theme.colors.accent.danger;
-    } else if (variant === "secondary" || (!onClick && !href)) {
+    } else if (variant === "secondary" || disabled) {
       return theme.colors.text.light;
     } else {
       return theme.colors.text.lightest;
@@ -90,10 +98,12 @@ const Link = styled(
     variant === "highlight" || variant === "blend" ? "underline" : "none"};
 
     :hover {
-    cursor: ${({ onClick, href }) => (onClick || href ? "pointer" : "text")};
-        color: ${({ theme, variant }) => {
+    cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+        color: ${({ theme, variant, disabled }) => {
           if (variant === "secondary") {
-            return theme.colors.accent.light;
+            return theme.colors.text.light;
+          } else if (disabled) {
+            return theme.colors.text.lighter;
           } else {
             return theme.colors.text.lighter;
           }
