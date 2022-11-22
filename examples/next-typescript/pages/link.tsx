@@ -48,7 +48,7 @@ const LinkPage: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <Link>Disabled link</Link>
+          <Link disabled>Disabled link</Link>
         </div>
 
         <p>non text</p>
