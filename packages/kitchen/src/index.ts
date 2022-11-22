@@ -2,6 +2,7 @@ import "./types/styled-components";
 import kitchen from "styled-components";
 
 import KitchenProvider from "./components/Provider";
+import Avatar from "./components/Avatar";
 import Button from "./components/Button";
 import Code from "./components/Code";
 import Container from "./components/Container";
@@ -16,6 +17,7 @@ import Text from "./components/Text";
 
 export {
   KitchenProvider,
+  Avatar,
   Button,
   Code,
   Container,

@@ -14,6 +14,7 @@ const IndexPage: NextPage = () => {
         gap: "10px",
       }}
     >
+      <Link href={"/avatar"}>Avatar</Link>
       <Link href={"/grid"}>Grid</Link>
       <Link href={"/button"}>Button</Link>
       <Link href={"/text"}>Text</Link>
