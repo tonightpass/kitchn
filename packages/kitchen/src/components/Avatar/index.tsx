@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
+import Image from "next/image";
 
 export type AvatarProps = KitchenComponent & {
   /**
-   * The size of the avatar.
+   * The width of the avatar.
    */
-  size?: number;
+  width?: number;
+
+  /**
+   * The height of the avatar.
+   */
+  height?: number;
 
   /**
    * The username of the avatar.
@@ -21,7 +27,17 @@ export type AvatarProps = KitchenComponent & {
   /**
    * The icon of the avatar.
    */
-  icon?: JSX.Element;
+  icon?: boolean;
+
+  /**
+   * The icon's src.
+   */
+  iconSrc?: string;
+
+  /**
+   * The icon's alt.
+   */
+  iconAlt?: string;
 
   /**
    * The horizontal position of the avatar's icon.
@@ -51,13 +67,16 @@ export type AvatarProps = KitchenComponent & {
 
 const Avatar = styled(
   ({
-    as: Component = "img",
     // size,
     // username,
     // url,
     icon,
-    // right,
-    // bottom,
+    iconSrc,
+    iconAlt,
+    width,
+    height,
+    right,
+    bottom,
     // members,
     // limit,
     // placeholder,
@@ -65,16 +84,26 @@ const Avatar = styled(
     ...props
   }: AvatarProps) => {
     return (
-      <Component {...props}>
+      <div>
+        <Image src="" alt="avatar" width={width} height={height} {...props} />
         {icon && (
-          <div>
-            <Icon>{icon}</Icon>
-          </div>
+          <IconContainer>
+            <Icon
+              src={iconSrc}
+              alt={iconAlt}
+              width={width}
+              height={height}
+              bottom={bottom}
+              right={right}
+              {...props}
+            />
+          </IconContainer>
         )}
-      </Component>
+      </div>
     );
   }
 )<AvatarProps>`
+  position: relative;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -83,11 +112,19 @@ const Avatar = styled(
   flex: 1;
   gap: 10px;
   font-weight: ${({ theme }) => theme.weight.medium};
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.layout.dark};
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.layout.lightest};
   }};
 `;
 
-const Icon = styled.div``;
+const IconContainer = styled.div<AvatarProps>`
+  position: absolute;
+  bottom: ${({ bottom }) => bottom}px;
+  right: ${({ right }) => right}px;
+`;
+
+const Icon = styled(Image)<AvatarProps>`
+  background-color: ${({ theme }) => theme.colors.layout.lightest};
+`;
 
 export default Avatar;
