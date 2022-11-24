@@ -11,6 +11,7 @@ import UnorderedList from "./components/UnorderedList";
 import ListItem from "./components/ListItem";
 import Icon from "./components/Icon";
 import InlineCode from "./components/InlineCode";
+import Skeleton from "./components/Skeleton";
 import Spinner from "./components/Spinner";
 import Text from "./components/Text";
 
@@ -25,6 +26,7 @@ export {
   OrderedList,
   ListItem,
   UnorderedList,
+  Skeleton,
   Spinner,
   Text,
 };
