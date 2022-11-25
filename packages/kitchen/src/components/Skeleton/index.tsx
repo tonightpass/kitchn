@@ -97,7 +97,7 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
               user-select: none;
               cursor: default;
               border-radius: ${
-                shape === "square" ? "0" : shape === "round" ? "99999px" : "5px"
+                shape === "square" ? "0" : shape === "round" ? "99999px" : "8px"
               };
               background-image: linear-gradient(
                 270deg,
@@ -127,7 +127,7 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
             height ? (isString(height) ? height : `${height}px`) : "24px"
           };
           border-radius: ${
-            shape === "square" ? "0" : shape === "round" ? "99999px" : "10px"
+            shape === "square" ? "0" : shape === "round" ? "99999px" : "8px"
           };
           background-size: 400% 100%;
           background-image: linear-gradient(
