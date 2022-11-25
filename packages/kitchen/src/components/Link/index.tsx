@@ -90,8 +90,6 @@ const Link = styled(
  
   
 
-  padding: 8px 12px;
-
   font-size: ${({ theme }) => theme.size.normal};
 
   text-decoration: ${({ variant }) =>
@@ -108,6 +106,7 @@ const Link = styled(
             return theme.colors.text.lighter;
           }
         }};
+      }
 `;
 
 export default Link;
