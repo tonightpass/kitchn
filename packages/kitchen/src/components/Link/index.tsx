@@ -31,7 +31,7 @@ export type LinkProps = KitchenComponent & {
   /**
    * The link's variant.
    */
-  variant?: "highlight" | "primary" | "secondary" | "blend";
+  variant?: "highlight" | "secondary" | "blend";
 };
 
 const Link = styled(
@@ -78,11 +78,11 @@ const Link = styled(
 
   color: ${({ theme, variant, disabled }) => {
     if (variant === "highlight") {
-      return theme.colors.accent.info;
+      return theme.colors.accent.primary;
     } else if (variant === "blend") {
-      return theme.colors.accent.danger;
+      return "inherit";
     } else if (variant === "secondary" || disabled) {
-      return theme.colors.text.light;
+      return theme.colors.text.lighter;
     } else {
       return theme.colors.text.lightest;
     }
@@ -101,7 +101,7 @@ const Link = styled(
           if (variant === "secondary") {
             return theme.colors.text.light;
           } else if (disabled) {
-            return theme.colors.text.lighter;
+            return "currentcolor";
           } else {
             return theme.colors.text.lighter;
           }
