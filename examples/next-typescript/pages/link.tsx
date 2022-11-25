@@ -75,14 +75,11 @@ const LinkPage: NextPage = () => {
             flexDirection: "column",
           }}
         >
-          <Link href="/" variant="primary">
-            Primary variant
+          <Link href="/" variant="highlight">
+            Highlight variant
           </Link>
           <Link href="/" variant="secondary">
             Secondary variant
-          </Link>
-          <Link href="/" variant="highlight">
-            Highlight variant
           </Link>
           <Link href="/" variant="blend">
             Blend variant
