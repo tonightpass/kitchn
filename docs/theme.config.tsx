@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
+import urlcat from "urlcat";
 
 const logo = (
   <span>
@@ -55,37 +56,58 @@ const config: DocsThemeConfig = {
     }
   },
   logo,
-  head: (
-    <>
-      <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="theme-color" content="#ffffff" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta httpEquiv="Content-Language" content="en" />
-      <meta name="description" content="Nextra: the Next.js site builder" />
-      <meta name="og:description" content="Nextra: the Next.js site builder" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://nextra.vercel.app/og.png" />
-      <meta name="twitter:site:domain" content="nextra.vercel.app" />
-      <meta name="twitter:url" content="https://nextra.vercel.app" />
-      <meta name="og:title" content="Nextra: Next.js static site generator" />
-      <meta name="og:image" content="https://nextra.vercel.app/og.png" />
-      <meta name="apple-mobile-web-app-title" content="Nextra" />
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      <link rel="icon" href="/favicon.png" type="image/png" />
-      <link
-        rel="icon"
-        href="/favicon-dark.svg"
-        type="image/svg+xml"
-        media="(prefers-color-scheme: dark)"
-      />
-      <link
-        rel="icon"
-        href="/favicon-dark.png"
-        type="image/png"
-        media="(prefers-color-scheme: dark)"
-      />
-    </>
-  ),
+  head: () => {
+    const { title, ...meta } = useConfig().frontMatter;
+
+    const finalTitle = title ? `${title} - Kitchen` : "Kitchen";
+    const finalDescription =
+      meta.description || "Delicious React styled components.";
+
+    const finalThumbnailUrl =
+      urlcat(
+        `https://og-image.onruntime.com/${encodeURIComponent(finalTitle)}.jpeg`,
+        {
+          description: encodeURIComponent(finalDescription || ""),
+          theme: "night",
+          md: 1,
+          fontSize: "100px",
+          images: "https://tonightpass.com/static/images/logo/tonightpass.svg",
+          thumbnail: meta.image,
+        }
+      ) || "https://tonightpass.com/static/images/open-graph-image.jpg";
+
+    return (
+      <>
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Language" content="en" />
+        <meta name="description" content={finalDescription} />
+        <meta name="og:description" content={finalDescription} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={finalThumbnailUrl} />
+        <meta name="twitter:site:domain" content="kitchen.dev" />
+        <meta name="twitter:url" content="https://kitchen.dev" />
+        <meta name="og:title" content={finalTitle} />
+        <meta name="og:image" content={finalThumbnailUrl} />
+        <meta name="apple-mobile-web-app-title" content="Kitchen" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link
+          rel="icon"
+          href="/favicon-dark.svg"
+          type="image/svg+xml"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link
+          rel="icon"
+          href="/favicon-dark.png"
+          type="image/png"
+          media="(prefers-color-scheme: dark)"
+        />
+      </>
+    );
+  },
   editLink: {
     text: "Edit this page on GitHub",
   },
