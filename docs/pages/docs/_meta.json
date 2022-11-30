@@ -6,7 +6,12 @@
       "collapsed": true
     }
   },
-  "guides": "Guides",
+  "guides": {
+    "title": "Guides",
+    "theme": {
+      "collapsed": true
+    }
+  },
   "components": "Components",
   "hooks": "Hooks",
   "roadmap": {
