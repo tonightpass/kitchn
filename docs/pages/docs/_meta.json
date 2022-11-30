@@ -1,0 +1,17 @@
+{
+  "index": "Getting started",
+  "frameworks": {
+    "title": "Frameworks",
+    "theme": {
+      "collapsed": true
+    }
+  },
+  "guides": "Guides",
+  "components": "Components",
+  "hooks": "Hooks",
+  "roadmap": {
+    "title": "Roadmap",
+    "href": "https://github.com/orgs/tonightpass/projects/2",
+    "newWindow": true
+  }
+}
