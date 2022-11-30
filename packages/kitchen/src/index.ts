@@ -30,4 +30,8 @@ export {
   Spinner,
   Text,
 };
+
+export { useTheme } from "styled-components";
+export type { DefaultTheme } from "styled-components";
+
 export default kitchen;
