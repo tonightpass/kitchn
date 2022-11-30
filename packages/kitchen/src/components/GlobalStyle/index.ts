@@ -215,6 +215,14 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
+    pre, code {
+        font-family: ${({ theme }) => theme.family.monospace};
+
+        span {
+            font-family: ${({ theme }) => theme.family.monospace};
+        }
+    }
+
     /* animations */
 
     @keyframes fadeIn {
