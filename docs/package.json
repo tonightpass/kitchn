@@ -11,7 +11,8 @@
     "nextra": "2.0.0-beta.43",
     "nextra-theme-docs": "2.0.0-beta.43",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "urlcat": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
