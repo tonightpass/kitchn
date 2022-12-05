@@ -30,7 +30,7 @@ const config: DocsThemeConfig = {
     link: "https://github.com/tonightpass/kitchen",
   },
   docsRepositoryBase: "https://github.com/tonightpass/kitchen/blob/develop",
-  getNextSeoProps() {
+  useNextSeoProps() {
     const { route } = useRouter();
     if (route !== "/") {
       return {
