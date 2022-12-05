@@ -3,7 +3,7 @@ title: "Getting started"
 description: "Getting started with Kitchen, installation, frameworks, learn and contribute."
 ---
 
-import { Callout } from "nextra-theme-docs";
+import { Callout, Tab, Tabs } from "nextra-theme-docs";
 
 Kitchen is a [styled-components](https://styled-components.com) suite of components that are designed to work together to create a beautiful and consistent UI. Inspired by [Geist](https://geist-ui.dev/) and [Vercel Design](https://vercel.com/design) with a focus on simplicity and ease of use. This library is maintained by [Tonight Pass](https://tonightpass.com).
 
@@ -14,15 +14,24 @@ Kitchen is a [styled-components](https://styled-components.com) suite of compone
 
 ## Installation
 
-Kitchen is available as an [npm package](https://www.npmjs.com/package/@tonightpass/kitchen).
+<Tabs items={["npm", "yarn"]}>
+  <Tab>
+    Kitchen is available as an [npm package](https://www.npmjs.com/package/@tonightpass/kitchen).
 
-```bash
-# with npm
-npm i @tonightpass/kitchen --save
+    ```bash
+    npm i @tonightpass/kitchen --save
+    ```
 
-# with yarn
-yarn add @tonightpass/kitchen
-```
+  </Tab>
+  <Tab>
+    Kitchen is available as a [yarn package](https://yarnpkg.com/package/@tonightpass/kitchen).
+
+    ```bash
+    yarn add @tonightpass/kitchen
+    ```
+
+  </Tab>
+</Tabs>
 
 After installing Kitchen, you need to set up the `KitchenProvider` at the root of your application.
 
