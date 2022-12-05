@@ -31,9 +31,15 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       },
     },
     {
-      types: ["tag", "operator", "number"],
+      types: ["tag", "operator"],
       style: {
         color: "#9EFFFF",
+      },
+    },
+    {
+      types: ["number"],
+      style: {
+        color: "#FF628C",
       },
     },
     {

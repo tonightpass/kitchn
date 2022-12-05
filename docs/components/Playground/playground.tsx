@@ -42,6 +42,7 @@ const Playground: React.FC<PlaygroundProps> = React.memo(
               width: 100%;
               border-radius: 8px;
               border: 1px solid ${theme.colors.layout.dark};
+              overflow: hidden;
             }
           `}</style>
         </div>
