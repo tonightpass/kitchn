@@ -1,6 +1,7 @@
-import { useTheme } from "@tonightpass/kitchen";
+import { Icon, useTheme } from "@tonightpass/kitchen";
 import React, { useState } from "react";
 import { LiveEditor } from "react-live";
+import { RiArrowRightSLine, RiFileCopyLine } from "react-icons/ri";
 
 interface Props {
   code: string;
@@ -30,7 +31,9 @@ const Editor: React.FC<Props> = ({ code }) => {
         <summary onClick={clickHandler}>
           <div className="summary-safari">
             <div className="action">
-              <span className="arrow">{/* <RightIcon size={16} /> */}</span>
+              <span className="arrow">
+                <Icon icon={RiArrowRightSLine} />
+              </span>
               <span>{"Code Editor"}</span>
             </div>
             <div className="action">
@@ -40,7 +43,7 @@ const Editor: React.FC<Props> = ({ code }) => {
                   onClick={copyHandler}
                   title={"Copy Code"}
                 >
-                  {/* <CopyIcon size={18} /> */}
+                  <Icon icon={RiFileCopyLine} />
                 </span>
               )}
             </div>
@@ -122,14 +125,14 @@ const Editor: React.FC<Props> = ({ code }) => {
           margin-right: 0.5rem;
         }
 
-        .copy {
+        .copy i {
           display: inline-flex;
           align-items: center;
           color: ${theme.colors.text.light};
           transition: color 0.2s ease;
         }
 
-        .copy:hover {
+        .copy:hover i {
           color: ${theme.colors.text.lightest};
         }
       `}</style>
