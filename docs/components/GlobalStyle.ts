@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  a {
+  a:hover {
     filter: brightness(1) !important;
   }
 
