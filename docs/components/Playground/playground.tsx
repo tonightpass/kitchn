@@ -1,15 +1,10 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import { useTheme } from "@tonightpass/kitchen";
+import { Skeleton, useTheme } from "@tonightpass/kitchen";
 
 const DynamicLive = dynamic(() => import("./dynamic-live"), {
   ssr: false,
-  loading: () => (
-    <div style={{ padding: "20pt 0" }}>
-      {/* TODO: Use the loading */}
-      Loading...
-    </div>
-  ),
+  loading: () => <Skeleton width="100%" height={100} />,
 });
 
 export type PlaygroundProps = {
