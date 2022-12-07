@@ -16,6 +16,11 @@ import Skeleton from "./components/Skeleton";
 import Spinner from "./components/Spinner";
 import Text from "./components/Text";
 
+import useTheme from "./hooks/useTheme";
+import useThemeDetector from "./hooks/useThemeDetector";
+
+import themes, { createTheme } from "./themes";
+
 export {
   KitchenProvider,
   Badge,
@@ -31,5 +36,10 @@ export {
   Skeleton,
   Spinner,
   Text,
+  useTheme,
+  useThemeDetector,
+  themes,
+  createTheme,
 };
+
 export default kitchen;
