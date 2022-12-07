@@ -2,8 +2,8 @@ import { MainTheme } from "../types/theme";
 
 const main: MainTheme = {
   family: {
-    primary: "Poppins, -apple-system, sans-serif",
-    monospace: "Ubuntu Mono, monospace",
+    primary: "Space Grotesk, -apple-system, sans-serif",
+    monospace: "Space Mono, monospace",
   },
   weight: {
     thin: 100,
