@@ -16,6 +16,7 @@ import Skeleton from "./components/Skeleton";
 import Spinner from "./components/Spinner";
 import Text from "./components/Text";
 
+import useLocalStorage from "./hooks/useLocalStorage";
 import useTheme from "./hooks/useTheme";
 import useThemeDetector from "./hooks/useThemeDetector";
 
@@ -36,6 +37,7 @@ export {
   Skeleton,
   Spinner,
   Text,
+  useLocalStorage,
   useTheme,
   useThemeDetector,
   themes,
