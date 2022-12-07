@@ -1,5 +1,6 @@
 import React from "react";
-import { DefaultTheme, ThemeProvider } from "styled-components";
+import { DefaultTheme } from "styled-components";
+import { ThemeProvider } from "../../contexts/Theme";
 import themes from "../../themes";
 import GlobalStyle from "../GlobalStyle";
 
