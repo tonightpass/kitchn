@@ -65,8 +65,8 @@ const Badge = styled((props: BadgeProps) => {
       case "warning":
       case "info":
       case "success":
-        return theme.colors.accent.light;
       case "secondary":
+        return theme.colors.accent.light;
       case "primary":
       default:
         return theme.colors.text.lightest;
