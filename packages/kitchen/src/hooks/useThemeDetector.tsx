@@ -15,7 +15,7 @@ const useThemeDetector = (): boolean => {
 
   React.useEffect(() => {
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-    const mqListener = (e: any) => {
+    const mqListener = (e: MediaQueryListEvent) => {
       setIsDarkTheme(e.matches);
     };
 
