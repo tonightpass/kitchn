@@ -1,19 +1,22 @@
+import { Button, Container, themes, useTheme } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 
 const IndexPage: NextPage = () => {
+  const { setTheme } = useTheme();
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        gap: "10px",
-      }}
-    >
+    <Container align="center" gap={10} style={{ marginTop: 100 }}>
+      <Container gap={10} row>
+        <Button type={"light"} onClick={() => setTheme(themes.light)}>
+          Light
+        </Button>
+        <Button type={"dark"} onClick={() => setTheme(themes.dark)}>
+          Dark
+        </Button>
+      </Container>
+
       <Link href={"/grid"}>Grid</Link>
       <Link href={"/badge"}>Badge</Link>
       <Link href={"/button"}>Button</Link>
@@ -21,7 +24,7 @@ const IndexPage: NextPage = () => {
       <Link href={"/icon"}>Icon</Link>
       <Link href={"/note"}>Note</Link>
       <Link href={"/skeleton"}>Skeleton</Link>
-    </div>
+    </Container>
   );
 };
 
