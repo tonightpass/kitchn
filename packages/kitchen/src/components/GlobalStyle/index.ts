@@ -155,23 +155,26 @@ const GlobalStyle = createGlobalStyle`
 
     html,
     body {
-        scrollbar-color: rgba(0, 0, 0, 0.6) rgba(0, 0, 0, 0.3);
+        scrollbar-color: ${({ theme }) => theme.colors.layout.dark} ${({
+  theme,
+}) => theme.colors.layout.darkest};
     }
 
     ::-webkit-scrollbar {
-        width: 7px;
+        width: 10px;
         /* for vertical scrollbars */
-        height: 7px;
+        height: 10px;
         /* for horizontal scrollbars */
     }
 
     ::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0.3);
+        background: transparent;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.6);
+        background: ${({ theme }) => theme.colors.layout.dark};
         height: 10px;
+        border-radius: 10px;
     }
 
     ::-webkit-scrollbar-track-piece {
