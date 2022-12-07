@@ -1,7 +1,7 @@
 import React from "react";
 
 const useThemeDetector = (): boolean => {
-  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+  const [isDarkTheme, setIsDarkTheme] = React.useState(true);
 
   if (typeof window !== "undefined") {
     const getCurrentTheme = () =>
