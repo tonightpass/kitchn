@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Editor: React.FC<Props> = ({ code }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   // const { copy } = useClipboard();
   const [visible, setVisible] = useState(false);
   // const { setToast } = useToasts();
