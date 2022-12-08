@@ -13,7 +13,7 @@ export interface Props {
 }
 
 const DynamicLive: React.FC<Props> = ({ code, scope }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const codeTheme = makeCodeTheme(theme);
   return (
     <LiveProvider

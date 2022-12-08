@@ -24,7 +24,7 @@ const defaultProps = {
 
 const Playground: React.FC<PlaygroundProps> = React.memo(
   ({ code: inputCode, scope }: PlaygroundProps & typeof defaultProps) => {
-    const theme = useTheme();
+    const { theme } = useTheme();
     const code = inputCode.trim();
 
     return (
