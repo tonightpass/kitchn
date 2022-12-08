@@ -7,6 +7,7 @@
   "react-native": "native/dist/tonightpass-kitchen-native.js",
   "dependencies": {
     "@types/react-native": "^0.70.6",
+    "react-icons": "^4.7.1",
     "styled-components": "^5.3.6"
   },
   "peerDependencies": {
