@@ -6,6 +6,8 @@
   "module": "dist/tonightpass-kitchen.esm.js",
   "react-native": "native/dist/tonightpass-kitchen-native.js",
   "dependencies": {
+    "@fontsource/space-grotesk": "^4.5.10",
+    "@fontsource/space-mono": "^4.5.10",
     "@types/react-native": "^0.70.6",
     "react-icons": "^4.7.1",
     "styled-components": "^5.3.6"
