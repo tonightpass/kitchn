@@ -94,7 +94,7 @@ const Checkmark = styled.span<{
   background-color: ${(props) => {
     if (props.disabled)
       return convertRGBToRGBA(props.theme.colors.layout.lightest, 0.1);
-    if (props.checked) return props.theme.colors.layout.lightest;
+    if (props.checked) return props.theme.colors.accent.light;
     return "transparent";
   }};
 
