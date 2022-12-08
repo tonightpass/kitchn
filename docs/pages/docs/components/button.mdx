@@ -1,0 +1,94 @@
+---
+title: "Button"
+description: "Used to trigger an operation."
+---
+
+import Playground from "@components/Playground";
+
+# Button
+
+Used to trigger an operation.
+
+## Sizes
+
+These sizes are standardized across form components.
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container align="center" justify={"center"}>
+    <Button size={"small"}>Button</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button size={"medium"}>Button</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button size={"large"}>Button</Button>
+  </Container>
+</Container>
+`}
+/>
+
+## Shapes
+
+<Playground
+  code={`
+<Container row direction={["column", "column", "row"]} gap={10}>
+  <Container align="center" justify={"center"}>
+    <Button shape={"round"} size={"small"}>
+      Button
+    </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button shape={"round"}>Button</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button shape={"round"} size={"large"}>
+      Button
+    </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button shape={"square"} size={"small"}>
+      Button
+    </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button shape={"square"}>Button</Button>
+  </Container>
+  
+  <Container align="center" justify={"center"}>
+    <Button shape={"square"} size={"large"}>
+      Button
+    </Button>
+  </Container>
+</Container>
+`}
+/>
+
+## Prefix and Suffix
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container align="center" justify={"center"}>
+    <Button prefix={"👋"}>Get started</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button suffix={"🥸"}>Documentation</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button prefix={"👉"} suffix={"👈"}>
+      Button
+    </Button>
+  </Container>
+</Container>
+`}
+/>

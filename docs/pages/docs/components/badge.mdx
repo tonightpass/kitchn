@@ -1,0 +1,90 @@
+---
+title: "Badge"
+description: "Display an indicator that requires attention."
+---
+
+import Playground from "@components/Playground";
+
+# Badge
+
+Display an indicator that requires attention.
+
+## Default
+
+<Playground
+  code={`
+<Container gap={5}>
+  <Container align="flex-start">
+    <Badge>1</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge>5</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge>50</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge>150</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge>New</Badge>
+  </Container>
+</Container>
+`}
+/>
+
+## Variants
+
+<Playground
+  code={`
+<Container gap={5}>
+  <Container align="flex-start">
+    <Badge type="primary">Primary</Badge>
+  </Container>
+  
+  <Container align="flex-start">
+    <Badge type="secondary">Secondary</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge type="info">Info</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge type="success">Success</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge type="warning">Warning</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge type="danger">Danger</Badge>
+  </Container>
+</Container>
+`}
+/>
+
+## Sizes
+
+<Playground
+  code={`
+<Container gap={5}>
+  <Container align="flex-start">
+    <Badge size="small">small</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge size="normal">normal</Badge>
+  </Container>
+
+  <Container align="flex-start">
+    <Badge size="large">normal</Badge>
+  </Container>
+</Container>
+`}
+/>
