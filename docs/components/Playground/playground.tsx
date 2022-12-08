@@ -12,7 +12,7 @@ export type PlaygroundProps = {
   desc?: React.ReactNode | string;
   code: string;
   scope: {
-    [key: string]: any;
+    [key: string]: unknown;
   };
 };
 

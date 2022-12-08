@@ -8,7 +8,7 @@ import kitchenScope from "./scope";
 export interface Props {
   code: string;
   scope: {
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 
