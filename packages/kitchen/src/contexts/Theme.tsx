@@ -3,6 +3,7 @@ import {
   DefaultTheme,
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
+import { PREFIX } from "../constants";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useThemeDetector from "../hooks/useThemeDetector";
 import themes from "../themes";
@@ -35,7 +36,7 @@ const ThemeProvider = ({
   const isDarkTheme = useThemeDetector();
 
   const [storedTheme, setStoredTheme] = useLocalStorage<number>(
-    "theme",
+    `${PREFIX}-theme`,
     customTheme ? customTheme.id : 0
   );
 
