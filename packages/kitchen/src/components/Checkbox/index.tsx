@@ -54,7 +54,7 @@ const Checkbox = styled(
             {...props}
           >
             {checked ? (
-              <Icon icon={RiCheckLine} color={"black"} size={16} />
+              <Icon icon={RiCheckLine} color={"darkest"} size={16} />
             ) : (
               indeterminate && <Icon icon={RiSubtractLine} size={16} />
             )}
@@ -94,7 +94,7 @@ const Checkmark = styled.span<{
   background-color: ${(props) => {
     if (props.disabled)
       return convertRGBToRGBA(props.theme.colors.layout.lightest, 0.1);
-    if (props.checked) return props.theme.colors.accent.light;
+    if (props.checked) return props.theme.colors.layout.lightest;
     return "transparent";
   }};
 
