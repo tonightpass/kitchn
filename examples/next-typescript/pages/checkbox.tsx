@@ -1,11 +1,11 @@
-import { Checkbox } from "@tonightpass/kitchen";
+import { Checkbox, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
 
 const CheckboxPage: NextPage = () => {
   return (
     <>
-      <div
+      <Container
         style={{
           display: "flex",
           flexDirection: "column",
@@ -15,63 +15,64 @@ const CheckboxPage: NextPage = () => {
           gap: "10px",
         }}
       >
-        <p>default</p>
-        <div
+        <Container
+          gap={10}
           style={{
-            display: "flex",
-            gap: "16px",
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
+          <p>default</p>
           <Checkbox>Default</Checkbox>
-        </div>
-
-        <p>checked</p>
-        <div
+        </Container>
+        <Container
+          gap={10}
           style={{
-            display: "flex",
-            gap: "16px",
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
+          <p>checked</p>
           <Checkbox checked>Checked</Checkbox>
-        </div>
-
-        <p>no label</p>
-        <div
+        </Container>
+        <Container
+          gap={10}
           style={{
-            display: "flex",
-            gap: "16px",
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
+          <p>no label</p>
           <Checkbox />
-        </div>
-
-        <p>disabled</p>
-        <div
+        </Container>
+        <Container
+          gap={10}
           style={{
-            display: "flex",
-            gap: "16px",
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
+          <p>disabled</p>
           <Checkbox disabled>Disabled</Checkbox>
-        </div>
-
-        <p>overflowing text</p>
-        <div
+        </Container>
+        <Container
+          gap={10}
           style={{
-            display: "flex",
-            gap: "16px",
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
+          <p>overflowing text</p>
           <Checkbox>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -81,20 +82,20 @@ const CheckboxPage: NextPage = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum
           </Checkbox>
-        </div>
-
-        <p>full width</p>
-        <div
+        </Container>
+        <Container
+          gap={10}
           style={{
-            display: "flex",
-            gap: "16px",
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
+          <p>full width</p>
           <Checkbox fullWidth>Full Width</Checkbox>
-        </div>
-      </div>
+        </Container>
+      </Container>
     </>
   );
 };
