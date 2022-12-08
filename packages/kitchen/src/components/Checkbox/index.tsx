@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
+import Icon from "../Icon";
+import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
 
 export type CheckboxProps = KitchenComponent & {
   checked?: boolean;
@@ -45,6 +47,18 @@ const Checkbox = styled(
             indeterminate={indeterminate}
             {...props}
           />
+          <Checkmark
+            checked={checked}
+            indeterminate={indeterminate}
+            disabled={disabled}
+            {...props}
+          >
+            {checked ? (
+              <Icon icon={RiCheckLine} color={"black"} size={16} />
+            ) : (
+              indeterminate && <Icon icon={RiSubtractLine} size={16} />
+            )}
+          </Checkmark>
         </Check>
         {children && <Content>{children}</Content>}
       </Container>
@@ -57,10 +71,9 @@ const Checkbox = styled(
   justify-content: center;
   user-select: none;
   white-space: nowrap;
-  padding: 0 10px;
   border-radius: 5px;
   background-color: "transparent";
-  // border: 1px solid ${({ theme }) => theme.colors.accent.light};
+  border: 1px solid ${({ theme }) => theme.colors.accent.light};
 `;
 
 const Checkmark = styled.span<{
@@ -130,6 +143,11 @@ const Content = styled.span`
 
 const StyledCheckbox = styled.input<{ disabled?: boolean }>`
   cursor: inherit;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 `;
 
 export default Checkbox;
