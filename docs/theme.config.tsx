@@ -2,6 +2,8 @@
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import urlcat from "urlcat";
+import { useTheme as useNextraTheme } from "next-themes";
+import { useTheme } from "@tonightpass/kitchen";
 
 const logo = (
   <span>
@@ -40,6 +42,10 @@ const config: DocsThemeConfig = {
   },
   logo,
   head: () => {
+    const { theme = "system" } = useNextraTheme();
+    const { setStoredTheme } = useTheme();
+    setStoredTheme(theme === "dark" ? 1 : theme === "light" ? 2 : 0);
+
     const { title, ...meta } = useConfig().frontMatter;
 
     const finalTitle = title ? `${title} - Kitchen` : "Kitchen";
@@ -94,6 +100,7 @@ const config: DocsThemeConfig = {
   editLink: {
     text: "Edit this page on GitHub",
   },
+  primaryHue: 281,
 };
 
 export default config;
