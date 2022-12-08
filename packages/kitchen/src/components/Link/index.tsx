@@ -76,13 +76,13 @@ const Link = styled(
     return "transparent";
   }};
 
-  color: ${({ theme, variant, disabled }) => {
+  color: ${({ theme, variant }) => {
     if (variant === "highlight") {
       return theme.colors.accent.primary;
     } else if (variant === "blend") {
       return "inherit";
-    } else if (variant === "secondary" || disabled) {
-      return theme.colors.text.lighter;
+    } else if (variant === "secondary") {
+      return theme.colors.text.light;
     } else {
       return theme.colors.text.lightest;
     }
@@ -91,21 +91,30 @@ const Link = styled(
   
 
   font-size: ${({ theme }) => theme.size.normal};
+  // if the variant is blend the font weight should be set to medium
+  font-weight: ${({ theme, variant }) =>
+    variant === "blend" ? theme.weight.medium : theme.weight.regular};
 
   text-decoration: ${({ variant }) =>
-    variant === "highlight" || variant === "blend" ? "underline" : "none"};
+    variant === "blend" ? "underline" : "none"};
 
     :hover {
     cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
-        color: ${({ theme, variant, disabled }) => {
-          if (variant === "secondary") {
-            return theme.colors.text.light;
-          } else if (disabled) {
-            return "currentcolor";
-          } else {
-            return theme.colors.text.lighter;
-          }
-        }};
+    filter: ${({ variant }) =>
+      variant === "blend" ? "brightness(O.8)" : "none"};
+      color: ${({ theme, variant, disabled }) => {
+        if (variant === "secondary") {
+          return theme.colors.text.lightest;
+        } else if (variant === "highlight" || variant === "blend") {
+          return "none";
+        } else if (disabled || !variant) {
+          return theme.colors.text.lightest;
+        } else {
+          return theme.colors.text.lighter;
+        }
+      }};
+      text-decoration: ${({ variant }) =>
+        variant === "highlight" || variant === "blend" ? "underline" : "none"};
       }
 `;
 
