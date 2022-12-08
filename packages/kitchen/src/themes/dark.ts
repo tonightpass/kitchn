@@ -1,7 +1,7 @@
 import { Theme } from "../types/theme";
 
 const dark: Theme = {
-  id: 0,
+  id: 1,
   colors: {
     layout: {
       darkest: "rgb(17, 19, 21)",

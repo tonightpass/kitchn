@@ -75,7 +75,8 @@ const Button = styled(
   user-select: none;
   font-weight: ${({ theme }) => theme.weight.bold};
   font-family: ${({ theme }) => theme.family.primary};
-  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
+  cursor: ${(props) =>
+    props.disabled || props.loading ? "default" : "pointer"};
   border-radius: ${({ shape }) => (shape === "round" ? "99999px" : "8px")};
   width: ${({ width }) =>
     width ? (isNumber(width) ? `${width}px` : width) : "auto"};
@@ -93,6 +94,9 @@ const Button = styled(
   }};
 
   color: ${(props) => {
+    if (props.loading || props.disabled)
+      return `${props.theme.colors.text.lightest}`;
+
     if (props.variant === "ghost") {
       switch (props.type) {
         case "light":

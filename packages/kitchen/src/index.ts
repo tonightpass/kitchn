@@ -16,6 +16,12 @@ import Skeleton from "./components/Skeleton";
 import Spinner from "./components/Spinner";
 import Text from "./components/Text";
 
+import useLocalStorage from "./hooks/useLocalStorage";
+import useTheme from "./hooks/useTheme";
+import useThemeDetector from "./hooks/useThemeDetector";
+
+import themes, { createTheme } from "./themes";
+
 export {
   KitchenProvider,
   Badge,
@@ -31,9 +37,13 @@ export {
   Skeleton,
   Spinner,
   Text,
+  useLocalStorage,
+  useTheme,
+  useThemeDetector,
+  themes,
+  createTheme,
 };
 
-export { useTheme } from "styled-components";
 export type { DefaultTheme } from "styled-components";
 
 export default kitchen;
