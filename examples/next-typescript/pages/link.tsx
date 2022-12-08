@@ -1,4 +1,4 @@
-import { Link } from "@tonightpass/kitchen";
+import { Link, Note } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import styled from "styled-components";
 
@@ -81,9 +81,12 @@ const LinkPage: NextPage = () => {
           <Link href="/" variant="secondary">
             Secondary variant
           </Link>
-          <Link href="/" variant="blend">
-            Blend variant
-          </Link>
+          <Note type="danger" label={false}>
+            <Link href="#" variant="blend">
+              Blend variant
+            </Link>{" "}
+            works well with themed components.
+          </Note>
         </div>
 
         <p>fragment link (anchor)</p>
