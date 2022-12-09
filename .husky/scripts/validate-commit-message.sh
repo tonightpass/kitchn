@@ -3,7 +3,7 @@
 separator="|"
 remoteGitmojis=$(curl -s https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json)
 gitmojis=$(node -e "console.log(JSON.parse(process.argv[1]).gitmojis.map(gitmoji => gitmoji.emoji + ' ' + gitmoji.code))" "$remoteGitmojis")
-gitmojis=$(echo $gitmojis | tr -d "'" | tr -d '"' | tr -d ',' | tr -d '[' | tr -d ']')
+gitmojis=$(echo $gitmojis | tr -d "'" | tr -d "\"" | tr -d "," | tr -d "[" | tr -d "]")
 gitmojis=($gitmojis)
 
 emojiRegex="$( printf "${separator}%s" "${gitmojis[@]}" )"
