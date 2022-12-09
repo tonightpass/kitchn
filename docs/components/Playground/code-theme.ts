@@ -84,8 +84,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
     {
       types: ["string", "attr-value"],
       style: {
-        color: "#2ecc71", //#8D46AA
-      },
+        color: "#2ecc71", 
     },
     {
       types: ["keyword"],
