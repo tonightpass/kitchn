@@ -7,15 +7,10 @@ import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
 
 export type CheckboxProps = KitchenComponent & {
   checked?: boolean;
-
   indeterminate?: boolean;
-
   disabled?: boolean;
-
   label?: string;
-
   fullWidth?: boolean;
-
   value?: string;
 };
 
@@ -34,6 +29,7 @@ const Checkbox = styled(
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (disabled) return e.preventDefault();
       setChecked(e.target.checked);
+
       if (onChange) onChange(e);
     };
     return (
