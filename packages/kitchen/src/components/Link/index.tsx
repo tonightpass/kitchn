@@ -1,12 +1,25 @@
+import NextLink from "next/link";
 import React from "react";
 import styled from "styled-components";
+import { UrlObject } from "url";
+import isString from "../../utils/isString";
 import { KitchenComponent } from "../../types";
 
 export type LinkProps = KitchenComponent & {
   /**
    * The link's href.
    */
-  href?: string;
+  href?: string | UrlObject;
+
+  /**
+   * The link's as.
+   */
+  as?: any;
+
+  /**
+   * The link's locale.
+   */
+  locale?: string;
 
   /**
    * The link's id.
@@ -38,6 +51,8 @@ const Link = styled(
   ({
     as: Component = "a",
     href,
+    as,
+    locale,
     id,
     className,
     disabled,
@@ -47,6 +62,38 @@ const Link = styled(
     ...props
   }: LinkProps) => {
     disabled = disabled || !onClick || !href;
+    if (isString(href)) {
+      href = href as string;
+      const internal = /^\/(?!\/)/.test(href);
+      if (!internal) {
+        return (
+          <Component
+            href={href}
+            className={className}
+            target={"_blank"}
+            rel={"noopener noreferrer"}
+            {...props}
+          >
+            {children}
+          </Component>
+        );
+      }
+    }
+
+    if (href) {
+      return (
+        <NextLink
+          href={href}
+          as={as}
+          locale={locale}
+          className={className}
+          {...props}
+        >
+          {children}
+        </NextLink>
+      );
+    }
+
     return (
       <Component
         className={className}
@@ -101,7 +148,7 @@ const Link = styled(
     :hover {
     cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
     filter: ${({ variant }) =>
-      variant === "blend" ? "brightness(O.8)" : "none"};
+      variant === "secondary" ? "none" : "brightness(O.8)"};
       color: ${({ theme, variant, disabled }) => {
         if (variant === "secondary") {
           return theme.colors.text.lightest;
