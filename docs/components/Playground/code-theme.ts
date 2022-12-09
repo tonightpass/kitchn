@@ -58,7 +58,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       types: ["attr-name"],
       style: {
         color: "#FAD000",
-      }
+      },
     },
     {
       types: [
@@ -85,13 +85,13 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       types: ["string", "attr-value"],
       style: {
         color: "#2ecc71",
-      }
+      },
     },
     {
       types: ["keyword"],
       style: {
         color: "#FF9D00",
-      }
+      },
     },
     {
       types: ["deleted"],
