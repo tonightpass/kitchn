@@ -25,6 +25,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
     "react/jsx-props-no-spreading": [0],
+    "react/no-unknown-property": ["error", { "ignore": ["jsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-indent-props": ["error", 2],
     "import/extensions": [0],
