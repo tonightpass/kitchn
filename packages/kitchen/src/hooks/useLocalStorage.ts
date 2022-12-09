@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 
-type Serializer<T> = (object: T | undefined) => string;
-type Parser<T> = (val: string) => T | undefined;
-type Setter<T> = React.Dispatch<React.SetStateAction<T | undefined>>;
+export type UseLocalStorageSerializer<T> = (object: T | undefined) => string;
+export type UseLocalStorageParser<T> = (val: string) => T | undefined;
+export type UseLocalStorageSetter<T> = React.Dispatch<
+  React.SetStateAction<T | undefined>
+>;
 
-type Options<T> = Partial<{
-  serializer: Serializer<T>;
-  parser: Parser<T>;
+export type UseLocalStorageOptions<T> = Partial<{
+  serializer: UseLocalStorageSerializer<T>;
+  parser: UseLocalStorageParser<T>;
   logger: (error: any) => void;
   syncData: boolean;
 }>;
@@ -14,12 +16,12 @@ type Options<T> = Partial<{
 function useLocalStorage<T>(
   key: string,
   defaultValue: T,
-  options?: Options<T>
-): [T, Setter<T>];
+  options?: UseLocalStorageOptions<T>
+): [T, UseLocalStorageSetter<T>];
 function useLocalStorage<T>(
   key: string,
   defaultValue?: T,
-  options?: Options<T>
+  options?: UseLocalStorageOptions<T>
 ) {
   const opts = useMemo(() => {
     return {
