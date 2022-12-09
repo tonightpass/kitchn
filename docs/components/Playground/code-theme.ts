@@ -92,7 +92,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       style: {
         color: "#FF9D00",
       }
-    }
+    },
     {
       types: ["deleted"],
       style: {
