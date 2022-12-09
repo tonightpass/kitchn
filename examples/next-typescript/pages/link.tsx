@@ -102,6 +102,30 @@ const LinkPage: NextPage = () => {
             Click on this to jump to this section of the page
           </Link>
         </div>
+        <p>Internal Href</p>
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Link href="/">Click on this to jump back to the menu</Link>
+        </div>
+        <p>External Href</p>
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Link href="https://tonightpass.com">
+            Click on this to go to our website
+          </Link>
+        </div>
       </div>
     </>
   );
