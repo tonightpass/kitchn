@@ -1,0 +1,11 @@
+{
+  "create-react-app": "Create React App",
+  "react-native": "React Native",
+  "nextjs": "Next.js",
+  "gatsby": "Gatsby",
+  "blitzjs": "Blitz.js",
+  "redwoodjs": "Redwood.js",
+  "remix": "Remix",
+  "vite": "Vite",
+  "meteor": "Meteor"
+}

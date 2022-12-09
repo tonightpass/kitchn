@@ -1,49 +1,37 @@
+// styled-components
 import "./types/styled-components";
 import kitchen from "styled-components";
+export type { DefaultTheme } from "styled-components";
 
-import KitchenProvider from "./components/Provider";
-import Badge from "./components/Badge";
-import Button from "./components/Button";
-import Checkbox from "./components/Checkbox";
-import Code from "./components/Code";
-import Container from "./components/Container";
-import Note from "./components/Note";
-import OrderedList from "./components/OrderedList";
-import UnorderedList from "./components/UnorderedList";
-import ListItem from "./components/ListItem";
-import Icon from "./components/Icon";
-import InlineCode from "./components/InlineCode";
-import Skeleton from "./components/Skeleton";
-import Spinner from "./components/Spinner";
-import Text from "./components/Text";
+// ./themes
+export { default as themes, createTheme } from "./themes";
 
-import useLocalStorage from "./hooks/useLocalStorage";
-import useTheme from "./hooks/useTheme";
-import useThemeDetector from "./hooks/useThemeDetector";
+// ./components
+export { default as KitchenProvider } from "./components/Provider";
+export { default as Badge } from "./components/Badge";
+export { default as Button } from "./components/Button";
+export { default as Checkbox } from "./components/Checkbox";
+export { default as Code } from "./components/Code";
+export { default as Container } from "./components/Container";
+export { default as Note } from "./components/Note";
+export { default as OrderedList } from "./components/OrderedList";
+export { default as UnorderedList } from "./components/UnorderedList";
+export { default as ListItem } from "./components/ListItem";
+export { default as Icon } from "./components/Icon";
+export { default as InlineCode } from "./components/InlineCode";
+export { default as Skeleton } from "./components/Skeleton";
+export { default as Spinner } from "./components/Spinner";
+export { default as Text } from "./components/Text";
 
-import themes, { createTheme } from "./themes";
+// ./hooks
+export { default as useLocalStorage } from "./hooks/useLocalStorage";
+export { default as useTheme } from "./hooks/useTheme";
+export { default as useThemeDetector } from "./hooks/useThemeDetector";
 
-export {
-  KitchenProvider,
-  Badge,
-  Button,
-  Checkbox,
-  Code,
-  Container,
-  Icon,
-  InlineCode,
-  Note,
-  OrderedList,
-  ListItem,
-  UnorderedList,
-  Skeleton,
-  Spinner,
-  Text,
-  useLocalStorage,
-  useTheme,
-  useThemeDetector,
-  themes,
-  createTheme,
-};
+// ./utils
+export { default as capitalize } from "./utils/capitalize";
+export { default as convertRGBToRGBA } from "./utils/convertRGBToRGBA";
+export { default as isNumber } from "./utils/isNumber";
+export { default as isString } from "./utils/isString";
 
 export default kitchen;

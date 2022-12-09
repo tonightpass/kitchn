@@ -1,0 +1,246 @@
+---
+title: "Text"
+description: "Display text using well-defined typographic styles."
+---
+
+import { Callout } from "nextra-theme-docs";
+import Playground from "@components/Playground";
+
+# Text
+
+Display text using well-defined typographic styles.
+
+## Sizes
+
+<Playground
+  code={`
+<Container>
+  <Text size={"extraTitle"}>The Evil Rabbit jumps.</Text>
+  <Text size={"title"}>The Evil Rabbit jumps.</Text>
+  <Text size={"large"}>The Evil Rabbit jumps.</Text>
+  <Text size={"medium"}>The Evil Rabbit jumps.</Text>
+  <Text size={"normal"}>The Evil Rabbit jumps.</Text>
+  <Text size={"small"}>The Evil Rabbit jumps.</Text>
+  <Text size={"tiny"}>The Evil Rabbit jumps.</Text>
+</Container>
+`}
+/>
+
+## Weights
+
+<Playground
+  code={`
+<Container>
+  <Text weight={"black"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"extraBold"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"bold"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"semiBold"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"medium"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"regular"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"light"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"extraLight"}>The Evil Rabbit jumps.</Text>
+  <Text weight={"thin"}>The Evil Rabbit jumps.</Text>
+</Container>
+`}
+/>
+
+## Colors
+
+<Callout>
+  The main difference between ``text`` and ``accent`` colors is that ``text``
+  colors are dynamic and will change depending on the theme. ``Accent`` colors
+  are static and will always be the same.
+</Callout>
+
+### Text
+
+<Playground
+  code={`
+<Container>
+  <Text color={"lightest"}>The Evil Rabbit jumps.</Text>
+  <Text color={"lighter"}>The Evil Rabbit jumps.</Text>
+  <Text color={"light"}>The Evil Rabbit jumps.</Text>
+  <Text color={"dark"}>The Evil Rabbit jumps.</Text>
+  <Text color={"darker"}>The Evil Rabbit jumps.</Text>
+  <Text color={"darkest"}>The Evil Rabbit jumps.</Text>
+</Container>
+`}
+/>
+
+### Accent
+
+<Playground
+  code={`
+<Container>
+  <Text accent={"primary"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"secondary"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"info"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"success"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"warning"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"danger"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"light"}>The Evil Rabbit jumps.</Text>
+  <Text accent={"dark"}>The Evil Rabbit jumps.</Text>
+</Container>
+`}
+/>
+
+## Modifiers
+
+<Playground
+  code={`
+<Text>
+  The <strong>Evil Rabbit</strong> <em>jumps</em>
+  over the <s>quick brown fox</s> <u>Lawful Meerkat</u>.
+</Text>
+`}
+/>
+
+## Polymorphic
+
+<Playground
+  code={`
+<Text as={"span"}>
+  {"<p>"} semantically, {"<h2>"} visually.
+</Text>
+`}
+/>
+
+## Truncate
+
+<Playground
+  code={`
+<div style={{ maxWidth: 100 }}>
+  <Text truncate>The Evil Rabbit jumps.</Text>
+</div>
+`}
+/>
+
+## Clamp
+
+<Playground
+  code={`
+<div style={{ maxHeight: 100 }}>
+  <Text truncate={2}>
+    The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+    The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+    The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+    The Evil Rabbit jumps. The Evil Rabbit jumps.
+  </Text>
+</div>
+`}
+/>
+
+## Align
+
+<Playground
+  code={`
+<div>
+  <Text align={"center"}>The Evil Rabbit jumps.</Text>
+  <Text align={"left"}>The Evil Rabbit jumps.</Text>
+  <Text align={"right"}>The Evil Rabbit jumps.</Text>
+</div>
+`}
+/>
+
+## Transform
+
+<Playground
+  code={`
+<Container>
+  <Text transform={"uppercase"}>The Evil Rabbit jumps.</Text>
+  <Text transform={"lowercase"}>The Evil Rabbit jumps.</Text>
+  <Text transform={"capitalize"}>The Evil Rabbit jumps.</Text>
+</Container>
+`}
+/>
+
+## Title
+
+<Playground
+  code={`
+<Text title={"The Evil Rabbit jumps."}>The Evil Rabbit jumps.</Text>
+`}
+/>
+
+## Line Height
+
+<Playground
+  code={`
+<Text lineHeight={3}>
+  The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+  The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+  The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+  The Evil Rabbit jumps. The Evil Rabbit jumps.
+</Text>
+`}
+/>
+
+## Wrap
+
+<Playground
+  code={`
+<Text wrap={false}>
+  The Evil Rabbit jumps. The Evil Rabbit jumps. The Evil Rabbit jumps.
+  The Evil Rabbit jumps. The Evil Rabbit jumps.
+</Text>
+`}
+/>
+
+## Monospace
+
+<Playground
+  code={`
+<Text monospace>This is a monospace font.</Text>
+`}
+/>
+
+## Unordered List
+
+<Playground
+  code={`
+<UnorderedList>
+  <ListItem>
+    Static websites and static generators (React, Vue, Angular, etc)
+  </ListItem>
+  <ListItem>Code that renders HTML on the server-side</ListItem>
+  <ListItem>
+    API endpoints that query databases or web APIs and return dynamic
+    data
+  </ListItem>
+</UnorderedList>
+`}
+/>
+
+## Ordered List
+
+<Playground
+  code={`
+<OrderedList>
+  <ListItem>Push a commit to trigger the deployment.</ListItem>
+  <ListItem>
+    {"You'll see the deployment status on GitHub and Vercel dashboard."}
+  </ListItem>
+</OrderedList>
+`}
+/>
+
+## Code
+
+<Playground
+  code={`
+<Text>
+  It’s a matter of running <InlineCode>kitchen</InlineCode> to get it up
+  and running instantly.
+</Text>
+`}
+/>
+
+## Codeblock
+
+<Playground
+  code={`
+<Code title={"/components/Code.tsx"}>
+  {"git clone https://github.com/tonightpass/kitchen.git\\nyarn install"}
+</Code>
+`}
+/>

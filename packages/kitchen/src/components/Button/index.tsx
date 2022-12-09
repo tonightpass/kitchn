@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components";
 import { KitchenComponent } from "../../types";
 import { AccentColors } from "../../types/theme";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
-import { isNumber } from "../../utils/isNumber";
+import isNumber from "../../utils/isNumber";
 import Spinner from "../Spinner";
 
 export type ButtonProps = KitchenComponent & {
