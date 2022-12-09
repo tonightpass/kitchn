@@ -52,7 +52,9 @@ const Checkbox = styled(
             {checked ? (
               <Icon icon={RiCheckLine} color={"darkest"} size={16} />
             ) : (
-              indeterminate && <Icon icon={RiSubtractLine} size={16} />
+              indeterminate && (
+                <Icon icon={RiSubtractLine} color={"darker"} size={16} />
+              )
             )}
           </Checkmark>
         </Check>
