@@ -21,7 +21,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
     {
       types: ["punctuation"],
       style: {
-        color: "#FFFFFF",
+        color: "#21C232",
       },
     },
     {
@@ -78,13 +78,13 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
         "property-access",
       ],
       style: {
-        color: "#9EFFFF",
+        color: "#42AA25",
       },
     },
     {
       types: ["string", "attr-value"],
       style: {
-        color: "#A5FF90",
+        color: "#8D46AA",
       },
     },
     {
