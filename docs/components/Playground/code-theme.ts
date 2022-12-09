@@ -58,7 +58,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       types: ["attr-name"],
       style: {
         color: "#FAD000",
-      },
+      }
     },
     {
       types: [
