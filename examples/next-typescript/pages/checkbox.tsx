@@ -72,6 +72,18 @@ const CheckboxPage: NextPage = () => {
             alignItems: "center",
           }}
         >
+          <p>indeterminate</p>
+          <Checkbox indeterminate>Indeterminate</Checkbox>
+        </Container>
+        <Container
+          gap={10}
+          style={{
+            maxWidth: 700,
+            margin: "0 auto",
+            marginTop: "15px",
+            alignItems: "center",
+          }}
+        >
           <p>overflowing text</p>
           <Checkbox>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
