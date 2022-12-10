@@ -1,4 +1,4 @@
-import { Icon, useTheme } from "@tonightpass/kitchen";
+import { Icon, useClipboard, useTheme } from "@tonightpass/kitchen";
 import React, { useState } from "react";
 import { LiveEditor } from "react-live";
 import { RiArrowRightSLine, RiFileCopyLine } from "react-icons/ri";
@@ -9,7 +9,7 @@ interface Props {
 
 const Editor: React.FC<Props> = ({ code }) => {
   const { theme } = useTheme();
-  // const { copy } = useClipboard();
+  const { copy } = useClipboard();
   const [visible, setVisible] = useState(false);
   // const { setToast } = useToasts();
   const clickHandler = (event: React.MouseEvent) => {
@@ -21,7 +21,7 @@ const Editor: React.FC<Props> = ({ code }) => {
   const copyHandler = (event: React.MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
-    // copy(code);
+    copy(code);
     // setToast({ text: isChinese ? "代码已拷贝至剪切板。" : "code copied." });
   };
 
