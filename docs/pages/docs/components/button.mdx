@@ -1,4 +1,5 @@
 ---
+OB
 title: "Button"
 description: "Used to trigger an operation."
 ---
@@ -88,6 +89,145 @@ These sizes are standardized across form components.
     <Button prefix={"👉"} suffix={"👈"}>
       Button
     </Button>
+  </Container>
+</Container>
+`}
+/>
+## types
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container align="center" justify={"center"}>
+    <Button type={"primary"}>Primary</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+        <Button type={"secondary"}>Secondary</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+   <Button type={"danger"}>Danger</Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+     <Button type={"warning"}>Warning</Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+  <Button type={"success"}>Success</Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+        <Button type={"info"}>Info</Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+
+          <Button type={"dark"}>Dark</Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+      <Button type={"light"}>Light</Button>
+  </Container>
+</Container>
+`}
+/>
+
+## variant-ghost
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container align="center" justify={"center"}>
+     <Button variant={"ghost"} type={"primary"}>
+            Primary
+          </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+       <Button variant={"ghost"} type={"secondary"}>
+            Secondary
+          </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+      <Button variant={"ghost"} type={"danger"}>
+            Danger
+          </Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+          <Button variant={"ghost"} type={"warning"}>
+            Warning
+          </Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+ <Button variant={"ghost"} type={"success"}>
+            Success
+          </Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+        <Button variant={"ghost"} type={"info"}>
+            Info
+          </Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+       <Button variant={"ghost"} type={"dark"}>
+            Dark
+          </Button>
+  </Container>
+  <Container align="center" justify={"center"}>
+     <Button variant={"ghost"} type={"light"}>
+            Light
+          </Button>
+  </Container>
+</Container>
+`}
+/>
+
+## loading
+
+
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container align="center" justify={"center"}>
+      <Button size={"small"} loading>
+            Get started
+          </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+      <Button loading>Get started</Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button size={"large"} loading>
+            Get started
+          </Button>
+  </Container>
+</Container>
+`}
+/>
+
+## Disabled
+
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container align="center" justify={"center"}>
+     <Button prefix={"👋"} disabled>
+            Get started
+          </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+      <Button suffix={"🥸"} disabled>
+            Documentation
+          </Button>
+  </Container>
+
+  <Container align="center" justify={"center"}>
+    <Button prefix={"👉"} suffix={"👈"} disabled>
+            Button
+          </Button>
   </Container>
 </Container>
 `}
