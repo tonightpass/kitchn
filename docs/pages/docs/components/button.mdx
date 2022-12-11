@@ -1,5 +1,4 @@
 ---
-
 title: "Button"
 description: "Used to trigger an operation."
 ---
@@ -93,7 +92,7 @@ These sizes are standardized across form components.
 </Container>
 `}
 />
-## types
+## Types
 
 <Playground
   code={`
@@ -103,84 +102,93 @@ These sizes are standardized across form components.
   </Container>
 
   <Container align="center" justify={"center"}>
-        <Button type={"secondary"}>Secondary</Button>
+    <Button type={"secondary"}>Secondary</Button>
   </Container>
 
   <Container align="center" justify={"center"}>
-   <Button type={"danger"}>Danger</Button>
+    <Button type={"danger"}>Danger</Button>
   </Container>
-  <Container align="center" justify={"center"}>
-     <Button type={"warning"}>Warning</Button>
+  
+  <Container>
+    <Button type={"warning"}>Warning</Button>
   </Container>
-  <Container align="center" justify={"center"}>
-  <Button type={"success"}>Success</Button>
+  
+  <Container>
+    <Button type={"success"}>Success</Button>
   </Container>
-  <Container align="center" justify={"center"}>
-        <Button type={"info"}>Info</Button>
+  
+  <Container>
+    <Button type={"info"}>Info</Button>
   </Container>
-  <Container align="center" justify={"center"}>
-
-          <Button type={"dark"}>Dark</Button>
+  
+  <Container>
+    <Button type={"dark"}>Dark</Button>
   </Container>
-  <Container align="center" justify={"center"}>
-      <Button type={"light"}>Light</Button>
+  
+  <Container>
+    <Button type={"light"}>Light</Button>
   </Container>
 </Container>
 `}
 />
 
-## variant-ghost
+## Variant-Ghost
 
 <Playground
   code={`
 <Container row direction={['column', 'row', 'row']} gap={10}>
   <Container align="center" justify={"center"}>
-     <Button variant={"ghost"} type={"primary"}>
-            Primary
-          </Button>
+    <Button variant={"ghost"} type={"primary"}>
+      Primary
+    </Button>
   </Container>
 
   <Container align="center" justify={"center"}>
-       <Button variant={"ghost"} type={"secondary"}>
-            Secondary
-          </Button>
+    <Button variant={"ghost"} type={"secondary"}>
+      Secondary
+    </Button>
   </Container>
 
   <Container align="center" justify={"center"}>
-      <Button variant={"ghost"} type={"danger"}>
-            Danger
-          </Button>
+    <Button variant={"ghost"} type={"danger"}>
+      Danger
+    </Button>
   </Container>
+  
   <Container align="center" justify={"center"}>
-          <Button variant={"ghost"} type={"warning"}>
-            Warning
-          </Button>
+    <Button variant={"ghost"} type={"warning"}>
+      Warning
+    </Button>
   </Container>
+  
   <Container align="center" justify={"center"}>
- <Button variant={"ghost"} type={"success"}>
-            Success
-          </Button>
+    <Button variant={"ghost"} type={"success"}>
+      Success
+    </Button>
   </Container>
+  
   <Container align="center" justify={"center"}>
-        <Button variant={"ghost"} type={"info"}>
-            Info
-          </Button>
+    <Button variant={"ghost"} type={"info"}>
+      Info
+    </Button>
   </Container>
+  
   <Container align="center" justify={"center"}>
-       <Button variant={"ghost"} type={"dark"}>
-            Dark
-          </Button>
+    <Button variant={"ghost"} type={"dark"}>
+      Dark
+    </Button>
   </Container>
+  
   <Container align="center" justify={"center"}>
-     <Button variant={"ghost"} type={"light"}>
-            Light
-          </Button>
+    <Button variant={"ghost"} type={"light"}>
+      Light
+    </Button>
   </Container>
 </Container>
 `}
 />
 
-## loading
+## Loading
 
 
 
@@ -188,19 +196,19 @@ These sizes are standardized across form components.
   code={`
 <Container row direction={['column', 'row', 'row']} gap={10}>
   <Container align="center" justify={"center"}>
-      <Button size={"small"} loading>
-            Get started
-          </Button>
+    <Button size={"small"} loading>
+      Get started
+    </Button>
   </Container>
 
   <Container align="center" justify={"center"}>
-      <Button loading>Get started</Button>
+    <Button loading>Get started</Button>
   </Container>
 
   <Container align="center" justify={"center"}>
     <Button size={"large"} loading>
-            Get started
-          </Button>
+      Get started
+    </Button>
   </Container>
 </Container>
 `}
@@ -213,21 +221,21 @@ These sizes are standardized across form components.
   code={`
 <Container row direction={['column', 'row', 'row']} gap={10}>
   <Container align="center" justify={"center"}>
-     <Button prefix={"👋"} disabled>
-            Get started
-          </Button>
+    <Button prefix={"👋"} disabled>
+      Get started
+    </Button>
   </Container>
 
   <Container align="center" justify={"center"}>
-      <Button suffix={"🥸"} disabled>
-            Documentation
-          </Button>
+    <Button suffix={"🥸"} disabled>
+      Documentation
+    </Button>
   </Container>
 
   <Container align="center" justify={"center"}>
     <Button prefix={"👉"} suffix={"👈"} disabled>
-            Button
-          </Button>
+      Button
+    </Button>
   </Container>
 </Container>
 `}
