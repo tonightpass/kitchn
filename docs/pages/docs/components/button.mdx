@@ -92,3 +92,149 @@ These sizes are standardized across form components.
 </Container>
 `}
 />
+
+## Types
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container>
+    <Button type={"primary"}>Primary</Button>
+  </Container>
+
+  <Container>
+    <Button type={"secondary"}>Secondary</Button>
+  </Container>
+
+  <Container>
+    <Button type={"danger"}>Danger</Button>
+  </Container>
+  
+  <Container>
+    <Button type={"warning"}>Warning</Button>
+  </Container>
+  
+  <Container>
+    <Button type={"success"}>Success</Button>
+  </Container>
+  
+  <Container>
+    <Button type={"info"}>Info</Button>
+  </Container>
+  
+  <Container>
+    <Button type={"dark"}>Dark</Button>
+  </Container>
+  
+  <Container>
+    <Button type={"light"}>Light</Button>
+  </Container>
+</Container>
+`}
+/>
+
+## Variant - Ghost
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container>
+    <Button variant={"ghost"} type={"primary"}>
+      Primary
+    </Button>
+  </Container>
+
+  <Container>
+    <Button variant={"ghost"} type={"secondary"}>
+      Secondary
+    </Button>
+  </Container>
+
+  <Container>
+    <Button variant={"ghost"} type={"danger"}>
+      Danger
+    </Button>
+  </Container>
+  
+  <Container>
+    <Button variant={"ghost"} type={"warning"}>
+      Warning
+    </Button>
+  </Container>
+  
+  <Container>
+    <Button variant={"ghost"} type={"success"}>
+      Success
+    </Button>
+  </Container>
+  
+  <Container>
+    <Button variant={"ghost"} type={"info"}>
+      Info
+    </Button>
+  </Container>
+  
+  <Container>
+    <Button variant={"ghost"} type={"dark"}>
+      Dark
+    </Button>
+  </Container>
+  
+  <Container>
+    <Button variant={"ghost"} type={"light"}>
+      Light
+    </Button>
+  </Container>
+</Container>
+`}
+/>
+
+## Loading
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container>
+    <Button size={"small"} loading>
+      Get started
+    </Button>
+  </Container>
+
+  <Container>
+    <Button loading>Get started</Button>
+  </Container>
+
+  <Container>
+    <Button size={"large"} loading>
+      Get started
+    </Button>
+  </Container>
+</Container>
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+<Container row direction={['column', 'row', 'row']} gap={10}>
+  <Container>
+    <Button prefix={"👋"} disabled>
+      Get started
+    </Button>
+  </Container>
+
+  <Container>
+    <Button suffix={"🥸"} disabled>
+      Documentation
+    </Button>
+  </Container>
+
+  <Container>
+    <Button prefix={"👉"} suffix={"👈"} disabled>
+      Button
+    </Button>
+  </Container>
+</Container>
+`}
+/>
