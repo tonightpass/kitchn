@@ -24,13 +24,29 @@ export { default as Spinner } from "./components/Spinner";
 export { default as Text } from "./components/Text";
 
 // ./hooks
+export { default as useClipboard } from "./hooks/useClipboard";
+export type {
+  UseClipboardOptions,
+  UseClipboardResult,
+} from "./hooks/useClipboard";
 export { default as useLocalStorage } from "./hooks/useLocalStorage";
+export type {
+  UseLocalStorageOptions,
+  UseLocalStorageParser,
+  UseLocalStorageSerializer,
+  UseLocalStorageSetter,
+} from "./hooks/useLocalStorage";
+export { default as usePortal } from "./hooks/usePortal";
+export { default as useSSR } from "./hooks/useSSR";
+export type { SSRState } from "./hooks/useSSR";
 export { default as useTheme } from "./hooks/useTheme";
 export { default as useThemeDetector } from "./hooks/useThemeDetector";
 
 // ./utils
 export { default as capitalize } from "./utils/capitalize";
 export { default as convertRGBToRGBA } from "./utils/convertRGBToRGBA";
+export { default as generateId } from "./utils/generateId";
+export { default as isBrowser } from "./utils/isBrowser";
 export { default as isNumber } from "./utils/isNumber";
 export { default as isString } from "./utils/isString";
 
