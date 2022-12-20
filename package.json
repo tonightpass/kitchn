@@ -27,6 +27,7 @@
     "prepare": "husky install && yarn p:validate && yarn build:packages",
     "version": "yarn changeset version",
     "release": "yarn changeset publish",
+    "release:alpha": "yarn changeset publish --tag alpha",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "size": "size-limit",
