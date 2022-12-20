@@ -1,6 +1,5 @@
 {
   "name": "@tonightpass/root",
-  "version": "1.0.0",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -25,9 +24,9 @@
     "p:build": "preconstruct build",
     "p:validate": "preconstruct validate",
     "postinstall": "manypkg check && yarn p:dev",
-    "prepare": "husky install && yarn build",
-    "version": "yarn changeset version && yarn",
-    "release": "yarn p:validate && yarn build:packages && yarn changeset publish",
+    "prepare": "husky install && yarn p:validate && yarn build:packages",
+    "version": "yarn changeset version",
+    "release": "yarn changeset publish",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "size": "size-limit",
