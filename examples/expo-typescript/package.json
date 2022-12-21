@@ -4,12 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "expo start",
+    "dev": "yarn start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
-    "@tonightpass/kitchen": "*",
+    "@tonightpass/kitchen": "1.0.0-alpha.2",
     "expo": "~47.0.5",
     "expo-status-bar": "~1.4.2",
     "react": "^18.2.0",
