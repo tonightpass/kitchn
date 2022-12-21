@@ -1,7 +1,9 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
+import { KeyCode } from "../../utils/codes";
 
 export type DrawerProps = {
   show: boolean;
@@ -21,6 +23,7 @@ const Drawer = styled(
     ...props
   }: DrawerProps) => {
     const portal = usePortal("drawer");
+    const containerRef = React.useRef<HTMLDivElement>(null);
 
     const [animationState, setAnimationState] = React.useState<
       "entrance" | "exit" | null
@@ -41,38 +44,42 @@ const Drawer = styled(
       }
     };
 
-    const handleEnter = React.useCallback(
-      (event: any) => {
-        if (event.keyCode === 13) {
-          event.preventDefault();
-          handleDismiss();
-        }
+    const { bindings } = useKeyboard(
+      () => {
+        handleDismiss();
       },
-      [handleDismiss]
+      KeyCode.Escape,
+      {
+        disableGlobalEvent: true,
+      }
     );
 
     React.useEffect(() => {
       if (show) {
         document.body.style.overflow = "hidden";
         setAnimationState("entrance");
+
+        setTimeout(() => {
+          if (containerRef.current) {
+            containerRef.current.focus();
+          }
+        }, 100);
       } else {
         document.body.style.overflow = "unset";
       }
-
-      if (show) {
-        document.addEventListener("keydown", handleEnter, false);
-      }
-
-      return () => {
-        document.removeEventListener("keydown", handleEnter, false);
-      };
-    }, [handleEnter, show]);
+    }, [show]);
 
     if (!portal) return null;
     return createPortal(
       (show && animationState) || animationState ? (
-        <div onClick={handleWrapperClick} {...props}>
-          <Content animationState={animationState} height={height}>
+        <div
+          onClick={handleWrapperClick}
+          tabIndex={-1}
+          ref={containerRef}
+          {...bindings}
+          {...props}
+        >
+          <Content animationState={animationState} height={height} tabIndex={0}>
             {children}
           </Content>
         </div>
