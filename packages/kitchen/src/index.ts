@@ -13,6 +13,7 @@ export { default as Button } from "./components/Button";
 export { default as Checkbox } from "./components/Checkbox";
 export { default as Code } from "./components/Code";
 export { default as Container } from "./components/Container";
+export { default as FragmentLink } from "./components/FragmentLink";
 export { default as Note } from "./components/Note";
 export { default as OrderedList } from "./components/OrderedList";
 export { default as UnorderedList } from "./components/UnorderedList";
