@@ -24,6 +24,7 @@ export { default as Spinner } from "./components/Spinner";
 export { default as Text } from "./components/Text";
 
 // ./hooks
+export { default as useCheckbox } from "./hooks/useCheckbox";
 export { default as useClipboard } from "./hooks/useClipboard";
 export type {
   UseClipboardOptions,
