@@ -11,67 +11,66 @@ export type CheckboxProps = KitchenComponent & {
   disabled?: boolean;
   label?: string;
   fullWidth?: boolean;
-  value?: string;
 };
 
 const Checkbox = styled(
   ({
     children,
-    checked: checkedProp,
+    checked,
     onChange,
     disabled,
     fullWidth,
     indeterminate,
-    value,
+    label,
     ...props
   }: CheckboxProps) => {
-    const [checked, setChecked] = React.useState(checkedProp || value || false);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (disabled) return e.preventDefault();
-      setChecked(e.target.checked);
-
       if (onChange) onChange(e);
     };
+
     return (
-      <Container disabled={disabled} fullWidth={fullWidth}>
-        <Check>
-          <StyledCheckbox
-            type={"checkbox"}
-            value={value}
-            checked={checked}
-            onChange={handleChange}
-            indeterminate={indeterminate}
-            {...props}
-          />
-          <Checkmark
-            checked={checked}
-            indeterminate={indeterminate}
-            disabled={disabled}
-            {...props}
-          >
-            {checked ? (
-              <Icon icon={RiCheckLine} color={"darkest"} size={16} />
-            ) : (
-              indeterminate && (
-                <Icon icon={RiSubtractLine} color={"darker"} size={16} />
-              )
-            )}
-          </Checkmark>
-        </Check>
-        {children && <Content>{children}</Content>}
+      <Container
+        disabled={disabled}
+        fullWidth={fullWidth}
+        label={label}
+        {...props}
+      >
+        {label && <Label>{label}</Label>}
+        <CheckContainer label={label}>
+          <Check>
+            <StyledCheckbox
+              type={"checkbox"}
+              checked={checked}
+              onChange={handleChange}
+            />
+            <Checkmark
+              checked={checked}
+              indeterminate={indeterminate}
+              disabled={disabled}
+            >
+              {checked ? (
+                <Icon
+                  icon={RiCheckLine}
+                  color={disabled ? "darker" : "darkest"}
+                  size={16}
+                />
+              ) : (
+                indeterminate && (
+                  <Icon icon={RiSubtractLine} color={"darker"} size={16} />
+                )
+              )}
+            </Checkmark>
+          </Check>
+          {children && <Content>{children}</Content>}
+        </CheckContainer>
       </Container>
     );
   }
 )<CheckboxProps>`
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  white-space: nowrap;
-  border-radius: 5px;
-  background-color: "transparent";
-  border: 1px solid ${({ theme }) => theme.colors.accent.light};
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 const Checkmark = styled.span<{
@@ -105,9 +104,18 @@ const Checkmark = styled.span<{
   }};
 `;
 
-const Container = styled.label<{ disabled?: boolean; fullWidth?: boolean }>`
+const Container = styled.label<{
+  disabled?: boolean;
+  fullWidth?: boolean;
+  label: boolean;
+}>`
+  ${({ label }) =>
+    !label &&
+    `
   display: inline-flex;
   align-items: flex-start;
+  user-select: none;
+  `}
   ${({ fullWidth }) => fullWidth && "width: 100%;"};
 
   :hover {
@@ -128,18 +136,35 @@ const Container = styled.label<{ disabled?: boolean; fullWidth?: boolean }>`
   `}
 `;
 
+const Label = styled.div`
+  margin-bottom: 8px;
+  font-size: ${({ theme }) => theme.size.small};
+  font-weight: ${({ theme }) => theme.weight.medium};
+  color: ${({ theme }) => theme.colors.text.dark};
+`;
+
+const CheckContainer = styled(({ children, label, ...props }) =>
+  label ? <div {...props}>{children}</div> : children
+)`
+  display: inline-flex;
+  align-items: flex-start;
+  user-select: none;
+`;
+
 const Check = styled.span`
   display: flex;
+  position: relative;
   align-items: center;
   padding: 2px;
   margin: -2px;
 `;
 
 const Content = styled.span`
-  margin-left: 7px;
+  margin-left: 8px;
+  font-size: inherit;
 `;
 
-const StyledCheckbox = styled.input<{ disabled?: boolean }>`
+const StyledCheckbox = styled.input`
   cursor: inherit;
   position: absolute;
   opacity: 0;
