@@ -10,7 +10,7 @@ emojiRegex="$( printf "${separator}%s" "${gitmojis[@]}" )"
 emojiRegex="${emojiRegex:${#separator}}"
 
 separator="|"
-types=(add fix improve update remove refactor rename move upgrade downgrade release)
+types=(add fix improve update remove refactor rename move upgrade downgrade release merge)
 typesRegex="$( printf "${separator}%s" "${types[@]}" )"
 typesRegex="${typesRegex:${#separator}}"
 
