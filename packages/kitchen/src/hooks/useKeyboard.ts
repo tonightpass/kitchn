@@ -70,6 +70,7 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
     return () => {
       document.removeEventListener(event, eventHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disableGlobalEvent]);
 
   const elementBindingHandler = (
