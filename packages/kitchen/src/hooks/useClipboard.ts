@@ -15,7 +15,9 @@ const defaultOptions: UseClipboardOptions = {
   onError: () => useWarning("Failed to copy.", "useClipboard"),
 };
 
-const useClipboard = (options: UseClipboardOptions = defaultOptions) => {
+const useClipboard = (
+  options: UseClipboardOptions = defaultOptions
+): UseClipboardResult => {
   const el = usePortal("clipboard");
 
   const copyText = (el: HTMLElement | null, text: string) => {
