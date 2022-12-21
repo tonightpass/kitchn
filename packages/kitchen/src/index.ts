@@ -10,6 +10,7 @@ export { default as themes, createTheme } from "./themes";
 export { default as KitchenProvider } from "./components/Provider";
 export { default as Badge } from "./components/Badge";
 export { default as Button } from "./components/Button";
+export { default as Checkbox } from "./components/Checkbox";
 export { default as Code } from "./components/Code";
 export { default as Container } from "./components/Container";
 export { default as Note } from "./components/Note";
@@ -23,6 +24,7 @@ export { default as Spinner } from "./components/Spinner";
 export { default as Text } from "./components/Text";
 
 // ./hooks
+export { default as useCheckbox } from "./hooks/useCheckbox";
 export { default as useClipboard } from "./hooks/useClipboard";
 export type {
   UseClipboardOptions,
