@@ -25,6 +25,9 @@ export type { CodeProps } from "./components/Code";
 export { default as Container } from "./components/Container";
 export type { ContainerProps } from "./components/Container";
 
+export { default as Drawer } from "./components/Drawer";
+export type { DrawerProps } from "./components/Drawer";
+
 export { default as FragmentLink } from "./components/FragmentLink";
 export type { FragmentLinkProps } from "./components/FragmentLink";
 
