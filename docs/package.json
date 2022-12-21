@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@preconstruct/next": "^4.0.0",
-    "@tonightpass/kitchen": "1.0.0-alpha.3",
+    "@tonightpass/kitchen": "1.0.0-alpha.4",
     "next": "^13.0.2",
     "nextra": "^2.0.1",
     "nextra-theme-docs": "^2.0.1",
