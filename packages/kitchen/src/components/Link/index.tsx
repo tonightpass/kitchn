@@ -12,19 +12,9 @@ export type LinkProps = KitchenComponent & {
   href?: string | UrlObject;
 
   /**
-   * The link's as.
-   */
-  as?: any;
-
-  /**
    * The link's locale.
    */
   locale?: string;
-
-  /**
-   * The link's id.
-   */
-  id?: string;
 
   /**
    * The link's classname.
@@ -44,16 +34,14 @@ export type LinkProps = KitchenComponent & {
   /**
    * The link's variant.
    */
-  variant?: "highlight" | "secondary" | "blend";
+  variant?: "highlight" | "primary" | "secondary" | "blend";
 };
 
 const Link = styled(
   ({
     as: Component = "a",
     href,
-    as,
     locale,
-    id,
     className,
     disabled,
     onClick,
@@ -61,10 +49,19 @@ const Link = styled(
     children,
     ...props
   }: LinkProps) => {
-    disabled = disabled || !onClick || !href;
+    disabled = disabled || (!onClick && !href);
+
+    const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+      console.log("handleClick", disabled, onClick);
+      if (disabled) return event.preventDefault();
+      if (onClick) onClick(event);
+    };
+
     if (isString(href)) {
       href = href as string;
-      const internal = /^\/(?!\/)/.test(href);
+      // regex to check if the href is internal or external
+
+      const internal = href.match(/^(\/(?!\/)[^#]*|#.*)$/);
       if (!internal) {
         return (
           <Component
@@ -72,6 +69,7 @@ const Link = styled(
             className={className}
             target={"_blank"}
             rel={"noopener noreferrer"}
+            onClick={handleClick}
             {...props}
           >
             {children}
@@ -84,9 +82,9 @@ const Link = styled(
       return (
         <NextLink
           href={href}
-          as={as}
           locale={locale}
           className={className}
+          onClick={handleClick}
           {...props}
         >
           {children}
@@ -97,9 +95,7 @@ const Link = styled(
     return (
       <Component
         className={className}
-        id={id}
-        disabled={disabled}
-        onClick={onClick}
+        onClick={handleClick}
         href={href}
         variant={variant}
         {...props}
@@ -117,6 +113,12 @@ const Link = styled(
   flex: 1;
   gap: 10px;
   border-radius: 8px;
+  font-size: ${({ theme }) => theme.size.normal};
+  font-weight: ${({ theme, variant }) =>
+    variant === "blend" ? theme.weight.bold : theme.weight.regular};
+  text-decoration: ${({ variant }) =>
+    variant === "blend" ? "underline" : "none"};
+
   background-color: ${({ theme }) => {
     return theme.colors.layout.dark;
   }}
@@ -129,40 +131,30 @@ const Link = styled(
     } else if (variant === "blend") {
       return "inherit";
     } else if (variant === "secondary") {
-      return theme.colors.text.light;
+      return theme.colors.text.lighter;
     } else {
       return theme.colors.text.lightest;
     }
   }};
- 
-  
 
-  font-size: ${({ theme }) => theme.size.normal};
-  // if the variant is blend the font weight should be set to medium
-  font-weight: ${({ theme, variant }) =>
-    variant === "blend" ? theme.weight.medium : theme.weight.regular};
+  :hover {
+    ${({ theme, disabled, variant, onClick, href }) => {
+      disabled = disabled || (!onClick && !href);
 
-  text-decoration: ${({ variant }) =>
-    variant === "blend" ? "underline" : "none"};
-
-    :hover {
-    cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
-    filter: ${({ variant }) =>
-      variant === "secondary" ? "none" : "brightness(O.8)"};
-      color: ${({ theme, variant, disabled }) => {
-        if (variant === "secondary") {
-          return theme.colors.text.lightest;
-        } else if (variant === "highlight" || variant === "blend") {
-          return "none";
-        } else if (disabled || !variant) {
-          return theme.colors.text.lightest;
-        } else {
-          return theme.colors.text.lighter;
-        }
-      }};
-      text-decoration: ${({ variant }) =>
-        variant === "highlight" || variant === "blend" ? "underline" : "none"};
-      }
+      return `
+      cursor: ${disabled ? "default" : "pointer"};
+      filter: ${
+        (variant && variant !== "blend") || disabled
+          ? "none"
+          : "brightness(0.8)"
+      };
+      text-decoration: ${
+        variant && variant !== "secondary" ? "underline" : "none"
+      };
+      ${variant === "secondary" ? `color: ${theme.colors.text.lightest};` : ""}
+    `;
+    }}
+  }
 `;
 
 export default Link;
