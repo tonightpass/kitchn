@@ -1,6 +1,5 @@
 {
   "name": "@tonightpass/root",
-  "version": "1.0.0",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -8,16 +7,31 @@
     "docs"
   ],
   "scripts": {
-    "build": "preconstruct build",
-    "watch": "preconstruct watch",
-    "dev": "preconstruct dev",
-    "postinstall": "preconstruct dev && manypkg check",
-    "prepare": "husky install && yarn build",
-    "release": "yarn preconstruct build && yarn changeset publish",
+    "build": "turbo run build",
+    "build:packages": "turbo run p:build",
+    "build:docs": "turbo run build --filter=@tonightpass/kitchen-docs",
+    "build:examples": "turbo run build --filter=./examples/*",
+    "build:examples:expo": "turbo run build --filter=@tonightpass/kitchen-expo-typescript",
+    "build:examples:next": "turbo run build --filter=@tonightpass/kitchen-next-typescript",
+    "dev": "turbo run p:watch dev",
+    "dev:packages": "turbo run p:watch",
+    "dev:docs": "turbo run dev --filter=@tonightpass/kitchen-docs",
+    "dev:examples": "turbo run dev --filter=./examples/*",
+    "dev:examples:expo": "turbo run dev --filter=@tonightpass/kitchen-expo-typescript",
+    "dev:examples:next": "turbo run dev --filter=@tonightpass/kitchen-next-typescript",
+    "p:watch": "preconstruct watch",
+    "p:dev": "preconstruct dev",
+    "p:build": "preconstruct build",
+    "p:validate": "preconstruct validate",
+    "postinstall": "manypkg check && yarn p:dev",
+    "prepare": "husky install && yarn p:validate && yarn build:packages",
+    "version": "yarn changeset version",
+    "release": "yarn changeset publish",
+    "release:alpha": "yarn changeset publish --tag alpha",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "size": "size-limit",
-    "analyze": "size-limit --why",
+    "size:why": "size-limit --why",
     "format:staged": "pretty-quick --staged"
   },
   "dependencies": {
@@ -42,7 +56,8 @@
     "path-browserify": "^1.0.1",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
-    "size-limit": "^8.1.0"
+    "size-limit": "^8.1.0",
+    "turbo": "^1.6.3"
   },
   "preconstruct": {
     "packages": [

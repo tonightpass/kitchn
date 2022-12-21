@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "//#p:build": {
+      "outputs": ["dist/**"]
+    },
+    "//#p:dev": {
+      "cache": false
+    },
+    "//#p:watch": {
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["//#p:build", "^build"],
+      "outputs": [
+        "dist/**/*.d.ts",
+        "dist/**/*.mjs",
+        "dist/**/*.js",
+        "dist/**/*.css",
+        ".next/**",
+        "index.js",
+        "ssg.js",
+        "loader.js"
+      ]
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}

@@ -2,10 +2,10 @@
   "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [],
+  "fixed": [["@tonightpass/kitchen"]],
   "linked": [],
   "access": "public",
-  "baseBranch": "main",
+  "baseBranch": "develop",
   "updateInternalDependencies": "patch",
   "ignore": []
 }
