@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-interface Props {
+export type SpinnerProps = {
   color?: string;
   size?: number;
-}
+};
 
-const Spinner = styled(({ ...props }: Props) => {
+const Spinner = styled(({ ...props }: SpinnerProps) => {
   return (
     <div {...props}>
       <div className="bounce1"></div>

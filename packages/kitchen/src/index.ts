@@ -8,22 +8,50 @@ export { default as themes, createTheme } from "./themes";
 
 // ./components
 export { default as KitchenProvider } from "./components/Provider";
+export type { KitchenProviderProps } from "./components/Provider";
+
 export { default as Badge } from "./components/Badge";
+export type { BadgeProps } from "./components/Badge";
+
 export { default as Button } from "./components/Button";
+export type { ButtonProps } from "./components/Button";
+
 export { default as Checkbox } from "./components/Checkbox";
+export type { CheckboxProps } from "./components/Checkbox";
+
 export { default as Code } from "./components/Code";
+export type { CodeProps } from "./components/Code";
+
 export { default as Container } from "./components/Container";
+export type { ContainerProps } from "./components/Container";
+
 export { default as FragmentLink } from "./components/FragmentLink";
+export type { FragmentLinkProps } from "./components/FragmentLink";
+
 export { default as Note } from "./components/Note";
+export type { NoteProps } from "./components/Note";
+
 export { default as OrderedList } from "./components/OrderedList";
 export { default as UnorderedList } from "./components/UnorderedList";
+
 export { default as Link } from "./components/Link";
+export type { LinkProps } from "./components/Link";
+
 export { default as ListItem } from "./components/ListItem";
+
 export { default as Icon } from "./components/Icon";
+export type { IconProps } from "./components/Icon";
+
 export { default as InlineCode } from "./components/InlineCode";
+
 export { default as Skeleton } from "./components/Skeleton";
+export type { SkeletonProps } from "./components/Skeleton";
+
 export { default as Spinner } from "./components/Spinner";
+export type { SpinnerProps } from "./components/Spinner";
+
 export { default as Text } from "./components/Text";
+export type { TextProps } from "./components/Text";
 
 // ./hooks
 export { default as useCheckbox } from "./hooks/useCheckbox";
