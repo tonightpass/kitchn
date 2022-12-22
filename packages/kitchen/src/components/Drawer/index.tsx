@@ -91,7 +91,8 @@ const Drawer = styled(
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   position: fixed;
   z-index: 101;
   display: flex;
