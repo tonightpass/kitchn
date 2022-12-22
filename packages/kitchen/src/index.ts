@@ -25,6 +25,9 @@ export type { CodeProps } from "./components/Code";
 export { default as Container } from "./components/Container";
 export type { ContainerProps } from "./components/Container";
 
+export { default as Drawer } from "./components/Drawer";
+export type { DrawerProps } from "./components/Drawer";
+
 export { default as FragmentLink } from "./components/FragmentLink";
 export type { FragmentLinkProps } from "./components/FragmentLink";
 
@@ -56,11 +59,21 @@ export type { TextProps } from "./components/Text";
 // ./hooks
 export { default as useCheckbox } from "./hooks/useCheckbox";
 export type { UseCheckboxValue, UseCheckboxResult } from "./hooks/useCheckbox";
+
 export { default as useClipboard } from "./hooks/useClipboard";
 export type {
   UseClipboardOptions,
   UseClipboardResult,
 } from "./hooks/useClipboard";
+
+export { default as useKeyboard } from "./hooks/useKeyboard";
+export type {
+  UseKeyboard,
+  UseKeyboardHandler,
+  KeyboardOptions,
+  KeyboardResult,
+} from "./hooks/useKeyboard";
+
 export { default as useLocalStorage } from "./hooks/useLocalStorage";
 export type {
   UseLocalStorageOptions,
@@ -68,17 +81,24 @@ export type {
   UseLocalStorageSerializer,
   UseLocalStorageSetter,
 } from "./hooks/useLocalStorage";
+
 export { default as usePortal } from "./hooks/usePortal";
+
 export { default as useSSR } from "./hooks/useSSR";
 export type { SSRState } from "./hooks/useSSR";
+
 export { default as useTheme } from "./hooks/useTheme";
 export { default as useThemeDetector } from "./hooks/useThemeDetector";
 
 // ./utils
 export { default as capitalize } from "./utils/capitalize";
+export { KeyCode, KeyMod } from "./utils/codes";
 export { default as convertRGBToRGBA } from "./utils/convertRGBToRGBA";
 export { default as generateId } from "./utils/generateId";
+export { default as getActiveModMap } from "./utils/getActiveModMap";
+export { default as getCtrlKeysByPlatform } from "./utils/getCtrlKeysByPlatform";
 export { default as isBrowser } from "./utils/isBrowser";
+export { default as isMac } from "./utils/isMac";
 export { default as isNumber } from "./utils/isNumber";
 export { default as isString } from "./utils/isString";
 
