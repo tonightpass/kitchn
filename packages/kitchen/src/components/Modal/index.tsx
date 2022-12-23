@@ -91,8 +91,9 @@ const ModalComponent = styled(
       return (
         <Drawer
           show={active}
-          onDismiss={onClickOutside}
+          onDismiss={handleDismiss}
           onAnimationDone={onAnimationDone}
+          {...bindings}
         >
           {children}
         </Drawer>

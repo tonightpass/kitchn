@@ -30,14 +30,17 @@ const Drawer = styled(
       "entrance" | "exit" | null
     >(null);
 
-    const handleDismiss = React.useCallback(() => {
-      setAnimationState("exit");
-      if (onDismiss) onDismiss();
-      setTimeout(() => {
-        setAnimationState(null);
-        if (onAnimationDone) onAnimationDone();
-      }, 210);
-    }, [onDismiss, onAnimationDone]);
+    const handleDismiss = React.useCallback(
+      (isDismiss = true) => {
+        if (animationState) setAnimationState("exit");
+        if (isDismiss && onDismiss) onDismiss();
+        setTimeout(() => {
+          setAnimationState(null);
+          if (onAnimationDone) onAnimationDone();
+        }, 210);
+      },
+      [animationState, onDismiss, onAnimationDone]
+    );
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
@@ -67,8 +70,9 @@ const Drawer = styled(
         }, 100);
       } else {
         document.body.style.overflow = "unset";
+        handleDismiss(false);
       }
-    }, [show]);
+    }, [handleDismiss, show]);
 
     if (!portal) return null;
     return createPortal(
