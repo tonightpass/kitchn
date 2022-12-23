@@ -13,7 +13,7 @@
     "build:examples": "turbo run build --filter=./examples/*",
     "build:examples:expo": "turbo run build --filter=@tonightpass/kitchen-expo-typescript",
     "build:examples:next": "turbo run build --filter=@tonightpass/kitchen-next-typescript",
-    "dev": "turbo run p:watch dev",
+    "dev": "turbo run p:watch dev --parallel --no-cache",
     "dev:packages": "turbo run p:watch",
     "dev:docs": "turbo run dev --filter=@tonightpass/kitchen-docs",
     "dev:examples": "turbo run dev --filter=./examples/*",
