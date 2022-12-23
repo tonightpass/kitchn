@@ -42,6 +42,9 @@ export type { LinkProps } from "./components/Link";
 
 export { default as ListItem } from "./components/ListItem";
 
+export { default as Modal } from "./components/Modal";
+export type { ModalProps, ModalActionProps } from "./components/Modal";
+
 export { default as Icon } from "./components/Icon";
 export type { IconProps } from "./components/Icon";
 
@@ -57,6 +60,9 @@ export { default as Text } from "./components/Text";
 export type { TextProps } from "./components/Text";
 
 // ./hooks
+export { default as useBreakpoint } from "./hooks/useBreakpoint";
+export type { UseBreakpointResult } from "./hooks/useBreakpoint";
+
 export { default as useCheckbox } from "./hooks/useCheckbox";
 export type { UseCheckboxValue, UseCheckboxResult } from "./hooks/useCheckbox";
 
@@ -81,6 +87,11 @@ export type {
   UseLocalStorageSerializer,
   UseLocalStorageSetter,
 } from "./hooks/useLocalStorage";
+
+export { default as useMediaQuery } from "./hooks/useMediaQuery";
+
+export { default as useModal } from "./hooks/useModal";
+export type { UseModalResult } from "./hooks/useModal";
 
 export { default as usePortal } from "./hooks/usePortal";
 
