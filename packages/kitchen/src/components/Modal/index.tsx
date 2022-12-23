@@ -10,6 +10,7 @@ import Drawer from "../Drawer";
 
 export type ModalProps = KitchenComponent & {
   active: boolean;
+  onAnimationDone?: () => void;
   onClickOutside?: () => void;
   onEnterKeyPress?: () => void;
   children?: React.ReactNode;
@@ -21,21 +22,40 @@ const ModalComponent = styled(
     children,
     onClickOutside,
     onEnterKeyPress,
+    onAnimationDone,
     ...props
   }: ModalProps) => {
     const portal = usePortal("modal");
     const containerRef = React.useRef<HTMLDivElement>(null);
     const { isMobile } = useBreakpoint();
 
-    const handleWrapperClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const [animationState, setAnimationState] = React.useState<
+      "entrance" | "exit" | null
+    >(null);
+
+    const handleDismiss = React.useCallback(
+      (isClickOutside = true) => {
+        if (animationState) setAnimationState("exit");
+        if (isClickOutside && onClickOutside) onClickOutside();
+        setTimeout(() => {
+          setAnimationState(null);
+          if (onAnimationDone) onAnimationDone();
+        }, 210);
+      },
+      [animationState, onClickOutside, onAnimationDone]
+    );
+
+    const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
-        onClickOutside && onClickOutside();
+        handleDismiss();
       }
     };
 
     React.useEffect(() => {
+      if (isMobile) setAnimationState(null);
       if (active) {
         document.body.style.overflow = "hidden";
+        setAnimationState("entrance");
 
         setTimeout(() => {
           if (containerRef.current) {
@@ -44,8 +64,9 @@ const ModalComponent = styled(
         }, 100);
       } else {
         document.body.style.overflow = "unset";
+        handleDismiss(false);
       }
-    }, [active]);
+    }, [active, animationState, handleDismiss, isMobile, onAnimationDone]);
 
     const { bindings } = useKeyboard(
       (e) => {
@@ -66,24 +87,28 @@ const ModalComponent = styled(
 
     if (!portal) return null;
 
-    if (isMobile && active) {
+    if (isMobile) {
       return (
-        <Drawer show={active} onDismiss={onClickOutside}>
+        <Drawer
+          show={active}
+          onDismiss={onClickOutside}
+          onAnimationDone={onAnimationDone}
+        >
           {children}
         </Drawer>
       );
     }
 
     return createPortal(
-      active ? (
+      (active && animationState) || animationState ? (
         <div
-          onClick={handleWrapperClick}
+          onClick={handleContainerClick}
           ref={containerRef}
           tabIndex={-1}
           {...bindings}
           {...props}
         >
-          <ModalContent>
+          <ModalContent animationState={animationState}>
             <ModalOverflow>{children}</ModalOverflow>
           </ModalContent>
         </div>
@@ -105,7 +130,9 @@ const ModalComponent = styled(
   background-color: rgba(0, 0, 0, 0.6);
 `;
 
-const ModalContent = styled.div`
+const ModalContent = styled.div<{
+  animationState: "entrance" | "exit";
+}>`
   width: 420px;
   max-height: 80vh;
   max-width: 100%;
@@ -117,9 +144,10 @@ const ModalContent = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   overflow: hidden;
   overflow-y: auto;
-  animation-duration: 1s;
+  animation-duration: 0.2s;
   animation-fill-mode: both;
-  animation-name: fadeInDown;
+  animation-name: ${({ animationState }) =>
+    animationState === "entrance" ? "fadeInDown" : "fadeOutUp"};
 
   @keyframes fadeInDown {
     from {
@@ -130,6 +158,17 @@ const ModalContent = styled.div`
     to {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeOutUp {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+      transform: translate3d(0, -70%, 0);
     }
   }
 `;
