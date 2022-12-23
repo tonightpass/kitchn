@@ -3,9 +3,10 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
+import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 
-export type DrawerProps = {
+export type DrawerProps = KitchenComponent & {
   show: boolean;
   onDismiss?: () => void;
   onAnimationDone?: () => void;
@@ -38,7 +39,7 @@ const Drawer = styled(
       }, 210);
     }, [onDismiss, onAnimationDone]);
 
-    const handleWrapperClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
         handleDismiss();
       }
@@ -73,7 +74,7 @@ const Drawer = styled(
     return createPortal(
       (show && animationState) || animationState ? (
         <div
-          onClick={handleWrapperClick}
+          onClick={handleContainerClick}
           tabIndex={-1}
           ref={containerRef}
           {...bindings}
