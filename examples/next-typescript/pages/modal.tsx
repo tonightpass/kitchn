@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Container, Modal, Text, useModal } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 
-const DrawerPage: NextPage = () => {
+const ModalPage: NextPage = () => {
   const [active1, open1, close1] = useModal();
   const [active2, open2, close2] = useModal();
   const [active3, open3, close3] = useModal();
@@ -11,7 +11,7 @@ const DrawerPage: NextPage = () => {
   const submit = React.useCallback(() => {
     alert("You submitted the modal!");
     close3();
-  }, []);
+  }, [close3]);
 
   return (
     <Container
@@ -130,4 +130,4 @@ const DrawerPage: NextPage = () => {
   );
 };
 
-export default DrawerPage;
+export default ModalPage;
