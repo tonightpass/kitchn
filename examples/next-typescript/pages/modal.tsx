@@ -97,7 +97,7 @@ const DrawerPage: NextPage = () => {
       <Container>
         <Text>inset</Text>
         <Button size={"medium"} onClick={open4}>
-          Open Modal (with callback)
+          Open Modal (with inset)
         </Button>
         <Modal.Modal active={active4} onClickOutside={close4}>
           <Modal.Body>
