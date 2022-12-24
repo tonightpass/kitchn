@@ -11,6 +11,13 @@ export interface ToastAction {
   ) => void;
   passive?: boolean;
 }
+
+export type ToastPlacement =
+  | "topLeft"
+  | "topRight"
+  | "bottomLeft"
+  | "bottomRight";
+
 export type ToastTypes = keyof AccentColors;
 
 export type ToastLayout = {
@@ -19,7 +26,7 @@ export type ToastLayout = {
   width?: React.CSSProperties["width"];
   maxWidth?: React.CSSProperties["maxWidth"];
   maxHeight?: React.CSSProperties["maxHeight"];
-  placement?: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
+  placement?: ToastPlacement;
 };
 export interface ToastInput {
   text: string | React.ReactNode;
@@ -64,6 +71,7 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
           }
         : defaultToastLayout
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const cancel = (internalId: string) => {
@@ -99,8 +107,8 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
     if (toast.id) {
       const hasIdent = toasts.find((t) => t.id === toast.id);
       if (hasIdent) {
-        // eslint-disable-next-line prettier/prettier
-        throw new Error('Toast: Already have the same key: "ident"');
+        // eslint-disable-next-line quotes
+        throw new Error(`Toast: Already have the same key: "ident"`);
       }
     }
 
