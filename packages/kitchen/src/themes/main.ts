@@ -31,6 +31,14 @@ const main: MainTheme = {
     tablet: "1024px",
     mobile: "768px",
   },
+  gap: {
+    tiny: "5px",
+    small: "10px",
+    normal: "15px",
+    medium: "20px",
+    large: "30px",
+    extraLarge: "60px",
+  },
 };
 
 export default main;
