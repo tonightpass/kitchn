@@ -59,6 +59,11 @@ export type { SpinnerProps } from "./components/Spinner";
 export { default as Text } from "./components/Text";
 export type { TextProps } from "./components/Text";
 
+export { default as ToastItem } from "./components/Toast/Item";
+export type { ToastItemProps } from "./components/Toast/Item";
+
+export { default as ToastContainer } from "./components/Toast/Container";
+
 // ./contexts
 export { ToastsContent, useToastsContext } from "./contexts/Toasts";
 export type {
