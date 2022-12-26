@@ -15,9 +15,9 @@ export type ErrorProps = KitchenComponent & {
 
   /**
    * The size of the error.
-   * @default "normal"
+   * @default "medium"
    */
-  size?: "small" | "normal" | "large";
+  size?: "medium" | "large" | "title";
 
   error?: { message: string; action?: string; link?: string };
 };
@@ -61,13 +61,14 @@ const Error = styled(
   font-weight: ${({ theme }) => theme.weight.medium};
   font-size: ${(props) => {
     switch (props.size) {
-      case "small":
-        return props.theme.size.small;
-      case "large":
+      case "medium":
         return props.theme.size.medium;
-      case "normal":
+      case "large":
+        return props.theme.size.large;
+      case "title":
+        return props.theme.size.title;
       default:
-        return props.theme.size.normal;
+        return props.theme.size.medium;
     }
   }};
 `;
@@ -78,6 +79,7 @@ const IconContainer = styled.div`
 
 const TextContainer = styled.div`
   box-sizing: border-box;
+  margin-left: 8px;
 `;
 
 const Label = styled.span`

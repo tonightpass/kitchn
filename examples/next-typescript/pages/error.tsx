@@ -10,59 +10,56 @@ const ErrorPage: NextPage = () => {
         style={{
           maxWidth: 700,
           margin: "0 auto",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
         }}
       >
         <p>default</p>
 
-        <Container row align={"center"}>
+        <Container row>
           <Error>This email address is already in use.</Error>
         </Container>
 
         <p>custom label</p>
-        <Container row align={"center"}>
+        <Container row>
           <Error label="Email Error">
             This email address is already in use.
           </Error>
         </Container>
 
         <p>no label</p>
-        <Container row align={"center"}>
+        <Container row>
           <Error label={false}>This email address is already in use. </Error>
         </Container>
 
         <p>sizes</p>
-        <Container align={"center"} gap={10}>
-          <Container row align={"center"}>
-            <Error size="small">This email is in use.</Error>
-          </Container>
-          <Container row align={"center"}>
+        <Container gap={10}>
+          <Container row>
             <Error>This email is in use.</Error>
           </Container>
-          <Container row align={"center"}>
+          <Container row>
             <Error size="large">This email is in use.</Error>
+          </Container>
+          <Container row>
+            <Error size="title">This email is in use.</Error>
           </Container>
         </Container>
 
         <p>multiline</p>
-        <Container row align={"center"}>
-          <Error size="small">
-            A valid email address is required so that we can verify your GitHub
-            installation. In the event that you cannot provide a valid email
-            address, please contact support.
-          </Error>
-        </Container>
-        <Container row align={"center"}>
+        <Container row>
           <Error>
             A valid email address is required so that we can verify your GitHub
             installation. In the event that you cannot provide a valid email
             address, please contact support.
           </Error>
         </Container>
-        <Container row align={"center"}>
+        <Container row>
           <Error size="large">
+            A valid email address is required so that we can verify your GitHub
+            installation. In the event that you cannot provide a valid email
+            address, please contact support.
+          </Error>
+        </Container>
+        <Container row>
+          <Error size="title">
             A valid email address is required so that we can verify your GitHub
             installation. In the event that you cannot provide a valid email
             address, please contact support.
@@ -70,7 +67,7 @@ const ErrorPage: NextPage = () => {
         </Container>
 
         <p>with an `error` property</p>
-        <Container row align={"center"}>
+        <Container row>
           <Error
             error={{
               message: "The request failed.",
