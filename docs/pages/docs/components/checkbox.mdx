@@ -1,0 +1,196 @@
+---
+title: "Checkbox"
+description: "Checkboxes allow the user to select one or more items from a set."
+---
+
+import Playground from "@components/Playground";
+
+# Checkbox
+
+Checkboxes allow the user to select one or more items from a set.
+
+## Default
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label="Label" checked={checked} onChange={toggle}>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Checked as default
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox(true);
+
+  return (
+    <Container>
+      <Checkbox label={"Label"} checked={checked} onChange={toggle}>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Label
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox checked={checked} onChange={toggle}>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Label"} checked={checked} onChange={toggle}>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Disabled
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Disabled"} checked={checked} onChange={toggle} disabled>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox(true);
+
+  return (
+    <Container>
+      <Checkbox label={"Default checked"} checked={checked} onChange={toggle} disabled>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Indeterminate"} checked={checked} onChange={toggle} disabled indeterminate>
+        Option
+
+        <Checkbox label="Label" checked={checked} onChange={toggle}>
+          Option
+        </Checkbox>
+
+        <Checkbox label="Label" checked={checked} onChange={toggle}>
+          Option
+        </Checkbox>
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Indeterminate
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Indeterminate"} checked={checked} onChange={toggle} indeterminate>
+        Option
+
+        <Checkbox label="Label" checked={checked} onChange={toggle}>
+          Option
+        </Checkbox>
+
+        <Checkbox label="Label" checked={checked} onChange={toggle}>
+          Option
+        </Checkbox>
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Overflowing text
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Overflowing text"} checked={checked} onChange={toggle}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Full width
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Full width"} checked={checked} onChange={toggle} fullWidth>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
+
+## Text styles
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Container>
+      <Checkbox label={"Text styles"} checked={checked} onChange={toggle} style={{ fontSize: 30 }}>
+        Option
+      </Checkbox>
+    </Container>
+  );
+}`}
+/>
