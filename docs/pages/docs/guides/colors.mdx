@@ -1,0 +1,47 @@
+---
+title: "Colors"
+description: "Kitchen comes with a few different colors to choose from."
+---
+
+import { Callout, Tab, Tabs } from "nextra-theme-docs";
+import Playground from "@components/Playground";
+
+# Colors
+Kitchen comes with a few different colors to choose from.
+
+## Available Colors
+
+Colors vary depending on the theme you are using. You can find the default implemented themes in the [theme documentation](/docs/guides/theme-builder).
+
+<Playground
+  code={`
+<Container>
+  <Text color={"lightest"}>lightest</Text>
+  <Text color={"lighter"}>lighter</Text>
+  <Text color={"light"}>light</Text>
+  <Text color={"dark"}>dark</Text>
+  <Text color={"darker"}>darker</Text>
+  <Text color={"darkest"}>darkest</Text>
+</Container>
+`}
+/>
+
+### Accents
+
+Kitchen also comes with a few accent colors to choose from.
+Accents aren't colors that vary, they are used to highlight certain elements.
+
+<Playground
+  code={`
+<Container>
+  <Text accent={"primary"}>primary</Text>
+  <Text accent={"secondary"}>secondary</Text>
+  <Text accent={"success"}>success</Text>
+  <Text accent={"warning"}>warning</Text>
+  <Text accent={"danger"}>danger</Text>
+  <Text accent={"info"}>info</Text>
+  <Text accent={"light"}>light</Text>
+  <Text accent={"dark"}>dark</Text>
+</Container>
+`}
+/>
