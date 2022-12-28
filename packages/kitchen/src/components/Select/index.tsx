@@ -1,4 +1,5 @@
 import React from "react";
+import { IconType } from "react-icons/lib";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import Icon from "../Icon";
@@ -20,11 +21,11 @@ export type SelectProps = KitchenComponent & {
   /**
    * The prefix of the select.
    */
-  prefix?: SVGElement;
+  prefix?: IconType;
   /**
    * The suffix of the select.
    */
-  suffix?: SVGElement;
+  suffix?: IconType;
   disabled?: boolean;
 };
 
