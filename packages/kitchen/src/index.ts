@@ -56,6 +56,9 @@ export type { SkeletonProps } from "./components/Skeleton";
 export { default as Spinner } from "./components/Spinner";
 export type { SpinnerProps } from "./components/Spinner";
 
+export { default as Tabs } from "./components/Tabs";
+export type { TabsProps } from "./components/Tabs";
+
 export { default as Text } from "./components/Text";
 export type { TextProps } from "./components/Text";
 
