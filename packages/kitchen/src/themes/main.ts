@@ -39,6 +39,10 @@ const main: MainTheme = {
     large: "30px",
     extraLarge: "60px",
   },
+  radius: {
+    square: "8px",
+    round: "99999px",
+  },
 };
 
 export default main;

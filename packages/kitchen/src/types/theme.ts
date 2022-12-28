@@ -12,6 +12,7 @@ export type MainTheme = {
   gap: Gap;
   size: Size;
   weight: Weight;
+  radius: Radius;
 };
 
 export type Colors = {
@@ -118,4 +119,12 @@ export type Gap = {
   normal: string;
   small: string;
   tiny: string;
+};
+
+/**
+ * Radius is used for border radius.
+ */
+export type Radius = {
+  square: string;
+  round: string;
 };
