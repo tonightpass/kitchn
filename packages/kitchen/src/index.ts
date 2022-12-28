@@ -59,6 +59,9 @@ export type { SpinnerProps } from "./components/Spinner";
 export { default as Text } from "./components/Text";
 export type { TextProps } from "./components/Text";
 
+export { default as ToastActions } from "./components/Toast/Actions";
+export type { ToastActionsProps } from "./components/Toast/Actions";
+
 export { default as ToastItem } from "./components/Toast/Item";
 export type { ToastItemProps } from "./components/Toast/Item";
 
