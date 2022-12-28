@@ -1,0 +1,76 @@
+import { Container, Select } from "@tonightpass/kitchen";
+import { NextPage } from "next";
+import React from "react";
+import { BsArrowUpCircle } from "react-icons/bs";
+
+const SelectPage: NextPage = () => {
+  return (
+    <>
+      <Container
+        gap={10}
+        style={{
+          maxWidth: 700,
+          margin: "0 auto",
+        }}
+      >
+        <p>sizes</p>
+        <Container gap={10} row style={{ alignItems: "center" }}>
+          <Container row>
+            <Select size="small" placeholder="Small" />
+          </Container>
+          <Container row>
+            <Select size="normal" placeholder="Default" />
+          </Container>
+          <Container row>
+            <Select size="large" placeholder="Large" />
+          </Container>
+        </Container>
+
+        <p>sizes, prefix and suffix</p>
+        <Container gap={10} row style={{ alignItems: "center" }}>
+          <Container row>
+            <Select
+              size="small"
+              placeholder="Small"
+              prefix={BsArrowUpCircle}
+              suffix={BsArrowUpCircle}
+            ></Select>
+          </Container>
+          <Container row>
+            <Select
+              size="normal"
+              placeholder="Default"
+              prefix={BsArrowUpCircle}
+              suffix={BsArrowUpCircle}
+            />
+          </Container>
+          <Container row>
+            <Select
+              size="large"
+              placeholder="Large"
+              prefix={BsArrowUpCircle}
+              suffix={BsArrowUpCircle}
+            />
+          </Container>
+        </Container>
+
+        <p>disabled</p>
+        <Container row>
+          <Select placeholder="Disabled with placeholder" disabled />
+        </Container>
+
+        <p>prefix and suffix disabled</p>
+        <Container row>
+          <Select placeholder="Default" prefix={BsArrowUpCircle} disabled />
+        </Container>
+
+        <p>other</p>
+        <Container row>
+          <Select placeholder="With label" label="My label" />
+        </Container>
+      </Container>
+    </>
+  );
+};
+
+export default SelectPage;

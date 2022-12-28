@@ -50,6 +50,9 @@ export type { IconProps } from "./components/Icon";
 
 export { default as InlineCode } from "./components/InlineCode";
 
+export { default as Select } from "./components/Select";
+export type { SelectProps } from "./components/Select";
+
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
 
