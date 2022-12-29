@@ -87,8 +87,6 @@ const ToastContainer = styled((props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toasts]);
 
-  console.log("toasts", toasts);
-
   if (!portal) return null;
   if (!toasts || toasts.length === 0) return null;
   return createPortal(
