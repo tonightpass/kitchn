@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
+import { Gap } from "../../types/theme";
 
 export type ContainerProps = KitchenComponent & {
   row?: boolean;
   flex?: number;
   direction?: ("row" | "column")[];
-  gap?: number;
+  gap?: keyof Gap | number;
   align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
   justify?:
     | "center"
@@ -28,7 +29,9 @@ const Container = styled(({ children, ...rest }: ContainerProps) => {
   flex: ${(props) => props.flex || 1};
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
-  ${(props) => props.gap && `gap: ${props.gap}px;`}
+  ${(props) =>
+    props.gap &&
+    `gap: ${props.theme.gap[props.gap as keyof Gap] || `${props.gap}px`};`}
 
   @media (max-width: ${(props) => props.theme.breakpoint.laptop}) {
     ${(props) =>
