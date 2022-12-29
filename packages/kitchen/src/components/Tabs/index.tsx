@@ -87,7 +87,7 @@ const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   display: flex;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
-  color: ${({ theme }) => theme.colors.accent.light};
+  color: ${({ theme }) => theme.colors.text.lightest};
   margin: 0 0 -1px;
   padding: 6px 2px;
 `;
