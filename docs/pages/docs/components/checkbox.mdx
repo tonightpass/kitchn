@@ -24,109 +24,35 @@ code={`() => {
   const [checked, toggle] = useCheckbox();
 
   return (
-    <Container>
-      <Checkbox label="Label" checked={checked} onChange={toggle}>
-        Option
-      </Checkbox>
-    </Container>
+    <Checkbox checked={checked} onChange={toggle}>
+      Option
+    </Checkbox>
   );
 }`}
 />
 
-## Checked as default
+## Checked by default
 
 <Playground
 code={`() => {
   const [checked, toggle] = useCheckbox(true);
 
   return (
-    <Container>
-      <Checkbox label={"Label"} checked={checked} onChange={toggle}>
-        Option
-      </Checkbox>
-    </Container>
+    <Checkbox checked={checked} onChange={toggle}>
+      Option
+    </Checkbox>
   );
 }`}
 />
 
-## Label
+## No Label
 
 <Playground
 code={`() => {
   const [checked, toggle] = useCheckbox();
 
   return (
-    <Container>
-      <Checkbox checked={checked} onChange={toggle}>
-        Option
-      </Checkbox>
-    </Container>
-  );
-}`}
-/>
-
-<Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
-
-  return (
-    <Container>
-      <Checkbox label={"Label"} checked={checked} onChange={toggle}>
-        Option
-      </Checkbox>
-    </Container>
-  );
-}`}
-/>
-
-## Disabled
-
-<Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
-
-  return (
-    <Container>
-      <Checkbox label={"Disabled"} checked={checked} onChange={toggle} disabled>
-        Option
-      </Checkbox>
-    </Container>
-  );
-}`}
-/>
-
-<Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox(true);
-
-  return (
-    <Container>
-      <Checkbox label={"Default checked"} checked={checked} onChange={toggle} disabled>
-        Option
-      </Checkbox>
-    </Container>
-  );
-}`}
-/>
-
-<Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
-
-  return (
-    <Container>
-      <Checkbox label={"Indeterminate"} checked={checked} onChange={toggle} disabled indeterminate>
-        Option
-
-        <Checkbox label="Label" checked={checked} onChange={toggle}>
-          Option
-        </Checkbox>
-
-        <Checkbox label="Label" checked={checked} onChange={toggle}>
-          Option
-        </Checkbox>
-      </Checkbox>
-    </Container>
+    <Checkbox checked={checked} onChange={toggle} />
   );
 }`}
 />
@@ -134,71 +60,50 @@ code={`() => {
 ## Indeterminate
 
 <Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
+code={`<Checkbox indeterminate>Option 1</Checkbox>`}
+/>
 
-  return (
-    <Container>
-      <Checkbox label={"Indeterminate"} checked={checked} onChange={toggle} indeterminate>
-        Option
 
-        <Checkbox label="Label" checked={checked} onChange={toggle}>
-          Option
-        </Checkbox>
+## Disabled
 
-        <Checkbox label="Label" checked={checked} onChange={toggle}>
-          Option
-        </Checkbox>
-      </Checkbox>
-    </Container>
-  );
-}`}
+<Playground
+code={`<Container gap={10}>
+  <Checkbox disabled>Disabled</Checkbox>
+  <Checkbox disabled checked>Disabled Checked</Checkbox>
+  <Checkbox disabled indeterminate>Disabled Indeterminate</Checkbox>
+</Container>`}
 />
 
 ## Overflowing text
 
 <Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
+code={`<Checkbox>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</Checkbox>`}
+/>
 
-  return (
-    <Container>
-      <Checkbox label={"Overflowing text"} checked={checked} onChange={toggle}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-      </Checkbox>
-    </Container>
-  );
+## Text styles
+
+<Playground
+code={`<Checkbox style={{ fontSize: 18 }}>
+  Arbitrary text styles.
+</Checkbox>`}
+/>
+
+## Label
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox()
+  return <Checkbox label="Checkbox" checked={checked} onChange={toggle}>Click me</Checkbox>
 }`}
 />
 
 ## Full width
 
 <Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
-
-  return (
-    <Container>
-      <Checkbox label={"Full width"} checked={checked} onChange={toggle} fullWidth>
-        Option
-      </Checkbox>
-    </Container>
-  );
-}`}
+code={`<Checkbox fullWidth>
+  Areas to the right of this text will be clickable.
+</Checkbox>`}
 />
 
-## Text styles
-
-<Playground
-code={`() => {
-  const [checked, toggle] = useCheckbox();
-
-  return (
-    <Container>
-      <Checkbox label={"Text styles"} checked={checked} onChange={toggle} style={{ fontSize: 30 }}>
-        Option
-      </Checkbox>
-    </Container>
-  );
-}`}
-/>
