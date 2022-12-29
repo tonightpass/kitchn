@@ -3,11 +3,11 @@ import { Toast, ToastLayout } from "../hooks/useToasts";
 
 export type UpdateToastsFunction = (
   fn: (toasts: Array<Toast>) => Array<Toast>
-) => any;
+) => void;
 export type UpdateToastsLayoutFunction = (
   fn: (layout: Required<ToastLayout>) => Required<ToastLayout>
-) => any;
-export type UpdateToastsIDFunction = (fn: () => string | null) => any;
+) => void;
+export type UpdateToastsIDFunction = (fn: () => string | null) => void;
 
 export interface ToastsContextParams {
   toasts: Array<Toast>;
