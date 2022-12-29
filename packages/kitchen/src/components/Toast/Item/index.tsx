@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Toast, ToastAction, ToastLayout } from "../../../hooks/useToasts";
+import { Toast, ToastLayout } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
 import getTranslateByPlacement from "../../../utils/getTranslateByPlacement";
-import Button from "../../Button";
 import Container from "../../Container";
 import Text from "../../Text";
 import ToastActions from "../Actions";
