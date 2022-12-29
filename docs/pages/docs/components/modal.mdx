@@ -1,6 +1,6 @@
 ---
 title: "Modal"
-description: "Modals that can be displayed when a user clicks on a button."
+description: "Display popup content that requires attention or provides additional information."
 ---
 
 import { Callout } from "nextra-theme-docs";
@@ -9,7 +9,7 @@ import React from "react";
 
 # Modal
 
-Modals that can be displayed when a user clicks on a button.
+Display popup content that requires attention or provides additional information.
 
 ## Usage
 
@@ -19,18 +19,9 @@ First of all, you need to import the `Modal` component from the `@tonightpass/ki
 import { Modal } from "@tonightpass/kitchen"
 ```
 
-## Props
-
-| Name | Type | Default | Required | Description | Accepted values |
-| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
-| `active` | `boolean` | `false` | ✅ | Whether the modal is active or not. | - |
-| `onAnimationDone` | `function` | - | - | Callback function that is called when the animation is done. | `() => void` |
-| `onClickOutside` | `function` | - | - | Callback function that is called when the user clicks outside the modal. | `() => void` |
-| `onEnterKeyPress` | `function` | - | - | Callback function that is called when the user presses the `Enter` key. | `() => void` |
-| `children` | `ReactNode` | - | ✅ | The content of the modal. | - |
-
-<Callout type={"warning"}>
-  This component contains set of components that can be used to create a modal (e.g. **Modal.Header**, **Modal.Body**, **Modal.Action**).
+<Callout>
+  This component renders content inside of a [Drawer](/docs/components/drawer) at small viewports.
+  It contains a set of components that can be used to create a modal (e.g. `Modal.Header`, `Modal.Body`, `Modal.Action`).
 </Callout>
 
 ## Default
@@ -141,7 +132,7 @@ import { Modal } from "@tonightpass/kitchen"
 }`}
 />
 
-## Content outside inset
+## Inset
 
 <Playground
   code={`() => {
@@ -182,3 +173,13 @@ import { Modal } from "@tonightpass/kitchen"
     );
 }`}
 />
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `active` | `boolean` | `false` | ✅ | Whether the modal is active or not. | - |
+| `onAnimationDone` | `function` | - | - | Callback function that is called when the animation is done. | `() => void` |
+| `onClickOutside` | `function` | - | - | Callback function that is called when the user clicks outside the modal. | `() => void` |
+| `onEnterKeyPress` | `function` | - | - | Callback function that is called when the user presses the `Enter` key. | `() => void` |
+| `children` | `ReactNode` | - | ✅ | The content of the modal. | - |
