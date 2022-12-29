@@ -1,7 +1,7 @@
 import { Container, Tabs } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
-// import { BsArrowUpCircle } from "react-icons/bs";
+import { RiAppleFill, RiAndroidFill, RiWindowsFill } from "react-icons/ri";
 
 const TabsPage: NextPage = () => {
   const [selected, setSelected] = React.useState("apple");
@@ -39,6 +39,7 @@ const TabsPage: NextPage = () => {
             ]}
             selected={selected}
             setSelected={setSelected}
+            disabled
           />
         </Container>
 
@@ -46,22 +47,9 @@ const TabsPage: NextPage = () => {
         <Container row>
           <Tabs
             tabs={[
-              { title: "Apple", value: "apple" },
-              { title: "Orange", value: "orange" },
-              { title: "Mango", value: "mango" },
-            ]}
-            selected={selected}
-            setSelected={setSelected}
-          />
-        </Container>
-
-        <p>other</p>
-        <Container row>
-          <Tabs
-            tabs={[
-              { title: "Apple", value: "apple" },
-              { title: "Orange", value: "orange" },
-              { title: "Mango", value: "mango" },
+              { title: "Apple", value: "apple", icon: RiAppleFill },
+              { title: "Orange", value: "orange", icon: RiAndroidFill },
+              { title: "Mango", value: "mango", icon: RiWindowsFill },
             ]}
             selected={selected}
             setSelected={setSelected}
