@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ToastAction } from "../../../hooks/useToasts";
+import capitalize from "../../../utils/capitalize";
 import Button from "../../Button";
 import Container from "../../Container";
 
@@ -19,17 +20,21 @@ const ToastActions = styled(
     };
 
     return (
-      <Container row {...props}>
-        {actions.map((action, i) => (
-          <Button
-            key={i}
-            onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-              handler(event, action.handler)
-            }
-          >
-            {action.name}
-          </Button>
-        ))}
+      <Container justify={"center"} align={"flex-end"} {...props}>
+        <Container gap={"tiny"}>
+          {actions.map((action, i) => (
+            <Button
+              key={i}
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                handler(event, action.handler)
+              }
+              size={"small"}
+              type={action.passive ? "dark" : "light"}
+            >
+              {capitalize(action.name)}
+            </Button>
+          ))}
+        </Container>
       </Container>
     );
   }

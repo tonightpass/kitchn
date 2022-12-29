@@ -4,6 +4,7 @@ import {
   Button,
   Container,
   Text,
+  ToastAction,
   useToasts,
 } from "@tonightpass/kitchen";
 import { NextPage } from "next";
@@ -11,16 +12,20 @@ import { NextPage } from "next";
 const ToastPage: NextPage = () => {
   const { setToast } = useToasts();
 
-  const actions = [
-    {
-      name: "alert",
-      handler: () => alert("alert from toast"),
-    },
-  ];
+  const alertAction = {
+    name: "alert",
+    handler: () => alert("alert from toast"),
+  };
+
+  const cancelAction: ToastAction = {
+    name: "cancel",
+    passive: true,
+    handler: (_, cancel) => cancel(),
+  };
 
   return (
     <Container
-      gap={15}
+      gap={"normal"}
       style={{
         maxWidth: "700px",
         margin: "0 auto",
@@ -32,6 +37,7 @@ const ToastPage: NextPage = () => {
           onClick={() => {
             setToast({
               text: "The Evil Rabbit jumped over the fence.",
+              delay: 3000,
             });
           }}
         >
@@ -72,11 +78,62 @@ const ToastPage: NextPage = () => {
           onClick={() => {
             setToast({
               text: "The Evil Rabbit jumped over the fence.",
-              actions,
+              actions: [alertAction],
             });
           }}
         >
           Show Toast
+        </Button>
+      </Container>
+
+      <Container>
+        <Text>cancel</Text>
+        <Button
+          onClick={() => {
+            setToast({
+              text: "The Evil Rabbit",
+              actions: [alertAction, cancelAction],
+            });
+          }}
+        >
+          Show Toast
+        </Button>
+      </Container>
+
+      <Container align={"flex-start"}>
+        <Text>types</Text>
+        <Button
+          onClick={() => {
+            setToast({
+              text: "The Evil Rabbit",
+              type: "success",
+            });
+          }}
+          type={"success"}
+        >
+          Show Success
+        </Button>
+        <Button
+          onClick={() => {
+            setToast({
+              text: "The Evil Rabbit",
+              type: "warning",
+            });
+          }}
+          type={"warning"}
+        >
+          Show Warning
+        </Button>
+        <Button
+          onClick={() => {
+            setToast({
+              text: "The Evil Rabbit",
+              type: "danger",
+            });
+          }}
+          type={"danger"}
+        >
+          Show Danger
         </Button>
       </Container>
     </Container>
