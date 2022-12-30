@@ -1,0 +1,78 @@
+---
+title: "Getting started"
+description: "Getting started with Kitchen, installation, frameworks, learn and contribute."
+---
+
+import { Callout, Tab, Tabs } from "nextra-theme-docs";
+
+Kitchen is a [styled-components](https://styled-components.com) suite of components that are designed to work together to create a beautiful and consistent UI. Inspired by [Geist](https://geist-ui.dev/) and [Vercel Design](https://vercel.com/design) with a focus on simplicity and ease of use. This library is maintained by [Tonight Pass](https://tonightpass.com).
+
+<Callout>
+  This package is still in active development and is not yet ready for
+  production use.
+</Callout>
+
+## Installation
+
+<Tabs items={["npm", "yarn"]}>
+  <Tab>
+    Kitchen is available as an [npm package](https://www.npmjs.com/package/@tonightpass/kitchen).
+
+    ```bash
+    npm i @tonightpass/kitchen --save
+    ```
+
+  </Tab>
+  <Tab>
+    Kitchen is available as a [yarn package](https://yarnpkg.com/package/@tonightpass/kitchen).
+
+    ```bash
+    yarn add @tonightpass/kitchen
+    ```
+
+  </Tab>
+</Tabs>
+
+After installing Kitchen, you need to set up the `KitchenProvider` at the root of your application.
+
+```jsx
+import { KitchenProvider } from "@tonightpass/kitchen";
+
+function App({ Component, pageProps }) {
+  return (
+    <KitchenProvider>
+      <Component {...pageProps} />
+    </KitchenProvider>
+  );
+}
+
+export default App;
+```
+
+## Framework Guide
+
+Kitchen is designed to work with any framework. However, we have created a few guides to help you get started with Kitchen and your favorite framework.
+
+- [Create React App](/docs/frameworks/create-react-app) _(coming soon)_
+- [React Native](/docs/frameworks/react-native)
+- [Next.js](/docs/frameworks/nextjs)
+- [Gatsby](/docs/frameworks/gatsby) _(coming soon)_
+- [Blitz.js](/docs/frameworks/blitzjs) _(coming soon)_
+- [Redwood.js](/docs/frameworks/redwoodjs) _(coming soon)_
+- [Remix](/docs/frameworks/remix) _(coming soon)_
+- [Vite](/docs/frameworks/vite) _(coming soon)_
+- [Meteor](/docs/frameworks/meteor) _(coming soon)_
+
+## Learn
+
+Watch our official courses and dive deeper into videos that will teach you everything you need to know about Kitchen, from the basics to advanced topics.
+
+- [Kitchen for Beginners](https://egghead.io/courses/kitchen-for-beginners)
+- [Kitchen for Advanced Users](https://egghead.io/courses/kitchen-for-advanced-users)
+- [Playground](/docs/playground)
+
+## Contribute
+
+Whether you're a beginner or advanced user, we welcome you to contribute to Kitchen. We have a [contributing guide](/contributing) that will help you get started.
+
+- [Join our Discord](https://discord.gg/VvvAkPqQ98)

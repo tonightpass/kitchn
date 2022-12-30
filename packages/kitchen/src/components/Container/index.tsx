@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 
-type ContainerProps = KitchenComponent & {
+export type ContainerProps = KitchenComponent & {
   row?: boolean;
   flex?: number;
   direction?: ("row" | "column")[];

@@ -1,41 +1,35 @@
 #!/bin/bash
 
 separator="|"
-gitmojis=(🎨 ⚡️ 🔥 🐛 🚑️ ✨ 📝 🚀 💄 🎉 ✅ 🔒️ 🔐 🔖 🚨 🚧 💚 ⬇️ ⬆️ 📌 👷 📈 ♻️ ➕ ➖ 🔧 🔨 🌐 ✏️ 💩 ⏪️ 🔀 📦️ 👽️ 🚚 📄 💥 🍱 ♿️ 💡 🍻 💬 🗃️ 🔊 🔇 👥 🚸 🏗️ 📱 🤡 🥚 🙈 📸 ⚗️ 🔍️ 🏷️ 🌱 🚩 🥅 💫 🗑️ 🛂 🩹 🧐 ⚰️ 🧪 👔 🩺 🧱 🧑‍💻 💸)
+remoteGitmojis=$(curl -s https://raw.githubusercontent.com/carloscuesta/gitmoji/master/packages/gitmojis/src/gitmojis.json)
+gitmojis=$(node -e "console.log(JSON.parse(process.argv[1]).gitmojis.map(gitmoji => gitmoji.emoji + ' ' + gitmoji.code))" "$remoteGitmojis")
+gitmojis="$(echo "$gitmojis" | tr -d "'" | tr -d "\"" | tr -d "," | tr -d "[" | tr -d "]")"
+gitmojis=($gitmojis)
+
 emojiRegex="$( printf "${separator}%s" "${gitmojis[@]}" )"
 emojiRegex="${emojiRegex:${#separator}}"
 
 separator="|"
-types=(add fix improve update remove refactor rename move upgrade downgrade)
+types=(add fix improve update remove refactor rename move upgrade downgrade release merge)
 typesRegex="$( printf "${separator}%s" "${types[@]}" )"
 typesRegex="${typesRegex:${#separator}}"
 
 message="$(cat $1)"
 
-regex="^(${emojiRegex}) (${typesRegex}) (.*[a-z0-9]{1,})$"
+regex="^(${emojiRegex}) (${typesRegex}) (.*[a-z0-9(-)#@']{1,})$"
 
+echo "---------[ Commit validation ]--------"
+echo ""
 if [[ ! $message =~ $regex ]];
 then
-  echo "-"
-  echo "-"
-  echo "-"
-  echo "🚨 Wrong commit message! 😕"
-  echo "The commit message must have this format:"
-  echo "<gitmoji> <type> <description> [(#<issue number>)]"
-  echo "[optional body]"
-  echo "[optional footer(s)]"
-  echo "-"
-  echo "Should start with an emote from gitmoji and verb in imperative mood: add, fix, improve, update, remove, refactor, rename, move, upgrade, downgrade"
-  echo "Example: ✨ add login button"
-  echo "-"
-  echo "Your commit message was:"
-  echo $message
-  echo "-"
-  echo "For more information, check script in .husky/commit-msg"
-  echo "-"
-  exit 1
+  echo "Your commit message is not valid! Please check our contributing guidelines:"
+  echo "https://docs.onruntime.com/contributing/commits"
 else
-  echo " "
-  echo "✔️ Commit message validted!"
-  echo " "
+  echo "Your commit message is valid!"
 fi
+echo ""
+echo "Your commit message was:"
+echo $message
+echo ""
+echo "--------------------------------------"
+[[ $message =~ $regex ]] || exit 1
