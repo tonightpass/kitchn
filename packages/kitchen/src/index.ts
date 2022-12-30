@@ -10,6 +10,9 @@ export { default as themes, createTheme } from "./themes";
 export { default as KitchenProvider } from "./components/Provider";
 export type { KitchenProviderProps } from "./components/Provider";
 
+export { default as Avatar } from "./components/Avatar";
+export type { AvatarProps } from "./components/Avatar";
+
 export { default as Badge } from "./components/Badge";
 export type { BadgeProps } from "./components/Badge";
 

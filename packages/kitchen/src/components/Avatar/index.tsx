@@ -1,18 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
-import Image from "next/image";
+import isNumber from "../../utils/isNumber";
 
 export type AvatarProps = KitchenComponent & {
   /**
-   * The width of the avatar.
+   * The size of the avatar.
    */
-  width?: number;
-
-  /**
-   * The height of the avatar.
-   */
-  height?: number;
+  size?: number | string;
 
   /**
    * The username of the avatar.
@@ -20,14 +15,14 @@ export type AvatarProps = KitchenComponent & {
   username?: string;
 
   /**
-   * The url of the avatar.
+   * The src of the avatar.
    */
-  url?: string;
+  src?: string;
 
   /**
-   * The icon of the avatar.
+   * The shape of the avatar.
    */
-  icon?: boolean;
+  shape?: "square" | "round";
 
   /**
    * The icon's src.
@@ -67,14 +62,11 @@ export type AvatarProps = KitchenComponent & {
 
 const Avatar = styled(
   ({
-    // size,
-    // username,
-    // url,
-    icon,
+    size = 30,
+    src,
+    shape,
     iconSrc,
     iconAlt,
-    width,
-    height,
     right,
     bottom,
     // members,
@@ -84,47 +76,36 @@ const Avatar = styled(
     ...props
   }: AvatarProps) => {
     return (
-      <div>
-        <Image src="" alt="avatar" width={width} height={height} {...props} />
-        {icon && (
-          <IconContainer>
-            <Icon
-              src={iconSrc}
-              alt={iconAlt}
-              width={width}
-              height={height}
-              bottom={bottom}
-              right={right}
-              {...props}
-            />
-          </IconContainer>
+      <div {...props}>
+        {src && (
+          <Image
+            src={src}
+            shape={shape}
+            alt={"Avatar"}
+            width={size}
+            height={size}
+            draggable={false}
+          />
         )}
       </div>
     );
   }
 )<AvatarProps>`
-  position: relative;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  user-select: none;
-  flex: 1;
-  gap: 10px;
-  font-weight: ${({ theme }) => theme.weight.medium};
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.layout.lightest};
-  }};
+  width: ${({ size }) =>
+    size ? (isNumber(size) ? `${size}px` : size) : "30px"};
+  height: ${({ size }) =>
+    size ? (isNumber(size) ? `${size}px` : size) : "30px"};
+  border-radius: ${({ shape, theme }) =>
+    shape === "square" ? theme.radius.square : theme.radius.round};
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
 `;
 
-const IconContainer = styled.div<AvatarProps>`
-  position: absolute;
-  bottom: ${({ bottom }) => bottom}px;
-  right: ${({ right }) => right}px;
-`;
-
-const Icon = styled(Image)<AvatarProps>`
-  background-color: ${({ theme }) => theme.colors.layout.lightest};
+const Image = styled.img<{ shape?: AvatarProps["shape"] }>`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: ${({ shape, theme }) =>
+    shape === "square" ? theme.radius.square : theme.radius.round};
 `;
 
 export default Avatar;

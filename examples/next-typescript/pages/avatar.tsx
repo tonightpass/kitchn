@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const AvatarPage: NextPage = () => {
+  const url = "https://picsum.photos/200/300";
+
   return (
     <Container
       gap={10}
@@ -13,16 +15,20 @@ const AvatarPage: NextPage = () => {
       }}
     >
       <p>default</p>
-      <Avatar>
-        <Image src="" alt="lolilol" />
-      </Avatar>
-      <div>
-        <Icon src="" alt="iiivi" width={120} height={120} />
-      </div>
+      <Container gap={"tiny"} row>
+        <Avatar src={url} />
+        <Avatar src={url} />
+        <Avatar src={url} />
+        <Avatar src={url} />
+      </Container>
+      <Container gap={"tiny"} row>
+        <Avatar src={url} shape={"square"} />
+        <Avatar src={url} shape={"square"} />
+        <Avatar src={url} shape={"square"} />
+        <Avatar src={url} shape={"square"} />
+      </Container>
     </Container>
   );
 };
-
-const Icon = styled(Image)``;
 
 export default AvatarPage;
