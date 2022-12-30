@@ -52,7 +52,6 @@ const Link = styled(
     disabled = disabled || (!onClick && !href);
 
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-      console.log("handleClick", disabled, onClick);
       if (disabled) return event.preventDefault();
       if (onClick) onClick(event);
     };
