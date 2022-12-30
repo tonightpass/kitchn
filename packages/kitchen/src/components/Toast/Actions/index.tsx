@@ -20,7 +20,7 @@ const ToastActions = styled(
     };
 
     return (
-      <Container justify={"center"} align={"flex-end"} {...props}>
+      <Container justify={"center"} align={"flex-end"} flex={"0"} {...props}>
         <Container gap={"tiny"}>
           {actions.map((action, i) => (
             <Button

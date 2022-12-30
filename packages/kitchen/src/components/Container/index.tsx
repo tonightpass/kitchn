@@ -5,7 +5,7 @@ import { Gap } from "../../types/theme";
 
 export type ContainerProps = KitchenComponent & {
   row?: boolean;
-  flex?: number;
+  flex?: number | string;
   direction?: ("row" | "column")[];
   gap?: keyof Gap | number;
   align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
