@@ -120,12 +120,14 @@ const AnimationContainer = styled.div<
       : animationState === "entrance"
       ? "translate(0, 0)"
       : leave};
-  height: ${({ animationState }) => (animationState !== "done" ? "auto" : 0)};
+  height: ${({ animationState }) =>
+    animationState && animationState !== "done" ? "auto" : 0};
   padding: ${({ layout, animationState }) =>
-    animationState !== "done" ? layout.padding : 0};
+    animationState && animationState !== "done" ? layout.padding : 0};
   margin: ${({ layout, animationState }) =>
-    animationState !== "done" ? layout.margin : 0};
-  border: ${({ animationState }) => (animationState !== "done" ? "1px" : "0")}
+    animationState && animationState !== "done" ? layout.margin : 0};
+  border: ${({ animationState }) =>
+      animationState && animationState !== "done" ? "1px" : "0"}
     solid ${({ theme }) => theme.colors.layout.dark};
 `;
 
