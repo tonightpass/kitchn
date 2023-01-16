@@ -1,7 +1,6 @@
 import { Avatar, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
-import styled from "styled-components";
-import Image from "next/image";
+import { AvatarGroup } from "@tonightpass/kitchen";
 
 const AvatarPage: NextPage = () => {
   const url = "https://picsum.photos/200/300";
@@ -26,6 +25,33 @@ const AvatarPage: NextPage = () => {
         <Avatar src={url} shape={"square"} />
         <Avatar src={url} shape={"square"} />
         <Avatar src={url} shape={"square"} />
+      </Container>
+      <p>text</p>
+      <Container gap={"tiny"} row>
+        <Avatar text={"A"} />
+        <Avatar text={"Joe"} />
+        <Avatar text={"Jérémy Baudrin"} />
+      </Container>
+      <Container gap={"tiny"}>
+        <p>group</p>
+        <AvatarGroup
+          members={[
+            { src: url },
+            { src: url },
+            { text: "Younès Bessa" },
+            { src: url },
+          ]}
+        />
+
+        <AvatarGroup
+          members={[
+            { src: url },
+            { text: "Younès Bessa" },
+            { src: url },
+            { text: "Joe" },
+          ]}
+          limit={3}
+        />
       </Container>
     </Container>
   );

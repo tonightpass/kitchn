@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import isNumber from "../../utils/isNumber";
+import shortenName from "../../utils/shortenName";
+import Text from "../Text";
 
 export type AvatarProps = KitchenComponent & {
   /**
@@ -10,7 +12,7 @@ export type AvatarProps = KitchenComponent & {
   size?: number | string;
 
   /**
-   * The username of the avatar.
+   * The username of the avatar from tonightpass.com.
    */
   username?: string;
 
@@ -20,63 +22,22 @@ export type AvatarProps = KitchenComponent & {
   src?: string;
 
   /**
+   * The text of the avatar
+   * (if it's a placeholder).
+   */
+  text?: string;
+
+  /**
    * The shape of the avatar.
    */
   shape?: "square" | "round";
-
-  /**
-   * The icon's src.
-   */
-  iconSrc?: string;
-
-  /**
-   * The icon's alt.
-   */
-  iconAlt?: string;
-
-  /**
-   * The horizontal position of the avatar's icon.
-   */
-  right?: number;
-
-  /**
-   * The vertical position of the avatar's icon.
-   */
-  bottom?: number;
-
-  /**
-   * The members of the avatar group.
-   */
-  members?: Array<string>;
-
-  /**
-   * The limit of the avatar group.
-   */
-  limit?: number;
-
-  /**
-   * The type of the avatar (if it's a placeholder or not).
-   */
-  placeholder?: boolean;
 };
 
 const Avatar = styled(
-  ({
-    size = 30,
-    src,
-    shape,
-    iconSrc,
-    iconAlt,
-    right,
-    bottom,
-    // members,
-    // limit,
-    // placeholder,
-    // children,
-    ...props
-  }: AvatarProps) => {
+  ({ size = 30, src, text, shape, ...props }: AvatarProps) => {
     return (
       <div {...props}>
+        {text && <Text size={"small"}>{shortenName(text)}</Text>}
         {src && (
           <Image
             src={src}
@@ -98,6 +59,13 @@ const Avatar = styled(
   border-radius: ${({ shape, theme }) =>
     shape === "square" ? theme.radius.square : theme.radius.round};
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+  background-color: ${({ theme }) => theme.colors.layout.darker};
+  transition: all 0.2s;
 `;
 
 const Image = styled.img<{ shape?: AvatarProps["shape"] }>`

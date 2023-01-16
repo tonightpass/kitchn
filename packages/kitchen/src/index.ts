@@ -13,6 +13,9 @@ export type { KitchenProviderProps } from "./components/Provider";
 export { default as Avatar } from "./components/Avatar";
 export type { AvatarProps } from "./components/Avatar";
 
+export { default as AvatarGroup } from "./components/Avatar/Group";
+export type { AvatarGroupProps } from "./components/Avatar/Group";
+
 export { default as Badge } from "./components/Badge";
 export type { BadgeProps } from "./components/Badge";
 
@@ -143,5 +146,6 @@ export { default as isBrowser } from "./utils/isBrowser";
 export { default as isMac } from "./utils/isMac";
 export { default as isNumber } from "./utils/isNumber";
 export { default as isString } from "./utils/isString";
+export { default as shortenName } from "./utils/shortenName";
 
 export default kitchen;
