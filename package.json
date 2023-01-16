@@ -9,10 +9,10 @@
   "scripts": {
     "build": "turbo run build",
     "build:packages": "turbo run p:build",
-    "build:docs": "turbo run build --filter=@tonightpass/kitchen-docs",
+    "build:docs": "turbo run build --filter=docs...",
     "build:examples": "turbo run build --filter=./examples/*",
-    "build:examples:expo": "turbo run build --filter=@tonightpass/kitchen-expo-typescript",
-    "build:examples:next": "turbo run build --filter=@tonightpass/kitchen-next-typescript",
+    "build:examples:expo": "turbo run build --filter=expo-typescript...",
+    "build:examples:next": "turbo run build --filter=next-typescript...",
     "dev": "turbo run p:watch dev --parallel --no-cache",
     "dev:packages": "turbo run p:watch",
     "dev:docs": "turbo run dev --filter=@tonightpass/kitchen-docs",
