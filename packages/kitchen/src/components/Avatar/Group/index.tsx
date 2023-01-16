@@ -31,11 +31,13 @@ const AvatarGroup = styled(
   ({ members, size, limit, ...props }: AvatarGroupProps) => {
     return (
       <div {...props}>
-        {members.map((member, index) => {
-          return <Avatar key={index} size={size} {...member} />;
-        })}
+        {members
+          .slice(0, limit ? limit : members.length)
+          .map((member, index) => {
+            return <Avatar key={index} size={size} {...member} />;
+          })}
         {limit && members.length > limit && (
-          <Text>+{members.length - limit}</Text>
+          <Text size={"small"}>+{members.length - limit}</Text>
         )}
       </div>
     );
