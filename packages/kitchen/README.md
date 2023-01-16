@@ -40,13 +40,13 @@
 
 ## Description
 
-[Kitchen](https://github.com/tonightpass/kitchen) is the [Tonight Pass](https://tonightpass.com)'s delicious React components.
+[Kitchen](https://github.com/tonightpass/kitchen) is [Tonight Pass](https://tonightpass.com)' delicious React components.
 
-It's an UI Kit that can be used on every [React](https://reactjs.org) and [React Native](https://reactnative.dev/) project as a complete UI library with optimized and customizable components.
+It's a UI Kit that can be used on every [React](https://reactjs.org) and [React Native](https://reactnative.dev/) project as a complete UI library with optimized and customizable components.
 
-See [Kitchen Documentation](https://kitchen.tonightpass.com/docs) for all details.
+See [Kitchen Documentation](https://kitchen.tonightpass.com/docs) for more details.
 
-This library use [Styled Component](https://styled-components.com/) as components styling and theme provider.
+This library uses [Styled Component](https://styled-components.com/) as components styling and theme provider.
 
 ## Getting Started
 
@@ -56,7 +56,7 @@ Visit <a aria-label="tonightpass docs" href="https://kitchen.tonightpass.com/doc
 
 The TonightPass community can be found on [GitHub Discussions](https://github.com/tonightpass/discussions), where you can ask questions, voice ideas, and share your projects.
 
-To chat with other community members and see the live development you can join the [Discord](https://discord.gg/VvvAkPqQ98).
+To chat with other community members and see the live development, feel free to join the [Discord](https://discord.gg/VvvAkPqQ98).
 
 Our [Code of Conduct](https://docs.onruntime.com/contributing/code-of-conduct) applies to all community channels.
 
