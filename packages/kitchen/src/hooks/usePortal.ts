@@ -1,6 +1,6 @@
 import React from "react";
 import { PREFIX } from "../constants";
-import generateId from "../utils/generateId";
+import getId from "../utils/getId";
 import useSSR from "./useSSR";
 
 const createElement = (id: string): HTMLElement => {
@@ -9,7 +9,7 @@ const createElement = (id: string): HTMLElement => {
 };
 
 const usePortal = (
-  selectId: string = generateId(),
+  selectId: string = getId(),
   getContainer?: () => HTMLElement | null
 ): HTMLElement | null => {
   const id = `${PREFIX}-portal-${selectId}`;
