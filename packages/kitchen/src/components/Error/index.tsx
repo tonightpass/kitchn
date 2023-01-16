@@ -17,7 +17,7 @@ export type ErrorProps = KitchenComponent & {
    * The size of the error.
    * @default "medium"
    */
-  size?: "medium" | "large" | "title";
+  size?: "small" | "normal" | "large";
 
   error?: { message: string; action?: string; link?: string };
 };
@@ -34,10 +34,10 @@ const Error = styled(
     return (
       <Component {...props}>
         <IconContainer>
-          <Icon icon={RiErrorWarningLine} accent={"danger"} size={size} />
+          <ErrorIcon icon={RiErrorWarningLine} accent={"danger"} size={size} />
         </IconContainer>
         <TextContainer>
-          <Text size={size} accent={"danger"}>
+          <ErrorText size={size} accent={"danger"}>
             {label && (
               <Label>
                 {typeof label === "string" ? label : "Error"}
@@ -50,7 +50,7 @@ const Error = styled(
                 {error.action}
               </Action>
             )}
-          </Text>
+          </ErrorText>
         </TextContainer>
       </Component>
     );
@@ -59,27 +59,45 @@ const Error = styled(
   display: inline-flex;
   user-select: none;
   font-weight: ${({ theme }) => theme.weight.medium};
-  font-size: ${(props) => {
-    switch (props.size) {
-      case "medium":
-        return props.theme.size.medium;
-      case "large":
-        return props.theme.size.large;
-      case "title":
-        return props.theme.size.title;
-      default:
-        return props.theme.size.medium;
-    }
-  }};
 `;
 
 const IconContainer = styled.div`
   box-sizing: border-box;
 `;
 
+const ErrorIcon = styled(Icon)<{ size: ErrorProps["size"] }>`
+  font-size: ${(props) => {
+    switch (props.size) {
+      case "small":
+        return props.theme.size.normal;
+      case "normal":
+        return props.theme.size.medium;
+      case "large":
+        return props.theme.size.large;
+      default:
+        return props.theme.size.normal;
+    }
+  }};
+`;
+
 const TextContainer = styled.div`
   box-sizing: border-box;
   margin-left: 8px;
+`;
+
+const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
+  font-size: ${(props) => {
+    switch (props.size) {
+      case "small":
+        return props.theme.size.small;
+      case "normal":
+        return props.theme.size.small;
+      case "large":
+        return props.theme.size.normal;
+      default:
+        return props.theme.size.small;
+    }
+  }};
 `;
 
 const Label = styled.span`

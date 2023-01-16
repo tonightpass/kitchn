@@ -33,13 +33,13 @@ const ErrorPage: NextPage = () => {
         <p>sizes</p>
         <Container gap={10}>
           <Container row>
-            <Error>This email is in use.</Error>
+            <Error size="small">This email is in use.</Error>
+          </Container>
+          <Container row>
+            <Error size="normal">This email is in use.</Error>
           </Container>
           <Container row>
             <Error size="large">This email is in use.</Error>
-          </Container>
-          <Container row>
-            <Error size="title">This email is in use.</Error>
           </Container>
         </Container>
 
