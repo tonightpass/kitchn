@@ -56,6 +56,7 @@ const IndexPage: NextPage = () => {
       <Link href={"/link"}>Link</Link>
       <Link href={"/modal"}>Modal</Link>
       <Link href={"/note"}>Note</Link>
+      <Link href={"/progress"}>Progress</Link>
       <Link href={"/text"}>Text</Link>
       <Link href={"/toast"}>Toast</Link>
       <Link href={"/skeleton"}>Skeleton</Link>

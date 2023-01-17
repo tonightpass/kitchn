@@ -28,6 +28,8 @@ export type { CheckboxProps } from "./components/Checkbox";
 export { default as Code } from "./components/Code";
 export type { CodeProps } from "./components/Code";
 
+export { default as InlineCode } from "./components/Code/Inline";
+
 export { default as Container } from "./components/Container";
 export type { ContainerProps } from "./components/Container";
 
@@ -37,27 +39,27 @@ export type { DrawerProps } from "./components/Drawer";
 export { default as Error } from "./components/Error";
 export type { ErrorProps } from "./components/Error";
 
-export { default as FragmentLink } from "./components/FragmentLink";
-export type { FragmentLinkProps } from "./components/FragmentLink";
-
-export { default as Note } from "./components/Note";
-export type { NoteProps } from "./components/Note";
-
-export { default as OrderedList } from "./components/OrderedList";
-export { default as UnorderedList } from "./components/UnorderedList";
+export { default as Icon } from "./components/Icon";
+export type { IconProps } from "./components/Icon";
 
 export { default as Link } from "./components/Link";
 export type { LinkProps } from "./components/Link";
 
-export { default as ListItem } from "./components/ListItem";
+export { default as FragmentLink } from "./components/Link/Fragment";
+export type { FragmentLinkProps } from "./components/Link/Fragment";
+
+export { default as ListItem } from "./components/List/Item";
+export { default as OrderedList } from "./components/List/Ordered";
+export { default as UnorderedList } from "./components/List/Unordered";
 
 export { default as Modal } from "./components/Modal";
 export type { ModalProps, ModalActionProps } from "./components/Modal";
 
-export { default as Icon } from "./components/Icon";
-export type { IconProps } from "./components/Icon";
+export { default as Note } from "./components/Note";
+export type { NoteProps } from "./components/Note";
 
-export { default as InlineCode } from "./components/InlineCode";
+export { default as Progress } from "./components/Progress";
+export type { ProgressProps } from "./components/Progress";
 
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
