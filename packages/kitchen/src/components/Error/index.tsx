@@ -15,7 +15,7 @@ export type ErrorProps = KitchenComponent & {
 
   /**
    * The size of the error.
-   * @default "medium"
+   * @default "normal"
    */
   size?: NormalSizes;
 
@@ -81,7 +81,7 @@ const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
         return props.theme.size.small;
       case "large":
         return props.theme.size.medium;
-      case "medium":
+      case "normal":
       default:
         return props.theme.size.normal;
     }

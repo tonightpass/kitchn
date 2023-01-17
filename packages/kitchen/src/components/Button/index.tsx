@@ -87,7 +87,7 @@ const Button = styled(
         return "4px 8px";
       case "large":
         return "12px 16px";
-      case "medium":
+      case "normal":
       default:
         return "8px 12px";
     }
@@ -188,7 +188,7 @@ const Button = styled(
         return props.theme.size.small;
       case "large":
         return props.theme.size.medium;
-      case "medium":
+      case "normal":
       default:
         return props.theme.size.normal;
     }

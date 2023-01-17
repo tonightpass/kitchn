@@ -6,7 +6,7 @@ import capitalize from "../../utils/capitalize";
 export type NoteProps = KitchenComponent & {
   /**
    * The size of the note.
-   * @default "medium"
+   * @default "normal"
    */
   size?: NormalSizes;
 
@@ -132,7 +132,7 @@ const Note = styled(
         return "4px 8px";
       case "large":
         return "12px 16px";
-      case "medium":
+      case "normal":
       default:
         return "8px 12px";
     }
@@ -144,7 +144,7 @@ const Note = styled(
         return props.theme.size.small;
       case "large":
         return props.theme.size.medium;
-      case "medium":
+      case "normal":
       default:
         return props.theme.size.normal;
     }

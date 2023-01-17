@@ -9,4 +9,4 @@ export type KitchenComponent = {
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement>;
 
-export type NormalSizes = "small" | "medium" | "large";
+export type NormalSizes = "small" | "normal" | "large";
