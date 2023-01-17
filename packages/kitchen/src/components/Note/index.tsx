@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent, NormalSizes } from "../../types";
 import capitalize from "../../utils/capitalize";
 
 export type NoteProps = KitchenComponent & {
@@ -8,7 +8,7 @@ export type NoteProps = KitchenComponent & {
    * The size of the note.
    * @default "normal"
    */
-  size?: "small" | "normal" | "large";
+  size?: NormalSizes;
 
   /**
    * The type of the note.

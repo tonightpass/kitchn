@@ -34,6 +34,9 @@ export type { ContainerProps } from "./components/Container";
 export { default as Drawer } from "./components/Drawer";
 export type { DrawerProps } from "./components/Drawer";
 
+export { default as Error } from "./components/Error";
+export type { ErrorProps } from "./components/Error";
+
 export { default as FragmentLink } from "./components/FragmentLink";
 export type { FragmentLinkProps } from "./components/FragmentLink";
 
