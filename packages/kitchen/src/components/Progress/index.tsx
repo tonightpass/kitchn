@@ -8,6 +8,8 @@ export type ProgressProps = KitchenComponent & {
   max?: number;
   colors?: Record<number, string>;
   states?: Record<number, string | React.ReactNode>;
+  title: boolean;
+  checkpointTitle?: boolean;
 };
 
 const Progress: React.FC<ProgressProps> = ({
@@ -15,6 +17,8 @@ const Progress: React.FC<ProgressProps> = ({
   max = 100,
   colors,
   states,
+  title = true,
+  checkpointTitle = true,
   ...props
 }: ProgressProps) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -50,10 +54,11 @@ const Progress: React.FC<ProgressProps> = ({
 
   const { isMobile } = useBreakpoint();
 
-  console.log(states && Object.keys(states).length);
   return (
     <Container states={states} ref={containerRef}>
-      {states && <State visible={!!state}>{state || "unknow states"}</State>}
+      {states && title && (
+        <State visible={!!state}>{state || "unknow state"}</State>
+      )}
       <StyledProgress
         value={value}
         max={max}
@@ -73,13 +78,13 @@ const Progress: React.FC<ProgressProps> = ({
                   key={checkpoint}
                   value={checkpoint}
                   color={active ? background : undefined}
-                  // first is first key and last is last key and it cannot be the length of states
                   first={first}
                   last={last}
                   onMouseEnter={() => setIsHover(checkpoint)}
                   onMouseLeave={() => setIsHover(null)}
+                  title={states && title}
                 />
-                {!isMobile && (
+                {!isMobile && checkpointTitle && (
                   <CheckpointTitle
                     first={first}
                     last={last}
@@ -148,9 +153,10 @@ const Checkpoint = styled.div<{
   color?: string;
   first?: boolean;
   last?: boolean;
+  title?: boolean;
 }>`
   position: absolute;
-  top: 24px;
+  top: ${({ title }) => (title ? "24px" : "-4px")};
   left: ${({ value }) => `${value}%`};
   width: 18px;
   height: 18px;
