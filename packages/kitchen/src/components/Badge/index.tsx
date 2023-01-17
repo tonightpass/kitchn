@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent, NormalSizes } from "../../types";
 
 export type BadgeProps = KitchenComponent & {
   /**
    * The size of the badge.
-   * @default "normal"
+   * @default "medium"
    */
-  size?: "small" | "normal" | "large";
+  size?: NormalSizes;
 
   /**
    * The type of the badge.
@@ -41,7 +41,7 @@ const Badge = styled((props: BadgeProps) => {
         return "2px 4px";
       case "large":
         return "8px 12px";
-      case "normal":
+      case "medium":
       default:
         return "4px 8px";
     }
@@ -53,7 +53,7 @@ const Badge = styled((props: BadgeProps) => {
         return props.theme.size.tiny;
       case "large":
         return props.theme.size.normal;
-      case "normal":
+      case "medium":
       default:
         return props.theme.size.small;
     }

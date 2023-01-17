@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent, NormalSizes } from "../../types";
 import capitalize from "../../utils/capitalize";
 
 export type NoteProps = KitchenComponent & {
   /**
    * The size of the note.
-   * @default "normal"
+   * @default "medium"
    */
-  size?: "small" | "normal" | "large";
+  size?: NormalSizes;
 
   /**
    * The type of the note.
@@ -132,7 +132,7 @@ const Note = styled(
         return "4px 8px";
       case "large":
         return "12px 16px";
-      case "normal":
+      case "medium":
       default:
         return "8px 12px";
     }
@@ -144,7 +144,7 @@ const Note = styled(
         return props.theme.size.small;
       case "large":
         return props.theme.size.medium;
-      case "normal":
+      case "medium":
       default:
         return props.theme.size.normal;
     }
