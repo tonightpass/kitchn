@@ -1,7 +1,7 @@
 import React from "react";
-import { RiErrorWarningLine } from "react-icons/ri";
+import { RiErrorWarningLine, RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
 import Text from "../Text";
 import Link from "../Link";
@@ -17,24 +17,22 @@ export type ErrorProps = KitchenComponent & {
    * The size of the error.
    * @default "medium"
    */
-  size?: "small" | "normal" | "large";
+  size?: NormalSizes;
 
   error?: { message: string; action?: string; link?: string };
 };
 
 const Error = styled(
-  ({
-    as: Component = "div",
-    label = true,
-    size,
-    error,
-    children,
-    ...props
-  }: ErrorProps) => {
+  ({ label = true, size, error, children, ...props }: ErrorProps) => {
     return (
-      <Component {...props}>
+      <div {...props}>
         <IconContainer>
-          <ErrorIcon icon={RiErrorWarningLine} accent={"danger"} size={size} />
+          <Icon
+            icon={RiErrorWarningLine}
+            accent={"danger"}
+            size={size === "small" ? 18 : size === "large" ? 24 : 20}
+            align="bottom"
+          />
         </IconContainer>
         <TextContainer>
           <ErrorText size={size} accent={"danger"}>
@@ -48,40 +46,31 @@ const Error = styled(
             {error && (
               <Action href={error.link} variant="blend">
                 {error.action}
+                <ActionIcon
+                  accent={"danger"}
+                  icon={RiExternalLinkLine}
+                  size={size}
+                />
               </Action>
             )}
           </ErrorText>
         </TextContainer>
-      </Component>
+      </div>
     );
   }
 )<ErrorProps>`
-  display: inline-flex;
-  user-select: none;
-  font-weight: ${({ theme }) => theme.weight.medium};
+  display: flex;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 `;
 
-const IconContainer = styled.div`
-  box-sizing: border-box;
-`;
-
-const ErrorIcon = styled(Icon)<{ size: ErrorProps["size"] }>`
-  font-size: ${(props) => {
-    switch (props.size) {
-      case "small":
-        return props.theme.size.normal;
-      case "normal":
-        return props.theme.size.medium;
-      case "large":
-        return props.theme.size.large;
-      default:
-        return props.theme.size.normal;
-    }
-  }};
-`;
+const IconContainer = styled.div``;
 
 const TextContainer = styled.div`
-  box-sizing: border-box;
   margin-left: 8px;
 `;
 
@@ -90,17 +79,17 @@ const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
     switch (props.size) {
       case "small":
         return props.theme.size.small;
-      case "normal":
-        return props.theme.size.small;
       case "large":
-        return props.theme.size.normal;
+        return props.theme.size.medium;
+      case "medium":
       default:
-        return props.theme.size.small;
+        return props.theme.size.normal;
     }
   }};
+  word-break: break-word;
 `;
 
-const Label = styled.span`
+const Label = styled.b`
   font-size: inherit;
   font-weight: ${({ theme }) => theme.weight.semiBold};
   color: ${({ theme }) => theme.colors.accent.danger};
@@ -112,6 +101,13 @@ const Content = styled.span`
   color: ${({ theme }) => theme.colors.accent.danger};
 `;
 
-const Action = styled(Link)``;
+const Action = styled(Link)`
+  display: inline-block;
+  margin-left: ${({ theme }) => theme.gap.tiny};
+`;
+
+const ActionIcon = styled(Icon)`
+  margin-left: ${({ theme }) => theme.gap.tiny};
+`;
 
 export default Error;
