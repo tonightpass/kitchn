@@ -8,7 +8,7 @@ export type ProgressProps = KitchenComponent & {
   max?: number;
   colors?: Record<number, string>;
   states?: Record<number, string | React.ReactNode>;
-  title: boolean;
+  title?: boolean;
   checkpointTitle?: boolean;
 };
 
