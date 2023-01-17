@@ -8,7 +8,6 @@ export type ProgressProps = KitchenComponent & {
   max?: number;
   colors?: Record<number, string>;
   states?: Record<number, string | React.ReactNode>;
-  checkpoints?: boolean;
 };
 
 const Progress: React.FC<ProgressProps> = ({
@@ -16,9 +15,23 @@ const Progress: React.FC<ProgressProps> = ({
   max = 100,
   colors,
   states,
-  checkpoints,
   ...props
 }: ProgressProps) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = React.useState<number>(0);
+  const [isHover, setIsHover] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
+    if (containerRef.current)
+      setContainerWidth(containerRef.current.clientWidth);
+    window.addEventListener("resize", handleResize);
+  }, []);
+
+  const handleResize = () => {
+    if (containerRef.current)
+      setContainerWidth(containerRef.current.clientWidth);
+  };
+
   const background = colors
     ? Object.keys(colors)
         .map((key) => parseInt(key))
@@ -37,41 +50,56 @@ const Progress: React.FC<ProgressProps> = ({
 
   const { isMobile } = useBreakpoint();
 
+  console.log(states && Object.keys(states).length);
   return (
-    <Container checkpoints={checkpoints}>
-      {/* add all checkpoints */}
-      {state && <State>{state}</State>}
+    <Container states={states} ref={containerRef}>
+      {states && <State visible={!!state}>{state || "unknow states"}</State>}
       <StyledProgress
         value={value}
         max={max}
         {...props}
         background={background}
       />
-      <div>
+      <CheckpointContainer>
         {states &&
           Object.keys(states).map((key) => {
             const checkpoint = parseInt(key);
             const active = checkpoint <= value;
+            const first = checkpoint === 0;
+            const last = checkpoint === max;
             return (
-              <Checkpoint
-                key={checkpoint}
-                value={checkpoint}
-                active={active}
-                color={active ? background : undefined}
-              >
+              <>
+                <Checkpoint
+                  key={checkpoint}
+                  value={checkpoint}
+                  color={active ? background : undefined}
+                  // first is first key and last is last key and it cannot be the length of states
+                  first={first}
+                  last={last}
+                  onMouseEnter={() => setIsHover(checkpoint)}
+                  onMouseLeave={() => setIsHover(null)}
+                />
                 {!isMobile && (
-                  <CheckpointTitle>{states[checkpoint]}</CheckpointTitle>
+                  <CheckpointTitle
+                    first={first}
+                    last={last}
+                    active={
+                      (active && containerWidth > 0) || isHover === checkpoint
+                    }
+                  >
+                    {states[checkpoint]}
+                  </CheckpointTitle>
                 )}
-              </Checkpoint>
+              </>
             );
           })}
-      </div>
+      </CheckpointContainer>
     </Container>
   );
 };
 
 const Container = styled.div<{
-  checkpoints?: ProgressProps["checkpoints"];
+  states?: ProgressProps["states"];
 }>`
   position: relative;
   width: 100%;
@@ -79,60 +107,58 @@ const Container = styled.div<{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${({ checkpoints }) => checkpoints && "padding-bottom: 35px;"}
+  ${({ states, theme }) => states && `margin-bottom: ${theme.gap.normal};`}
 `;
 
-const State = styled.span`
+const State = styled.span<{
+  visible: boolean;
+}>`
   margin-bottom: 15px;
   font-size: ${({ theme }) => theme.size.small};
   font-style: italic;
   font-weight: ${({ theme }) => theme.weight.bold};
   color: ${({ theme }) => theme.colors.text.light};
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
 `;
 
-const CheckpointTitle = styled.span`
+const CheckpointContainer = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.gap.small};
+`;
+
+const CheckpointTitle = styled.span<{
+  active: boolean;
+  first?: boolean;
+  last?: boolean;
+}>`
+  margin-top: ${({ theme }) => theme.gap.normal};
   opacity: 0;
-  position: absolute;
-  top: 35px;
-  left: 50%;
   font-size: ${({ theme }) => theme.size.small};
   font-style: italic;
-  white-space: nowrap;
   color: ${({ theme }) => theme.colors.text.light};
-  transform: translateX(-50%);
   transition: all 0.3s ease-in-out;
+  flex: 1;
+  ${({ active }) => active && "opacity: 0.9;"};
+  text-align: ${({ first, last }) =>
+    first ? "left" : last ? "right" : "center"};
 `;
 
 const Checkpoint = styled.div<{
   value: number;
-  active: boolean;
   color?: string;
+  first?: boolean;
+  last?: boolean;
 }>`
   position: absolute;
   top: 24px;
   left: ${({ value }) => `${value}%`};
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: ${({ theme, color }) => color || theme.colors.layout.light};
   z-index: 1;
-  transform: translateX(-50%);
-
-  ${CheckpointTitle} {
-    ${({ active }) => active && "opacity: 0.9;"};
-  }
-
-  :first-child {
-    ${CheckpointTitle} {
-      transform: translateX(-25%);
-    }
-  }
-
-  :last-child {
-    ${CheckpointTitle} {
-      transform: translateX(-75%);
-    }
-  }
+  transform: ${({ first, last }) =>
+    first ? "translateX(0)" : last ? "translateX(-100%)" : "translateX(-50%)"};
 
   :hover {
     ${CheckpointTitle} {
