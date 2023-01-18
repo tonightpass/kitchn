@@ -32,24 +32,24 @@ const SelectPage: NextPage = () => {
             <Select
               size="small"
               placeholder="Small"
-              prefix={RiArrowUpCircleLine}
-              suffix={RiArrowUpCircleLine}
+              prefix={<RiArrowUpCircleLine />}
+              suffix={<RiArrowUpCircleLine />}
             />
           </Container>
           <Container row>
             <Select
               size="normal"
               placeholder="Default"
-              prefix={RiArrowUpCircleLine}
-              suffix={RiArrowUpCircleLine}
+              prefix={<RiArrowUpCircleLine />}
+              suffix={<RiArrowUpCircleLine />}
             />
           </Container>
           <Container row>
             <Select
               size="large"
               placeholder="Large"
-              prefix={RiArrowUpCircleLine}
-              suffix={RiArrowUpCircleLine}
+              prefix={<RiArrowUpCircleLine />}
+              suffix={<RiArrowUpCircleLine />}
             />
           </Container>
         </Container>
@@ -61,7 +61,11 @@ const SelectPage: NextPage = () => {
 
         <p>prefix and suffix disabled</p>
         <Container row>
-          <Select placeholder="Default" prefix={RiArrowUpCircleLine} disabled />
+          <Select
+            placeholder="Default"
+            prefix={<RiArrowUpCircleLine />}
+            disabled
+          />
         </Container>
 
         <p>other</p>
