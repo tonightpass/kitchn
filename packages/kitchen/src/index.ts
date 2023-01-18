@@ -61,6 +61,9 @@ export type { NoteProps } from "./components/Note";
 export { default as Progress } from "./components/Progress";
 export type { ProgressProps } from "./components/Progress";
 
+export { default as Scroller } from "./components/Scroller";
+export type { ScrollerProps } from "./components/Scroller";
+
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
 
