@@ -20,11 +20,11 @@ export type SelectProps = KitchenComponent & {
   /**
    * The prefix of the select.
    */
-  prefix?: SVGElement;
+  prefix?: React.ReactNode;
   /**
    * The suffix of the select.
    */
-  suffix?: SVGElement;
+  suffix?: React.ReactNode;
   disabled?: boolean;
 };
 
