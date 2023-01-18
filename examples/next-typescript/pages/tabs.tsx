@@ -4,7 +4,9 @@ import React from "react";
 import { RiAppleFill, RiAndroidFill, RiWindowsFill } from "react-icons/ri";
 
 const TabsPage: NextPage = () => {
-  const [selected, setSelected] = React.useState("apple");
+  const [selected1, setSelected1] = React.useState("apple");
+  const [selected2, setSelected2] = React.useState("apple");
+  const [selected3, setSelected3] = React.useState("apple");
   return (
     <>
       <Container
@@ -14,45 +16,43 @@ const TabsPage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <p>default</p>
-        <Container gap={10} row style={{ alignItems: "center" }}>
-          <Container row>
-            <Tabs
-              tabs={[
-                { title: "Apple", value: "apple" },
-                { title: "Orange", value: "orange" },
-                { title: "Mango", value: "mango" },
-              ]}
-              selected={selected}
-              setSelected={setSelected}
-            />
-          </Container>
-        </Container>
-
-        <p>disabled</p>
-        <Container row>
+        <Container gap={5}>
+          <p>default</p>
           <Tabs
             tabs={[
               { title: "Apple", value: "apple" },
               { title: "Orange", value: "orange" },
               { title: "Mango", value: "mango" },
             ]}
-            selected={selected}
-            setSelected={setSelected}
+            selected={selected1}
+            setSelected={setSelected1}
+          />
+        </Container>
+
+        <Container gap={5}>
+          <p>disabled</p>
+          <Tabs
+            tabs={[
+              { title: "Apple", value: "apple" },
+              { title: "Orange", value: "orange" },
+              { title: "Mango", value: "mango" },
+            ]}
+            selected={selected2}
+            setSelected={setSelected2}
             disabled
           />
         </Container>
 
-        <p>with icons</p>
-        <Container row>
+        <Container gap={5}>
+          <p>with icons</p>
           <Tabs
             tabs={[
               { title: "Apple", value: "apple", icon: RiAppleFill },
               { title: "Orange", value: "orange", icon: RiAndroidFill },
               { title: "Mango", value: "mango", icon: RiWindowsFill },
             ]}
-            selected={selected}
-            setSelected={setSelected}
+            selected={selected3}
+            setSelected={setSelected3}
           />
         </Container>
       </Container>

@@ -1,18 +1,22 @@
 import React from "react";
 import { IconType } from "react-icons/lib";
 import styled from "styled-components";
+import useRect from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
+import Highlight from "../Highlight";
 import Icon from "../Icon";
+
+export type Tab = {
+  title: string;
+  value: string;
+  icon?: IconType;
+};
 
 export type TabsProps = KitchenComponent & {
   /**
    * The titles, values and icons of the tabs.
    */
-  tabs: {
-    title: string;
-    value: string;
-    icon?: IconType;
-  }[];
+  tabs: Tab[];
 
   selected: string;
 
@@ -21,85 +25,113 @@ export type TabsProps = KitchenComponent & {
   active?: boolean;
 
   disabled?: boolean;
+
+  hoverHeightRatio: 0.7;
+  hoverWidthRatio: 1.15;
+  highlight?: boolean;
 };
 
 const Tabs = styled(
-  ({ tabs, disabled = false, selected, setSelected, ...props }: TabsProps) => {
-    // // if disabled is true prevent the user from selecting a tab
-    // if (disabled) {
-    //   (event: React.ChangeEvent<HTMLDivElement>) => event.preventDefault();
-    // }
+  ({
+    tabs,
+    disabled = false,
+    selected,
+    setSelected,
+    hoverHeightRatio = 0.7,
+    hoverWidthRatio = 1.15,
+    highlight = true,
+    ...props
+  }: TabsProps) => {
+    const containerRef = React.useRef<HTMLDivElement | null>(null);
+    const [displayHighlight, setDisplayHighlight] =
+      React.useState<boolean>(false);
+    const { rect, setRect } = useRect();
+
+    const tabItemMouseOverHandler = (
+      event: React.MouseEvent<HTMLDivElement>
+    ) => {
+      if (!event.target) return;
+      setRect(event, () => containerRef.current);
+      if (highlight) {
+        setDisplayHighlight(true);
+      }
+    };
+
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>, tab: Tab) => {
+      disabled ? event.preventDefault() : setSelected(tab.value);
+    };
+
     return (
-      <Container {...props}>
+      <div
+        ref={containerRef}
+        onMouseLeave={() => setDisplayHighlight(false)}
+        {...props}
+      >
+        <Highlight
+          rect={rect}
+          visible={displayHighlight}
+          hoverHeightRatio={hoverHeightRatio}
+          hoverWidthRatio={hoverWidthRatio}
+        />
         {tabs &&
           tabs.map((tab) => (
-            <TabContainer
+            <Tab
               key={tab.value}
-              // if disabled is true prevent the user from selecting a tab when clicked
-              onClick={
-                disabled
-                  ? (event) => event.preventDefault()
-                  : () => setSelected(tab.value)
-              }
-              // onClick={() => setSelected(tab.value)}
+              onClick={(event) => handleClick(event, tab)}
               active={selected === tab.value}
+              onMouseOver={tabItemMouseOverHandler}
+              disabled={disabled}
             >
-              <Tab active={selected === tab.value} disabled={disabled}>
-                {tab.icon && (
-                  <IconTab>
-                    <Icon icon={tab.icon} />
-                  </IconTab>
-                )}
-                <Title>{tab.title}</Title>
-              </Tab>
-            </TabContainer>
+              {tab.icon && (
+                <IconTab>
+                  <Icon icon={tab.icon} />
+                </IconTab>
+              )}
+              {tab.title}
+            </Tab>
           ))}
-      </Container>
+      </div>
     );
   }
 )<TabsProps>`
-  display: inline-flex;
-  user-select: none;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
   color: ${({ theme }) => theme.colors.accent.dark};
   font-weight: ${({ theme }) => theme.weight.medium};
-`;
-
-const Container = styled.div`
-  display: flex;
-`;
-
-const TabContainer = styled.div<{ active?: boolean }>`
-  display: flex;
-  border-bottom: 2px solid
-    ${({ theme, active }) =>
-      active ? theme.colors.layout.light : theme.colors.layout.lightest};
-  align-items: center;
-  margin: 0 0 -1px;
-  :first-child {
-    padding: 0 12px 0 0;
-  }
-  :not(:first-child) {
-    padding: 0 12px;
-  }
+  padding-bottom: 1px;
+  box-shadow: 0 -1px 0 ${({ theme }) => theme.colors.layout.dark} inset;
 `;
 
 const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
+  position: relative;
   display: flex;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
-  color: ${({ theme }) => theme.colors.text.lightest};
+  color: ${({ theme, active, disabled }) => {
+    if (disabled) return theme.colors.text.darker;
+    if (active) return theme.colors.text.lightest;
+    return theme.colors.text.light;
+  }};
   margin: 0 0 -1px;
-  padding: 6px 2px;
+  user-select: none;
+  padding: 6px ${({ theme }) => theme.gap.small};
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  margin-bottom: -1px;
+  outline: 0;
+  border-bottom: ${({ theme, active }) =>
+    `1px solid ${active ? theme.colors.layout.lightest : "transparent"}`};
+  transition: all 0.2s;
+
+  :hover {
+    color: ${({ theme, disabled }) =>
+      !disabled ? theme.colors.text.lightest : theme.colors.text.darker};
+  }
 `;
 
 const IconTab = styled.div`
   margin-right: 6px;
-  // margin-bottom: -2px;
-`;
-
-const Title = styled.p`
-  // margin-bottom: 8px;
-  font-size: ${({ theme }) => theme.size.normal};
 `;
 
 export default Tabs;
