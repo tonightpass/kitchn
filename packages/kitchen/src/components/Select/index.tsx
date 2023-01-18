@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent, NormalSizes } from "../../types";
-import Icon from "../Icon";
 
 export type SelectProps = KitchenComponent & {
   /**
@@ -43,7 +42,7 @@ const Select = styled(
       <Container {...props}>
         {label && <Label>{label}</Label>}
         <SelectorContainer>
-          {prefix && <SelectIcon accent="dark" icon={prefix} size={size} />}
+          {prefix && <Prefix>{prefix}</Prefix>}
           <Selector
             placeholder={placeholder}
             disabled={disabled}
@@ -59,14 +58,7 @@ const Select = styled(
               </option>
             )}
           </Selector>
-          {suffix && (
-            <Icon
-              accent="dark"
-              icon={suffix}
-              size={size}
-              style={{ position: "absolute", right: "10px" }}
-            />
-          )}
+          {suffix && <Suffix>{suffix}</Suffix>}
         </SelectorContainer>
       </Container>
     );
@@ -78,34 +70,61 @@ const Select = styled(
   font-weight: ${({ theme }) => theme.weight.medium};
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
+const Container = styled.label`
+  box-sizing: border-box;
+  display: block;
+  height: 32px;
+  width: 109px;
 `;
 
-const Label = styled.label`
+const Label = styled.div`
   margin-bottom: 8px;
   font-size: ${({ theme }) => theme.size.normal};
   color: ${({ theme }) => theme.colors.accent.light};
 `;
 
 const SelectorContainer = styled.div`
-  display: flex;
   align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 32px;
+  position: relative;
+  width: 109px;
 `;
 
-const SelectIcon = styled(Icon)`
+const Prefix = styled.span`
+  box-sizing: border-box;
+  display: flex;
+  height: 18px;
+  left: 12px;
   position: absolute;
-  left: ${({ size }) => (size === "large" ? "8px" : "12px")};
+  color: ${({ theme }) => theme.colors.layout.darkest};
+  width: 18px;
 `;
 
 const Selector = styled.select`
-  padding-right: 36px;
-  padding-left: 36px;
+  align-items: center;
+  box-sizing: border-box;
+  display: block;
   height: 32px;
+  margin: 0px;
+  overflow-x: visible;
+  overflow-y: visible;
+  padding-left: 36px;
+  padding-right: 36px;
   color: ${({ theme }) => theme.colors.accent.dark};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  width: 109px;
+`;
+
+const Suffix = styled.span`
+  box-sizing: border-box;
+  display: flex;
+  height: 18px;
+  right: 12px;
+  position: absolute;
+  color: ${({ theme }) => theme.colors.layout.darkest};
+  width: 18px;
 `;
 
 export default Select;
