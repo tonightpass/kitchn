@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
 
 export type SelectProps = KitchenComponent & {
@@ -8,7 +8,7 @@ export type SelectProps = KitchenComponent & {
    * The size of the select.
    * @default "normal"
    */
-  size?: "small" | "normal" | "large";
+  size?: NormalSizes;
   /**
    * The label of the select.
    */
@@ -43,17 +43,7 @@ const Select = styled(
       <Container {...props}>
         {label && <Label>{label}</Label>}
         <SelectorContainer>
-          {prefix && (
-            <Icon
-              accent="dark"
-              icon={prefix}
-              size={size}
-              style={{
-                position: "absolute",
-                left: size === "large" ? "8px" : "12px",
-              }}
-            />
-          )}
+          {prefix && <SelectIcon accent="dark" icon={prefix} size={size} />}
           <Selector
             placeholder={placeholder}
             disabled={disabled}
@@ -103,6 +93,11 @@ const Label = styled.label`
 const SelectorContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const SelectIcon = styled(Icon)`
+  position: absolute;
+  left: ${({ size }) => (size === "large" ? "8px" : "12px")};
 `;
 
 const Selector = styled.select`

@@ -34,7 +34,7 @@ const SelectPage: NextPage = () => {
               placeholder="Small"
               prefix={RiArrowUpCircleLine}
               suffix={RiArrowUpCircleLine}
-            ></Select>
+            />
           </Container>
           <Container row>
             <Select
