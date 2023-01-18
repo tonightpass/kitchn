@@ -16,7 +16,7 @@ const DrawerPage: NextPage = () => {
     >
       <Container>
         <Text>default</Text>
-        <Button size={"medium"} onClick={() => setActive1(!active1)}>
+        <Button size={"normal"} onClick={() => setActive1(!active1)}>
           Open Drawer
         </Button>
         <Drawer show={active1} onDismiss={() => setActive1(false)}>
@@ -33,7 +33,7 @@ const DrawerPage: NextPage = () => {
       </Container>
       <Container>
         <Text>custom height</Text>
-        <Button size={"medium"} onClick={() => setActive2(!active2)}>
+        <Button size={"normal"} onClick={() => setActive2(!active2)}>
           Open Drawer (with custom height)
         </Button>
         <Drawer show={active2} onDismiss={() => setActive2(false)} height={300}>
@@ -50,7 +50,7 @@ const DrawerPage: NextPage = () => {
       </Container>
       <Container>
         <Text>callback</Text>
-        <Button size={"medium"} onClick={() => setActive3(!active3)}>
+        <Button size={"normal"} onClick={() => setActive3(!active3)}>
           Open Drawer (with callback)
         </Button>
         <Drawer

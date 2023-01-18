@@ -23,7 +23,7 @@ const ModalPage: NextPage = () => {
     >
       <Container>
         <Text>default</Text>
-        <Button size={"medium"} onClick={open1}>
+        <Button size={"normal"} onClick={open1}>
           Open Modal
         </Button>
         <Modal.Modal active={active1} onClickOutside={close1}>
@@ -45,7 +45,7 @@ const ModalPage: NextPage = () => {
       </Container>
       <Container>
         <Text>disabled actions</Text>
-        <Button size={"medium"} onClick={open2}>
+        <Button size={"normal"} onClick={open2}>
           Open Modal (with disabled actions)
         </Button>
         <Modal.Modal active={active2} onClickOutside={close2}>
@@ -69,7 +69,7 @@ const ModalPage: NextPage = () => {
       </Container>
       <Container>
         <Text>callback</Text>
-        <Button size={"medium"} onClick={open3}>
+        <Button size={"normal"} onClick={open3}>
           Open Modal (with callback)
         </Button>
         <Modal.Modal
@@ -96,7 +96,7 @@ const ModalPage: NextPage = () => {
 
       <Container>
         <Text>inset</Text>
-        <Button size={"medium"} onClick={open4}>
+        <Button size={"normal"} onClick={open4}>
           Open Modal (with inset)
         </Button>
         <Modal.Modal active={active4} onClickOutside={close4}>

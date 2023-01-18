@@ -2,7 +2,7 @@ import { MainTheme } from "../types/theme";
 
 const main: MainTheme = {
   family: {
-    primary: "Space Grotesk, -apple-system, sans-serif",
+    primary: "Manrope, -apple-system, sans-serif",
     monospace: "DM Mono, monospace",
   },
   weight: {

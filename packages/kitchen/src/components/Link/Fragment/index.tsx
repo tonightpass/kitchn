@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
-import Link, { LinkProps } from "../Link";
+import { KitchenComponent } from "../../../types";
+import Link, { LinkProps } from "..";
 
 export type FragmentLinkProps = KitchenComponent &
   LinkProps & {

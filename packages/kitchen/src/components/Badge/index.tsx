@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent, NormalSizes } from "../../types";
 
 export type BadgeProps = KitchenComponent & {
   /**
    * The size of the badge.
    * @default "normal"
    */
-  size?: "small" | "normal" | "large";
+  size?: NormalSizes;
 
   /**
    * The type of the badge.
