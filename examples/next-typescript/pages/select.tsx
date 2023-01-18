@@ -1,7 +1,7 @@
 import { Container, Select } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
-import { BsArrowUpCircle } from "react-icons/bs";
+import { RiArrowUpCircleLine } from "react-icons/ri";
 
 const SelectPage: NextPage = () => {
   return (
@@ -32,24 +32,24 @@ const SelectPage: NextPage = () => {
             <Select
               size="small"
               placeholder="Small"
-              prefix={BsArrowUpCircle}
-              suffix={BsArrowUpCircle}
+              prefix={RiArrowUpCircleLine}
+              suffix={RiArrowUpCircleLine}
             ></Select>
           </Container>
           <Container row>
             <Select
               size="normal"
               placeholder="Default"
-              prefix={BsArrowUpCircle}
-              suffix={BsArrowUpCircle}
+              prefix={RiArrowUpCircleLine}
+              suffix={RiArrowUpCircleLine}
             />
           </Container>
           <Container row>
             <Select
               size="large"
               placeholder="Large"
-              prefix={BsArrowUpCircle}
-              suffix={BsArrowUpCircle}
+              prefix={RiArrowUpCircleLine}
+              suffix={RiArrowUpCircleLine}
             />
           </Container>
         </Container>
@@ -61,7 +61,7 @@ const SelectPage: NextPage = () => {
 
         <p>prefix and suffix disabled</p>
         <Container row>
-          <Select placeholder="Default" prefix={BsArrowUpCircle} disabled />
+          <Select placeholder="Default" prefix={RiArrowUpCircleLine} disabled />
         </Container>
 
         <p>other</p>
