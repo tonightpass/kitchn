@@ -45,19 +45,22 @@ const IndexPage: NextPage = () => {
         </Button>
       </Container>
 
-      <Link href={"/grid"}>Grid</Link>
+      <Link href={"/avatar"}>Avatar</Link>
       <Link href={"/badge"}>Badge</Link>
       <Link href={"/button"}>Button</Link>
       <Link href={"/checkbox"}>Checkbox</Link>
       <Link href={"/drawer"}>Drawer</Link>
+      <Link href={"/error"}>Error</Link>
+      <Link href={"/grid"}>Grid</Link>
       <Link href={"/icon"}>Icon</Link>
       <Link href={"/link"}>Link</Link>
       <Link href={"/modal"}>Modal</Link>
       <Link href={"/note"}>Note</Link>
+      <Link href={"/progress"}>Progress</Link>
       <Link href={"/select"}>Select</Link>
+      <Link href={"/skeleton"}>Skeleton</Link>
       <Link href={"/text"}>Text</Link>
       <Link href={"/toast"}>Toast</Link>
-      <Link href={"/skeleton"}>Skeleton</Link>
     </Container>
   );
 };
