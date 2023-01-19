@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { IconProps } from "../../../dist/declarations/src";
 import useRect from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 import capitalize from "../../utils/capitalize";
 import Highlight from "../Highlight";
-import Icon, { IconProps } from "../Icon";
 
 export type Tab = {
   title: string;
@@ -82,7 +82,7 @@ const Tabs = styled(
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
             >
-              {tab.icon && <Icon icon={tab.icon} color={"inherit"} />}
+              {tab.icon && tab.icon}
               {capitalize(tab.title)}
             </Tab>
           ))}

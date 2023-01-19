@@ -50,10 +50,10 @@ const TabsPage: NextPage = () => {
               {
                 title: "Apple",
                 value: "apple",
-                icon: RiAppleFill,
+                icon: <RiAppleFill />,
               },
-              { title: "Orange", value: "orange", icon: RiAndroidFill },
-              { title: "Mango", value: "mango", icon: RiWindowsFill },
+              { title: "Orange", value: "orange", icon: <RiAndroidFill /> },
+              { title: "Mango", value: "mango", icon: <RiWindowsFill /> },
             ]}
             selected={selected3}
             setSelected={setSelected3}
