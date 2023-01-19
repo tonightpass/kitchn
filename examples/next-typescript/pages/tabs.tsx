@@ -47,7 +47,11 @@ const TabsPage: NextPage = () => {
           <p>with icons</p>
           <Tabs
             tabs={[
-              { title: "Apple", value: "apple", icon: RiAppleFill },
+              {
+                title: "Apple",
+                value: "apple",
+                icon: RiAppleFill,
+              },
               { title: "Orange", value: "orange", icon: RiAndroidFill },
               { title: "Mango", value: "mango", icon: RiWindowsFill },
             ]}
