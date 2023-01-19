@@ -4,9 +4,12 @@ const isRefTarget = (
   eventOrRef:
     | React.MouseEvent<HTMLElement>
     | React.FocusEvent<HTMLElement>
-    | React.MutableRefObject<HTMLElement | null>
-): eventOrRef is React.MutableRefObject<HTMLElement | null> => {
-  return typeof (eventOrRef as any)?.target === "undefined";
+    | React.MutableRefObject<HTMLElement>
+): eventOrRef is React.MutableRefObject<HTMLElement> => {
+  return (
+    typeof (eventOrRef as React.MutableRefObject<HTMLElement>)?.current !==
+    "undefined"
+  );
 };
 
 export default isRefTarget;
