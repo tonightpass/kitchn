@@ -26,8 +26,8 @@ export type TabsProps = KitchenComponent & {
 
   disabled?: boolean;
 
-  hoverHeightRatio: 0.7;
-  hoverWidthRatio: 1.15;
+  hoverHeightRatio?: 0.7;
+  hoverWidthRatio?: 1.15;
   highlight?: boolean;
 };
 
