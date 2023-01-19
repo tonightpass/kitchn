@@ -52,7 +52,7 @@ export const getEventRect = (
   event?: React.MouseEvent<HTMLElement> | React.FocusEvent<HTMLElement>,
   getContainer?: () => HTMLElement | null
 ) => {
-  const rect = (event?.target as HTMLElement)?.getBoundingClientRect();
+  const rect = (event?.currentTarget as HTMLElement)?.getBoundingClientRect();
   if (!rect) return defaultRect;
   return getRectFromDOMWithContainer(rect, getContainer);
 };
