@@ -1,15 +1,15 @@
 import React from "react";
-import { IconType } from "react-icons/lib";
 import styled from "styled-components";
 import useRect from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
+import capitalize from "../../utils/capitalize";
 import Highlight from "../Highlight";
-import Icon from "../Icon";
+import Icon, { IconProps } from "../Icon";
 
 export type Tab = {
   title: string;
   value: string;
-  icon?: IconType;
+  icon?: IconProps["icon"];
 };
 
 export type TabsProps = KitchenComponent & {
@@ -82,12 +82,8 @@ const Tabs = styled(
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
             >
-              {tab.icon && (
-                <IconTab>
-                  <Icon icon={tab.icon} />
-                </IconTab>
-              )}
-              {tab.title}
+              {tab.icon && <Icon icon={tab.icon} color={"inherit"} />}
+              {capitalize(tab.title)}
             </Tab>
           ))}
       </div>
@@ -108,6 +104,7 @@ const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   position: relative;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   color: ${({ theme, active, disabled }) => {
     if (disabled) return theme.colors.text.darker;
@@ -120,18 +117,21 @@ const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   margin-bottom: -1px;
   outline: 0;
+  white-space: nowrap;
   border-bottom: ${({ theme, active }) =>
     `1px solid ${active ? theme.colors.layout.lightest : "transparent"}`};
   transition: all 0.2s;
+  z-index: 1;
+
+  svg {
+    max-height: 1em;
+    margin-right: ${({ theme }) => theme.gap.tiny};
+  }
 
   :hover {
     color: ${({ theme, disabled }) =>
       !disabled ? theme.colors.text.lightest : theme.colors.text.darker};
   }
-`;
-
-const IconTab = styled.div`
-  margin-right: 6px;
 `;
 
 export default Tabs;
