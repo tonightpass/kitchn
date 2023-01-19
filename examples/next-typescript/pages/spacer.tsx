@@ -1,6 +1,7 @@
 import { Spacer, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
+import styled from "styled-components";
 
 const SpacerPage: NextPage = () => {
   return (
@@ -14,28 +15,32 @@ const SpacerPage: NextPage = () => {
       >
         <p>vertical</p>
         <Container>
-          <Container style={{ background: "white" }}>
-            <Spacer y={1} />
-          </Container>
+          <SpacerContainer style={{ background: "white" }}>
+            <Spacer x={11} />
+          </SpacerContainer>
 
-          <Container style={{ background: "white" }}>
-            <Spacer y={2} />
-          </Container>
+          <SpacerContainer style={{ background: "white" }}>
+            <Spacer x={32} />
+          </SpacerContainer>
 
-          <Container style={{ background: "white" }}>
-            <Spacer y={3} />
-          </Container>
+          <SpacerContainer style={{ background: "white" }}>
+            <Spacer x={43} />
+          </SpacerContainer>
         </Container>
 
         <p>horizontal</p>
         <Container row>
           <Container style={{ background: "white" }} />
-          <Spacer x={3} />
+          <Spacer x={23} y={213} />
           <Container style={{ background: "white" }} />
         </Container>
       </Container>
     </>
   );
 };
+
+const SpacerContainer = styled(Container)`
+  margin-top: 24px;
+`;
 
 export default SpacerPage;
