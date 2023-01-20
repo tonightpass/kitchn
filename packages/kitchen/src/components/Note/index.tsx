@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { KitchenComponent, NormalSizes } from "../../types";
 import capitalize from "../../utils/capitalize";
 
-export type NoteProps = KitchenComponent & {
+type Props = {
   /**
    * The size of the note.
    * @default "normal"
@@ -33,6 +33,8 @@ export type NoteProps = KitchenComponent & {
    */
   label?: boolean | string;
 };
+
+export type NoteProps = KitchenComponent<Props>;
 
 const Note = styled(
   ({

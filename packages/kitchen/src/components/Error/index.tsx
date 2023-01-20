@@ -6,7 +6,7 @@ import Icon from "../Icon";
 import Text from "../Text";
 import Link from "../Link";
 
-export type ErrorProps = KitchenComponent & {
+type Props = {
   /**
    * The label of the error.
    * @default true
@@ -21,6 +21,8 @@ export type ErrorProps = KitchenComponent & {
 
   error?: { message: string; action?: string; link?: string };
 };
+
+export type ErrorProps = KitchenComponent<Props>;
 
 const Error = styled(
   ({ label = true, size, error, children, ...props }: ErrorProps) => {
