@@ -4,13 +4,15 @@ export type Theme = {
 };
 
 export type MainTheme = {
+  breakpoint: Breakpoint;
   family: {
     primary: string;
     monospace: string;
   };
-  weight: Weight;
+  gap: Gap;
   size: Size;
-  breakpoint: Breakpoint;
+  weight: Weight;
+  radius: Radius;
 };
 
 export type Colors = {
@@ -105,4 +107,24 @@ export type Breakpoint = {
    * Smartphones (landscape)
    */
   mobile: string;
+};
+
+/**
+ * Gap is used for spacing.
+ */
+export type Gap = {
+  extraLarge: string;
+  large: string;
+  medium: string;
+  normal: string;
+  small: string;
+  tiny: string;
+};
+
+/**
+ * Radius is used for border radius.
+ */
+export type Radius = {
+  square: string;
+  round: string;
 };

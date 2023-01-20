@@ -52,7 +52,6 @@ const Link = styled(
     disabled = disabled || (!onClick && !href);
 
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-      console.log("handleClick", disabled, onClick);
       if (disabled) return event.preventDefault();
       if (onClick) onClick(event);
     };
@@ -107,23 +106,19 @@ const Link = styled(
 )<LinkProps>`
   box-sizing: border-box;
   display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  user-select: none;
-  flex: 1;
-  gap: 10px;
-  border-radius: 8px;
   font-size: ${({ theme }) => theme.size.normal};
   font-weight: ${({ theme, variant }) =>
-    variant === "blend" ? theme.weight.bold : theme.weight.regular};
-  text-decoration: ${({ variant }) =>
-    variant === "blend" ? "underline" : "none"};
-
-  background-color: ${({ theme }) => {
-    return theme.colors.layout.dark;
-  }}
-    return "transparent";
-  }};
+    variant === "blend" ? theme.weight.medium : theme.weight.regular};
+  text-decoration: none;
+  transition: opacity 0.1s ease;
+  line-height: 1.25;
+  ${({ variant }) =>
+    variant === "blend" &&
+    `
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;`};
 
   color: ${({ theme, variant }) => {
     if (variant === "highlight") {
@@ -148,10 +143,16 @@ const Link = styled(
           ? "none"
           : "brightness(0.8)"
       };
-      text-decoration: ${
-        variant && variant !== "secondary" ? "underline" : "none"
+      ${
+        variant === "secondary"
+          ? `
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  color: ${theme.colors.text.lightest};`
+          : ""
       };
-      ${variant === "secondary" ? `color: ${theme.colors.text.lightest};` : ""}
     `;
     }}
   }
