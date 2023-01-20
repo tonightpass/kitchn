@@ -4,7 +4,7 @@ import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
 export type IconProps = KitchenComponent & {
-  icon: SVGElement | JSX.Element;
+  icon: SVGElement;
   size?: keyof Size | number | string;
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
