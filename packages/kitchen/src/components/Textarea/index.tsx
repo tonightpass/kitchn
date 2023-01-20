@@ -10,22 +10,14 @@ export type TextareaProps = KitchenComponent & {
 };
 
 const Textarea = styled(
-  ({
-    as: Component = "textarea",
-    placeholder,
-    disabled,
-    errored,
-    defaultValue,
-    ...props
-  }: TextareaProps) => {
+  ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
     return (
-      <Component
+      <textarea
         placeholder={placeholder}
         disabled={disabled}
-        errored={errored}
         defaultValue={defaultValue}
         {...props}
-      ></Component>
+      />
     );
   }
 )<TextareaProps>`
@@ -37,18 +29,27 @@ const Textarea = styled(
   transition: all 0.2s;
   line-height: 1;
   user-select: none;
+  resize: none;
   border-radius: 4px;
   padding: 7px 10px;
-  width: 790px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
   background-color: ${({ theme }) => theme.colors.layout.darkest};
   font-size: ${({ theme }) => theme.size.normal};
   border: 1px solid
-    ${({ errored, theme }) =>
-      errored ? theme.colors.accent.danger : theme.colors.layout.light};
+    ${({ errored, disabled, theme }) =>
+      errored
+        ? theme.colors.accent.danger
+        : disabled
+        ? theme.colors.layout.dark
+        : theme.colors.layout.light};
   color: ${({ errored, theme }) =>
-    errored ? theme.colors.accent.danger : theme.colors.text.light};
+    errored ? theme.colors.accent.danger : theme.colors.text.lightest};
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.text.light};
+  }
 `;
 
 export default Textarea;
