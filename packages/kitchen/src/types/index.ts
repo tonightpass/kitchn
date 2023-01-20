@@ -1,4 +1,4 @@
-export type KitchenComponent = {
+export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
   /**
    * The root element.
    */
@@ -7,6 +7,7 @@ export type KitchenComponent = {
    * The content, duh.
    */
   children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLElement>;
+} & P &
+  Omit<N, keyof P>;
 
 export type NormalSizes = "small" | "normal" | "large";
