@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { IconProps } from "../../../dist/declarations/src";
 import useRect from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 import capitalize from "../../utils/capitalize";
@@ -9,7 +8,7 @@ import Highlight from "../Highlight";
 export type Tab = {
   title: string;
   value: string;
-  icon?: IconProps["icon"];
+  icon?: SVGElement;
 };
 
 export type TabsProps = KitchenComponent & {
