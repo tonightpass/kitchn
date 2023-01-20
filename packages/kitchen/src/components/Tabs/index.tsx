@@ -8,7 +8,7 @@ import Highlight from "../Highlight";
 export type Tab = {
   title: string;
   value: string;
-  icon?: SVGElement;
+  icon?: JSX.Element;
 };
 
 export type TabsProps = KitchenComponent & {
@@ -81,8 +81,8 @@ const Tabs = styled(
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
             >
-              {tab.icon && tab.icon}
-              {capitalize(tab.title)}
+              <>{tab.icon && tab.icon}</>
+              <>{capitalize(tab.title)}</>
             </Tab>
           ))}
       </div>
