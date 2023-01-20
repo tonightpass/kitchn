@@ -167,6 +167,116 @@ const ProgressPage: NextPage = () => {
             />
           </Container>
         </Container>
+
+        <Container gap={"tiny"}>
+          <Text>clearable</Text>
+          <Container gap={"tiny"} align={"flex-start"}>
+            <Container>
+              <Input clearable placeholder="Enter some text..." value={"hey"} />
+            </Container>
+
+            <Container>
+              <Input
+                clearable
+                placeholder="Really really long placeholder text..."
+              />
+            </Container>
+
+            <Container>
+              <Input clearable disabled placeholder="Disabled" />
+            </Container>
+
+            <Container>
+              <Input clearable disabled value="Disabled with value" />
+            </Container>
+
+            <Container>
+              <Input clearable placeholder="Custom width" width={300} />
+            </Container>
+
+            <Container>
+              <Input
+                clearable
+                prefix="https://"
+                placeholder="tonightpass.com"
+              />
+            </Container>
+
+            <Container>
+              <Input
+                clearable
+                placeholder="Enter some text..."
+                error="A valid email address is required."
+              />
+            </Container>
+          </Container>
+        </Container>
+        <Container gap={"tiny"}>
+          <Text>types</Text>
+          <Container gap={"tiny"} row>
+            <Container>
+              <Input placeholder="Default" type="danger" />
+            </Container>
+
+            <Container>
+              <Input placeholder="Default" type="warning" />
+            </Container>
+
+            <Container>
+              <Input placeholder="Default" type="success" />
+            </Container>
+          </Container>
+        </Container>
+
+        <Container gap={"tiny"}>
+          <Text>error</Text>
+          <Container gap={"tiny"} align={"flex-start"}>
+            <Container>
+              <Input
+                placeholder="error@gmail.com"
+                error="A valid email address is required."
+              />
+            </Container>
+
+            <Container>
+              <Input
+                width={200}
+                placeholder="wrapping-error@gmail.com"
+                error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+              />
+            </Container>
+
+            <Container>
+              <Input
+                size="small"
+                placeholder="small-error@gmail.com"
+                error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+              />
+            </Container>
+
+            <Container>
+              <Input
+                placeholder="long-error@gmail.com"
+                error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+              />
+            </Container>
+
+            <Container>
+              <Input
+                size="large"
+                placeholder="large-error@gmail.com"
+                error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+              />
+            </Container>
+          </Container>
+        </Container>
+
+        <Container gap={"tiny"}>
+          <Text>label</Text>
+          <Container>
+            <Input placeholder="With label" label="My label" />
+          </Container>
+        </Container>
       </Container>
     </>
   );
