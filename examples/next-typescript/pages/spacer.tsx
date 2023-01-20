@@ -1,4 +1,4 @@
-import { Spacer, Container } from "@tonightpass/kitchen";
+import { Spacer, Container, Text } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
 import styled from "styled-components";
@@ -13,25 +13,19 @@ const SpacerPage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <p>vertical</p>
-        <Container>
-          <SpacerContainer style={{ background: "white" }}>
-            <Spacer x={11} />
-          </SpacerContainer>
+        <Text>vertical</Text>
+        <Container gap={24}>
+          <Space x={11} />
 
-          <SpacerContainer style={{ background: "white" }}>
-            <Spacer x={32} />
-          </SpacerContainer>
+          <Space x={32} />
 
-          <SpacerContainer style={{ background: "white" }}>
-            <Spacer x={43} />
-          </SpacerContainer>
+          <Space x={43} />
         </Container>
 
-        <p>horizontal</p>
+        <Text>horizontal</Text>
         <Container row>
           <Container style={{ background: "white" }} />
-          <Spacer x={23} y={213} />
+          <Space x={23} y={213} />
           <Container style={{ background: "white" }} />
         </Container>
       </Container>
@@ -39,8 +33,8 @@ const SpacerPage: NextPage = () => {
   );
 };
 
-const SpacerContainer = styled(Container)`
-  margin-top: 24px;
+const Space = styled(Spacer)`
+  background-color: red;
 `;
 
 export default SpacerPage;
