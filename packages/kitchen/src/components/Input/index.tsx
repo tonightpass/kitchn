@@ -19,11 +19,11 @@ const simulateChangeEvent = (
   };
 };
 
-export type InputProps = KitchenComponent & {
+export type Props = {
   placeholder?: string;
   size?: NormalSizes;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
+  prefix?: JSX.Element | string;
+  suffix?: JSX.Element | string;
   initialValue?: string;
   value?: string;
   disabled?: boolean;
@@ -39,6 +39,9 @@ export type InputProps = KitchenComponent & {
   type?: keyof AccentColors;
   label?: string;
 };
+
+type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
+export type InputProps = Props & NativeAttrs;
 
 const Input = styled(
   ({
