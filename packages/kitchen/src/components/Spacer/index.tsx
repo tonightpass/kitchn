@@ -16,10 +16,8 @@ const Spacer = styled(({ ...props }: SpacerProps) => {
   height: 1px;
   min-width: 1px;
   min-height: 1px;
-  // horizontal margin can be set with x and it can either be a number or a key from the theme
   margin-left: ${(props) =>
     props.x && `${props.theme.gap[props.x as keyof Gap] || `${props.x}px`}`};
-  // vertical margin can be set with y and it can either be a number or a key from the theme
   margin-top: ${(props) =>
     props.y && `${props.theme.gap[props.y as keyof Gap] || `${props.y}px`}`};
 `;
