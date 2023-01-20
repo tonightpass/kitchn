@@ -66,7 +66,7 @@ const LinkPage: NextPage = () => {
             </Link>
           </Container>
 
-          <Container>
+          <Container align={"flex-start"}>
             <Text size={"small"}>secondary</Text>
             <Link href="#" variant="secondary">
               Secondary variant

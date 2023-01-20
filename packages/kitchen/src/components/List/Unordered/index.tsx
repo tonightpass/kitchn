@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ListItem from "../ListItem";
+import ListItem from "../Item";
 
 const UnorderedList = styled((props) => {
   return <ul {...props} />;

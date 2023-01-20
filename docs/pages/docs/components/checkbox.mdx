@@ -1,0 +1,109 @@
+---
+title: "Checkbox"
+description: "Displays a boolean value."
+---
+
+import Playground from "@components/Playground";
+
+# Checkbox
+
+Displays a boolean value.
+
+## Usage
+
+First of all, you need to import the `Checkbox` component and the `useCheckbox` hook from the `@tonightpass/kitchen` package.
+
+```js
+import { Checkbox, useCheckbox } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Checkbox checked={checked} onChange={toggle}>
+      Option
+    </Checkbox>
+  );
+}`}
+/>
+
+## Checked by default
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox(true);
+
+  return (
+    <Checkbox checked={checked} onChange={toggle}>
+      Option
+    </Checkbox>
+  );
+}`}
+/>
+
+## No Label
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Checkbox checked={checked} onChange={toggle} />
+  );
+}`}
+/>
+
+## Indeterminate
+
+<Playground
+code={`<Checkbox indeterminate>Option 1</Checkbox>`}
+/>
+
+
+## Disabled
+
+<Playground
+code={`<Container gap={10}>
+  <Checkbox disabled>Disabled</Checkbox>
+  <Checkbox disabled checked>Disabled Checked</Checkbox>
+  <Checkbox disabled indeterminate>Disabled Indeterminate</Checkbox>
+</Container>`}
+/>
+
+## Overflowing text
+
+<Playground
+code={`<Checkbox>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</Checkbox>`}
+/>
+
+## Text styles
+
+<Playground
+code={`<Checkbox style={{ fontSize: 18 }}>
+  Arbitrary text styles.
+</Checkbox>`}
+/>
+
+## Label
+
+<Playground
+code={`() => {
+  const [checked, toggle] = useCheckbox()
+  return <Checkbox label="Checkbox" checked={checked} onChange={toggle}>Click me</Checkbox>
+}`}
+/>
+
+## Full width
+
+<Playground
+code={`<Checkbox fullWidth>
+  Areas to the right of this text will be clickable.
+</Checkbox>`}
+/>
+
