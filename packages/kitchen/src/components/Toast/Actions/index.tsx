@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { ToastAction } from "../../../hooks/useToasts";
+import { KitchenComponent } from "../../../types";
 import capitalize from "../../../utils/capitalize";
 import Button from "../../Button";
 import Container from "../../Container";
 
-export type ToastActionsProps = {
+type Props = {
   actions: ToastAction[];
   cancelHandle: () => void;
 };
+
+export type ToastActionsProps = KitchenComponent<Props>;
 
 const ToastActions = styled(
   ({ actions, cancelHandle, ...props }: ToastActionsProps) => {
