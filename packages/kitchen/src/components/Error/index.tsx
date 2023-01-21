@@ -32,7 +32,7 @@ const Error = styled(
           <Icon
             icon={RiErrorWarningLine}
             accent={"danger"}
-            size={size === "small" ? 18 : size === "large" ? 24 : 20}
+            size={size === "small" ? 15 : size === "large" ? 20 : 18}
             align="bottom"
           />
         </IconContainer>
@@ -62,6 +62,7 @@ const Error = styled(
   }
 )<ErrorProps>`
   display: flex;
+  line-height: 1;
 
   *,
   *:before,
@@ -80,12 +81,12 @@ const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
   font-size: ${(props) => {
     switch (props.size) {
       case "small":
-        return props.theme.size.small;
+        return props.theme.size.tiny;
       case "large":
-        return props.theme.size.medium;
+        return props.theme.size.normal;
       case "normal":
       default:
-        return props.theme.size.normal;
+        return props.theme.size.small;
     }
   }};
   word-break: break-word;

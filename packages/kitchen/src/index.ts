@@ -42,6 +42,9 @@ export type { ErrorProps } from "./components/Error";
 export { default as Icon } from "./components/Icon";
 export type { IconProps } from "./components/Icon";
 
+export { default as Input } from "./components/Input";
+export type { InputProps } from "./components/Input";
+
 export { default as Link } from "./components/Link";
 export type { LinkProps } from "./components/Link";
 
