@@ -4,7 +4,7 @@ import Avatar, { AvatarProps } from "..";
 import { KitchenComponent } from "../../../types";
 import Text from "../../Text";
 
-export type AvatarGroupProps = KitchenComponent & {
+type Props = {
   /**
    * The members of the avatar group.
    */
@@ -26,6 +26,8 @@ export type AvatarGroupProps = KitchenComponent & {
    */
   size?: number | string;
 };
+
+export type AvatarGroupProps = KitchenComponent<Props>;
 
 const AvatarGroup = styled(
   ({ members, size, limit, ...props }: AvatarGroupProps) => {
