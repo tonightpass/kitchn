@@ -11,7 +11,7 @@ export type Tab = {
   icon?: JSX.Element;
 };
 
-export type TabsProps = KitchenComponent & {
+type Props = {
   /**
    * The titles, values and icons of the tabs.
    */
@@ -29,6 +29,8 @@ export type TabsProps = KitchenComponent & {
   hoverWidthRatio?: 1.15;
   highlight?: boolean;
 };
+
+export type TabsProps = KitchenComponent<Props>;
 
 const Tabs = styled(
   ({
