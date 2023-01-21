@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import React from "react";
 import { RiArrowUpCircleLine } from "react-icons/ri";
 
-const ProgressPage: NextPage = () => {
+const InputPage: NextPage = () => {
   return (
     <>
       <Container
@@ -282,4 +282,4 @@ const ProgressPage: NextPage = () => {
   );
 };
 
-export default ProgressPage;
+export default InputPage;
