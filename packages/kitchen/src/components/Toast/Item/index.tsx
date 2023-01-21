@@ -7,10 +7,12 @@ import Container from "../../Container";
 import Text from "../../Text";
 import ToastActions from "../Actions";
 
-export type ToastItemProps = KitchenComponent & {
+type Props = {
   toast: Toast;
   layout: Required<ToastLayout>;
 };
+
+export type ToastItemProps = KitchenComponent<Props>;
 
 const ToastItem = styled(({ toast, layout, ...props }) => {
   const [animationState, setAnimationState] = React.useState<

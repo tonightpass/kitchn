@@ -6,7 +6,7 @@ import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import isNumber from "../../utils/isNumber";
 import Spinner from "../Spinner";
 
-export type ButtonProps = KitchenComponent & {
+export type Props = {
   shape?: "square" | "round";
   size?: NormalSizes;
   loading?: boolean;
@@ -23,6 +23,11 @@ export type ButtonProps = KitchenComponent & {
     border: string;
   };
 };
+
+export type ButtonProps = KitchenComponent<
+  Props,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 const Button = styled(
   ({

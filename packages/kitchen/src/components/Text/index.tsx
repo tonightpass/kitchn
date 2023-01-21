@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
-export type TextProps = KitchenComponent & {
+type Props = {
   /**
    * The font size.
    */
@@ -56,6 +56,8 @@ export type TextProps = KitchenComponent & {
    */
   monospace?: boolean;
 };
+
+export type TextProps = KitchenComponent<Props>;
 
 const Text = styled(
   ({ as: Component = "p", children, ...props }: TextProps) => {
