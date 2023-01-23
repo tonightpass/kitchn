@@ -2,9 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 
-export type CodeProps = KitchenComponent & {
+type Props = {
   title: string;
 };
+
+export type CodeProps = KitchenComponent<
+  Props,
+  React.HTMLAttributes<HTMLPreElement>
+>;
 
 const Code = styled(({ children, title, ...props }: CodeProps) => {
   return (

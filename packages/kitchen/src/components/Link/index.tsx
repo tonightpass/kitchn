@@ -5,7 +5,7 @@ import { UrlObject } from "url";
 import isString from "../../utils/isString";
 import { KitchenComponent } from "../../types";
 
-export type LinkProps = KitchenComponent & {
+export type Props = {
   /**
    * The link's href.
    */
@@ -36,6 +36,11 @@ export type LinkProps = KitchenComponent & {
    */
   variant?: "highlight" | "primary" | "secondary" | "blend";
 };
+
+export type LinkProps = KitchenComponent<
+  Props,
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
+>;
 
 const Link = styled(
   ({
