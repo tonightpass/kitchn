@@ -1,7 +1,6 @@
 import { Scroller, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
-import Image from "next/image";
 
 const ScrollerPage: NextPage = () => {
   return (
@@ -16,14 +15,87 @@ const ScrollerPage: NextPage = () => {
         <p>vertical</p>
         <Container>
           <Scroller width="100%" height={220}>
-            <Container style={{ width: 300 }}>
-              <Container>
-                <Image src={""} width={540} height={309} alt={"image"} />
-              </Container>
-
-              <Container>
-                <Image src={""} width={540} height={309} alt={"image"} />
-              </Container>
+            <Container>
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+            </Container>
+          </Scroller>
+        </Container>
+        <p>horizontal</p>
+        <Container>
+          <Scroller width="100%" height={220}>
+            <Container row>
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+            </Container>
+          </Scroller>
+        </Container>
+        <p>free</p>
+        <Container>
+          <Scroller width="100%" height={220}>
+            <Container row>
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+            </Container>
+            <Container row>
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={
+                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-triangle.png"
+                }
+                width={540}
+                height={309}
+                alt={"image"}
+              />
             </Container>
           </Scroller>
         </Container>
