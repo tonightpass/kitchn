@@ -2,12 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 
-export type TextareaProps = KitchenComponent & {
+export type InputProps = KitchenComponent<
+  Props,
+  React.InputHTMLAttributes<HTMLInputElement>
+>;
+
+type Props = {
   placeholder?: string;
   disabled?: boolean;
   errored?: boolean;
   defaultValue?: string;
 };
+
+export type TextareaProps = KitchenComponent<
+  Props,
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>
+>;
 
 const Textarea = styled(
   ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
@@ -36,7 +46,8 @@ const Textarea = styled(
   height: 100%;
   min-height: 50px;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
-  background-color: ${({ theme }) => theme.colors.layout.darkest};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
   font-size: ${({ theme }) => theme.size.normal};
   border: 1px solid
     ${({ errored, disabled, theme }) =>
