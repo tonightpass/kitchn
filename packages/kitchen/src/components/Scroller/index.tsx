@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchenComponent } from "../../types";
 
 export type ScrollerProps = KitchenComponent & {
   /**
