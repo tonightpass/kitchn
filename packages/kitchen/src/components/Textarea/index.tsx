@@ -2,11 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 
-export type InputProps = KitchenComponent<
-  Props,
-  React.InputHTMLAttributes<HTMLInputElement>
->;
-
 type Props = {
   placeholder?: string;
   disabled?: boolean;
