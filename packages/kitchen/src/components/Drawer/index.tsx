@@ -6,13 +6,15 @@ import usePortal from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 
-export type DrawerProps = KitchenComponent & {
+type Props = {
   show: boolean;
   onDismiss?: () => void;
   onAnimationDone?: () => void;
   children?: React.ReactNode;
   height?: number;
 };
+
+export type DrawerProps = KitchenComponent<Props>;
 
 const Drawer = styled(
   ({

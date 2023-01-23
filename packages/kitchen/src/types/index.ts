@@ -1,4 +1,5 @@
-export type KitchenComponent = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
   /**
    * The root element.
    */
@@ -7,6 +8,7 @@ export type KitchenComponent = {
    * The content, duh.
    */
   children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLElement>;
+} & P &
+  Omit<N, keyof P>;
 
 export type NormalSizes = "small" | "normal" | "large";

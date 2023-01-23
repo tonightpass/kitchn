@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 
-export type ProgressProps = KitchenComponent & {
+type Props = {
   value: number;
   max?: number;
   colors?: Record<number, string>;
@@ -12,96 +12,122 @@ export type ProgressProps = KitchenComponent & {
   checkpointTitle?: boolean;
 };
 
-const Progress: React.FC<ProgressProps> = ({
-  value,
-  max = 100,
-  colors,
-  states,
-  title = true,
-  checkpointTitle = true,
-  ...props
-}: ProgressProps) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = React.useState<number>(0);
-  const [isHover, setIsHover] = React.useState<number | null>(null);
+export type ProgressProps = KitchenComponent<
+  Props,
+  React.ProgressHTMLAttributes<HTMLProgressElement>
+>;
 
-  React.useEffect(() => {
-    if (containerRef.current)
-      setContainerWidth(containerRef.current.clientWidth);
-    window.addEventListener("resize", handleResize);
-  }, []);
+const Progress = styled(
+  ({
+    as: Component = "progress",
+    value,
+    max = 100,
+    colors,
+    states,
+    title = true,
+    checkpointTitle = true,
+    ...props
+  }: ProgressProps) => {
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    const [containerWidth, setContainerWidth] = React.useState<number>(0);
+    const [isHover, setIsHover] = React.useState<number | null>(null);
 
-  const handleResize = () => {
-    if (containerRef.current)
-      setContainerWidth(containerRef.current.clientWidth);
-  };
+    React.useEffect(() => {
+      if (containerRef.current)
+        setContainerWidth(containerRef.current.clientWidth);
+      window.addEventListener("resize", handleResize);
+    }, []);
 
-  const background = colors
-    ? Object.keys(colors)
-        .map((key) => parseInt(key))
-        .filter((key) => key <= value)
-        .map((key) => colors[key])
-        .pop()
-    : undefined;
+    const handleResize = () => {
+      if (containerRef.current)
+        setContainerWidth(containerRef.current.clientWidth);
+    };
 
-  const state = states
-    ? Object.keys(states)
-        .map((key) => parseInt(key))
-        .filter((key) => key <= value)
-        .map((key) => states[key])
-        .pop()
-    : undefined;
+    const background = colors
+      ? Object.keys(colors)
+          .map((key) => parseInt(key))
+          .filter((key) => key <= value)
+          .map((key) => colors[key])
+          .pop()
+      : undefined;
 
-  const { isMobile } = useBreakpoint();
+    const state = states
+      ? Object.keys(states)
+          .map((key) => parseInt(key))
+          .filter((key) => key <= value)
+          .map((key) => states[key])
+          .pop()
+      : undefined;
 
-  return (
-    <Container states={states} ref={containerRef}>
-      {states && title && (
-        <State visible={!!state}>{state || "unknow state"}</State>
-      )}
-      <StyledProgress
-        value={value}
-        max={max}
-        {...props}
-        background={background}
-      />
-      <CheckpointContainer>
-        {states &&
-          Object.keys(states).map((key) => {
-            const checkpoint = parseInt(key);
-            const active = checkpoint <= value;
-            const first = checkpoint === 0;
-            const last = checkpoint === max;
-            return (
-              <>
-                <Checkpoint
-                  key={checkpoint}
-                  value={checkpoint}
-                  color={active ? background : undefined}
-                  first={first}
-                  last={last}
-                  onMouseEnter={() => setIsHover(checkpoint)}
-                  onMouseLeave={() => setIsHover(null)}
-                  title={states && title}
-                />
-                {!isMobile && checkpointTitle && (
-                  <CheckpointTitle
+    const { isMobile } = useBreakpoint();
+
+    return (
+      <Container states={states} ref={containerRef}>
+        {states && title && (
+          <State visible={!!state}>{state || "unknow state"}</State>
+        )}
+        <Component value={value} max={max} {...props} background={background} />
+        <CheckpointContainer>
+          {states &&
+            Object.keys(states).map((key) => {
+              const checkpoint = parseInt(key);
+              const active = checkpoint <= value;
+              const first = checkpoint === 0;
+              const last = checkpoint === max;
+              return (
+                <>
+                  <Checkpoint
+                    key={checkpoint}
+                    value={checkpoint}
+                    color={active ? background : undefined}
                     first={first}
                     last={last}
-                    active={
-                      (active && containerWidth > 0) || isHover === checkpoint
-                    }
-                  >
-                    {states[checkpoint]}
-                  </CheckpointTitle>
-                )}
-              </>
-            );
-          })}
-      </CheckpointContainer>
-    </Container>
-  );
-};
+                    onMouseEnter={() => setIsHover(checkpoint)}
+                    onMouseLeave={() => setIsHover(null)}
+                    title={states && title}
+                  />
+                  {!isMobile && checkpointTitle && (
+                    <CheckpointTitle
+                      first={first}
+                      last={last}
+                      active={
+                        (active && containerWidth > 0) || isHover === checkpoint
+                      }
+                    >
+                      {states[checkpoint]}
+                    </CheckpointTitle>
+                  )}
+                </>
+              );
+            })}
+        </CheckpointContainer>
+      </Container>
+    );
+  }
+)<
+  ProgressProps & {
+    background?: string;
+  }
+>`
+  appearance: none;
+  border: none;
+  height: 10px;
+  display: block;
+  vertical-align: unset;
+  width: 100%;
+
+  ::-webkit-progress-bar {
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.colors.layout.dark};
+  }
+
+  ::-webkit-progress-value {
+    border-radius: 5px;
+    background: ${({ theme, background }) =>
+      background || theme.colors.layout.lightest};
+    transition: all 0.1s ease-in-out;
+  }
+`;
 
 const Container = styled.div<{
   states?: ProgressProps["states"];
@@ -170,29 +196,6 @@ const Checkpoint = styled.div<{
     ${CheckpointTitle} {
       opacity: 1;
     }
-  }
-`;
-
-const StyledProgress = styled.progress<{
-  background?: string;
-}>`
-  appearance: none;
-  border: none;
-  height: 10px;
-  display: block;
-  vertical-align: unset;
-  width: 100%;
-
-  ::-webkit-progress-bar {
-    border-radius: 5px;
-    background-color: ${({ theme }) => theme.colors.layout.dark};
-  }
-
-  ::-webkit-progress-value {
-    border-radius: 5px;
-    background: ${({ theme, background }) =>
-      background || theme.colors.layout.lightest};
-    transition: all 0.1s ease-in-out;
   }
 `;
 

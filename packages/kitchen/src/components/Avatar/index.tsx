@@ -5,7 +5,7 @@ import isNumber from "../../utils/isNumber";
 import shortenName from "../../utils/shortenName";
 import Text from "../Text";
 
-export type AvatarProps = KitchenComponent & {
+type Props = {
   /**
    * The size of the avatar.
    */
@@ -32,6 +32,8 @@ export type AvatarProps = KitchenComponent & {
    */
   shape?: "square" | "round";
 };
+
+export type AvatarProps = KitchenComponent<Props>;
 
 const Avatar = styled(
   ({ size = 30, src, text, shape, ...props }: AvatarProps) => {

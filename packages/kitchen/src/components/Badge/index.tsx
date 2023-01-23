@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent, NormalSizes } from "../../types";
 
-export type BadgeProps = KitchenComponent & {
+type Props = {
   /**
    * The size of the badge.
    * @default "normal"
@@ -20,6 +20,8 @@ export type BadgeProps = KitchenComponent & {
    */
   bold?: boolean;
 };
+
+export type BadgeProps = KitchenComponent<Props>;
 
 const Badge = styled((props: BadgeProps) => {
   return <span {...props} />;
