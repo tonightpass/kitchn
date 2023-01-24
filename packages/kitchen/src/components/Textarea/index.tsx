@@ -43,14 +43,14 @@ const Textarea = styled(
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
-  font-size: ${({ theme }) => theme.size.normal};
+  font-size: ${({ theme }) => theme.size.small};
   border: 1px solid
     ${({ errored, disabled, theme }) =>
       errored
         ? theme.colors.accent.danger
         : disabled
-        ? theme.colors.layout.dark
-        : theme.colors.layout.light};
+        ? theme.colors.layout.light
+        : theme.colors.layout.lighter};
   color: ${({ errored, theme }) =>
     errored ? theme.colors.accent.danger : theme.colors.text.lightest};
   ::placeholder {
