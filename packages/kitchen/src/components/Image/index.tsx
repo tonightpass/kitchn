@@ -30,6 +30,7 @@ const Image = styled(
     return (
       <Container>
         <ImageContainer margin={margin}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={src} alt={alt} width={width} height={height} />
           {caption && (
             <Caption captionSpacing={captionSpacing}>{caption}</Caption>
