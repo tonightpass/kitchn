@@ -5,7 +5,7 @@
   "fixed": [["@tonightpass/kitchen"]],
   "linked": [],
   "access": "public",
-  "baseBranch": "develop",
+  "baseBranch": "master",
   "updateInternalDependencies": "patch",
   "ignore": []
 }
