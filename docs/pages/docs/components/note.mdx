@@ -1,0 +1,123 @@
+---
+title: "Note"
+description: "Display text that requires attention or provides additional information."
+---
+
+import Playground from "@components/Playground";
+
+# Note
+
+Display text that requires attention or provides additional information.
+
+## Usage
+
+First of all, you need to import the `Note` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Note } from "@tonightpass/kitchen"
+```
+
+## Size
+
+The size of the note can be changed using the `size` prop.
+
+<Playground code={`
+  <Container row align={"flex-start"} gap={10}>
+    <Note size="small">A small note.</Note>
+    <Note>A default note.</Note>
+    <Note size="large">A large note.</Note>
+  </Container>
+`}
+/>
+
+## Action
+
+<Playground code={`<Container gap={10}>
+  <Note
+    action={
+      <Button
+        size="small"
+        onClick={() => alert("I'll take note ahah")}
+      >
+        Upgrade
+      </Button>
+    }
+  >
+    This note details some information.
+  </Note>
+
+  <Note
+    action={
+      <Button
+        size="small"
+        onClick={() => alert("I'll take note ahah")}
+      >
+        Upgrade
+      </Button>
+    }
+  >
+    This note details a large amount information that could
+    potentially wrap into two or more lines, forcing the height of the
+    Note to be larger.
+  </Note>
+</Container>`}
+/>
+
+## Types
+
+<Playground code={`<Container gap={10}>
+  <Note type={"secondary"}>This note details some information.</Note>
+  <Note type="info">info</Note>
+  <Note type="success">success</Note>
+  <Note type="danger">danger</Note>
+  <Note type="warning">warning</Note>
+</Container>`}
+/>
+
+## Label
+
+### Hidden label
+
+<Playground code={`<Container>
+  <Note label={false}>This note details some information.</Note>
+</Container>`}
+/>
+
+### Custom label
+
+<Playground code={`<Container>
+  <Note label={"Custom"}>This note details some information</Note>
+</Container>`}
+/>
+
+## Filled
+
+<Playground code={`<Container gap={10}>
+  <Note fill>This note details something important.</Note>
+  <Note fill type="secondary">
+    This note details some information.
+  </Note>
+  <Note fill type="info">
+    This note details an info.
+  </Note>
+  <Note fill type="success">
+    This note details a success.
+  </Note>
+  <Note fill type="danger">
+    This note details a danger.
+  </Note>
+  <Note fill type="warning">
+    This note details a warning.
+  </Note>
+</Container>`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `size` | `string` | `normal` | - | The size of the note. | `small`, `normal`, `large` |
+| `type` | `string` | `primary` | - | The type of the note. | `primary`, `secondary`, `info`, `success`, `warning`, `danger` |
+| `action` | `JSX.Element` | - | - | The action of the note. | - |
+| `fill` | `boolean` | `false` | - | The fill  color of the note. | - |
+| `label` | `string`, `boolean` | `true` | - | The label of the note. | - |

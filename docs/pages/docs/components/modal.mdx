@@ -1,0 +1,185 @@
+---
+title: "Modal"
+description: "Display popup content that requires attention or provides additional information."
+---
+
+import { Callout } from "nextra-theme-docs";
+import Playground from "@components/Playground";
+import React from "react";
+
+# Modal
+
+Display popup content that requires attention or provides additional information.
+
+## Usage
+
+First of all, you need to import the `Modal` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Modal } from "@tonightpass/kitchen"
+```
+
+<Callout>
+  This component renders content inside of a [Drawer](/docs/components/drawer) at small viewports.
+  It contains a set of components that can be used to create a modal (e.g. `Modal.Header`, `Modal.Body`, `Modal.Action`).
+</Callout>
+
+## Default
+
+<Playground code={`() => {
+  const [active, open, close] = useModal();
+
+  return (
+    <Container>
+      <Button size={"normal"} onClick={open}>
+        Open Modal
+      </Button>
+      
+      <Modal.Modal active={active} onClickOutside={close}>
+        <Modal.Body>
+          <Modal.Header>
+            <Modal.Title>Modal</Modal.Title>
+            <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+          </Modal.Header>
+
+          <Text>Some content contained within the modal.</Text>
+        </Modal.Body>
+
+        <Modal.Actions>
+          <Modal.Action onClick={close}>Cancel</Modal.Action>
+
+          <Modal.Action onClick={close}>Submit</Modal.Action>
+        </Modal.Actions>
+      </Modal.Modal>
+    </Container>
+  );
+}`}
+/>
+
+## Disabled actions
+
+<Playground
+  code={`() => {
+    const [active, open, close] = useModal();
+
+    return (
+      <Container>
+        <Button size={"normal"} onClick={open}>
+          Open Modal (with disabled actions)
+        </Button>
+        <Modal.Modal active={active} onClickOutside={close}>
+          <Modal.Body>
+            <Modal.Header>
+              <Modal.Title>Modal</Modal.Title>
+              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+            </Modal.Header>
+
+            <Text>Some content contained within the modal.</Text>
+          </Modal.Body>
+
+          <Modal.Actions>
+            <Modal.Action onClick={close}>Cancel</Modal.Action>
+
+            <Modal.Action onClick={close} disabled>
+              Submit
+            </Modal.Action>
+          </Modal.Actions>
+        </Modal.Modal>
+      </Container>
+    );
+}`}
+/>
+
+## Callback
+
+<Playground
+  scope={{ React }}
+  code={`() => {
+    const [active, open, close] = useModal();
+
+    const submit = React.useCallback(() => {
+      alert("Submitted!");
+      close();
+    }, []);
+
+    return (
+      <Container>
+        <Button size={"normal"} onClick={open}>
+          Open Modal (with callback)
+        </Button>
+        <Modal.Modal
+          active={active}
+          onClickOutside={close}
+          onEnterKeyPress={submit}
+        >
+          <Modal.Body>
+            <Modal.Header>
+              <Modal.Title>Modal</Modal.Title>
+              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+            </Modal.Header>
+
+            <Text>Some content contained within the modal.</Text>
+          </Modal.Body>
+
+          <Modal.Actions>
+            <Modal.Action onClick={close}>Cancel</Modal.Action>
+
+            <Modal.Action onClick={submit}>Submit</Modal.Action>
+          </Modal.Actions>
+        </Modal.Modal>
+      </Container>
+    );
+}`}
+/>
+
+## Inset
+
+<Playground
+  code={`() => {
+    const [active, open, close] = useModal();
+
+    return (
+      <Container>
+        <Button size={"normal"} onClick={open}>
+          Open Modal (with inset)
+        </Button>
+        <Modal.Modal active={active} onClickOutside={close}>
+          <Modal.Body>
+            <Modal.Header>
+              <Modal.Title>Modal</Modal.Title>
+              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+            </Modal.Header>
+
+            <Modal.Inset>
+              <Text>Content within the inset.</Text>
+            </Modal.Inset>
+
+            <Text
+              style={{
+                marginTop: 20,
+              }}
+            >
+              Content outside the inset.
+            </Text>
+          </Modal.Body>
+
+          <Modal.Actions>
+            <Modal.Action onClick={close}>Cancel</Modal.Action>
+
+            <Modal.Action onClick={close}>Submit</Modal.Action>
+          </Modal.Actions>
+        </Modal.Modal>
+      </Container>
+    );
+}`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `active` | `boolean` | - | ✅ | Whether the modal is active or not. | - |
+| `onAnimationDone` | `function` | - | - | Callback function that is called when the animation is done. | `() => void` |
+| `onClickOutside` | `function` | - | - | Callback function that is called when the user clicks outside the modal. | `() => void` |
+| `onEnterKeyPress` | `function` | - | - | Callback function that is called when the user presses the `Enter` key. | `() => void` |
+| `children` | `ReactNode` | - | ✅ | The content of the modal. | - |

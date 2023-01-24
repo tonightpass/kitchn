@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+#
+# This hook is triggered before the commit message is created.
+#
+
+# Reference : https://docs.onruntime.com/contributing/commits
+bash $(dirname -- "$0")/scripts/validate-commit-message.sh "$1"

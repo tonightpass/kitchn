@@ -1,4 +1,0 @@
-{
-  "main": "dist/tonightpass-kitchen-link.cjs.js",
-  "module": "dist/tonightpass-kitchen-link.esm.js"
-}

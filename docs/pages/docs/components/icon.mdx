@@ -1,0 +1,145 @@
+---
+title: "Icon"
+description: "Display icons using well-defined styles."
+---
+
+import { Callout } from "nextra-theme-docs";
+import Playground from "@components/Playground";
+import { RiHomeFill } from "react-icons/ri";
+import kitchen, { Container } from "@tonightpass/kitchen";
+
+# Icon
+
+Display icons using well-defined styles.
+
+## Usage
+
+First of all, you need to import the `Icon` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Icon } from "@tonightpass/kitchen"
+```
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `icon` | `SVGElement` | `undefined` | ✅ | The icon as a svg element. | - |
+| `size` | `number` \| `string` \| `Size` | `undefined` | - | The size of the icon. | [Size](#size) |
+| `color` | `string` \| `TextColors` | `undefined` | - | The text color of the icon. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`. | [TextColors](/docs/guides/colors#text-colors) |
+| `accent` | `string` \| `AccentColors` | `undefined` | - | The accent color of the ico. Strictly limited to colors of our design system, but can be used in combination with `color` prop. | [AccentColors](/docs/guides/colors#accent-colors) |
+| `align` | `string` | `undefined` | - | The alignement of the icon. | `'top'` \| `'middle'` \| `'bottom'` |
+
+## Examples
+
+For the following examples, we will use the `AiFillHome` icon from the React Icons library. But you can use any icon or library as long as it is a svg element.
+
+<Callout>
+  Referenced working icons libraries [here](#icons-libraries)
+</Callout>
+
+## Basic
+
+<Playground
+  scope={{ RiHomeFill }}
+  code={`
+<Container>
+  <Icon icon={RiHomeFill} />
+</Container>
+`}
+/>
+
+## Color
+
+Color `light` from [TextColors](/docs/guides/colors#text-colors):
+<Playground
+  scope={{ RiHomeFill }}
+  code={`
+<Container>
+  <Icon icon={RiHomeFill} color={"light"} />
+</Container>
+`}
+/>
+
+### Accent color
+
+Color `primary` from [AccentColors](/docs/guides/colors#accent-colors):
+<Playground
+  scope={{ RiHomeFill }}
+  code={`
+<Container>
+  <Icon icon={RiHomeFill} accent={"primary"} />
+</Container>
+`}
+/>
+
+### Custom color
+
+Color as hex value (you can do anything color value type you want):
+<Playground
+  scope={{ RiHomeFill }}
+  code={`
+<Container>
+  <Icon icon={RiHomeFill} color={"#e74c3c"} />
+</Container>
+`}
+/>
+
+## Size
+
+Sizes are defined in the [Size](/docs/guides/size) enum.
+<Playground
+  scope={{ RiHomeFill }}
+  code={`
+<Container>
+  <Icon icon={RiHomeFill} size={"tiny"} />
+  <Icon icon={RiHomeFill} size={"small"} />
+  <Icon icon={RiHomeFill} size={"normal"} />
+  <Icon icon={RiHomeFill} size={"medium"} />
+  <Icon icon={RiHomeFill} size={"large"} />
+  <Icon icon={RiHomeFill} size={"extraTitle"} />
+  <Icon icon={RiHomeFill} size={52} />
+  <Icon icon={RiHomeFill} size={"64"} />
+</Container>
+`}
+/>
+
+### Custom size
+
+Number and string values in pixels are accepted as well.
+<Playground
+  scope={{ RiHomeFill }}
+  code={`
+<Container>
+  <Icon icon={RiHomeFill} size={30} />
+  <Icon icon={RiHomeFill} size={"42"} />
+  <Icon icon={RiHomeFill} size={"60px"} />
+</Container>
+`}
+/>
+
+## Align
+
+export const IconContainer = kitchen(Container)`
+  height: 30px;
+`;
+
+<Playground
+  scope={{ RiHomeFill, IconContainer }}
+  code={`
+<IconContainer row gap={10}>
+  <Icon icon={RiHomeFill} align={"top"} />
+  <Icon icon={RiHomeFill} align={"middle"} />
+  <Icon icon={RiHomeFill} align={"bottom"} />
+</IconContainer>
+`}
+/>
+
+## Icons libraries
+
+All icons libraries are compatible with the `Icon` component. Here are some of the most popular ones:
+
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Material Icons](https://material.io/resources/icons/?style=baseline)
+- [Font Awesome](https://fontawesome.com/)
+- [Remix Icons](https://remixicon.com/)

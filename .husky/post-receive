@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+#
+# This hook is triggered after the remote branch is updated.
+#
+
+branchName="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branchName" = "master" ]; then
+  packageDir="$(dirname $(readlink -f $0))/.."
+  packageVersion=$(cat $packageDir/package.json \
+    | grep version \
+    | head -1 \
+    | awk -F: '{ print $2 }' \
+    | sed 's/[",]//g')
+
+  git tag $packageVersion
+  git push --tags
+
+  yarn release
+fi

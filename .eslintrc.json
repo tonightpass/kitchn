@@ -1,43 +1,43 @@
 {
-    "root": true,
-    "env": {
-        "es2021": true
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": "**/migrations/*",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "ignorePatterns": "**/migrations/*",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "prettier"
-    ],
-    "rules": {
-        "react/jsx-filename-extension" : [1, { "extensions": [".tsx", ".ts"] }],
-        "react/jsx-props-no-spreading" : [0],
-        "react/react-in-jsx-scope"     : "off",
-        "react/jsx-indent-props"       : ["error", 2],
-        "import/extensions"            : [0],
-        "semi"                         : ["error", "always"],
-        "quotes"                       : ["error", "double"],
-        "no-console"                   : 0,
-        "no-control-regex"             : 0,
-        "prettier/prettier"            : ["error", { "endOfLine": "auto" }]
-    },
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "react/jsx-props-no-spreading": [0],
+    "react/no-unknown-property": ["error", { "ignore": ["jsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-indent-props": ["error", 2],
+    "import/extensions": [0],
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "no-console": 0,
+    "no-control-regex": 0,
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  }
 }

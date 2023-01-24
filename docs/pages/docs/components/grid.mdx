@@ -1,0 +1,176 @@
+---
+title: "Grid"
+description: "Grid system used to create complex layouts."
+---
+
+import Playground from "@components/Playground";
+import kitchen, { Container } from "@tonightpass/kitchen";
+
+# Grid
+
+Grid system used to create complex layouts.
+
+export const BlueContainer = kitchen(Container)`
+  background: ${({ theme }) => theme.colors.accent.info};
+  color: ${({ theme }) => theme.colors.accent.white};
+  padding: 10px;
+  border: 1px solid ${({ theme }) => theme.colors.accent.white};
+`;
+
+## Rows
+
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container>
+  <BlueContainer>
+    <Text size="small">Container</Text>
+  </BlueContainer>
+  <BlueContainer>
+    <Text size="small">Container</Text>
+  </BlueContainer>
+</Container>
+`}
+/>
+
+## Columns
+
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container row>
+  <BlueContainer>
+    <Text size="small">Container</Text>
+  </BlueContainer>
+  <BlueContainer>
+    <Text size="small">Container</Text>
+  </BlueContainer>
+  <BlueContainer>
+    <Text size="small">Container</Text>
+  </BlueContainer>
+</Container>
+`}
+/>
+
+## Flexboxes
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container row>
+  <BlueContainer flex={1}>
+    <Text size="small">Flex = 1</Text>
+  </BlueContainer>
+  <BlueContainer flex={2}>
+    <Text size="small">Flex = 2</Text>
+  </BlueContainer>
+  <BlueContainer flex={3}>
+    <Text size="small">Flex = 3</Text>
+  </BlueContainer>
+  <BlueContainer flex={4}>
+    <Text size="small">Flex = 4</Text>
+  </BlueContainer>
+</Container>
+`}
+/>
+
+## Mix
+
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container row>
+  <BlueContainer>
+    <Text size={"small"}>Container</Text>
+  </BlueContainer>
+  <BlueContainer flex={2}>
+    <Text size={"small"}>Container</Text>
+  </BlueContainer>
+  <Container flex={3}>
+    <BlueContainer>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+  </Container>
+</Container>
+`}
+/>
+
+## Alignments
+
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container>
+  <Container row>
+    <BlueContainer flex={2} style={{ height: 100 }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer style={{ alignSelf: "flex-start" }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer style={{ alignSelf: "center" }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer style={{ alignSelf: "flex-end" }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+  </Container>
+  <Container>
+    <BlueContainer align={"center"}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer style={{ alignSelf: "flex-start" }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer style={{ alignSelf: "center" }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+    <BlueContainer style={{ alignSelf: "flex-end" }}>
+      <Text size={"small"}>Container</Text>
+    </BlueContainer>
+  </Container>
+</Container>
+`}
+/>
+
+## Responsive
+
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container row direction={["column", "row", "column"]}>
+  <BlueContainer>
+    <Text size={"small"}>Container 1</Text>
+  </BlueContainer>
+  <BlueContainer>
+    <Text size={"small"}>Container 2</Text>
+  </BlueContainer>
+</Container>
+`}
+/>
+
+## Gaps
+
+<Playground
+  scope={{ BlueContainer }}
+  code={`
+<Container row gap={10}>
+  <BlueContainer>
+    <Text size={"small"}>Container 1</Text>
+  </BlueContainer>
+  <BlueContainer>
+    <Text size={"small"}>Container 2</Text>
+  </BlueContainer>
+  <Container gap={20}>
+    <BlueContainer>
+      <Text size={"small"}>Container 3</Text>
+    </BlueContainer>
+    <BlueContainer>
+      <Text size={"small"}>Container 4</Text>
+    </BlueContainer>
+  </Container>
+</Container>
+`}
+/>
