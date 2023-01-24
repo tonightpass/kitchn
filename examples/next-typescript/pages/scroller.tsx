@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Scroller, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
