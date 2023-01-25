@@ -1,6 +1,5 @@
 {
   "name": "next-typescript",
-  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next -p 3001",
