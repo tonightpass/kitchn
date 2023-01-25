@@ -17,7 +17,7 @@ jobs:
       - name: Use pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7
+          version: ${{ matrix.node < 16 && 6 || 7 }}
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v3
