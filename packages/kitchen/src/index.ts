@@ -84,6 +84,9 @@ export type { ToastItemProps } from "./components/Toast/Item";
 
 export { default as ToastContainer } from "./components/Toast/Container";
 
+export { default as Toggle } from "./components/Toggle";
+export type { ToggleProps } from "./components/Toggle";
+
 // ./contexts
 export { ToastsContent, useToastsContext } from "./contexts/Toasts";
 export type {
