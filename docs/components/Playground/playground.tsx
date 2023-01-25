@@ -2,7 +2,9 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { Skeleton, useTheme } from "@tonightpass/kitchen";
 
-const DynamicLive = dynamic(() => import("./dynamic-live"), {
+const DynamicLive: React.ComponentType<{
+  code: PlaygroundProps["code"];
+}> = dynamic(() => import("./dynamic-live"), {
   ssr: false,
   loading: () => <Skeleton width="100%" height={100} />,
 });
