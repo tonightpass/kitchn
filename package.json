@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "build:packages": "turbo run p:build",
     "build:docs": "turbo run build --filter=docs...",
-    "build:examples": "turbo run build --filter=./examples/*",
+    "build:examples": "turbo run build --filter='./examples/*'",
     "build:examples:expo": "turbo run build --filter=expo-typescript...",
     "build:examples:next": "turbo run build --filter=next-typescript...",
     "dev": "turbo run p:watch dev --parallel --no-cache",
