@@ -17,14 +17,7 @@ export type TextareaProps = KitchenComponent<
 >;
 
 const Textarea = styled(
-  ({
-    placeholder,
-    disabled,
-    defaultValue,
-    width,
-    height,
-    ...props
-  }: TextareaProps) => {
+  ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
     return (
       <textarea
         placeholder={placeholder}
