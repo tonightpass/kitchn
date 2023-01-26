@@ -1,2 +1,4 @@
 dist/
 babel.config.js
+.changeset/*.md
+CHANGELOG.md
