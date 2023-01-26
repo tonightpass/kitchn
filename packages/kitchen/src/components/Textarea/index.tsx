@@ -7,6 +7,8 @@ type Props = {
   disabled?: boolean;
   errored?: boolean;
   defaultValue?: string;
+  width?: number | string;
+  height?: number | string;
 };
 
 export type TextareaProps = KitchenComponent<
@@ -15,7 +17,14 @@ export type TextareaProps = KitchenComponent<
 >;
 
 const Textarea = styled(
-  ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
+  ({
+    placeholder,
+    disabled,
+    defaultValue,
+    width,
+    height,
+    ...props
+  }: TextareaProps) => {
     return (
       <textarea
         placeholder={placeholder}
@@ -27,18 +36,14 @@ const Textarea = styled(
   }
 )<TextareaProps>`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   outline: none;
   transition: all 0.2s;
-  line-height: 1;
   user-select: none;
   resize: none;
   border-radius: 4px;
-  padding: 7px 10px;
-  width: 100%;
-  height: 100%;
+  padding: 0 ${({ theme }) => theme.gap.small};
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
+  height: ${({ height }) => (height ? `${height}px` : "auto")};
   min-height: 50px;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
   background-color: ${({ theme, disabled }) =>
