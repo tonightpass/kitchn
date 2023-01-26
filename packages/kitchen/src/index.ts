@@ -31,6 +31,9 @@ export type { CodeProps } from "./components/Code";
 
 export { default as InlineCode } from "./components/Code/Inline";
 
+export { default as Collapse } from "./components/Collapse";
+export type { CollapseProps } from "./components/Collapse";
+
 export { default as Container } from "./components/Container";
 export type { ContainerProps } from "./components/Container";
 
