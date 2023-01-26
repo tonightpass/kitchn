@@ -4,6 +4,7 @@ import { Skeleton, useTheme } from "@tonightpass/kitchen";
 
 const DynamicLive: React.ComponentType<{
   code: PlaygroundProps["code"];
+  scope: PlaygroundProps["scope"];
 }> = dynamic(() => import("./dynamic-live"), {
   ssr: false,
   loading: () => <Skeleton width="100%" height={100} />,
