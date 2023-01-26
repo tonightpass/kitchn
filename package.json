@@ -2,9 +2,7 @@
   "name": "@tonightpass/root",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "examples/*",
-    "docs"
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
