@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
-export type ContainerProps = KitchenComponent & {
+type Props = {
   row?: boolean;
   flex?: number | string;
   direction?: ("row" | "column")[];
@@ -18,6 +18,8 @@ export type ContainerProps = KitchenComponent & {
     | "space-evenly"
     | "stretch";
 };
+
+export type ContainerProps = KitchenComponent<Props>;
 
 const Container = styled(({ children, ...rest }: ContainerProps) => {
   return <div {...rest}>{children}</div>;

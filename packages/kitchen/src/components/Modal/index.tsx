@@ -8,13 +8,15 @@ import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 import Drawer from "../Drawer";
 
-export type ModalProps = KitchenComponent & {
+type Props = {
   active: boolean;
   onAnimationDone?: () => void;
   onClickOutside?: () => void;
   onEnterKeyPress?: () => void;
   children?: React.ReactNode;
 };
+
+export type ModalProps = KitchenComponent<Props>;
 
 const ModalComponent = styled(
   ({
@@ -210,9 +212,12 @@ const ModalActions = styled.footer`
   overflow: hidden;
 `;
 
-export type ModalActionProps = KitchenComponent & {
-  disabled?: boolean;
-};
+export type ModalActionProps = KitchenComponent<
+  {
+    disabled?: boolean;
+  },
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 const ModalAction = styled((props: ModalActionProps) => (
   <button type="button" {...props} />

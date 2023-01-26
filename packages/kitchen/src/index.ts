@@ -1,6 +1,7 @@
 // styled-components
 import "./types/styled-components";
-import kitchen from "styled-components";
+import { default as kitchen } from "styled-components";
+export { createGlobalStyle } from "styled-components";
 export type { DefaultTheme } from "styled-components";
 
 // ./themes
@@ -42,6 +43,9 @@ export type { ErrorProps } from "./components/Error";
 export { default as Icon } from "./components/Icon";
 export type { IconProps } from "./components/Icon";
 
+export { default as Input } from "./components/Input";
+export type { InputProps } from "./components/Input";
+
 export { default as Link } from "./components/Link";
 export type { LinkProps } from "./components/Link";
 
@@ -69,6 +73,9 @@ export type { SpacerProps } from "./components/Spacer";
 
 export { default as Spinner } from "./components/Spinner";
 export type { SpinnerProps } from "./components/Spinner";
+
+export { default as Tabs } from "./components/Tabs";
+export type { TabsProps } from "./components/Tabs";
 
 export { default as Text } from "./components/Text";
 export type { TextProps } from "./components/Text";
@@ -126,6 +133,16 @@ export type { UseModalResult } from "./hooks/useModal";
 
 export { default as usePortal } from "./hooks/usePortal";
 
+export { default as usePrevious } from "./hooks/usePrevious";
+
+export {
+  default as useRect,
+  getRefRect,
+  getEventRect,
+  isUnplacedRect,
+} from "./hooks/useRect";
+export type { ReactiveDomReact } from "./hooks/useRect";
+
 export { default as useSSR } from "./hooks/useSSR";
 export type { SSRState } from "./hooks/useSSR";
 
@@ -148,11 +165,13 @@ export { KeyCode, KeyMod } from "./utils/codes";
 export { default as convertRGBToRGBA } from "./utils/convertRGBToRGBA";
 export { default as getActiveModMap } from "./utils/getActiveModMap";
 export { default as getCtrlKeysByPlatform } from "./utils/getCtrlKeysByPlatform";
+export { default as getElementOffset } from "./utils/getElementOffset";
 export { default as getId } from "./utils/getId";
 export { default as getTranslateByPlacement } from "./utils/getTranslateByPlacement";
 export { default as isBrowser } from "./utils/isBrowser";
 export { default as isMac } from "./utils/isMac";
 export { default as isNumber } from "./utils/isNumber";
+export { default as isRefTarget } from "./utils/isRefTarget";
 export { default as isString } from "./utils/isString";
 export { default as shortenName } from "./utils/shortenName";
 

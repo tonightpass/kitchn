@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import isString from "../../utils/isString";
 
-export type SkeletonProps = KitchenComponent & {
+type Props = {
   /**
    * The skeleton's appearance (if it's shown or not).
    */
@@ -44,6 +44,8 @@ export type SkeletonProps = KitchenComponent & {
    */
   [key: string]: any;
 };
+
+export type SkeletonProps = KitchenComponent<Props>;
 
 const Skeleton = styled(
   ({

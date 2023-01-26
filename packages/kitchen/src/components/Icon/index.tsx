@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
-export type IconProps = KitchenComponent & {
+type Props = {
   icon: SVGElement;
   size?: keyof Size | number | string;
   /**
@@ -16,6 +16,8 @@ export type IconProps = KitchenComponent & {
   accent?: keyof AccentColors;
   align?: "top" | "middle" | "bottom";
 };
+
+export type IconProps = KitchenComponent<Props, React.SVGProps<SVGSVGElement>>;
 
 const Icon = styled(({ icon: Component, size, ...props }) => {
   const theme = useTheme();

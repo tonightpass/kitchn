@@ -2,15 +2,13 @@
   "name": "@tonightpass/root",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "examples/*",
-    "docs"
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "build:packages": "turbo run p:build",
     "build:docs": "turbo run build --filter=docs...",
-    "build:examples": "turbo run build --filter=./examples/*",
+    "build:examples": "turbo run build --filter='./examples/*'",
     "build:examples:expo": "turbo run build --filter=expo-typescript...",
     "build:examples:next": "turbo run build --filter=next-typescript...",
     "dev": "turbo run p:watch dev --parallel --no-cache",
@@ -23,11 +21,11 @@
     "p:dev": "preconstruct dev",
     "p:build": "preconstruct build",
     "p:validate": "preconstruct validate",
-    "postinstall": "manypkg check && yarn p:dev",
-    "prepare": "husky install && yarn p:validate && yarn build:packages",
-    "version": "yarn changeset version",
-    "release": "yarn changeset publish",
-    "release:alpha": "yarn changeset publish --tag alpha",
+    "postinstall": "manypkg check && pnpm p:dev",
+    "prepare": "husky install && pnpm p:validate && pnpm build:packages",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "release:alpha": "pnpm changeset publish --tag alpha",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "size": "size-limit",
@@ -63,5 +61,6 @@
     "packages": [
       "packages/*"
     ]
-  }
+  },
+  "packageManager": "pnpm@7.26.0"
 }
