@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { KitchenComponent } from "../../types";
 
-export type SpinnerProps = {
+type Props = {
   color?: string;
   size?: number;
 };
+
+export type SpinnerProps = KitchenComponent<Props>;
 
 const Spinner = styled(({ ...props }: SpinnerProps) => {
   return (

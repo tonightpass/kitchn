@@ -1,17 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import Icon from "../Icon";
 import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
+import { KitchenComponent } from "../../types";
 
-export type CheckboxProps = KitchenComponent & {
+type Props = {
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
   label?: string;
   fullWidth?: boolean;
 };
+
+export type CheckboxProps = KitchenComponent<
+  Props,
+  React.InputHTMLAttributes<HTMLInputElement>
+>;
 
 const Checkbox = styled(
   ({

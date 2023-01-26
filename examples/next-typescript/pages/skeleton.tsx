@@ -1,7 +1,6 @@
 import { Skeleton, Container, Button } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
-import styled from "styled-components";
 
 const SkeletonPage: NextPage = () => {
   return (
@@ -38,7 +37,7 @@ const SkeletonPage: NextPage = () => {
       >
         <p>wrapping children</p>
         <Skeleton>
-          <TestButton>Hidden by skeleton</TestButton>
+          <Button>Hidden by skeleton</Button>
         </Skeleton>
 
         <Skeleton show={false}>
@@ -59,7 +58,7 @@ const SkeletonPage: NextPage = () => {
         </Skeleton>
 
         <Skeleton width="100%" height={100} show={false}>
-          <TestButton width="200px">Not hidden by Skeleton</TestButton>
+          <Button width="200px">Not hidden by Skeleton</Button>
         </Skeleton>
       </Container>
       <Container
@@ -111,7 +110,5 @@ const SkeletonPage: NextPage = () => {
     </>
   );
 };
-
-const TestButton = styled(Button)``;
 
 export default SkeletonPage;
