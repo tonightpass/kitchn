@@ -39,8 +39,8 @@ jobs:
         with:
           publish: pnpm run release
           version: pnpm run version
-          # should be "🔖 release <version>"
-          commit: "🔖 release ${{ env.VERSION }}"
+          commit: "🔖 release version"
+          title: "🔖 release version"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
