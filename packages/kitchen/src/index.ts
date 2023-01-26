@@ -1,6 +1,7 @@
 // styled-components
 import "./types/styled-components";
-import kitchen from "styled-components";
+import { default as kitchen } from "styled-components";
+export { createGlobalStyle } from "styled-components";
 export type { DefaultTheme } from "styled-components";
 
 // ./themes
