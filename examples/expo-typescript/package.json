@@ -1,10 +1,10 @@
 {
   "name": "expo-typescript",
-  "version": "1.0.0",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "expo start",
-    "dev": "yarn start",
+    "dev": "pnpm start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
@@ -21,6 +21,5 @@
     "@types/expo": "^33.0.1",
     "@types/react": "^18.0.25",
     "@types/react-native": "^0.70.6"
-  },
-  "private": true
+  }
 }

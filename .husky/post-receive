@@ -18,5 +18,5 @@ if [ "$branchName" = "master" ]; then
   git tag $packageVersion
   git push --tags
 
-  yarn release
+  pnpm release
 fi
