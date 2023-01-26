@@ -1,11 +1,14 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [["@tonightpass/kitchen"]],
   "linked": [],
   "access": "public",
-  "baseBranch": "develop",
+  "baseBranch": "master",
   "updateInternalDependencies": "patch",
-  "ignore": []
+  "ignore": [],
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "updateInternalDependents": "always"
+  }
 }

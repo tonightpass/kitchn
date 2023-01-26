@@ -7,7 +7,7 @@ import {
 } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import styled from "styled-components";
+import kitchen from "@tonightpass/kitchen";
 
 const LinkPage: NextPage = () => {
   const router = useRouter();
@@ -104,7 +104,7 @@ const LinkPage: NextPage = () => {
     </>
   );
 };
-const Card = styled.div`
+const Card = kitchen.div`
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   border-radius: 8px;
   padding: 16px;

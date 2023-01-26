@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "@tonightpass/kitchen";
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {

@@ -1,6 +1,5 @@
 {
   "name": "next-typescript",
-  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next -p 3001",
@@ -9,7 +8,7 @@
   },
   "dependencies": {
     "@preconstruct/next": "^4.0.0",
-    "@tonightpass/kitchen": "1.0.0-alpha.9",
+    "@tonightpass/kitchen": "1.0.0-alpha.11",
     "next": "^13.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
