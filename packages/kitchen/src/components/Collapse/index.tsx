@@ -1,7 +1,8 @@
 import React from "react";
+import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
-import Icon from "../Icon";
 import { KitchenComponent } from "../../types";
+import Icon from "../Icon";
 
 type Props = {
   title: string;
@@ -58,7 +59,7 @@ const Collapse = styled(
             <Title size={size}>{title}</Title>
             {subtitle && <Subtitle>{subtitle}</Subtitle>}
           </HeaderContent>
-          <Icon name={"arrow-down-s"} />
+          <Icon icon={RiArrowDownSLine} />
         </Header>
         <Content height={height}>
           <ContentContainer ref={contentContainerRef}>
