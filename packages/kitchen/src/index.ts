@@ -55,6 +55,9 @@ export type { LinkProps } from "./components/Link";
 export { default as FragmentLink } from "./components/Link/Fragment";
 export type { FragmentLinkProps } from "./components/Link/Fragment";
 
+export { default as Image } from "./components/Image";
+export type { ImageProps } from "./components/Image";
+
 export { default as ListItem } from "./components/List/Item";
 export { default as OrderedList } from "./components/List/Ordered";
 export { default as UnorderedList } from "./components/List/Unordered";
