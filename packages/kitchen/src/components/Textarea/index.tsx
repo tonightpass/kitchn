@@ -9,6 +9,7 @@ type Props = {
   defaultValue?: string;
   width?: number | string;
   height?: number | string;
+  resize?: "none" | "both" | "horizontal" | "vertical";
 };
 
 export type TextareaProps = KitchenComponent<
@@ -32,9 +33,9 @@ const Textarea = styled(
   outline: none;
   transition: all 0.2s;
   user-select: none;
-  resize: none;
-  border-radius: 4px;
-  padding: 0 ${({ theme }) => theme.gap.small};
+  resize: ${({ resize = "none" }) => resize};
+  border-radius: ${({ theme }) => theme.radius.square};
+  padding: ${({ theme }) => theme.gap.small};
   width: ${({ width }) => (width ? `${width}px` : "100%")};
   height: ${({ height }) => (height ? `${height}px` : "auto")};
   min-height: 50px;
@@ -47,12 +48,17 @@ const Textarea = styled(
       errored
         ? theme.colors.accent.danger
         : disabled
-        ? theme.colors.layout.light
-        : theme.colors.layout.lighter};
+        ? theme.colors.layout.darker
+        : theme.colors.layout.dark};
   color: ${({ errored, theme }) =>
     errored ? theme.colors.accent.danger : theme.colors.text.lightest};
-  ::placeholder {
+  :placeholder {
     color: ${({ theme }) => theme.colors.text.light};
+  }
+  :focus {
+    border: 1px solid
+      ${({ theme, errored }) =>
+        errored ? theme.colors.accent.danger : theme.colors.layout.lighter};
   }
 `;
 
