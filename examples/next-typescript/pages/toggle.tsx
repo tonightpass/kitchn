@@ -1,12 +1,12 @@
-import { Toggle, Container } from "@tonightpass/kitchen";
+import { Container, Text, Toggle, useCheckbox } from "@tonightpass/kitchen";
 import { NextPage } from "next";
-import React, { useState } from "react";
+import React from "react";
 
 const TogglePage: NextPage = () => {
-  const [checked, setChecked] = useState(false);
-  const [checked2, setChecked2] = useState(true);
-  const [checked3, setChecked3] = useState(false);
-  const [checked4, setChecked4] = useState(false);
+  const [checked1, toggle1] = useCheckbox();
+  const [checked2, toggle2] = useCheckbox(true);
+  const [checked3, toggle3] = useCheckbox();
+  const [checked4, toggle4] = useCheckbox();
   return (
     <>
       <Container
@@ -16,20 +16,17 @@ const TogglePage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <p>default</p>
+        <Text>default</Text>
         <Container gap={10}>
           <Container>
-            <Toggle checked={checked} onChange={() => setChecked(!checked)} />
+            <Toggle checked={checked1} onChange={toggle1} />
           </Container>
 
           <Container>
-            <Toggle
-              checked={checked2}
-              onChange={() => setChecked2(!checked2)}
-            />
+            <Toggle checked={checked2} onChange={toggle2} />
           </Container>
         </Container>
-        <p>disabled</p>
+        <Text>disabled</Text>
         <Container gap={10}>
           <Container>
             <Toggle disabled />
@@ -39,21 +36,14 @@ const TogglePage: NextPage = () => {
             <Toggle disabled checked />
           </Container>
         </Container>
-        <p>sizes</p>
+        <Text>sizes</Text>
         <Container row>
           <Container>
-            <Toggle
-              checked={checked3}
-              onChange={() => setChecked3(!checked3)}
-            />
+            <Toggle checked={checked3} onChange={toggle3} />
           </Container>
 
           <Container>
-            <Toggle
-              large
-              checked={checked4}
-              onChange={() => setChecked4(!checked4)}
-            />
+            <Toggle large checked={checked4} onChange={toggle4} />
           </Container>
         </Container>
       </Container>
