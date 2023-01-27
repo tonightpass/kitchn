@@ -4,5 +4,11 @@
   "initialVersions": {
     "@tonightpass/kitchen": "1.0.0-alpha.11"
   },
-  "changesets": []
+  "changesets": [
+    "few-timers-look",
+    "nine-timers-speak",
+    "old-ears-doubt",
+    "rare-islands-join",
+    "tricky-chefs-glow"
+  ]
 }
