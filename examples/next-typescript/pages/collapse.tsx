@@ -11,7 +11,7 @@ const CollapsePage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <p>default</p>
+        <Text>default</Text>
         <Container gap={10}>
           <Collapse title="Question A">
             <Text>
@@ -28,7 +28,7 @@ const CollapsePage: NextPage = () => {
             </Text>
           </Collapse>
         </Container>
-        <p>expanded</p>
+        <Text>expanded</Text>
         <Container gap={10}>
           <Collapse title="Question A" defaultExpanded>
             <Text>
@@ -45,7 +45,7 @@ const CollapsePage: NextPage = () => {
             </Text>
           </Collapse>
         </Container>
-        <p>subtitle</p>
+        <Text>subtitle</Text>
         <Container gap={10}>
           <Collapse
             title="Question A"
@@ -65,7 +65,7 @@ const CollapsePage: NextPage = () => {
             </Text>
           </Collapse>
         </Container>
-        <p>card</p>
+        <Text>card</Text>
         <Container gap={10}>
           <Collapse title="Question A" card>
             <Text>
@@ -76,7 +76,7 @@ const CollapsePage: NextPage = () => {
             </Text>
           </Collapse>
         </Container>
-        <p>small</p>
+        <Text>small</Text>
         <Container gap={10}>
           <Collapse title="Question A" size="small">
             <Text>

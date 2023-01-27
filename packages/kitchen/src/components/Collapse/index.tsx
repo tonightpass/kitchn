@@ -53,7 +53,7 @@ const Collapse = styled(
     }, [isOpen]);
 
     return (
-      <Container {...props}>
+      <div {...props}>
         <Header onClick={handleClick} isOpen={isOpen}>
           <HeaderContent>
             <Title size={size}>{title}</Title>
@@ -66,15 +66,12 @@ const Collapse = styled(
             {children}
           </ContentContainer>
         </Content>
-      </Container>
+      </div>
     );
   }
 )<CollapseProps>`
-  display: flex;
-`;
-
-const Container = styled.div<{ card?: boolean }>`
   position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -87,16 +84,16 @@ const Container = styled.div<{ card?: boolean }>`
   ${({ card, theme }) =>
     card &&
     `
-    border: 1px solid ${theme.colors.layout.dark};
-    border-radius: 5px;
-    background: ${theme.colors.layout.darker};
-    margin-bottom: 10px;
-    width: calc(100% - 1px * 2);
+  border: 1px solid ${theme.colors.layout.dark};
+  border-radius: 5px;
+  background: ${theme.colors.layout.darker};
+  margin-bottom: 10px;
+  width: 100%;
 
-    :first-child {
-      margin-top: 0;
-    }
-  `}
+  :first-child {
+    margin-top: 0;
+  }
+`}
 `;
 
 const Header = styled.button<{ isOpen: boolean }>`
