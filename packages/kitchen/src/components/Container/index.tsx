@@ -28,7 +28,7 @@ const Container = styled(({ children, ...rest }: ContainerProps) => {
   flex-direction: ${(props) => (props.row ? "row" : "column")};
   position: relative;
   max-width: 100%;
-  flex: ${(props) => props.flex || 1};
+  flex: ${(props) => (props.flex !== undefined ? props.flex : 1)};
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
   ${(props) =>
