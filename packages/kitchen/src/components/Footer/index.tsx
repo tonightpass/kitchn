@@ -4,11 +4,6 @@ import { KitchenComponent } from "../../types";
 
 type Props = {
   /**
-   * The color of the footer.
-   */
-  light?: boolean;
-
-  /**
    * The subfooter of the footer.
    */
   subfooter?: string;
@@ -68,14 +63,6 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
 `;
-
-// export const ListItem = styled(({ children }: FooterGroupProps) => {
-//   return (
-//     <li>
-//       <FooterLink>{children}</FooterLink>
-//     </li>
-//   );
-// });
 
 export const FooterLink = styled.a`
   color: ${({ theme }) => theme.colors.text.light};
