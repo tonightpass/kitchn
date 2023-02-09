@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@preconstruct/next": "^4.0.0",
-    "@tonightpass/kitchen": "1.0.0-alpha.11",
+    "@tonightpass/kitchen": "1.0.0-alpha.13",
     "next": "^13.0.2",
     "next-themes": "^0.2.1",
     "nextra": "^2.0.1",
