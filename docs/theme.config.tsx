@@ -35,7 +35,7 @@ const config: DocsThemeConfig = {
     const { route } = useRouter();
     if (route !== "/") {
       return {
-        titleTemplate: "%s – Kitchen",
+        titleTemplate: `%s${"%s".includes("Kitchen") ? "" : " - Kitchen"}`,
       };
     }
   },
