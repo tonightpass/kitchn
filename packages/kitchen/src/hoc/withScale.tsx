@@ -66,7 +66,6 @@ const handleFont = (
 const withScale = <T extends object>(
   WrappedComponent: React.ComponentType<T>
 ) => {
-  console.log("WrappedComponent props", WrappedComponent);
   return styled(WrappedComponent)<ScaleProps>`
     ${({ theme, width, w }) =>
       width || w ? `width: ${handleValue(theme, width || w)};` : ""}
