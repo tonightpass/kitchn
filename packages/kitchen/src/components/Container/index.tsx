@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
@@ -17,13 +18,18 @@ type Props = {
     | "space-around"
     | "space-evenly"
     | "stretch";
+  header?: boolean;
+  section?: boolean;
 };
 
 export type ContainerProps = KitchenComponent<Props>;
 
-const Container = styled(({ children, ...rest }: ContainerProps) => {
-  return <div {...rest}>{children}</div>;
-})`
+const Container = styled(
+  ({ children, header, section, ...rest }: ContainerProps) => {
+    const Component = header ? "header" : section ? "section" : "div";
+    return <Component {...rest}>{children}</Component>;
+  }
+)`
   display: flex;
   flex-direction: ${(props) => (props.row ? "row" : "column")};
   position: relative;
@@ -57,4 +63,4 @@ const Container = styled(({ children, ...rest }: ContainerProps) => {
   }
 `;
 
-export default Container;
+export default withScale(Container);

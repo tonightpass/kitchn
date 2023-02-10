@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
@@ -111,4 +112,4 @@ const Text = styled(
   }
 `;
 
-export default Text;
+export default withScale(Text);
