@@ -1,5 +1,6 @@
 import { Button, Container, Link, Text, useTheme } from "@tonightpass/kitchen";
 import { Sandpack } from "@codesandbox/sandpack-react";
+import Showcase from "components/Landing/Showcase";
 
 const Landing: React.FC = () => {
   const { theme } = useTheme();
@@ -78,14 +79,7 @@ export default function App() {
           }}
         />
       </Container>
-      <Container id={"showcase"} py={"extraLarge"} align={"center"} section>
-        <Text transform={"uppercase"} weight={"bold"} h3>
-          Trusted by teams{" "}
-          <Text transform={"uppercase"} weight={"bold"} accent={"primary"} span>
-            around the world
-          </Text>
-        </Text>
-      </Container>
+      <Showcase />
     </Container>
   );
 };
