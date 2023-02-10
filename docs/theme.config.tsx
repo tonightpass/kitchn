@@ -47,7 +47,9 @@ const config: DocsThemeConfig = {
 
     const { title, ...meta } = useConfig().frontMatter;
 
-    const finalTitle = title ? `${title} - Kitchen` : "Kitchen";
+    const finalTitle = title
+      ? `${title}${title.includes("Kitchen") ? "" : " - Kitchen"}`
+      : "Kitchen";
     const finalDescription =
       meta.description || "Delicious React styled components.";
 
