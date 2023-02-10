@@ -12,8 +12,14 @@
     "styled-components": "^5.3.6"
   },
   "peerDependencies": {
+    "next": ">= 13.0.0",
     "react": ">= 16.8.0",
     "react-dom": ">= 16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/react": "^18.0.25",
