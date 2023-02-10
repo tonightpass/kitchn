@@ -5,6 +5,17 @@ import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
 type Props = {
+  h1?: boolean;
+  h2?: boolean;
+  h3?: boolean;
+  h4?: boolean;
+  h5?: boolean;
+  h6?: boolean;
+  p?: boolean;
+  b?: boolean;
+  i?: boolean;
+  span?: boolean;
+  em?: boolean;
   /**
    * The font size.
    */
@@ -60,13 +71,36 @@ type Props = {
 
 export type TextProps = KitchenComponent<Props>;
 
-const Text = styled(
-  ({ as: Component = "p", children, ...props }: TextProps) => {
-    return <Component {...props}>{children}</Component>;
-  }
-)<TextProps>`
+const Text = styled(({ children, ...props }: TextProps) => {
+  const Component = props.h1
+    ? "h1"
+    : props.h2
+    ? "h2"
+    : props.h3
+    ? "h3"
+    : props.h4
+    ? "h4"
+    : props.h5
+    ? "h5"
+    : props.h6
+    ? "h6"
+    : props.p
+    ? "p"
+    : props.b
+    ? "b"
+    : props.i
+    ? "i"
+    : props.span
+    ? "span"
+    : props.em
+    ? "em"
+    : "p";
+
+  return <Component {...props}>{children}</Component>;
+})<TextProps>`
   font-size: ${(props) => props.theme.size[props.size || "normal"]};
-  font-weight: ${(props) => props.theme.weight[props.weight || "regular"]};
+  font-weight: ${(props) =>
+    props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
