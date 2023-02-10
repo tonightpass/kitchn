@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { DefaultTheme, useTheme } from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
 import { Breakpoint, Gap, Size } from "../types/theme";
 import isNumber from "../utils/isNumber";
 
