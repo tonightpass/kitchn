@@ -1,4 +1,4 @@
-import { Icon, useClipboard, useTheme } from "@tonightpass/kitchen";
+import { Icon, useClipboard, useTheme, useToasts } from "@tonightpass/kitchen";
 import React, { useState } from "react";
 import { LiveEditor } from "react-live";
 import { RiArrowRightSLine, RiFileCopyLine } from "react-icons/ri";
@@ -11,7 +11,7 @@ const Editor: React.FC<Props> = ({ code }) => {
   const { theme } = useTheme();
   const { copy } = useClipboard();
   const [visible, setVisible] = useState(false);
-  // const { setToast } = useToasts();
+  const { setToast } = useToasts();
   const clickHandler = (event: React.MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
@@ -22,7 +22,7 @@ const Editor: React.FC<Props> = ({ code }) => {
     event.stopPropagation();
     event.preventDefault();
     copy(code);
-    // setToast({ text: isChinese ? "代码已拷贝至剪切板。" : "code copied." });
+    setToast({ text: "Code copied." });
   };
 
   return (
