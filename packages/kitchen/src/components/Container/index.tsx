@@ -4,10 +4,12 @@ import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
+type Direction = "row" | "column";
+
 type Props = {
   row?: boolean;
   flex?: number | string;
-  direction?: ("row" | "column")[];
+  direction?: [Direction, Direction, Direction];
   gap?: keyof Gap | number;
   align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
   justify?:
@@ -31,7 +33,9 @@ const Container = styled(
   }
 )`
   display: flex;
-  flex-direction: ${(props) => (props.row ? "row" : "column")};
+  flex-direction: ${(props) =>
+    (props.direction && props.direction[props.direction.length - 1]) ||
+    (props.row ? "row" : "column")};
   position: relative;
   max-width: 100%;
   flex: ${(props) => (props.flex !== undefined ? props.flex : 1)};
