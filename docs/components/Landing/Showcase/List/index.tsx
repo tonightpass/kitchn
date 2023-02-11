@@ -4,12 +4,12 @@ import ShowcaseCard from "./Card";
 
 const ShowcaseList = () => {
   return (
-    <Container row gap={"small"} mt={"large"} h={90} flex={"auto"}>
+    <Container row gap={"small"} mt={"large"} h={64} flex={"auto"}>
       {showcases.map(({ name, thumbnail }, i) => (
         <ShowcaseCard key={i} name={name} thumbnail={thumbnail} />
       ))}
       <YourCompany href={"https://github.com/tonightpass/kitchen/issues/new"}>
-        <Text weight={"bold"} align={"center"} span>
+        <Text title={"Your company"} weight={"bold"} align={"center"} span>
           💖 Your company
         </Text>
       </YourCompany>
@@ -21,7 +21,7 @@ const YourCompany = kitchen(Link)`
   background-color: ${({ theme }) => theme.colors.layout.darker};
   border-radius: 10px;
   width: 160px;
-  height: 64px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
