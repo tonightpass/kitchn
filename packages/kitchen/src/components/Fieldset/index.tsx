@@ -23,7 +23,7 @@ type Props = {
   /**
    * The type of the fieldset.
    */
-  type: "error";
+  type?: "error";
 
   children?: React.ReactNode;
 };
