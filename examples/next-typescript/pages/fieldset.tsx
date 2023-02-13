@@ -29,11 +29,11 @@ const FieldsetPage: NextPage = () => {
         <Container gap={10}>
           <Fieldset>
             <Content>
-              <Title>Title</Title>
+              <Title>The Evil Rabbit Jumped over the Fence</Title>
               <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
             </Content>
             <Footer>
-              <Status size={"small"}>
+              <Status accent={"light"}>
                 The Evil Rabbit Jumped over the Fence
               </Status>
               <Action>
@@ -45,40 +45,45 @@ const FieldsetPage: NextPage = () => {
 
         <Text>tabs</Text>
         <Container gap={10}>
-          <Fieldset>
-            <Tabs
-              tabs={[
-                { title: "One", value: "one" },
-                { title: "Two", value: "two" },
-              ]}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Content>
-              <Title>The Evil Rabbit Jumped over the Fence</Title>
-              <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
-            </Content>
-            <Footer>
-              <Status size={"small"}>
-                The Evil Rabbit Jumped over the Fence
-              </Status>
-              <Action>
-                <Button size={"small"}>Action</Button>
-              </Action>
-            </Footer>
-          </Fieldset>
-          <Fieldset>
-            <Content>
-              <Title>The Fence Jumped over The Evil Rabbit</Title>
-              <Subtitle>The Fence Jumped over The Evil Rabbit</Subtitle>
-            </Content>
-            <Footer>
-              <Status size={"small"}>Status message goes here</Status>
-              <Action>
-                <Button size={"small"}>Action</Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+          <Tabs
+            tabs={[
+              { title: "One", value: "one" },
+              { title: "Two", value: "two" },
+            ]}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          {selected === "one" ? (
+            <Fieldset>
+              <Content>
+                <Title>The Evil Rabbit Jumped over the Fence</Title>
+                <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
+              </Content>
+              <Footer>
+                <Status accent={"light"}>
+                  The Evil Rabbit Jumped over the Fence
+                </Status>
+                <Action>
+                  <Button size={"small"}>Action</Button>
+                </Action>
+              </Footer>
+            </Fieldset>
+          ) : (
+            <Fieldset>
+              <Content>
+                <Title>The Fence Jumped over The Evil Rabbit</Title>
+                <Subtitle>The Fence Jumped over The Evil Rabbit</Subtitle>
+              </Content>
+              <Footer>
+                <Status accent={"light"}>
+                  The Fence Jumped over The Evil Rabbit
+                </Status>
+                <Action>
+                  <Button size={"small"}>Action</Button>
+                </Action>
+              </Footer>
+            </Fieldset>
+          )}
         </Container>
 
         <Text>error</Text>
@@ -89,7 +94,7 @@ const FieldsetPage: NextPage = () => {
               <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
             </Content>
             <Footer>
-              <Status size={"small"}>An error has occurred.</Status>
+              <Status accent={"danger"}>An error has occurred.</Status>
               <Action>
                 <Button size={"small"} disabled>
                   Action
@@ -101,13 +106,17 @@ const FieldsetPage: NextPage = () => {
 
         <Text>disabled</Text>
         <Container gap={10}>
-          <Fieldset>
+          <Fieldset disabled>
             <Content>
-              <Title>The Evil Rabbit Jumped over the Fence</Title>
-              <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
+              <Title color={"darker"}>
+                The Evil Rabbit Jumped over the Fence
+              </Title>
+              <Subtitle color={"darker"}>
+                The Evil Rabbit Jumped over the Fence
+              </Subtitle>
             </Content>
-            <Footer>
-              <Status size={"small"}>An error has occurred.</Status>
+            <Footer disabled>
+              <Status color={"darker"}>An error has occurred.</Status>
               <Action>
                 <Button size={"small"} disabled>
                   Action
@@ -120,12 +129,16 @@ const FieldsetPage: NextPage = () => {
         <Text>disabled content only</Text>
         <Container gap={10}>
           <Fieldset>
-            <Content>
-              <Title>The Evil Rabbit Jumped over the Fence</Title>
-              <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
+            <Content disabled>
+              <Title color={"darker"}>
+                The Evil Rabbit Jumped over the Fence
+              </Title>
+              <Subtitle color={"darker"}>
+                The Evil Rabbit Jumped over the Fence
+              </Subtitle>
             </Content>
             <Footer>
-              <Status size={"small"}>
+              <Status accent={"light"}>
                 The Evil Rabbit Jumped over the Fence
               </Status>
               <Action>
@@ -142,12 +155,14 @@ const FieldsetPage: NextPage = () => {
               <Title>The Evil Rabbit Jumped over the Fence</Title>
               <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
             </Content>
-            <Footer>
-              <Status size={"small"}>
+            <Footer disabled>
+              <Status color={"darker"}>
                 The Evil Rabbit Jumped over the Fence
               </Status>
               <Action>
-                <Button size={"small"}>Action</Button>
+                <Button size={"small"} disabled>
+                  Action
+                </Button>
               </Action>
             </Footer>
           </Fieldset>
@@ -156,12 +171,16 @@ const FieldsetPage: NextPage = () => {
         <Text>highlight footer</Text>
         <Container gap={10}>
           <Fieldset>
-            <Content>
-              <Title>The Evil Rabbit Jumped over the Fence</Title>
-              <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
+            <Content disabled>
+              <Title color={"darker"}>
+                The Evil Rabbit Jumped over the Fence
+              </Title>
+              <Subtitle color={"darker"}>
+                The Evil Rabbit Jumped over the Fence
+              </Subtitle>
             </Content>
-            <Footer>
-              <Status size={"small"}>
+            <Footer highlight>
+              <Status color={"light"}>
                 The Evil Rabbit Jumped over the Fence
               </Status>
               <Action>
@@ -173,17 +192,19 @@ const FieldsetPage: NextPage = () => {
 
         <Text>error</Text>
         <Container gap={10}>
-          <Fieldset>
+          <Fieldset type="error">
             <Content>
               <Title>The Evil Rabbit Jumped over the Fence</Title>
               <Subtitle>The Evil Rabbit Jumped over the Fence</Subtitle>
             </Content>
             <Footer>
-              <Status size={"small"}>
+              <Status accent={"light"}>
                 The Evil Rabbit Jumped over the Fence
               </Status>
               <Action>
-                <Button size={"small"}>Action</Button>
+                <Button type={"danger"} size={"small"}>
+                  Action
+                </Button>
               </Action>
             </Footer>
           </Fieldset>
