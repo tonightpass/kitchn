@@ -43,6 +43,17 @@ export type { DrawerProps } from "./components/Drawer";
 export { default as Error } from "./components/Error";
 export type { ErrorProps } from "./components/Error";
 
+export { default as Fieldset } from "./components/Fieldset";
+export {
+  Content,
+  Title,
+  Subtitle,
+  Footer,
+  Status,
+  Action,
+} from "./components/Fieldset";
+export type { FieldsetProps } from "./components/Fieldset";
+
 export { default as Icon } from "./components/Icon";
 export type { IconProps } from "./components/Icon";
 
