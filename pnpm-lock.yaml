@@ -55,7 +55,7 @@ importers:
     specifiers:
       "@codesandbox/sandpack-react": ^1.20.9
       "@preconstruct/next": ^4.0.0
-      "@tonightpass/kitchen": 1.0.0-alpha.13
+      "@tonightpass/kitchen": workspace:*
       "@types/node": ^18.11.9
       next: ^13.0.2
       next-themes: ^0.2.1
@@ -89,7 +89,7 @@ importers:
   examples/expo-typescript:
     specifiers:
       "@babel/core": ^7.19.6
-      "@tonightpass/kitchen": 1.0.0-alpha.13
+      "@tonightpass/kitchen": workspace:*
       "@types/expo": ^33.0.1
       "@types/react": ^18.0.25
       "@types/react-native": ^0.70.6
@@ -112,7 +112,7 @@ importers:
   examples/next-typescript:
     specifiers:
       "@preconstruct/next": ^4.0.0
-      "@tonightpass/kitchen": 1.0.0-alpha.13
+      "@tonightpass/kitchen": workspace:*
       next: ^13.0.2
       react: ^18.2.0
       react-dom: ^18.2.0
