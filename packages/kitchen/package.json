@@ -7,7 +7,6 @@
   "react-native": "native/dist/tonightpass-kitchen-native.js",
   "dependencies": {
     "@fontsource/dm-mono": "^4.5.10",
-    "@fontsource/manrope": "^4.5.12",
     "@types/react-native": "^0.70.6",
     "react-icons": "^4.7.1",
     "styled-components": "^5.3.6"
@@ -16,6 +15,11 @@
     "next": ">= 13.0.0",
     "react": ">= 16.8.0",
     "react-dom": ">= 16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/react": "^18.0.25",

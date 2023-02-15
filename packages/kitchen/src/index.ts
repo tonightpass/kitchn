@@ -168,6 +168,10 @@ export type {
 
 export { default as useWarning } from "./hooks/useWarning";
 
+// .hoc
+export { default as withScale } from "./hoc/withScale";
+export type { ScaleProps } from "./hoc/withScale";
+
 // ./utils
 export { default as capitalize } from "./utils/capitalize";
 export { KeyCode, KeyMod } from "./utils/codes";
