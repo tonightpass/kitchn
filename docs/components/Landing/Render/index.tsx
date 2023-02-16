@@ -28,8 +28,7 @@ export default function App() {
         }}
         customSetup={{
           dependencies: {
-            "@tonightpass/kitchen": "1.0.0",
-            next: "latest", // TODO: remove this after @tonightpass/kitchen is published
+            "@tonightpass/kitchen": "latest",
           },
         }}
       />
