@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.0.1
+
+### Patch Changes
+
+- 246daa6: Move `Link` into `/next` folder
+
 ## 1.0.0
 
 ### Minor Changes
