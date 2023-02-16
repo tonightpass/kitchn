@@ -1,16 +1,21 @@
 ---
-title: Create React App
-description: A guide for installing Kitchen with create-react-app projects
-tags: ['create-react-app']
+title: React Native
+description: A guide for installing Kitchen with React Native
+tags: ['react-native', 'installation', 'getting-started']
 category: frameworks
 ---
 
-import { Tab, Tabs } from "nextra-theme-docs";
+import { Callout, Tab, Tabs } from "nextra-theme-docs";
 
-# Getting Started with Create React App
+# Getting Started with React Native
+
+<Callout>
+  This package is still in active development and is not yet ready for
+  react-native projects.
+</Callout>
 
 ## Installation
-In your Create React App project, install Kitchen by running either of the following:
+In your React Native or Expo project, install Kitchen by running either of the following:
 
 <Tabs items={["npm", "yarn", "pnpm"]}>
   <Tab>
@@ -37,7 +42,7 @@ of your application. This can be either in your `App.jsx` or `App.tsx` file.
 
 ```jsx
 // App.jsx
-import { KitchenProvider } from "@tonightpass/kitchen";
+import { KitchenProvider } from "@tonightpass/kitchen/native";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -48,4 +53,4 @@ export default function App({ Component, pageProps }) {
 }
 ```
 
-In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/react-typescript) using Kitchen with Create React App.
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/expo-typescript) using Kitchen with Expo.
