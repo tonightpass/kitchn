@@ -38,6 +38,8 @@ export default function App() {
 };
 
 const StyledContainer = kitchen(Container)`
+  border-radius: ${({ theme }) => theme.radius.square};
+  overflow: hidden;
   font-family: ${({ theme }) => theme.family.monospace};
   font-size: 14px;
   body, div, span, input, button, textarea, select, option {

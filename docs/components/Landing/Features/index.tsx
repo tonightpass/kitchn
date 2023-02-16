@@ -111,6 +111,7 @@ const Features = () => {
 };
 
 const FeatureContainer = kitchen(Container)`
+  border-radius: ${({ theme }) => theme.radius.square};
   background-color: ${({ theme }) => theme.colors.layout.darker};
 
   @media (min-width: ${({ theme }) => theme.breakpoint.mobile}) {

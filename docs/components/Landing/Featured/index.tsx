@@ -1,4 +1,5 @@
-import { Button, Container, Link, Text } from "@tonightpass/kitchen";
+import { Button, Container, Text } from "@tonightpass/kitchen";
+import { Link } from "@tonightpass/kitchen/next";
 
 const Featured: React.FC = () => {
   return (
