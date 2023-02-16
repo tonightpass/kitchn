@@ -1,1 +1,106 @@
-# NextJS
+---
+title: Getting Started with Next.js
+description: A guide for installing Kitchen with Nextjs projects
+tags: ['nextjs']
+category: frameworks
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Getting Started with Next.js
+
+## Installation
+In your Next.js project, install Kitchen by running either of the following:
+
+<Tabs items={["npm", "yarn", "pnpm"]}>
+  <Tab>
+    ```bash
+    npm i @tonightpass/kitchen --save
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    yarn add @tonightpass/kitchen
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    pnpm i @tonightpass/kitchen
+    ```
+  </Tab>
+</Tabs>
+
+## Provider Setup
+
+After installing Kitchen, you need to set up the `KitchenProvider` at the root 
+of your application.
+
+Go to `pages/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and
+wrap the `Component` with the `KitchenProvider`:
+
+```jsx
+// pages/_app.js
+import { KitchenProvider } from "@tonightpass/kitchen";
+
+function App({ Component, pageProps }) {
+  return (
+    <KitchenProvider>
+      <Component {...pageProps} />
+    </KitchenProvider>
+  );
+}
+
+export default App;
+```
+
+## Server Side Rendering
+{/* talk about withcKitchen HOC in next.config.js and pages/_document.js to edit */}
+Now that everything is working you should be interested in Server Side Rendering.
+
+Go to the `next.config.js` file and add the following:
+
+```js
+// next.config.js
+const { withKitchen } = require("@tonightpass/kitchen/next");
+
+const config = {
+  // your next config
+};
+
+module.exports = withKitchen(config);
+```
+
+Then, go to the `pages/_document.js` or create it if it doesn't exist and add the following:
+
+```jsx
+// pages/_document.js
+import { KitchenDocument } from "@tonightpass/kitchen/next";
+
+export default class Document extends KitchenDocument {
+  // your document
+}
+```
+
+## Kitchen with Next.js Link
+
+If you're using Next.js 13, we've provided a `@tonightpass/kitchen/next` package that
+gives you a smoother experience when using Kitchen Link component with
+`next/link`.
+
+This package provides the **Link** which combines the functionality of the
+Next.js Link and Kitchen Link components.
+
+```jsx
+// app/page.tsx
+"use client"
+import { Link } from "@tonightpass/kitchen/next"
+export default function Page() {
+  return (
+    <Link href="/about">
+      About
+    </Link>
+  )
+}
+```
+
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/next-typescript) using Kitchen with Next.js.
