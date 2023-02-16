@@ -49,12 +49,6 @@ export type { IconProps } from "./components/Icon";
 export { default as Input } from "./components/Input";
 export type { InputProps } from "./components/Input";
 
-export { default as Link } from "./components/Link";
-export type { LinkProps } from "./components/Link";
-
-export { default as FragmentLink } from "./components/Link/Fragment";
-export type { FragmentLinkProps } from "./components/Link/Fragment";
-
 export { default as Image } from "./components/Image";
 export type { ImageProps } from "./components/Image";
 

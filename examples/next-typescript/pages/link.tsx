@@ -1,13 +1,8 @@
-import {
-  Container,
-  FragmentLink,
-  Link,
-  Note,
-  Text,
-} from "@tonightpass/kitchen";
+import { Container, Note, Text } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import kitchen from "@tonightpass/kitchen";
+import { FragmentLink, Link } from "@tonightpass/kitchen/next";
 
 const LinkPage: NextPage = () => {
   const router = useRouter();
