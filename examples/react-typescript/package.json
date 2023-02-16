@@ -2,7 +2,7 @@
   "name": "react-typescript",
   "private": true,
   "scripts": {
-    "dev": "PORT=3002 react-scripts start",
+    "dev": "PORT=3002 BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "start": "react-scripts start"
   },
