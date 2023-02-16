@@ -105,7 +105,7 @@ const config: DocsThemeConfig = {
   editLink: {
     text: "Edit this page on GitHub",
   },
-  primaryHue: 281,
+  primaryHue: 290,
 };
 
 export default config;
