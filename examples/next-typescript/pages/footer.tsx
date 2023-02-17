@@ -32,10 +32,10 @@ const FooterPage: NextPage = () => {
 
             <FooterGroup title="Product">
               <FooterLink href="#">Pricing</FooterLink>
-              <FooterLink href="#">Vercel for GitHub</FooterLink>
-              <FooterLink href="#">Vercel for GitLab</FooterLink>
-              <FooterLink href="#">Vercel for Bitbucket</FooterLink>
-              <FooterLink href="#">Vercel Edge Network</FooterLink>
+              <FooterLink href="#">Tonight Pass for GitHub</FooterLink>
+              <FooterLink href="#">Tonight Pass for GitLab</FooterLink>
+              <FooterLink href="#">Tonight Pass for Bitbucket</FooterLink>
+              <FooterLink href="#">Tonight Pass Edge Network</FooterLink>
               <FooterLink href="#">Integrations Marketplace</FooterLink>
               <FooterLink href="#">Command-Line</FooterLink>
             </FooterGroup>
@@ -67,10 +67,10 @@ const FooterPage: NextPage = () => {
 
             <FooterGroup title="Product">
               <FooterLink href="#">Pricing</FooterLink>
-              <FooterLink href="#">Vercel for GitHub</FooterLink>
-              <FooterLink href="#">Vercel for GitLab</FooterLink>
-              <FooterLink href="#">Vercel for Bitbucket</FooterLink>
-              <FooterLink href="#">Vercel Edge Network</FooterLink>
+              <FooterLink href="#">Tonight Pass for GitHub</FooterLink>
+              <FooterLink href="#">Tonight Pass for GitLab</FooterLink>
+              <FooterLink href="#">Tonight Pass for Bitbucket</FooterLink>
+              <FooterLink href="#">Tonight Pass Edge Network</FooterLink>
               <FooterLink href="#">Integrations Marketplace</FooterLink>
               <FooterLink href="#">Command-Line</FooterLink>
             </FooterGroup>
@@ -92,7 +92,7 @@ const FooterPage: NextPage = () => {
 
         <Text>subfooter</Text>
         <Container gap={10}>
-          <Footer subfooter="Copyright © Vercel 2020. All rights reserved.">
+          <Footer subfooter="Copyright © onRuntime 2023. All rights reserved.">
             <FooterGroup title="Company">
               <FooterLink href="#">Home</FooterLink>
               <FooterLink href="#">About</FooterLink>
@@ -104,10 +104,10 @@ const FooterPage: NextPage = () => {
 
             <FooterGroup title="Product">
               <FooterLink href="#">Pricing</FooterLink>
-              <FooterLink href="#">Vercel for GitHub</FooterLink>
-              <FooterLink href="#">Vercel for GitLab</FooterLink>
-              <FooterLink href="#">Vercel for Bitbucket</FooterLink>
-              <FooterLink href="#">Vercel Edge Network</FooterLink>
+              <FooterLink href="#">Tonight Pass for GitHub</FooterLink>
+              <FooterLink href="#">Tonight Pass for GitLab</FooterLink>
+              <FooterLink href="#">Tonight Pass for Bitbucket</FooterLink>
+              <FooterLink href="#">Tonight Pass Edge Network</FooterLink>
               <FooterLink href="#">Integrations Marketplace</FooterLink>
               <FooterLink href="#">Command-Line</FooterLink>
             </FooterGroup>
