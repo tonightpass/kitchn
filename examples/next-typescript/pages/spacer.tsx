@@ -14,18 +14,26 @@ const SpacerPage: NextPage = () => {
       >
         <Text>vertical</Text>
         <Container gap={24}>
-          <Spacer x={11} style={{ background: "white" }} />
+          <Container style={{ background: "white" }}>
+            <Spacer y={1} />
+          </Container>
 
-          <Spacer x={32} style={{ background: "white" }} />
+          <Container style={{ background: "white" }}>
+            <Spacer y={2} />
+          </Container>
 
-          <Spacer x={43} style={{ background: "white" }} />
+          <Container style={{ background: "white" }}>
+            <Spacer y={3} />
+          </Container>
         </Container>
 
         <Text>horizontal</Text>
         <Container row>
-          <Container style={{ background: "white" }} />
-          <Spacer x={23} y={213} />
-          <Container style={{ background: "white" }} />
+          <Container h={"large"} style={{ background: "white" }} />
+          <Spacer x={3} />
+          <Container h={"large"} style={{ background: "white" }} />
+          <Spacer x={"large"} />
+          <Container h={"large"} style={{ background: "white" }} />
         </Container>
       </Container>
     </>
