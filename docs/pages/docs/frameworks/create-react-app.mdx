@@ -1,1 +1,51 @@
-# Create React App
+---
+title: Create React App
+description: A guide for installing Kitchen with create-react-app projects
+tags: ['create-react-app']
+category: frameworks
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Getting Started with Create React App
+
+## Installation
+In your Create React App project, install Kitchen by running either of the following:
+
+<Tabs items={["npm", "yarn", "pnpm"]}>
+  <Tab>
+    ```bash
+    npm i @tonightpass/kitchen --save
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    yarn add @tonightpass/kitchen
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    pnpm i @tonightpass/kitchen
+    ```
+  </Tab>
+</Tabs>
+
+## Provider Setup
+
+After installing Kitchen, you need to set up the `KitchenProvider` at the root 
+of your application. This can be either in your `App.jsx` or `App.tsx` file.
+
+```jsx
+// App.jsx
+import { KitchenProvider } from "@tonightpass/kitchen";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <KitchenProvider>
+      <TheRestOfYourApplication />
+    </KitchenProvider>
+  );
+}
+```
+
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/react-typescript) using Kitchen with Create React App.

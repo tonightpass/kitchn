@@ -2,7 +2,7 @@ import { MainTheme } from "../types/theme";
 
 const main: MainTheme = {
   family: {
-    primary: "Manrope, -apple-system, sans-serif",
+    primary: "Satoshi, -apple-system, sans-serif",
     monospace: "DM Mono, monospace",
   },
   weight: {

@@ -1,8 +1,0 @@
-{
-  "mode": "pre",
-  "tag": "alpha",
-  "initialVersions": {
-    "@tonightpass/kitchen": "1.0.0-alpha.11"
-  },
-  "changesets": []
-}

@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
+
+type Direction = "row" | "column";
 
 type Props = {
   row?: boolean;
   flex?: number | string;
-  direction?: ("row" | "column")[];
+  direction?: [Direction, Direction, Direction];
   gap?: keyof Gap | number;
   align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
   justify?:
@@ -17,18 +20,25 @@ type Props = {
     | "space-around"
     | "space-evenly"
     | "stretch";
+  header?: boolean;
+  section?: boolean;
 };
 
 export type ContainerProps = KitchenComponent<Props>;
 
-const Container = styled(({ children, ...rest }: ContainerProps) => {
-  return <div {...rest}>{children}</div>;
-})`
+const Container = styled(
+  ({ children, header, section, ...rest }: ContainerProps) => {
+    const Component = header ? "header" : section ? "section" : "div";
+    return <Component {...rest}>{children}</Component>;
+  }
+)`
   display: flex;
-  flex-direction: ${(props) => (props.row ? "row" : "column")};
+  flex-direction: ${(props) =>
+    (props.direction && props.direction[props.direction.length - 1]) ||
+    (props.row ? "row" : "column")};
   position: relative;
   max-width: 100%;
-  flex: ${(props) => props.flex || 1};
+  flex: ${(props) => (props.flex !== undefined ? props.flex : 1)};
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
   ${(props) =>
@@ -57,4 +67,4 @@ const Container = styled(({ children, ...rest }: ContainerProps) => {
   }
 `;
 
-export default Container;
+export default withScale(Container);
