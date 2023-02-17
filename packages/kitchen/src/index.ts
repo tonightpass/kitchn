@@ -68,6 +68,9 @@ export type { ProgressProps } from "./components/Progress";
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
 
+export { default as Spacer } from "./components/Spacer";
+export type { SpacerProps } from "./components/Spacer";
+
 export { default as Spinner } from "./components/Spinner";
 export type { SpinnerProps } from "./components/Spinner";
 
