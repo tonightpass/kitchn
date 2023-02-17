@@ -18,10 +18,10 @@ const Featured: React.FC = () => {
           accent={"primary"}
           h1
         >
-          Tonight Pass
+          Kitchen
         </Text>
         <Text align={"center"} size={"title"} weight={"bold"} h2>
-          delicious react styled-components
+          Delicious React styled-components
         </Text>
       </Container>
       <Text
