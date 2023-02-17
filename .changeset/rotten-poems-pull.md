@@ -2,4 +2,4 @@
 "@tonightpass/kitchen": minor
 ---
 
-Add Textarea
+Add `Spacer`

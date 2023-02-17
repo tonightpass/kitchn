@@ -13,10 +13,11 @@
     "build:examples:next": "turbo run build --filter=next-typescript...",
     "dev": "turbo run p:watch dev --parallel --no-cache",
     "dev:packages": "turbo run p:watch",
-    "dev:docs": "turbo run dev --filter=@tonightpass/kitchen-docs",
+    "dev:docs": "turbo run dev --filter=docs",
     "dev:examples": "turbo run dev --filter=./examples/*",
-    "dev:examples:expo": "turbo run dev --filter=@tonightpass/kitchen-expo-typescript",
-    "dev:examples:next": "turbo run dev --filter=@tonightpass/kitchen-next-typescript",
+    "dev:examples:expo": "turbo run dev --filter=expo-typescript",
+    "dev:examples:next": "turbo run dev --filter=next-typescript",
+    "dev:examples:react": "turbo run dev --filter=react-typescript",
     "p:watch": "preconstruct watch",
     "p:dev": "preconstruct dev",
     "p:build": "preconstruct build",
@@ -55,7 +56,7 @@
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
     "size-limit": "^8.1.0",
-    "turbo": "^1.6.3"
+    "turbo": "^1.7.4"
   },
   "preconstruct": {
     "packages": [

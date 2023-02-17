@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { KitchenComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
 import Text from "../Text";
-import Link from "../Link";
 
 type Props = {
   /**
@@ -46,7 +45,11 @@ const Error = styled(
             )}
             <Content>{error ? error.message : children}</Content>
             {error && (
-              <Action href={error.link} variant="blend">
+              <Action
+                href={error.link}
+                target={"_blank"}
+                rel={"noopener noreferrer"}
+              >
                 {error.action}
                 <ActionIcon
                   accent={"danger"}
@@ -104,9 +107,15 @@ const Content = styled.span`
   color: ${({ theme }) => theme.colors.accent.danger};
 `;
 
-const Action = styled(Link)`
+const Action = styled.a`
   display: inline-block;
+  font-size: inherit;
+  color: inherit;
   margin-left: ${({ theme }) => theme.gap.tiny};
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
 `;
 
 const ActionIcon = styled(Icon)`
