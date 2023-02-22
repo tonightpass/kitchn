@@ -21,7 +21,7 @@ const Featured: React.FC = () => {
           Tonight Pass
         </Text>
         <Text align={"center"} size={"title"} weight={"bold"} h2>
-          delicious react styled-components
+          Delicious React styled-components
         </Text>
       </Container>
       <Text
