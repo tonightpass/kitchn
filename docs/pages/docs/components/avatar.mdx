@@ -9,13 +9,21 @@ import Playground from "@components/Playground";
 
 Avatars represent a user or a team. Stacked avatars represent a group of people.
 
+## Usage
+
+First of all, you need to import the `Avatar` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Avatar } from "@tonightpass/kitchen"
+```
+
 ## Default
 
 <Playground
   code={`
 <Container gap={5}>
   <Container row align="center">
-    <Avatar size={90} src={"https://picsum.photos/200/300"} />
+    <Avatar size={"90"} src={"https://picsum.photos/200/300"} />
     <Avatar size={60} src={"https://picsum.photos/200/300"} />
     <Avatar size={30} src={"https://picsum.photos/200/300"} />
     <Avatar size={20} src={"https://picsum.photos/200/300"} />
@@ -73,3 +81,13 @@ Avatars represent a user or a team. Stacked avatars represent a group of people.
 </Container>
 `}
 />
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `size` | `number` \| `string` | `undefined` | - | The size of the avatar. | - |
+| `username` | `string` | `undefined` | - | The username of the user. | - |
+| `src` | `string` | `undefined` | - | The URL or path of the avatar. | - |
+| `text` | `string` | `undefined` | - | The text of the avatar (if it's a placeholder) | - |
+| `shape` | `string` | `undefined` | - | The shape of the avatar. | `'square'` \| `'round'` |
