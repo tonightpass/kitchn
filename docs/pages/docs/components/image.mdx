@@ -1,0 +1,38 @@
+---
+title: "Image"
+description: "Display image content."
+---
+
+import Playground from "@components/Playground";
+
+# Image
+
+Display image content.
+
+## Usage
+
+First of all, you need to import the `Image` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Image } from "@tonightpass/kitchen"
+```
+
+## Static
+
+<Playground
+  code={`
+  <Image
+    src={"https://picsum.photos/540/"}
+    alt="Lorem picsum image"
+    width={540}
+    height={309}
+/>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `src` | `string` | `undefined` | ✅ | The URL or path of the image. | - |
+| `alt` | `string` | `undefined` | ✅ | The alternative text for the image. | - |
