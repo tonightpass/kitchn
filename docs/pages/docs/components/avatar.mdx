@@ -1,0 +1,75 @@
+---
+title: "Avatar"
+description: "Avatars represent a user or a team. Stacked avatars represent a group of people."
+---
+
+import Playground from "@components/Playground";
+
+# Avatar
+
+Avatars represent a user or a team. Stacked avatars represent a group of people.
+
+## Default
+
+<Playground
+  code={`
+<Container gap={5}>
+  <Container row align="center">
+    <Avatar size={90} src={"https://picsum.photos/200/300"} />
+    <Avatar size={60} src={"https://picsum.photos/200/300"} />
+    <Avatar size={30} src={"https://picsum.photos/200/300"} />
+    <Avatar size={20} src={"https://picsum.photos/200/300"} />
+  </Container>
+  <Container row align="center">
+    <Avatar size={90} src={"https://picsum.photos/200/300"} shape={"square"} />
+    <Avatar size={60} src={"https://picsum.photos/200/300"} shape={"square"} />
+    <Avatar size={30} src={"https://picsum.photos/200/300"} shape={"square"} />
+    <Avatar size={20} src={"https://picsum.photos/200/300"} shape={"square"} />
+  </Container>
+</Container>
+`}
+/>
+
+## Text
+
+<Playground
+  code={`
+<Container gap={5}>
+  <Container>
+    <Avatar text={"A"} />
+    <Avatar text={"Joe"} />
+    <Avatar text={"Jérémy Baudrin"} />
+  </Container>
+</Container>
+`}
+/>
+
+## Group
+
+<Playground
+  code={`
+<Container gap={5}>
+  <Container>
+    <AvatarGroup
+      members={[
+        { src: "https://picsum.photos/200/300" },
+        { src: "https://picsum.photos/200/300" },
+        { text: "Younès Bessa" },
+        { src: "https://picsum.photos/200/300" },
+      ]}
+    />
+  </Container>
+  <Container>
+    <AvatarGroup
+      members={[
+        { src: "https://picsum.photos/200/300" },
+        { src: "https://picsum.photos/200/300" },
+        { text: "Younès Bessa" },
+        { src: "https://picsum.photos/200/300" },
+      ]}
+      limit={3}
+    />
+  </Container>
+</Container>
+`}
+/>
