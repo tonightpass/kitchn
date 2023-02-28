@@ -1,0 +1,94 @@
+---
+title: "Error"
+description: "Good error design is clear, useful, and friendly. Designing concise and accurate error messages unblocks users and builds trust by meeting people where they are."
+---
+
+import Playground from "@components/Playground";
+
+# Error
+
+Good error design is clear, useful, and friendly. Designing concise and accurate error messages unblocks users and builds trust by meeting people where they are.
+
+## Usage
+
+First of all, you need to import the `Error` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Error } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+  <Error>This email address is already in use.</Error>
+`}
+/>
+
+## Custom Label
+
+<Playground
+  code={`
+  <Error label="Email Error">This email address is already in use.</Error>
+`}
+/>
+
+## No Label
+
+<Playground
+  code={`
+  <Error label={false}>This email address is already in use. </Error>
+`}
+/>
+
+## Sizes
+
+<Playground
+  code={`
+<Container direction={['column', 'row', 'row']} top>
+  <Container left>
+    <Error size="small">This email is in use.</Error>
+  </Container>
+  <Container left>
+    <Error>This email is in use.</Error>
+  </Container>
+  <Container left>
+    <Error size="large">This email is in use.</Error>
+  </Container>
+</Container>
+`}
+/>
+
+## Multiline
+
+<Playground
+  code={`
+<Container>
+  <Container>
+    <Error size="small">A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support.</Error>
+  </Container>
+  <Container>
+    <Error>A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support.</Error>
+  </Container>
+  <Container>
+    <Error size="large">A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support.</Error>
+  </Container>
+</Container>
+`}
+/>
+
+## With an `error` property
+
+<Playground
+  code={`
+  <Error error={{ message: 'The request failed.', action: 'Contact Us', link: 'https://vercel.com/contact' }}/>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `label` | `boolean` \| `string` | `true` | - | The label of the error. | - |
+| `size` | `string` | `normal` | - | The size of the error. | `small` \| `normal` \| `large` |
+| `error` | `{ message: string; action?: string; link?: string }` | `undefined` | - | The `error` property. | - |
