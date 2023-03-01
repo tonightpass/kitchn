@@ -2,9 +2,14 @@
   "name": "@tonightpass/kitchen",
   "version": "1.1.0",
   "description": "A very simple React button within a monorepo",
-  "main": "dist/tonightpass-kitchen.cjs.js",
-  "module": "dist/tonightpass-kitchen.esm.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "react-native": "native/dist/tonightpass-kitchen-native.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
   "dependencies": {
     "@fontsource/dm-mono": "^4.5.10",
     "@types/react-native": "^0.70.6",
