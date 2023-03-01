@@ -143,6 +143,7 @@ importers:
   packages/kitchen:
     specifiers:
       "@fontsource/dm-mono": ^4.5.10
+      "@types/node": ^18.11.9
       "@types/react": ^18.0.25
       "@types/react-dom": ^18.0.8
       "@types/react-native": ^0.70.6
@@ -161,6 +162,7 @@ importers:
       react-icons: 4.7.1_react@18.2.0
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
     devDependencies:
+      "@types/node": 18.11.18
       "@types/react": 18.0.27
       "@types/react-dom": 18.0.10
       "@types/styled-components": 5.1.26
