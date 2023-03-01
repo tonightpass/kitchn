@@ -73,7 +73,7 @@ const useRect = (
     eventOrRef:
       | React.MouseEvent<HTMLElement>
       | React.FocusEvent<HTMLElement>
-      | React.MutableRefObject<HTMLElement | null>,
+      | React.MutableRefObject<HTMLElement>,
     getContainer?: () => HTMLElement | null
   ) => {
     if (isRefTarget(eventOrRef))

@@ -280,8 +280,8 @@ const Field = styled.input<
   }
 >`
   padding: 0 ${({ theme }) => theme.gap.small};
-  height: ${(props) => {
-    switch (props.size) {
+  height: ${({ size = "normal" }) => {
+    switch (size) {
       case "small":
         return "30px";
       case "large":

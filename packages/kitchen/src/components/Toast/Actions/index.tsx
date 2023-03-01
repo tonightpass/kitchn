@@ -28,9 +28,7 @@ const ToastActions = styled(
           {actions.map((action, i) => (
             <Button
               key={i}
-              onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                handler(event, action.handler)
-              }
+              onClick={(event) => handler(event, action.handler)}
               size={"small"}
               type={action.passive ? "dark" : "light"}
             >

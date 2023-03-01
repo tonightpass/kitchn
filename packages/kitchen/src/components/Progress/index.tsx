@@ -84,7 +84,7 @@ const Progress = styled(
                     last={last}
                     onMouseEnter={() => setIsHover(checkpoint)}
                     onMouseLeave={() => setIsHover(null)}
-                    title={states && title}
+                    hasTitle={states && title}
                   />
                   {!isMobile && checkpointTitle && (
                     <CheckpointTitle
@@ -179,10 +179,10 @@ const Checkpoint = styled.div<{
   color?: string;
   first?: boolean;
   last?: boolean;
-  title?: boolean;
+  hasTitle?: boolean;
 }>`
   position: absolute;
-  top: ${({ title }) => (title ? "24px" : "-4px")};
+  top: ${({ hasTitle }) => (hasTitle ? "24px" : "-4px")};
   left: ${({ value }) => `${value}%`};
   width: 18px;
   height: 18px;
