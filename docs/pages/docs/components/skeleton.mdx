@@ -1,0 +1,109 @@
+---
+title: "Skeleton"
+description: "Display a skeleton whilst another component is loading."
+---
+
+import Playground from "@components/Playground";
+
+# Skeleton
+
+Display a skeleton whilst another component is loading.
+
+## Usage
+
+First of all, you need to import the `Skeleton` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Skeleton } from "@tonightpass/kitchen"
+```
+
+## Default with Set Width
+
+<Playground
+  code={`
+  <Skeleton width={160} />
+`}
+/>
+
+## Default with Box Height
+
+<Playground
+  code={`
+  <Skeleton width={160} boxHeight={42} />
+`}
+/>
+
+## Wrapping children
+
+<Playground
+  code={`
+<Container>
+  <Container>
+    <Skeleton>
+      <Button>Hidden by skeleton</Button>
+    </Skeleton>
+  </Container>
+  
+  <Container>
+    <Skeleton show={false}>
+      <Button>Not hidden by skeleton</Button>
+    </Skeleton>
+  </Container>
+</Container>
+`}
+/>
+
+## Wrapping children with fixed size
+
+<Playground
+  code={`
+<Skeleton width="100%" height={100}>
+  {null}
+</Skeleton>
+`}
+/>
+
+## Normal
+
+<Playground
+  code={`
+<Skeleton shape="normal" width={48} />
+`}
+/>
+
+## Round
+
+<Playground
+  code={`
+<Skeleton shape="round" width={48} height={48} boxHeight={48} />
+`}
+/>
+
+## Square
+
+<Playground
+  code={`
+<Skeleton shape="square" width={48} height={48} boxHeight={48} />
+`}
+/>
+
+## No animation
+
+<Playground
+  code={`
+<Skeleton width="100%" height={100} animated={false}>
+  {null}
+</Skeleton>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `show` | `boolean` | `true` | - | The skeleton's appearance (if it's shown or not). | - |
+| `width` | `number` \| `string` | - | - | The skeleton's width. | - |
+| `height` | `number` \| `string` | - | - | The skeleton's height. | - |
+| `boxHeight` | `number` | - | - | The skeleton's box height. | - |
+| `animated` | `boolean` | `true` | - | The skeleton's mode (animated or not). | - |
+| `shape` | `string` | `normal` | - | The skeleton's shape. | `normal` \| `square` \| `round` |
