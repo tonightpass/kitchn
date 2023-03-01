@@ -1,0 +1,85 @@
+---
+title: "Toggle"
+description: "Displays a boolean value."
+---
+
+import Playground from "@components/Playground";
+
+# Toggle
+
+Displays a boolean value.
+
+## Usage
+
+First of all, you need to import the `Toggle` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Toggle } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+  () => {
+  const [checked, toggle] = useCheckbox();
+  const [checked1, toggle1] = useCheckbox(true);
+return (
+<Container gap={10}>
+  <Container>
+    <Toggle checked={checked} onChange={toggle} />
+  </Container>
+
+  <Container>
+    <Toggle checked={checked1} onChange={toggle1} />
+  </Container>
+</Container>
+)}
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+  <Container gap={10}>
+  <Container>
+    <Toggle disabled />
+  </Container>
+
+  <Container>
+    <Toggle disabled checked />
+  </Container>
+</Container>
+`}
+/>
+
+## Sizes
+
+<Playground
+  code={`
+  () => {
+  const [checked, toggle] = useCheckbox();
+  const [checked1, toggle1] = useCheckbox();
+return (
+  <Container row>
+    <Container>
+      <Toggle checked={checked} onChange={toggle} />
+    </Container>
+
+    <Container>
+      <Toggle large checked={checked1} onChange={toggle1} />
+    </Container>
+  </Container>
+)}
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `checked` | `boolean` | - | - | The current state of the toggle (checked or not). | - |
+| `disabled` | `boolean` | - | - | The current status of the toggle (disabled or not). | - |
+| `onChange` | `(e: React.ChangeEvent<HTMLInputElement>) => void` | - | - | The change event handler. | - |
+| `large` | `boolean` | - | - | The size of the toggle (large or not). | - |
