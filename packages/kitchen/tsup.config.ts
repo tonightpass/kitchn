@@ -11,4 +11,6 @@ export default defineConfig({
   loader: {
     ".js": "jsx",
   },
+  platform: "node",
+  target: "node14",
 });
