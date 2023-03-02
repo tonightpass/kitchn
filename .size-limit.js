@@ -15,27 +15,23 @@ const modifyWebpackConfig = (config) => {
 
 module.exports = [
   {
-    path: "packages/kitchen/dist/tonightpass-kitchen.cjs.prod.js",
+    name: "Kitchen (CJS)",
+    path: "packages/kitchen/dist/index.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/dist/tonightpass-kitchen.esm.js",
+    name: "Kitchen (ESM)",
+    path: "packages/kitchen/dist/index.mjs",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/next/dist/tonightpass-kitchen-next.cjs.prod.js",
+    name: "Kitchen Next (CJS)",
+    path: "packages/kitchen/dist/next/index.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/next/dist/tonightpass-kitchen-next.esm.js",
-    modifyWebpackConfig,
-  },
-  {
-    path: "packages/kitchen/native/dist/tonightpass-kitchen-native.cjs.prod.js",
-    modifyWebpackConfig,
-  },
-  {
-    path: "packages/kitchen/native/dist/tonightpass-kitchen-native.esm.js",
+    name: "Kitchen Next (ESM)",
+    path: "packages/kitchen/dist/next/index.mjs",
     modifyWebpackConfig,
   },
 ];
