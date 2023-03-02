@@ -1,13 +1,13 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/next/index.ts"],
+  entry: ["src/index.ts", "src/next/index.ts", "src/native/index.ts"],
   splitting: false,
   sourcemap: true,
-  clean: false,
+  clean: true,
   format: ["esm", "cjs"],
   dts: true,
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom", "react-native"],
   loader: {
     ".js": "jsx",
   },
