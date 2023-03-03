@@ -1,0 +1,116 @@
+---
+title: "Drawer"
+description: "An interactive element fixed to the edge of the screen."
+---
+
+import Playground from "@components/Playground";
+
+# Drawer
+
+An interactive element fixed to the edge of the screen.
+
+## Usage
+
+First of all, you need to import the `Drawer` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Drawer } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+  () => {
+  const [active, setActive] = React.useState(false);
+  return (
+    <Container>
+      <Button size={"normal"} onClick={() => setActive(!active)}>
+        Open Drawer
+      </Button>
+      <Drawer show={active} onDismiss={() => setActive(false)}>
+        <Container align="center" gap={10} style={{ padding: 20 }}>
+          <Text size={"title"} weight={"bold"}>
+            Drawer
+          </Text>
+          <Text>
+            Drawers should be reserved for small viewports. Use a Modal on
+            large viewports.
+          </Text>
+        </Container>
+      </Drawer>
+    </Container>
+  );
+}
+`}
+/>
+
+## Custom height
+
+<Playground
+  code={`
+  () => {
+  const [active, setActive] = React.useState(false);
+  return (
+    <Container>
+      <Button size={"normal"} onClick={() => setActive(!active)}>
+        Open Drawer (with callback)
+      </Button>
+      <Drawer show={active} onDismiss={() => setActive(false)} height={300}>
+        <Container align="center" gap={10} style={{ padding: 20 }}>
+          <Text size={"title"} weight={"bold"}>
+            Drawer
+          </Text>
+          <Text>
+            Drawers should be reserved for small viewports. Use a Modal on
+            large viewports.
+          </Text>
+        </Container>
+      </Drawer>
+    </Container>
+  );
+}
+`}
+/>
+
+## Callback
+
+<Playground
+  code={`
+  () => {
+  const [active, setActive] = React.useState(false);
+  return (
+    <Container>
+      <Button size={"normal"} onClick={() => setActive(!active)}>
+        Open Drawer (with callback)
+      </Button>
+      <Drawer
+        show={active}
+        onDismiss={() => setActive(false)}
+        onAnimationDone={() => alert("Dismissed!")} 
+      >
+        <Container align="center" gap={10} style={{ padding: 20 }}>
+          <Text size={"title"} weight={"bold"}>
+            Drawer
+          </Text>
+          <Text>
+            Drawers should be reserved for small viewports. Use a Modal on
+            large viewports.
+          </Text>
+        </Container>
+      </Drawer>
+    </Container>
+  );
+}
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `show` | `boolean` | - | ✅ | The current state of the drawer (shown or not). | - |
+| `onDismiss` | `() => void` | - | - | The dismiss event handler of the modal. | - |
+| `onAnimationDone` | `() => void` | - | - | The animation event handler. | - |
+| `children` | `React.ReactNode` | - | - |  | - |
+| `height` | `number` | - | - | The drawer's height. | - |
