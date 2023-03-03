@@ -44,7 +44,7 @@ import { Tabs } from "@tonightpass/kitchen"
 <Playground
   code={`
   () => {
-  const [selected2, setSelected2] = React.useState("apple");
+  const [selected, setSelected] = React.useState("apple");
   return (
     <Tabs
       tabs={[
@@ -52,8 +52,8 @@ import { Tabs } from "@tonightpass/kitchen"
         { title: "Orange", value: "orange" },
         { title: "Mango", value: "mango" },
       ]}
-      selected={selected2}
-      setSelected={setSelected2}
+      selected={selected}
+      setSelected={setSelected}
       disabled
     />
   );
@@ -67,7 +67,7 @@ import { Tabs } from "@tonightpass/kitchen"
   scope={{ RiAppleFill, RiAndroidFill, RiWindowsFill }}
   code={`
   () => {
-  const [selected3, setSelected3] = React.useState("apple");
+  const [selected, setSelected] = React.useState("apple");
   return (
     <Tabs
       tabs={[
@@ -80,8 +80,8 @@ import { Tabs } from "@tonightpass/kitchen"
         { title: "Orange", value: "orange" },
         { title: "Mango", value: "mango" },
       ]}
-      selected={selected3}
-      setSelected={setSelected3}
+      selected={selected}
+      setSelected={setSelected}
     />
   );
 }
