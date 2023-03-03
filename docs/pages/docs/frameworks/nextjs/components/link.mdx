@@ -1,0 +1,152 @@
+---
+title: "Link"
+description: "Hyperlinks between pages."
+---
+
+import Playground from "@components/Playground";
+import kitchen, { Container } from "@tonightpass/kitchen";
+import { FragmentLink, Link } from "@tonightpass/kitchen/next";
+
+# Link
+
+Hyperlinks between pages.
+
+export const Card = kitchen(Container)`
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  border-radius: 8px;
+  padding: 16px;
+`;
+
+## Usage
+
+First of all, you need to import the `Link` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Link } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+scope={{ Link }}
+  code={`
+  <Link href="/">Return to the home page</Link>
+`}
+/>
+
+## Using onClick
+
+<Playground
+scope={{ Link }}
+  code={`
+  <Link onClick={() => router.push("/")}>Return to the home page</Link>
+`}
+/>
+
+## Disabled
+
+
+<Playground
+scope={{ Link }}
+  code={`
+<Container gap={"small"}>
+  <Link disabled>Disabled link</Link>
+  <Link href={undefined} onClick={undefined}>
+    Disabled link (no href or onClick)
+  </Link>
+  <Link href="#" disabled>
+    {"Disabled link (href=#)"}
+  </Link>
+</Container>
+`}
+/>
+
+## Non text
+
+<Playground
+scope={{ Link, Card }}
+  code={`
+<Link href="/">
+  <Card>This entire div is wrapped in a link</Card>
+</Link>
+`}
+/>
+
+## Variants
+
+<Playground
+scope={{ Link }}
+  code={`
+<Container gap={"small"}>
+  <Container gap={"small"}>
+    <Text size={"small"}>highlight</Text>
+    <Link href="#" variant="highlight">
+      Highlight variant
+    </Link>
+  </Container>
+  <Container gap={"small"}>
+    <Text size={"small"}>primary</Text>
+      <Link href="#" variant="primary">
+        Primary variant
+      </Link>
+  </Container>
+  <Container gap={"small"}>
+    <Text size={"small"}>secondary</Text>
+      <Link href="#" variant="secondary">
+        Secondary variant
+      </Link>
+  </Container>
+  <Container gap={"small"}>
+    <Text size={"small"}>blend</Text>
+    <Note type="danger" label={false}>
+      <Link href="#" variant="blend">
+        Blend variant
+      </Link>{" "}
+      works well with themed components.
+    </Note>
+  </Container>
+</Container>
+`}
+/>
+
+## Fragment link (anchor)
+
+<Playground
+scope={{ FragmentLink }}
+  code={`
+<FragmentLink id="fragment-link-anchor">
+  Click on this to jump to this section of the page
+</FragmentLink>
+`}
+/>
+
+## Internal href
+
+<Playground
+scope={{ Link }}
+  code={`
+<Link href="/">Click on this to jump back to the home page</Link>
+`}
+/>
+
+## External href
+
+<Playground
+scope={{ Link }}
+  code={`
+<Link href="https://tonightpass.com/">
+  Click on this to go to our website
+</Link>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `href` | `string` \| `UrlObject` | - | - | The href of the link. | - |
+| `locale` | `string` | - | - | The locale of the link. | - |
+| `className` | `string` | - | - | The classname of the link. | - |
+| `onClick` | `(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void` | - | - | The click event handler of the link. | - |
+| `disabled` | `boolean` | `false` | - | The status (disabled or not) of the link. | - |
+| `variant` | `string` | `primary` | - | The variant of the link. | `highlight`, `primary`, `secondary`, `blend` |
