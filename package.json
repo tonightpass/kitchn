@@ -7,15 +7,15 @@
   "scripts": {
     "build": "turbo run build",
     "build:packages": "turbo run p:build",
-    "build:docs": "turbo run build --filter=docs...",
-    "build:examples": "turbo run build --filter='./examples/*'",
-    "build:examples:expo": "turbo dev --filter=\"{./examples/expo-typescript}...\"",
-    "build:examples:next": "turbo run build --filter=next-typescript...",
+    "build:docs": "turbo build --filter=\"{./docs}...\"",
+    "build:examples": "turbo build --filter=\"{./examples/*}...\"",
+    "build:examples:expo": "turbo build --filter=\"{./examples/expo-typescript}...\"",
+    "build:examples:next": "turbo build --filter=\"{./examples/next-typescript}...\"",
     "dev": "turbo run p:watch dev --parallel --no-cache",
     "dev:packages": "turbo run p:watch",
     "dev:docs": "turbo run dev --filter=docs",
     "dev:examples": "turbo run dev --filter=./examples/*",
-    "dev:examples:expo": "turbo run dev --filter=expo-typescript",
+    "dev:examples:expo": "turbo dev --filter=\"{./examples/expo-typescript}...\"",
     "dev:examples:next": "turbo run dev --filter=next-typescript",
     "dev:examples:react": "turbo run dev --filter=react-typescript",
     "p:watch": "preconstruct watch",
@@ -56,7 +56,7 @@
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
     "size-limit": "^8.1.0",
-    "turbo": "^1.7.4"
+    "turbo": "^1.8.3"
   },
   "preconstruct": {
     "packages": [
