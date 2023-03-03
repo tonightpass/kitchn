@@ -23,18 +23,19 @@ import { Toggle } from "@tonightpass/kitchen"
   code={`
   () => {
   const [checked, toggle] = useCheckbox();
-  const [checked1, toggle1] = useCheckbox(true);
-return (
-<Container gap={10}>
-  <Container>
-    <Toggle checked={checked} onChange={toggle} />
-  </Container>
+  const [checked2, toggle2] = useCheckbox(true);
+  return (
+    <Container gap={10}>
+      <Container>
+        <Toggle checked={checked} onChange={toggle} />
+      </Container>
 
-  <Container>
-    <Toggle checked={checked1} onChange={toggle1} />
-  </Container>
-</Container>
-)}
+      <Container>
+        <Toggle checked={checked2} onChange={toggle2} />
+      </Container>
+    </Container>
+  );
+}
 `}
 />
 
@@ -60,18 +61,19 @@ return (
   code={`
   () => {
   const [checked, toggle] = useCheckbox();
-  const [checked1, toggle1] = useCheckbox();
-return (
-  <Container row>
-    <Container>
-      <Toggle checked={checked} onChange={toggle} />
-    </Container>
+  const [checked2, toggle2] = useCheckbox();
+  return (
+    <Container row>
+      <Container>
+        <Toggle checked={checked} onChange={toggle} />
+      </Container>
 
-    <Container>
-      <Toggle large checked={checked1} onChange={toggle1} />
+      <Container>
+        <Toggle large checked={checked2} onChange={toggle2} />
+      </Container>
     </Container>
-  </Container>
-)}
+  );
+}
 `}
 />
 
