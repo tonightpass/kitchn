@@ -21,14 +21,14 @@ import { Avatar } from "@tonightpass/kitchen"
 
 <Playground
   code={`
-<Container gap={5}>
-  <Container row align="center">
+<Container gap={"small"}>
+  <Container row align="center" gap={"normal"}>
     <Avatar size={"90"} src={"https://picsum.photos/200/300"} />
     <Avatar size={60} src={"https://picsum.photos/200/300"} />
     <Avatar size={30} src={"https://picsum.photos/200/300"} />
     <Avatar size={20} src={"https://picsum.photos/200/300"} />
   </Container>
-  <Container row align="center">
+  <Container row align="center" gap={"normal"}>
     <Avatar size={90} src={"https://picsum.photos/200/300"} shape={"square"} />
     <Avatar size={60} src={"https://picsum.photos/200/300"} shape={"square"} />
     <Avatar size={30} src={"https://picsum.photos/200/300"} shape={"square"} />
@@ -43,7 +43,7 @@ import { Avatar } from "@tonightpass/kitchen"
 <Playground
   code={`
 <Container gap={5}>
-  <Container>
+  <Container gap={"small"} row>
     <Avatar text={"A"} />
     <Avatar text={"Joe"} />
     <Avatar text={"Jérémy Baudrin"} />
@@ -56,7 +56,7 @@ import { Avatar } from "@tonightpass/kitchen"
 
 <Playground
   code={`
-<Container gap={5}>
+<Container gap={"small"}>
   <Container>
     <AvatarGroup
       members={[
@@ -86,7 +86,7 @@ import { Avatar } from "@tonightpass/kitchen"
 
 | Name | Type | Default | Required | Description | Accepted values |
 | :--- | :--- | :-----: | :------: | :---------- | :-------------- |
-| `size` | `number` \| `string` | `undefined` | - | The size of the avatar. | - |
+| `size` | `number` \| `string` | `30` | - | The size of the avatar. | - |
 | `username` | `string` | `undefined` | - | The username of the user. | - |
 | `src` | `string` | `undefined` | - | The URL or path of the avatar. | - |
 | `text` | `string` | `undefined` | - | The text of the avatar (if it's a placeholder) | - |
