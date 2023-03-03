@@ -2,6 +2,7 @@ import React from "react";
 import { TextProps as NativeTextProps } from "react-native";
 import styled from "styled-components/native";
 import { ReactNative } from "../..";
+import withScale from "../../hoc/withScale";
 import { Size } from "../../types/theme";
 
 export type TextProps = NativeTextProps & {
@@ -18,4 +19,4 @@ const Text = styled((props: TextProps) => (
   color: ${({ theme }) => theme.colors.accent.danger};
 `;
 
-export default Text;
+export default withScale(Text);

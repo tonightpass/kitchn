@@ -20,11 +20,13 @@
         ".next/**",
         "index.js",
         "ssg.js",
-        "loader.js"
+        "loader.js",
+        "node_modules/.cache/metro/**"
       ]
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     }
   }
 }

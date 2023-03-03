@@ -19,6 +19,9 @@
   "peerDependenciesMeta": {
     "next": {
       "optional": true
+    },
+    "react-native": {
+      "optional": true
     }
   },
   "devDependencies": {

@@ -9,7 +9,9 @@ export default function App() {
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app! ddd</Text>
         <StatusBar style="auto" />
-        <KitchenText size={"large"}>hey</KitchenText>
+        <KitchenText size={"large"} mt={100}>
+          hey
+        </KitchenText>
       </View>
     </KitchenProvider>
   );
