@@ -38,12 +38,12 @@ import { Progress } from "@tonightpass/kitchen"
 <Playground
   code={`
 () => {
-const [value1, setValue1] = React.useState(0);
+const [value, setValue] = React.useState(0);
 const { theme } = useTheme();
 return (
 <Container>
   <Progress
-    value={value1}
+    value={value}
     colors={{
       0: theme.colors.accent.danger,
       25: theme.colors.accent.warning,
@@ -53,13 +53,13 @@ return (
     }}
   />
   <Container gap={5} row>
-    <Button type={"dark"} onClick={() => setValue1(value1 - 10)}>
+    <Button type={"dark"} onClick={() => setValue(value - 10)}>
       -
     </Button>
-    <Button type={"dark"} onClick={() => setValue1(value1 + 10)}>
+    <Button type={"dark"} onClick={() => setValue(value + 10)}>
       +
     </Button>
-    <Button type={"dark"} onClick={() => setValue1(0)}>
+    <Button type={"dark"} onClick={() => setValue(0)}>
       reset
     </Button>
   </Container>
@@ -76,7 +76,7 @@ return (
 const [value2, setValue2] = React.useState(0);
 const { theme } = useTheme();
 return (
-<Container>
+<Container gap={"small"}>
   <Progress
     value={value2}
     colors={{
@@ -94,7 +94,7 @@ return (
       100: "Your package has been delivered",
     }}
   />
-  <Container gap={5} row>
+  <Container gap={"tiny"} row>
     <Button type={"dark"} onClick={() => setValue2(value2 - 25)}>
       -
     </Button>
