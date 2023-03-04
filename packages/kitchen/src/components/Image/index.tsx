@@ -7,6 +7,7 @@ import { KitchenComponent } from "../../types";
 type Props = {
   src: string;
   alt: string;
+  caption?: string;
 };
 
 export type ImageProps = KitchenComponent<
