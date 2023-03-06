@@ -1,0 +1,93 @@
+---
+title: "Tabs"
+description: "Display tab content."
+---
+
+import Playground from "@components/Playground";
+import { RiAppleFill, RiAndroidFill, RiWindowsFill } from "react-icons/ri";
+
+# Tabs
+
+Display tab content.
+
+## Usage
+
+First of all, you need to import the `Tabs` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Tabs } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+  () => {
+  const [selected, setSelected] = React.useState("apple");
+  return (
+    <Tabs
+      tabs={[
+        { title: "Apple", value: "apple" },
+        { title: "Orange", value: "orange" },
+        { title: "Mango", value: "mango" },
+      ]}
+      selected={selected}
+      setSelected={setSelected}
+    />
+  );
+}
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+  () => {
+  const [selected, setSelected] = React.useState("apple");
+  return (
+    <Tabs
+      tabs={[
+        { title: "Apple", value: "apple" },
+        { title: "Orange", value: "orange" },
+        { title: "Mango", value: "mango" },
+      ]}
+      selected={selected}
+      setSelected={setSelected}
+      disabled
+    />
+  );
+}
+`}
+/>
+
+## With icons
+
+<Playground
+  scope={{ RiAppleFill, RiAndroidFill, RiWindowsFill }}
+  code={`
+  () => {
+  const [selected, setSelected] = React.useState("apple");
+  return (
+    <Tabs
+      tabs={[
+        { title: "Apple", value: "apple", icon: <RiAppleFill />, },
+        { title: "Orange", value: "orange", icon: <RiAndroidFill /> },
+        { title: "Mango", value: "mango", icon: <RiWindowsFill /> },
+      ]}
+      selected={selected}
+      setSelected={setSelected}
+    />
+  );
+}
+`}
+/>
+
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `title` | `string` | - | ✅ | The title of the tab. | - |
+| `value` | `string` | - | ✅ | The value of the tab. | - |
+| `icon` | `JSX.Element` | - | - | The icon of the tab. | - |
