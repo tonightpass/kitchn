@@ -1,18 +1,22 @@
 {
   "index": {
-    "title": "Nextra",
     "type": "page",
+    "title": "Kitchen",
     "display": "hidden",
     "theme": {
       "layout": "raw"
     }
   },
   "docs": {
-    "title": "Documentation",
-    "type": "page"
+    "type": "page",
+    "title": "Documentation"
   },
   "showcase": {
+    "type": "page",
     "title": "Showcase",
-    "type": "page"
+    "theme": {
+      "typesetting": "article",
+      "layout": "full"
+    }
   }
 }

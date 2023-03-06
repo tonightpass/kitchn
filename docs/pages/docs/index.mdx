@@ -14,14 +14,13 @@ Kitchen is a [styled-components](https://styled-components.com) suite of compone
 
 ## Installation
 
-<Tabs items={["npm", "yarn"]}>
+<Tabs items={["npm", "yarn", "pnpm"]}>
   <Tab>
-    Kitchen is available as an [npm package](https://www.npmjs.com/package/@tonightpass/kitchen).
+    Kitchen is available as a [npm package](https://www.npmjs.com/package/@tonightpass/kitchen).
 
     ```bash
     npm i @tonightpass/kitchen --save
     ```
-
   </Tab>
   <Tab>
     Kitchen is available as a [yarn package](https://yarnpkg.com/package/@tonightpass/kitchen).
@@ -29,31 +28,36 @@ Kitchen is a [styled-components](https://styled-components.com) suite of compone
     ```bash
     yarn add @tonightpass/kitchen
     ```
+  </Tab>
+  <Tab>
+    Kitchen is available as a [npm package](https://www.npmjs.com/package/@tonightpass/kitchen).
 
+    ```bash
+    pnpm i @tonightpass/kitchen
+    ```
   </Tab>
 </Tabs>
 
-After installing Kitchen, you need to set up the `KitchenProvider` at the root of your application.
+After installing Kitchen, you need to set up the `KitchenProvider` at the root of your applications.
+This can be either in your `index.jsx`, `index.tsx` or `App.jsx` depending on the framework you use.
 
 ```jsx
 import { KitchenProvider } from "@tonightpass/kitchen";
 
-function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
     <KitchenProvider>
-      <Component {...pageProps} />
+      <TheRestOfYourApplication />
     </KitchenProvider>
   );
 }
-
-export default App;
 ```
 
 ## Framework Guide
 
 Kitchen is designed to work with any framework. However, we have created a few guides to help you get started with Kitchen and your favorite framework.
 
-- [Create React App](/docs/frameworks/create-react-app) _(coming soon)_
+- [Create React App](/docs/frameworks/create-react-app)
 - [React Native](/docs/frameworks/react-native)
 - [Next.js](/docs/frameworks/nextjs)
 - [Gatsby](/docs/frameworks/gatsby) _(coming soon)_
@@ -67,9 +71,9 @@ Kitchen is designed to work with any framework. However, we have created a few g
 
 Watch our official courses and dive deeper into videos that will teach you everything you need to know about Kitchen, from the basics to advanced topics.
 
-- [Kitchen for Beginners](https://egghead.io/courses/kitchen-for-beginners)
-- [Kitchen for Advanced Users](https://egghead.io/courses/kitchen-for-advanced-users)
-- [Playground](/docs/playground)
+- [Kitchen for Beginners](https://egghead.io/courses/kitchen-for-beginners) _(coming soon)_
+- [Kitchen for Advanced Users](https://egghead.io/courses/kitchen-for-advanced-users) _(coming soon)_
+- [Playground](/docs/playground) _(coming soon)_
 
 ## Contribute
 

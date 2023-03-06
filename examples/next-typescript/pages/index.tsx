@@ -50,18 +50,23 @@ const IndexPage: NextPage = () => {
       <Link href={"/badge"}>Badge</Link>
       <Link href={"/button"}>Button</Link>
       <Link href={"/checkbox"}>Checkbox</Link>
+      <Link href={"/collapse"}>Collapse</Link>
       <Link href={"/drawer"}>Drawer</Link>
       <Link href={"/error"}>Error</Link>
       <Link href={"/icon"}>Icon</Link>
+      <Link href={"/image"}>Image</Link>
       <Link href={"/input"}>Input</Link>
       <Link href={"/link"}>Link</Link>
       <Link href={"/modal"}>Modal</Link>
       <Link href={"/note"}>Note</Link>
       <Link href={"/progress"}>Progress</Link>
       <Link href={"/scroller"}>Scroller</Link>
+      <Link href={"/spacer"}>Spacer</Link>
       <Link href={"/tabs"}>Tabs</Link>
       <Link href={"/text"}>Text</Link>
+      <Link href={"/textarea"}>Textarea</Link>
       <Link href={"/toast"}>Toast</Link>
+      <Link href={"/toggle"}>Toggle</Link>
       <Link href={"/skeleton"}>Skeleton</Link>
     </Container>
   );
