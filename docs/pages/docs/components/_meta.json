@@ -6,6 +6,7 @@
   "grid": "Grid",
   "icon": "Icon",
   "image": "Image",
+  "input": "Input",
   "modal": "Modal",
   "note": "Note",
   "skeleton": "Skeleton",
