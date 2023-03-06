@@ -1,3 +1,15 @@
 {
-  "grid": "Grid"
+  "avatar": "Avatar",
+  "badge": "Badge",
+  "button": "Button",
+  "checkbox": "Checkbox",
+  "grid": "Grid",
+  "icon": "Icon",
+  "image": "Image",
+  "modal": "Modal",
+  "note": "Note",
+  "skeleton": "Skeleton",
+  "tabs": "Tabs",
+  "text": "Text",
+  "toggle": "Toggle"
 }
