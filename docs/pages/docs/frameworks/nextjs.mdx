@@ -103,4 +103,15 @@ export default function Page() {
 }
 ```
 
+import Playground from "@components/Playground";
+import kitchen, { Container } from "@tonightpass/kitchen";
+import { FragmentLink, Link } from "@tonightpass/kitchen/next";
+
+
+export const Card = kitchen(Container)`
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  border-radius: 8px;
+  padding: 16px;
+`;
+
 In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/next-typescript) using Kitchen with Next.js.
