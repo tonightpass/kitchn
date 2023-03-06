@@ -86,8 +86,8 @@ import { Drawer } from "@tonightpass/kitchen"
       </Button>
       <Drawer
         show={active}
-        onDismiss={() => setActive(false)}
-        onAnimationDone={() => alert("Dismissed!")} 
+        onAnimationDone={() => setActive(false)}
+        onDismiss={() => alert("Dismissed!")}
       >
         <Container align="center" gap={10} style={{ padding: 20 }}>
           <Text size={"title"} weight={"bold"}>
