@@ -2,4 +2,4 @@
 "@tonightpass/kitchen": minor
 ---
 
-Add Select
+Add `Select`
