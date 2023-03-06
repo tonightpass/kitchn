@@ -11,10 +11,10 @@ A concise, temporary message.
 
 ## Usage
 
-First of all, you need to import the `Toast` component from the `@tonightpass/kitchen` package.
+First of all, you need to import the `useToasts` hook from the `@tonightpass/kitchen` package.
 
 ```js
-import { Toast } from "@tonightpass/kitchen"
+import { useToasts } from "@tonightpass/kitchen"
 ```
 
 ## Default
@@ -91,10 +91,12 @@ import { Toast } from "@tonightpass/kitchen"
   code={`
   () => {
   const { setToast } = useToasts();
+
   const alertAction = {
     name: "alert",
     handler: () => alert("alert from toast"),
   };
+
   return (
     <Button
       onClick={() => {
@@ -117,15 +119,18 @@ import { Toast } from "@tonightpass/kitchen"
   code={`
   () => {
   const { setToast } = useToasts();
+
   const alertAction = {
     name: "alert",
     handler: () => alert("alert from toast"),
   };
+
   const cancelAction = {
     name: "cancel",
     passive: true,
     handler: (_, cancel) => cancel(),
   };
+
   return (
     <Button
       onClick={() => {
@@ -161,6 +166,7 @@ import { Toast } from "@tonightpass/kitchen"
       >
         Show Success
       </Button>
+
       <Button
         onClick={() => {
           setToast({
@@ -172,6 +178,7 @@ import { Toast } from "@tonightpass/kitchen"
       >
         Show Warning
       </Button>
+      
       <Button
         onClick={() => {
           setToast({
