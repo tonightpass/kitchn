@@ -31,6 +31,9 @@ export type { CodeProps } from "./components/Code";
 
 export { default as InlineCode } from "./components/Code/Inline";
 
+export { default as Collapse } from "./components/Collapse";
+export type { CollapseProps } from "./components/Collapse";
+
 export { default as Container } from "./components/Container";
 export type { ContainerProps } from "./components/Container";
 
@@ -46,11 +49,8 @@ export type { IconProps } from "./components/Icon";
 export { default as Input } from "./components/Input";
 export type { InputProps } from "./components/Input";
 
-export { default as Link } from "./components/Link";
-export type { LinkProps } from "./components/Link";
-
-export { default as FragmentLink } from "./components/Link/Fragment";
-export type { FragmentLinkProps } from "./components/Link/Fragment";
+export { default as Image } from "./components/Image";
+export type { ImageProps } from "./components/Image";
 
 export { default as ListItem } from "./components/List/Item";
 export { default as OrderedList } from "./components/List/Ordered";
@@ -71,6 +71,9 @@ export type { SelectProps } from "./components/Select";
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
 
+export { default as Spacer } from "./components/Spacer";
+export type { SpacerProps } from "./components/Spacer";
+
 export { default as Spinner } from "./components/Spinner";
 export type { SpinnerProps } from "./components/Spinner";
 
@@ -80,6 +83,9 @@ export type { TabsProps } from "./components/Tabs";
 export { default as Text } from "./components/Text";
 export type { TextProps } from "./components/Text";
 
+export { default as Textarea } from "./components/Textarea";
+export type { TextareaProps } from "./components/Textarea";
+
 export { default as ToastActions } from "./components/Toast/Actions";
 export type { ToastActionsProps } from "./components/Toast/Actions";
 
@@ -87,6 +93,9 @@ export { default as ToastItem } from "./components/Toast/Item";
 export type { ToastItemProps } from "./components/Toast/Item";
 
 export { default as ToastContainer } from "./components/Toast/Container";
+
+export { default as Toggle } from "./components/Toggle";
+export type { ToggleProps } from "./components/Toggle";
 
 // ./contexts
 export { ToastsContent, useToastsContext } from "./contexts/Toasts";
@@ -158,6 +167,10 @@ export type {
 } from "./hooks/useToasts";
 
 export { default as useWarning } from "./hooks/useWarning";
+
+// .hoc
+export { default as withScale } from "./hoc/withScale";
+export type { ScaleProps } from "./hoc/withScale";
 
 // ./utils
 export { default as capitalize } from "./utils/capitalize";
