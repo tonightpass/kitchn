@@ -45,7 +45,7 @@ import { Error } from "@tonightpass/kitchen"
 
 <Playground
   code={`
-<Container direction={['column', 'row', 'row']} top>
+<Container direction={["column", "row", "row"]} top>
   <Container left>
     <Error size="small">This email is in use.</Error>
   </Container>
@@ -81,7 +81,13 @@ import { Error } from "@tonightpass/kitchen"
 
 <Playground
   code={`
-  <Error error={{ message: 'The request failed.', action: 'Contact Us', link: 'https://vercel.com/contact' }}/>
+<Error 
+  error={{ 
+    message: "The request failed.", 
+    action: "Contact Us", 
+    link: "mailto:contact@tonightpass.com" 
+  }}
+/>
 `}
 />
 
