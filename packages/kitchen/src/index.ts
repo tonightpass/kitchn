@@ -60,12 +60,6 @@ export type { IconProps } from "./components/Icon";
 export { default as Input } from "./components/Input";
 export type { InputProps } from "./components/Input";
 
-export { default as Link } from "./components/Link";
-export type { LinkProps } from "./components/Link";
-
-export { default as FragmentLink } from "./components/Link/Fragment";
-export type { FragmentLinkProps } from "./components/Link/Fragment";
-
 export { default as Image } from "./components/Image";
 export type { ImageProps } from "./components/Image";
 
@@ -84,6 +78,9 @@ export type { ProgressProps } from "./components/Progress";
 
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
+
+export { default as Spacer } from "./components/Spacer";
+export type { SpacerProps } from "./components/Spacer";
 
 export { default as Spinner } from "./components/Spinner";
 export type { SpinnerProps } from "./components/Spinner";
@@ -178,6 +175,10 @@ export type {
 } from "./hooks/useToasts";
 
 export { default as useWarning } from "./hooks/useWarning";
+
+// .hoc
+export { default as withScale } from "./hoc/withScale";
+export type { ScaleProps } from "./hoc/withScale";
 
 // ./utils
 export { default as capitalize } from "./utils/capitalize";

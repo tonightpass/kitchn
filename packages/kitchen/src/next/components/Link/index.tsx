@@ -2,8 +2,8 @@ import NextLink from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
-import isString from "../../utils/isString";
-import { KitchenComponent } from "../../types";
+import { KitchenComponent } from "../../../types";
+import isString from "../../../utils/isString";
 
 export type Props = {
   /**
