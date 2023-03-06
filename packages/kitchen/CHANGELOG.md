@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.1.0
+
+### Minor Changes
+
+- 2486623: Add `Spacer`
+
 ## 1.0.1
 
 ### Patch Changes
