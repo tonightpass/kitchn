@@ -108,7 +108,7 @@ const Content = styled.span`
 `;
 
 const Action = styled.a`
-  display: inline-block;
+  display: inline-flex;
   font-size: inherit;
   color: inherit;
   margin-left: ${({ theme }) => theme.gap.tiny};
