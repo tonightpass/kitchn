@@ -24,7 +24,7 @@ type Props = {
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
    * @default "initial"
    */
-  transform?: "capitalize" | "uppercase" | "lowercase" | "initial";
+  transform?: "capitalize" | "uppercase" | "lowercase" | "none";
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
    */
@@ -74,7 +74,7 @@ const Text = styled(({ children, ...props }: TextProps) => {
     props.theme.colors.text.lightest};
   };
   text-align: ${(props) => props.align || "left"};
-  text-transform: ${(props) => props.transform || "initial"};
+  text-transform: ${(props) => props.transform || "none"};
   line-height: ${(props) => props.lineHeight || 1.25};
   white-space: ${(props) =>
     props.wrap !== undefined ? (props.wrap ? "normal" : "nowrap") : "normal"};
