@@ -13,15 +13,15 @@ export { default as themes, createTheme } from "./themes";
 export { default as KitchenProvider } from "./components/Provider";
 export type { KitchenProviderProps } from "./components/Provider";
 
-export { default as Text } from "./components/Text";
-export type { TextProps } from "./components/Text";
+export { default as Text, type TextProps } from "./components/Text";
+
+export { default as Button, type ButtonProps } from "./components/Button";
 
 // ./hooks
 export { default as useTheme } from "./hooks/useTheme";
 
 // .hoc
-export { default as withScale } from "./hoc/withScale";
-export type { ScaleProps } from "./hoc/withScale";
+export { default as withScale, type ScaleProps } from "./hoc/withScale";
 
 // ./utils
 export * from "../utils/_collections";
