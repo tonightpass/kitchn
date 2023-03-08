@@ -1,4 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+export * from "./theme";
+
 export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
   /**
    * The root element.

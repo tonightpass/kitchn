@@ -1,7 +1,6 @@
 import React from "react";
-import { TextComponent } from "react-native";
+import { Text as NText, TextComponent } from "react-native";
 import styled from "styled-components/native";
-import { ReactNative } from "../..";
 import capitalize from "../../../utils/capitalize";
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
@@ -65,13 +64,13 @@ export type TextProps = KitchenComponent<Props, TextComponent>;
 
 const Text = styled(({ children, truncate, ...props }: TextProps) => {
   return (
-    <ReactNative.Text
+    <NText
       numberOfLines={truncate ? 1 : undefined}
       ellipsizeMode={truncate ? "tail" : undefined}
       {...props}
     >
       {children}
-    </ReactNative.Text>
+    </NText>
   );
 })<TextProps>`
   font-size: ${(props) => props.theme.size[props.size || "normal"]};
