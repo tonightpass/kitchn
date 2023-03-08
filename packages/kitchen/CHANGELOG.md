@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.1.7
+
+### Patch Changes
+
+- 0e0b8e0: Native | Fix paths in package.json
+
 ## 1.1.6
 
 ### Patch Changes
