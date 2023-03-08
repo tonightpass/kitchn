@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.1.5
+
+### Patch Changes
+
+- c9c82b1: Native | Fix `Text` line-height
+
 ## 1.1.4
 
 ### Patch Changes
