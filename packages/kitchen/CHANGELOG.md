@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.1.4
+
+### Patch Changes
+
+- ecb2128: Native | Fix `Text` props
+
 ## 1.1.3
 
 ### Patch Changes
