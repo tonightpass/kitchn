@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.1.3
+
+### Patch Changes
+
+- dd594cf: Native | Fix `Text` transform props
+
 ## 1.1.2
 
 ### Patch Changes
