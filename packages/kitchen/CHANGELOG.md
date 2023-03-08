@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.2.1
+
+### Patch Changes
+
+- cb33b26: Native | Fix missing react import into `Button`
+
 ## 1.2.0
 
 ### Minor Changes
