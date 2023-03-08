@@ -1,3 +1,4 @@
+import React from "react";
 import { KitchenComponent, NormalSizes, AccentColors, Text } from "../../";
 import { TouchableOpacityComponent } from "react-native/types";
 import styled from "styled-components/native";
