@@ -8,6 +8,9 @@ export const ReactNative = require("react-native") as Awaited<
   typeof import("react-native")
 >;
 
+// ./themes
+export { default as themes, createTheme } from "./themes";
+
 // ./components
 export { default as KitchenProvider } from "./components/Provider";
 export type { KitchenProviderProps } from "./components/Provider";
