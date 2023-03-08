@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.2.0
+
+### Minor Changes
+
+- 83f386f: Native | Add `Button`
+
 ## 1.1.7
 
 ### Patch Changes
