@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.1.2
+
+### Patch Changes
+
+- 4e096e9: Add `native` theme detection
+- f317293: Update `native` themes
+
 ## 1.1.1
 
 ### Patch Changes
