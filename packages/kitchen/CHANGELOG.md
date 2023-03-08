@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.1.6
+
+### Patch Changes
+
+- f4ab4d6: Add types on each entrypoints
+
 ## 1.1.5
 
 ### Patch Changes
