@@ -82,7 +82,16 @@ const Text = styled(({ children, truncate, ...props }: TextProps) => {
   };
   text-align: ${(props) => props.align || "left"};
   text-transform: ${(props) => props.transform || "none"};
-  line-height: ${(props) => props.lineHeight || 1.25};
+  line-height: ${(props) => {
+    const lineHeight = props.lineHeight || 1.25;
+    const fontSize = parseInt(
+      props.theme.size[props.size || "normal"].replace("px", "")
+    );
+
+    return typeof lineHeight === "number"
+      ? `${lineHeight * fontSize}px`
+      : lineHeight;
+  }};
   font-family: ${({ theme, weight = "regular", monospace }) => {
     return `${monospace ? theme.family.monospace : theme.family.primary}_${
       theme.weight[weight]
