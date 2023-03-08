@@ -14,7 +14,7 @@ export type Props = {
   variant?: "ghost" | "shadow";
 };
 
-export type ButtonProps = KitchenComponent<TouchableOpacityComponent>;
+export type ButtonProps = KitchenComponent<Props, TouchableOpacityComponent>;
 
 const Button = ({
   children,
@@ -25,7 +25,7 @@ const Button = ({
   variant,
   suffix,
   ...props
-}: Props) => {
+}: ButtonProps) => {
   return (
     <Container
       shape={shape}
