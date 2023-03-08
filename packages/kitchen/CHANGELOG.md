@@ -1,5 +1,13 @@
 # @tonightpass/kitchen
 
+## 1.1.1
+
+### Patch Changes
+
+- f2199f0: Fix progress bar background color
+- 9f65207: Improve `Text` with scale hoc and add theme gap and radius
+- 01f2f55: Fix `Error` action style
+
 ## 1.1.0
 
 ### Minor Changes

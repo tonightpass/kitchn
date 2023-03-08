@@ -3,14 +3,18 @@
   "badge": "Badge",
   "button": "Button",
   "checkbox": "Checkbox",
+  "drawer": "Drawer",
+  "error": "Error",
   "grid": "Grid",
   "icon": "Icon",
   "image": "Image",
   "modal": "Modal",
   "note": "Note",
+  "progress": "Progress",
   "skeleton": "Skeleton",
   "tabs": "Tabs",
   "text": "Text",
+  "textarea": "Textarea",
   "toast": "Toast",
   "toggle": "Toggle"
 }
