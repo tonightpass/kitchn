@@ -1,14 +1,22 @@
+// styled-components
 import "./types/styled-components";
-import kitchen from "styled-components/native";
-
-import KitchenProvider from "./components/Provider";
-import Text from "./components/Text";
+import { default as kitchen } from "styled-components/native";
+export type { DefaultTheme } from "styled-components/native";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 export const ReactNative = require("react-native") as Awaited<
   typeof import("react-native")
 >;
 
-export { KitchenProvider, Text };
+// ./components
+export { default as KitchenProvider } from "./components/Provider";
+export type { KitchenProviderProps } from "./components/Provider";
+
+export { default as Text } from "./components/Text";
+export type { TextProps } from "./components/Text";
+
+// .hoc
+export { default as withScale } from "./hoc/withScale";
+export type { ScaleProps } from "./hoc/withScale";
 
 export default kitchen;

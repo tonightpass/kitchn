@@ -2,8 +2,8 @@ import { MainTheme } from "../types/theme";
 
 const main: MainTheme = {
   family: {
-    primary: "PlusJakartaSans",
-    monospace: "PlusJakartaMono",
+    primary: "Satoshi",
+    monospace: "Satoshi",
   },
   weight: {
     thin: 100,
@@ -30,6 +30,18 @@ const main: MainTheme = {
     laptop: "1224px",
     tablet: "1024px",
     mobile: "768px",
+  },
+  gap: {
+    tiny: "5px",
+    small: "10px",
+    normal: "15px",
+    medium: "20px",
+    large: "30px",
+    extraLarge: "60px",
+  },
+  radius: {
+    square: "8px",
+    round: "99999px",
   },
 };
 
