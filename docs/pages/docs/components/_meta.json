@@ -4,6 +4,7 @@
   "button": "Button",
   "checkbox": "Checkbox",
   "collapse": "Collapse",
+  "drawer": "Drawer",
   "error": "Error",
   "grid": "Grid",
   "icon": "Icon",
@@ -14,5 +15,6 @@
   "skeleton": "Skeleton",
   "tabs": "Tabs",
   "text": "Text",
+  "textarea": "Textarea",
   "toggle": "Toggle"
 }

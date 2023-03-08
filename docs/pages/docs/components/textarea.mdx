@@ -1,0 +1,69 @@
+---
+title: "Textarea"
+description: "Retrieve multi-line user input."
+---
+
+import Playground from "@components/Playground";
+
+# Textarea
+
+Retrieve multi-line user input.
+
+## Usage
+
+First of all, you need to import the `Textarea` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Textarea } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+  <Container gap={10}>
+  <Textarea 
+    placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  />
+</Container>
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+<Container gap={10}>
+  <Textarea 
+    disabled
+    placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  />
+</Container>
+`}
+/>
+
+## Error
+
+<Playground
+  code={`
+<Container gap={10}>
+  <Textarea
+    errored 
+    defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  />
+</Container>
+`}
+/>
+
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `placeholder` | `string` | `-` | - | The placeholder of the textarea. | `-` |
+| `disabled` | `boolean` | `false` | - | The status (disabled or not) of the input. | `-` |
+| `errored` | `boolean` | `false` | - | The type of the textarea. | `-` |
+| `defaultValue` | `string` | `-` | - | The default value of the textarea. | `-` |
+| `width` | `number` \| `string` | `100%` | - | The width of the textarea. | `-` |
+| `height` | `number` \| `string` | `auto` | - | The height of the textarea. | `-` |
+| `resize` | `string` | `primary` | - | The CSS `resize` attribute of the textarea. | `none`, `both`, `horizontal`, `vertical` |
