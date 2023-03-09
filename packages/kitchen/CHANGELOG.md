@@ -1,5 +1,13 @@
 # @tonightpass/kitchen
 
+## 1.2.2
+
+### Patch Changes
+
+- 6b6aa02: Native | Fix `withScale` extension from `.ts` to `.tsx`
+- 6b6aa02: Fix `my` prop from `withScale`
+- 8544095: Fix global types errors
+
 ## 1.2.1
 
 ### Patch Changes
