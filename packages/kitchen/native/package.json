@@ -1,5 +1,4 @@
 {
   "main": "dist/tonightpass-kitchen-native.cjs.js",
-  "module": "dist/tonightpass-kitchen-native.esm.js",
-  "types": "dist/tonightpass-kitchen-native.cjs.d.ts"
+  "module": "dist/tonightpass-kitchen-native.esm.js"
 }

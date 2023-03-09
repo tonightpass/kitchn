@@ -5,7 +5,6 @@
   "main": "dist/tonightpass-kitchen.cjs.js",
   "module": "dist/tonightpass-kitchen.esm.js",
   "react-native": "native/dist/tonightpass-kitchen-native.cjs.js",
-  "types": "dist/tonightpass-kitchen.cjs.d.ts",
   "dependencies": {
     "@fontsource/dm-mono": "^4.5.10",
     "react-icons": "^4.7.1",
