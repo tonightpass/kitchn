@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.2.3
+
+### Patch Changes
+
+- 400bd8d: Fix scale hoc types
+
 ## 1.2.2
 
 ### Patch Changes
