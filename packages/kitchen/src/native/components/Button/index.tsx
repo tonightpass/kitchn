@@ -27,6 +27,15 @@ const Button = ({
   suffix,
   ...props
 }: ButtonProps) => {
+  const textColor =
+    props.loading || props.disabled
+      ? "lightest"
+      : type === "light"
+      ? "darkest"
+      : type === "dark"
+      ? "lightest"
+      : undefined;
+
   return (
     <Container
       shape={shape}
@@ -38,15 +47,7 @@ const Button = ({
     >
       {prefix && <Prefix>{prefix}</Prefix>}
       <Text
-        color={
-          props.loading || props.disabled
-            ? "lightest"
-            : type === "light"
-            ? "darkest"
-            : type === "dark"
-            ? "lightest"
-            : undefined
-        }
+        color={textColor}
         accent={
           variant === "ghost"
             ? type === "light"
@@ -66,7 +67,9 @@ const Button = ({
               : type === "primary"
               ? "primary"
               : undefined
-            : "light"
+            : !textColor
+            ? "light"
+            : undefined
         }
         size={
           size === "small" ? "small" : size === "large" ? "medium" : "normal"
