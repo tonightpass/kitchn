@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.2.4
+
+### Patch Changes
+
+- f85297c: Native | Fix type light text color on `Button`
+
 ## 1.2.3
 
 ### Patch Changes
