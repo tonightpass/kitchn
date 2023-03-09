@@ -100,7 +100,7 @@ const withScale = <T extends object>(
         ? `margin-right: ${handleValue(theme, marginRight || mr || mx)};`
         : ""}
     ${({ theme, marginTop, mt, my }) =>
-      marginTop || mt
+      marginTop || mt || my
         ? `margin-top: ${handleValue(theme, marginTop || mt || my)};`
         : ""}
     ${({ theme, marginBottom, mb, my }) =>
