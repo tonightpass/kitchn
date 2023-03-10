@@ -4,6 +4,9 @@ import { default as kitchen } from "styled-components";
 export { createGlobalStyle } from "styled-components";
 export type { DefaultTheme } from "styled-components";
 
+// ./types
+export * from "./types";
+
 // ./themes
 export { default as themes, createTheme } from "./themes";
 
@@ -181,19 +184,7 @@ export { default as withScale } from "./hoc/withScale";
 export type { ScaleProps } from "./hoc/withScale";
 
 // ./utils
-export { default as capitalize } from "./utils/capitalize";
-export { KeyCode, KeyMod } from "./utils/codes";
-export { default as convertRGBToRGBA } from "./utils/convertRGBToRGBA";
-export { default as getActiveModMap } from "./utils/getActiveModMap";
-export { default as getCtrlKeysByPlatform } from "./utils/getCtrlKeysByPlatform";
-export { default as getElementOffset } from "./utils/getElementOffset";
-export { default as getId } from "./utils/getId";
-export { default as getTranslateByPlacement } from "./utils/getTranslateByPlacement";
-export { default as isBrowser } from "./utils/isBrowser";
-export { default as isMac } from "./utils/isMac";
-export { default as isNumber } from "./utils/isNumber";
-export { default as isRefTarget } from "./utils/isRefTarget";
-export { default as isString } from "./utils/isString";
-export { default as shortenName } from "./utils/shortenName";
+export * from "./utils/_collections";
+export * from "./utils/_layout";
 
 export default kitchen;

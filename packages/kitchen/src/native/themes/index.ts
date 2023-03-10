@@ -1,13 +1,13 @@
-import { DefaultTheme } from "styled-components/native";
+import { DefaultTheme } from "styled-components";
+import dark from "../../themes/dark";
+import light from "../../themes/light";
 import { Theme } from "../types/theme";
-
-import dark from "./dark";
 import main from "./main";
 
-const complete = (theme: Theme): DefaultTheme => {
+export const createTheme = (theme: Theme): DefaultTheme => {
   return { ...main, ...theme };
 };
 
-const themes = { dark: complete(dark) };
+const themes = { dark: createTheme(dark), light: createTheme(light) };
 
 export default themes;
