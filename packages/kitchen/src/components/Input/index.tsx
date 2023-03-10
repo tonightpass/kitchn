@@ -247,9 +247,6 @@ const Input = styled(
         : theme.colors.text.light};
     font-weight: ${({ theme }) => theme.weight.semiBold};
   }
-  :focus-visible {
-    box-shadow: none;
-  }
 `;
 
 const Container = styled.div<{
