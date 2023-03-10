@@ -8,6 +8,7 @@ category: frameworks
 import Playground from "@components/Playground";
 import kitchen, { Container } from "@tonightpass/kitchen";
 import { Tab, Tabs } from "nextra-theme-docs";
+import { FragmentLink, Link } from "@tonightpass/kitchen/next";
 
 # Getting Started with Next.js
 
@@ -89,32 +90,11 @@ If you're using Next.js 13, we've provided a `@tonightpass/kitchen/next` package
 gives you a smoother experience when using Kitchen Link component with
 `next/link`.
 
-This package provides the **Link** which combines the functionality of the
-Next.js Link and Kitchen Link components.
-
-```jsx
-// app/page.tsx
-"use client"
-import { Link } from "@tonightpass/kitchen/next"
-export default function Page() {
-  return (
-    <Link href="/about">
-      About
-    </Link>
-  )
-}
-```
-
-import { FragmentLink, Link } from "@tonightpass/kitchen/next";
-
-
 export const Card = kitchen(Container)`
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   border-radius: 8px;
   padding: 16px;
 `;
-
-In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/next-typescript) using Kitchen with Next.js.
 
 ### Usage
 
@@ -189,7 +169,7 @@ scope={{ Link }}
         Primary variant
       </Link>
   </Container>
-  <Container gap={"small"}>
+  <Container gap={"small"} align={"flex-start"}>
     <Text size={"small"}>secondary</Text>
       <Link href="#" variant="secondary">
         Secondary variant
@@ -213,7 +193,7 @@ scope={{ Link }}
 <Playground
 scope={{ FragmentLink }}
   code={`
-<FragmentLink id="fragment-link-anchor">
+<FragmentLink id="fragment-link-example">
   Click on this to jump to this section of the page
 </FragmentLink>
 `}
@@ -249,3 +229,5 @@ scope={{ Link }}
 | `onClick` | `(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void` | - | - | The click event handler of the link. | - |
 | `disabled` | `boolean` | `false` | - | The status (disabled or not) of the link. | - |
 | `variant` | `string` | `primary` | - | The variant of the link. | `highlight`, `primary`, `secondary`, `blend` |
+
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/next-typescript) using Kitchen with Next.js.
