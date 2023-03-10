@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.3.2
+
+### Patch Changes
+
+- afe751a: Native | Fix `Container` imports (v2)
+
 ## 1.3.1
 
 ### Patch Changes
