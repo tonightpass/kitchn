@@ -1,14 +1,34 @@
+// styled-components
 import "./types/styled-components";
-import kitchen from "styled-components/native";
+import { default as kitchen } from "styled-components/native";
+export type { DefaultTheme } from "styled-components/native";
 
-import KitchenProvider from "./components/Provider";
-import Text from "./components/Text";
+// ./types
+export * from "./types";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-export const ReactNative = require("react-native") as Awaited<
-  typeof import("react-native")
->;
+// ./themes
+export { default as themes, createTheme } from "./themes";
 
-export { KitchenProvider, Text };
+// ./components
+export { default as KitchenProvider } from "./components/Provider";
+export type { KitchenProviderProps } from "./components/Provider";
+
+export { default as Button, type ButtonProps } from "./components/Button";
+
+export {
+  default as Container,
+  type ContainerProps,
+} from "./components/Container";
+
+export { default as Text, type TextProps } from "./components/Text";
+
+// ./hooks
+export { default as useTheme } from "./hooks/useTheme";
+
+// .hoc
+export { default as withScale, type ScaleProps } from "./hoc/withScale";
+
+// ./utils
+export * from "../utils/_collections";
 
 export default kitchen;

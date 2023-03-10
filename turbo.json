@@ -25,6 +25,9 @@
     },
     "dev": {
       "cache": false
+    },
+    "start": {
+      "cache": false
     }
   }
 }
