@@ -20,6 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },
+  "types": ["@types/styled-components-react-native"],
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist", "examples"]
 }

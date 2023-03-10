@@ -1,7 +1,7 @@
 import React from "react";
-import { TextComponent } from "react-native";
+import { Text as NText, TextComponent } from "react-native";
 import styled from "styled-components/native";
-import { ReactNative } from "../..";
+import capitalize from "../../../utils/capitalize";
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
@@ -24,7 +24,7 @@ type Props = {
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
    * @default "initial"
    */
-  transform?: "capitalize" | "uppercase" | "lowercase" | "initial";
+  transform?: "capitalize" | "uppercase" | "lowercase" | "none";
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
    */
@@ -62,40 +62,40 @@ type Props = {
 
 export type TextProps = KitchenComponent<Props, TextComponent>;
 
-const Text = styled(({ children, ...props }: TextProps) => {
-  return <ReactNative.Text {...props}>{children}</ReactNative.Text>;
+const Text = styled(({ children, truncate, ...props }: TextProps) => {
+  return (
+    <NText
+      numberOfLines={truncate ? 1 : undefined}
+      ellipsizeMode={truncate ? "tail" : undefined}
+      {...props}
+    >
+      {children}
+    </NText>
+  );
 })<TextProps>`
   font-size: ${(props) => props.theme.size[props.size || "normal"]};
-  font-weight: ${(props) =>
-    props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
     props.theme.colors.text.lightest};
   };
   text-align: ${(props) => props.align || "left"};
-  text-transform: ${(props) => props.transform || "initial"};
-  line-height: ${(props) => props.lineHeight || 1.25};
-  white-space: ${(props) =>
-    props.wrap !== undefined ? (props.wrap ? "normal" : "nowrap") : "normal"};
-  font-family: ${(props) =>
-    props.monospace && props.theme.family.monospace
-      ? "monospace"
-      : props.theme.family.primary};
-  ${(props) =>
-    props.truncate &&
-    `
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    ${
-      Number(props.truncate) > 1
-        ? `
-      white-space: normal;
-    `
-        : ""
-    }
-  `}
+  text-transform: ${(props) => props.transform || "none"};
+  line-height: ${(props) => {
+    const lineHeight = props.lineHeight || 1.25;
+    const fontSize = parseInt(
+      props.theme.size[props.size || "normal"].replace("px", "")
+    );
+
+    return typeof lineHeight === "number"
+      ? `${lineHeight * fontSize}px`
+      : lineHeight;
+  }};
+  font-family: ${({ theme, weight = "regular", monospace }) => {
+    return `${monospace ? theme.family.monospace : theme.family.primary}_${
+      theme.weight[weight]
+    }${capitalize(weight)}`;
+  }};
 `;
 
 export default withScale(Text);

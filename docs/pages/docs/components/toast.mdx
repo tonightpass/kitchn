@@ -1,0 +1,206 @@
+---
+title: "Toast"
+description: "A concise, temporary message."
+---
+
+import Playground from "@components/Playground";
+
+# Toast
+
+A concise, temporary message.
+
+## Usage
+
+First of all, you need to import the `useToasts` hook from the `@tonightpass/kitchen` package.
+
+```js
+import { useToasts } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+() => {
+  const { setToast } = useToasts();
+  return (
+    <Button
+    onClick={() => {
+    setToast({
+      text: "The Evil Rabbit jumped over the fence.",
+      delay: 3000,
+        });
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+}
+`}
+/>
+
+## Multiline
+
+<Playground
+  code={`
+() => {
+  const { setToast } = useToasts();
+  return (
+    <Button
+    onClick={() => {
+    setToast({
+      text: "HTTP is a protocol which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.",
+        });
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+}
+`}
+/>
+
+## With JSX
+
+<Playground
+  code={`
+  () => {
+  const { setToast } = useToasts();
+  return (
+    <Button
+      onClick={() => {
+        setToast({
+        text: (
+          <Container align={"flex-start"}>
+            <Badge>Badge Component !</Badge>
+          </Container>
+          ),
+        });
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+}
+`}
+/>
+
+## Action
+
+<Playground
+  code={`
+  () => {
+  const { setToast } = useToasts();
+
+  const alertAction = {
+    name: "alert",
+    handler: () => alert("alert from toast"),
+  };
+
+  return (
+    <Button
+      onClick={() => {
+        setToast({
+        text: "The Evil Rabbit jumped over the fence.",
+        actions: [alertAction],
+        });
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+}
+`}
+/>
+
+## Cancel
+
+<Playground
+  code={`
+  () => {
+  const { setToast } = useToasts();
+
+  const alertAction = {
+    name: "alert",
+    handler: () => alert("alert from toast"),
+  };
+
+  const cancelAction = {
+    name: "cancel",
+    passive: true,
+    handler: (_, cancel) => cancel(),
+  };
+
+  return (
+    <Button
+      onClick={() => {
+        setToast({
+        text: "The Evil Rabbit",
+        actions: [alertAction, cancelAction],
+        });
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+}
+`}
+/>
+
+## Types
+
+<Playground 
+  code={`
+  () => {
+  const { setToast } = useToasts();
+  return (
+    <Container gap={10}>
+      <Button
+        onClick={() => {
+          setToast({
+          text: "The Evil Rabbit",
+          type: "success",
+          });
+        }}
+        type={"success"}
+      >
+        Show Success
+      </Button>
+
+      <Button
+        onClick={() => {
+          setToast({
+          text: "The Evil Rabbit",
+          type: "warning",
+          });
+        }}
+        type={"warning"}
+      >
+        Show Warning
+      </Button>
+      
+      <Button
+        onClick={() => {
+          setToast({
+          text: "The Evil Rabbit",
+          type: "danger",
+          });
+        }}
+        type={"danger"}
+      >
+        Show Danger
+      </Button>
+    </Container>
+  );
+}
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `text` | `JSX.Element` \| `string` | `-` | - | The content displayed in the toast. | - |
+| `delay` | `number` | `3000` | - | The delay (in milliseconds) before the toast closes. | - |
+| `actions` | `ToastInput.actions?: ToastAction[]` | `-` | - | The default action of the toast. | - |
+| `type` | `string` | `primary` | - | The type of the toast. | `primary`, `secondary`, `info`, `success`, `warning`, `danger` |

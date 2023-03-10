@@ -3,6 +3,7 @@
   "badge": "Badge",
   "button": "Button",
   "checkbox": "Checkbox",
+  "collapse": "Collapse",
   "drawer": "Drawer",
   "error": "Error",
   "grid": "Grid",
@@ -16,5 +17,6 @@
   "tabs": "Tabs",
   "text": "Text",
   "textarea": "Textarea",
+  "toast": "Toast",
   "toggle": "Toggle"
 }
