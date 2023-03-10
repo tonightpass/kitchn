@@ -1,7 +1,7 @@
 import React from "react";
-import styled, { DefaultTheme } from "styled-components";
+import styled, { DefaultTheme } from "styled-components/native";
+import isNumber from "../../utils/isNumber";
 import { Breakpoint, Gap, Size } from "../types/theme";
-import isNumber from "../utils/isNumber";
 
 export type ScaleProps = {
   width?: string | number | keyof Gap | keyof Breakpoint;
