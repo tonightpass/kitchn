@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "turbo start",
     "build": "turbo run build",
     "build:packages": "turbo run p:build",
     "build:docs": "turbo run build --filter=docs...",

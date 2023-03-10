@@ -19,7 +19,6 @@ export type ProgressProps = KitchenComponent<
 
 const Progress = styled(
   ({
-    as: Component = "progress",
     value,
     max = 100,
     colors,
@@ -123,9 +122,14 @@ const Progress = styled(
 
   ::-webkit-progress-value {
     border-radius: 5px;
+    transition: all 0.1s ease-in-out;
+  }
+`;
+
+const Component = styled.progress`
+  ::-webkit-progress-value {
     background: ${({ theme, background }) =>
       background || theme.colors.layout.lightest};
-    transition: all 0.1s ease-in-out;
   }
 `;
 
