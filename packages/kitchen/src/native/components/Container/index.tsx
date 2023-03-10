@@ -6,9 +6,9 @@ import {
   LayoutColors,
   withScale,
   isNumber,
-} from "../..";
+} from "../../";
 import React from "react";
-import { View } from "react-native";
+import { View, ViewComponent } from "react-native";
 import styled from "styled-components/native";
 
 type Props = {
@@ -34,7 +34,7 @@ type Props = {
   br?: number | string | keyof Radius;
 };
 
-export type ContainerProps = KitchenComponent<Props>;
+export type ContainerProps = KitchenComponent<Props, ViewComponent>;
 
 const Container = styled(({ children, ...props }: ContainerProps) => {
   return <View {...props}>{children}</View>;
