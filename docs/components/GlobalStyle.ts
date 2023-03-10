@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "@tonightpass/kitchen";
+import { createGlobalStyle, Input } from "@tonightpass/kitchen";
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -92,6 +92,12 @@ const GlobalStyle = createGlobalStyle`
   video {
     border: 0 solid ${({ theme }) => theme.colors.layout.dark}
   }
+
+  ${Input} {
+  :focus-visible {
+    box-shadow: none;
+  }
+}
 `;
 
 export default GlobalStyle;
