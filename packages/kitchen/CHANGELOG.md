@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.3.3
+
+### Patch Changes
+
+- 5a51190: Improve `Input` clear by hiding icon while there is no text
+
 ## 1.3.2
 
 ### Patch Changes

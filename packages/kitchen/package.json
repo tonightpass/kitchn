@@ -1,6 +1,6 @@
 {
   "name": "@tonightpass/kitchen",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A very simple React button within a monorepo",
   "main": "dist/tonightpass-kitchen.cjs.js",
   "module": "dist/tonightpass-kitchen.esm.js",
