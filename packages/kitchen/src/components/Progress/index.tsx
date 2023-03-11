@@ -27,6 +27,9 @@ const Progress = styled(
     checkpointTitle = true,
     ...props
   }: ProgressProps) => {
+    if (value > max) value = max;
+    if (value < 0) value = 0;
+
     const containerRef = React.useRef<HTMLDivElement>(null);
     const [containerWidth, setContainerWidth] = React.useState<number>(0);
     const [isHover, setIsHover] = React.useState<number | null>(null);
