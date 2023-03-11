@@ -153,6 +153,7 @@ const Input = styled(
             </Prefix>
           )}
           <Field
+            ref={inputRef}
             size={size}
             prefix={prefix}
             suffix={suffix}
@@ -181,6 +182,9 @@ const Input = styled(
               error={error}
               focus={focus}
               type={type}
+              visible={Boolean(
+                inputRef.current && inputRef.current.value !== ""
+              )}
             >
               <Icon
                 icon={RiCloseCircleLine}
@@ -332,7 +336,6 @@ const Prefix = styled.span<{
   focus: boolean;
   type: InputProps["type"];
 }>`
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -435,8 +438,8 @@ const Clear = styled.span<{
   error: InputProps["error"];
   focus: boolean;
   type: InputProps["type"];
+  visible: boolean;
 }>`
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -481,7 +484,9 @@ const Clear = styled.span<{
 
   svg {
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-    transition: color 0.2s ease-in-out;
+    transition: color, opacity 0.2s ease-in-out;
+    opacity: ${({ visible }) => (visible ? 1 : 0)};
+    pointer-events: ${({ visible }) => (visible ? "auto" : "none")};
   }
 `;
 
