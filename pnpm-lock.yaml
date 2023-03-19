@@ -54,6 +54,7 @@ importers:
   docs:
     specifiers:
       "@codesandbox/sandpack-react": ^1.20.9
+      "@codesandbox/sandpack-themes": ^2.0.21
       "@preconstruct/next": ^4.0.0
       "@tonightpass/kitchen": workspace:*
       "@types/node": ^18.11.9
@@ -70,6 +71,7 @@ importers:
       urlcat: ^3.0.0
     dependencies:
       "@codesandbox/sandpack-react": 1.20.9_7rphy4ffeqpsohf32avvkz4pm4
+      "@codesandbox/sandpack-themes": 2.0.21
       "@preconstruct/next": 4.0.0
       "@tonightpass/kitchen": link:../packages/kitchen
       next: 13.1.5_biqbaboplfbrettd7655fr4n2y
@@ -2321,6 +2323,13 @@ packages:
       react-is: 17.0.2
     transitivePeerDependencies:
       - "@lezer/common"
+    dev: false
+
+  /@codesandbox/sandpack-themes/2.0.21:
+    resolution:
+      {
+        integrity: sha512-CMH/MO/dh6foPYb/3eSn2Cu/J3+1+/81Fsaj7VggICkCrmRk0qG5dmgjGAearPTnRkOGORIPHuRqwNXgw0E6YQ==,
+      }
     dev: false
 
   /@csstools/normalize.css/12.0.0:
