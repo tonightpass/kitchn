@@ -1,4 +1,5 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
+import { nightOwl } from "@codesandbox/sandpack-themes";
 import kitchen, { Container, useTheme } from "@tonightpass/kitchen";
 
 const Render: React.FC = () => {
@@ -22,7 +23,7 @@ export default function App() {
     <StyledContainer id={"render"} section>
       <Sandpack
         template={"react-ts"}
-        theme={theme.id === 2 ? "light" : "dark"}
+        theme={theme.id === 2 ? "light" : nightOwl}
         files={{
           "/App.tsx": code,
         }}
