@@ -30,7 +30,7 @@ const Featured: React.FC = () => {
         mt={"normal"}
         weight={"medium"}
         align={"center"}
-        color={"darker"}
+        color={"light"}
       >
         Design UI like Tonight Pass in React or React Native with optimized and
         customizable styled-components.
@@ -39,7 +39,7 @@ const Featured: React.FC = () => {
         <Link href="https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchen">
           <Image
             src={`https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=379927&theme=${
-              theme.id === 2 ? "light" : "dark"
+              theme.id === 2 ? "light" : "neutral"
             }&period=weekly&topic_id=44`}
             alt="Kitchen - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
             width="250"
@@ -48,16 +48,12 @@ const Featured: React.FC = () => {
         </Link>
       </Container>
       <Container row gap={"normal"} justify={"center"} mt={"large"}>
-        <Button forwardedAs={Link} href={"/docs"}>
-          Get started
-        </Button>
-        <Button
-          type={"dark"}
-          forwardedAs={Link}
-          href={"https://github.com/tonightpass/kitchen"}
-        >
-          Contribute
-        </Button>
+        <Link href={"/docs"}>
+          <Button>Get started</Button>
+        </Link>
+        <Link href={"https://github.com/tonightpass/kitchen"}>
+          <Button type={"dark"}>Contribute</Button>
+        </Link>
       </Container>
     </Container>
   );
