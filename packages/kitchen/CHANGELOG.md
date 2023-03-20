@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.3.4
+
+### Patch Changes
+
+- 8035678: Update `theme` colors with Tonight Pass colors
+
 ## 1.3.3
 
 ### Patch Changes
