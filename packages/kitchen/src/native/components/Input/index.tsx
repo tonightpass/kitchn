@@ -142,6 +142,7 @@ const InputComponent = React.forwardRef<
       onChange && onChange(event as any);
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     React.useEffect(() => {
       if (isControlledComponent) {
         setSelfValue(value as string);
@@ -351,7 +352,7 @@ const Field = styled.TextInput<
     border-bottom-right-radius: 0;
   `}
   ${({ prefix, prefixContainer, prefixStyling }) =>
-    prefix && prefixContainer && !prefixStyling && "border-left: none;"}
+    prefix && prefixContainer && !prefixStyling && "border-left-width: 0;"}
   ${({ suffix, suffixContainer, suffixStyling, clearable, selfValue }) =>
     ((suffix && suffixContainer && !suffixStyling) ||
       (clearable && selfValue !== undefined)) &&
