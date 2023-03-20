@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.4.1
+
+### Patch Changes
+
+- 4581952: Native | Fix Input and Icon exports
+
 ## 1.4.0
 
 ### Minor Changes
