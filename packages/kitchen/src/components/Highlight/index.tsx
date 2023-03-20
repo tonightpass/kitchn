@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import usePrevious from "../../hooks/usePrevious";
 import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 export type HighlightProps = KitchenComponent & {
@@ -63,4 +64,4 @@ const Container = styled.div<HighlightPosition>`
   transition-property: ${({ transition }) => transition};
 `;
 
-export default Highlight;
+export default withScale(Highlight);

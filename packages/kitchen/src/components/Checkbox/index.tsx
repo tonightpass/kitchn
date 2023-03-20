@@ -3,6 +3,7 @@ import styled from "styled-components";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import Icon from "../Icon";
 import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -178,4 +179,4 @@ const StyledCheckbox = styled.input`
   width: 0;
 `;
 
-export default Checkbox;
+export default withScale(Checkbox);

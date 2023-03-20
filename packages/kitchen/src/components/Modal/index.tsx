@@ -4,6 +4,7 @@ import styled from "styled-components";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 import Drawer from "../Drawer";
@@ -271,14 +272,14 @@ const ModalInset = styled.div`
 `;
 
 const Modal = {
-  Modal: ModalComponent,
-  Body: ModalBody,
-  Header: ModalHeader,
-  Title: ModalTitle,
-  Subtitle: ModalSubtitle,
-  Actions: ModalActions,
-  Action: ModalAction,
-  Inset: ModalInset,
+  Modal: withScale(ModalComponent),
+  Body: withScale(ModalBody),
+  Header: withScale(ModalHeader),
+  Title: withScale(ModalTitle),
+  Subtitle: withScale(ModalSubtitle),
+  Actions: withScale(ModalActions),
+  Action: withScale(ModalAction),
+  Inset: withScale(ModalInset),
 };
 
 export default Modal;

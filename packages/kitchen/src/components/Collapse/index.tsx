@@ -1,6 +1,7 @@
 import React from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import Icon from "../Icon";
 
@@ -155,4 +156,4 @@ const ContentContainer = styled.span`
   padding: 10px;
 `;
 
-export default Collapse;
+export default withScale(Collapse);

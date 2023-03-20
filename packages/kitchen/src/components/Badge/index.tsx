@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 
 type Props = {
@@ -94,4 +95,4 @@ const Badge = styled((props: BadgeProps) => {
   }};
 `;
 
-export default Badge;
+export default withScale(Badge);

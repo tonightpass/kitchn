@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 interface Props {
@@ -81,4 +82,4 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
   }
 `;
 
-export default Toggle;
+export default withScale(Toggle);

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ToastAction } from "../../../hooks/useToasts";
+import withScale from "../../../hoc/withScale";
 import { KitchenComponent } from "../../../types";
 import capitalize from "../../../utils/capitalize";
 import Button from "../../Button";
@@ -43,4 +44,4 @@ const ToastActions = styled(
   }
 )``;
 
-export default ToastActions;
+export default withScale(ToastActions);

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import capitalize from "../../utils/capitalize";
 
@@ -185,4 +186,4 @@ const Content = styled.span`
 
 const Action = styled.div``;
 
-export default Note;
+export default withScale(Note);

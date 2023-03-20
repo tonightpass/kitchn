@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -55,4 +56,4 @@ const Spinner = styled(({ ...props }: SpinnerProps) => {
   }
 `;
 
-export default Spinner;
+export default withScale(Spinner);
