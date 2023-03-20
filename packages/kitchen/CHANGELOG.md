@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.4.3
+
+### Patch Changes
+
+- 5873f97: Improve `Icon` with accent color
+- 206586b: Native | Fix `prefixStyling` of `Input`
+
 ## 1.4.2
 
 ### Patch Changes
