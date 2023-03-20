@@ -1,11 +1,5 @@
 # @tonightpass/kitchen
 
-## 1.4.3
-
-### Patch Changes
-
-- 9c996b9: Native | Fix `prefixStyling` of `Input`
-
 ## 1.4.2
 
 ### Patch Changes
