@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.4.2
+
+### Patch Changes
+
+- 2e7b90a: Add withScale hoc on every component
+
 ## 1.4.1
 
 ### Patch Changes
