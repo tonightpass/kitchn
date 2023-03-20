@@ -158,6 +158,7 @@ importers:
       react-dom: ^18.2.0
       react-icons: ^4.7.1
       react-native: ^0.71.3
+      react-native-remix-icon: ^0.4.0
       styled-components: ^5.3.6
       typescript: ^4.9.3
     dependencies:
@@ -173,6 +174,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-native: 0.71.4_oo5no556diumlvgcr27pvljqai
+      react-native-remix-icon: 0.4.0_react-native-svg@13.8.0
       typescript: 4.9.4
 
 packages:
@@ -7273,7 +7275,6 @@ packages:
       {
         integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==,
       }
-    dev: false
 
   /bplist-creator/0.1.0:
     resolution:
@@ -8584,6 +8585,19 @@ packages:
       nth-check: 2.1.1
     dev: false
 
+  /css-select/5.1.0:
+    resolution:
+      {
+        integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==,
+      }
+    dependencies:
+      boolbase: 1.0.0
+      css-what: 6.1.0
+      domhandler: 5.0.3
+      domutils: 3.0.1
+      nth-check: 2.1.1
+    dev: true
+
   /css-to-react-native/3.1.0:
     resolution:
       {
@@ -8615,7 +8629,6 @@ packages:
     dependencies:
       mdn-data: 2.0.14
       source-map: 0.6.1
-    dev: false
 
   /css-what/3.4.2:
     resolution:
@@ -8631,7 +8644,6 @@ packages:
         integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==,
       }
     engines: { node: ">= 6" }
-    dev: false
 
   /cssdb/7.4.1:
     resolution:
@@ -9328,6 +9340,17 @@ packages:
       entities: 2.2.0
     dev: false
 
+  /dom-serializer/2.0.0:
+    resolution:
+      {
+        integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==,
+      }
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      entities: 4.4.0
+    dev: true
+
   /domelementtype/1.3.1:
     resolution:
       {
@@ -9340,7 +9363,6 @@ packages:
       {
         integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==,
       }
-    dev: false
 
   /domexception/2.0.1:
     resolution:
@@ -9362,6 +9384,16 @@ packages:
       domelementtype: 2.3.0
     dev: false
 
+  /domhandler/5.0.3:
+    resolution:
+      {
+        integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==,
+      }
+    engines: { node: ">= 4" }
+    dependencies:
+      domelementtype: 2.3.0
+    dev: true
+
   /domutils/1.7.0:
     resolution:
       {
@@ -9382,6 +9414,17 @@ packages:
       domelementtype: 2.3.0
       domhandler: 4.3.1
     dev: false
+
+  /domutils/3.0.1:
+    resolution:
+      {
+        integrity: sha512-z08c1l761iKhDFtfXO04C7kTdPBLi41zwOZl00WS8b5eiaebNpY00HKbztwBq+e3vyqWNwWF3mP9YLUeqIrF+Q==,
+      }
+    dependencies:
+      dom-serializer: 2.0.0
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+    dev: true
 
   /dot-case/3.0.4:
     resolution:
@@ -9532,6 +9575,14 @@ packages:
         integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==,
       }
     dev: false
+
+  /entities/4.4.0:
+    resolution:
+      {
+        integrity: sha512-oYp7156SP8LkeGD0GF85ad1X9Ai79WtRsZ2gxJqtBuzH+98YUV6jkHEKlZkMbcrjJjIVJNIDP/3WL9wQkoPbWA==,
+      }
+    engines: { node: ">=0.12" }
+    dev: true
 
   /env-editor/0.4.2:
     resolution:
@@ -15183,7 +15234,6 @@ packages:
       {
         integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==,
       }
-    dev: false
 
   /mdn-data/2.0.4:
     resolution:
@@ -17266,7 +17316,6 @@ packages:
       }
     dependencies:
       boolbase: 1.0.0
-    dev: false
 
   /nullthrows/1.1.1:
     resolution:
@@ -19666,6 +19715,32 @@ packages:
       {
         integrity: sha512-H2BjG2zk7B7Wii9sXvd9qhCVRQYDAHSWdMw9tscmZBqSP62DkIWEQSk4/B2GhQ4aK9ydVXgtqR6tBeg3yy8TSA==,
       }
+    dev: true
+
+  /react-native-remix-icon/0.4.0_react-native-svg@13.8.0:
+    resolution:
+      {
+        integrity: sha512-rinzEJW6bgSyJ4MocvVo7o1UcGREU/tzI9JTjQfd/P0Z0/Ru40YCddlmpErx7JjEFKWrkqevosquFb/pKxXcmQ==,
+      }
+    peerDependencies:
+      react-native-svg: "*"
+    dependencies:
+      react-native-svg: 13.8.0_asg77qyzeoxodznpkubmbgme7u
+    dev: true
+
+  /react-native-svg/13.8.0_asg77qyzeoxodznpkubmbgme7u:
+    resolution:
+      {
+        integrity: sha512-G8Mx6W86da+vFimZBJvA93POw8yz0fgDS5biy6oIjMWVJVQSDzCyzwO/zY0yuZmCDhKSZzogl5m0wXXvW2OcTA==,
+      }
+    peerDependencies:
+      react: "*"
+      react-native: "*"
+    dependencies:
+      css-select: 5.1.0
+      css-tree: 1.1.3
+      react: 18.2.0
+      react-native: 0.71.4_oo5no556diumlvgcr27pvljqai
     dev: true
 
   /react-native/0.70.6_oo5no556diumlvgcr27pvljqai:
