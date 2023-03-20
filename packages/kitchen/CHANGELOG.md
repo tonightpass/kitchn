@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.4.0
+
+### Minor Changes
+
+- b0ce97a: Native | Add `Input`
+  Native | Add `Icon`
+
 ## 1.3.4
 
 ### Patch Changes
