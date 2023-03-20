@@ -1,6 +1,7 @@
 import React from "react";
 import RemixIcon from "react-native-remix-icon";
 import useTheme from "../../hooks/useTheme";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent, Size, TextColors } from "../../types";
 
 type Props = {
@@ -28,4 +29,4 @@ const Icon = ({ name, size = "normal", fill, color, ...props }: IconProps) => {
   );
 };
 
-export default Icon;
+export default withScale(Icon);
