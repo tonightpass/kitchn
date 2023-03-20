@@ -14,7 +14,7 @@ const Features = () => {
         mt={"normal"}
         weight={"medium"}
         align={"center"}
-        color={"darker"}
+        color={"light"}
       >
         Discover all of them. Say bye to wasted time and hello to fresh design.
       </Text>
