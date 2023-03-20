@@ -10,7 +10,7 @@ type Props = {
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
    */
-  color?: keyof TextColors;
+  color?: keyof TextColors | string;
   /**
    * The accent color. Strictly limited to colors of our design system, but can be used in combination with `color` prop.
    */
