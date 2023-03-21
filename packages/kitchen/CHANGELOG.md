@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.4.4
+
+### Patch Changes
+
+- 63714bc: Fix `Input` prefix, suffix and clear background color
+
 ## 1.4.3
 
 ### Patch Changes
