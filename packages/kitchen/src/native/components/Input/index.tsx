@@ -383,9 +383,10 @@ const Prefix = styled.View<{
   border-top-left-radius: ${({ theme }) => theme.radius.square};
   border-bottom-left-radius: ${({ theme }) => theme.radius.square};
   padding: 0 ${({ theme }) => theme.gap.small};
-  ${({ theme, prefixStyling, disabled }) =>
-    (prefixStyling || disabled) &&
-    `background-color: ${theme.colors.layout.darker};`};
+  background-color: ${({ theme, prefixStyling, disabled }) =>
+    prefixStyling || disabled
+      ? theme.colors.layout.darker
+      : theme.colors.layout.darkest};
   height: ${(props) => {
     switch (props.size) {
       case "small":
@@ -424,9 +425,10 @@ const Suffix = styled.View<{
   border-bottom-right-radius: ${({ theme }) => theme.radius.square};
   ${({ theme }) => theme.radius.square} 0;
   padding: 0 ${({ theme }) => theme.gap.small};
-  ${({ theme, suffixStyling, disabled }) =>
-    (suffixStyling || disabled) &&
-    `background-color: ${theme.colors.layout.darker};`};
+  background-color: ${({ theme, suffixStyling, disabled }) =>
+    suffixStyling || disabled
+      ? theme.colors.layout.darker
+      : theme.colors.layout.darkest};
   height: ${(props) => {
     switch (props.size) {
       case "small":
@@ -465,8 +467,8 @@ const Clear = styled.Pressable<{
         : theme.colors.layout.dark};
   border-left-width: 0;
   padding-right: ${({ theme }) => theme.gap.small};
-  ${({ theme, disabled }) =>
-    disabled && `background-color: ${theme.colors.layout.darker};`};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
   ${({ theme, suffix, suffixContainer }) =>
     suffix && suffixContainer
       ? `
