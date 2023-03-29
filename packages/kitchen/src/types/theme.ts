@@ -1,5 +1,9 @@
+export type ThemeType = "light" | "dark";
+
 export type Theme = {
   id: number;
+  name: string;
+  type: ThemeType;
   colors: Colors;
 };
 

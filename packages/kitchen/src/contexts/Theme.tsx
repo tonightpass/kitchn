@@ -22,12 +22,6 @@ type ThemeProviderProps = {
   theme?: DefaultTheme;
 };
 
-/**
- * System: 0
- * Dark: 1
- * Light: 2
- */
-
 const ThemeProvider = ({
   children,
   theme: customTheme,
