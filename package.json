@@ -64,5 +64,5 @@
       "packages/*"
     ]
   },
-  "packageManager": "pnpm@7.26.0"
+  "packageManager": "pnpm@8.1.0"
 }
