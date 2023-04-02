@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.5.1
+
+### Patch Changes
+
+- 6954519: Improve `Scale` hoc with position
+
 ## 1.5.0
 
 ### Minor Changes
