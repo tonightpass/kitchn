@@ -1,5 +1,17 @@
 # @tonightpass/kitchen
 
+## 1.5.0
+
+### Minor Changes
+
+- bd30326: Add `Box` HOC
+
+### Patch Changes
+
+- bd30326: Fix `Container` flex
+- 6f7d3a1: Improve `Badge` with capitalize
+- d6713dd: Improve `Text` with decoration
+
 ## 1.4.4
 
 ### Patch Changes
