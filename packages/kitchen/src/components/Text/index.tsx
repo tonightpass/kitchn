@@ -34,6 +34,13 @@ type Props = {
    * @default "initial"
    */
   transform?: "capitalize" | "uppercase" | "lowercase" | "initial";
+  decoration?:
+    | "none"
+    | "underline"
+    | "line-through"
+    | "overline"
+    | "dashed"
+    | "blink";
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
    */
@@ -98,6 +105,7 @@ const Text = styled(({ children, ...props }: TextProps) => {
 
   return <Component {...props}>{children}</Component>;
 })<TextProps>`
+  display: inline-block;
   font-size: ${(props) => props.theme.size[props.size || "normal"]};
   font-weight: ${(props) =>
     props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
@@ -108,6 +116,7 @@ const Text = styled(({ children, ...props }: TextProps) => {
   };
   text-align: ${(props) => props.align || "left"};
   text-transform: ${(props) => props.transform || "initial"};
+  text-decoration: ${(props) => props.decoration || "none"};
   line-height: ${(props) => props.lineHeight || 1.25};
   white-space: ${(props) =>
     props.wrap !== undefined ? (props.wrap ? "normal" : "nowrap") : "normal"};
