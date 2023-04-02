@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+import withBox from "../../hoc/withBox";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
@@ -67,4 +67,4 @@ const Container = styled(
   }
 `;
 
-export default withScale(Container);
+export default withBox(Container);
