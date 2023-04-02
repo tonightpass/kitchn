@@ -36,11 +36,10 @@ const Container = styled(
   flex-direction: ${(props) =>
     (props.direction && props.direction[props.direction.length - 1]) ||
     (props.row ? "row" : "column")};
-  position: relative;
-  max-width: 100%;
-  flex: ${(props) => (props.flex !== undefined ? props.flex : 1)};
+  ${(props) => props.flex && `flex: ${props.flex};`}
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
+
   ${(props) =>
     props.gap &&
     `gap: ${props.theme.gap[props.gap as keyof Gap] || `${props.gap}px`};`}
