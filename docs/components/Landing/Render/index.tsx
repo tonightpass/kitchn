@@ -48,7 +48,7 @@ export default function App() {
             <Text color={"lightest"}>{"night ·"}</Text> $735 total
           </Text>
           <Container>
-            <Button mt={"small"} w={"100%"}>
+            <Button mt={"small"}>
               Book now
             </Button>
           </Container>
