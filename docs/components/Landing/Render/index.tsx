@@ -5,7 +5,7 @@ import kitchen, { Container, useTheme } from "@tonightpass/kitchen";
 const Render: React.FC = () => {
   const { theme } = useTheme();
 
-  const code = `import { KitchenProvider, Button, Container, Image, Text } from "@tonightpass/kitchen";
+  const code = `import { KitchenProvider, Badge, Button, Container, Image, Text } from "@tonightpass/kitchen";
 
 import "@tonightpass/kitchen/fonts.css";
 
