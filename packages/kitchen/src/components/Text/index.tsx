@@ -105,7 +105,6 @@ const Text = styled(({ children, ...props }: TextProps) => {
 
   return <Component {...props}>{children}</Component>;
 })<TextProps>`
-  display: inline-block;
   font-size: ${(props) => props.theme.size[props.size || "normal"]};
   font-weight: ${(props) =>
     props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
