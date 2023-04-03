@@ -1,15 +1,15 @@
+import React from "react";
+import styled from "styled-components/native";
+import { View, ViewComponent } from "react-native";
 import {
   AccentColors,
   Gap,
-  Radius,
   KitchenComponent,
   LayoutColors,
-  withScale,
-  isNumber,
-} from "../..";
-import React from "react";
-import { View } from "react-native";
-import styled from "styled-components/native";
+  Radius,
+} from "../../types";
+import isNumber from "../../../utils/isNumber";
+import withScale from "../../hoc/withScale";
 
 type Props = {
   row?: boolean;
@@ -34,7 +34,7 @@ type Props = {
   br?: number | string | keyof Radius;
 };
 
-export type ContainerProps = KitchenComponent<Props>;
+export type ContainerProps = KitchenComponent<Props, ViewComponent>;
 
 const Container = styled(({ children, ...props }: ContainerProps) => {
   return <View {...props}>{children}</View>;

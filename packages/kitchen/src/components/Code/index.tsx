@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -63,4 +64,4 @@ const Content = styled.code`
   hyphens: none;
 `;
 
-export default Code;
+export default withScale(Code);

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../../hoc/withScale";
 
 const InlineCode = styled((props) => {
   return <code {...props} />;
@@ -14,4 +15,4 @@ const InlineCode = styled((props) => {
   white-space: pre-wrap;
 `;
 
-export default InlineCode;
+export default withScale(InlineCode);

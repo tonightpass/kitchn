@@ -4,9 +4,9 @@ const dark: Theme = {
   id: 1,
   colors: {
     layout: {
-      darkest: "rgb(17, 19, 21)",
-      darker: "rgb(26, 29, 31)",
-      dark: "rgb(39, 43, 48)",
+      darkest: "rgb(5, 21, 39)",
+      darker: "rgb(6, 25, 46)",
+      dark: "rgb(52, 68, 111)",
       light: "rgb(130, 137, 147)",
       lighter: "rgb(155, 155, 156)",
       lightest: "rgb(255, 255, 255)",

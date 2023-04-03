@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Toast, ToastLayout } from "../../../hooks/useToasts";
+import withScale from "../../../hoc/withScale";
 import { KitchenComponent } from "../../../types";
 import getTranslateByPlacement from "../../../utils/getTranslateByPlacement";
 import Container from "../../Container";
@@ -135,4 +136,4 @@ const AnimationContainer = styled.div<
 
 const ToastItemMemo = React.memo(ToastItem);
 
-export default ToastItemMemo;
+export default withScale(ToastItemMemo);

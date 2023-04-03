@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
@@ -9,7 +10,7 @@ type Props = {
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
    */
-  color?: keyof TextColors;
+  color?: keyof TextColors | string;
   /**
    * The accent color. Strictly limited to colors of our design system, but can be used in combination with `color` prop.
    */
@@ -50,4 +51,4 @@ const Icon = styled(({ icon: Component, size, ...props }) => {
   }};
 `;
 
-export default Icon;
+export default withScale(Icon);

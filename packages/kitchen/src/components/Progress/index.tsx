@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useBreakpoint from "../../hooks/useBreakpoint";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -203,4 +204,4 @@ const Checkpoint = styled.div<{
   }
 `;
 
-export default Progress;
+export default withScale(Progress);

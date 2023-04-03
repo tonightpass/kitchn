@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+import withBox from "../../hoc/withBox";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -18,4 +18,4 @@ const Image = styled(({ src, alt, ...props }: ImageProps) => {
   return <img src={src} alt={alt} draggable={false} {...props} />;
 })<ImageProps>``;
 
-export default withScale(Image);
+export default withBox(Image);
