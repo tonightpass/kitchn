@@ -1,0 +1,50 @@
+{
+  "name": "create-kitchen",
+  "version": "1.5.2",
+  "description": "Design UI like Tonight Pass in React or React Native with optimized and customizable styled-components.",
+  "keywords": [
+    "react",
+    "react-dom",
+    "react-native",
+    "ui-design",
+    "ui",
+    "kit",
+    "uikit",
+    "ui-components",
+    "styled-components",
+    "tonightpass",
+    "kitchen",
+    "kitchen-components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonightpass/kitchen",
+    "directory": "packages/create-kitchen"
+  },
+  "author": "Tonight Pass <developers@tonightpass.com>",
+  "license": "MIT",
+  "main": "dist/create-kitchen.cjs.js",
+  "module": "dist/create-kitchen.esm.js",
+  "dependencies": {
+    "@fontsource/fira-code": "^4.5.13",
+    "react-icons": "^4.7.1",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.2.0",
+    "next": "^13.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.71.3",
+    "react-native-remix-icon": "^0.4.0",
+    "typescript": "^4.9.3"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  }
+}
