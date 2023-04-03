@@ -1,26 +1,24 @@
 import React from "react";
-import { RiCloseCircleLine } from "react-icons/ri";
-import styled from "styled-components";
+import {
+  TextInput,
+  TextInputProps,
+  NativeSyntheticEvent,
+  TextInputChangeEventData,
+  TextInputFocusEventData,
+  GestureResponderEvent,
+} from "react-native/types";
+import styled, { useTheme } from "styled-components/native";
+import capitalize from "../../../utils/capitalize";
+import convertRGBToRGBA from "../../../utils/convertRGBToRGBA";
+import isNumber from "../../../utils/isNumber";
 import withScale from "../../hoc/withScale";
-import { KitchenComponent, NormalSizes } from "../../types";
-import { AccentColors } from "../../types/theme";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
-import isNumber from "../../utils/isNumber";
-import Error from "../Error";
-import Icon from "../Icon";
+import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
 
-const simulateChangeEvent = (
-  el: HTMLInputElement,
-  event: React.MouseEvent<HTMLDivElement>
-): React.ChangeEvent<HTMLInputElement> => {
-  return {
-    ...event,
-    target: el,
-    currentTarget: el,
-  };
-};
+import Icon from "../Icon";
+import Text from "../Text";
 
 type Props = {
+  name?: string;
   placeholder?: string;
   size?: NormalSizes;
   prefix?: JSX.Element | string;
@@ -36,50 +34,120 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClearClick?: (_event: GestureResponderEvent) => void;
   type?: keyof AccentColors;
   label?: string;
+  onChange?: (_event: NativeSyntheticEvent<InputChangeEventData>) => void;
+  pattern?: { [key: string]: RegExp };
 };
 
-export type InputProps = KitchenComponent<
-  Props,
-  React.InputHTMLAttributes<HTMLInputElement>
->;
+export type InputProps = KitchenComponent<Props, TextInputProps>;
 
-const Input = styled(
-  ({
-    size = "normal",
-    prefix,
-    suffix,
-    disabled = false,
-    prefixContainer = true,
-    suffixContainer = true,
-    prefixStyling = true,
-    suffixStyling = true,
-    clearable = false,
-    value,
-    initialValue = "",
-    readOnly = false,
-    onChange,
-    width,
-    onClearClick,
-    onFocus,
-    onBlur,
-    error,
-    type,
-    label,
-    ...props
-  }: InputProps) => {
-    const inputRef = React.useRef<HTMLInputElement>(null);
-    const [selfValue, setSelfValue] = React.useState<string>(initialValue);
-    const [focus, setFocus] = React.useState<boolean>(false);
-    const [clearIconHover, setClearIconHover] = React.useState<boolean>(false);
+export type InputChangeEventData = TextInputChangeEventData & {
+  name?: string;
+  pattern?: { [key: string]: RegExp };
+};
+
+const defaultProps: Props = {
+  size: "normal",
+  disabled: false,
+  prefixStyling: true,
+  suffixStyling: true,
+  prefixContainer: true,
+  suffixContainer: true,
+  clearable: false,
+  initialValue: "",
+  readOnly: false,
+};
+
+const InputComponent = React.forwardRef<
+  TextInput,
+  React.PropsWithChildren<InputProps>
+>(
+  (
+    {
+      name,
+      size,
+      prefix,
+      suffix,
+      disabled,
+      prefixContainer,
+      suffixContainer,
+      prefixStyling,
+      suffixStyling,
+      clearable,
+      value,
+      initialValue,
+      readOnly,
+      onChange,
+      width,
+      onClearClick,
+      onFocus,
+      onBlur,
+      error,
+      type,
+      label,
+      pattern,
+      ...props
+    }: InputProps & typeof defaultProps,
+    ref: React.ForwardedRef<TextInput>
+  ) => {
+    const theme = useTheme();
+    const inputRef = React.useRef<TextInput>(null);
+    React.useImperativeHandle(ref, () => inputRef.current as TextInput);
+
+    const [selfValue, setSelfValue] = React.useState<string | undefined>(
+      initialValue
+    );
     const isControlledComponent = React.useMemo(
       () => value !== undefined,
       [value]
     );
+    const [focus, setFocus] = React.useState<boolean>(false);
 
-    const Wrapper = label ? "label" : React.Fragment;
+    const handleChange = (
+      event: NativeSyntheticEvent<InputChangeEventData>
+    ) => {
+      event.nativeEvent.name = name;
+      event.nativeEvent.pattern = pattern;
+      if (disabled || readOnly) return;
+      setSelfValue(event.nativeEvent.text);
+      onChange && onChange(event);
+    };
+
+    const handleFocus = (
+      event: NativeSyntheticEvent<TextInputFocusEventData>
+    ) => {
+      if (disabled || readOnly) return;
+      setFocus(true);
+      onFocus && onFocus(event);
+    };
+
+    const handleBlur = (
+      event: NativeSyntheticEvent<TextInputFocusEventData>
+    ) => {
+      if (disabled || readOnly) return;
+      setFocus(false);
+      onBlur && onBlur(event);
+    };
+
+    const handleClear = (event: GestureResponderEvent) => {
+      if (disabled || readOnly) return;
+      setSelfValue("");
+      onClearClick && onClearClick(event);
+      if (!inputRef.current) return;
+
+      inputRef.current.clear();
+      inputRef.current.focus();
+      onChange && onChange(event as any);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    React.useEffect(() => {
+      if (isControlledComponent) {
+        setSelfValue(value as string);
+      }
+    });
 
     const controlledValue = isControlledComponent
       ? { value: selfValue }
@@ -90,56 +158,13 @@ const Input = styled(
       ...controlledValue,
     };
 
-    const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-      if (disabled || readOnly) return;
-      setFocus(true);
-      onFocus && onFocus(event);
-    };
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (disabled || readOnly) return;
-      setSelfValue(event.target.value);
-      onChange && onChange(event);
-    };
-
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-      if (disabled || readOnly) return;
-      setFocus(false);
-      onBlur && onBlur(event);
-    };
-
-    const handleClearIconEnter = () => {
-      if (disabled || readOnly) return;
-      setClearIconHover(true);
-    };
-
-    const handleClearIconLeave = () => {
-      if (disabled || readOnly) return;
-      setClearIconHover(false);
-    };
-
-    const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
-      if (disabled || readOnly) return;
-      setSelfValue("");
-      onClearClick && onClearClick(event);
-      /* istanbul ignore next */
-      if (!inputRef.current) return;
-
-      const changeEvent = simulateChangeEvent(inputRef.current, event);
-      changeEvent.target.value = "";
-      onChange && onChange(changeEvent);
-      inputRef.current.focus();
-    };
-
-    React.useEffect(() => {
-      if (isControlledComponent) {
-        setSelfValue(value as string);
-      }
-    }, [isControlledComponent, value]);
-
     return (
       <Wrapper>
-        {label && <Label>{label}</Label>}
+        {label && (
+          <Text size={"small"} weight={"medium"} color={"light"} mb={"tiny"}>
+            {label}
+          </Text>
+        )}
         <Container disabled={disabled} width={width} size={size}>
           {prefix && prefixContainer && (
             <Prefix
@@ -164,16 +189,26 @@ const Input = styled(
             suffixStyling={suffixStyling}
             disabled={disabled}
             clearable={clearable}
-            value={value}
-            onChange={handleChange}
             error={error}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
             focus={focus}
             type={type}
+            value={value}
+            selfValue={selfValue}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            readOnly={readOnly}
             {...inputProps}
+            placeholderTextColor={
+              error
+                ? convertRGBToRGBA(theme.colors.accent.danger, 0.5)
+                : type
+                ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
+                : theme.colors.text.light
+            }
+            {...props}
           />
-          {clearable && value !== undefined && (
+          {clearable && selfValue !== undefined && (
             <Clear
               size={size}
               disabled={disabled}
@@ -183,25 +218,23 @@ const Input = styled(
               error={error}
               focus={focus}
               type={type}
-              visible={Boolean(
-                inputRef.current && inputRef.current.value !== ""
-              )}
+              onPress={handleClear}
             >
-              <Icon
-                icon={RiCloseCircleLine}
-                onMouseEnter={handleClearIconEnter}
-                onMouseLeave={handleClearIconLeave}
-                onClick={handleClear}
-                color={
-                  clearIconHover && !disabled && !readOnly
-                    ? "lightest"
-                    : "light"
+              <ClearIcon
+                name={"close-circle"}
+                size={
+                  size === "large"
+                    ? "normal"
+                    : size === "small"
+                    ? "tiny"
+                    : "small"
                 }
-                size={size === "small" ? 16 : size === "large" ? 24 : 20}
+                visible={Boolean(selfValue !== "")}
+                fill
               />
             </Clear>
           )}
-          {suffix && suffixContainer && (
+          {suffix && (
             <Suffix
               size={size}
               disabled={disabled}
@@ -215,51 +248,30 @@ const Input = styled(
           )}
         </Container>
         {error && (
-          <InputError size={size} width={width}>
+          <Text
+            size={
+              size === "small" ? "tiny" : size === "large" ? "small" : "small"
+            }
+            width={width}
+            accent={"danger"}
+            mt={"tiny"}
+          >
             {error}
-          </InputError>
+          </Text>
         )}
       </Wrapper>
     );
   }
-)`
-  font: inherit;
-  width: 100%;
-  min-width: 0;
-  display: inline-flex;
-  appearance: none;
-  line-height: normal;
-  outline: none;
-  transition: border-color 0.2s ease-in-out;
-  -webkit-tap-highlight-color: transparent;
-  border-radius: ${({ theme }) => theme.radius.square};
-  color: ${({ theme, error, type }) =>
-    error
-      ? theme.colors.accent.danger
-      : type
-      ? theme.colors.accent[type]
-      : theme.colors.text.lightest};
-  background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
-  ${({ disabled }) => disabled && "cursor: not-allowed;"}
+);
 
-  ::placeholder {
-    color: ${({ theme, error, type }) =>
-      error
-        ? convertRGBToRGBA(theme.colors.accent.danger, 0.5)
-        : type
-        ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
-        : theme.colors.text.light};
-    font-weight: ${({ theme }) => theme.weight.semiBold};
-  }
-`;
+const Wrapper = styled.View``;
 
-const Container = styled.div<{
+const Container = styled.View<{
   disabled: InputProps["disabled"];
   width: InputProps["width"];
   size: InputProps["size"];
 }>`
-  display: flex;
+  flex-direction: row;
   align-items: center;
   width: ${({ width }) =>
     width ? (isNumber(width) ? `${width}px` : width) : "100%"};
@@ -276,14 +288,33 @@ const Container = styled.div<{
     }
   }};
   border-radius: ${({ theme }) => theme.radius.square};
-  ${({ disabled }) => disabled && "cursor: not-allowed;"}
 `;
 
-const Field = styled.input<
+const Field = styled.TextInput<
   InputProps & {
     focus: boolean;
+    selfValue: string | undefined;
   }
 >`
+  font-family: ${({ theme }) => {
+    const weight = "regular";
+    return `${theme.family.primary}_${theme.weight[weight]}${capitalize(
+      weight
+    )}`;
+  }};
+  flex: 1;
+  min-width: 0;
+  border-radius: ${({ theme }) => theme.radius.square};
+  color: ${({ theme, error, type }) =>
+    error
+      ? theme.colors.accent.danger
+      : type
+      ? theme.colors.accent[type]
+      : theme.colors.text.lightest};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
+  ${({ disabled }) => disabled && "cursor: not-allowed;"}
+
   padding: 0 ${({ theme }) => theme.gap.small};
   height: ${(props) => {
     switch (props.size) {
@@ -296,7 +327,6 @@ const Field = styled.input<
         return "40px";
     }
   }};
-  font-size: inherit;
 
   border: 1px solid
     ${({ theme, error, focus, type }) =>
@@ -315,21 +345,21 @@ const Field = styled.input<
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   `}
-  ${({ suffix, suffixContainer, clearable, value }) =>
-    ((suffix && suffixContainer) || (clearable && value !== undefined)) &&
+  ${({ suffix, suffixContainer, clearable, selfValue }) =>
+    ((suffix && suffixContainer) || (clearable && selfValue !== undefined)) &&
     `
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   `}
   ${({ prefix, prefixContainer, prefixStyling }) =>
-    prefix && prefixContainer && !prefixStyling && "border-left: none;"}
-  ${({ suffix, suffixContainer, suffixStyling, clearable, value }) =>
+    prefix && prefixContainer && !prefixStyling && "border-left-width: 0;"}
+  ${({ suffix, suffixContainer, suffixStyling, clearable, selfValue }) =>
     ((suffix && suffixContainer && !suffixStyling) ||
-      (clearable && value !== undefined)) &&
-    "border-right: none;"}
+      (clearable && selfValue !== undefined)) &&
+    "border-right-width: 0;"}
 `;
 
-const Prefix = styled.span<{
+const Prefix = styled.View<{
   size: InputProps["size"];
   disabled: InputProps["disabled"];
   prefixStyling: InputProps["prefixStyling"];
@@ -337,10 +367,9 @@ const Prefix = styled.span<{
   focus: boolean;
   type: InputProps["type"];
 }>`
-  display: flex;
+  flex-direction: row;
   align-items: center;
   flex-shrink: 0;
-  color: ${({ theme }) => theme.colors.text.light};
   border: 1px solid
     ${({ theme, error, focus, prefixStyling, type }) =>
       error && !prefixStyling
@@ -350,11 +379,9 @@ const Prefix = styled.span<{
         : focus && !prefixStyling
         ? theme.colors.layout.lighter
         : theme.colors.layout.dark};
-  border-right: none;
-  font-size: inherit;
-  transition: border-color 0.2s ease-in-out;
-  border-radius: ${({ theme }) => theme.radius.square} 0 0
-    ${({ theme }) => theme.radius.square};
+  border-right-width: 0;
+  border-top-left-radius: ${({ theme }) => theme.radius.square};
+  border-bottom-left-radius: ${({ theme }) => theme.radius.square};
   padding: 0 ${({ theme }) => theme.gap.small};
   background-color: ${({ theme, prefixStyling, disabled }) =>
     prefixStyling || disabled
@@ -371,16 +398,9 @@ const Prefix = styled.span<{
         return "40px";
     }
   }};
-
-  svg {
-    width: ${({ size }) =>
-      size === "small" ? 16 : size === "large" ? 24 : 20}px;
-    height: ${({ size }) =>
-      size === "small" ? 16 : size === "large" ? 24 : 20}px;
-  }
 `;
 
-const Suffix = styled.span<{
+const Suffix = styled.View<{
   size: InputProps["size"];
   disabled: InputProps["disabled"];
   suffixStyling: InputProps["suffixStyling"];
@@ -388,11 +408,9 @@ const Suffix = styled.span<{
   focus: boolean;
   type: InputProps["type"];
 }>`
-  flex-shrink: 0;
-  display: flex;
+  flex-direction: row;
   align-items: center;
   flex-shrink: 0;
-  color: ${({ theme }) => theme.colors.text.light};
   border: 1px solid
     ${({ theme, error, focus, suffixStyling, type }) =>
       error && !suffixStyling
@@ -402,11 +420,10 @@ const Suffix = styled.span<{
         : focus && !suffixStyling
         ? theme.colors.layout.lighter
         : theme.colors.layout.dark};
-  border-left: none;
-  font-size: inherit;
-  transition: border-color 0.2s ease-in-out;
-  border-radius: 0 ${({ theme }) => theme.radius.square}
-    ${({ theme }) => theme.radius.square} 0;
+  border-left-width: 0;
+  border-top-right-radius: ${({ theme }) => theme.radius.square};
+  border-bottom-right-radius: ${({ theme }) => theme.radius.square};
+  ${({ theme }) => theme.radius.square} 0;
   padding: 0 ${({ theme }) => theme.gap.small};
   background-color: ${({ theme, suffixStyling, disabled }) =>
     suffixStyling || disabled
@@ -423,16 +440,9 @@ const Suffix = styled.span<{
         return "40px";
     }
   }};
-
-  svg {
-    width: ${({ size }) =>
-      size === "small" ? 16 : size === "large" ? 24 : 20}px;
-    height: ${({ size }) =>
-      size === "small" ? 16 : size === "large" ? 24 : 20}px;
-  }
 `;
 
-const Clear = styled.span<{
+const Clear = styled.Pressable<{
   disabled: InputProps["disabled"];
   size: InputProps["size"];
   suffix: InputProps["suffix"];
@@ -441,12 +451,10 @@ const Clear = styled.span<{
   error: InputProps["error"];
   focus: boolean;
   type: InputProps["type"];
-  visible: boolean;
 }>`
-  display: flex;
+  flex-direction: row;
   align-items: center;
   flex-shrink: 0;
-  transition: border-color 0.2s ease-in-out;
   color: ${({ theme }) => theme.colors.text.light};
   border: 1px solid
     ${({ theme, error, focus, type }) =>
@@ -457,10 +465,10 @@ const Clear = styled.span<{
         : focus
         ? theme.colors.layout.lighter
         : theme.colors.layout.dark};
-  border-left: none;
+  border-left-width: 0;
   padding-right: ${({ theme }) => theme.gap.small};
-  ${({ theme, disabled }) =>
-    disabled && `background-color: ${theme.colors.layout.darker};`};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
   ${({ theme, suffix, suffixContainer }) =>
     suffix && suffixContainer
       ? `
@@ -468,11 +476,11 @@ const Clear = styled.span<{
     border-bottom-right-radius: 0;
   `
       : `
-    border-radius: 0 ${theme.radius.square}
-    ${theme.radius.square} 0;
+    border-top-right-radius: ${theme.radius.square};
+    border-bottom-right-radius: ${theme.radius.square};
   `}
   ${({ suffix, suffixContainer, suffixStyling }) =>
-    suffix && suffixContainer && !suffixStyling && "border-right: none;"}
+    suffix && suffixContainer && !suffixStyling && "border-right-width: 0;"}
   height: ${(props) => {
     switch (props.size) {
       case "small":
@@ -484,30 +492,15 @@ const Clear = styled.span<{
         return "40px";
     }
   }};
-
-  svg {
-    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-    transition: color, opacity 0.2s ease-in-out;
-    opacity: ${({ visible }) => (visible ? 1 : 0)};
-    pointer-events: ${({ visible }) => (visible ? "auto" : "none")};
-  }
 `;
 
-const InputError = styled(Error)<{
-  width: InputProps["width"];
+const ClearIcon = styled(Icon)<{
+  visible: boolean;
 }>`
-  margin-top: ${({ theme }) => theme.gap.tiny};
-  width: ${({ width }) =>
-    width ? (isNumber(width) ? `${width}px` : width) : "auto"};
+  ${({ visible }) => `opacity: ${visible ? 1 : 0};`}
 `;
 
-const Label = styled.span`
-  display: block;
-  font-size: ${({ theme }) => theme.size.small};
-  font-weight: ${({ theme }) => theme.weight.medium};
-  color: ${({ theme }) => theme.colors.text.light};
-  margin-bottom: ${({ theme }) => theme.gap.tiny};
-  max-width: 100%;
-`;
-
-export default withScale(Input);
+InputComponent.defaultProps = defaultProps;
+InputComponent.displayName = "KitchenInput";
+const Input = withScale(InputComponent);
+export default Input;

@@ -1,4 +1,5 @@
 import React from "react";
+import withScale from "../../../hoc/withScale";
 import { KitchenComponent, NormalSizes, AccentColors, Text } from "../../";
 import { TouchableOpacityComponent } from "react-native/types";
 import styled from "styled-components/native";
@@ -165,4 +166,4 @@ const Suffix = styled.View`
   margin-left: 7px;
 `;
 
-export default Button;
+export default withScale(Button);

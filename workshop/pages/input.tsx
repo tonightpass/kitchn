@@ -115,7 +115,7 @@ const InputPage: NextPage = () => {
         </Container>
 
         <Container gap={5} align="flex-start">
-          <Text>prefix and suffix</Text>
+          <Text>prefix and suffix disabled</Text>
           <Container>
             <Input
               placeholder="Default"
@@ -155,7 +155,7 @@ const InputPage: NextPage = () => {
           <Container>
             <Input
               placeholder="Default"
-              prefix="vercel/"
+              prefix="kitchen/"
               suffix={
                 <span onClick={() => alert("hey")}>
                   <RiArrowUpCircleLine />

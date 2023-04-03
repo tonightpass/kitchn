@@ -1,0 +1,330 @@
+---
+title: "Input"
+description: "Retrieve text input from a user."
+---
+
+import Playground from "@components/Playground";
+import { RiArrowUpCircleLine } from "react-icons/ri";
+
+# Input
+
+Retrieve text input from a user.
+
+## Usage
+
+First of all, you need to import the `Input` component from the `@tonightpass/kitchen` package.
+
+```js
+import { Input } from "@tonightpass/kitchen"
+```
+
+## Default
+
+<Playground
+  code={`
+  <Input placeholder={"Placeholder..."} />
+`}
+/>
+
+## Sizes
+
+<Playground
+  code={`
+<Container row gap={"small"}>
+  <Container align="flex-start">
+    <Input size="small" placeholder="Small" />
+  </Container>
+
+  <Container align="flex-start">
+    <Input placeholder="Default" />
+  </Container>
+
+  <Container align="flex-start">
+    <Input size="large" placeholder="Large" />
+  </Container>
+</Container>
+`}
+/>
+
+## Sizes, prefix, and suffix
+
+<Playground
+scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container row gap={"small"}>
+  <Container align="flex-start">
+    <Input
+      size="small"
+      placeholder="Small"
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+    />
+  </Container>
+
+  <Container align="flex-start">
+    <Input
+      placeholder="Default"
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+    />
+  </Container>
+
+  <Container align="flex-start">
+    <Input
+      size="large"
+      placeholder="Large"
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+    />
+  </Container>
+</Container>
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+<Container row gap={"small"}>
+  <Container>
+    <Input placeholder="Disabled with placeholder" disabled />
+  </Container>
+
+  <Container>
+    <Input value="Disabled with value" disabled />
+  </Container>
+</Container>
+`}
+/>
+
+## Prefix and suffix
+
+<Playground
+scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container gap={"small"} align={"flex-start"}>
+  <Container>
+    <Input placeholder="Default" prefix={<RiArrowUpCircleLine />} />
+  </Container>
+
+  <Container>
+    <Input placeholder="Default" suffix={<RiArrowUpCircleLine />} />
+  </Container>
+
+  <Container>
+    <Input placeholder="Default" prefix="https://" suffix=".com" />
+  </Container>
+
+  <Container>
+    <Input
+      placeholder="Default"
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+      prefixStyling={false}
+      suffixStyling={false}
+    />
+  </Container>
+
+  <Container>
+    <Input
+      placeholder="Default"
+      prefix="kitchen/"
+      suffix={<RiArrowUpCircleLine />}
+      suffixStyling={false}
+      suffixContainer={false}
+    />
+  </Container>
+</Container>
+`}
+/>
+
+## Prefix and suffix disabled
+
+<Playground
+scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container gap={"small"} align={"flex-start"}>
+  <Container>
+    <Input placeholder="Default" prefix={<RiArrowUpCircleLine />} disabled />
+  </Container>
+
+  <Container>
+    <Input placeholder="Default" suffix={<RiArrowUpCircleLine />} disabled />
+  </Container>
+
+  <Container>
+    <Input placeholder="Default" prefix="https://" suffix=".com" disabled />
+  </Container>
+
+  <Container>
+    <Input
+      placeholder="Default"
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+      prefixStyling={false}
+      suffixStyling={false}
+      disabled
+    />
+  </Container>
+
+  <Container>
+    <Input
+      placeholder="Default"
+      prefix="kitchen/"
+      suffix={<RiArrowUpCircleLine />}
+      suffixStyling={false}
+      suffixContainer={false}
+      disabled
+    />
+  </Container>
+</Container>
+`}
+/>
+
+## Clearable
+
+<Playground
+scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container gap={"small"} align={"flex-start"}>
+  <Container>
+    <Input clearable placeholder="Enter some text..." value={"hey"} />
+  </Container>
+
+  <Container>
+    <Input
+      clearable
+      placeholder="Really really long placeholder text..."
+    />
+  </Container>
+
+  <Container>
+    <Input clearable disabled placeholder="Disabled" />
+  </Container>
+
+  <Container>
+    <Input clearable disabled value="Disabled with value" />
+  </Container>
+
+  <Container>
+    <Input clearable placeholder="Custom width" width={300} />
+  </Container>
+
+  <Container>
+    <Input
+      clearable
+      prefix="https://"
+      placeholder="tonightpass.com"
+    />
+  </Container>
+
+  <Container>
+    <Input
+      clearable
+      placeholder="Enter some text..."
+      error="A valid email address is required."
+    />
+  </Container>
+</Container>
+`}
+/>
+
+## Types
+
+<Playground
+  code={`
+<Container row gap={"small"}>
+  <Container>
+    <Input placeholder="Default" type="danger" />
+  </Container>
+
+  <Container>
+    <Input placeholder="Default" type="warning" />
+  </Container>
+
+  <Container>
+    <Input placeholder="Default" type="success" />
+  </Container>
+</Container>
+`}
+/>
+
+## Error
+
+<Playground
+  code={`
+<Container gap={"small"}>
+  <Container>
+    <Input
+      placeholder="error@gmail.com"
+      error="A valid email address is required."
+    />
+  </Container>
+
+  <Container>
+    <Input
+      width={200}
+      placeholder="wrapping-error@gmail.com"
+      error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+    />
+  </Container>
+
+  <Container>
+    <Input
+      size="small"
+      placeholder="small-error@gmail.com"
+      error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+    />
+  </Container>
+
+  <Container>
+    <Input
+      placeholder="long-error@gmail.com"
+      error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+    />
+  </Container>
+
+  <Container>
+    <Input
+      size="large"
+      placeholder="large-error@gmail.com"
+      error="A valid email address is required so that we can verify your GitHub installation. In the event that you cannot provide a valid email address, please contact support."
+    />
+  </Container>
+</Container>
+`}
+/>
+
+## Label
+
+<Playground
+  code={`
+<Container>
+  <Input placeholder="With label" label="My label" />
+</Container>
+`}
+/>
+
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `placeholder` | `string` | - | - | The placeholder of the input. | - |
+| `prefix` | `JSX.Element` \| `string` | - | - | The prefix of the input. | - |
+| `suffix` | `JSX.Element` \| `string` | - | - | The suffix of the input. | - |
+| `initialValue` | `string` | - | - | The initial value of the input. | - |
+| `value` | `string` | - | - | The value of the input. | - |
+| `disabled` | `boolean` | `false` | - | The status of the input (disabled or not). | - |
+| `prefixStyling` | `boolean` | `true` | - | The status of the prefix (styled or not). | - |
+| `suffixStyling` | `boolean` | `true` | - | The status of the suffix (styled or not). | - |
+| `prefixContainer` | `boolean` | `true` | - | The status of the prefix container (whether there is one or not). | - |
+| `suffixContainer` | `boolean` | `true` | - | The status of the suffix container (whether there is one or not). | - |
+| `clearable` | `boolean` | `false` | - | The type of the input (clearable or not). | - |
+| `width` | `number` \| `string` | - | - | The width of the input. | - |
+| `error` | `string` | - | - | The error message of the input. | - |
+| `readOnly` | `boolean` | `false` | - | The type of the input (read-only or not). | - |
+| `onClearClick` | `(event: React.MouseEvent<HTMLDivElement>) => void` | - | - | The click event handler of the input's clear button. | - |  
+| `readOnly` | `boolean` | `false` | - | The type of the input (read-only or not). | - |
+| `type` | `string` | - | - | The type of the input. | `primary`, `secondary`, `info`, `success`, `warning`, `danger`, `light`, `dark` |
+| `label` | `string` | - | - | The label of the input. | - |

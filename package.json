@@ -8,14 +8,16 @@
     "start": "turbo start",
     "build": "turbo run build",
     "build:packages": "turbo run p:build",
+    "build:apps": "turbo run build --filter=workshop --filter=docs --filter='./examples/*'",
     "build:docs": "turbo run build --filter=docs...",
     "build:examples": "turbo run build --filter='./examples/*'",
     "build:examples:expo": "turbo run build --filter=expo-typescript...",
     "build:examples:next": "turbo run build --filter=next-typescript...",
-    "dev": "turbo run p:watch dev --parallel --no-cache",
+    "dev": "node start-dev.js",
     "dev:packages": "turbo run p:watch",
+    "dev:apps": "turbo run dev --filter=workshop --filter=docs --filter='./examples/*'",
     "dev:docs": "turbo run dev --filter=docs",
-    "dev:examples": "turbo run dev --filter=./examples/*",
+    "dev:examples": "turbo run dev --filter='./examples/*'",
     "dev:examples:expo": "turbo run dev --filter=expo-typescript",
     "dev:examples:next": "turbo run dev --filter=next-typescript",
     "dev:examples:react": "turbo run dev --filter=react-typescript",
@@ -47,12 +49,14 @@
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "babel-plugin-styled-components": "^2.0.7",
+    "cross-spawn": "^7.0.3",
     "eslint": "^8.26.0",
     "eslint-config-next": "^13.0.2",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
     "husky": "^8.0.1",
+    "merge-stream": "^2.0.0",
     "path-browserify": "^1.0.1",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
@@ -64,5 +68,5 @@
       "packages/*"
     ]
   },
-  "packageManager": "pnpm@7.26.0"
+  "packageManager": "pnpm@8.1.0"
 }
