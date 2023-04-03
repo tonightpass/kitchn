@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.5.2
+
+### Patch Changes
+
+- 86ec6ac: Move from DM Mono to Fira Code for ligatures
+
 ## 1.5.1
 
 ### Patch Changes
