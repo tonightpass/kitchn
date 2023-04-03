@@ -189,9 +189,9 @@ importers:
 
   packages/kitchen:
     dependencies:
-      "@fontsource/dm-mono":
-        specifier: ^4.5.10
-        version: 4.5.10
+      "@fontsource/fira-code":
+        specifier: ^4.5.13
+        version: 4.5.13
       react-icons:
         specifier: ^4.7.1
         version: 4.7.1(react@18.2.0)
@@ -3004,10 +3004,10 @@ packages:
       find-up: 5.0.0
       js-yaml: 4.1.0
 
-  /@fontsource/dm-mono@4.5.10:
+  /@fontsource/fira-code@4.5.13:
     resolution:
       {
-        integrity: sha512-cVd0L+tz1PrrNyClnpeJvRtVdvtB69L9PJ4sBm3t2ZCcbzKCa3MmW9duljKeRxTfQh3YTZpevnD14uWumRJYzA==,
+        integrity: sha512-T1IG6/2AXSwEKwlrEm3kyIL3RQTMblPyj68HgnBGl0IBGFxgS5LZ7StRdDo/QimJ4Tz6FQGHuy1Y/ShNxaUefA==,
       }
     dev: false
 
