@@ -4,6 +4,30 @@ import { Breakpoint, Gap, Size } from "../types/theme";
 import isNumber from "../utils/isNumber";
 
 export type ScaleProps = {
+  position?:
+    | "relative"
+    | "absolute"
+    | "fixed"
+    | "sticky"
+    | "static"
+    | "inherit"
+    | "initial";
+  pos?:
+    | "relative"
+    | "absolute"
+    | "fixed"
+    | "sticky"
+    | "static"
+    | "inherit"
+    | "initial";
+  left?: string | number | keyof Gap | keyof Breakpoint;
+  right?: string | number | keyof Gap | keyof Breakpoint;
+  top?: string | number | keyof Gap | keyof Breakpoint;
+  bottom?: string | number | keyof Gap | keyof Breakpoint;
+  l?: string | number | keyof Gap | keyof Breakpoint;
+  r?: string | number | keyof Gap | keyof Breakpoint;
+  t?: string | number | keyof Gap | keyof Breakpoint;
+  b?: string | number | keyof Gap | keyof Breakpoint;
   width?: string | number | keyof Gap | keyof Breakpoint;
   height?: string | number | keyof Gap | keyof Breakpoint;
   padding?: string | number | keyof Gap;
@@ -67,6 +91,16 @@ const withScale = <T extends object>(
   WrappedComponent: React.ComponentType<T>
 ) => {
   return styled(WrappedComponent)<ScaleProps>`
+    ${({ position, pos }) =>
+      position || pos ? `position: ${position || pos};` : ""}
+    ${({ theme, left, l }) =>
+      left || l ? `left: ${handleValue(theme, left || l)};` : ""}
+    ${({ theme, right, r }) =>
+      right || r ? `right: ${handleValue(theme, right || r)};` : ""}
+    ${({ theme, top, t }) =>
+      top || t ? `top: ${handleValue(theme, top || t)};` : ""}
+    ${({ theme, bottom, b }) =>
+      bottom || b ? `bottom: ${handleValue(theme, bottom || b)};` : ""}
     ${({ theme, width, w }) =>
       width || w ? `width: ${handleValue(theme, width || w)};` : ""}
     ${({ theme, height, h }) =>

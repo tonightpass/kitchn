@@ -115,7 +115,7 @@ const Link = styled(
   font-weight: ${({ theme, variant }) =>
     variant === "blend" ? theme.weight.medium : theme.weight.regular};
   text-decoration: none;
-  transition: opacity 0.1s ease;
+  transition: opacity filter 0.2s ease-in-out;
   line-height: 1.25;
   ${({ variant }) =>
     variant === "blend" &&

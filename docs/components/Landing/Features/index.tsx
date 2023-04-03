@@ -20,8 +20,8 @@ const Features = () => {
       </Text>
       <Container mt={"large"} w={"100%"} gap={"normal"}>
         <Container direction={["column", "column", "row"]} gap={"normal"}>
-          <Container gap={"normal"}>
-            <FeatureContainer minH={200} p={"medium"}>
+          <Container flex={1} gap={"normal"}>
+            <FeatureContainer flex={1} minH={200} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 Accessible
               </Text>
@@ -29,7 +29,7 @@ const Features = () => {
                 Kitchen strictly follows WAI-ARIA standards for all components.
               </Text>
             </FeatureContainer>
-            <FeatureContainer minH={100} p={"medium"}>
+            <FeatureContainer flex={1} minH={100} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 Responsive support
               </Text>
@@ -38,8 +38,8 @@ const Features = () => {
               </Text>
             </FeatureContainer>
           </Container>
-          <Container gap={"normal"}>
-            <FeatureContainer minH={100} p={"medium"}>
+          <Container flex={1} gap={"normal"}>
+            <FeatureContainer flex={1} minH={100} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 Themeable
               </Text>
@@ -47,7 +47,7 @@ const Features = () => {
                 Customize any part of our components to match your design needs.
               </Text>
             </FeatureContainer>
-            <FeatureContainer minH={200} p={"medium"}>
+            <FeatureContainer flex={1} minH={200} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 All platform support
               </Text>
@@ -57,8 +57,8 @@ const Features = () => {
               </Text>
             </FeatureContainer>
           </Container>
-          <Container gap={"normal"}>
-            <FeatureContainer minH={200} p={"medium"}>
+          <Container flex={1} gap={"normal"}>
+            <FeatureContainer flex={1} minH={200} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 Active Community
               </Text>
@@ -67,7 +67,7 @@ const Features = () => {
                 you need, and using it for our own products.
               </Text>
             </FeatureContainer>
-            <FeatureContainer minH={100} p={"medium"}>
+            <FeatureContainer flex={1} minH={100} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 Reusable hooks
               </Text>
@@ -86,8 +86,8 @@ const Features = () => {
             or website.
           </Text>
         </FeatureContainer>
-        <Container direction={["column", "row"]} gap={"normal"}>
-          <FeatureContainer p={"medium"}>
+        <Container direction={["column", "row", "row"]} gap={"normal"}>
+          <FeatureContainer flex={1} p={"medium"}>
             <Text size={"large"} weight={"bold"}>
               Light & Dark support
             </Text>
@@ -95,7 +95,7 @@ const Features = () => {
               Kitchen strictly follows WAI-ARIA standards for all components.
             </Text>
           </FeatureContainer>
-          <FeatureContainer p={"medium"}>
+          <FeatureContainer flex={1} p={"medium"}>
             <Text size={"large"} weight={"bold"}>
               Stylable
             </Text>

@@ -2,9 +2,9 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "dev": "next",
-    "start": "next start",
-    "build": "next build"
+    "dev": "next -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^1.20.9",

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+import withBox from "../../hoc/withBox";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
@@ -36,11 +36,10 @@ const Container = styled(
   flex-direction: ${(props) =>
     (props.direction && props.direction[props.direction.length - 1]) ||
     (props.row ? "row" : "column")};
-  position: relative;
-  max-width: 100%;
-  flex: ${(props) => (props.flex !== undefined ? props.flex : 1)};
+  ${(props) => props.flex && `flex: ${props.flex};`}
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
+
   ${(props) =>
     props.gap &&
     `gap: ${props.theme.gap[props.gap as keyof Gap] || `${props.gap}px`};`}
@@ -67,4 +66,4 @@ const Container = styled(
   }
 `;
 
-export default withScale(Container);
+export default withBox(Container);

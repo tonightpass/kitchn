@@ -1,6 +1,6 @@
 {
   "name": "@tonightpass/kitchen",
-  "version": "1.4.4",
+  "version": "1.5.2",
   "description": "Design UI like Tonight Pass in React or React Native with optimized and customizable styled-components.",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
   "module": "dist/tonightpass-kitchen.esm.js",
   "react-native": "native/dist/tonightpass-kitchen-native.cjs.js",
   "dependencies": {
-    "@fontsource/dm-mono": "^4.5.10",
+    "@fontsource/fira-code": "^4.5.13",
     "react-icons": "^4.7.1",
     "styled-components": "^5.3.6"
   },

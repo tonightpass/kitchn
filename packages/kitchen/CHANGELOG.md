@@ -1,5 +1,29 @@
 # @tonightpass/kitchen
 
+## 1.5.2
+
+### Patch Changes
+
+- 86ec6ac: Move from DM Mono to Fira Code for ligatures
+
+## 1.5.1
+
+### Patch Changes
+
+- 6954519: Improve `Scale` hoc with position
+
+## 1.5.0
+
+### Minor Changes
+
+- bd30326: Add `Box` HOC
+
+### Patch Changes
+
+- bd30326: Fix `Container` flex
+- 6f7d3a1: Improve `Badge` with capitalize
+- d6713dd: Improve `Text` with decoration
+
 ## 1.4.4
 
 ### Patch Changes
