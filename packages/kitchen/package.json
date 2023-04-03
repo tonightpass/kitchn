@@ -1,7 +1,28 @@
 {
   "name": "@tonightpass/kitchen",
   "version": "1.4.4",
-  "description": "A very simple React button within a monorepo",
+  "description": "Design UI like Tonight Pass in React or React Native with optimized and customizable styled-components.",
+  "keywords": [
+    "react",
+    "react-dom",
+    "react-native",
+    "ui-design",
+    "ui",
+    "kit",
+    "uikit",
+    "ui-components",
+    "styled-components",
+    "tonightpass",
+    "kitchen",
+    "kitchen-components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonightpass/kitchen",
+    "directory": "packages/kitchen"
+  },
+  "author": "Tonight Pass <developers@tonightpass.com>",
+  "license": "MIT",
   "main": "dist/tonightpass-kitchen.cjs.js",
   "module": "dist/tonightpass-kitchen.esm.js",
   "react-native": "native/dist/tonightpass-kitchen-native.cjs.js",
