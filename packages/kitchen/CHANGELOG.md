@@ -1,5 +1,79 @@
 # @tonightpass/kitchen
 
+## 1.5.1
+
+### Patch Changes
+
+- 6954519: Improve `Scale` hoc with position
+
+## 1.5.0
+
+### Minor Changes
+
+- bd30326: Add `Box` HOC
+
+### Patch Changes
+
+- bd30326: Fix `Container` flex
+- 6f7d3a1: Improve `Badge` with capitalize
+- d6713dd: Improve `Text` with decoration
+
+## 1.4.4
+
+### Patch Changes
+
+- 63714bc: Fix `Input` prefix, suffix and clear background color
+
+## 1.4.3
+
+### Patch Changes
+
+- 5873f97: Improve `Icon` with accent color
+- 206586b: Native | Fix `prefixStyling` of `Input`
+
+## 1.4.2
+
+### Patch Changes
+
+- 2e7b90a: Add withScale hoc on every component
+
+## 1.4.1
+
+### Patch Changes
+
+- 4581952: Native | Fix Input and Icon exports
+
+## 1.4.0
+
+### Minor Changes
+
+- b0ce97a: Native | Add `Input`
+  Native | Add `Icon`
+
+## 1.3.4
+
+### Patch Changes
+
+- 8035678: Update `theme` colors with Tonight Pass colors
+
+## 1.3.3
+
+### Patch Changes
+
+- 5a51190: Improve `Input` clear by hiding icon while there is no text
+
+## 1.3.2
+
+### Patch Changes
+
+- afe751a: Native | Fix `Container` imports (v2)
+
+## 1.3.1
+
+### Patch Changes
+
+- 366f341: Native | Fix `Container` imports
+
 ## 1.3.0
 
 ### Minor Changes

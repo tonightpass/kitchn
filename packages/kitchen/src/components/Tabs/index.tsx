@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useRect from "../../hooks/useRect";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import capitalize from "../../utils/capitalize";
 import Highlight from "../Highlight";
@@ -135,4 +136,4 @@ const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   }
 `;
 
-export default Tabs;
+export default withScale(Tabs);

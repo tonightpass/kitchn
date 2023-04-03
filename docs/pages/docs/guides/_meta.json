@@ -1,7 +1,11 @@
 {
   "principles": "Design Principles",
-  "theme-builder": "Theme Builder",
   "playground": "Playground",
-  "colors": "Colors",
+  "theme": {
+    "title": "Theming",
+    "theme": {
+      "collapsed": false
+    }
+  },
   "icons": "Icons"
 }

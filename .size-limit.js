@@ -30,12 +30,4 @@ module.exports = [
     path: "packages/kitchen/next/dist/tonightpass-kitchen-next.esm.js",
     modifyWebpackConfig,
   },
-  {
-    path: "packages/kitchen/native/dist/tonightpass-kitchen-native.cjs.prod.js",
-    modifyWebpackConfig,
-  },
-  {
-    path: "packages/kitchen/native/dist/tonightpass-kitchen-native.esm.js",
-    modifyWebpackConfig,
-  },
 ];

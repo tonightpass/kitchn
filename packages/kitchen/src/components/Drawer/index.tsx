@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 
@@ -150,4 +151,4 @@ const Content = styled.div<{
   }
 `;
 
-export default Drawer;
+export default withScale(Drawer);

@@ -1,6 +1,60 @@
-import { createGlobalStyle } from "@tonightpass/kitchen";
+import { convertRGBToRGBA } from "@tonightpass/kitchen";
+import { createGlobalStyle, Input } from "@tonightpass/kitchen";
 
 const GlobalStyle = createGlobalStyle`
+  html body {
+    background: ${({ theme }) => theme.colors.layout.darkest};
+  }
+
+  html[class~=dark].dark body {
+    background: ${({ theme }) => theme.colors.layout.darkest};
+  }
+
+  html[class~=dark] {
+    .dark\\:nx-bg-dark {
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.layout.darkest};
+      background-color: ${({ theme }) => theme.colors.layout.darkest};
+    }
+
+    .dark\\:nx-bg-neutral-800 {
+      background-color: ${({ theme }) => theme.colors.layout.darker};
+    }
+
+    .dark\\:nx-bg-neutral-900 {
+      background-color: ${({ theme }) => theme.colors.layout.darker};
+    }
+
+    .dark\\:nx-border-neutral-800 {
+      content: "example";
+      border-color: hsl(var(--nextra-primary-hue)100% 94%/.1)
+    }
+
+    .dark\\:before\\:nx-bg-neutral-800:before {
+      background-color: hsl(var(--nextra-primary-hue)100% 94%/.1)
+    }
+
+    .dark\\:focus\\:nx-bg-dark:focus {
+      background-color: hsl(var(--nextra-primary-hue)100% 94%/.1)
+    }
+
+    .nextra-sidebar-container {
+      background-color: ${({ theme }) => theme.colors.layout.darkest};
+    }
+    
+    .nextra-nav-container-blur {
+      background-color: ${({ theme }) =>
+        convertRGBToRGBA(theme.colors.layout.darker, 0.8)} !important;
+    }
+    
+    .nextra-search ul {
+      background-color: ${({ theme }) => theme.colors.layout.darker};
+    }
+
+    .dark\\:nx-text-neutral-500 {
+      color: ${({ theme }) => theme.colors.text.light};
+    }
+  }
+
   *, *:before, *:after {
     box-sizing: border-box;
   }
@@ -92,6 +146,12 @@ const GlobalStyle = createGlobalStyle`
   video {
     border: 0 solid ${({ theme }) => theme.colors.layout.dark}
   }
+
+  ${Input} {
+  :focus-visible {
+    box-shadow: none;
+  }
+}
 `;
 
 export default GlobalStyle;

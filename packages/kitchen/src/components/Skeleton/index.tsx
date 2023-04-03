@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import isString from "../../utils/isString";
 
@@ -158,4 +159,4 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
   }
 `;
 
-export default Skeleton;
+export default withScale(Skeleton);
