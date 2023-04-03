@@ -187,6 +187,49 @@ importers:
         specifier: ^4.9.3
         version: 4.9.4
 
+  packages/create-kitchen:
+    dependencies:
+      "@fontsource/fira-code":
+        specifier: ^4.5.13
+        version: 4.5.13
+      react-icons:
+        specifier: ^4.7.1
+        version: 4.7.1(react@18.2.0)
+      styled-components:
+        specifier: ^5.3.6
+        version: 5.3.6(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    devDependencies:
+      "@types/react":
+        specifier: ^18.0.25
+        version: 18.0.27
+      "@types/react-dom":
+        specifier: ^18.0.8
+        version: 18.0.10
+      "@types/styled-components":
+        specifier: ^5.1.26
+        version: 5.1.26
+      "@types/styled-components-react-native":
+        specifier: ^5.2.0
+        version: 5.2.1
+      next:
+        specifier: ^13.0.2
+        version: 13.1.5(@babel/core@7.20.12)(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-native:
+        specifier: ^0.71.3
+        version: 0.71.4(@babel/core@7.20.12)(@babel/preset-env@7.20.2)(react@18.2.0)
+      react-native-remix-icon:
+        specifier: ^0.4.0
+        version: 0.4.0(react-native-svg@13.8.0)
+      typescript:
+        specifier: ^4.9.3
+        version: 4.9.4
+
   packages/kitchen:
     dependencies:
       "@fontsource/fira-code":
