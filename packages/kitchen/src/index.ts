@@ -59,6 +59,9 @@ export { default as ListItem } from "./components/List/Item";
 export { default as OrderedList } from "./components/List/Ordered";
 export { default as UnorderedList } from "./components/List/Unordered";
 
+export { default as Link } from "./components/Link";
+export type { LinkProps } from "./components/Link";
+
 export { default as Modal } from "./components/Modal";
 export type { ModalProps, ModalActionProps } from "./components/Modal";
 
