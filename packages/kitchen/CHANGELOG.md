@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.5.3
+
+### Patch Changes
+
+- 3eb5bdd: Add `Link` for react
+
 ## 1.5.2
 
 ### Patch Changes
