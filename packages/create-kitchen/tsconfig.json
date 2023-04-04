@@ -5,7 +5,8 @@
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": false
+    "skipLibCheck": false,
+    "types": ["node"]
   },
   "exclude": ["templates", "dist"]
 }
