@@ -4,7 +4,7 @@
   "scripts": {
     "develop": "gatsby develop -p 3003",
     "dev": "gatsby develop",
-    "start": "gatsby serve -p 3003",
+    "start": "gatsby serve -p 3003 -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
