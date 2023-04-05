@@ -1,15 +1,16 @@
+import * as React from "react";
+import type { HeadFC, PageProps } from "gatsby";
 import kitchen, {
   Container,
   convertRGBToRGBA,
   Image,
-  KitchenProvider,
   Text,
   Link,
+  KitchenProvider,
 } from "@tonightpass/kitchen";
-
 import "@tonightpass/kitchen/fonts.css";
 
-export default function App() {
+const IndexPage: React.FC<PageProps> = () => {
   return (
     <KitchenProvider>
       <Container
@@ -24,7 +25,7 @@ export default function App() {
           <Card p={"small"} br={"square"} align={"center"} active row>
             Get started by editing
             <Text ml={"tiny"} monospace span>
-              src/App.tsx
+              src/pages/index.tsx
             </Text>
           </Card>
           <Link href={"https://tonightpass.com"}>
@@ -103,7 +104,7 @@ export default function App() {
           <Card
             as={Link}
             href={
-              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchen/tree/master/examples/react-typescript&project-name=kitchen-app&repository-name=kitchen-app"
+              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchen/tree/master/examples/gatsby-typescript&project-name=kitchen-app&repository-name=kitchen-app"
             }
             p={"small"}
             flex={1}
@@ -113,15 +114,14 @@ export default function App() {
               Deploy
             </Text>
             <Text size={"small"} color={"light"} mt={"small"}>
-              Instantly deploy your Vite React site to a shareable URL with
-              Vercel.
+              Instantly deploy your Gatsby site to a shareable URL with Vercel.
             </Text>
           </Card>
         </Container>
       </Container>
     </KitchenProvider>
   );
-}
+};
 
 const Card = kitchen(Container)<{
   active?: boolean;
@@ -232,3 +232,12 @@ const KitchenIcon = kitchen.div`
     }
   }
 `;
+
+export default IndexPage;
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Create Kitchen Gatsby</title>
+    <link rel="icon" href="/favicon.ico" />
+  </>
+);

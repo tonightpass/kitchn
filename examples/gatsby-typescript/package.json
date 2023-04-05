@@ -1,0 +1,31 @@
+{
+  "name": "gatsby-typescript",
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop -p 3003",
+    "dev": "gatsby develop",
+    "start": "gatsby develop -p 3003",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tonightpass/kitchen": "workspace:*",
+    "babel-plugin-styled-components": "^2.0.7",
+    "gatsby": "^5.8.1",
+    "gatsby-plugin-pnpm": "^1.2.10",
+    "gatsby-plugin-styled-components": "^6.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.31",
+    "@types/react-dom": "^18.0.11",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "typescript": "^5.0.3"
+  }
+}
