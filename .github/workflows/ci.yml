@@ -31,5 +31,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Build
-        run: pnpm p:build && ${{ matrix.node == '18.x' && 'pnpm build:examples' || 'pnpm build:examples --filter=!gatsby-typescript' }}
+      - name: Build Packages
+        run: pnpm p:build
+
+      - name: Build Examples
+        run: ${{ matrix.node == '18.x' && 'pnpm build:examples' || 'pnpm build:examples --filter=!gatsby-typescript' }}
