@@ -2,5 +2,5 @@
   "create-react-app": "Create React App",
   "react-native": "React Native",
   "nextjs": "Next.js",
-  "remix": "Gatsby"
+  "gatsby": "Gatsby"
 }
