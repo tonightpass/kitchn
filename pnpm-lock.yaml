@@ -147,7 +147,7 @@ importers:
         version: 18.2.0
       react-native:
         specifier: ^0.70.5
-        version: 0.70.5(@babel/core@7.19.6)(@babel/preset-env@7.19.4)(react@18.2.0)
+        version: 0.70.5(@babel/core@7.19.6)(@babel/preset-env@7.21.4)(react@18.2.0)
     devDependencies:
       "@babel/core":
         specifier: ^7.19.6
@@ -262,7 +262,7 @@ importers:
         version: 5.2.0
       next:
         specifier: ^13.0.2
-        version: 13.0.2(@babel/core@7.19.6)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.0.2(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -271,7 +271,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-native:
         specifier: ^0.71.3
-        version: 0.71.3(@babel/core@7.19.6)(@babel/preset-env@7.19.4)(react@18.2.0)
+        version: 0.71.3(@babel/core@7.21.4)(@babel/preset-env@7.21.4)(react@18.2.0)
       react-native-remix-icon:
         specifier: ^0.4.0
         version: 0.4.0(react-native-svg@13.9.0)
@@ -320,13 +320,13 @@ packages:
     peerDependencies:
       graphql: "*"
     dependencies:
-      "@babel/core": 7.19.6
+      "@babel/core": 7.21.4
       "@babel/generator": 7.21.4
       "@babel/parser": 7.21.4
       "@babel/runtime": 7.21.0
       "@babel/traverse": 7.21.4(supports-color@5.5.0)
       "@babel/types": 7.21.4
-      babel-preset-fbjs: 3.4.0(@babel/core@7.19.6)
+      babel-preset-fbjs: 3.4.0(@babel/core@7.21.4)
       chalk: 4.1.2
       fb-watchman: 2.0.2
       fbjs: 3.0.4
@@ -1081,7 +1081,6 @@ packages:
       "@babel/core": 7.21.4
       "@babel/helper-plugin-utils": 7.20.2
       "@babel/plugin-syntax-export-default-from": 7.18.6(@babel/core@7.21.4)
-    dev: true
 
   /@babel/plugin-proposal-export-namespace-from@7.18.9(@babel/core@7.19.6):
     resolution:
@@ -1522,7 +1521,6 @@ packages:
     dependencies:
       "@babel/core": 7.21.4
       "@babel/helper-plugin-utils": 7.20.2
-    dev: true
 
   /@babel/plugin-syntax-export-namespace-from@7.8.3(@babel/core@7.19.6):
     resolution:
@@ -1570,7 +1568,6 @@ packages:
     dependencies:
       "@babel/core": 7.21.4
       "@babel/helper-plugin-utils": 7.20.2
-    dev: true
 
   /@babel/plugin-syntax-import-assertions@7.20.0(@babel/core@7.19.6):
     resolution:
@@ -2154,7 +2151,6 @@ packages:
       "@babel/core": 7.21.4
       "@babel/helper-plugin-utils": 7.20.2
       "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.21.4)
-    dev: true
 
   /@babel/plugin-transform-for-of@7.21.0(@babel/core@7.19.6):
     resolution:
@@ -2586,7 +2582,6 @@ packages:
     dependencies:
       "@babel/core": 7.21.4
       "@babel/helper-plugin-utils": 7.20.2
-    dev: true
 
   /@babel/plugin-transform-react-jsx-source@7.19.6(@babel/core@7.19.6):
     resolution:
@@ -2611,7 +2606,6 @@ packages:
     dependencies:
       "@babel/core": 7.21.4
       "@babel/helper-plugin-utils": 7.20.2
-    dev: true
 
   /@babel/plugin-transform-react-jsx@7.21.0(@babel/core@7.19.6):
     resolution:
@@ -2974,6 +2968,94 @@ packages:
     resolution:
       {
         integrity: sha512-5QVOTXUdqTCjQuh2GGtdd7YEhoRXBMVGROAtsBeLGIbIz3obCBIfRMT1I3ZKkMgNzwkyCkftDXSSkHxnfVf4qg==,
+      }
+    engines: { node: ">=6.9.0" }
+    peerDependencies:
+      "@babel/core": ^7.0.0-0
+    dependencies:
+      "@babel/compat-data": 7.21.4
+      "@babel/core": 7.19.6
+      "@babel/helper-compilation-targets": 7.21.4(@babel/core@7.19.6)
+      "@babel/helper-plugin-utils": 7.20.2
+      "@babel/helper-validator-option": 7.21.0
+      "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-proposal-async-generator-functions": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-proposal-class-properties": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-class-static-block": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-proposal-dynamic-import": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-export-namespace-from": 7.18.9(@babel/core@7.19.6)
+      "@babel/plugin-proposal-json-strings": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-logical-assignment-operators": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-numeric-separator": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-object-rest-spread": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-proposal-optional-catch-binding": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-optional-chaining": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-proposal-private-methods": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-proposal-private-property-in-object": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-proposal-unicode-property-regex": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-syntax-async-generators": 7.8.4(@babel/core@7.19.6)
+      "@babel/plugin-syntax-class-properties": 7.12.13(@babel/core@7.19.6)
+      "@babel/plugin-syntax-class-static-block": 7.14.5(@babel/core@7.19.6)
+      "@babel/plugin-syntax-dynamic-import": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-export-namespace-from": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-import-assertions": 7.20.0(@babel/core@7.19.6)
+      "@babel/plugin-syntax-json-strings": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-logical-assignment-operators": 7.10.4(@babel/core@7.19.6)
+      "@babel/plugin-syntax-nullish-coalescing-operator": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-numeric-separator": 7.10.4(@babel/core@7.19.6)
+      "@babel/plugin-syntax-object-rest-spread": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-optional-catch-binding": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-optional-chaining": 7.8.3(@babel/core@7.19.6)
+      "@babel/plugin-syntax-private-property-in-object": 7.14.5(@babel/core@7.19.6)
+      "@babel/plugin-syntax-top-level-await": 7.14.5(@babel/core@7.19.6)
+      "@babel/plugin-transform-arrow-functions": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-transform-async-to-generator": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-transform-block-scoped-functions": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-block-scoping": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-transform-classes": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-transform-computed-properties": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-transform-destructuring": 7.21.3(@babel/core@7.19.6)
+      "@babel/plugin-transform-dotall-regex": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-duplicate-keys": 7.18.9(@babel/core@7.19.6)
+      "@babel/plugin-transform-exponentiation-operator": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-for-of": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-transform-function-name": 7.18.9(@babel/core@7.19.6)
+      "@babel/plugin-transform-literals": 7.18.9(@babel/core@7.19.6)
+      "@babel/plugin-transform-member-expression-literals": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-modules-amd": 7.20.11(@babel/core@7.19.6)
+      "@babel/plugin-transform-modules-commonjs": 7.21.2(@babel/core@7.19.6)
+      "@babel/plugin-transform-modules-systemjs": 7.20.11(@babel/core@7.19.6)
+      "@babel/plugin-transform-modules-umd": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-named-capturing-groups-regex": 7.20.5(@babel/core@7.19.6)
+      "@babel/plugin-transform-new-target": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-object-super": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-parameters": 7.21.3(@babel/core@7.19.6)
+      "@babel/plugin-transform-property-literals": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-regenerator": 7.20.5(@babel/core@7.19.6)
+      "@babel/plugin-transform-reserved-words": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-shorthand-properties": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-spread": 7.20.7(@babel/core@7.19.6)
+      "@babel/plugin-transform-sticky-regex": 7.18.6(@babel/core@7.19.6)
+      "@babel/plugin-transform-template-literals": 7.18.9(@babel/core@7.19.6)
+      "@babel/plugin-transform-typeof-symbol": 7.18.9(@babel/core@7.19.6)
+      "@babel/plugin-transform-unicode-escapes": 7.18.10(@babel/core@7.19.6)
+      "@babel/plugin-transform-unicode-regex": 7.18.6(@babel/core@7.19.6)
+      "@babel/preset-modules": 0.1.5(@babel/core@7.19.6)
+      "@babel/types": 7.21.4
+      babel-plugin-polyfill-corejs2: 0.3.3(@babel/core@7.19.6)
+      babel-plugin-polyfill-corejs3: 0.6.0(@babel/core@7.19.6)
+      babel-plugin-polyfill-regenerator: 0.4.1(@babel/core@7.19.6)
+      core-js-compat: 3.30.0
+      semver: 6.3.0
+    transitivePeerDependencies:
+      - supports-color
+
+  /@babel/preset-env@7.21.4(@babel/core@7.19.6):
+    resolution:
+      {
+        integrity: sha512-2W57zHs2yDLm6GD5ZpvNn71lZ0B/iypSdIeq25OurDKji6AdzV07qp4s3n1/x5BqtiGaTrPN3nerlSCaC5qNTw==,
       }
     engines: { node: ">=6.9.0" }
     peerDependencies:
@@ -4745,7 +4827,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 16.6.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@graphql-tools/relay-operation-optimizer@6.5.17(graphql@16.6.0):
@@ -4759,7 +4841,7 @@ packages:
       "@ardatan/relay-compiler": 12.0.0(graphql@16.6.0)
       "@graphql-tools/utils": 9.2.1(graphql@16.6.0)
       graphql: 16.6.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -4789,7 +4871,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 16.6.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@graphql-tools/utils@9.2.1(graphql@16.6.0):
@@ -6668,7 +6750,7 @@ packages:
       - encoding
     dev: false
 
-  /@react-native-community/cli-plugin-metro@10.2.2(@babel/core@7.19.6):
+  /@react-native-community/cli-plugin-metro@10.2.2(@babel/core@7.21.4):
     resolution:
       {
         integrity: sha512-sTGjZlD3OGqbF9v1ajwUIXhGmjw9NyJ/14Lo0sg7xH8Pv4qUd5ZvQ6+DWYrQn3IKFUMfGFWYyL81ovLuPylrpw==,
@@ -6681,7 +6763,7 @@ packages:
       metro: 0.73.9
       metro-config: 0.73.9
       metro-core: 0.73.9
-      metro-react-native-babel-transformer: 0.73.9(@babel/core@7.19.6)
+      metro-react-native-babel-transformer: 0.73.9(@babel/core@7.21.4)
       metro-resolver: 0.73.9
       metro-runtime: 0.73.9
       readline: 1.3.0
@@ -6817,7 +6899,7 @@ packages:
       joi: 17.9.1
     dev: false
 
-  /@react-native-community/cli@10.1.3(@babel/core@7.19.6):
+  /@react-native-community/cli@10.1.3(@babel/core@7.21.4):
     resolution:
       {
         integrity: sha512-kzh6bYLGN1q1q0IiczKSP1LTrovFeVzppYRTKohPI9VdyZwp7b5JOgaQMB/Ijtwm3MxBDrZgV9AveH/eUmUcKQ==,
@@ -6830,7 +6912,7 @@ packages:
       "@react-native-community/cli-debugger-ui": 10.0.0
       "@react-native-community/cli-doctor": 10.2.2
       "@react-native-community/cli-hermes": 10.2.0
-      "@react-native-community/cli-plugin-metro": 10.2.2(@babel/core@7.19.6)
+      "@react-native-community/cli-plugin-metro": 10.2.2(@babel/core@7.21.4)
       "@react-native-community/cli-server-api": 10.1.1
       "@react-native-community/cli-tools": 10.1.1
       "@react-native-community/cli-types": 10.0.0
@@ -7512,7 +7594,7 @@ packages:
       }
     dependencies:
       "@types/eslint": 8.37.0
-      "@types/estree": 0.0.51
+      "@types/estree": 1.0.0
     dev: false
 
   /@types/eslint@7.29.0:
@@ -7531,7 +7613,7 @@ packages:
         integrity: sha512-Piet7dG2JBuDIfohBngQ3rCt7MgO9xCO4xIMKxBThCq5PNRB91IjlJ10eJVwfoNtvTErmxLzwBZ7rHZtbOMmFQ==,
       }
     dependencies:
-      "@types/estree": 0.0.51
+      "@types/estree": 1.0.0
       "@types/json-schema": 7.0.11
     dev: false
 
@@ -9532,6 +9614,7 @@ packages:
       babel-plugin-syntax-trailing-function-commas: 7.0.0-beta.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /babel-preset-fbjs@3.4.0(@babel/core@7.21.4):
     resolution:
@@ -9571,7 +9654,6 @@ packages:
       babel-plugin-syntax-trailing-function-commas: 7.0.0-beta.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /babel-preset-gatsby@3.8.0(@babel/core@7.21.4)(core-js@3.30.0):
     resolution:
@@ -10189,7 +10271,7 @@ packages:
       }
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /camelcase-keys@6.2.2:
@@ -10250,7 +10332,7 @@ packages:
       }
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
       upper-case-first: 2.0.2
     dev: false
 
@@ -10358,7 +10440,7 @@ packages:
       path-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /character-entities-html4@2.1.0:
@@ -10925,7 +11007,7 @@ packages:
       }
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
       upper-case: 2.0.2
     dev: false
 
@@ -11976,7 +12058,7 @@ packages:
       }
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /dot-prop@5.3.0:
@@ -12642,8 +12724,8 @@ packages:
       "@babel/plugin-transform-react-jsx": ^7.14.9
       eslint: ^8.1.0
     dependencies:
-      "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx": 7.21.0(@babel/core@7.19.6)
+      "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx": 7.21.0(@babel/core@7.21.4)
       eslint: 8.26.0
       lodash: 4.17.21
       string-natural-compare: 3.0.1
@@ -15576,7 +15658,7 @@ packages:
       }
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /hermes-estree@0.8.0:
@@ -16319,7 +16401,7 @@ packages:
         integrity: sha512-bVcMJy4X5Og6VZfdOZstSexlEy20Sr0k/p/b2IlQJlfdKAQuMpiv5w2Ccxb8sKdRUNAG1PnHVHjFSdRDVS6NlQ==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /is-map@2.0.2:
@@ -16600,7 +16682,7 @@ packages:
         integrity: sha512-44pxmxAvnnAOwBg4tHPnkfvgjPwbc5QIsSstNU+YcJ1ovxVzCWpSGosPJOZh/a1tdl81fbgnLc9LLv+x2ywbPQ==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /is-valid-domain@0.1.6:
@@ -16924,7 +17006,7 @@ packages:
       }
     dev: true
 
-  /jscodeshift@0.13.1(@babel/preset-env@7.19.4):
+  /jscodeshift@0.13.1(@babel/preset-env@7.21.4):
     resolution:
       {
         integrity: sha512-lGyiEbGOvmMRKgWk4vf+lUrCWO/8YR8sUR3FKF1Cq5fovjZDlIcw3Hu5ppLHAnEXshVffvaM0eyuY/AbOeYpnQ==,
@@ -16939,7 +17021,7 @@ packages:
       "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6(@babel/core@7.19.6)
       "@babel/plugin-proposal-optional-chaining": 7.21.0(@babel/core@7.19.6)
       "@babel/plugin-transform-modules-commonjs": 7.21.2(@babel/core@7.19.6)
-      "@babel/preset-env": 7.19.4(@babel/core@7.19.6)
+      "@babel/preset-env": 7.21.4(@babel/core@7.19.6)
       "@babel/preset-flow": 7.21.4(@babel/core@7.19.6)
       "@babel/preset-typescript": 7.18.6(@babel/core@7.19.6)
       "@babel/register": 7.21.0(@babel/core@7.19.6)
@@ -17549,7 +17631,7 @@ packages:
         integrity: sha512-EVm/rR94FJTZi3zefZ82fLWab+GX14LJN4HrWBcuo6Evmsl9hEfnqxgcHCKb9q+mNf6EVdsjx/qucYFIIB84pg==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /lower-case@2.0.2:
@@ -17558,7 +17640,7 @@ packages:
         integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /lowercase-keys@1.0.1:
@@ -18472,7 +18554,58 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /metro-react-native-babel-preset@0.73.7(@babel/core@7.19.6):
+  /metro-react-native-babel-preset@0.72.3(@babel/core@7.21.4):
+    resolution:
+      {
+        integrity: sha512-uJx9y/1NIqoYTp6ZW1osJ7U5ZrXGAJbOQ/Qzl05BdGYvN1S7Qmbzid6xOirgK0EIT0pJKEEh1s8qbassYZe4cw==,
+      }
+    peerDependencies:
+      "@babel/core": "*"
+    dependencies:
+      "@babel/core": 7.21.4
+      "@babel/plugin-proposal-async-generator-functions": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-proposal-class-properties": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-proposal-export-default-from": 7.18.10(@babel/core@7.21.4)
+      "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-proposal-object-rest-spread": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-proposal-optional-catch-binding": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-proposal-optional-chaining": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-syntax-dynamic-import": 7.8.3(@babel/core@7.21.4)
+      "@babel/plugin-syntax-export-default-from": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.21.4)
+      "@babel/plugin-syntax-nullish-coalescing-operator": 7.8.3(@babel/core@7.21.4)
+      "@babel/plugin-syntax-optional-chaining": 7.8.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-arrow-functions": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-async-to-generator": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-block-scoping": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-classes": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-computed-properties": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-destructuring": 7.21.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-exponentiation-operator": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-flow-strip-types": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-function-name": 7.18.9(@babel/core@7.21.4)
+      "@babel/plugin-transform-literals": 7.18.9(@babel/core@7.21.4)
+      "@babel/plugin-transform-modules-commonjs": 7.21.2(@babel/core@7.21.4)
+      "@babel/plugin-transform-named-capturing-groups-regex": 7.20.5(@babel/core@7.21.4)
+      "@babel/plugin-transform-parameters": 7.21.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-display-name": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx-self": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx-source": 7.19.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-runtime": 7.19.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-shorthand-properties": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-spread": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-sticky-regex": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-template-literals": 7.18.9(@babel/core@7.21.4)
+      "@babel/plugin-transform-typescript": 7.21.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-unicode-regex": 7.18.6(@babel/core@7.21.4)
+      "@babel/template": 7.20.7
+      react-refresh: 0.4.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /metro-react-native-babel-preset@0.73.7(@babel/core@7.21.4):
     resolution:
       {
         integrity: sha512-RKcmRZREjJCzHKP+JhC9QTCohkeb3xa/DtqHU14U5KWzJHdC0mMrkTZYNXhV0cryxsaVKVEw5873KhbZyZHMVw==,
@@ -18480,92 +18613,42 @@ packages:
     peerDependencies:
       "@babel/core": "*"
     dependencies:
-      "@babel/core": 7.19.6
-      "@babel/plugin-proposal-async-generator-functions": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-proposal-class-properties": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-proposal-export-default-from": 7.18.10(@babel/core@7.19.6)
-      "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-proposal-object-rest-spread": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-proposal-optional-catch-binding": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-proposal-optional-chaining": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-syntax-dynamic-import": 7.8.3(@babel/core@7.19.6)
-      "@babel/plugin-syntax-export-default-from": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.19.6)
-      "@babel/plugin-syntax-nullish-coalescing-operator": 7.8.3(@babel/core@7.19.6)
-      "@babel/plugin-syntax-optional-chaining": 7.8.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-arrow-functions": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-async-to-generator": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-block-scoping": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-classes": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-computed-properties": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-destructuring": 7.21.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-flow-strip-types": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-function-name": 7.18.9(@babel/core@7.19.6)
-      "@babel/plugin-transform-literals": 7.18.9(@babel/core@7.19.6)
-      "@babel/plugin-transform-modules-commonjs": 7.21.2(@babel/core@7.19.6)
-      "@babel/plugin-transform-named-capturing-groups-regex": 7.20.5(@babel/core@7.19.6)
-      "@babel/plugin-transform-parameters": 7.21.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-display-name": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx-self": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx-source": 7.19.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-runtime": 7.19.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-shorthand-properties": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-spread": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-sticky-regex": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-template-literals": 7.18.9(@babel/core@7.19.6)
-      "@babel/plugin-transform-typescript": 7.21.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-unicode-regex": 7.18.6(@babel/core@7.19.6)
-      "@babel/template": 7.20.7
-      react-refresh: 0.4.3
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /metro-react-native-babel-preset@0.73.9(@babel/core@7.19.6):
-    resolution:
-      {
-        integrity: sha512-AoD7v132iYDV4K78yN2OLgTPwtAKn0XlD2pOhzyBxiI8PeXzozhbKyPV7zUOJUPETj+pcEVfuYj5ZN/8+bhbCw==,
-      }
-    peerDependencies:
-      "@babel/core": "*"
-    dependencies:
-      "@babel/core": 7.19.6
-      "@babel/plugin-proposal-async-generator-functions": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-proposal-class-properties": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-proposal-export-default-from": 7.18.10(@babel/core@7.19.6)
-      "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-proposal-object-rest-spread": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-proposal-optional-catch-binding": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-proposal-optional-chaining": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-syntax-dynamic-import": 7.8.3(@babel/core@7.19.6)
-      "@babel/plugin-syntax-export-default-from": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.19.6)
-      "@babel/plugin-syntax-nullish-coalescing-operator": 7.8.3(@babel/core@7.19.6)
-      "@babel/plugin-syntax-optional-chaining": 7.8.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-arrow-functions": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-async-to-generator": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-block-scoping": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-classes": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-computed-properties": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-destructuring": 7.21.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-flow-strip-types": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-function-name": 7.18.9(@babel/core@7.19.6)
-      "@babel/plugin-transform-literals": 7.18.9(@babel/core@7.19.6)
-      "@babel/plugin-transform-modules-commonjs": 7.21.2(@babel/core@7.19.6)
-      "@babel/plugin-transform-named-capturing-groups-regex": 7.20.5(@babel/core@7.19.6)
-      "@babel/plugin-transform-parameters": 7.21.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-display-name": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx-self": 7.21.0(@babel/core@7.19.6)
-      "@babel/plugin-transform-react-jsx-source": 7.19.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-runtime": 7.19.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-shorthand-properties": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-spread": 7.20.7(@babel/core@7.19.6)
-      "@babel/plugin-transform-sticky-regex": 7.18.6(@babel/core@7.19.6)
-      "@babel/plugin-transform-template-literals": 7.18.9(@babel/core@7.19.6)
-      "@babel/plugin-transform-typescript": 7.21.3(@babel/core@7.19.6)
-      "@babel/plugin-transform-unicode-regex": 7.18.6(@babel/core@7.19.6)
+      "@babel/core": 7.21.4
+      "@babel/plugin-proposal-async-generator-functions": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-proposal-class-properties": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-proposal-export-default-from": 7.18.10(@babel/core@7.21.4)
+      "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-proposal-object-rest-spread": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-proposal-optional-catch-binding": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-proposal-optional-chaining": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-syntax-dynamic-import": 7.8.3(@babel/core@7.21.4)
+      "@babel/plugin-syntax-export-default-from": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-syntax-flow": 7.21.4(@babel/core@7.21.4)
+      "@babel/plugin-syntax-nullish-coalescing-operator": 7.8.3(@babel/core@7.21.4)
+      "@babel/plugin-syntax-optional-chaining": 7.8.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-arrow-functions": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-async-to-generator": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-block-scoping": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-classes": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-computed-properties": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-destructuring": 7.21.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-flow-strip-types": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-function-name": 7.18.9(@babel/core@7.21.4)
+      "@babel/plugin-transform-literals": 7.18.9(@babel/core@7.21.4)
+      "@babel/plugin-transform-modules-commonjs": 7.21.2(@babel/core@7.21.4)
+      "@babel/plugin-transform-named-capturing-groups-regex": 7.20.5(@babel/core@7.21.4)
+      "@babel/plugin-transform-parameters": 7.21.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-display-name": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx-self": 7.21.0(@babel/core@7.21.4)
+      "@babel/plugin-transform-react-jsx-source": 7.19.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-runtime": 7.19.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-shorthand-properties": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-spread": 7.20.7(@babel/core@7.21.4)
+      "@babel/plugin-transform-sticky-regex": 7.18.6(@babel/core@7.21.4)
+      "@babel/plugin-transform-template-literals": 7.18.9(@babel/core@7.21.4)
+      "@babel/plugin-transform-typescript": 7.21.3(@babel/core@7.21.4)
+      "@babel/plugin-transform-unicode-regex": 7.18.6(@babel/core@7.21.4)
       "@babel/template": 7.20.7
       react-refresh: 0.4.3
     transitivePeerDependencies:
@@ -18641,7 +18724,7 @@ packages:
       - supports-color
     dev: false
 
-  /metro-react-native-babel-transformer@0.73.7(@babel/core@7.19.6):
+  /metro-react-native-babel-transformer@0.73.7(@babel/core@7.21.4):
     resolution:
       {
         integrity: sha512-73HW8betjX+VPm3iqsMBe8F/F2Tt+hONO6YJwcF7FonTqQYW1oTz0dOp0dClZGfHUXxpJBz6Vuo7J6TpdzDD+w==,
@@ -18649,18 +18732,18 @@ packages:
     peerDependencies:
       "@babel/core": "*"
     dependencies:
-      "@babel/core": 7.19.6
-      babel-preset-fbjs: 3.4.0(@babel/core@7.19.6)
+      "@babel/core": 7.21.4
+      babel-preset-fbjs: 3.4.0(@babel/core@7.21.4)
       hermes-parser: 0.8.0
       metro-babel-transformer: 0.73.7
-      metro-react-native-babel-preset: 0.73.7(@babel/core@7.19.6)
+      metro-react-native-babel-preset: 0.73.7(@babel/core@7.21.4)
       metro-source-map: 0.73.7
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /metro-react-native-babel-transformer@0.73.9(@babel/core@7.19.6):
+  /metro-react-native-babel-transformer@0.73.9(@babel/core@7.21.4):
     resolution:
       {
         integrity: sha512-DSdrEHuQ22ixY7DyipyKkIcqhOJrt5s6h6X7BYJCP9AMUfXOwLe2biY3BcgJz5GOXv8/Akry4vTCvQscVS1otQ==,
@@ -18668,11 +18751,11 @@ packages:
     peerDependencies:
       "@babel/core": "*"
     dependencies:
-      "@babel/core": 7.19.6
-      babel-preset-fbjs: 3.4.0(@babel/core@7.19.6)
+      "@babel/core": 7.21.4
+      babel-preset-fbjs: 3.4.0(@babel/core@7.21.4)
       hermes-parser: 0.8.0
       metro-babel-transformer: 0.73.9
-      metro-react-native-babel-preset: 0.73.9(@babel/core@7.19.6)
+      metro-react-native-babel-preset: 0.73.9(@babel/core@7.21.4)
       metro-source-map: 0.73.9
       nullthrows: 1.1.1
     transitivePeerDependencies:
@@ -18841,7 +18924,7 @@ packages:
         integrity: sha512-D+TcUvCKZbRua1+qujE0wV1onZvslW6cVTs7dLCyC2pv20lNHjFr1GtW01jN2fyKR2PcRyMjDCppFd9VwDKnSg==,
       }
     dependencies:
-      "@babel/core": 7.19.6
+      "@babel/core": 7.21.4
       "@babel/generator": 7.21.4
       "@babel/template": 7.20.7
       "@babel/traverse": 7.21.4(supports-color@5.5.0)
@@ -18871,11 +18954,11 @@ packages:
         integrity: sha512-WsuWj9H7i6cHuJuy+BgbWht9DK5FOgJxHLGAyULD5FJdTG9rSMFaHDO5WfC0OwQU5h4w6cPT40iDuEGksM7+YQ==,
       }
     dependencies:
-      "@babel/core": 7.19.6
+      "@babel/core": 7.21.4
       "@babel/generator": 7.21.4
       "@babel/parser": 7.21.4
       "@babel/types": 7.21.4
-      babel-preset-fbjs: 3.4.0(@babel/core@7.19.6)
+      babel-preset-fbjs: 3.4.0(@babel/core@7.21.4)
       metro: 0.72.3
       metro-babel-transformer: 0.72.3
       metro-cache: 0.72.3
@@ -18925,7 +19008,7 @@ packages:
     hasBin: true
     dependencies:
       "@babel/code-frame": 7.21.4
-      "@babel/core": 7.19.6
+      "@babel/core": 7.21.4
       "@babel/generator": 7.21.4
       "@babel/parser": 7.21.4
       "@babel/template": 7.20.7
@@ -18956,7 +19039,7 @@ packages:
       metro-hermes-compiler: 0.72.3
       metro-inspector-proxy: 0.72.3
       metro-minify-uglify: 0.72.3
-      metro-react-native-babel-preset: 0.72.3(@babel/core@7.19.6)
+      metro-react-native-babel-preset: 0.72.3(@babel/core@7.21.4)
       metro-resolver: 0.72.3
       metro-runtime: 0.72.3
       metro-source-map: 0.72.3
@@ -20076,6 +20159,55 @@ packages:
     transitivePeerDependencies:
       - "@babel/core"
       - babel-plugin-macros
+    dev: false
+
+  /next@13.0.2(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-uQ5z5e4D9mOe8+upy6bQdYYjo/kk1v3jMW87kTy2TgAyAsEO+CkwRnMgyZ4JoHEnhPZLHwh7dk0XymRNLe1gFw==,
+      }
+    engines: { node: ">=14.6.0" }
+    hasBin: true
+    peerDependencies:
+      fibers: ">= 3.1.0"
+      node-sass: ^6.0.0 || ^7.0.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      sass: ^1.3.0
+    peerDependenciesMeta:
+      fibers:
+        optional: true
+      node-sass:
+        optional: true
+      sass:
+        optional: true
+    dependencies:
+      "@next/env": 13.0.2
+      "@swc/helpers": 0.4.11
+      caniuse-lite: 1.0.30001474
+      postcss: 8.4.14
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      styled-jsx: 5.1.0(@babel/core@7.21.4)(react@18.2.0)
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    optionalDependencies:
+      "@next/swc-android-arm-eabi": 13.0.2
+      "@next/swc-android-arm64": 13.0.2
+      "@next/swc-darwin-arm64": 13.0.2
+      "@next/swc-darwin-x64": 13.0.2
+      "@next/swc-freebsd-x64": 13.0.2
+      "@next/swc-linux-arm-gnueabihf": 13.0.2
+      "@next/swc-linux-arm64-gnu": 13.0.2
+      "@next/swc-linux-arm64-musl": 13.0.2
+      "@next/swc-linux-x64-gnu": 13.0.2
+      "@next/swc-linux-x64-musl": 13.0.2
+      "@next/swc-win32-arm64-msvc": 13.0.2
+      "@next/swc-win32-ia32-msvc": 13.0.2
+      "@next/swc-win32-x64-msvc": 13.0.2
+    transitivePeerDependencies:
+      - "@babel/core"
+      - babel-plugin-macros
+    dev: true
 
   /nextra-theme-docs@2.2.17(next@13.0.2)(nextra@2.2.17)(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -20156,7 +20288,7 @@ packages:
       }
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /nocache@3.0.4:
@@ -20917,7 +21049,7 @@ packages:
       }
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /parent-module@1.0.1:
@@ -21056,7 +21188,7 @@ packages:
       }
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /pascalcase@0.1.1:
@@ -21088,7 +21220,7 @@ packages:
       }
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /path-exists@3.0.0:
@@ -22366,7 +22498,7 @@ packages:
       use-editable: 2.3.3(react@18.2.0)
     dev: false
 
-  /react-native-codegen@0.70.6(@babel/preset-env@7.19.4):
+  /react-native-codegen@0.70.6(@babel/preset-env@7.21.4):
     resolution:
       {
         integrity: sha512-kdwIhH2hi+cFnG5Nb8Ji2JwmcCxnaOOo9440ov7XDzSvGfmUStnCzl+MCW8jLjqHcE4icT7N9y+xx4f50vfBTw==,
@@ -22374,14 +22506,14 @@ packages:
     dependencies:
       "@babel/parser": 7.21.4
       flow-parser: 0.121.0
-      jscodeshift: 0.13.1(@babel/preset-env@7.19.4)
+      jscodeshift: 0.13.1(@babel/preset-env@7.21.4)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - "@babel/preset-env"
       - supports-color
     dev: false
 
-  /react-native-codegen@0.71.5(@babel/preset-env@7.19.4):
+  /react-native-codegen@0.71.5(@babel/preset-env@7.21.4):
     resolution:
       {
         integrity: sha512-rfsuc0zkuUuMjFnrT55I1mDZ+pBRp2zAiRwxck3m6qeGJBGK5OV5JH66eDQ4aa+3m0of316CqrJDRzVlYufzIg==,
@@ -22389,7 +22521,7 @@ packages:
     dependencies:
       "@babel/parser": 7.21.4
       flow-parser: 0.185.2
-      jscodeshift: 0.13.1(@babel/preset-env@7.19.4)
+      jscodeshift: 0.13.1(@babel/preset-env@7.21.4)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - "@babel/preset-env"
@@ -22433,10 +22565,10 @@ packages:
       css-select: 5.1.0
       css-tree: 1.1.3
       react: 18.2.0
-      react-native: 0.71.3(@babel/core@7.19.6)(@babel/preset-env@7.19.4)(react@18.2.0)
+      react-native: 0.71.3(@babel/core@7.21.4)(@babel/preset-env@7.21.4)(react@18.2.0)
     dev: true
 
-  /react-native@0.70.5(@babel/core@7.19.6)(@babel/preset-env@7.19.4)(react@18.2.0):
+  /react-native@0.70.5(@babel/core@7.19.6)(@babel/preset-env@7.21.4)(react@18.2.0):
     resolution:
       {
         integrity: sha512-5NZM80LC3L+TIgQX/09yiyy48S73wMgpIgN5cCv3XTMR394+KpDI3rBZGH4aIgWWuwijz31YYVF5504+9n2Zfw==,
@@ -22469,7 +22601,7 @@ packages:
       promise: 8.3.0
       react: 18.2.0
       react-devtools-core: 4.24.0
-      react-native-codegen: 0.70.6(@babel/preset-env@7.19.4)
+      react-native-codegen: 0.70.6(@babel/preset-env@7.21.4)
       react-native-gradle-plugin: 0.70.3
       react-refresh: 0.4.3
       react-shallow-renderer: 16.15.0(react@18.2.0)
@@ -22488,7 +22620,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /react-native@0.71.3(@babel/core@7.19.6)(@babel/preset-env@7.19.4)(react@18.2.0):
+  /react-native@0.71.3(@babel/core@7.21.4)(@babel/preset-env@7.21.4)(react@18.2.0):
     resolution:
       {
         integrity: sha512-RYJXCcQGa4NTfKiPgl92eRDUuQ6JGDnHqFEzRwJSqEx9lWvlvRRIebstJfurzPDKLQWQrvITR7aI7e09E25mLw==,
@@ -22499,7 +22631,7 @@ packages:
       react: 18.2.0
     dependencies:
       "@jest/create-cache-key-function": 29.5.0
-      "@react-native-community/cli": 10.1.3(@babel/core@7.19.6)
+      "@react-native-community/cli": 10.1.3(@babel/core@7.21.4)
       "@react-native-community/cli-platform-android": 10.1.3
       "@react-native-community/cli-platform-ios": 10.1.1
       "@react-native/assets": 1.0.0
@@ -22514,7 +22646,7 @@ packages:
       jest-environment-node: 29.5.0
       jsc-android: 250231.0.0
       memoize-one: 5.2.1
-      metro-react-native-babel-transformer: 0.73.7(@babel/core@7.19.6)
+      metro-react-native-babel-transformer: 0.73.7(@babel/core@7.21.4)
       metro-runtime: 0.73.7
       metro-source-map: 0.73.7
       mkdirp: 0.5.6
@@ -22523,7 +22655,7 @@ packages:
       promise: 8.3.0
       react: 18.2.0
       react-devtools-core: 4.27.4
-      react-native-codegen: 0.71.5(@babel/preset-env@7.19.4)
+      react-native-codegen: 0.71.5(@babel/preset-env@7.21.4)
       react-native-gradle-plugin: 0.71.17
       react-refresh: 0.4.3
       react-shallow-renderer: 16.15.0(react@18.2.0)
@@ -23573,7 +23705,7 @@ packages:
       }
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
       upper-case-first: 2.0.2
     dev: false
 
@@ -23896,7 +24028,7 @@ packages:
       }
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /snapdragon-node@2.1.1:
@@ -24157,7 +24289,7 @@ packages:
         integrity: sha512-dblb9Et4DAtiZ5YSUZHLl4XhH4uK80GhAZrVXdN4O2P4gQ40Wa5UIOPUHlA/nFd2PLblBZWUioLMMAVrgpoYcA==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /sprintf-js@1.0.3:
@@ -24563,6 +24695,28 @@ packages:
       "@babel/core": 7.19.6
       client-only: 0.0.1
       react: 18.2.0
+    dev: false
+
+  /styled-jsx@5.1.0(@babel/core@7.21.4)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-/iHaRJt9U7T+5tp6TRelLnqBqiaIT0HsO0+vgyj8hK2KUk7aejFqRrumqPUlAqDwAj8IbS/1hk3IhBAAK/FCUQ==,
+      }
+    engines: { node: ">= 12.0.0" }
+    peerDependencies:
+      "@babel/core": "*"
+      babel-plugin-macros: "*"
+      react: ">= 16.8.0 || 17.x.x || ^18.0.0-0"
+    peerDependenciesMeta:
+      "@babel/core":
+        optional: true
+      babel-plugin-macros:
+        optional: true
+    dependencies:
+      "@babel/core": 7.21.4
+      client-only: 0.0.1
+      react: 18.2.0
+    dev: true
 
   /stylehacks@5.1.1(postcss@8.4.21):
     resolution:
@@ -24688,7 +24842,7 @@ packages:
         integrity: sha512-kc6S2YS/2yXbtkSMunBtKdah4VFETZ8Oh6ONSmSd9bRxhqTrtARUCBUiWXH3xVPpvR7tz2CSnkuXVE42EcGnMw==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /table@6.8.1:
@@ -24944,7 +25098,7 @@ packages:
         integrity: sha512-e1zGYRvbffpcHIrnuqT0Dh+gEJtDaxDSoG4JAIpq4oDFyooziLBIiYQv0GBT4FUAnUop5uZ1hiIAj7oAF6sOCA==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /title@3.5.3:
@@ -25757,7 +25911,7 @@ packages:
         integrity: sha512-514ppYHBaKwfJRK/pNC6c/OxfGa0obSnAl106u97Ed0I625Nin96KAjttZF6ZL3e1XLtphxnqrOi9iWgm+u+bg==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /upper-case@2.0.2:
@@ -25766,7 +25920,7 @@ packages:
         integrity: sha512-KgdgDGJt2TpuwBUIjgG6lzw2GWFRCW9Qkfkiv0DxqHHLYJHmtmdUIKcZd8rHgFSjopVTlw6ggzCm1b8MFQwikg==,
       }
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /uri-js@4.4.1:
