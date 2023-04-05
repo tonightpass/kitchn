@@ -32,4 +32,4 @@ jobs:
         run: pnpm lint
 
       - name: Build
-        run: pnpm p:build && pnpm build:examples ${{ matrix.node == '18.x' && '' || '--filter=!gatsby-typescript' }}
+        run: pnpm p:build && ${{ matrix.node == '18.x' && 'pnpm build:examples' || 'pnpm build:examples --filter=!gatsby-typescript' }}
