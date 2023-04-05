@@ -35,4 +35,9 @@ jobs:
         run: pnpm p:build
 
       - name: Build Examples ${{ matrix.node }}
-        run: pnpm turbo run build --filter='./examples/*' ${{ matrix.node == '18.x' && '' || '--filter=!gatsby-typescript' }}
+        if: matrix.node != '18.x'
+        run: pnpm turbo run build --filter='./examples/*' --filter=!gatsby-typescript
+
+      - name: Build Examples ${{ matrix.node }}
+        if: matrix.node == '18.x'
+        run: pnpm turbo run build --filter='./examples/*'
