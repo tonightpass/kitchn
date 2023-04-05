@@ -35,4 +35,4 @@ jobs:
         run: pnpm p:build
 
       - name: Build Examples
-        run: pnpm build:examples -- --filter=!gatsby-typescript
+        run: pnpm build:examples "--filter=!gatsby-typescript"
