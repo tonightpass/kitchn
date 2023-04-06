@@ -25,7 +25,8 @@ const ShowcaseCard: React.FC<ShowcaseCardProps> = ({
 
 const ThumbnailImage = kitchen(Image)`
   opacity: 0.3;
-  width: 60%;
+  width: 100%;
+  max-width: 60%;
   height: 100%;
   max-height: 24px;
   transition: all 1s;
@@ -34,8 +35,6 @@ const ThumbnailImage = kitchen(Image)`
 `;
 
 const Container = kitchen.div`
-  background-color: ${({ theme }) => theme.colors.layout.darker};
-  border-radius: 10px;
   width: 160px;
   height: 64px;
   display: flex;
