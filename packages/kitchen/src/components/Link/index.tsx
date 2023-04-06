@@ -1,20 +1,14 @@
-import NextLink from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
-import { KitchenComponent } from "../../../types";
-import isString from "../../../utils/isString";
+import { KitchenComponent } from "../../types";
+import isString from "../../utils/isString";
 
 export type Props = {
   /**
    * The link's href.
    */
   href?: string | UrlObject;
-
-  /**
-   * The link's locale.
-   */
-  locale?: string;
 
   /**
    * The link's classname.
@@ -46,7 +40,6 @@ const Link = styled(
   ({
     as: Component = "a",
     href,
-    locale,
     className,
     disabled,
     onClick,
@@ -80,20 +73,6 @@ const Link = styled(
           </Component>
         );
       }
-    }
-
-    if (href) {
-      return (
-        <NextLink
-          href={href}
-          locale={locale}
-          className={className}
-          onClick={handleClick}
-          {...props}
-        >
-          {children}
-        </NextLink>
-      );
     }
 
     return (

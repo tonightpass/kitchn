@@ -1,12 +1,12 @@
 {
   "name": "@tonightpass/kitchen",
-  "version": "1.5.1",
+  "version": "1.5.3",
   "description": "A very simple React button within a monorepo",
   "main": "dist/tonightpass-kitchen.cjs.js",
   "module": "dist/tonightpass-kitchen.esm.js",
   "react-native": "native/dist/tonightpass-kitchen-native.cjs.js",
   "dependencies": {
-    "@fontsource/dm-mono": "^4.5.10",
+    "@fontsource/fira-code": "^4.5.13",
     "react-icons": "^4.7.1",
     "styled-components": "^5.3.6"
   },
