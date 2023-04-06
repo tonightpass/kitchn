@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.5.4
+
+### Patch Changes
+
+- 5ddf1cb: Add Cursor Pointer support to `Scale` hoc
+
 ## 1.5.3
 
 ### Patch Changes
