@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.5.5
+
+### Patch Changes
+
+- f06e480: Improve `Keybpard` hook with callback
+
 ## 1.5.4
 
 ### Patch Changes
