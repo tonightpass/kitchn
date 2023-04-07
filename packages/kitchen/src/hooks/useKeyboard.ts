@@ -47,21 +47,32 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
   const keyCode = bindings.filter((item: number) => !KeyMod[item]);
   const { CtrlCmd, WinCtrl } = getCtrlKeysByPlatform();
 
-  const eventHandler = (event: React.KeyboardEvent | KeyboardEvent) => {
-    if (activeModMap.Shift && !event.shiftKey) return;
-    if (activeModMap.Alt && !event.altKey) return;
-    if (activeModMap.CtrlCmd && !event[CtrlCmd]) return;
-    if (activeModMap.WinCtrl && !event[WinCtrl]) return;
-    const hitOne = keyCode.find((k) => k === event.keyCode);
-    if (keyCode && !hitOne) return;
-    if (stopPropagation) {
-      event.stopPropagation();
-    }
-    if (preventDefault) {
-      event.preventDefault();
-    }
-    handler && handler(event);
-  };
+  const eventHandler = React.useCallback(
+    (event: React.KeyboardEvent | KeyboardEvent) => {
+      if (activeModMap.Shift && !event.shiftKey) return;
+      if (activeModMap.Alt && !event.altKey) return;
+      if (activeModMap.CtrlCmd && !event[CtrlCmd]) return;
+      if (activeModMap.WinCtrl && !event[WinCtrl]) return;
+      const hitOne = keyCode.find((k) => k === event.keyCode);
+      if (keyCode && !hitOne) return;
+      if (stopPropagation) {
+        event.stopPropagation();
+      }
+      if (preventDefault) {
+        event.preventDefault();
+      }
+      handler && handler(event);
+    },
+    [
+      activeModMap,
+      CtrlCmd,
+      WinCtrl,
+      keyCode,
+      handler,
+      preventDefault,
+      stopPropagation,
+    ]
+  );
 
   React.useEffect(() => {
     if (!disableGlobalEvent) {
@@ -70,8 +81,7 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
     return () => {
       document.removeEventListener(event, eventHandler);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [disableGlobalEvent]);
+  }, [disableGlobalEvent, event, eventHandler]);
 
   const elementBindingHandler = (
     elementEventType: "keydown" | "keypress" | "keyup",
