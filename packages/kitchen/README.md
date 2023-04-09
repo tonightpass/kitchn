@@ -7,9 +7,7 @@
 
 <p align="center">
   <a aria-label="onRuntime Studio" href="https://onruntime.com">
-    <picture>
-      <img src="https://img.shields.io/badge/MADE%20BY%20ONRUNTIME-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
-    </picture>
+    <img src="https://img.shields.io/badge/MADE%20BY%20ONRUNTIME-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
   </a>
   <a aria-label="NPM version" href="https://npmjs.com/package/@tonightpass/kitchen">
     <img alt="" src="https://img.shields.io/npm/v/@tonightpass/kitchen.svg?style=for-the-badge&labelColor=000000">
