@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://kitchen.tonightpass.com">
-    <img src="https://kitchen.tonightpass.com/static/icon/kitchen-icon.svg" >
+    <img src="https://kitchen.tonightpass.com/static/icon/kitchen-icon.svg" alt="Kitchen" height="50" />
     <h3 align="center">Kitchen</h3>
   </a>
 </p>
