@@ -211,7 +211,7 @@ importers:
   examples/react-typescript:
     dependencies:
       "@tonightpass/kitchen":
-        specifier: workspace:*
+        specifier: latest
         version: link:../../packages/kitchen
       react:
         specifier: ^18.2.0
