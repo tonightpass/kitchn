@@ -11,13 +11,7 @@ import { NextPage } from "next";
 const FooterPage: NextPage = () => {
   return (
     <>
-      <Container
-        gap={10}
-        style={{
-          maxWidth: 700,
-          margin: "0 auto",
-        }}
-      >
+      <Container gap={10}>
         <Text>default</Text>
         <Container gap={10}>
           <Footer>

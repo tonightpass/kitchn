@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
+import Link from "../Link";
 
 type Props = {
   /**
@@ -24,15 +25,16 @@ const Footer = styled(({ children, subfooter, ...props }: FooterProps) => {
   position: relative;
   box-sizing: border-box;
   border-top: 1px solid ${({ theme }) => theme.colors.layout.dark};
-  padding: calc(1.5 * 24px) 24px 24px;
+  padding: ${({ theme }) => theme.gap.normal} 0;
 `;
 
 const Nav = styled.nav`
-  max-width: 1200px;
+  max-width: ${({ theme }) => theme.breakpoint.laptop};
   margin: 0 auto;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  padding: 0 ${({ theme }) => theme.gap.normal};
 `;
 
 export const FooterColumn = styled.div``;
@@ -54,7 +56,8 @@ export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
   margin-right: 24px;
 `;
 const GroupTitle = styled.h2`
-  margin: 12px 0;
+  margin: ${({ theme }) => theme.gap.small} 0;
+  font-weight: ${({ theme }) => theme.weight.medium};
 `;
 
 const List = styled.ul`
@@ -64,9 +67,10 @@ const List = styled.ul`
   flex-direction: column;
 `;
 
-export const FooterLink = styled.a`
-  color: ${({ theme }) => theme.colors.text.light};
+export const FooterLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.text.lighter};
   text-decoration: none;
+  margin: ${({ theme }) => theme.gap.tiny} 0;
 `;
 
 export const ListItem = styled(({ children }) => {
@@ -81,8 +85,10 @@ export const ListItem = styled(({ children }) => {
 
 const Subfooter = styled.section`
   font-size: ${({ theme }) => theme.size.small};
+  max-width: ${({ theme }) => theme.breakpoint.laptop};
   margin: 0 auto;
-  margin-top: 24px;
+  margin-top: ${({ theme }) => theme.gap.normal};
+  padding: 0 ${({ theme }) => theme.gap.normal};
 `;
 
 export default Footer;
