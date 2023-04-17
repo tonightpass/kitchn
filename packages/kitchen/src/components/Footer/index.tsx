@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { KitchenComponent } from "../../types";
 import Link from "../Link";
+import useBreakpoint from "../../hooks/useBreakpoint";
+import Collapse from "../Collapse";
 
 type Props = {
   /**
@@ -35,6 +37,9 @@ const Nav = styled.nav`
   flex-wrap: nowrap;
   justify-content: space-between;
   padding: 0 ${({ theme }) => theme.gap.normal};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const FooterColumn = styled.div``;
@@ -44,14 +49,24 @@ type GroupProps = {
 };
 export type FooterGroupProps = KitchenComponent<GroupProps>;
 export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
-  return (
-    <div>
-      <label htmlFor={title}>
-        <GroupTitle>{title}</GroupTitle>
-      </label>
-      <List>{children}</List>
-    </div>
-  );
+  const { isMobile } = useBreakpoint();
+  if (isMobile) {
+    return (
+      <div>
+        <Collapse title={title}>
+          <List>{children}</List>
+        </Collapse>
+      </div>
+    );
+  } else
+    return (
+      <div>
+        <label htmlFor={title}>
+          <GroupTitle>{title}</GroupTitle>
+        </label>
+        <List>{children}</List>
+      </div>
+    );
 })<FooterGroupProps>`
   margin-right: 24px;
 `;
