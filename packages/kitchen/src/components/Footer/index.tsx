@@ -53,9 +53,9 @@ export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
   if (isMobile) {
     return (
       <div>
-        <Collapse title={title}>
+        <FooterCollapse title={title}>
           <List>{children}</List>
-        </Collapse>
+        </FooterCollapse>
       </div>
     );
   } else
@@ -80,6 +80,10 @@ const List = styled.ul`
   color: ${({ theme }) => theme.colors.text.light};
   display: flex;
   flex-direction: column;
+`;
+
+const FooterCollapse = styled(Collapse)`
+  border: none;
 `;
 
 export const FooterLink = styled(Link)`
