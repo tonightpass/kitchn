@@ -27,7 +27,7 @@ const Code = styled(({ children, title, ...props }: CodeProps) => {
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   border-radius: 8px;
-  padding: ${({ title }) => (title ? "35px 25px 25px" : "25px")};
+  padding: ${({ title }) => (title ? "35px 15px 15px" : "15px")};
   margin: 30px 0;
   white-space: pre;
   overflow: auto;

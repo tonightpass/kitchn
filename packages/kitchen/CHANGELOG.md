@@ -1,5 +1,29 @@
 # @tonightpass/kitchen
 
+## 1.5.5
+
+### Patch Changes
+
+- f06e480: Improve `Keybpard` hook with callback
+
+## 1.5.4
+
+### Patch Changes
+
+- 5ddf1cb: Add Cursor Pointer support to `Scale` hoc
+
+## 1.5.3
+
+### Patch Changes
+
+- 3eb5bdd: Add `Link` for react
+
+## 1.5.2
+
+### Patch Changes
+
+- 86ec6ac: Move from DM Mono to Fira Code for ligatures
+
 ## 1.5.1
 
 ### Patch Changes

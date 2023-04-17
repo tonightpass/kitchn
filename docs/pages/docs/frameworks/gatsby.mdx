@@ -1,0 +1,63 @@
+---
+title: Gatsby
+description: A guide for installing Kitchen with Gatsby projects
+tags: ['gatsby']
+category: frameworks
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Getting Started with Gatsby
+
+## Installation
+In your Gatsby project, install Kitchen by running either of the following:
+
+<Tabs items={["npm", "yarn", "pnpm"]}>
+  <Tab>
+    ```bash
+    npm i @tonightpass/kitchen gatsby-plugin-styled-components babel-plugin-styled-components --save
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    yarn add @tonightpass/kitchen gatsby-plugin-styled-components babel-plugin-styled-components
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    pnpm i @tonightpass/kitchen gatsby-plugin-styled-components babel-plugin-styled-components
+    ```
+  </Tab>
+</Tabs>
+
+After installing Kitchen, you need to add the `gatsby-plugin-styled-components` plugin to your `gatsby-config.js` file.
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    // ...
+    "gatsby-plugin-styled-components",
+  ],
+};
+```
+
+## Provider Setup
+
+After installing Kitchen, you need to set up the `KitchenProvider` at the root 
+of your application. This can be either in your `index.jsx` or `index.tsx` file.
+
+```jsx
+// index.jsx
+import { KitchenProvider } from "@tonightpass/kitchen";
+
+export default function IndexPage() {
+  return (
+    <KitchenProvider>
+      <TheRestOfYourApplication />
+    </KitchenProvider>
+  );
+}
+```
+
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/gatsby-typescript) and a [live demo](https://kitchen-gatsby-typescript.hop.sh) using Kitchen with Gatsby.

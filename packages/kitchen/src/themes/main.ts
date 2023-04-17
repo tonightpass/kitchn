@@ -3,7 +3,7 @@ import { MainTheme } from "../types/theme";
 const main: MainTheme = {
   family: {
     primary: "Satoshi, -apple-system, sans-serif",
-    monospace: "DM Mono, monospace",
+    monospace: "Fira Code, monospace",
   },
   weight: {
     thin: 100,

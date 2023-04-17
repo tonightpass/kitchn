@@ -12,59 +12,54 @@ export type ScaleProps = {
     | "static"
     | "inherit"
     | "initial";
-  pos?:
-    | "relative"
-    | "absolute"
-    | "fixed"
-    | "sticky"
-    | "static"
-    | "inherit"
-    | "initial";
+  pos?: ScaleProps["position"];
   left?: string | number | keyof Gap | keyof Breakpoint;
   right?: string | number | keyof Gap | keyof Breakpoint;
   top?: string | number | keyof Gap | keyof Breakpoint;
   bottom?: string | number | keyof Gap | keyof Breakpoint;
-  l?: string | number | keyof Gap | keyof Breakpoint;
-  r?: string | number | keyof Gap | keyof Breakpoint;
-  t?: string | number | keyof Gap | keyof Breakpoint;
-  b?: string | number | keyof Gap | keyof Breakpoint;
+  l?: ScaleProps["left"];
+  r?: ScaleProps["right"];
+  t?: ScaleProps["top"];
+  b?: ScaleProps["bottom"];
   width?: string | number | keyof Gap | keyof Breakpoint;
   height?: string | number | keyof Gap | keyof Breakpoint;
   padding?: string | number | keyof Gap;
   margin?: string | number | keyof Gap;
-  w?: string | number | keyof Gap | keyof Breakpoint;
-  h?: string | number | keyof Gap | keyof Breakpoint;
-  p?: string | number | keyof Gap;
-  m?: string | number | keyof Gap;
-  paddingLeft?: string | number | keyof Gap;
-  paddingRight?: string | number | keyof Gap;
-  paddingTop?: string | number | keyof Gap;
-  paddingBottom?: string | number | keyof Gap;
-  pl?: string | number | keyof Gap;
-  pr?: string | number | keyof Gap;
-  pt?: string | number | keyof Gap;
-  pb?: string | number | keyof Gap;
-  marginLeft?: string | number | keyof Gap;
-  marginRight?: string | number | keyof Gap;
-  marginTop?: string | number | keyof Gap;
-  marginBottom?: string | number | keyof Gap;
-  ml?: string | number | keyof Gap;
-  mr?: string | number | keyof Gap;
-  mt?: string | number | keyof Gap;
-  mb?: string | number | keyof Gap;
-  px?: string | number | keyof Gap;
-  py?: string | number | keyof Gap;
-  mx?: string | number | keyof Gap;
-  my?: string | number | keyof Gap;
-  minWidth?: string | number | keyof Gap | keyof Breakpoint;
-  minHeight?: string | number | keyof Gap | keyof Breakpoint;
-  maxWidth?: string | number | keyof Gap | keyof Breakpoint;
-  maxHeight?: string | number | keyof Gap | keyof Breakpoint;
-  minW?: string | number | keyof Gap | keyof Breakpoint;
-  minH?: string | number | keyof Gap | keyof Breakpoint;
-  maxW?: string | number | keyof Gap | keyof Breakpoint;
-  maxH?: string | number | keyof Gap | keyof Breakpoint;
+  w?: ScaleProps["width"];
+  h?: ScaleProps["height"];
+  p?: ScaleProps["padding"];
+  m?: ScaleProps["margin"];
+  paddingLeft?: ScaleProps["padding"];
+  paddingRight?: ScaleProps["padding"];
+  paddingTop?: ScaleProps["padding"];
+  paddingBottom?: ScaleProps["padding"];
+  pl?: ScaleProps["paddingLeft"];
+  pr?: ScaleProps["paddingRight"];
+  pt?: ScaleProps["paddingTop"];
+  pb?: ScaleProps["paddingBottom"];
+  marginLeft?: ScaleProps["margin"];
+  marginRight?: ScaleProps["margin"];
+  marginTop?: ScaleProps["margin"];
+  marginBottom?: ScaleProps["margin"];
+  ml?: ScaleProps["marginLeft"];
+  mr?: ScaleProps["marginRight"];
+  mt?: ScaleProps["marginTop"];
+  mb?: ScaleProps["marginBottom"];
+  px?: ScaleProps["padding"];
+  py?: ScaleProps["padding"];
+  mx?: ScaleProps["margin"];
+  my?: ScaleProps["margin"];
+  minWidth?: ScaleProps["width"];
+  minHeight?: ScaleProps["height"];
+  maxWidth?: ScaleProps["width"];
+  maxHeight?: ScaleProps["height"];
+  minW?: ScaleProps["minWidth"];
+  minH?: ScaleProps["minHeight"];
+  maxW?: ScaleProps["maxWidth"];
+  maxH?: ScaleProps["maxHeight"];
   font?: string | number | keyof Size;
+  cursor?: "pointer" | "auto" | "inherit" | "initial" | "unset";
+  pointerEvents?: "auto" | "none" | "inherit" | "initial" | "revert" | "unset";
 };
 
 const handleValue = (
@@ -159,6 +154,9 @@ const withScale = <T extends object>(
         : ""}
     ${({ theme, font }) =>
       font ? `font-size: ${handleFont(theme, font)};` : ""}
+    ${({ cursor }) => (cursor ? `cursor: ${cursor};` : "")}
+    ${({ pointerEvents }) =>
+      pointerEvents ? `pointer-events: ${pointerEvents};` : ""}
   `;
 };
 
