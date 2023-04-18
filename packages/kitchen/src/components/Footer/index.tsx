@@ -83,7 +83,10 @@ const List = styled.ul`
 `;
 
 const FooterCollapse = styled(Collapse)`
-  border: none;
+  :first-child {
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  }
 `;
 
 export const FooterLink = styled(Link)`
