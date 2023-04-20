@@ -104,7 +104,7 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
             <Vercel
               px={"small"}
               py={"tiny"}
-              bg={"#000"}
+              bga={"dark"}
               align={"center"}
               br={"square"}
               row
@@ -156,6 +156,10 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
 
 const Vercel = kitchen(Container)`
   display: inline-block;
+  color: ${({ theme }) => theme.colors.accent.light};
+  span {
+    color: ${({ theme }) => theme.colors.accent.light};
+  }
 `;
 
 export default CustomFooter;
