@@ -2,7 +2,6 @@ import { useTheme as useNextraTheme } from "next-themes";
 
 const Logo: React.FC = () => {
   const { resolvedTheme } = useNextraTheme();
-  const theme = useNextraTheme();
   return (
     <span>
       <svg
