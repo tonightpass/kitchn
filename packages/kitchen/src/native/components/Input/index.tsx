@@ -148,6 +148,7 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
       inputRef.current.clear();
       inputRef.current.focus();
       onChange && onChange(event as any);
+      onChangeText && onChangeText("");
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -322,7 +323,6 @@ const Field = styled.TextInput<
       : theme.colors.text.lightest};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
-  ${({ disabled }) => disabled && "cursor: not-allowed;"}
 
   padding: 0 ${({ theme }) => theme.gap.small};
   height: ${(props) => {
