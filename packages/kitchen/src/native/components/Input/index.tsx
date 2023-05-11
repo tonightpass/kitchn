@@ -38,6 +38,7 @@ type Props = {
   type?: keyof AccentColors;
   label?: string;
   onChange?: (_event: NativeSyntheticEvent<InputChangeEventData>) => void;
+  onChangeText?: (_value: string) => void;
   pattern?: { [key: string]: RegExp };
 };
 
@@ -60,7 +61,7 @@ const defaultProps: Props = {
   readOnly: false,
 };
 
-const InputComponent = React.forwardRef<
+const InputComponent: React.FC<InputProps> = React.forwardRef<
   TextInput,
   React.PropsWithChildren<InputProps>
 >(
@@ -80,6 +81,7 @@ const InputComponent = React.forwardRef<
       initialValue,
       readOnly,
       onChange,
+      onChangeText,
       width,
       onClearClick,
       onFocus,
@@ -113,6 +115,12 @@ const InputComponent = React.forwardRef<
       if (disabled || readOnly) return;
       setSelfValue(event.nativeEvent.text);
       onChange && onChange(event);
+    };
+
+    const handleChangeText = (value: string) => {
+      if (disabled || readOnly) return;
+      setSelfValue(value);
+      onChangeText && onChangeText(value);
     };
 
     const handleFocus = (
@@ -195,6 +203,7 @@ const InputComponent = React.forwardRef<
             value={value}
             selfValue={selfValue}
             onChange={handleChange}
+            onChangeText={handleChangeText}
             onFocus={handleFocus}
             onBlur={handleBlur}
             readOnly={readOnly}
