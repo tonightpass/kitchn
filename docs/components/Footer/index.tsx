@@ -88,7 +88,7 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
       )}
 
       <Footer subfooter="© 2023 Tonight Pass. All rights reserved.">
-        <Container
+        <StyledContainer
           mt={"small"}
           align={"flex-start"}
           justify={"flex-start"}
@@ -116,7 +116,7 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
               Vercel
             </Vercel>
           </Link>
-        </Container>
+        </StyledContainer>
 
         <FooterGroup title="Ressources">
           {navigation.kitchen.map((item, i) => (
@@ -159,6 +159,17 @@ const Vercel = kitchen(Container)`
   color: ${({ theme }) => theme.colors.accent.light};
   span {
     color: ${({ theme }) => theme.colors.accent.light};
+  }
+`;
+
+const StyledContainer = kitchen(Container)`
+  color: ${({ theme }) => theme.colors.accent.light};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 10px 0;
   }
 `;
 
