@@ -1,5 +1,15 @@
 # @tonightpass/kitchen
 
+## 1.6.0
+
+### Minor Changes
+
+- b4e3b0c: Add Footer
+
+### Patch Changes
+
+- 66e1ffc: Add onChangeText to props of Input
+
 ## 1.5.5
 
 ### Patch Changes
