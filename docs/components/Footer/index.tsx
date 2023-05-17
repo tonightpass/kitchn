@@ -169,7 +169,7 @@ const StyledContainer = kitchen(Container)`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin: 10px 0;
+  margin: ${({ theme }) => theme.gap.small} 0;
   }
 `;
 
