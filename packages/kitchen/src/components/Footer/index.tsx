@@ -26,7 +26,6 @@ const Footer = styled(({ children, subfooter, ...props }: FooterProps) => {
 })<FooterProps>`
   position: relative;
   box-sizing: border-box;
-  border-top: 1px solid ${({ theme }) => theme.colors.layout.dark};
   padding: ${({ theme }) => theme.gap.normal} 0;
 `;
 
@@ -52,11 +51,9 @@ export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
   const { isMobile } = useBreakpoint();
   if (isMobile) {
     return (
-      <div>
-        <FooterCollapse title={title}>
-          <List>{children}</List>
-        </FooterCollapse>
-      </div>
+      <FooterCollapse title={title}>
+        <List>{children}</List>
+      </FooterCollapse>
     );
   } else
     return (
@@ -82,12 +79,7 @@ const List = styled.ul`
   flex-direction: column;
 `;
 
-const FooterCollapse = styled(Collapse)`
-  :first-child {
-    border: none;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.layout.dark};
-  }
-`;
+const FooterCollapse = styled(Collapse)``;
 
 export const FooterLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text.lighter};

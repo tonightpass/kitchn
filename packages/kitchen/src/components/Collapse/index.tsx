@@ -76,10 +76,10 @@ const Collapse = styled(
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  border-top: 1px solid ${({ theme }) => theme.colors.layout.dark};
 
-  :first-child {
-    border-top: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  :last-child {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.layout.dark};
   }
 
   ${({ card, theme }) =>
