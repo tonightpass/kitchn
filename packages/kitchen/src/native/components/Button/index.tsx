@@ -14,6 +14,7 @@ export type Props = {
   suffix?: React.ReactNode;
   type?: keyof AccentColors;
   variant?: "ghost" | "shadow";
+  children?: string;
 };
 
 export type ButtonProps = KitchenComponent<Props, TouchableOpacityComponent>;
