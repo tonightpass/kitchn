@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.6.1
+
+### Patch Changes
+
+- 6c18895: Fix Native Button children types
+
 ## 1.6.0
 
 ### Minor Changes
