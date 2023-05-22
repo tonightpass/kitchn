@@ -129,8 +129,8 @@ importers:
         specifier: ^18.11.9
         version: 18.15.11
       typescript:
-        specifier: ^4.9.3
-        version: 4.9.3
+        specifier: ^5.0.3
+        version: 5.0.3
 
   examples/expo-typescript:
     dependencies:
@@ -277,8 +277,8 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0(react-native-svg@13.9.0)
       typescript:
-        specifier: ^4.9.3
-        version: 4.9.3
+        specifier: ^5.0.3
+        version: 5.0.3
 
   workshop:
     dependencies:
