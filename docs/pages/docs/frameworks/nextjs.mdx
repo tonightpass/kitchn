@@ -43,17 +43,15 @@ wrap the `Component` with the `KitchenProvider`:
 
 ```jsx
 // pages/_app.js
-import { KitchenProvider } from "@tonightpass/kitchen";
+import { withKitchen } from "@tonightpass/kitchen/next";
 
 function App({ Component, pageProps }) {
   return (
-    <KitchenProvider>
-      <Component {...pageProps} />
-    </KitchenProvider>
+    <Component {...pageProps} />
   );
 }
 
-export default App;
+export default withKitchen(App);
 ```
 
 ## Server Side Rendering
@@ -64,13 +62,13 @@ Go to the `next.config.js` file and add the following:
 
 ```js
 // next.config.js
-const { withKitchen } = require("@tonightpass/kitchen/next");
+const { withKitchenConfig } = require("@tonightpass/kitchen/next");
 
 const config = {
   // your next config
 };
 
-module.exports = withKitchen(config);
+module.exports = withKitchenConfig(config);
 ```
 
 Then, go to the `pages/_document.js` or create it if it doesn't exist and add the following:
