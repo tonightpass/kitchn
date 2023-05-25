@@ -7,6 +7,7 @@
   "react-native": "native/dist/tonightpass-kitchen-native.cjs.js",
   "dependencies": {
     "@fontsource/fira-code": "^4.5.13",
+    "js-cookie": "^3.0.5",
     "react-icons": "^4.7.1",
     "styled-components": "^5.3.6"
   },
@@ -29,6 +30,7 @@
     }
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@types/styled-components": "^5.1.26",
