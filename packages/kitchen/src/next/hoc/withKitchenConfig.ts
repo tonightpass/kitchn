@@ -1,6 +1,6 @@
 import { NextConfig } from "next/types";
 
-const withKitchen = (nextConfig: NextConfig | any = {}) => {
+const withKitchenConfig = (nextConfig: NextConfig | any = {}) => {
   return {
     ...nextConfig,
     reactStrictMode: true,
@@ -10,4 +10,4 @@ const withKitchen = (nextConfig: NextConfig | any = {}) => {
   };
 };
 
-export default withKitchen;
+export default withKitchenConfig;
