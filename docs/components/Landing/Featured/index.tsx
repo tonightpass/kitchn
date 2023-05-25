@@ -39,7 +39,7 @@ const Featured: React.FC = () => {
         <Link href="https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchen">
           <Image
             src={`https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=379927&theme=${
-              theme.id === 2 ? "light" : "neutral"
+              theme.name === "dark" ? "light" : "neutral"
             }&period=weekly&topic_id=44`}
             alt="Kitchen - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
             width="250"

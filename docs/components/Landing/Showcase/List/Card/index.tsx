@@ -31,7 +31,7 @@ const ThumbnailImage = kitchen(Image)`
   max-height: 24px;
   transition: all 1s;
   filter: ${({ theme }) =>
-    theme.id === themes.light.id && "grayscale(0) brightness(0) invert(0)"};
+    theme.name === themes.light.name && "grayscale(0) brightness(0) invert(0)"};
 `;
 
 const Container = kitchen.div`
