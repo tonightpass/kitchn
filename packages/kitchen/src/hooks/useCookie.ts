@@ -11,6 +11,7 @@ export type UseCookieOptions<T> = Cookies.CookieAttributes &
   Partial<{
     serializer: UseCookieSerializer<T>;
     parser: UseCookieParser<T>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     logger: (error: any) => void;
   }>;
 
