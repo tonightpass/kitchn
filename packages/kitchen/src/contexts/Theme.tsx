@@ -4,29 +4,23 @@ import {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
 import { PREFIX } from "../constants";
-import useLocalStorage from "../hooks/useLocalStorage";
 import useThemeDetector from "../hooks/useThemeDetector";
 import themes from "../themes";
+import useCookie from "../hooks/useCookie";
 
 const ThemeContext = React.createContext({
   theme: themes.dark,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   setTheme: (_theme: DefaultTheme) => {},
-  storedTheme: 0,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setStoredTheme: (_themeId: number) => {},
+  storedTheme: "system",
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  setStoredTheme: (_themeName: keyof typeof themes | "system" | string) => {},
 });
 
 type ThemeProviderProps = {
   children: React.ReactNode;
   theme?: DefaultTheme;
 };
-
-/**
- * System: 0
- * Dark: 1
- * Light: 2
- */
 
 const ThemeProvider = ({
   children,
@@ -35,36 +29,26 @@ const ThemeProvider = ({
 }: ThemeProviderProps) => {
   const isDarkTheme = useThemeDetector();
 
-  const [storedTheme, setStoredTheme] = useLocalStorage<number>(
-    `${PREFIX}-theme`,
-    customTheme ? customTheme.id : 0
-  );
+  const [storedTheme, setStoredTheme] = useCookie<
+    keyof typeof themes | "system" | string
+  >(`${PREFIX}-theme`, customTheme?.name || "system");
 
   const [theme, setTheme] = React.useState<DefaultTheme>(
-    customTheme || storedTheme === 0
-      ? isDarkTheme
-        ? themes.dark
-        : themes.light
-      : storedTheme === 1
-      ? themes.dark
-      : storedTheme === 2
-      ? themes.light
-      : themes.dark
+    customTheme ||
+      (storedTheme === "system"
+        ? isDarkTheme
+          ? themes.dark
+          : themes.light
+        : themes[storedTheme as keyof typeof themes])
   );
 
   React.useEffect(() => {
-    if (customTheme) {
-      setTheme(customTheme);
-    } else if (storedTheme === 0) {
+    if (storedTheme === "system") {
       setTheme(isDarkTheme ? themes.dark : themes.light);
-    } else if (storedTheme === 1) {
-      setTheme(themes.dark);
-    } else if (storedTheme === 2) {
-      setTheme(themes.light);
     } else {
-      setTheme(themes.dark);
+      setTheme(themes[storedTheme as keyof typeof themes]);
     }
-  }, [customTheme, isDarkTheme, storedTheme]);
+  }, [isDarkTheme, storedTheme]);
 
   return (
     <ThemeContext.Provider
