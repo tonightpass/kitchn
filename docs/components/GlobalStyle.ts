@@ -6,6 +6,15 @@ const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.layout.darkest};
   }
 
+  .nextra-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .nextra-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-clip: border-box;
+  }
+
   html[class~=dark].dark body {
     background: ${({ theme }) => theme.colors.layout.darkest};
   }

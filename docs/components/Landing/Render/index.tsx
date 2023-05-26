@@ -67,7 +67,7 @@ export default function App() {
     <StyledContainer id={"render"} section>
       <Sandpack
         template={"react-ts"}
-        theme={theme.id === 2 ? "light" : nightOwl}
+        theme={theme.name === "light" ? "light" : nightOwl}
         options={{
           editorHeight: 600,
         }}

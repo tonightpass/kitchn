@@ -16,30 +16,21 @@ const IndexPage: NextPage = () => {
 
   return (
     <Container align="center" gap={10} style={{ paddingTop: 100 }}>
-      <Text>
-        Your stored theme is:{" "}
-        {storedTheme === 0
-          ? "system"
-          : storedTheme === 1
-          ? "dark"
-          : storedTheme === 2
-          ? "light"
-          : "custom"}
-      </Text>
+      <Text>Your stored theme is: {storedTheme}</Text>
       <Text>Your system theme is: {isDarkTheme ? "dark" : "light"}</Text>
       <Container gap={10} row>
-        <Button type={"dark"} onClick={() => setStoredTheme(0)}>
+        <Button type={"dark"} onClick={() => setStoredTheme("system")}>
           System
         </Button>
         <Button
           type={"dark"}
-          onClick={() => setStoredTheme(defaultThemes.light.id)}
+          onClick={() => setStoredTheme(defaultThemes.light.name)}
         >
           Light
         </Button>
         <Button
           type={"dark"}
-          onClick={() => setStoredTheme(defaultThemes.dark.id)}
+          onClick={() => setStoredTheme(defaultThemes.dark.name)}
         >
           Dark
         </Button>

@@ -130,6 +130,8 @@ export type {
   UseClipboardResult,
 } from "./hooks/useClipboard";
 
+export { default as useCookie } from "./hooks/useCookie";
+
 export { default as useKeyboard } from "./hooks/useKeyboard";
 export type {
   UseKeyboard,
