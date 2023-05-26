@@ -5,8 +5,8 @@ const light: Theme = {
   colors: {
     layout: {
       darkest: "rgb(255, 255, 255)",
-      darker: "rgb(229, 226, 224)",
-      dark: "rgb(216, 212, 207)",
+      darker: "rgb(250, 250, 251)",
+      dark: "rgb(229, 226, 224)",
       light: "rgb(125, 118, 108)",
       lighter: "rgb(100, 100, 99)",
       lightest: "rgb(0, 0, 0)",

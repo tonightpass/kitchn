@@ -161,9 +161,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
         /* for vertical scrollbars */
-        height: 10px;
+        height: 5px;
         /* for horizontal scrollbars */
     }
 
@@ -173,8 +173,8 @@ const GlobalStyle = createGlobalStyle`
 
     ::-webkit-scrollbar-thumb {
         background: ${({ theme }) => theme.colors.layout.dark};
-        height: 10px;
-        border-radius: 10px;
+        height: 5px;
+        border-radius: 5px;
     }
 
     ::-webkit-scrollbar-track-piece {
