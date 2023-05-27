@@ -1,0 +1,18 @@
+{
+  "name": "next-typescript",
+  "private": true,
+  "scripts": {
+    "dev": "next -p 3004",
+    "build": "next build",
+    "start": "next start -p 3004"
+  },
+  "dependencies": {
+    "@tonightpass/kitchen": "latest",
+    "next": "^13.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
