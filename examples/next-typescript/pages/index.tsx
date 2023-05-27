@@ -5,6 +5,7 @@ import kitchen, {
   Text,
 } from "@tonightpass/kitchen";
 import { Link } from "@tonightpass/kitchen/next";
+import Head from "next/head";
 
 const IndexPage = () => {
   return (
@@ -16,6 +17,10 @@ const IndexPage = () => {
       justify={"space-between"}
       align={"center"}
     >
+      <Head>
+        <title>Create Kitchen Next</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Container w={"100%"} align={"center"} justify={"space-between"} row>
         <Card p={"small"} br={"square"} align={"center"} active row>
           Get started by editing
