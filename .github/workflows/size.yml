@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7
+          version: "latest"
       - uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
