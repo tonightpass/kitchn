@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.6.3
+
+### Patch Changes
+
+- c448dd6: Update package description and keywords
+
 ## 1.6.2
 
 ### Patch Changes
