@@ -2,8 +2,8 @@ import { MainTheme } from "../types/theme";
 
 const main: MainTheme = {
   family: {
-    primary: "Satoshi",
-    monospace: "Satoshi",
+    primary: "Figtree",
+    monospace: "Figtree",
   },
   weight: {
     thin: 100,
