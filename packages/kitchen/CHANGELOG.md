@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.6.4
+
+### Patch Changes
+
+- 633df68: Move from satoshi to figtree
+
 ## 1.6.3
 
 ### Patch Changes
