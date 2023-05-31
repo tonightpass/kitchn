@@ -74,7 +74,6 @@ const Container = styled.label`
   box-sizing: border-box;
   display: block;
   height: 32px;
-  width: 109px;
 `;
 
 const Label = styled.div`
@@ -89,7 +88,6 @@ const SelectorContainer = styled.div`
   display: flex;
   height: 32px;
   position: relative;
-  width: 109px;
 `;
 
 const Prefix = styled.span`
@@ -114,7 +112,6 @@ const Selector = styled.select`
   padding-right: 36px;
   color: ${({ theme }) => theme.colors.accent.dark};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  width: 109px;
 `;
 
 const Suffix = styled.span`
