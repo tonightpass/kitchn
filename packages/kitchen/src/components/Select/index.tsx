@@ -100,7 +100,10 @@ const Prefix = styled.span`
   width: 18px;
 `;
 
-const Selector = styled.select`
+const Selector = styled.select<{
+  prefix: SelectProps["prefix"];
+  suffix: SelectProps["suffix"];
+}>`
   align-items: center;
   box-sizing: border-box;
   display: block;
@@ -108,7 +111,7 @@ const Selector = styled.select`
   margin: 0px;
   overflow-x: visible;
   overflow-y: visible;
-  padding-left: 36px;
+  padding-left: ${({ prefix }) => (!prefix ? "36px" : "12px")};
   padding-right: 36px;
   color: ${({ theme }) => theme.colors.accent.dark};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
