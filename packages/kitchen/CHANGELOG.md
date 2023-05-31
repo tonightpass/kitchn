@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.6.5
+
+### Patch Changes
+
+- 3a57161: Improve native button with ability to use reactnode as children
+
 ## 1.6.4
 
 ### Patch Changes
