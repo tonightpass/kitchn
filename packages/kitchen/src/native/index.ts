@@ -35,7 +35,7 @@ export { default as Text, type TextProps } from "./components/Text";
 // ./hooks
 export { default as useTheme } from "./hooks/useTheme";
 
-// .hoc
+// ./hoc
 export { default as withScale, type ScaleProps } from "./hoc/withScale";
 
 // ./utils
