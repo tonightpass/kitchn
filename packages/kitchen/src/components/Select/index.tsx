@@ -50,6 +50,9 @@ const Select = styled(
               appearance: !prefix || !suffix ? "auto" : "none",
               height:
                 size === "small" ? "32px" : size === "large" ? "48px" : "40px",
+              width:
+                size === "small" ? "86px" : size === "large" ? "93px" : "98px",
+              fontSize: size === "large" ? "16px" : "14px",
             }}
           >
             {placeholder && (
@@ -94,15 +97,16 @@ const Prefix = styled.span`
   box-sizing: border-box;
   display: flex;
   height: 18px;
-  left: 12px;
+  left: 4px;
   position: absolute;
-  color: ${({ theme }) => theme.colors.layout.darkest};
+  color: ${({ theme }) => theme.colors.accent.light};
   width: 18px;
 `;
 
 const Selector = styled.select<{
   prefix: SelectProps["prefix"];
   suffix: SelectProps["suffix"];
+  disabled: SelectProps["disabled"];
 }>`
   align-items: center;
   box-sizing: border-box;
@@ -111,19 +115,20 @@ const Selector = styled.select<{
   margin: 0px;
   overflow-x: visible;
   overflow-y: visible;
-  padding-left: ${({ prefix }) => (!prefix ? "36px" : "12px")};
-  padding-right: 36px;
-  color: ${({ theme }) => theme.colors.accent.dark};
+  padding-left: ${({ prefix }) => (!prefix ? "20px" : "12px")};
+  color: ${({ theme }) => theme.colors.accent.light};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  background-color: ${({ theme }) => theme.colors.accent.dark};
+  border-radius: 5px;
 `;
 
 const Suffix = styled.span`
   box-sizing: border-box;
   display: flex;
   height: 18px;
-  right: 12px;
+  right: 14px;
   position: absolute;
-  color: ${({ theme }) => theme.colors.layout.darkest};
+  color: ${({ theme }) => theme.colors.accent.light};
   width: 18px;
 `;
 
