@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.6.6
+
+### Patch Changes
+
+- 92c9634: Fix styled types
+
 ## 1.6.5
 
 ### Patch Changes
