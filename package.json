@@ -71,5 +71,5 @@
       "packages/*"
     ]
   },
-  "packageManager": "pnpm@8.6.2"
+  "packageManager": "pnpm@8.6.3"
 }
