@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.6.7
+
+### Patch Changes
+
+- dea4ed0: Fix styled types 2
+
 ## 1.6.6
 
 ### Patch Changes
