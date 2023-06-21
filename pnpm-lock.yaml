@@ -169,7 +169,7 @@ importers:
   examples/gatsby-typescript:
     dependencies:
       "@tonightpass/kitchen":
-        specifier: workspace:*
+        specifier: latest
         version: link:../../packages/kitchen
       babel-plugin-styled-components:
         specifier: ^2.0.7
