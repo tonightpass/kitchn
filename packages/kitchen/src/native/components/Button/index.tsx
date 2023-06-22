@@ -14,6 +14,7 @@ export type Props = {
   suffix?: React.ReactNode;
   type?: keyof AccentColors;
   variant?: "ghost" | "shadow";
+  children?: string | React.ReactNode;
 };
 
 export type ButtonProps = KitchenComponent<Props, TouchableOpacityComponent>;
@@ -47,38 +48,42 @@ const Button = ({
       {...props}
     >
       {prefix && <Prefix>{prefix}</Prefix>}
-      <Text
-        color={textColor}
-        accent={
-          variant === "ghost"
-            ? type === "light"
-              ? "lightest"
-              : type === "dark"
+      {children && typeof children === "string" ? (
+        <Text
+          color={textColor}
+          accent={
+            variant === "ghost"
+              ? type === "light"
+                ? "lightest"
+                : type === "dark"
+                ? "light"
+                : type === "info"
+                ? "info"
+                : type === "success"
+                ? "success"
+                : type === "warning"
+                ? "warning"
+                : type === "danger"
+                ? "danger"
+                : type === "secondary"
+                ? "secondary"
+                : type === "primary"
+                ? "primary"
+                : undefined
+              : !textColor
               ? "light"
-              : type === "info"
-              ? "info"
-              : type === "success"
-              ? "success"
-              : type === "warning"
-              ? "warning"
-              : type === "danger"
-              ? "danger"
-              : type === "secondary"
-              ? "secondary"
-              : type === "primary"
-              ? "primary"
               : undefined
-            : !textColor
-            ? "light"
-            : undefined
-        }
-        size={
-          size === "small" ? "small" : size === "large" ? "medium" : "normal"
-        }
-        weight={"bold"}
-      >
-        {children}
-      </Text>
+          }
+          size={
+            size === "small" ? "small" : size === "large" ? "medium" : "normal"
+          }
+          weight={"bold"}
+        >
+          {children}
+        </Text>
+      ) : (
+        children
+      )}
       {suffix && <Suffix>{suffix}</Suffix>}
     </Container>
   );

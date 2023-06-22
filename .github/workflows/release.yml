@@ -18,7 +18,7 @@ jobs:
       - name: Use pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7
+          version: "latest"
 
       - name: Use Node
         uses: actions/setup-node@v3

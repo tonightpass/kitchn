@@ -1,5 +1,72 @@
 # @tonightpass/kitchen
 
+## 1.6.7
+
+### Patch Changes
+
+- dea4ed0: Fix styled types 2
+
+## 1.6.6
+
+### Patch Changes
+
+- 92c9634: Fix styled types
+
+## 1.6.5
+
+### Patch Changes
+
+- 3a57161: Improve native button with ability to use reactnode as children
+
+## 1.6.4
+
+### Patch Changes
+
+- 633df68: Move from satoshi to figtree
+
+## 1.6.3
+
+### Patch Changes
+
+- c448dd6: Update package description and keywords
+
+## 1.6.2
+
+### Patch Changes
+
+- bdf6007: Add a HOC for Next.js to get the theme from the server side
+  Update default themes name
+
+  To migrate please update your project like by following the doc: https://kitchen.tonightpass.com/docs/frameworks/nextjs
+
+## 1.6.1
+
+### Patch Changes
+
+- 6c18895: Fix Native Button children types
+
+## 1.6.0
+
+### Minor Changes
+
+- b4e3b0c: Add Footer
+
+### Patch Changes
+
+- 66e1ffc: Add onChangeText to props of Input
+
+## 1.5.5
+
+### Patch Changes
+
+- f06e480: Improve `Keybpard` hook with callback
+
+## 1.5.4
+
+### Patch Changes
+
+- 5ddf1cb: Add Cursor Pointer support to `Scale` hoc
+
 ## 1.5.3
 
 ### Patch Changes

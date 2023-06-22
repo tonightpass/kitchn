@@ -1,5 +1,4 @@
 // styled-components
-import "./types/styled-components";
 import { default as kitchen } from "styled-components";
 export { createGlobalStyle } from "styled-components";
 export type { DefaultTheme } from "styled-components";
@@ -45,6 +44,14 @@ export type { DrawerProps } from "./components/Drawer";
 
 export { default as Error } from "./components/Error";
 export type { ErrorProps } from "./components/Error";
+
+export {
+  default as Footer,
+  FooterGroup,
+  FooterLink,
+  FooterColumn,
+} from "./components/Footer";
+export type { FooterProps } from "./components/Footer";
 
 export { default as Icon } from "./components/Icon";
 export type { IconProps } from "./components/Icon";
@@ -124,6 +131,8 @@ export type {
   UseClipboardOptions,
   UseClipboardResult,
 } from "./hooks/useClipboard";
+
+export { default as useCookie } from "./hooks/useCookie";
 
 export { default as useKeyboard } from "./hooks/useKeyboard";
 export type {

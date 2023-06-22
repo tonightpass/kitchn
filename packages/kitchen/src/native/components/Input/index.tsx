@@ -38,6 +38,7 @@ type Props = {
   type?: keyof AccentColors;
   label?: string;
   onChange?: (_event: NativeSyntheticEvent<InputChangeEventData>) => void;
+  onChangeText?: (_value: string) => void;
   pattern?: { [key: string]: RegExp };
 };
 
@@ -60,7 +61,7 @@ const defaultProps: Props = {
   readOnly: false,
 };
 
-const InputComponent = React.forwardRef<
+const InputComponent: React.FC<InputProps> = React.forwardRef<
   TextInput,
   React.PropsWithChildren<InputProps>
 >(
@@ -80,6 +81,7 @@ const InputComponent = React.forwardRef<
       initialValue,
       readOnly,
       onChange,
+      onChangeText,
       width,
       onClearClick,
       onFocus,
@@ -115,6 +117,12 @@ const InputComponent = React.forwardRef<
       onChange && onChange(event);
     };
 
+    const handleChangeText = (value: string) => {
+      if (disabled || readOnly) return;
+      setSelfValue(value);
+      onChangeText && onChangeText(value);
+    };
+
     const handleFocus = (
       event: NativeSyntheticEvent<TextInputFocusEventData>
     ) => {
@@ -140,6 +148,7 @@ const InputComponent = React.forwardRef<
       inputRef.current.clear();
       inputRef.current.focus();
       onChange && onChange(event as any);
+      onChangeText && onChangeText("");
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -195,6 +204,7 @@ const InputComponent = React.forwardRef<
             value={value}
             selfValue={selfValue}
             onChange={handleChange}
+            onChangeText={handleChangeText}
             onFocus={handleFocus}
             onBlur={handleBlur}
             readOnly={readOnly}
@@ -313,7 +323,6 @@ const Field = styled.TextInput<
       : theme.colors.text.lightest};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
-  ${({ disabled }) => disabled && "cursor: not-allowed;"}
 
   padding: 0 ${({ theme }) => theme.gap.small};
   height: ${(props) => {

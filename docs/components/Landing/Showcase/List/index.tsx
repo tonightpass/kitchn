@@ -19,8 +19,6 @@ const ShowcaseList = () => {
 };
 
 const YourCompany = kitchen(Link)`
-  background-color: ${({ theme }) => theme.colors.layout.darker};
-  border-radius: 10px;
   width: 160px;
   height: 100%;
   display: flex;
