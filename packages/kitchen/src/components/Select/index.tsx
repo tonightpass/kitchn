@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { KitchenComponent, NormalSizes } from "../../types";
+import { RiArrowDownSLine } from "react-icons/ri";
 
-export type SelectProps = KitchenComponent & {
+type Props = {
   /**
    * The size of the select.
    * @default "normal"
@@ -19,47 +20,49 @@ export type SelectProps = KitchenComponent & {
   /**
    * The prefix of the select.
    */
-  prefix?: SVGElement;
+  prefix?: JSX.Element | string;
   /**
    * The suffix of the select.
    */
-  suffix?: SVGElement;
+  suffix?: JSX.Element | string;
   disabled?: boolean;
 };
 
+export type SelectProps = KitchenComponent<
+  Props,
+  React.SelectHTMLAttributes<HTMLSelectElement>
+>;
+
 const Select = styled(
   ({
-    size,
+    size = "normal",
     label,
     placeholder,
     prefix,
-    suffix,
+    suffix = <RiArrowDownSLine />,
     disabled,
     children,
     ...props
   }: SelectProps) => {
     return (
-      <Container {...props}>
+      <Container size={size}>
         {label && <Label>{label}</Label>}
         <SelectorContainer>
           {prefix && <Prefix>{prefix}</Prefix>}
           <Selector
+            size={size}
+            prefix={prefix}
+            suffix={suffix}
             placeholder={placeholder}
             disabled={disabled}
-            style={{
-              appearance: !prefix || !suffix ? "auto" : "none",
-              height:
-                size === "small" ? "32px" : size === "large" ? "48px" : "40px",
-              width:
-                size === "small" ? "86px" : size === "large" ? "93px" : "98px",
-              fontSize: size === "large" ? "16px" : "14px",
-            }}
+            {...props}
           >
             {placeholder && (
-              <option value={placeholder} disabled label={placeholder} selected>
-                {children}
+              <option disabled selected value={placeholder}>
+                {placeholder}
               </option>
             )}
+            {children}
           </Selector>
           {suffix && <Suffix>{suffix}</Suffix>}
         </SelectorContainer>
@@ -67,16 +70,28 @@ const Select = styled(
     );
   }
 )<SelectProps>`
-  display: inline-flex;
-  user-select: none;
-  color: ${({ theme }) => theme.colors.accent.dark};
-  font-weight: ${({ theme }) => theme.weight.medium};
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  border-radius: ${({ theme }) => theme.radius.square};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
+  appearance: none;
 `;
 
-const Container = styled.label`
-  box-sizing: border-box;
-  display: block;
-  height: 32px;
+const Container = styled.label<{
+  size: SelectProps["size"];
+}>`
+  font-size: ${({ size, theme }) => {
+    switch (size) {
+      case "small":
+        return theme.size.tiny;
+      case "large":
+        return theme.size.normal;
+      case "normal":
+      default:
+        return theme.size.small;
+    }
+  }};
 `;
 
 const Label = styled.div`
@@ -96,40 +111,50 @@ const SelectorContainer = styled.div`
 const Prefix = styled.span`
   box-sizing: border-box;
   display: flex;
-  height: 18px;
-  left: 4px;
+  left: 8px;
   position: absolute;
-  color: ${({ theme }) => theme.colors.accent.light};
-  width: 18px;
-`;
-
-const Selector = styled.select<{
-  prefix: SelectProps["prefix"];
-  suffix: SelectProps["suffix"];
-  disabled: SelectProps["disabled"];
-}>`
-  align-items: center;
-  box-sizing: border-box;
-  display: block;
-  height: 32px;
-  margin: 0px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding-left: ${({ prefix }) => (!prefix ? "20px" : "12px")};
-  color: ${({ theme }) => theme.colors.accent.light};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  background-color: ${({ theme }) => theme.colors.accent.dark};
-  border-radius: 5px;
+  pointer-events: none;
 `;
 
 const Suffix = styled.span`
   box-sizing: border-box;
   display: flex;
-  height: 18px;
-  right: 14px;
+  right: 8px;
   position: absolute;
-  color: ${({ theme }) => theme.colors.accent.light};
-  width: 18px;
+  pointer-events: none;
+`;
+
+const Selector = styled.select<SelectProps>`
+  padding: 0 ${({ theme }) => theme.gap.small};
+  height: ${(props) => {
+    switch (props.size) {
+      case "small":
+        return "30px";
+      case "large":
+        return "50px";
+      case "normal":
+      default:
+        return "40px";
+    }
+  }};
+  font-size: inherit;
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  ${({ theme, prefix }) => prefix && `padding-left: ${theme.gap.large};`}
+  ${({ theme, suffix }) => suffix && `padding-right: ${theme.gap.large};`}
+
+  option {
+    font-size: inherit;
+  }
+
+  :hover,
+  :focus {
+    border-color: ${({ theme }) => theme.colors.layout.lighter};
+  }
+
+  ${Prefix}, ${Suffix} {
+    background: red;
+    color: ${({ theme }) => theme.colors.text.light};
+  }
 `;
 
 export default Select;

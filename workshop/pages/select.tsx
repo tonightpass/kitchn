@@ -16,7 +16,10 @@ const SelectPage: NextPage = () => {
         <p>sizes</p>
         <Container gap={10} row style={{ alignItems: "center" }}>
           <Container row>
-            <Select size="small" placeholder="Small" />
+            <Select size="small" placeholder="Small">
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+            </Select>
           </Container>
           <Container row>
             <Select size="normal" placeholder="Default" />
