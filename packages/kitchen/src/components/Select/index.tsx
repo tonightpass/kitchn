@@ -49,22 +49,23 @@ const Select = styled(
         {label && <Label>{label}</Label>}
         <SelectorContainer>
           {prefix && <Prefix>{prefix}</Prefix>}
+          {suffix && <Suffix>{suffix}</Suffix>}
           <Selector
             size={size}
             prefix={prefix}
             suffix={suffix}
             placeholder={placeholder}
             disabled={disabled}
+            defaultValue={placeholder}
             {...props}
           >
             {placeholder && (
-              <option disabled selected value={placeholder}>
+              <option disabled value={placeholder}>
                 {placeholder}
               </option>
             )}
             {children}
           </Selector>
-          {suffix && <Suffix>{suffix}</Suffix>}
         </SelectorContainer>
       </Container>
     );
@@ -97,15 +98,7 @@ const Container = styled.label<{
 const Label = styled.div`
   margin-bottom: 8px;
   font-size: ${({ theme }) => theme.size.normal};
-  color: ${({ theme }) => theme.colors.accent.light};
-`;
-
-const SelectorContainer = styled.div`
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  height: 32px;
-  position: relative;
+  color: ${({ theme }) => theme.colors.text.lightest};
 `;
 
 const Prefix = styled.span`
@@ -122,6 +115,25 @@ const Suffix = styled.span`
   right: 8px;
   position: absolute;
   pointer-events: none;
+`;
+
+const SelectorContainer = styled.div`
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 32px;
+  position: relative;
+
+  ${Prefix}, ${Suffix} {
+    transition: color 0.2s ease-in-out;
+    color: ${({ theme }) => theme.colors.text.lighter};
+  }
+
+  :hover {
+    ${Prefix}, ${Suffix} {
+      color: ${({ theme }) => theme.colors.text.lightest};
+    }
+  }
 `;
 
 const Selector = styled.select<SelectProps>`
@@ -148,12 +160,7 @@ const Selector = styled.select<SelectProps>`
 
   :hover,
   :focus {
-    border-color: ${({ theme }) => theme.colors.layout.lighter};
-  }
-
-  ${Prefix}, ${Suffix} {
-    background: red;
-    color: ${({ theme }) => theme.colors.text.light};
+    border-color: ${({ theme }) => theme.colors.layout.light};
   }
 `;
 
