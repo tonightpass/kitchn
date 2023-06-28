@@ -78,6 +78,9 @@ export type { NoteProps } from "./components/Note";
 export { default as Progress } from "./components/Progress";
 export type { ProgressProps } from "./components/Progress";
 
+export { default as Select } from "./components/Select";
+export type { SelectProps } from "./components/Select";
+
 export { default as Skeleton } from "./components/Skeleton";
 export type { SkeletonProps } from "./components/Skeleton";
 
