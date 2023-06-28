@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.7.0
+
+### Minor Changes
+
+- 08118dc: Add `Select`
+
 ## 1.6.7
 
 ### Patch Changes
