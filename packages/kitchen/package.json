@@ -33,7 +33,7 @@
     "@types/styled-components-react-native": "^5.2.0",
     "js-cookie": "^3.0.5",
     "react-icons": "^4.7.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.0.0"
   },
   "peerDependencies": {
     "next": ">= 13.0.0",
