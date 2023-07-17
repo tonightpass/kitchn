@@ -30,8 +30,8 @@ const ImagePage: NextPage = () => {
             width={540}
             height={309}
             margin={0}
-            caption={"Source: giphy.com"}
-            captionSpacing={20}
+            // caption={"Source: giphy.com"}
+            // captionSpacing={20}
           />
         </Container>
       </Container>

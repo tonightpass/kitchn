@@ -1,5 +1,7 @@
 name: CI
 on: [push]
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}

@@ -1,5 +1,7 @@
 name: size
 on: [pull_request]
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
 jobs:
   size:
     runs-on: ubuntu-latest
