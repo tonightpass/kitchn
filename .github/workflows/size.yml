@@ -11,5 +11,7 @@ jobs:
         with:
           version: "latest"
       - uses: andresz1/size-limit-action@v1
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
