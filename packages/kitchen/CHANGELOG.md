@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.8.0
+
+### Minor Changes
+
+- 47ccc8d: Upgrade styled-components to v6
+
 ## 1.7.1
 
 ### Patch Changes
