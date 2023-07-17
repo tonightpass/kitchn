@@ -3,7 +3,12 @@ const parseCookieString = (cookieString: string) => {
   const cookieObject = cookieArray.reduce((acc, cookie) => {
     const [key, encodedValue] = cookie.split("=");
     const value = decodeURIComponent(encodedValue);
-    const parsedValue = value !== "undefined" ? JSON.parse(value) : undefined;
+    const parsedValue =
+      value !== "undefined"
+        ? value.includes(":")
+          ? value
+          : JSON.parse(value)
+        : undefined;
     return { ...acc, [key.trim()]: parsedValue };
   }, {});
   return cookieObject;
