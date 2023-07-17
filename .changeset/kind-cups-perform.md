@@ -1,5 +1,5 @@
 ---
-"@tonightpass/kitchen": major
+"@tonightpass/kitchen": minor
 ---
 
 Upgrade styled-components to v6
