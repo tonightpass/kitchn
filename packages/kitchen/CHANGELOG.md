@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.7.1
+
+### Patch Changes
+
+- cbfdd27: Fix parseCookieString function
+
 ## 1.7.0
 
 ### Minor Changes
