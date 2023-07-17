@@ -1,10 +1,10 @@
 name: Release
-
 on:
   push:
     branches:
       - master
-
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
 jobs:
   release:
     if: github.repository == 'tonightpass/kitchen'
@@ -26,8 +26,6 @@ jobs:
           cache: "pnpm"
 
       - name: Install Dependencies
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
         run: pnpm i
 
       - name: Lint
