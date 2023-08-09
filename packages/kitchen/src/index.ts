@@ -59,6 +59,8 @@ export type { IconProps } from "./components/Icon";
 export { default as Input } from "./components/Input";
 export type { InputProps } from "./components/Input";
 
+export { default as ControlledInput } from "./components/Input/Controlled";
+
 export { default as Image } from "./components/Image";
 export type { ImageProps } from "./components/Image";
 
