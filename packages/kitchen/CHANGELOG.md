@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.8.1
+
+### Patch Changes
+
+- bef80fb: Add Controlled Input component.
+
 ## 1.8.0
 
 ### Minor Changes
