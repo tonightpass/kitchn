@@ -1,9 +1,20 @@
-import { Container, Text, Input } from "@tonightpass/kitchen";
+import { Container, Text, Input, ControlledInput } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
+import { useForm } from "react-hook-form";
 import { RiArrowUpCircleLine } from "react-icons/ri";
 
+type FormData = {
+  name: string;
+};
+
 const InputPage: NextPage = () => {
+  const { control, handleSubmit } = useForm<FormData>();
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
+
   return (
     <>
       <Container
@@ -275,6 +286,17 @@ const InputPage: NextPage = () => {
           <Text>label</Text>
           <Container>
             <Input placeholder="With label" label="My label" />
+          </Container>
+        </Container>
+
+        <Container gap={5}>
+          <Text>controlled</Text>
+          <Container row>
+            <Container align="flex-start">
+              <form onSubmit={onSubmit}>
+                <ControlledInput name={"name"} control={control} />
+              </form>
+            </Container>
           </Container>
         </Container>
       </Container>

@@ -70,7 +70,7 @@ const Input = styled(
     label,
     ...props
   }: InputProps) => {
-    const inputRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = React.useRef<HTMLInputElement>();
     const [selfValue, setSelfValue] = React.useState<string>(initialValue);
     const [focus, setFocus] = React.useState<boolean>(false);
     const [clearIconHover, setClearIconHover] = React.useState<boolean>(false);
