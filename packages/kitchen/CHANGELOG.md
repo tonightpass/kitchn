@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 2.0.0
+
+### Major Changes
+
+- d4ffe34: Add Controlled Input component
+
 ## 1.8.0
 
 ### Minor Changes
