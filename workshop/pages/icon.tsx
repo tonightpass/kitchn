@@ -42,6 +42,8 @@ const IconPage: NextPage = () => {
         <Icon icon={RiGithubFill} align={"middle"} />
         <Icon icon={RiGithubFill} align={"bottom"} />
       </div>
+      <p>with custom svg</p>
+      <Icon icon={"/logo.svg"} />
     </div>
   );
 };
