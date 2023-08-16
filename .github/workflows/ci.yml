@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ["14.x", "16.x", "18.x"]
+        node: ["16.x", "18.x", "20.x"]
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
@@ -19,7 +19,7 @@ jobs:
       - name: Use pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: ${{ matrix.node == '14.x' && '6' || 'latest' }}
+          version: "latest"
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v3
