@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
@@ -13,9 +14,9 @@ export type SpinnerProps = KitchenComponent<Props>;
 const Spinner = styled(({ ...props }: SpinnerProps) => {
   return (
     <div {...props}>
-      <div className="bounce1"></div>
-      <div className="bounce2"></div>
-      <div className="bounce3"></div>
+      <div className={"bounce1"} />
+      <div className={"bounce2"} />
+      <div className={"bounce3"} />
     </div>
   );
 })`

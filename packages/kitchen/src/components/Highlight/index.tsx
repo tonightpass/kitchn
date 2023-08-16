@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+
+import withScale from "../../hoc/withScale";
 import usePrevious from "../../hooks/usePrevious";
 import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
-import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 export type HighlightProps = KitchenComponent & {
@@ -47,7 +48,7 @@ const Highlight = styled(
         {...props}
       />
     );
-  }
+  },
 )<HighlightProps>`
   opacity: ${({ visible, activeOpacity }) => (visible ? activeOpacity : 0)};
 `;

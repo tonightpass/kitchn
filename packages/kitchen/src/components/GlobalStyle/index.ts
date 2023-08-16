@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 
 const GlobalStyle = createGlobalStyle`
@@ -156,8 +157,8 @@ const GlobalStyle = createGlobalStyle`
     html,
     body {
         scrollbar-color: ${({ theme }) => theme.colors.layout.dark} ${({
-  theme,
-}) => theme.colors.layout.darkest};
+          theme,
+        }) => theme.colors.layout.darkest};
     }
 
     ::-webkit-scrollbar {

@@ -1,6 +1,7 @@
 import { useTheme } from "@tonightpass/kitchen";
 import React from "react";
 import { LivePreview, LiveProvider, LiveError } from "react-live";
+
 import makeCodeTheme from "./code-theme";
 import Editor from "./editor";
 import kitchenScope from "./scope";
@@ -21,9 +22,9 @@ const DynamicLive: React.FC<Props> = ({ code, scope }) => {
       scope={{ ...scope, ...kitchenScope }}
       theme={codeTheme}
     >
-      <div className="wrapper">
+      <div className={"wrapper"}>
         <LivePreview />
-        <LiveError className="live-error" />
+        <LiveError className={"live-error"} />
       </div>
       <Editor code={code} />
       <style jsx>{`

@@ -1,6 +1,7 @@
 import React from "react";
 import { Text as NText, TextComponent } from "react-native";
 import styled from "styled-components/native";
+
 import capitalize from "../../../utils/capitalize";
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
@@ -84,7 +85,8 @@ const Text = styled(({ children, truncate, ...props }: TextProps) => {
   line-height: ${(props) => {
     const lineHeight = props.lineHeight || 1.25;
     const fontSize = parseInt(
-      props.theme.size[props.size || "normal"].replace("px", "")
+      props.theme.size[props.size || "normal"].replace("px", ""),
+      10,
     );
 
     return typeof lineHeight === "number"

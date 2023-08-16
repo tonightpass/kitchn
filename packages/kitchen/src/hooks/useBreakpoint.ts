@@ -1,4 +1,5 @@
 import { useTheme } from "styled-components";
+
 import useMediaQuery from "./useMediaQuery";
 
 export type UseBreakpointResult = {

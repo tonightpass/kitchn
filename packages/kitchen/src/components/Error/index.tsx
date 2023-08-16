@@ -1,6 +1,7 @@
 import React from "react";
 import { RiErrorWarningLine, RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
@@ -33,7 +34,7 @@ const Error = styled(
             icon={RiErrorWarningLine}
             accent={"danger"}
             size={size === "small" ? 15 : size === "large" ? 20 : 18}
-            align="bottom"
+            align={"bottom"}
           />
         </IconContainer>
         <TextContainer>
@@ -63,7 +64,7 @@ const Error = styled(
         </TextContainer>
       </div>
     );
-  }
+  },
 )<ErrorProps>`
   display: flex;
   line-height: 1;

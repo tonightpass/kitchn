@@ -1,11 +1,10 @@
-/* eslint-disable @next/next/no-document-import-in-page */
-import React from "react";
 import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
 export default class KitchenDocument extends Document {
   static async getInitialProps(
-    ctx: DocumentContext
+    ctx: DocumentContext,
   ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;

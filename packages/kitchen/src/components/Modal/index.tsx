@@ -1,10 +1,11 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+
+import withScale from "../../hoc/withScale";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
-import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 import Drawer from "../Drawer";
@@ -45,7 +46,7 @@ const ModalComponent = styled(
           if (onAnimationDone) onAnimationDone();
         }, 210);
       },
-      [animationState, onClickOutside, onAnimationDone]
+      [animationState, onClickOutside, onAnimationDone],
     );
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -85,7 +86,7 @@ const ModalComponent = styled(
       [KeyCode.Escape, KeyCode.Enter],
       {
         disableGlobalEvent: true,
-      }
+      },
     );
 
     if (!portal) return null;
@@ -117,9 +118,9 @@ const ModalComponent = styled(
           </ModalContent>
         </div>
       ) : null,
-      portal
+      portal,
     );
-  }
+  },
 )`
   top: 0px;
   left: 0px;
@@ -221,7 +222,7 @@ export type ModalActionProps = KitchenComponent<
 >;
 
 const ModalAction = styled((props: ModalActionProps) => (
-  <button type="button" {...props} />
+  <button type={"button"} {...props} />
 ))<ModalActionProps>`
   color: ${({ theme }) => theme.colors.text.lightest};
   background-color: ${({ theme }) => theme.colors.layout.darkest};

@@ -1,5 +1,5 @@
-import { PrismTheme } from "prism-react-renderer";
 import { DefaultTheme } from "@tonightpass/kitchen";
+import { PrismTheme } from "prism-react-renderer";
 
 const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
   plain: {

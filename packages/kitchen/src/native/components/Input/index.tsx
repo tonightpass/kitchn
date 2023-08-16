@@ -8,12 +8,12 @@ import {
   GestureResponderEvent,
 } from "react-native/types";
 import styled, { useTheme } from "styled-components/native";
+
 import capitalize from "../../../utils/capitalize";
 import convertRGBToRGBA from "../../../utils/convertRGBToRGBA";
 import isNumber from "../../../utils/isNumber";
 import withScale from "../../hoc/withScale";
 import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
-
 import Icon from "../Icon";
 import Text from "../Text";
 
@@ -92,23 +92,23 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
       pattern,
       ...props
     }: InputProps & typeof defaultProps,
-    ref: React.ForwardedRef<TextInput>
+    ref: React.ForwardedRef<TextInput>,
   ) => {
     const theme = useTheme();
     const inputRef = React.useRef<TextInput>(null);
     React.useImperativeHandle(ref, () => inputRef.current as TextInput);
 
     const [selfValue, setSelfValue] = React.useState<string | undefined>(
-      initialValue
+      initialValue,
     );
     const isControlledComponent = React.useMemo(
       () => value !== undefined,
-      [value]
+      [value],
     );
     const [focus, setFocus] = React.useState<boolean>(false);
 
     const handleChange = (
-      event: NativeSyntheticEvent<InputChangeEventData>
+      event: NativeSyntheticEvent<InputChangeEventData>,
     ) => {
       event.nativeEvent.name = name;
       event.nativeEvent.pattern = pattern;
@@ -124,7 +124,7 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
     };
 
     const handleFocus = (
-      event: NativeSyntheticEvent<TextInputFocusEventData>
+      event: NativeSyntheticEvent<TextInputFocusEventData>,
     ) => {
       if (disabled || readOnly) return;
       setFocus(true);
@@ -132,7 +132,7 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
     };
 
     const handleBlur = (
-      event: NativeSyntheticEvent<TextInputFocusEventData>
+      event: NativeSyntheticEvent<TextInputFocusEventData>,
     ) => {
       if (disabled || readOnly) return;
       setFocus(false);
@@ -271,7 +271,7 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
         )}
       </Wrapper>
     );
-  }
+  },
 );
 
 const Wrapper = styled.View``;
@@ -309,7 +309,7 @@ const Field = styled.TextInput<
   font-family: ${({ theme }) => {
     const weight = "regular";
     return `${theme.family.primary}_${theme.weight[weight]}${capitalize(
-      weight
+      weight,
     )}`;
   }};
   flex: 1;

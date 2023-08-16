@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
@@ -12,7 +13,7 @@ export type Props = {
   size?: NormalSizes;
   loading?: boolean;
   disabled?: boolean;
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (_event?: React.MouseEvent<HTMLButtonElement>) => void;
   width?: number | string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -45,7 +46,7 @@ const Button = styled(
     return (
       <Component {...props}>
         {(prefix || loading) && (
-          <Prefix hasContent={children != undefined}>
+          <Prefix hasContent={children !== undefined}>
             {loading ? (
               <Spinner
                 size={
@@ -68,7 +69,7 @@ const Button = styled(
         {suffix && <Suffix>{suffix}</Suffix>}
       </Component>
     );
-  }
+  },
 )<ButtonProps>`
   position: relative;
   display: flex;
@@ -237,7 +238,7 @@ const Button = styled(
       if (props.variant === "ghost") {
         return `1px solid ${convertRGBToRGBA(
           props.theme.colors.accent.light,
-          0.25
+          0.25,
         )}`;
       }
 
@@ -252,7 +253,7 @@ const Button = styled(
         case "secondary":
           return `1px solid ${convertRGBToRGBA(
             props.theme.colors.accent.light,
-            0.25
+            0.25,
           )}`;
         case "primary":
         default:

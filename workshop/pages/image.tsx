@@ -12,21 +12,21 @@ const ImagePage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <p>static</p>
+        <p>{"static"}</p>
         <Image
           src={"https://assets.vercel.com/image/upload/front/zeit/og.png"}
-          alt="triangle"
+          alt={"triangle"}
           width={540}
           height={309}
           margin={0}
         />
-        <p>gif with caption</p>
+        <p>{"gif with caption"}</p>
         <Container>
           <Image
             src={
               "https://assets.vercel.com/image/upload/front/assets/design/components/triangle.gif"
             }
-            alt="triangle"
+            alt={"triangle"}
             width={540}
             height={309}
             margin={0}

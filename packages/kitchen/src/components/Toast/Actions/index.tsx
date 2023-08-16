@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ToastAction } from "../../../hooks/useToasts";
+
 import withScale from "../../../hoc/withScale";
+import { ToastAction } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
 import capitalize from "../../../utils/capitalize";
 import Button from "../../Button";
@@ -18,7 +19,7 @@ const ToastActions = styled(
   ({ actions, cancelHandle, ...props }: ToastActionsProps) => {
     const handler = (
       event: React.MouseEvent<HTMLButtonElement>,
-      userHandler: ToastAction["handler"]
+      userHandler: ToastAction["handler"],
     ) => {
       userHandler && userHandler(event, cancelHandle);
     };
@@ -41,7 +42,7 @@ const ToastActions = styled(
         </Container>
       </Container>
     );
-  }
+  },
 )``;
 
 export default withScale(ToastActions);

@@ -1,16 +1,15 @@
 import React from "react";
+
 import { Toast, ToastLayout } from "../hooks/useToasts";
 
-export type UpdateToastsFunction = (
-  fn: (toasts: Array<Toast>) => Array<Toast>
-) => void;
+export type UpdateToastsFunction = (fn: (toasts: Toast[]) => Toast[]) => void;
 export type UpdateToastsLayoutFunction = (
-  fn: (layout: Required<ToastLayout>) => Required<ToastLayout>
+  fn: (layout: Required<ToastLayout>) => Required<ToastLayout>,
 ) => void;
 export type UpdateToastsIDFunction = (fn: () => string | null) => void;
 
 export interface ToastsContextParams {
-  toasts: Array<Toast>;
+  toasts: Toast[];
   updateToasts: UpdateToastsFunction;
   toastLayout: Required<ToastLayout>;
   updateToastLayout: UpdateToastsLayoutFunction;

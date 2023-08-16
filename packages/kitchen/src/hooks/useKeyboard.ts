@@ -1,4 +1,5 @@
 import React from "react";
+
 import { KeyMod } from "../utils/codes";
 import getActiveModMap from "../utils/getActiveModMap";
 import getCtrlKeysByPlatform from "../utils/getCtrlKeysByPlatform";
@@ -23,13 +24,13 @@ export type KeyboardResult = {
 };
 
 export type UseKeyboardHandler = (
-  event: React.KeyboardEvent | KeyboardEvent
+  event: React.KeyboardEvent | KeyboardEvent,
 ) => void;
 
 export type UseKeyboard = (
   handler: UseKeyboardHandler,
-  keyBindings: Array<number> | number,
-  options?: KeyboardOptions
+  keyBindings: number[] | number,
+  options?: KeyboardOptions,
 ) => KeyboardResult;
 
 const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
@@ -71,7 +72,7 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
       handler,
       preventDefault,
       stopPropagation,
-    ]
+    ],
   );
 
   React.useEffect(() => {
@@ -85,7 +86,7 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
 
   const elementBindingHandler = (
     elementEventType: "keydown" | "keypress" | "keyup",
-    isCapture = false
+    isCapture = false,
   ) => {
     if (elementEventType !== event) return () => null;
     if (isCapture !== capture) return () => null;

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import useBreakpoint from "../../hooks/useBreakpoint";
+
 import withScale from "../../hoc/withScale";
+import useBreakpoint from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -103,7 +104,7 @@ const Progress = styled(
         </CheckpointContainer>
       </Container>
     );
-  }
+  },
 )<
   ProgressProps & {
     background?: string;

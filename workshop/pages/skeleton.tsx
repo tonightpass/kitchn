@@ -13,7 +13,7 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>default with set width</p>
+        <p>{"default with set width"}</p>
         <Skeleton width={160} />
       </Container>
       <Container
@@ -24,7 +24,7 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>default with box height</p>
+        <p>{"default with box height"}</p>
         <Skeleton width={160} boxHeight={42} />
       </Container>
       <Container
@@ -35,13 +35,13 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>wrapping children</p>
+        <p>{"wrapping children"}</p>
         <Skeleton>
-          <Button>Hidden by skeleton</Button>
+          <Button>{"Hidden by skeleton"}</Button>
         </Skeleton>
 
         <Skeleton show={false}>
-          <Button>Not hidden by skeleton</Button>
+          <Button>{"Not hidden by skeleton"}</Button>
         </Skeleton>
       </Container>
       <Container
@@ -52,13 +52,13 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>wrapping children with fixed size</p>
-        <Skeleton width="100%" height={100}>
+        <p>{"wrapping children with fixed size"}</p>
+        <Skeleton width={"100%"} height={100}>
           {null}
         </Skeleton>
 
-        <Skeleton width="100%" height={100} show={false}>
-          <Button width="200px">Not hidden by Skeleton</Button>
+        <Skeleton width={"100%"} height={100} show={false}>
+          <Button width={"200px"}>{"Not hidden by Skeleton"}</Button>
         </Skeleton>
       </Container>
       <Container
@@ -69,8 +69,8 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>normal</p>
-        <Skeleton shape="normal" width={48} />
+        <p>{"normal"}</p>
+        <Skeleton shape={"normal"} width={48} />
       </Container>
       <Container
         gap={10}
@@ -80,8 +80,8 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>round</p>
-        <Skeleton shape="round" width={48} height={48} boxHeight={48} />
+        <p>{"round"}</p>
+        <Skeleton shape={"round"} width={48} height={48} boxHeight={48} />
       </Container>
       <Container
         gap={10}
@@ -91,8 +91,8 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>square</p>
-        <Skeleton shape="square" width={48} height={48} boxHeight={48} />
+        <p>{"square"}</p>
+        <Skeleton shape={"square"} width={48} height={48} boxHeight={48} />
       </Container>
       <Container
         gap={10}
@@ -102,8 +102,8 @@ const SkeletonPage: NextPage = () => {
           marginTop: "15px",
         }}
       >
-        <p>no animation</p>
-        <Skeleton width="100%" height={100} animated={false}>
+        <p>{"no animation"}</p>
+        <Skeleton width={"100%"} height={100} animated={false}>
           {null}
         </Skeleton>
       </Container>

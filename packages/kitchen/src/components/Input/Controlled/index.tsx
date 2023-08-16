@@ -6,6 +6,7 @@ import {
   Controller,
   Path,
 } from "react-hook-form";
+
 import Input, { type InputProps } from "..";
 
 type ControllerPropsEx<F extends FieldValues> = Omit<
@@ -29,7 +30,7 @@ type ControlledTextInputProps<F extends FieldValues> = ControlledType<
 const ControlledInput = React.forwardRef(
   <F extends FieldValues>(
     { name, control, controllerProps, ...props }: ControlledTextInputProps<F>,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => (
     <Controller
       name={name}
@@ -52,7 +53,7 @@ const ControlledInput = React.forwardRef(
         />
       )}
     />
-  )
+  ),
 );
 
 ControlledInput.displayName = "ControlledInput";

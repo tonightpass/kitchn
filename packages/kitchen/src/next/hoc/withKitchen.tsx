@@ -1,12 +1,12 @@
+import App, { AppContext, AppInitialProps, AppProps } from "next/app";
 import React from "react";
 
-import App, { AppContext, AppInitialProps, AppProps } from "next/app";
 import KitchenProvider, {
   KitchenProviderProps,
 } from "../../components/Provider";
+import { PREFIX } from "../../constants";
 import themes from "../../themes";
 import { parseCookieString } from "../../utils/_collections";
-import { PREFIX } from "../../constants";
 
 export type NextAppInitialProps = AppInitialProps & {
   cookies: {
@@ -22,7 +22,7 @@ export type NextAppProps = {
 
 const withKitchen = (
   nextApp: NextAppProps,
-  kitchenProviderProps?: KitchenProviderProps
+  kitchenProviderProps?: KitchenProviderProps,
 ) => {
   nextApp.getInitialProps = async (context: AppContext) => {
     const ctx = await App.getInitialProps(context);

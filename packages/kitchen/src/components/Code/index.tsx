@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 

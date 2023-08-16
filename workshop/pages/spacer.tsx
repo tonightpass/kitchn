@@ -12,7 +12,7 @@ const SpacerPage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <Text>vertical</Text>
+        <Text>{"vertical"}</Text>
         <Container gap={24}>
           <Container style={{ background: "white" }}>
             <Spacer y={1} />
@@ -27,7 +27,7 @@ const SpacerPage: NextPage = () => {
           </Container>
         </Container>
 
-        <Text>horizontal</Text>
+        <Text>{"horizontal"}</Text>
         <Container row>
           <Container h={"large"} style={{ background: "white" }} />
           <Spacer x={3} />

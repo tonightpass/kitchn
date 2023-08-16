@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import Avatar, { AvatarProps } from "..";
 import withScale from "../../../hoc/withScale";
 import { KitchenComponent } from "../../../types";
@@ -40,11 +41,14 @@ const AvatarGroup = styled(
             return <Avatar key={index} size={size} {...member} />;
           })}
         {limit && members.length > limit && (
-          <Text size={"small"}>+{members.length - limit}</Text>
+          <Text size={"small"}>
+            {"+"}
+            {members.length - limit}
+          </Text>
         )}
       </div>
     );
-  }
+  },
 )`
   display: flex;
   align-items: center;

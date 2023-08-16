@@ -9,8 +9,8 @@ export default class MyDocument extends KitchenDocument {
         <Head>
           <style
             dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
-            id="sandpack"
-            key="sandpack-css"
+            id={"sandpack"}
+            key={"sandpack-css"}
           />
         </Head>
         <body>

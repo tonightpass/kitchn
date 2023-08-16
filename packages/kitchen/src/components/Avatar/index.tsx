@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import isNumber from "../../utils/isNumber";
@@ -53,7 +54,7 @@ const Avatar = styled(
         )}
       </div>
     );
-  }
+  },
 )<AvatarProps>`
   width: ${({ size }) =>
     size ? (isNumber(size) ? `${size}px` : size) : "30px"};

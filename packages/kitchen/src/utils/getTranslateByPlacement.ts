@@ -1,7 +1,7 @@
 import { ToastPlacement } from "../hooks/useToasts";
 
 const getTranslateByPlacement = (
-  placement: ToastPlacement
+  placement: ToastPlacement,
 ): {
   enter: string;
   leave: string;

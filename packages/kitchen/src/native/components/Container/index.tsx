@@ -1,6 +1,9 @@
 import React from "react";
-import styled from "styled-components/native";
 import { View, ViewComponent } from "react-native";
+import styled from "styled-components/native";
+
+import isNumber from "../../../utils/isNumber";
+import withScale from "../../hoc/withScale";
 import {
   AccentColors,
   Gap,
@@ -8,8 +11,6 @@ import {
   LayoutColors,
   Radius,
 } from "../../types";
-import isNumber from "../../../utils/isNumber";
-import withScale from "../../hoc/withScale";
 
 type Props = {
   row?: boolean;

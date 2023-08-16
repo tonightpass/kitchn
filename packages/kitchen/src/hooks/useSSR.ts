@@ -1,4 +1,5 @@
 import React from "react";
+
 import isBrowser from "../utils/isBrowser";
 
 export type SSRState = {

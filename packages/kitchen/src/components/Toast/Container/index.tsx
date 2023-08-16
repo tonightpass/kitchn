@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+
 import { ToastItem } from "../../..";
 import { useToastsContext } from "../../../contexts/Toasts";
 import useCurrentState from "../../../hooks/useCurrentState";
@@ -21,7 +22,7 @@ const ToastContainer = styled((props) => {
           key={toast._internalIdent}
         />
       )),
-    [toasts, memoizedLayout]
+    [toasts, memoizedLayout],
   );
 
   const hoverHandler = (isHovering: boolean) => {
@@ -35,7 +36,7 @@ const ToastContainer = styled((props) => {
             ...toast,
             timeout: null,
           };
-        })
+        }),
       );
     }
 
@@ -46,20 +47,23 @@ const ToastContainer = styled((props) => {
         return {
           ...toast,
           _timeout: (() => {
-            const timer = window.setTimeout(() => {
-              toast.cancel();
-              window.clearTimeout(timer);
-            }, toast.delay + index * 100);
+            const timer = window.setTimeout(
+              () => {
+                toast.cancel();
+                window.clearTimeout(timer);
+              },
+              toast.delay + index * 100,
+            );
             return timer;
           })(),
         };
-      })
+      }),
     );
   };
 
   React.useEffect(() => {
     const index = toasts.findIndex(
-      (r) => r._internalIdent === lastUpdateToastId
+      (r) => r._internalIdent === lastUpdateToastId,
     );
     const toast = toasts[index];
     if (!toast || toast.visible || !hoveringRef.current) return;
@@ -97,7 +101,7 @@ const ToastContainer = styled((props) => {
     >
       {toastElements}
     </div>,
-    portal
+    portal,
   );
 })`
   position: fixed;

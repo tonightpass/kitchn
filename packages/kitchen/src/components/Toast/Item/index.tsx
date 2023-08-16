@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Toast, ToastLayout } from "../../../hooks/useToasts";
+
 import withScale from "../../../hoc/withScale";
+import { Toast, ToastLayout } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
 import getTranslateByPlacement from "../../../utils/getTranslateByPlacement";
 import Container from "../../Container";
@@ -24,7 +25,7 @@ const ToastItem = styled(({ toast, layout, ...props }) => {
 
   const { enter, leave } = React.useMemo(
     () => getTranslateByPlacement(layout.placement),
-    [layout.placement]
+    [layout.placement],
   );
 
   React.useEffect(() => {

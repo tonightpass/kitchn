@@ -1,5 +1,8 @@
-import { convertRGBToRGBA } from "@tonightpass/kitchen";
-import { createGlobalStyle, Input } from "@tonightpass/kitchen";
+import {
+  convertRGBToRGBA,
+  createGlobalStyle,
+  Input,
+} from "@tonightpass/kitchen";
 
 const GlobalStyle = createGlobalStyle`
   html body {

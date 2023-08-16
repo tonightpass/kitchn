@@ -1,6 +1,7 @@
 import React from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import Icon from "../Icon";
@@ -29,7 +30,7 @@ const Collapse = styled(
 
     const [isOpen, setIsOpen] = React.useState<boolean>(defaultExpanded);
     const [height, setHeight] = React.useState<number | undefined>(
-      defaultExpanded ? undefined : 0
+      defaultExpanded ? undefined : 0,
     );
 
     const handleClick = () => {
@@ -69,7 +70,7 @@ const Collapse = styled(
         </Content>
       </div>
     );
-  }
+  },
 )<CollapseProps>`
   position: relative;
   box-sizing: border-box;

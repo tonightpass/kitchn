@@ -1,5 +1,6 @@
 import React from "react";
 import { DefaultTheme } from "styled-components/native";
+
 import { ThemeProvider } from "../../contexts/Theme";
 
 export type KitchenProviderProps = {

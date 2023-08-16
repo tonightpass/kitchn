@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
-import Link from "../Link";
+
 import useBreakpoint from "../../hooks/useBreakpoint";
+import { KitchenComponent } from "../../types";
 import Collapse from "../Collapse";
+import Link from "../Link";
 
 type Props = {
   /**

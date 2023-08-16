@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
+
 import { KitchenComponent } from "../../types";
 import isString from "../../utils/isString";
 
@@ -18,7 +19,7 @@ export type Props = {
   /**
    * The link's onClick.
    */
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onClick?: (_event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 
   /**
    * The link's status (if it's disabled or not).
@@ -86,7 +87,7 @@ const Link = styled(
         {children}
       </Component>
     );
-  }
+  },
 )<LinkProps>`
   box-sizing: border-box;
   display: inline-flex;

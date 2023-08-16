@@ -87,14 +87,14 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
         </Container>
       )}
 
-      <Footer subfooter="© 2023 Tonight Pass. All rights reserved.">
+      <Footer subfooter={"© 2023 Tonight Pass. All rights reserved."}>
         <StyledContainer
           mt={"small"}
           align={"flex-start"}
           justify={"flex-start"}
           gap={"normal"}
         >
-          <Link href="/">
+          <Link href={"/"}>
             <Logo />
           </Link>
 
@@ -109,16 +109,16 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
               br={"square"}
               row
             >
-              Deployed by{" "}
-              <span role="img" aria-label="Vercel logo">
-                ▲
+              {"Deployed by"}{" "}
+              <span role={"img"} aria-label={"Vercel logo"}>
+                {"▲\r"}
               </span>{" "}
-              Vercel
+              {"Vercel\r"}
             </Vercel>
           </Link>
         </StyledContainer>
 
-        <FooterGroup title="Ressources">
+        <FooterGroup title={"Ressources"}>
           {navigation.kitchen.map((item, i) => (
             <FooterLink key={i} href={item.href}>
               {item.name}
@@ -126,7 +126,7 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
           ))}
         </FooterGroup>
 
-        <FooterGroup title="Company">
+        <FooterGroup title={"Company"}>
           {navigation.compagny.map((item, i) => (
             <FooterLink key={i} href={item.href}>
               {item.name}
@@ -134,7 +134,7 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
           ))}
         </FooterGroup>
 
-        <FooterGroup title="Legal">
+        <FooterGroup title={"Legal"}>
           {navigation.legal.map((item, i) => (
             <FooterLink key={i} href={item.href}>
               {item.name}
@@ -142,7 +142,7 @@ const CustomFooter = ({ menu }: { menu: boolean }) => {
           ))}
         </FooterGroup>
 
-        <FooterGroup title="Support">
+        <FooterGroup title={"Support"}>
           {navigation.support.map((item, i) => (
             <FooterLink key={i} href={item.href}>
               {item.name}

@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+
+import { capitalize, isString } from "../..";
 import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
-import { capitalize, isString } from "../..";
 
 type Props = {
   /**

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import useRect from "../../hooks/useRect";
+
 import withScale from "../../hoc/withScale";
+import useRect from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 import capitalize from "../../utils/capitalize";
 import Highlight from "../Highlight";
@@ -50,7 +51,7 @@ const Tabs = styled(
     const { rect, setRect } = useRect();
 
     const tabItemMouseOverHandler = (
-      event: React.MouseEvent<HTMLDivElement>
+      event: React.MouseEvent<HTMLDivElement>,
     ) => {
       if (!event.target) return;
       setRect(event, () => containerRef.current);
@@ -77,20 +78,20 @@ const Tabs = styled(
         />
         {tabs &&
           tabs.map((tab) => (
-            <Tab
+            <TabContainer
               key={tab.value}
-              onClick={(event) => handleClick(event, tab)}
+              onClick={(event: any) => handleClick(event, tab)}
               active={selected === tab.value}
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
             >
               <>{tab.icon && tab.icon}</>
               <>{capitalize(tab.title)}</>
-            </Tab>
+            </TabContainer>
           ))}
       </div>
     );
-  }
+  },
 )<TabsProps>`
   position: relative;
   display: flex;
@@ -102,7 +103,7 @@ const Tabs = styled(
   box-shadow: 0 -1px 0 ${({ theme }) => theme.colors.layout.dark} inset;
 `;
 
-const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
+const TabContainer = styled.div<{ active?: boolean; disabled: boolean }>`
   position: relative;
   display: flex;
   align-items: center;

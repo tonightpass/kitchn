@@ -18,19 +18,19 @@ const IndexPage = () => {
       align={"center"}
     >
       <Head>
-        <title>Create Kitchen Next</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{"Create Kitchen Next"}</title>
+        <link rel={"icon"} href={"/favicon.ico"} />
       </Head>
       <Container w={"100%"} align={"center"} justify={"space-between"} row>
         <Card p={"small"} br={"square"} align={"center"} active row>
-          Get started by editing
+          {"Get started by editing\r"}
           <Text ml={"tiny"} monospace span>
-            src/pages/index.tsx
+            {"src/pages/index.tsx\r"}
           </Text>
         </Card>
         <Link href={"https://tonightpass.com"}>
           <Text weight={"semiBold"} size={"small"}>
-            by
+            {"by\r"}
           </Text>
           <KitchenTypo
             src={"/tonightpass.svg"}
@@ -62,10 +62,12 @@ const IndexPage = () => {
           br={"square"}
         >
           <Text size={"large"} weight={"bold"}>
-            Docs
+            {"Docs\r"}
           </Text>
           <Text size={"small"} color={"light"} mt={"small"}>
-            Find in-depth information about Kitchen components, hooks and more.
+            {
+              "Find in-depth information about Kitchen components, hooks and more.\r"
+            }
           </Text>
         </Card>
 
@@ -77,11 +79,13 @@ const IndexPage = () => {
           br={"square"}
         >
           <Text size={"large"} weight={"bold"}>
-            Discuss
+            {"Discuss\r"}
           </Text>
           <Text size={"small"} color={"light"} mt={"small"}>
-            Join the community and ask questions, share ideas, and get help from
-            experts.
+            {
+              "Join the community and ask questions, share ideas, and get help from\r"
+            }
+            {"experts.\r"}
           </Text>
         </Card>
 
@@ -93,10 +97,10 @@ const IndexPage = () => {
           br={"square"}
         >
           <Text size={"large"} weight={"bold"}>
-            Sponsor us
+            {"Sponsor us\r"}
           </Text>
           <Text size={"small"} color={"light"} mt={"small"}>
-            Help us build Kitchen and support the open-source community.
+            {"Help us build Kitchen and support the open-source community.\r"}
           </Text>
         </Card>
 
@@ -110,10 +114,12 @@ const IndexPage = () => {
           br={"square"}
         >
           <Text size={"large"} weight={"bold"}>
-            Deploy
+            {"Deploy\r"}
           </Text>
           <Text size={"small"} color={"light"} mt={"small"}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            {
+              "Instantly deploy your Next.js site to a shareable URL with Vercel.\r"
+            }
           </Text>
         </Card>
       </Container>

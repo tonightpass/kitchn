@@ -16,7 +16,7 @@ const TogglePage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <Text>default</Text>
+        <Text>{"default"}</Text>
         <Container gap={10}>
           <Container>
             <Toggle checked={checked1} onChange={toggle1} />
@@ -26,7 +26,7 @@ const TogglePage: NextPage = () => {
             <Toggle checked={checked2} onChange={toggle2} />
           </Container>
         </Container>
-        <Text>disabled</Text>
+        <Text>{"disabled"}</Text>
         <Container gap={10}>
           <Container>
             <Toggle disabled />
@@ -36,7 +36,7 @@ const TogglePage: NextPage = () => {
             <Toggle disabled checked />
           </Container>
         </Container>
-        <Text>sizes</Text>
+        <Text>{"sizes"}</Text>
         <Container row>
           <Container>
             <Toggle checked={checked3} onChange={toggle3} />
