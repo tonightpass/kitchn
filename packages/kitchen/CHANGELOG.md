@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.8.2
+
+### Patch Changes
+
+- 5251c3c: Fix hover and focus due to and sign unused
+
 ## 1.8.1
 
 ### Patch Changes
