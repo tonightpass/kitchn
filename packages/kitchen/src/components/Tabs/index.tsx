@@ -131,7 +131,7 @@ const TabContainer = styled.div<{ active?: boolean; disabled: boolean }>`
     margin-right: ${({ theme }) => theme.gap.tiny};
   }
 
-  :hover {
+  &:hover {
     color: ${({ theme, disabled }) =>
       !disabled ? theme.colors.text.lightest : theme.colors.text.darker};
   }

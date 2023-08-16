@@ -138,7 +138,7 @@ const Link = styled(
     }
   }};
 
-  :hover {
+  &:hover {
     ${({ theme, disabled, variant, onClick, href }) => {
       disabled = disabled || (!onClick && !href);
 

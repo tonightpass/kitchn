@@ -42,7 +42,7 @@ const Container = kitchen.div`
   justify-content: center;
   transition: all 1s;
 
-  :hover {
+  &:hover {
     transform: scale(1.05);
     ${ThumbnailImage} {
       opacity: 1;

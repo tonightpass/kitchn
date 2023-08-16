@@ -57,7 +57,7 @@ const Textarea = styled(
   :placeholder {
     color: ${({ theme }) => theme.colors.text.light};
   }
-  :focus {
+  &:focus {
     border: 1px solid
       ${({ theme, errored }) =>
         errored ? theme.colors.accent.danger : theme.colors.layout.lighter};

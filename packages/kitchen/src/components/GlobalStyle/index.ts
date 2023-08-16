@@ -214,7 +214,7 @@ const GlobalStyle = createGlobalStyle`
         transition: all 0.2s;
         cursor: pointer;
 
-        :hover {
+        &:hover {
             filter: brightness(0.8);
         }
     }

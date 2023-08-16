@@ -65,7 +65,7 @@ const AvatarGroup = styled(
     }
   }
 
-  :hover {
+  &:hover {
     ${Avatar} {
       margin-left: 0;
     }

@@ -125,7 +125,7 @@ const Container = styled.label<{
   `}
   ${({ fullWidth }) => fullWidth && "width: 100%;"};
 
-  :hover {
+  &:hover {
     ${Checkmark} {
       border-color: ${({ theme, disabled }) =>
         disabled ? theme.colors.layout.dark : theme.colors.layout.light};
