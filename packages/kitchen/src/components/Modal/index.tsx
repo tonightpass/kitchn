@@ -254,7 +254,7 @@ const ModalAction = styled((props: ModalActionProps) => (
     color: ${({ theme }) => theme.colors.text.light};
   }
 
-  :hover {
+  &:hover {
     ${({ disabled, theme }) =>
       !disabled &&
       `

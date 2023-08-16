@@ -32,7 +32,7 @@ const YourCompany = kitchen(Link)`
     transition: all 1s;
   }
 
-  :hover {
+  &:hover {
     transform: scale(1.05);
     ${Text} {
       opacity: 1;

@@ -32,7 +32,7 @@
     "js-cookie": "^3.0.5",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.7.1",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.0.7"
   },
   "peerDependencies": {
     "next": ">= 13.0.0",

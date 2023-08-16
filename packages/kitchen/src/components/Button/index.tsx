@@ -201,7 +201,7 @@ const Button = styled(
     }
   }};
 
-  :hover {
+  &:hover {
     ${(props) =>
       props.hover?.background && `background: ${props.hover.background}`};
     ${(props) => props.hover?.color && `color: ${props.hover.background}`};
@@ -261,7 +261,7 @@ const Button = styled(
       }
     }};
 
-    :focus {
+    &:focus {
       filter: brightness(
         ${(props) => {
           if (props.disabled || props.loading) return "1";

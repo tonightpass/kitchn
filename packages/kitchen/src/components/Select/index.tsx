@@ -130,7 +130,7 @@ const SelectorContainer = styled.div`
     color: ${({ theme }) => theme.colors.text.lighter};
   }
 
-  :hover {
+  &:hover {
     ${Prefix}, ${Suffix} {
       color: ${({ theme }) => theme.colors.text.lightest};
     }
@@ -159,8 +159,8 @@ const Selector = styled.select<SelectProps>`
     font-size: inherit;
   }
 
-  :hover,
-  :focus {
+  &:hover,
+  &:focus {
     border-color: ${({ theme }) => theme.colors.layout.light};
   }
 `;

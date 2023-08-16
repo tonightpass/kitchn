@@ -198,7 +198,7 @@ const Checkpoint = styled.div<{
   transform: ${({ first, last }) =>
     first ? "translateX(0)" : last ? "translateX(-100%)" : "translateX(-50%)"};
 
-  :hover {
+  &:hover {
     ${CheckpointTitle} {
       opacity: 1;
     }

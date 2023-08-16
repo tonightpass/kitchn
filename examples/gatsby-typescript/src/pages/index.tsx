@@ -135,7 +135,7 @@ const Card = kitchen(Container)<{
   border: 1px solid ${({ theme, active }) =>
     active ? theme.colors.layout.dark : "transparent"};
   transition: all 0.2s ease-in-out;
-  :hover {
+  &:hover {
     border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   }
 `;
