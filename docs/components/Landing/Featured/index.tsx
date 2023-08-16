@@ -19,10 +19,10 @@ const Featured: React.FC = () => {
           accent={"primary"}
           h1
         >
-          Tonight Pass
+          {"Tonight Pass\r"}
         </Text>
         <Text align={"center"} size={"title"} weight={"bold"} h2>
-          Delicious React styled-components
+          {"Delicious React styled-components\r"}
         </Text>
       </Container>
       <Text
@@ -32,27 +32,35 @@ const Featured: React.FC = () => {
         align={"center"}
         color={"light"}
       >
-        Design UI like Tonight Pass in React or React Native with optimized and
-        customizable styled-components.
+        {
+          "Design UI like Tonight Pass in React or React Native with optimized and\r"
+        }
+        {"customizable styled-components.\r"}
       </Text>
       <Container mt={"normal"} align={"center"}>
-        <Link href="https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchen">
+        <Link
+          href={
+            "https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchen"
+          }
+        >
           <Image
             src={`https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=379927&theme=${
               theme.name === "dark" ? "light" : "neutral"
             }&period=weekly&topic_id=44`}
-            alt="Kitchen - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
-            width="250"
-            height="54"
+            alt={
+              "Kitchen - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
+            }
+            width={"250"}
+            height={"54"}
           />
         </Link>
       </Container>
       <Container row gap={"normal"} justify={"center"} mt={"large"}>
         <Link href={"/docs"}>
-          <Button>Get started</Button>
+          <Button>{"Get started"}</Button>
         </Link>
         <Link href={"https://github.com/tonightpass/kitchen"}>
-          <Button type={"dark"}>Contribute</Button>
+          <Button type={"dark"}>{"Contribute"}</Button>
         </Link>
       </Container>
     </Container>

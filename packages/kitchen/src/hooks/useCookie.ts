@@ -1,5 +1,5 @@
-import React from "react";
 import Cookies from "js-cookie";
+import React from "react";
 
 export type UseCookieSerializer<T> = (object: T | undefined) => string;
 export type UseCookieParser<T> = (val: string) => T | undefined;
@@ -18,12 +18,12 @@ export type UseCookieOptions<T> = Cookies.CookieAttributes &
 function useCookie<T>(
   key: string,
   defaultValue: T,
-  options?: UseCookieOptions<T>
+  options?: UseCookieOptions<T>,
 ): [T, UseCookieSetter<T>];
 function useCookie<T>(
   key: string,
   defaultValue?: T,
-  options?: UseCookieOptions<T>
+  options?: UseCookieOptions<T>,
 ) {
   const opts = React.useMemo(() => {
     return {

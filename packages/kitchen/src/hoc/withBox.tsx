@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+
+import withScale from "./withScale";
 import { AccentColors, LayoutColors, Radius } from "../types/theme";
 import isNumber from "../utils/isNumber";
-import withScale from "./withScale";
 
 export type BoxProps = {
   background?: string | keyof LayoutColors;
@@ -16,7 +17,7 @@ export type BoxProps = {
 };
 
 const withBox = <T extends object>(
-  WrappedComponent: React.ComponentType<T>
+  WrappedComponent: React.ComponentType<T>,
 ) => {
   const Box = styled(WrappedComponent)<BoxProps>`
     ${({ theme, borderRadius, br }) =>

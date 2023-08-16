@@ -1,10 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
-import Icon from "../Icon";
 import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
+import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
+import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
+import Icon from "../Icon";
 
 type Props = {
   checked?: boolean;
@@ -72,7 +73,7 @@ const Checkbox = styled(
         </CheckContainer>
       </Container>
     );
-  }
+  },
 )<CheckboxProps>`
   * {
     box-sizing: border-box;
@@ -150,7 +151,7 @@ const Label = styled.div`
 `;
 
 const CheckContainer = styled(({ children, label, ...props }) =>
-  label ? <div {...props}>{children}</div> : children
+  label ? <div {...props}>{children}</div> : children,
 )`
   display: inline-flex;
   align-items: flex-start;

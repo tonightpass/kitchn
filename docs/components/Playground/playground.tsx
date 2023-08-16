@@ -1,13 +1,13 @@
-import React from "react";
-import dynamic from "next/dynamic";
 import { Skeleton, useTheme } from "@tonightpass/kitchen";
+import dynamic from "next/dynamic";
+import React from "react";
 
 const DynamicLive: React.ComponentType<{
   code: PlaygroundProps["code"];
   scope: PlaygroundProps["scope"];
 }> = dynamic(() => import("./dynamic-live"), {
   ssr: false,
-  loading: () => <Skeleton width="100%" height={100} />,
+  loading: () => <Skeleton width={"100%"} height={100} />,
 });
 
 export type PlaygroundProps = {
@@ -32,7 +32,7 @@ const Playground: React.FC<PlaygroundProps> = React.memo(
 
     return (
       <>
-        <div className="playground">
+        <div className={"playground"}>
           <DynamicLive code={code} scope={scope} />
           <style jsx>{`
             .playground {
@@ -46,7 +46,7 @@ const Playground: React.FC<PlaygroundProps> = React.memo(
         </div>
       </>
     );
-  }
+  },
 );
 
 Playground.defaultProps = defaultProps;

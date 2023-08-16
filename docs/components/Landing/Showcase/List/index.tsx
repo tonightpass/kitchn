@@ -1,6 +1,7 @@
 import kitchen, { Container, Text } from "@tonightpass/kitchen";
 import { Link } from "@tonightpass/kitchen/next";
 import showcases from "data/showcases";
+
 import ShowcaseCard from "./Card";
 
 const ShowcaseList = () => {
@@ -11,7 +12,7 @@ const ShowcaseList = () => {
       ))}
       <YourCompany href={"https://github.com/tonightpass/kitchen/issues/new"}>
         <Text title={"Your company"} weight={"bold"} align={"center"} span>
-          💖 Your company
+          {"💖 Your company\r"}
         </Text>
       </YourCompany>
     </Container>

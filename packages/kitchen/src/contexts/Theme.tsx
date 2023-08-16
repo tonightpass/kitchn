@@ -3,10 +3,11 @@ import {
   DefaultTheme,
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
+
 import { PREFIX } from "../constants";
+import useCookie from "../hooks/useCookie";
 import useThemeDetector from "../hooks/useThemeDetector";
 import themes from "../themes";
-import useCookie from "../hooks/useCookie";
 
 const ThemeContext = React.createContext({
   theme: themes.dark,
@@ -39,7 +40,7 @@ const ThemeProvider = ({
         ? isDarkTheme
           ? themes.dark
           : themes.light
-        : themes[storedTheme as keyof typeof themes])
+        : themes[storedTheme as keyof typeof themes]),
   );
 
   React.useEffect(() => {

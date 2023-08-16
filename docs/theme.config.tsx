@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import { useRouter } from "next/router";
-import urlcat from "urlcat";
-import { useTheme as useNextraTheme } from "next-themes";
-import { useTheme } from "@tonightpass/kitchen";
 import Footer from "@components/Footer";
 import Logo from "@components/Logo";
+import { useTheme } from "@tonightpass/kitchen";
+import { useRouter } from "next/router";
+import { useTheme as useNextraTheme } from "next-themes";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import urlcat from "urlcat";
 
 const config: DocsThemeConfig = {
   project: {
@@ -50,42 +50,45 @@ const config: DocsThemeConfig = {
           fontSize: "100px",
           images: "https://tonightpass.com/static/images/logo/tonightpass.svg",
           thumbnail: meta.image,
-        }
+        },
       ) || "https://tonightpass.com/static/images/open-graph-image.jpg";
 
     return (
       <>
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta name="description" content={finalDescription} />
-        <meta name="og:description" content={finalDescription} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={finalThumbnailUrl} />
-        <meta name="twitter:site:domain" content="kitchen.dev" />
-        <meta name="twitter:url" content="https://kitchen.dev" />
-        <meta name="og:title" content={finalTitle} />
-        <meta name="og:image" content={finalThumbnailUrl} />
-        <meta name="apple-mobile-web-app-title" content="Kitchen" />
+        <meta name={"msapplication-TileColor"} content={"#ffffff"} />
+        <meta name={"theme-color"} content={"#ffffff"} />
+        <meta
+          name={"viewport"}
+          content={"width=device-width, initial-scale=1.0"}
+        />
+        <meta httpEquiv={"Content-Language"} content={"en"} />
+        <meta name={"description"} content={finalDescription} />
+        <meta name={"og:description"} content={finalDescription} />
+        <meta name={"twitter:card"} content={"summary_large_image"} />
+        <meta name={"twitter:image"} content={finalThumbnailUrl} />
+        <meta name={"twitter:site:domain"} content={"kitchen.dev"} />
+        <meta name={"twitter:url"} content={"https://kitchen.dev"} />
+        <meta name={"og:title"} content={finalTitle} />
+        <meta name={"og:image"} content={finalThumbnailUrl} />
+        <meta name={"apple-mobile-web-app-title"} content={"Kitchen"} />
         <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
+          rel={"apple-touch-icon"}
+          sizes={"180x180"}
+          href={"/apple-touch-icon.png"}
         />
         <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
+          rel={"icon"}
+          type={"image/png"}
+          sizes={"32x32"}
+          href={"/favicon-32x32.png"}
         />
         <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
+          rel={"icon"}
+          type={"image/png"}
+          sizes={"16x16"}
+          href={"/favicon-16x16.png"}
         />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel={"manifest"} href={"/manifest.json"} />
       </>
     );
   },

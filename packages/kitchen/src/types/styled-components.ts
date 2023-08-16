@@ -5,4 +5,4 @@ declare module "styled-components" {
   export interface DefaultTheme extends Theme, MainTheme {}
 }
 
-export {};
+export type styled = object;

@@ -4,6 +4,7 @@ import {
   DefaultTheme,
   ThemeProvider as StyledThemeProvider,
 } from "styled-components/native";
+
 import themes from "../themes";
 
 const ThemeContext = React.createContext({
@@ -33,7 +34,7 @@ const ThemeProvider = ({
   const isDarkTheme = colorScheme === "dark";
 
   const [theme, setTheme] = React.useState<DefaultTheme>(
-    customTheme || (isDarkTheme ? themes.dark : themes.light)
+    customTheme || (isDarkTheme ? themes.dark : themes.light),
   );
 
   React.useEffect(() => {

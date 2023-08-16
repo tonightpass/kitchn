@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import withBox from "../../hoc/withBox";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
@@ -30,7 +31,7 @@ const Container = styled(
   ({ children, header, section, ...rest }: ContainerProps) => {
     const Component = header ? "header" : section ? "section" : "div";
     return <Component {...rest}>{children}</Component>;
-  }
+  },
 )`
   display: flex;
   flex-direction: ${(props) =>

@@ -1,7 +1,8 @@
 import React from "react";
 import RemixIcon from "react-native-remix-icon";
-import useTheme from "../../hooks/useTheme";
+
 import withScale from "../../hoc/withScale";
+import useTheme from "../../hooks/useTheme";
 import { AccentColors, KitchenComponent, Size, TextColors } from "../../types";
 
 type Props = {

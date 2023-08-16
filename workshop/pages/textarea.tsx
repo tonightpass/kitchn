@@ -12,27 +12,33 @@ const TextareaPage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <Text>default</Text>
+        <Text>{"default"}</Text>
         <Container gap={10}>
-          <Textarea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."></Textarea>
+          <Textarea
+            placeholder={
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            }
+          />
         </Container>
 
-        <Text>disabled</Text>
+        <Text>{"disabled"}</Text>
         <Container gap={10}>
           <Textarea
             disabled
-            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-          ></Textarea>
+            placeholder={
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            }
+          />
         </Container>
 
-        <Text>error</Text>
+        <Text>{"error"}</Text>
         <Container gap={10}>
           <Textarea
             errored
             defaultValue={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             }
-          ></Textarea>
+          />
         </Container>
       </Container>
     </>

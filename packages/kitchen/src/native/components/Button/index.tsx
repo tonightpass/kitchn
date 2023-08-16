@@ -1,8 +1,9 @@
 import React from "react";
-import withScale from "../../../hoc/withScale";
-import { KitchenComponent, NormalSizes, AccentColors, Text } from "../../";
 import { TouchableOpacityComponent } from "react-native/types";
 import styled from "styled-components/native";
+
+import { KitchenComponent, NormalSizes, AccentColors, Text } from "../../";
+import withScale from "../../../hoc/withScale";
 
 export type Props = {
   shape?: "square" | "round";

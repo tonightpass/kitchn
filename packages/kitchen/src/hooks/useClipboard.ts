@@ -1,4 +1,5 @@
 import React from "react";
+
 import usePortal from "./usePortal";
 import useWarning from "./useWarning";
 
@@ -16,7 +17,7 @@ const defaultOptions: UseClipboardOptions = {
 };
 
 const useClipboard = (
-  options: UseClipboardOptions = defaultOptions
+  options: UseClipboardOptions = defaultOptions,
 ): UseClipboardResult => {
   const el = usePortal("clipboard");
 
@@ -49,7 +50,7 @@ const useClipboard = (
       copyText(el, text);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [el]
+    [el],
   );
 
   return { copy };

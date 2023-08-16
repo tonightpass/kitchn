@@ -13,66 +13,80 @@ const ErrorPage: NextPage = () => {
         }}
       >
         <Container gap={5}>
-          <Text>default</Text>
-          <Error>This email address is already in use.</Error>
+          <Text>{"default"}</Text>
+          <Error>{"This email address is already in use."}</Error>
         </Container>
 
         <Container gap={5}>
-          <Text>custom label</Text>
-          <Error label="Email Error">
-            This email address is already in use.
+          <Text>{"custom label"}</Text>
+          <Error label={"Email Error"}>
+            {"This email address is already in use.\r"}
           </Error>
         </Container>
 
         <Container gap={5}>
-          <Text>no label</Text>
-          <Error label={false}>This email address is already in use. </Error>
+          <Text>{"no label"}</Text>
+          <Error label={false}>
+            {"This email address is already in use. "}
+          </Error>
         </Container>
 
         <Container gap={5}>
-          <Text>sizes</Text>
+          <Text>{"sizes"}</Text>
           <Container direction={["column", "row", "row"]} row>
             <Container align={"flex-start"}>
-              <Error size="small">This email is in use.</Error>
+              <Error size={"small"}>{"This email is in use."}</Error>
             </Container>
             <Container align={"flex-start"}>
-              <Error>This email is in use.</Error>
+              <Error>{"This email is in use."}</Error>
             </Container>
             <Container align={"flex-start"}>
-              <Error size="large">This email is in use.</Error>
+              <Error size={"large"}>{"This email is in use."}</Error>
             </Container>
           </Container>
         </Container>
 
         <Container gap={5}>
-          <Text>multiline</Text>
+          <Text>{"multiline"}</Text>
           <Container>
             <Container>
-              <Error size="small">
-                A valid email address is required so that we can verify your
-                GitHub installation. In the event that you cannot provide a
-                valid email address, please contact support.
+              <Error size={"small"}>
+                {
+                  "A valid email address is required so that we can verify your\r"
+                }
+                {
+                  "GitHub installation. In the event that you cannot provide a\r"
+                }
+                {"valid email address, please contact support.\r"}
               </Error>
             </Container>
             <Container>
               <Error>
-                A valid email address is required so that we can verify your
-                GitHub installation. In the event that you cannot provide a
-                valid email address, please contact support.
+                {
+                  "A valid email address is required so that we can verify your\r"
+                }
+                {
+                  "GitHub installation. In the event that you cannot provide a\r"
+                }
+                {"valid email address, please contact support.\r"}
               </Error>
             </Container>
             <Container>
-              <Error size="large">
-                A valid email address is required so that we can verify your
-                GitHub installation. In the event that you cannot provide a
-                valid email address, please contact support.
+              <Error size={"large"}>
+                {
+                  "A valid email address is required so that we can verify your\r"
+                }
+                {
+                  "GitHub installation. In the event that you cannot provide a\r"
+                }
+                {"valid email address, please contact support.\r"}
               </Error>
             </Container>
           </Container>
         </Container>
 
         <Container gap={5}>
-          <Text>with an `error` property</Text>
+          <Text>{"with an `error` property"}</Text>
           <Container row>
             <Error
               error={{

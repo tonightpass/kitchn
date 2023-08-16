@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
@@ -13,7 +14,7 @@ type Props = {
 export type SpacerProps = KitchenComponent<Props>;
 
 const Spacer = styled(({ ...props }: SpacerProps) => {
-  return <span {...props}></span>;
+  return <span {...props} />;
 })<SpacerProps>`
   display: block;
   width: 1px;

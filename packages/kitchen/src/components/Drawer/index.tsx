@@ -1,9 +1,10 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+
+import withScale from "../../hoc/withScale";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
-import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { KeyCode } from "../../utils/codes";
 
@@ -42,7 +43,7 @@ const Drawer = styled(
           if (onAnimationDone) onAnimationDone();
         }, 210);
       },
-      [animationState, onDismiss, onAnimationDone]
+      [animationState, onDismiss, onAnimationDone],
     );
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -58,7 +59,7 @@ const Drawer = styled(
       KeyCode.Escape,
       {
         disableGlobalEvent: true,
-      }
+      },
     );
 
     React.useEffect(() => {
@@ -92,9 +93,9 @@ const Drawer = styled(
           </Content>
         </div>
       ) : null,
-      portal
+      portal,
     );
-  }
+  },
 )<DrawerProps>`
   top: 0px;
   left: 0px;

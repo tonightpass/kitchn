@@ -23,17 +23,17 @@ const ProgressPage: NextPage = () => {
         }}
       >
         <Container gap={5}>
-          <Text>default</Text>
+          <Text>{"default"}</Text>
           <Progress value={30} />
         </Container>
 
         <Container gap={5}>
-          <Text>custom max</Text>
+          <Text>{"custom max"}</Text>
           <Progress value={30} max={40} />
         </Container>
 
         <Container gap={5}>
-          <Text>dynamic colors</Text>
+          <Text>{"dynamic colors"}</Text>
           <Progress
             value={value1}
             colors={{
@@ -47,19 +47,19 @@ const ProgressPage: NextPage = () => {
 
           <Container gap={5} row>
             <Button type={"dark"} onClick={() => setValue1(value1 - 10)}>
-              -
+              {"-\r"}
             </Button>
             <Button type={"dark"} onClick={() => setValue1(value1 + 10)}>
-              +
+              {"+\r"}
             </Button>
             <Button type={"dark"} onClick={() => setValue1(0)}>
-              reset
+              {"reset\r"}
             </Button>
           </Container>
         </Container>
 
         <Container gap={5}>
-          <Text>states</Text>
+          <Text>{"states"}</Text>
           <Progress
             value={value2}
             colors={{
@@ -80,13 +80,13 @@ const ProgressPage: NextPage = () => {
 
           <Container gap={5} row>
             <Button type={"dark"} onClick={() => setValue2(value2 - 25)}>
-              -
+              {"-\r"}
             </Button>
             <Button type={"dark"} onClick={() => setValue2(value2 + 25)}>
-              +
+              {"+\r"}
             </Button>
             <Button type={"dark"} onClick={() => setValue2(0)}>
-              reset
+              {"reset\r"}
             </Button>
           </Container>
         </Container>

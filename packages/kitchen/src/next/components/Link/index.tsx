@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
+
 import { KitchenComponent } from "../../../types";
 import isString from "../../../utils/isString";
 
@@ -107,7 +108,7 @@ const Link = styled(
         {children}
       </Component>
     );
-  }
+  },
 )<LinkProps>`
   box-sizing: border-box;
   display: inline-flex;

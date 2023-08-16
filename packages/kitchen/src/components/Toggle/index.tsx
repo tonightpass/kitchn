@@ -1,12 +1,13 @@
-import styled from "styled-components";
 import React from "react";
+import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 
 interface Props {
   checked?: boolean;
   disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (_e: React.ChangeEvent<HTMLInputElement>) => void;
   large?: boolean;
 }
 
@@ -21,7 +22,7 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
     if (onChange) onChange(e);
   };
 
-  return <input type="checkbox" onChange={handleChange} {...props} />;
+  return <input type={"checkbox"} onChange={handleChange} {...props} />;
 })`
   appearance: none;
   box-sizing: border-box;

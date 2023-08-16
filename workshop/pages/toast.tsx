@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Badge,
   Button,
@@ -8,6 +7,7 @@ import {
   useToasts,
 } from "@tonightpass/kitchen";
 import { NextPage } from "next";
+import React from "react";
 
 const ToastPage: NextPage = () => {
   const { setToast } = useToasts();
@@ -32,7 +32,7 @@ const ToastPage: NextPage = () => {
       }}
     >
       <Container>
-        <Text>default</Text>
+        <Text>{"default"}</Text>
         <Button
           onClick={() => {
             setToast({
@@ -41,11 +41,11 @@ const ToastPage: NextPage = () => {
             });
           }}
         >
-          Show Toast
+          {"Show Toast\r"}
         </Button>
       </Container>
       <Container>
-        <Text>multiline</Text>
+        <Text>{"multiline"}</Text>
         <Button
           onClick={() => {
             setToast({
@@ -53,27 +53,27 @@ const ToastPage: NextPage = () => {
             });
           }}
         >
-          Show Toast
+          {"Show Toast\r"}
         </Button>
       </Container>
       <Container>
-        <Text>with jsx</Text>
+        <Text>{"with jsx"}</Text>
         <Button
           onClick={() => {
             setToast({
               text: (
                 <Container align={"flex-start"}>
-                  <Badge>Badge Component !</Badge>
+                  <Badge>{"Badge Component !"}</Badge>
                 </Container>
               ),
             });
           }}
         >
-          Show Toast
+          {"Show Toast\r"}
         </Button>
       </Container>
       <Container>
-        <Text>action</Text>
+        <Text>{"action"}</Text>
         <Button
           onClick={() => {
             setToast({
@@ -82,12 +82,12 @@ const ToastPage: NextPage = () => {
             });
           }}
         >
-          Show Toast
+          {"Show Toast\r"}
         </Button>
       </Container>
 
       <Container>
-        <Text>cancel</Text>
+        <Text>{"cancel"}</Text>
         <Button
           onClick={() => {
             setToast({
@@ -96,12 +96,12 @@ const ToastPage: NextPage = () => {
             });
           }}
         >
-          Show Toast
+          {"Show Toast\r"}
         </Button>
       </Container>
 
       <Container align={"flex-start"}>
-        <Text>types</Text>
+        <Text>{"types"}</Text>
         <Button
           onClick={() => {
             setToast({
@@ -111,7 +111,7 @@ const ToastPage: NextPage = () => {
           }}
           type={"success"}
         >
-          Show Success
+          {"Show Success\r"}
         </Button>
         <Button
           onClick={() => {
@@ -122,7 +122,7 @@ const ToastPage: NextPage = () => {
           }}
           type={"warning"}
         >
-          Show Warning
+          {"Show Warning\r"}
         </Button>
         <Button
           onClick={() => {
@@ -133,7 +133,7 @@ const ToastPage: NextPage = () => {
           }}
           type={"danger"}
         >
-          Show Danger
+          {"Show Danger\r"}
         </Button>
       </Container>
     </Container>

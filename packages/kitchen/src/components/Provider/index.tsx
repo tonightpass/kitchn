@@ -1,5 +1,6 @@
 import React from "react";
 import { DefaultTheme } from "styled-components";
+
 import { ThemeProvider } from "../../contexts/Theme";
 import {
   defaultToastLayout,
@@ -51,7 +52,7 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
       updateLastToastId,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [toasts, toastLayout, lastUpdateToastId]
+    [toasts, toastLayout, lastUpdateToastId],
   );
 
   return (

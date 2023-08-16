@@ -11,79 +11,115 @@ const CollapsePage: NextPage = () => {
           margin: "0 auto",
         }}
       >
-        <Text>default</Text>
+        <Text>{"default"}</Text>
         <Container gap={10}>
-          <Collapse title="Question A">
+          <Collapse title={"Question A"}>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r"
+              }
+              {
+                "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\r"
+              }
+              {
+                "enim ad minim veniam, quis nostrud exercitation ullamco laboris\r"
+              }
+              {"nisi ut aliquip ex ea commodo consequat.\r"}
             </Text>
           </Collapse>
-          <Collapse title="Question B">
+          <Collapse title={"Question B"}>
             <Text>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+              {
+                "Duis aute irure dolor in reprehenderit in voluptate velit esse\r"
+              }
+              {"cillum dolore eu fugiat nulla pariatur.\r"}
             </Text>
           </Collapse>
         </Container>
-        <Text>expanded</Text>
+        <Text>{"expanded"}</Text>
         <Container gap={10}>
-          <Collapse title="Question A" defaultExpanded>
+          <Collapse title={"Question A"} defaultExpanded>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r"
+              }
+              {
+                "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\r"
+              }
+              {
+                "enim ad minim veniam, quis nostrud exercitation ullamco laboris\r"
+              }
+              {"nisi ut aliquip ex ea commodo consequat.\r"}
             </Text>
           </Collapse>
-          <Collapse title="Question B">
+          <Collapse title={"Question B"}>
             <Text>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+              {
+                "Duis aute irure dolor in reprehenderit in voluptate velit esse\r"
+              }
+              {"cillum dolore eu fugiat nulla pariatur.\r"}
             </Text>
           </Collapse>
         </Container>
-        <Text>subtitle</Text>
+        <Text>{"subtitle"}</Text>
         <Container gap={10}>
           <Collapse
-            title="Question A"
-            subtitle="More description about Question A"
+            title={"Question A"}
+            subtitle={"More description about Question A"}
           >
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r"
+              }
+              {
+                "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\r"
+              }
+              {
+                "enim ad minim veniam, quis nostrud exercitation ullamco laboris\r"
+              }
+              {"nisi ut aliquip ex ea commodo consequat.\r"}
             </Text>
           </Collapse>
-          <Collapse title="Question B">
+          <Collapse title={"Question B"}>
             <Text>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
-            </Text>
-          </Collapse>
-        </Container>
-        <Text>card</Text>
-        <Container gap={10}>
-          <Collapse title="Question A" card>
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {
+                "Duis aute irure dolor in reprehenderit in voluptate velit esse\r"
+              }
+              {"cillum dolore eu fugiat nulla pariatur.\r"}
             </Text>
           </Collapse>
         </Container>
-        <Text>small</Text>
+        <Text>{"card"}</Text>
         <Container gap={10}>
-          <Collapse title="Question A" size="small">
+          <Collapse title={"Question A"} card>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r"
+              }
+              {
+                "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\r"
+              }
+              {
+                "enim ad minim veniam, quis nostrud exercitation ullamco laboris\r"
+              }
+              {"nisi ut aliquip ex ea commodo consequat.\r"}
+            </Text>
+          </Collapse>
+        </Container>
+        <Text>{"small"}</Text>
+        <Container gap={10}>
+          <Collapse title={"Question A"} size={"small"}>
+            <Text>
+              {
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r"
+              }
+              {
+                "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\r"
+              }
+              {
+                "enim ad minim veniam, quis nostrud exercitation ullamco laboris\r"
+              }
+              {"nisi ut aliquip ex ea commodo consequat.\r"}
             </Text>
           </Collapse>
         </Container>

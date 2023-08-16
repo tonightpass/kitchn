@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import capitalize from "../../utils/capitalize";
@@ -65,7 +66,7 @@ const Note = styled(
         {action && <Action>{action}</Action>}
       </Component>
     );
-  }
+  },
 )<NoteProps>`
   box-sizing: border-box;
   display: inline-flex;

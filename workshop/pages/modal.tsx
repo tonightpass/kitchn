@@ -1,6 +1,6 @@
-import React from "react";
 import { Button, Container, Modal, Text, useModal } from "@tonightpass/kitchen";
 import { NextPage } from "next";
+import React from "react";
 
 const ModalPage: NextPage = () => {
   const [active1, open1, close1] = useModal();
@@ -22,55 +22,55 @@ const ModalPage: NextPage = () => {
       }}
     >
       <Container>
-        <Text>default</Text>
+        <Text>{"default"}</Text>
         <Button size={"normal"} onClick={open1}>
-          Open Modal
+          {"Open Modal\r"}
         </Button>
         <Modal.Modal active={active1} onClickOutside={close1}>
           <Modal.Body>
             <Modal.Header>
-              <Modal.Title>Modal</Modal.Title>
-              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+              <Modal.Title>{"Modal"}</Modal.Title>
+              <Modal.Subtitle>{"This is a modal."}</Modal.Subtitle>
             </Modal.Header>
 
-            <Text>Some content contained within the modal.</Text>
+            <Text>{"Some content contained within the modal."}</Text>
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close1}>Cancel</Modal.Action>
+            <Modal.Action onClick={close1}>{"Cancel"}</Modal.Action>
 
-            <Modal.Action onClick={close1}>Submit</Modal.Action>
+            <Modal.Action onClick={close1}>{"Submit"}</Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>
       <Container>
-        <Text>disabled actions</Text>
+        <Text>{"disabled actions"}</Text>
         <Button size={"normal"} onClick={open2}>
-          Open Modal (with disabled actions)
+          {"Open Modal (with disabled actions)\r"}
         </Button>
         <Modal.Modal active={active2} onClickOutside={close2}>
           <Modal.Body>
             <Modal.Header>
-              <Modal.Title>Modal</Modal.Title>
-              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+              <Modal.Title>{"Modal"}</Modal.Title>
+              <Modal.Subtitle>{"This is a modal."}</Modal.Subtitle>
             </Modal.Header>
 
-            <Text>Some content contained within the modal.</Text>
+            <Text>{"Some content contained within the modal."}</Text>
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close2}>Cancel</Modal.Action>
+            <Modal.Action onClick={close2}>{"Cancel"}</Modal.Action>
 
             <Modal.Action onClick={close2} disabled>
-              Submit
+              {"Submit\r"}
             </Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>
       <Container>
-        <Text>callback</Text>
+        <Text>{"callback"}</Text>
         <Button size={"normal"} onClick={open3}>
-          Open Modal (with callback)
+          {"Open Modal (with callback)\r"}
         </Button>
         <Modal.Modal
           active={active3}
@@ -79,35 +79,35 @@ const ModalPage: NextPage = () => {
         >
           <Modal.Body>
             <Modal.Header>
-              <Modal.Title>Modal</Modal.Title>
-              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+              <Modal.Title>{"Modal"}</Modal.Title>
+              <Modal.Subtitle>{"This is a modal."}</Modal.Subtitle>
             </Modal.Header>
 
-            <Text>Some content contained within the modal.</Text>
+            <Text>{"Some content contained within the modal."}</Text>
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close3}>Cancel</Modal.Action>
+            <Modal.Action onClick={close3}>{"Cancel"}</Modal.Action>
 
-            <Modal.Action onClick={submit}>Submit</Modal.Action>
+            <Modal.Action onClick={submit}>{"Submit"}</Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>
 
       <Container>
-        <Text>inset</Text>
+        <Text>{"inset"}</Text>
         <Button size={"normal"} onClick={open4}>
-          Open Modal (with inset)
+          {"Open Modal (with inset)\r"}
         </Button>
         <Modal.Modal active={active4} onClickOutside={close4}>
           <Modal.Body>
             <Modal.Header>
-              <Modal.Title>Modal</Modal.Title>
-              <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+              <Modal.Title>{"Modal"}</Modal.Title>
+              <Modal.Subtitle>{"This is a modal."}</Modal.Subtitle>
             </Modal.Header>
 
             <Modal.Inset>
-              <Text>Content within the inset.</Text>
+              <Text>{"Content within the inset."}</Text>
             </Modal.Inset>
 
             <Text
@@ -115,14 +115,14 @@ const ModalPage: NextPage = () => {
                 marginTop: 20,
               }}
             >
-              Content outside the inset.
+              {"Content outside the inset.\r"}
             </Text>
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close4}>Cancel</Modal.Action>
+            <Modal.Action onClick={close4}>{"Cancel"}</Modal.Action>
 
-            <Modal.Action onClick={close4}>Submit</Modal.Action>
+            <Modal.Action onClick={close4}>{"Submit"}</Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>

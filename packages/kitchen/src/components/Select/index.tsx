@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import { KitchenComponent, NormalSizes } from "../../types";
 import { RiArrowDownSLine } from "react-icons/ri";
+import styled from "styled-components";
+
+import { KitchenComponent, NormalSizes } from "../../types";
 
 type Props = {
   /**
@@ -69,7 +70,7 @@ const Select = styled(
         </SelectorContainer>
       </Container>
     );
-  }
+  },
 )<SelectProps>`
   outline: none;
   transition: border-color 0.2s ease-in-out;

@@ -1,6 +1,7 @@
 import React from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
+
 import withScale from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
@@ -11,7 +12,7 @@ import Icon from "../Icon";
 
 const simulateChangeEvent = (
   el: HTMLInputElement,
-  event: React.MouseEvent<HTMLDivElement>
+  event: React.MouseEvent<HTMLDivElement>,
 ): React.ChangeEvent<HTMLInputElement> => {
   return {
     ...event,
@@ -36,7 +37,7 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClearClick?: (_event: React.MouseEvent<HTMLDivElement>) => void;
   type?: keyof AccentColors;
   label?: string;
 };
@@ -76,7 +77,7 @@ const Input = styled(
     const [clearIconHover, setClearIconHover] = React.useState<boolean>(false);
     const isControlledComponent = React.useMemo(
       () => value !== undefined,
-      [value]
+      [value],
     );
 
     const Wrapper = label ? "label" : React.Fragment;
@@ -184,7 +185,7 @@ const Input = styled(
               focus={focus}
               type={type}
               visible={Boolean(
-                inputRef.current && inputRef.current.value !== ""
+                inputRef.current && inputRef.current.value !== "",
               )}
             >
               <Icon
@@ -221,7 +222,7 @@ const Input = styled(
         )}
       </Wrapper>
     );
-  }
+  },
 )`
   font: inherit;
   width: 100%;
@@ -487,7 +488,9 @@ const Clear = styled.span<{
 
   svg {
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-    transition: color, opacity 0.2s ease-in-out;
+    transition:
+      color,
+      opacity 0.2s ease-in-out;
     opacity: ${({ visible }) => (visible ? 1 : 0)};
     pointer-events: ${({ visible }) => (visible ? "auto" : "none")};
   }
