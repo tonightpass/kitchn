@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.8.3
+
+### Patch Changes
+
+- 45df2c1: Fix button onclick props types
+  Fix ToastItem types, alignment and borders
+
 ## 1.8.2
 
 ### Patch Changes
