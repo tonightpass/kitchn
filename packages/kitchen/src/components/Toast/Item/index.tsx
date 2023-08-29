@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { convertRGBToRGBA } from "../../../";
 import withScale from "../../../hoc/withScale";
 import { Toast, ToastLayout } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
@@ -16,7 +17,7 @@ type Props = {
 
 export type ToastItemProps = KitchenComponent<Props>;
 
-const ToastItem = styled(({ toast, layout, ...props }) => {
+const ToastItem = styled(({ toast, layout, ...props }: ToastItemProps) => {
   const [animationState, setAnimationState] = React.useState<
     "entrance" | "exit" | "done" | null
   >(null);
@@ -55,12 +56,13 @@ const ToastItem = styled(({ toast, layout, ...props }) => {
       enter={enter}
       leave={leave}
       layout={layout}
+      toast={toast}
       {...props}
     >
       {isReactNode ? (
         toast.text
       ) : (
-        <Container row justify={"space-between"}>
+        <Container row justify={"space-between"} w={"100%"}>
           <Text>{toast.text}</Text>
           <ToastActions actions={toast.actions} cancelHandle={toast.cancel} />
         </Container>
@@ -132,7 +134,24 @@ const AnimationContainer = styled.div<
     animationState && animationState !== "done" ? layout.margin : 0};
   border: ${({ animationState }) =>
       animationState && animationState !== "done" ? "1px" : "0"}
-    solid ${({ theme }) => theme.colors.layout.dark};
+    solid
+    ${({ theme, toast }) => {
+      switch (toast.type) {
+        case "danger":
+          return convertRGBToRGBA(theme.colors.accent.danger, 0.5);
+        case "warning":
+          return convertRGBToRGBA(theme.colors.accent.warning, 0.5);
+        case "info":
+          return convertRGBToRGBA(theme.colors.accent.info, 0.5);
+        case "success":
+          return convertRGBToRGBA(theme.colors.accent.success, 0.5);
+        case "secondary":
+          return theme.colors.layout.lighter;
+        case "primary":
+        default:
+          return theme.colors.layout.dark;
+      }
+    }};
 `;
 
 const ToastItemMemo = React.memo(ToastItem);
