@@ -13,7 +13,6 @@ export type Props = {
   size?: NormalSizes;
   loading?: boolean;
   disabled?: boolean;
-  onClick?: (_event?: React.MouseEvent<HTMLButtonElement>) => void;
   width?: number | string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
