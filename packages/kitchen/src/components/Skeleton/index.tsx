@@ -74,10 +74,17 @@ const Skeleton = styled(
     );
   },
 )<SkeletonProps>`
-Skeleton.displayName = "Skeleton";
-${({ children, show = true, width, height, shape, theme, animated = true }) =>
-  children
-    ? `
+  ${({
+    children,
+    show = true,
+    width,
+    height,
+    shape,
+    theme,
+    animated = true,
+  }) =>
+    children
+      ? `
         position: relative;
         display: block;
         width: ${width ? "100%" : "auto"};
@@ -119,7 +126,7 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
             : ""
         }
       `
-    : `
+      : `
           display: block;
           width: 100%;
           user-select: none;
@@ -160,4 +167,5 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
   }
 `;
 
+Skeleton.displayName = "Skeleton";
 export default withScale(Skeleton);

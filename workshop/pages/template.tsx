@@ -3,6 +3,7 @@ import kitchen, {
   convertRGBToRGBA,
   Image,
   Text,
+  rotate,
 } from "@tonightpass/kitchen";
 import { Link } from "@tonightpass/kitchen/next";
 
@@ -196,7 +197,7 @@ const KitchenIcon = kitchen.div`
   }
 
   ::before {
-    animation: 6s rotate linear infinite;
+    animation: 6s ${rotate} linear infinite;
     width: 200%;
     height: 200%;
     background: conic-gradient(
@@ -220,15 +221,6 @@ const KitchenIcon = kitchen.div`
       ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.4)}
     );
     background-clip: content-box;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
   }
 `;
 

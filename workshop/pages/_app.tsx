@@ -1,10 +1,14 @@
-import { withKitchen } from "@tonightpass/kitchen/next";
+import { KitchenProvider } from "@tonightpass/kitchen";
 import { AppProps } from "next/app";
 
 import "@tonightpass/kitchen/fonts.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <KitchenProvider>
+      <Component {...pageProps} />
+    </KitchenProvider>
+  );
 };
 
-export default withKitchen(App);
+export default App;

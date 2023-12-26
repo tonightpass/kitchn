@@ -1,3 +1,4 @@
+import { ThemeProvider as NextThemeProvider } from "next-themes";
 import React from "react";
 import { DefaultTheme } from "styled-components";
 
@@ -56,13 +57,15 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <ToastsContent.Provider value={initialValue}>
-        {children}
-        <ToastContainer />
-      </ToastsContent.Provider>
-    </ThemeProvider>
+    <NextThemeProvider>
+      <ThemeProvider>
+        <GlobalStyle />
+        <ToastsContent.Provider value={initialValue}>
+          {children}
+          <ToastContainer />
+        </ToastsContent.Provider>
+      </ThemeProvider>
+    </NextThemeProvider>
   );
 };
 

@@ -6,3 +6,4 @@ export { default as isMac } from "./isMac";
 export { default as getCtrlKeysByPlatform } from "./getCtrlKeysByPlatform";
 export { default as getElementOffset } from "./getElementOffset";
 export { default as getActiveModMap } from "./getActiveModMap";
+export * from "./animate";

@@ -10,15 +10,23 @@ import Link from "next/link";
 import React from "react";
 
 const IndexPage: NextPage = () => {
+  const [mounted, setMounted] = React.useState(false);
   const { defaultThemes, storedTheme, setStoredTheme } = useTheme();
 
   const isDarkTheme = useThemeDetector();
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <Container align={"center"} gap={10} style={{ paddingTop: 100 }}>
       <Text>
         {"Your stored theme is: "}
-        {storedTheme}
+        {mounted ? storedTheme : null}
       </Text>
       <Text>
         {"Your system theme is: "}
@@ -30,13 +38,13 @@ const IndexPage: NextPage = () => {
         </Button>
         <Button
           type={"dark"}
-          onClick={() => setStoredTheme(defaultThemes.light.name)}
+          onClick={() => setStoredTheme(defaultThemes.light.scheme)}
         >
           {"Light\r"}
         </Button>
         <Button
           type={"dark"}
-          onClick={() => setStoredTheme(defaultThemes.dark.name)}
+          onClick={() => setStoredTheme(defaultThemes.dark.scheme)}
         >
           {"Dark\r"}
         </Button>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
+import { skBouncedelay } from "../../utils/animate";
 
 type Props = {
   color?: string;
@@ -34,7 +35,7 @@ const Spinner = styled(({ ...props }: SpinnerProps) => {
 
     border-radius: 100%;
     display: inline-block;
-    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: ${skBouncedelay} 1.4s infinite ease-in-out both;
   }
 
   .bounce1 {
@@ -43,17 +44,6 @@ const Spinner = styled(({ ...props }: SpinnerProps) => {
 
   .bounce2 {
     animation-delay: -0.16s;
-  }
-
-  @keyframes sk-bouncedelay {
-    0%,
-    80%,
-    100% {
-      transform: scale(0);
-    }
-    40% {
-      transform: scale(1);
-    }
   }
 `;
 
