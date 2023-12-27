@@ -37,7 +37,6 @@ const Icon = styled(({ icon: Component, size, ...props }) => {
     props.theme.colors.text[props.color as keyof TextColors] ||
     props.color ||
     props.theme.colors.text.lightest};
-  };
   vertical-align: ${({ align }) => {
     switch (align) {
       case "top":
