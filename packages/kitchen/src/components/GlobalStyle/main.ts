@@ -77,7 +77,7 @@ const mainCss = css`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => convertRGBToRGBA(theme.colors.text.lightest, 1)};
+    color: ${({ theme }) => theme.colors.text.lightest};
     transition: all 0.2s;
     cursor: pointer;
 

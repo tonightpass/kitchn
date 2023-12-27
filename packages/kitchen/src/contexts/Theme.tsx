@@ -37,23 +37,19 @@ const ThemeProvider = ({
 
   const [storedTheme, setStoredTheme] = useCookie<
     keyof typeof themes | "system" | string | undefined
-  >(`${PREFIX}-theme`, undefined);
+  >(`${PREFIX}-theme`, customTheme?.scheme || "system");
 
-  const [theme, setTheme] = React.useState<DefaultTheme>(
-    customTheme ||
-      (storedTheme === "system"
-        ? isDarkTheme
-          ? themes.dark
-          : themes.light
-        : themes[storedTheme as keyof typeof themes]) ||
-      themes.dark,
-  );
+  const [theme, setTheme] = React.useState<DefaultTheme>(() => {
+    if (customTheme) {
+      return customTheme;
+    }
+    if (storedTheme === "system") {
+      return isDarkTheme ? themes.dark : themes.light;
+    }
+    return themes[storedTheme as keyof typeof themes] || themes.dark;
+  });
 
   React.useEffect(() => {
-    if (storedTheme === undefined) {
-      nextTheme.setTheme("system");
-      setTheme(isDarkTheme ? themes.dark : themes.light);
-    }
     if (storedTheme === "system") {
       nextTheme.setTheme("system");
       setTheme(isDarkTheme ? themes.dark : themes.light);
@@ -61,7 +57,7 @@ const ThemeProvider = ({
       nextTheme.setTheme(themes[storedTheme as keyof typeof themes].scheme);
       setTheme(themes[storedTheme as keyof typeof themes]);
     }
-  }, [isDarkTheme, storedTheme]);
+  }, [themes, isDarkTheme, storedTheme, customTheme, nextTheme, setTheme]);
 
   return (
     <ThemeContext.Provider
