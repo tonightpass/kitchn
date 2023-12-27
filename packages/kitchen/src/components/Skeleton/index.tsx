@@ -97,7 +97,7 @@ const Skeleton = styled(
         ${
           show
             ? `
-            ::before {
+            &::before {
               content: "";
               position: absolute;
               top: 0;
