@@ -1,7 +1,5 @@
 import { css } from "styled-components";
 
-import { convertRGBToRGBA } from "../../";
-
 const mainCss = css`
   html,
   body,
