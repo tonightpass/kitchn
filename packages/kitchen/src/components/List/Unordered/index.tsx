@@ -10,7 +10,7 @@ const UnorderedList = styled((props) => {
   list-style-type: none;
   margin: 15px;
   margin-left: 25px;
-  ${ListItem}:before {
+  ${ListItem}::before {
     content: "-";
     color: ${(props) => props.theme.colors.text.darker};
     margin-left: -15px;

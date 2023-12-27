@@ -46,7 +46,7 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
         ? theme.colors.layout.lightest
         : theme.colors.layout.dark};
 
-  :before {
+  &::before {
     content: "";
     position: absolute;
     width: ${({ large }) => (large ? "18px" : "12px")};
@@ -64,7 +64,7 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
     );
   }
 
-  :after {
+  &::after {
     content: "";
     position: absolute;
     width: ${({ large }) => (large ? "18px" : "12px")};

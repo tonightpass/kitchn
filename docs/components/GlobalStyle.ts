@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
       border-color: hsl(var(--nextra-primary-hue)100% 94%/.1)
     }
 
-    .dark\\:before\\:nx-bg-neutral-800:before {
+    .dark\\::before\\:nx-bg-neutral-800::before {
       background-color: hsl(var(--nextra-primary-hue)100% 94%/.1)
     }
 
@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  *, *:before, *:after {
+  *, *::before, *::after {
     box-sizing: border-box;
   }
 

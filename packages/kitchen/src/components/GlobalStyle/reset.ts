@@ -119,10 +119,10 @@ const resetCss = css`
     quotes: none;
   }
 
-  blockquote:before,
+  blockquote::before,
   blockquote:after,
-  q:before,
-  q:after {
+  q::before,
+  q::after {
     content: "";
     content: none;
   }

@@ -47,8 +47,8 @@ const mainCss = css`
   }
 
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
