@@ -57,7 +57,7 @@ const IndexPage = () => {
       <Container w={"100%"} gap={"small"} row>
         <Card
           as={Link}
-          href={"https://design.tonightpass.com/docs"}
+          href={"https://kitchen.tonightpass.com/docs"}
           p={"small"}
           flex={1}
           br={"square"}
