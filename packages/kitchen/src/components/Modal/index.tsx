@@ -227,7 +227,7 @@ const ModalAction = styled((props: ModalActionProps) => (
     cursor: not-allowed;
   `}
 
-  :first-child {
+  &:first-child {
     border-left: none;
     color: ${({ theme }) => theme.colors.text.light};
   }

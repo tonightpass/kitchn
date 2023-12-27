@@ -79,7 +79,7 @@ const Collapse = styled(
   width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.layout.dark};
 
-  :last-child {
+  &:last-child {
     border-bottom: 1px solid ${({ theme }) => theme.colors.layout.dark};
   }
 
@@ -92,7 +92,7 @@ const Collapse = styled(
   margin-bottom: 10px;
   width: 100%;
 
-  :first-child {
+  &:first-child {
     margin-top: 0;
   }
 `}
