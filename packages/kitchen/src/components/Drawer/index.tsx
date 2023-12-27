@@ -41,7 +41,9 @@ const Drawer = styled(
         if (isDismiss && onDismiss) onDismiss();
         setTimeout(() => {
           setAnimationState(null);
-          if (onAnimationDone) onAnimationDone();
+          if (onAnimationDone && animationState === "exit") {
+            onAnimationDone();
+          }
         }, 210);
       },
       [animationState, onDismiss, onAnimationDone],
