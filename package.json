@@ -10,6 +10,7 @@
     "build:packages": "turbo run p:build",
     "build:apps": "turbo run build --filter=workshop --filter=docs --filter='./examples/*'",
     "build:docs": "turbo run build --filter=docs...",
+    "build:workshop": "turbo run build --filter=workshop",
     "build:examples": "turbo run build --filter='./examples/*'",
     "build:examples:expo": "turbo run build --filter=expo-typescript...",
     "build:examples:gatsby": "turbo run build --filter=gatsby-typescript",
