@@ -3,6 +3,7 @@ import kitchen, {
   convertRGBToRGBA,
   Image,
   Text,
+  rotate,
 } from "@tonightpass/kitchen";
 import { Link } from "@tonightpass/kitchen/next";
 import Head from "next/head";
@@ -56,7 +57,7 @@ const IndexPage = () => {
       <Container w={"100%"} gap={"small"} row>
         <Card
           as={Link}
-          href={"https://design.tonightpass.com/docs"}
+          href={"https://kitchen.tonightpass.com/docs"}
           p={"small"}
           flex={1}
           br={"square"}
@@ -141,7 +142,7 @@ const Card = kitchen(Container)<{
 const Centered = kitchen(Container)`
   position: relative;
 
-  ::before, ::after {
+  &::before, &::after {
     content: '';
     left: 50%;
     position: absolute;
@@ -149,7 +150,7 @@ const Centered = kitchen(Container)`
     transform: translateZ(0);
   }
 
-  ::before {
+  &::before {
     background: linear-gradient(
       to bottom right,
       ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0)},
@@ -162,7 +163,7 @@ const Centered = kitchen(Container)`
     margin-left: -400px;
   }
 
-  ::after {
+  &::after {
     background: radial-gradient(
       ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.4)}, 
       ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0)}
@@ -194,14 +195,14 @@ const KitchenIcon = kitchen.div`
   box-shadow: 0px 2px 8px -1px ${({ theme }) =>
     convertRGBToRGBA(theme.colors.layout.lightest, 0.1)};
 
-  ::before, ::after {
+  &::before, &::after {
     content: '';
     position: absolute;
     z-index: -1;
   }
 
-  ::before {
-    animation: 6s rotate linear infinite;
+  &::before {
+    animation: 6s ${rotate} linear infinite;
     width: 200%;
     height: 200%;
     background: conic-gradient(
@@ -215,7 +216,7 @@ const KitchenIcon = kitchen.div`
     );
   }
 
-  ::after {
+  &::after {
     inset: 0;
     padding: 1px;
     border-radius: ${({ theme }) => theme.radius.square};
@@ -225,15 +226,6 @@ const KitchenIcon = kitchen.div`
       ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.4)}
     );
     background-clip: content-box;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
   }
 `;
 

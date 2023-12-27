@@ -1,8 +1,5 @@
 export { default as KitchenDocument } from "./components/Document";
 
-export { default as withKitchen } from "./hoc/withKitchen";
-export type { NextAppInitialProps, NextAppProps } from "./hoc/withKitchen";
-
 export { default as withKitchenConfig } from "./hoc/withKitchenConfig";
 
 export { default as Link } from "./components/Link";

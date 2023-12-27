@@ -60,7 +60,7 @@ const AvatarGroup = styled(
   ${Avatar} {
     margin-left: -10px;
 
-    :first-child {
+    &:first-child {
       margin-left: 0;
     }
   }

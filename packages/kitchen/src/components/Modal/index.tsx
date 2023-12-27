@@ -7,6 +7,7 @@ import useBreakpoint from "../../hooks/useBreakpoint";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
+import { fadeInDown, fadeOutUp } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
 import Drawer from "../Drawer";
 
@@ -152,30 +153,7 @@ const ModalContent = styled.div<{
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-name: ${({ animationState }) =>
-    animationState === "entrance" ? "fadeInDown" : "fadeOutUp"};
-
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translate3d(0, -70%, 0);
-    }
-
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  @keyframes fadeOutUp {
-    from {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0;
-      transform: translate3d(0, -70%, 0);
-    }
-  }
+    animationState === "entrance" ? fadeInDown : fadeOutUp};
 `;
 
 const ModalOverflow = styled.div`
@@ -249,7 +227,7 @@ const ModalAction = styled((props: ModalActionProps) => (
     cursor: not-allowed;
   `}
 
-  :first-child {
+  &:first-child {
     border-left: none;
     color: ${({ theme }) => theme.colors.text.light};
   }

@@ -5,7 +5,7 @@ const ListItem = styled((props) => {
   return <li {...props} />;
 })`
   margin-top: 10px;
-  :first-child {
+  &:first-child {
     margin-top: 0;
   }
 `;

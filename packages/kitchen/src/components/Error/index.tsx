@@ -70,8 +70,8 @@ const Error = styled(
   line-height: 1;
 
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     box-sizing: inherit;
   }
 `;

@@ -2,6 +2,7 @@ import { Theme } from "../types/theme";
 
 const dark: Theme = {
   name: "dark",
+  scheme: "dark",
   colors: {
     layout: {
       darkest: "rgb(5, 21, 39)",

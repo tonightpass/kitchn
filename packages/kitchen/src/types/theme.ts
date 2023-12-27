@@ -1,5 +1,6 @@
 export type Theme = {
   name: string;
+  scheme: "dark" | "light";
   colors: Colors;
 };
 

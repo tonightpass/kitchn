@@ -6,6 +6,7 @@ import withScale from "../../hoc/withScale";
 import useKeyboard from "../../hooks/useKeyboard";
 import usePortal from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
+import { slideInUp, slideOutDown } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
 
 type Props = {
@@ -40,7 +41,9 @@ const Drawer = styled(
         if (isDismiss && onDismiss) onDismiss();
         setTimeout(() => {
           setAnimationState(null);
-          if (onAnimationDone) onAnimationDone();
+          if (onAnimationDone && animationState === "exit") {
+            onAnimationDone();
+          }
         }, 210);
       },
       [animationState, onDismiss, onAnimationDone],
@@ -128,28 +131,8 @@ const Content = styled.div<{
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-name: ${({ animationState }) =>
-    animationState === "entrance" ? "slideInUp" : "slideOutDown"};
+    animationState === "entrance" ? slideInUp : slideOutDown};
   ${({ height }) => height && `height: ${height}px`};
-
-  @keyframes slideInUp {
-    0% {
-      transform: translate3d(0, 100%, 0);
-      visibility: visible;
-    }
-    to {
-      transform: translateZ(0);
-    }
-  }
-
-  @keyframes slideOutDown {
-    0% {
-      transform: translateZ(0);
-    }
-    to {
-      visibility: hidden;
-      transform: translate3d(0, 100%, 0);
-    }
-  }
 `;
 
 export default withScale(Drawer);
