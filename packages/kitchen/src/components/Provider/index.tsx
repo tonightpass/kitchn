@@ -58,7 +58,7 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
 
   return (
     <NextThemeProvider>
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <ToastsContent.Provider value={initialValue}>
           {children}
