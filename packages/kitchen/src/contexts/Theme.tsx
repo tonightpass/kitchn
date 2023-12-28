@@ -5,21 +5,18 @@ import {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
 
-import { PREFIX } from "../constants";
-import useCookie from "../hooks/useCookie";
-import useThemeDetector from "../hooks/useThemeDetector";
 import themes from "../themes";
 
 const ThemeContext = React.createContext<{
   theme: DefaultTheme;
   setTheme: (theme: DefaultTheme) => void;
-  storedTheme: keyof typeof themes | "system" | string | undefined;
-  setStoredTheme: (themeName: keyof typeof themes | "system" | string) => void;
+  storedTheme: keyof typeof themes | "system" | undefined;
+  setStoredTheme: (theme: keyof typeof themes | "system" | undefined) => void;
 }>({
   theme: themes.dark,
   setTheme: (_theme: DefaultTheme) => {},
-  storedTheme: "system",
-  setStoredTheme: (_themeName: keyof typeof themes | "system" | string) => {},
+  storedTheme: undefined,
+  setStoredTheme: (_theme: keyof typeof themes | "system" | undefined) => {},
 });
 
 type ThemeProviderProps = {
@@ -27,37 +24,23 @@ type ThemeProviderProps = {
   theme?: DefaultTheme;
 };
 
-const ThemeProvider = ({
-  children,
-  theme: customTheme,
-  ...props
-}: ThemeProviderProps) => {
+const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   const nextTheme = useNextTheme();
-  const isDarkTheme = useThemeDetector();
 
-  const [storedTheme, setStoredTheme] = useCookie<
-    keyof typeof themes | "system" | string | undefined
-  >(`${PREFIX}-theme`, customTheme?.scheme || "system");
+  const [storedTheme, setStoredTheme] = React.useState<
+    keyof typeof themes | "system" | undefined
+  >(nextTheme.resolvedTheme as keyof typeof themes);
 
-  const [theme, setTheme] = React.useState<DefaultTheme>(() => {
-    if (customTheme) {
-      return customTheme;
-    }
-    if (storedTheme === "system") {
-      return isDarkTheme ? themes.dark : themes.light;
-    }
-    return themes[storedTheme as keyof typeof themes] || themes.dark;
-  });
+  const [theme, setTheme] = React.useState<DefaultTheme>(
+    themes[storedTheme as keyof typeof themes] || themes.dark,
+  );
 
   React.useEffect(() => {
-    if (storedTheme === "system") {
-      nextTheme.setTheme("system");
-      setTheme(isDarkTheme ? themes.dark : themes.light);
-    } else {
-      nextTheme.setTheme(themes[storedTheme as keyof typeof themes].scheme);
-      setTheme(themes[storedTheme as keyof typeof themes]);
+    if (storedTheme && storedTheme !== nextTheme.resolvedTheme) {
+      nextTheme.setTheme(storedTheme);
     }
-  }, [themes, isDarkTheme, storedTheme, customTheme, nextTheme, setTheme]);
+    setTheme(themes[storedTheme as keyof typeof themes] || themes.dark);
+  }, [nextTheme.resolvedTheme, setTheme, storedTheme]);
 
   return (
     <ThemeContext.Provider

@@ -22,7 +22,6 @@ export type KitchenProviderProps = {
 
 const KitchenProvider: React.FC<KitchenProviderProps> = ({
   children,
-  theme,
 }: KitchenProviderProps) => {
   const [lastUpdateToastId, setLastUpdateToastId] =
     React.useState<ToastsContextParams["lastUpdateToastId"]>(null);
@@ -58,7 +57,7 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
 
   return (
     <NextThemeProvider>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <GlobalStyle />
         <ToastsContent.Provider value={initialValue}>
           {children}
