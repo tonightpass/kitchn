@@ -2,7 +2,12 @@ import { ThemeProvider as NextThemeProvider } from "next-themes";
 import React from "react";
 import { DefaultTheme } from "styled-components";
 
-import { ThemeProvider } from "../../contexts/Theme";
+import { PREFIX } from "../../constants";
+import {
+  ThemeProvider,
+  ThemeProviderProps,
+  Themes,
+} from "../../contexts/Theme";
 import {
   defaultToastLayout,
   ToastsContent,
@@ -12,17 +17,30 @@ import {
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
 import useCurrentState from "../../hooks/useCurrentState";
+import defaultThemes, { generateThemes } from "../../themes";
 import GlobalStyle from "../GlobalStyle";
 import ToastContainer from "../Toast/Container";
 
 export type KitchenProviderProps = {
   children?: React.ReactNode;
-  theme?: DefaultTheme;
+  theme?: ThemeProviderProps["theme"];
+  enableSystem?: boolean;
+  defaultTheme?: keyof Themes | "system";
+  themes?: Record<string, DefaultTheme>;
 };
 
 const KitchenProvider: React.FC<KitchenProviderProps> = ({
   children,
+  enableSystem = true,
+  defaultTheme = enableSystem ? "system" : "dark",
+  themes: customThemes = {},
 }: KitchenProviderProps) => {
+  const staticThemes = { ...defaultThemes, ...customThemes };
+  const themes = React.useMemo(
+    () => generateThemes(staticThemes),
+    [customThemes],
+  );
+
   const [lastUpdateToastId, setLastUpdateToastId] =
     React.useState<ToastsContextParams["lastUpdateToastId"]>(null);
   const [toasts, setToasts, toastsRef] = useCurrentState<
@@ -56,9 +74,14 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
   );
 
   return (
-    <NextThemeProvider>
-      <ThemeProvider>
-        <GlobalStyle />
+    <NextThemeProvider
+      storageKey={`${PREFIX}-theme`}
+      defaultTheme={defaultTheme}
+      enableSystem={enableSystem}
+      themes={Object.keys(themes).map((key) => key.toString())}
+    >
+      <ThemeProvider themes={themes}>
+        <GlobalStyle staticThemes={staticThemes} />
         <ToastsContent.Provider value={initialValue}>
           {children}
           <ToastContainer />

@@ -7,7 +7,8 @@ export type { DefaultTheme } from "styled-components";
 export * from "./types";
 
 // ./themes
-export { default as themes, createTheme } from "./themes";
+export { default as defaultThemes, createTheme } from "./themes";
+export { default as tonightpassTheme } from "./themes/tonightpass";
 
 // ./components
 export { default as KitchenProvider } from "./components/Provider";

@@ -1,28 +1,21 @@
 import { DefaultTheme } from "styled-components";
 
-import dark from "./dark";
-import light from "./light";
-import main from "./main";
+import darkTheme from "./dark";
+import lightTheme from "./light";
+import mainTheme from "./main";
 import { PREFIX } from "../constants";
 import { Theme } from "../types/theme";
 
 export const createTheme = (theme: Theme): DefaultTheme => {
-  return { ...main, ...theme };
+  return { ...mainTheme, ...theme };
 };
 
-export const staticThemes = {
-  dark: createTheme(dark),
-  light: createTheme(light),
+const defaultThemes = {
+  dark: createTheme(darkTheme),
+  light: createTheme(lightTheme),
 };
 
-const excludedProperties = [
-  "name",
-  "scheme",
-  "size",
-  "breakpoint",
-  "gap",
-  "radius",
-];
+const excludedProperties = ["name", "size", "breakpoint", "gap", "radius"];
 
 export const createThemeVariables = (
   theme: DefaultTheme,
@@ -67,9 +60,14 @@ export const convertThemeToCssVariables = (obj: object, prefix = "") => {
   return cssVariables;
 };
 
-const themes = {
-  dark: createThemeVariables(staticThemes.dark, PREFIX),
-  light: createThemeVariables(staticThemes.light, PREFIX),
+export const generateThemes = (staticThemes: Record<string, DefaultTheme>) => {
+  const generatedThemes: Record<keyof typeof staticThemes, DefaultTheme> = {};
+
+  for (const key in staticThemes) {
+    generatedThemes[key] = createThemeVariables(staticThemes[key], PREFIX);
+  }
+
+  return generatedThemes;
 };
 
-export default themes;
+export default defaultThemes;

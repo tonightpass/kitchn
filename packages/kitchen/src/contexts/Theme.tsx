@@ -5,46 +5,53 @@ import {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
 
-import themes from "../themes";
+import defaultThemes from "../themes";
 
-const ThemeContext = React.createContext<{
+export type Themes = Record<string, DefaultTheme>;
+
+export type ThemeContextParams = {
   theme: DefaultTheme;
   setTheme: (theme: DefaultTheme) => void;
-  storedTheme: keyof typeof themes | "system" | undefined;
-  setStoredTheme: (theme: keyof typeof themes | "system" | undefined) => void;
-}>({
-  theme: themes.dark,
-  setTheme: (_theme: DefaultTheme) => {},
-  storedTheme: undefined,
-  setStoredTheme: (_theme: keyof typeof themes | "system" | undefined) => {},
-});
-
-type ThemeProviderProps = {
-  children: React.ReactNode;
-  theme?: DefaultTheme;
+  storedTheme?: keyof Themes | "system";
+  setStoredTheme: (theme: keyof Themes | "system") => void;
+  themes: Record<string, DefaultTheme>;
 };
 
-const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
+const ThemeContext = React.createContext<ThemeContextParams>({
+  theme: defaultThemes.dark,
+  setTheme: (_theme: DefaultTheme) => {},
+  storedTheme: "system",
+  setStoredTheme: (_theme: keyof Themes | "system") => {},
+  themes: defaultThemes,
+});
+
+export type ThemeProviderProps = {
+  children: React.ReactNode;
+  theme?: DefaultTheme;
+  themes: ThemeContextParams["themes"];
+};
+
+const ThemeProvider = ({ children, themes, ...props }: ThemeProviderProps) => {
   const nextTheme = useNextTheme();
 
-  const [storedTheme, setStoredTheme] = React.useState<
-    keyof typeof themes | "system" | undefined
-  >(nextTheme.resolvedTheme as keyof typeof themes);
-
   const [theme, setTheme] = React.useState<DefaultTheme>(
-    themes[storedTheme as keyof typeof themes] || themes.dark,
+    themes[nextTheme.resolvedTheme as keyof Themes] || themes.dark,
   );
 
   React.useEffect(() => {
-    if (storedTheme && storedTheme !== nextTheme.resolvedTheme) {
-      nextTheme.setTheme(storedTheme);
-    }
-    setTheme(themes[storedTheme as keyof typeof themes] || themes.dark);
-  }, [nextTheme.resolvedTheme, setTheme, storedTheme]);
+    setTheme(themes[nextTheme.resolvedTheme as keyof Themes] || themes.dark);
+  }, [nextTheme.resolvedTheme, setTheme]);
 
   return (
     <ThemeContext.Provider
-      value={{ ...nextTheme, theme, setTheme, storedTheme, setStoredTheme }}
+      value={{
+        ...nextTheme,
+        theme,
+        setTheme,
+        storedTheme: nextTheme.resolvedTheme,
+        setStoredTheme: nextTheme.setTheme,
+        themes,
+      }}
       {...props}
     >
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
