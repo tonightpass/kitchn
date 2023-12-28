@@ -63,23 +63,28 @@ export type ScaleProps = {
   pointerEvents?: "auto" | "none" | "inherit" | "initial" | "revert" | "unset";
 };
 
-const handleValue = (
+export const handlePixelValue = (value?: string | number) => {
+  return isNumber(value) ? `${value}px` : value;
+};
+
+export const handleValue = (
   theme: DefaultTheme,
   value?: string | number | keyof Gap | keyof Breakpoint,
 ) => {
   return (
     theme.gap[value as keyof Gap] ||
     theme.breakpoint[value as keyof Breakpoint] ||
-    (isNumber(value) ? `${value}px` : value)
+    handlePixelValue(value as string | number)
   );
 };
 
-const handleFont = (
+export const handleFont = (
   theme: DefaultTheme,
   value: string | number | keyof Size,
 ) => {
   return (
-    theme.size[value as keyof Size] || (isNumber(value) ? `${value}px` : value)
+    theme.size[value as keyof Size] ||
+    handlePixelValue(value as string | number)
   );
 };
 
