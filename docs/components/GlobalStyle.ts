@@ -169,9 +169,12 @@ const GlobalStyle = createGlobalStyle`
     border: 0 solid ${({ theme }) => theme.colors.layout.dark}
   }
 
-  ${Input} {
-  :focus-visible {
+  ${Input}:focus-visible {
     box-shadow: none;
+  }
+
+  .prism-code span {
+    font-size: ${({ theme }) => theme.size.small} !important;
   }
 `;
 
