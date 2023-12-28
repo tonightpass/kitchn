@@ -62,10 +62,6 @@ export const convertThemeToCssVariables = (obj: object, prefix = "") => {
       // If the value is not an object, generate the CSS variable
       cssVariables += `--${prefix}-${key}: ${value};\n`;
     }
-
-    if (excludedProperties.includes(key)) {
-      cssVariables += `${key}: ${value};\n`;
-    }
   }
 
   return cssVariables;
