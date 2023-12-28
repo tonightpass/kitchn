@@ -122,6 +122,9 @@ export type {
   UpdateToastsLayoutFunction,
 } from "./contexts/Toasts";
 
+export { ThemeContext, ThemeProvider } from "./contexts/Theme";
+export type { ThemeContextParams } from "./contexts/Theme";
+
 // ./hooks
 export { default as useBreakpoint } from "./hooks/useBreakpoint";
 export type { UseBreakpointResult } from "./hooks/useBreakpoint";

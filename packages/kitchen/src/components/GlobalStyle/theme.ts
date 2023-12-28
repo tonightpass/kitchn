@@ -1,8 +1,8 @@
 import { css } from "styled-components";
 
 import { PREFIX } from "../../constants";
-import { Themes } from "../../contexts/Theme";
 import { convertThemeToCssVariables } from "../../themes";
+import { Themes } from "../../types";
 
 const generateThemeCss = (themes: Themes, theme: keyof Themes) => {
   theme = theme.trim();

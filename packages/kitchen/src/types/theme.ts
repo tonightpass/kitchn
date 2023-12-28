@@ -1,3 +1,7 @@
+import { DefaultTheme } from "styled-components";
+
+export type Themes = Record<string, DefaultTheme>;
+
 export type Theme = {
   name: string;
   colors: Colors;

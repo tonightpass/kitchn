@@ -6,8 +6,7 @@ import {
 } from "styled-components";
 
 import defaultThemes from "../themes";
-
-export type Themes = Record<string, DefaultTheme>;
+import { Themes } from "../types";
 
 export type ThemeContextParams = {
   theme: DefaultTheme;
