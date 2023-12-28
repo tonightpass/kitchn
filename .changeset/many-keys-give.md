@@ -4,6 +4,7 @@
 
 Add usage of css variables
 Add `next-themes` to handle system theme without blinkings
+Add ability to add custom theme
 
 Fix couples of things related to styled-components v6
 
