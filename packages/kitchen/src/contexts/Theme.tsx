@@ -11,17 +11,19 @@ export type Themes = Record<string, DefaultTheme>;
 
 export type ThemeContextParams = {
   theme: DefaultTheme;
-  setTheme: (theme: DefaultTheme) => void;
-  storedTheme?: keyof Themes | "system";
-  setStoredTheme: (theme: keyof Themes | "system") => void;
+  setTheme: (theme: keyof Themes | "system") => void;
+  resolvedTheme?: keyof Themes | "system";
+  forcedTheme?: keyof Themes | "system";
+  systemTheme?: keyof Themes;
   themes: Record<string, DefaultTheme>;
 };
 
 const ThemeContext = React.createContext<ThemeContextParams>({
   theme: defaultThemes.dark,
-  setTheme: (_theme: DefaultTheme) => {},
-  storedTheme: "system",
-  setStoredTheme: (_theme: keyof Themes | "system") => {},
+  setTheme: (_theme: keyof Themes | "system") => {},
+  resolvedTheme: "system",
+  systemTheme: "system",
+  forcedTheme: undefined,
   themes: defaultThemes,
 });
 
@@ -47,9 +49,10 @@ const ThemeProvider = ({ children, themes, ...props }: ThemeProviderProps) => {
       value={{
         ...nextTheme,
         theme,
-        setTheme,
-        storedTheme: nextTheme.resolvedTheme,
-        setStoredTheme: nextTheme.setTheme,
+        setTheme: nextTheme.setTheme,
+        resolvedTheme: nextTheme.resolvedTheme,
+        systemTheme: nextTheme.systemTheme,
+        forcedTheme: nextTheme.forcedTheme,
         themes,
       }}
       {...props}

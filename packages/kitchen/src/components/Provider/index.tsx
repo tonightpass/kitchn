@@ -26,6 +26,7 @@ export type KitchenProviderProps = {
   theme?: ThemeProviderProps["theme"];
   enableSystem?: boolean;
   defaultTheme?: keyof Themes | "system";
+  forcedTheme?: keyof Themes | "system";
   themes?: Record<string, DefaultTheme>;
 };
 
@@ -34,6 +35,7 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
   enableSystem = true,
   defaultTheme = enableSystem ? "system" : "dark",
   themes: customThemes = {},
+  forcedTheme,
 }: KitchenProviderProps) => {
   const staticThemes = { ...defaultThemes, ...customThemes };
   const themes = React.useMemo(
@@ -79,6 +81,7 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
       defaultTheme={defaultTheme}
       enableSystem={enableSystem}
       themes={Object.keys(themes).map((key) => key.toString())}
+      forcedTheme={forcedTheme}
     >
       <ThemeProvider themes={themes}>
         <GlobalStyle staticThemes={staticThemes} />

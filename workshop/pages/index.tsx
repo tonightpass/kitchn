@@ -11,7 +11,7 @@ import React from "react";
 
 const IndexPage: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
-  const { storedTheme, setStoredTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const isDarkTheme = useThemeDetector();
   React.useEffect(() => {
@@ -26,23 +26,23 @@ const IndexPage: NextPage = () => {
     <Container align={"center"} gap={10} style={{ paddingTop: 100 }}>
       <Text>
         {"Your stored theme is: "}
-        {mounted ? storedTheme : null}
+        {mounted ? resolvedTheme : null}
       </Text>
       <Text>
         {"Your system theme is: "}
         {isDarkTheme ? "dark" : "light"}
       </Text>
       <Container gap={10} row>
-        <Button type={"dark"} onClick={() => setStoredTheme("system")}>
+        <Button type={"dark"} onClick={() => setTheme("system")}>
           {"System"}
         </Button>
-        <Button type={"dark"} onClick={() => setStoredTheme("light")}>
+        <Button type={"dark"} onClick={() => setTheme("light")}>
           {"Light"}
         </Button>
-        <Button type={"dark"} onClick={() => setStoredTheme("dark")}>
+        <Button type={"dark"} onClick={() => setTheme("dark")}>
           {"Dark"}
         </Button>
-        <Button type={"dark"} onClick={() => setStoredTheme("tonightpass")}>
+        <Button type={"dark"} onClick={() => setTheme("tonightpass")}>
           {"Tonight Pass"}
         </Button>
       </Container>

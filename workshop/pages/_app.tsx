@@ -13,6 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       themes={{
         tonightpass: createTheme(tonightpassTheme),
       }}
+      forcedTheme={Component.theme || null}
     >
       <Component {...pageProps} />
     </KitchenProvider>
