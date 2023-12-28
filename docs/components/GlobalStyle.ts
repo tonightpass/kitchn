@@ -18,11 +18,11 @@ const GlobalStyle = createGlobalStyle`
     background-clip: border-box;
   }
 
-  html[class~=dark].dark body {
-    background: ${({ theme }) => theme.colors.layout.darkest};
-  }
+  html[data-theme=dark] {
+    body {
+      background: ${({ theme }) => theme.colors.layout.darkest};
+    }
 
-  html[class~=dark] {
     .dark\\:nx-bg-dark {
       box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.layout.darkest};
       background-color: ${({ theme }) => theme.colors.layout.darkest};
@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
       background-color: ${({ theme }) => theme.colors.layout.darker};
     }
 
-    .dark\\:nx-border-neutral-800 {
+    .dark\\:nx-border-neutral-800, .dark\\.nx-border-neutral-200\/70 {
       content: "example";
       border-color: hsl(var(--nextra-primary-hue)100% 94%/.1)
     }
@@ -64,6 +64,16 @@ const GlobalStyle = createGlobalStyle`
 
     .dark\\:nx-text-neutral-500 {
       color: ${({ theme }) => theme.colors.text.light};
+    }
+
+    .nx-bg-white {
+      background-color: ${({ theme }) => theme.colors.layout.darkest};
+    }
+
+    kbd {
+      span {
+        color: inherit;
+      }
     }
   }
 
@@ -163,7 +173,6 @@ const GlobalStyle = createGlobalStyle`
   :focus-visible {
     box-shadow: none;
   }
-}
 `;
 
 export default GlobalStyle;
