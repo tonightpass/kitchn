@@ -1,4 +1,4 @@
-import kitchen, { Image, themes } from "@tonightpass/kitchen";
+import kitchen, { Image, defaultThemes } from "@tonightpass/kitchen";
 import { Showcase } from "types/showcase";
 
 export type ShowcaseCardProps = {
@@ -31,7 +31,8 @@ const ThumbnailImage = kitchen(Image)`
   max-height: 24px;
   transition: all 1s;
   filter: ${({ theme }) =>
-    theme.name === themes.light.name && "grayscale(0) brightness(0) invert(0)"};
+    theme.name === defaultThemes.light.name &&
+    "grayscale(0) brightness(0) invert(0)"};
 `;
 
 const Container = kitchen.div`

@@ -15,23 +15,9 @@ import { FragmentLink, Link } from "@tonightpass/kitchen/next";
 ## Installation
 In your Next.js project, install Kitchen by running either of the following:
 
-<Tabs items={["npm", "yarn", "pnpm"]}>
-  <Tab>
-    ```bash
-    npm i @tonightpass/kitchen --save
-    ```
-  </Tab>
-  <Tab>
-    ```bash
-    yarn add @tonightpass/kitchen
-    ```
-  </Tab>
-  <Tab>
-    ```bash
-    pnpm i @tonightpass/kitchen
-    ```
-  </Tab>
-</Tabs>
+```sh npm2yarn
+npm i @tonightpass/kitchen --save
+```
 
 ## Provider Setup
 
@@ -43,15 +29,17 @@ wrap the `Component` with the `KitchenProvider`:
 
 ```jsx
 // pages/_app.js
-import { withKitchen } from "@tonightpass/kitchen/next";
+import { KitchenProvider } from "@tonightpass/kitchen";
 
 function App({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <KitchenProvider>
+      <Component {...pageProps} />
+    </KitchenProvider>
   );
 }
 
-export default withKitchen(App);
+export default App;
 ```
 
 ## Server Side Rendering

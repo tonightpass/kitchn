@@ -15,7 +15,7 @@ const Featured: React.FC = () => {
         <Text
           align={"center"}
           size={"extraTitle"}
-          weight={"black"}
+          weight={"bold"}
           accent={"primary"}
           h1
         >

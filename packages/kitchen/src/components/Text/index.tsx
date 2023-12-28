@@ -113,7 +113,6 @@ const Text = styled(({ children, ...props }: TextProps) => {
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
     props.theme.colors.text.lightest};
-  };
   text-align: ${(props) => props.align || "left"};
   text-transform: ${(props) => props.transform || "initial"};
   text-decoration: ${(props) => props.decoration || "none"};

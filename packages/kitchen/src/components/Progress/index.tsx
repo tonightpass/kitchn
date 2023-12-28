@@ -117,19 +117,19 @@ const Progress = styled(
   vertical-align: unset;
   width: 100%;
 
-  ::-webkit-progress-bar {
+  &::-webkit-progress-bar {
     border-radius: 5px;
     background-color: ${({ theme }) => theme.colors.layout.dark};
   }
 
-  ::-webkit-progress-value {
+  &::-webkit-progress-value {
     border-radius: 5px;
     transition: all 0.1s ease-in-out;
   }
 `;
 
 const Component = styled.progress`
-  ::-webkit-progress-value {
+  &::-webkit-progress-value {
     background: ${({ theme, background }) =>
       background || theme.colors.layout.lightest};
   }

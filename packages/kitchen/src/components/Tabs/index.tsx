@@ -27,8 +27,8 @@ type Props = {
 
   disabled?: boolean;
 
-  hoverHeightRatio?: 0.7;
-  hoverWidthRatio?: 1.15;
+  hoverHeightRatio?: number;
+  hoverWidthRatio?: number;
   highlight?: boolean;
 };
 
@@ -41,7 +41,7 @@ const Tabs = styled(
     selected,
     setSelected,
     hoverHeightRatio = 0.7,
-    hoverWidthRatio = 1.15,
+    hoverWidthRatio = 1.05,
     highlight = true,
     ...props
   }: TabsProps) => {

@@ -29,8 +29,8 @@ const config: DocsThemeConfig = {
   },
   head: () => {
     const { resolvedTheme } = useNextraTheme();
-    const { setStoredTheme } = useTheme();
-    setStoredTheme(resolvedTheme as "dark" | "light" | "system");
+    const { setTheme } = useTheme();
+    setTheme(resolvedTheme);
 
     const { title, ...meta } = useConfig().frontMatter;
 
@@ -96,6 +96,7 @@ const config: DocsThemeConfig = {
     text: "Edit this page on GitHub",
   },
   primaryHue: 290,
+  primarySaturation: 0,
   footer: {
     component: Footer,
   },

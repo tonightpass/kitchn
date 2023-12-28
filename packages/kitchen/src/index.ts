@@ -7,7 +7,8 @@ export type { DefaultTheme } from "styled-components";
 export * from "./types";
 
 // ./themes
-export { default as themes, createTheme } from "./themes";
+export { default as defaultThemes, createTheme } from "./themes";
+export { default as tonightpassTheme } from "./themes/tonightpass";
 
 // ./components
 export { default as KitchenProvider } from "./components/Provider";
@@ -120,6 +121,9 @@ export type {
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
 } from "./contexts/Toasts";
+
+export { ThemeContext, ThemeProvider } from "./contexts/Theme";
+export type { ThemeContextParams } from "./contexts/Theme";
 
 // ./hooks
 export { default as useBreakpoint } from "./hooks/useBreakpoint";
