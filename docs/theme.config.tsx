@@ -30,7 +30,7 @@ const config: DocsThemeConfig = {
   head: () => {
     const { resolvedTheme } = useNextraTheme();
     const { setStoredTheme } = useTheme();
-    setStoredTheme(resolvedTheme);
+    setStoredTheme(resolvedTheme as "dark" | "light" | "system");
 
     const { title, ...meta } = useConfig().frontMatter;
 
