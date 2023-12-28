@@ -11,7 +11,7 @@ import React from "react";
 
 const IndexPage: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
-  const { defaultThemes, storedTheme, setStoredTheme } = useTheme();
+  const { storedTheme, setStoredTheme } = useTheme();
 
   const isDarkTheme = useThemeDetector();
   React.useEffect(() => {
@@ -34,19 +34,16 @@ const IndexPage: NextPage = () => {
       </Text>
       <Container gap={10} row>
         <Button type={"dark"} onClick={() => setStoredTheme("system")}>
-          {"System\r"}
+          {"System"}
         </Button>
-        <Button
-          type={"dark"}
-          onClick={() => setStoredTheme(defaultThemes.light.scheme)}
-        >
-          {"Light\r"}
+        <Button type={"dark"} onClick={() => setStoredTheme("light")}>
+          {"Light"}
         </Button>
-        <Button
-          type={"dark"}
-          onClick={() => setStoredTheme(defaultThemes.dark.scheme)}
-        >
-          {"Dark\r"}
+        <Button type={"dark"} onClick={() => setStoredTheme("dark")}>
+          {"Dark"}
+        </Button>
+        <Button type={"dark"} onClick={() => setStoredTheme("tonightpass")}>
+          {"Tonight Pass"}
         </Button>
       </Container>
 
