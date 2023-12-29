@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Footer from "@components/Footer";
 import Logo from "@components/Logo";
-import { useTheme } from "@tonightpass/kitchen";
 import { useRouter } from "next/router";
-import { useTheme as useNextraTheme } from "next-themes";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import urlcat from "urlcat";
 
@@ -23,15 +21,12 @@ const config: DocsThemeConfig = {
   logo: Logo,
   nextThemes: {
     defaultTheme: "dark",
+    storageKey: "kc-theme",
   },
   chat: {
     link: "https://discord.gg/VvvAkPqQ98",
   },
   head: () => {
-    const { resolvedTheme } = useNextraTheme();
-    const { setTheme } = useTheme();
-    setTheme(resolvedTheme);
-
     const { title, ...meta } = useConfig().frontMatter;
 
     const finalTitle = title
