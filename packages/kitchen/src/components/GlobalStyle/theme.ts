@@ -3,26 +3,34 @@ import { css } from "styled-components";
 import { PREFIX } from "../../constants";
 import { convertThemeToCssVariables } from "../../themes";
 import { Themes } from "../../types";
+import { KitchenProviderProps } from "../Provider";
 
-const generateThemeCss = (themes: Themes, theme: keyof Themes) => {
+const generateThemeCss = (
+  attribute: KitchenProviderProps["attribute"],
+  themes: Themes,
+  theme: keyof Themes,
+) => {
   theme = theme.trim();
 
   return `
-    [data-theme="${theme}"] {
+    ${attribute === "class" ? `:root.${theme}` : `[${attribute}="${theme}"]`} {
       ${convertThemeToCssVariables(themes[theme], PREFIX)}
     }
   `;
 };
 
-const themeCss = css<{ staticThemes: Themes }>`
-  ${({ staticThemes }) => `
+const themeCss = css<{
+  staticThemes: Themes;
+  attribute: KitchenProviderProps["attribute"];
+}>`
+  ${({ staticThemes, attribute }) => `
     :root {
       ${convertThemeToCssVariables(staticThemes.light, PREFIX)}
     }
 
     ${Object.keys(staticThemes)
       .filter((theme) => theme !== "light")
-      .map((theme) => generateThemeCss(staticThemes, theme))}
+      .map((theme) => generateThemeCss(attribute, staticThemes, theme))}
   `}
 `;
 

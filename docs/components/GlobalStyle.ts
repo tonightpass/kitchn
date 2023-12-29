@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     background-clip: border-box;
   }
 
-  html[data-theme=dark] {
+  html.dark {
     body {
       background: ${({ theme }) => theme.colors.layout.darkest};
     }

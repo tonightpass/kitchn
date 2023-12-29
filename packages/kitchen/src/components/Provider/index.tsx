@@ -1,13 +1,10 @@
 import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { ThemeProviderProps as NextThemeProviderProps } from "next-themes/dist/types";
 import React from "react";
 import { DefaultTheme } from "styled-components";
 
 import { PREFIX } from "../../constants";
-import {
-  ThemeProvider,
-  ThemeProviderProps,
-  Themes,
-} from "../../contexts/Theme";
+import { ThemeProvider, ThemeProviderProps } from "../../contexts/Theme";
 import {
   defaultToastLayout,
   ToastsContent,
@@ -18,6 +15,7 @@ import {
 } from "../../contexts/Toasts";
 import useCurrentState from "../../hooks/useCurrentState";
 import defaultThemes, { generateThemes } from "../../themes";
+import { Themes } from "../../types";
 import GlobalStyle from "../GlobalStyle";
 import ToastContainer from "../Toast/Container";
 
@@ -28,6 +26,8 @@ export type KitchenProviderProps = {
   defaultTheme?: keyof Themes | "system";
   forcedTheme?: keyof Themes | "system";
   themes?: Record<string, DefaultTheme>;
+  dangerouslyDisableNextThemeProvider?: boolean;
+  attribute?: string | "class" | undefined;
 };
 
 const KitchenProvider: React.FC<KitchenProviderProps> = ({
@@ -36,6 +36,8 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
   defaultTheme = enableSystem ? "system" : "dark",
   themes: customThemes = {},
   forcedTheme,
+  attribute = "data-theme",
+  dangerouslyDisableNextThemeProvider,
 }: KitchenProviderProps) => {
   const staticThemes = { ...defaultThemes, ...customThemes };
   const themes = React.useMemo(
@@ -76,22 +78,39 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
   );
 
   return (
-    <NextThemeProvider
+    <NextThemeProviderWrapper
       storageKey={`${PREFIX}-theme`}
       defaultTheme={defaultTheme}
       enableSystem={enableSystem}
       themes={Object.keys(themes).map((key) => key.toString())}
       forcedTheme={forcedTheme}
+      dangerouslyDisableNextThemeProvider={dangerouslyDisableNextThemeProvider}
     >
       <ThemeProvider themes={themes}>
-        <GlobalStyle staticThemes={staticThemes} />
+        <GlobalStyle staticThemes={staticThemes} attribute={attribute} />
         <ToastsContent.Provider value={initialValue}>
           {children}
           <ToastContainer />
         </ToastsContent.Provider>
       </ThemeProvider>
-    </NextThemeProvider>
+    </NextThemeProviderWrapper>
   );
+};
+
+export type NextThemeProviderWrapperProps = NextThemeProviderProps & {
+  dangerouslyDisableNextThemeProvider?: boolean;
+};
+
+const NextThemeProviderWrapper: React.FC<NextThemeProviderWrapperProps> = ({
+  children,
+  dangerouslyDisableNextThemeProvider,
+  ...props
+}: NextThemeProviderWrapperProps) => {
+  if (dangerouslyDisableNextThemeProvider) {
+    return <>{children}</>;
+  }
+
+  return <NextThemeProvider {...props}>{children}</NextThemeProvider>;
 };
 
 export default KitchenProvider;
