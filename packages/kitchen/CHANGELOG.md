@@ -1,5 +1,20 @@
 # @tonightpass/kitchen
 
+## 1.9.0
+
+### Minor Changes
+
+- 46a44f5: Add usage of css variables
+  Add `next-themes` to handle system theme without blinkings
+  Add ability to add custom theme
+
+  Improve scale hoc with pixel value handler
+  Improve box hoc with borders
+
+  Fix couples of things related to styled-components v6
+
+  Remove `withKitchen` hoc, now use the `KitchenProvider` component with next
+
 ## 1.8.3
 
 ### Patch Changes
