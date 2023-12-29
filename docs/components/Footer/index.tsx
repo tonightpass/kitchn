@@ -4,7 +4,6 @@ import kitchen, {
   Footer,
   FooterGroup,
   FooterLink,
-  useTheme,
 } from "@tonightpass/kitchen";
 import { Link } from "@tonightpass/kitchen/next";
 import { ThemeSwitch } from "nextra-theme-docs";
