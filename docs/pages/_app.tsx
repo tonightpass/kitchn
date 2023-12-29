@@ -7,7 +7,6 @@ import "@tonightpass/kitchen/fonts.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { resolvedTheme } = useNextraTheme();
-  console.log("@App", resolvedTheme);
 
   return (
     <KitchenProvider

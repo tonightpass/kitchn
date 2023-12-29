@@ -73,8 +73,6 @@ const navigation = {
 };
 
 const CustomFooter = ({ menu }: { menu: boolean }) => {
-  const theme = useTheme();
-  console.log(theme);
   return (
     <Container bg={"darker"}>
       {menu && (
