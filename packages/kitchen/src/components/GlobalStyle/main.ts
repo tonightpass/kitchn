@@ -55,7 +55,6 @@ const mainCss = css`
   /* fonts */
 
   body,
-  span,
   input,
   button,
   textarea,
