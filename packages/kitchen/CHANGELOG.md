@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.9.1
+
+### Patch Changes
+
+- 0e8e0f6: Remove span globalstyle
+
 ## 1.9.0
 
 ### Minor Changes
