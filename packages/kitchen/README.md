@@ -53,7 +53,13 @@ Our [Code of Conduct](https://docs.onruntime.com/contributing/code-of-conduct) a
 
 ## Contributing
 
-Please see our [contributing rules](https://docs.onruntime.com/contributing/introduction).
+To get started, check out our [contributing guide](https://docs.onruntime.com/contributing/introduction).
+
+### Contributors
+
+We'd love for you to join us! Whether it's through giving us a 🌟 star, making a 📥 pull request, or sharing your feedback, your help is always appreciated.
+
+[![Star History Chart](https://api.star-history.com/svg?repos=tonightpass/kitchen&type=Date)](https://star-history.com/#tonightpass/kitchen&Date)
 
 ## Authors
 
