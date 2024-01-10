@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.0
+
+### Minor Changes
+
+- 7eae7e5: Move kitchen/next/link to kitchen/link compatible with next
+
 ## 1.9.1
 
 ### Patch Changes
