@@ -71,6 +71,8 @@ export { default as UnorderedList } from "./components/List/Unordered";
 
 export { default as Link } from "./components/Link";
 export type { LinkProps } from "./components/Link";
+export { default as FragmentLink } from "./components/Link/Fragment";
+export type { FragmentLinkProps } from "./components/Link/Fragment";
 
 export { default as Modal } from "./components/Modal";
 export type { ModalProps, ModalActionProps } from "./components/Modal";

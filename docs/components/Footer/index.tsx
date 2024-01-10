@@ -1,11 +1,11 @@
 import Logo from "@components/Logo/TonightPass";
 import kitchen, {
   Container,
+  Link,
   Footer,
   FooterGroup,
   FooterLink,
 } from "@tonightpass/kitchen";
-import { Link } from "@tonightpass/kitchen/next";
 import { ThemeSwitch } from "nextra-theme-docs";
 
 const navigation = {

@@ -1,6 +1,10 @@
-import kitchen, { Container, Note, Text } from "@tonightpass/kitchen";
-import { FragmentLink, Link } from "@tonightpass/kitchen/next";
-import { NextPage } from "next";
+import kitchen, {
+  Container,
+  Link,
+  Note,
+  Text,
+  FragmentLink,
+} from "@tonightpass/kitchen";
 import { useRouter } from "next/router";
 
 const LinkPage: NextPage = () => {

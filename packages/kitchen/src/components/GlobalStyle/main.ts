@@ -74,8 +74,7 @@ const mainCss = css`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text.lightest};
-    transition: all 0.2s;
+    color: inherit;
     cursor: pointer;
 
     &:hover {

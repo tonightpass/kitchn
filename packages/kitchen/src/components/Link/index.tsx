@@ -56,10 +56,7 @@ const Link = styled(
     };
 
     if (isString(href)) {
-      href = href as string;
-      // regex to check if the href is internal or external
-
-      const internal = href.match(/^(\/(?!\/)[^#]*|#.*)$/);
+      const internal = (href as string).match(/^(\/(?!\/)[^#]*|#.*)$/);
       if (!internal) {
         return (
           <Component
@@ -72,6 +69,23 @@ const Link = styled(
           >
             {children}
           </Component>
+        );
+      }
+    }
+
+    if (typeof window !== "undefined" && window.next) {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const NextLink = require("next/link").default;
+      if (href && NextLink) {
+        return (
+          <NextLink
+            href={href}
+            className={className}
+            onClick={handleClick}
+            {...props}
+          >
+            {children}
+          </NextLink>
         );
       }
     }

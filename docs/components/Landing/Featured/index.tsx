@@ -1,5 +1,11 @@
-import { Button, Container, Text, Image, useTheme } from "@tonightpass/kitchen";
-import { Link } from "@tonightpass/kitchen/next";
+import {
+  Button,
+  Container,
+  Link,
+  Text,
+  Image,
+  useTheme,
+} from "@tonightpass/kitchen";
 
 const Featured: React.FC = () => {
   const { theme } = useTheme();

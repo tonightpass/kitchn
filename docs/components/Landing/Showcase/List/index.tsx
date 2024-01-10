@@ -1,5 +1,4 @@
-import kitchen, { Container, Text } from "@tonightpass/kitchen";
-import { Link } from "@tonightpass/kitchen/next";
+import kitchen, { Container, Text, Link } from "@tonightpass/kitchen";
 import showcases from "data/showcases";
 
 import ShowcaseCard from "./Card";

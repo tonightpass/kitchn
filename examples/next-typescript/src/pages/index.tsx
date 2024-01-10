@@ -3,9 +3,9 @@ import kitchen, {
   convertRGBToRGBA,
   Image,
   Text,
+  Link,
   rotate,
 } from "@tonightpass/kitchen";
-import { Link } from "@tonightpass/kitchen/next";
 import Head from "next/head";
 
 const IndexPage = () => {
