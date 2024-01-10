@@ -102,8 +102,8 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
       react-icons:
-        specifier: ^4.7.1
-        version: 4.7.1(react@18.2.0)
+        specifier: ^5.0.0
+        version: 5.0.0(react@18.2.0)
       react-live:
         specifier: ^4.0.0
         version: 4.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -269,8 +269,8 @@ importers:
         specifier: ^7.45.4
         version: 7.45.4(react@18.2.0)
       react-icons:
-        specifier: ^4.7.1
-        version: 4.7.1(react@18.2.0)
+        specifier: ^5.0.0
+        version: 5.0.0(react@18.2.0)
       styled-components:
         specifier: ^6.0.7
         version: 6.0.7(babel-plugin-styled-components@2.0.7)(react-dom@18.2.0)(react@18.2.0)
@@ -324,8 +324,8 @@ importers:
         specifier: ^7.45.4
         version: 7.45.4(react@18.2.0)
       react-icons:
-        specifier: ^4.7.1
-        version: 4.7.1(react@18.2.0)
+        specifier: ^5.0.0
+        version: 5.0.0(react@18.2.0)
 
 packages:
 
@@ -11046,7 +11046,7 @@ packages:
       eslint: 8.47.0
       eslint-config-next: 14.0.4(eslint@8.47.0)(typescript@5.0.4)
       eslint-config-prettier: 9.0.0(eslint@8.47.0)
-      eslint-config-turbo: 1.11.2(eslint@8.47.0)
+      eslint-config-turbo: 1.11.3(eslint@8.47.0)
       eslint-config-universe: 12.0.0(eslint@8.47.0)(prettier@3.0.2)(typescript@5.0.4)
       eslint-plugin-prettier: 5.0.0(eslint-config-prettier@9.0.0)(eslint@8.47.0)(prettier@3.0.2)
       eslint-plugin-react: 7.33.2(eslint@8.47.0)
@@ -11174,13 +11174,13 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-config-turbo@1.11.2(eslint@8.47.0):
-    resolution: {integrity: sha512-vqbyCH6kCHFoIAWUmGL61c0BfUQNz0XAl2RzAnEkSQ+PLXvEvuV2HsvL51UOzyyElfJlzZuh9T4BvUqb5KR9Eg==}
+  /eslint-config-turbo@1.11.3(eslint@8.47.0):
+    resolution: {integrity: sha512-v7CHpAHodBKlj+r+R3B2DJlZbCjpZLnK7gO/vCRk/Lc+tlD/f04wM6rmHlerevOlchtmwARilRLBnmzNLffTyQ==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
       eslint: 8.47.0
-      eslint-plugin-turbo: 1.11.2(eslint@8.47.0)
+      eslint-plugin-turbo: 1.11.3(eslint@8.47.0)
     dev: false
 
   /eslint-config-universe@12.0.0(eslint@8.47.0)(prettier@3.0.2)(typescript@5.0.4):
@@ -11725,8 +11725,8 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-turbo@1.11.2(eslint@8.47.0):
-    resolution: {integrity: sha512-U6DX+WvgGFiwEAqtOjm4Ejd9O4jsw8jlFNkQi0ywxbMnbiTie+exF4Z0F/B1ajtjjeZkBkgRnlU+UkoraBN+bw==}
+  /eslint-plugin-turbo@1.11.3(eslint@8.47.0):
+    resolution: {integrity: sha512-R5ftTTWQzEYaKzF5g6m/MInCU8pIN+2TLL+S50AYBr1enwUovdZmnZ1HDwFMaxIjJ8x5ah+jvAzql5IJE9VWaA==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
@@ -19147,8 +19147,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-icons@4.7.1(react@18.2.0):
-    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
+  /react-icons@5.0.0(react@18.2.0):
+    resolution: {integrity: sha512-8gBBjYRrO14BU9RuMEVptG5aB1gwNPAAgsKOuPggx2hg332pTky/r8FidEJW95cL6IG2mYCEHaYuAxw74wLefw==}
     peerDependencies:
       react: '*'
     dependencies:
