@@ -5,6 +5,7 @@ import kitchen, {
   Text,
   FragmentLink,
 } from "@tonightpass/kitchen";
+import { NextPage } from "next";
 import { useRouter } from "next/router";
 
 const LinkPage: NextPage = () => {
