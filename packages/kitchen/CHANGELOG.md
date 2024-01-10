@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.1
+
+### Patch Changes
+
+- 939e5f9: Fix prefix by adding ssm vendor prefixes
+
 ## 1.10.0
 
 ### Minor Changes
