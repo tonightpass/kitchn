@@ -1,7 +1,7 @@
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 import { ThemeProviderProps as NextThemeProviderProps } from "next-themes/dist/types";
 import React from "react";
-import { DefaultTheme } from "styled-components";
+import { DefaultTheme, StyleSheetManager } from "styled-components";
 
 import { PREFIX } from "../../constants";
 import { ThemeProvider, ThemeProviderProps } from "../../contexts/Theme";
@@ -86,13 +86,15 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
       forcedTheme={forcedTheme}
       dangerouslyDisableNextThemeProvider={dangerouslyDisableNextThemeProvider}
     >
-      <ThemeProvider themes={themes}>
-        <GlobalStyle staticThemes={staticThemes} attribute={attribute} />
-        <ToastsContent.Provider value={initialValue}>
-          {children}
-          <ToastContainer />
-        </ToastsContent.Provider>
-      </ThemeProvider>
+      <StyleSheetManager enableVendorPrefixes>
+        <ThemeProvider themes={themes}>
+          <GlobalStyle staticThemes={staticThemes} attribute={attribute} />
+          <ToastsContent.Provider value={initialValue}>
+            {children}
+            <ToastContainer />
+          </ToastsContent.Provider>
+        </ThemeProvider>
+      </StyleSheetManager>
     </NextThemeProviderWrapper>
   );
 };
