@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.2
+
+### Patch Changes
+
+- ccdce5a: Add missing scale hoc on select
+
 ## 1.10.1
 
 ### Patch Changes
