@@ -9,9 +9,19 @@ type FormData = {
 };
 
 const InputPage: NextPage = () => {
-  const { control, handleSubmit } = useForm<FormData>();
+  const { control, handleSubmit: handleSubmitControl } = useForm<FormData>();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmitControl = handleSubmitControl((data) => {
+    console.log(data);
+  });
+
+  const {
+    register,
+    handleSubmit: handleSubmitRegistered,
+    formState: { isValid: isValidRegistered },
+  } = useForm<FormData>();
+
+  const onSubmitRegistered = handleSubmitRegistered((data) => {
     console.log(data);
   });
 
@@ -306,10 +316,27 @@ const InputPage: NextPage = () => {
         </Container>
 
         <Container gap={5}>
+          <Text>{"registered"}</Text>
+          <Text>{`is valid : ${isValidRegistered}`}</Text>
+          <Container row>
+            <Container align={"flex-start"}>
+              <form onSubmit={onSubmitRegistered}>
+                <Input
+                  {...register("name", {
+                    required: true,
+                    maxLength: 20,
+                  })}
+                />
+              </form>
+            </Container>
+          </Container>
+        </Container>
+
+        <Container gap={5}>
           <Text>{"controlled"}</Text>
           <Container row>
             <Container align={"flex-start"}>
-              <form onSubmit={onSubmit}>
+              <form onSubmit={onSubmitControl}>
                 <ControlledInput name={"name"} control={control} />
               </form>
             </Container>
