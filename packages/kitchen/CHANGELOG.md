@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.3
+
+### Patch Changes
+
+- 5f1128e: Set forwardRef to Input component
+
 ## 1.10.2
 
 ### Patch Changes
