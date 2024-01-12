@@ -31,7 +31,7 @@ type Props = {
 
 export type AvatarGroupProps = KitchenComponent<Props>;
 
-const AvatarGroup = styled(
+const AvatarGroupComponent = styled(
   ({ members, size, limit, ...props }: AvatarGroupProps) => {
     return (
       <div {...props}>
@@ -72,4 +72,6 @@ const AvatarGroup = styled(
   }
 `;
 
-export default withScale(AvatarGroup);
+AvatarGroupComponent.displayName = "KitchenAvatarGroup";
+export const AvatarGroup = withScale(AvatarGroupComponent);
+export default AvatarGroup;

@@ -27,7 +27,7 @@ type Props = {
 
 export type ContainerProps = KitchenComponent<Props>;
 
-const Container = styled(
+const ContainerComponent = styled(
   ({ children, header, section, ...rest }: ContainerProps) => {
     const Component = header ? "header" : section ? "section" : "div";
     return <Component {...rest}>{children}</Component>;
@@ -67,4 +67,6 @@ const Container = styled(
   }
 `;
 
-export default withBox(Container);
+ContainerComponent.displayName = "KitchenContainer";
+export const Container = withBox(ContainerComponent);
+export default Container;

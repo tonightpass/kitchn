@@ -11,45 +11,20 @@ export { default as defaultThemes, createTheme } from "./themes";
 export { default as tonightpassTheme } from "./themes/tonightpass";
 
 // ./components
-export { default as KitchenProvider } from "./components/Provider";
-export type { KitchenProviderProps } from "./components/Provider";
-
-export { default as Avatar } from "./components/Avatar";
-export type { AvatarProps } from "./components/Avatar";
-
-export { default as AvatarGroup } from "./components/Avatar/Group";
-export type { AvatarGroupProps } from "./components/Avatar/Group";
-
-export { default as Badge } from "./components/Badge";
-export type { BadgeProps } from "./components/Badge";
-
-export { default as Button } from "./components/Button";
-export type { ButtonProps } from "./components/Button";
-
-export { default as Checkbox } from "./components/Checkbox";
-export type { CheckboxProps } from "./components/Checkbox";
-
-export { default as Code } from "./components/Code";
-export type { CodeProps } from "./components/Code";
-
-export { default as InlineCode } from "./components/Code/Inline";
-
-export { default as Collapse } from "./components/Collapse";
-export type { CollapseProps } from "./components/Collapse";
-
-export { default as Container } from "./components/Container";
-export type { ContainerProps } from "./components/Container";
-
-export { default as Drawer } from "./components/Drawer";
-export type { DrawerProps } from "./components/Drawer";
-
-export { default as Error } from "./components/Error";
-export type { ErrorProps } from "./components/Error";
-
+export * from "./components/Provider";
+export * from "./components/Avatar";
+export * from "./components/Avatar/Group";
+export * from "./components/Badge";
+export * from "./components/Button";
+export * from "./components/Checkbox";
+export * from "./components/Code";
+export * from "./components/Code/Inline";
+export * from "./components/Collapse";
+export * from "./components/Container";
+export * from "./components/Drawer";
+export * from "./components/Error";
 export * from "./components/Footer";
-
-export { default as Icon } from "./components/Icon";
-export type { IconProps } from "./components/Icon";
+export * from "./components/Icon";
 
 export { default as Input } from "./components/Input";
 export type { InputProps } from "./components/Input";

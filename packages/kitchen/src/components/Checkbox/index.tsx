@@ -20,7 +20,7 @@ export type CheckboxProps = KitchenComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 >;
 
-const Checkbox = styled(
+const CheckboxComponent = styled(
   ({
     children,
     checked,
@@ -37,21 +37,21 @@ const Checkbox = styled(
     };
 
     return (
-      <Container
+      <CheckboxContainer
         disabled={disabled}
         fullWidth={fullWidth}
         label={label}
         {...props}
       >
-        {label && <Label>{label}</Label>}
-        <CheckContainer label={label}>
-          <Check>
+        {label && <CheckboxLabel>{label}</CheckboxLabel>}
+        <CheckboxCheckContainer label={!!label}>
+          <CheckboxCheck>
             <StyledCheckbox
               type={"checkbox"}
               checked={checked}
               onChange={handleChange}
             />
-            <Checkmark
+            <CheckboxCheckmark
               checked={checked}
               indeterminate={indeterminate}
               disabled={disabled}
@@ -67,11 +67,11 @@ const Checkbox = styled(
                   <Icon icon={RiSubtractLine} color={"darker"} size={16} />
                 )
               )}
-            </Checkmark>
-          </Check>
-          {children && <Content>{children}</Content>}
-        </CheckContainer>
-      </Container>
+            </CheckboxCheckmark>
+          </CheckboxCheck>
+          {children && <CheckboxContent>{children}</CheckboxContent>}
+        </CheckboxCheckContainer>
+      </CheckboxContainer>
     );
   },
 )<CheckboxProps>`
@@ -80,7 +80,7 @@ const Checkbox = styled(
   }
 `;
 
-const Checkmark = styled.span<{
+export const CheckboxCheckmark = styled.span<{
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
@@ -111,7 +111,7 @@ const Checkmark = styled.span<{
   }};
 `;
 
-const Container = styled.label<{
+export const CheckboxContainer = styled.label<{
   disabled?: boolean;
   fullWidth?: boolean;
   label: boolean;
@@ -126,7 +126,7 @@ const Container = styled.label<{
   ${({ fullWidth }) => fullWidth && "width: 100%;"};
 
   &:hover {
-    ${Checkmark} {
+    ${CheckboxCheckmark} {
       border-color: ${({ theme, disabled }) =>
         disabled ? theme.colors.layout.dark : theme.colors.layout.light};
     }
@@ -143,22 +143,34 @@ const Container = styled.label<{
   `}
 `;
 
-const Label = styled.div`
+export const CheckboxLabel = styled.div`
   margin-bottom: 8px;
   font-size: ${({ theme }) => theme.size.small};
   font-weight: ${({ theme }) => theme.weight.medium};
   color: ${({ theme }) => theme.colors.text.dark};
 `;
 
-const CheckContainer = styled(({ children, label, ...props }) =>
-  label ? <div {...props}>{children}</div> : children,
-)`
+export type CheckboxCheckContainerProps = KitchenComponent<
+  {
+    label?: boolean;
+  },
+  React.HTMLAttributes<HTMLDivElement>
+>;
+
+const BaseCheckboxCheckContainer: React.FC<CheckboxCheckContainerProps> = ({
+  children,
+  label,
+  ...props
+}: CheckboxCheckContainerProps) =>
+  label ? <div {...props}>{children}</div> : <>{children}</>;
+
+export const CheckboxCheckContainer = styled(BaseCheckboxCheckContainer)`
   display: inline-flex;
   align-items: flex-start;
   user-select: none;
 `;
 
-const Check = styled.span`
+export const CheckboxCheck = styled.span`
   display: flex;
   position: relative;
   align-items: center;
@@ -166,12 +178,12 @@ const Check = styled.span`
   margin: -2px;
 `;
 
-const Content = styled.span`
+export const CheckboxContent = styled.span`
   margin-left: 8px;
   font-size: inherit;
 `;
 
-const StyledCheckbox = styled.input`
+export const StyledCheckbox = styled.input`
   cursor: inherit;
   position: absolute;
   opacity: 0;
@@ -180,4 +192,6 @@ const StyledCheckbox = styled.input`
   width: 0;
 `;
 
-export default withScale(Checkbox);
+CheckboxComponent.displayName = "KitchenCheckbox";
+export const Checkbox = withScale(CheckboxComponent);
+export default Checkbox;

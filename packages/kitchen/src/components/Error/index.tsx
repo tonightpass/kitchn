@@ -25,43 +25,43 @@ type Props = {
 
 export type ErrorProps = KitchenComponent<Props>;
 
-const Error = styled(
+const ErrorComponent = styled(
   ({ label = true, size, error, children, ...props }: ErrorProps) => {
     return (
       <div {...props}>
-        <IconContainer>
+        <ErrorIconContainer>
           <Icon
             icon={RiErrorWarningLine}
             accent={"danger"}
             size={size === "small" ? 15 : size === "large" ? 20 : 18}
             align={"bottom"}
           />
-        </IconContainer>
-        <TextContainer>
+        </ErrorIconContainer>
+        <ErrorTextContainer>
           <ErrorText size={size} accent={"danger"}>
             {label && (
-              <Label>
+              <ErrorLabel>
                 {typeof label === "string" ? label : "Error"}
                 {label ? ": " : ""}
-              </Label>
+              </ErrorLabel>
             )}
-            <Content>{error ? error.message : children}</Content>
+            <ErrorContent>{error ? error.message : children}</ErrorContent>
             {error && (
-              <Action
+              <ErrorAction
                 href={error.link}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
               >
                 {error.action}
-                <ActionIcon
+                <ErrorActionIcon
                   accent={"danger"}
                   icon={RiExternalLinkLine}
                   size={size}
                 />
-              </Action>
+              </ErrorAction>
             )}
           </ErrorText>
-        </TextContainer>
+        </ErrorTextContainer>
       </div>
     );
   },
@@ -76,13 +76,13 @@ const Error = styled(
   }
 `;
 
-const IconContainer = styled.div``;
+export const ErrorIconContainer = styled.div``;
 
-const TextContainer = styled.div`
+export const ErrorTextContainer = styled.div`
   margin-left: 8px;
 `;
 
-const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
+export const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
   font-size: ${(props) => {
     switch (props.size) {
       case "small":
@@ -97,19 +97,19 @@ const ErrorText = styled(Text)<{ size: ErrorProps["size"] }>`
   word-break: break-word;
 `;
 
-const Label = styled.b`
+export const ErrorLabel = styled.b`
   font-size: inherit;
   font-weight: ${({ theme }) => theme.weight.semiBold};
   color: ${({ theme }) => theme.colors.accent.danger};
 `;
 
-const Content = styled.span`
+export const ErrorContent = styled.span`
   font-size: inherit;
   font-family: inherit;
   color: ${({ theme }) => theme.colors.accent.danger};
 `;
 
-const Action = styled.a`
+export const ErrorAction = styled.a`
   display: inline-flex;
   font-size: inherit;
   color: inherit;
@@ -120,8 +120,10 @@ const Action = styled.a`
   background-repeat: no-repeat;
 `;
 
-const ActionIcon = styled(Icon)`
+export const ErrorActionIcon = styled(Icon)`
   margin-left: ${({ theme }) => theme.gap.tiny};
 `;
 
-export default withScale(Error);
+ErrorComponent.displayName = "KitchenError";
+export const Error = withScale(ErrorComponent);
+export default Error;
