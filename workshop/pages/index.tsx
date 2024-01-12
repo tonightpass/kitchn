@@ -11,7 +11,7 @@ import React from "react";
 
 const IndexPage: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
+  const { storedTheme, setTheme } = useTheme();
 
   const isDarkTheme = useThemeDetector();
   React.useEffect(() => {
@@ -26,7 +26,7 @@ const IndexPage: NextPage = () => {
     <Container align={"center"} gap={10} style={{ paddingTop: 100 }}>
       <Text>
         {"Your stored theme is: "}
-        {mounted ? resolvedTheme : null}
+        {mounted ? storedTheme : null}
       </Text>
       <Text>
         {"Your system theme is: "}

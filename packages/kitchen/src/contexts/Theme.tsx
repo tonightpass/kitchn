@@ -14,6 +14,7 @@ export type ThemeContextParams = {
   resolvedTheme?: keyof Themes | "system";
   forcedTheme?: keyof Themes | "system";
   systemTheme?: keyof Themes;
+  storedTheme?: keyof Themes | "system";
   themes: Record<string, DefaultTheme>;
 };
 
@@ -52,6 +53,7 @@ const ThemeProvider = ({ children, themes, ...props }: ThemeProviderProps) => {
         resolvedTheme: nextTheme.resolvedTheme,
         systemTheme: nextTheme.systemTheme,
         forcedTheme: nextTheme.forcedTheme,
+        storedTheme: nextTheme.theme,
         themes,
       }}
       {...props}
