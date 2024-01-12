@@ -47,7 +47,7 @@ const Select = styled(
     ...props
   }: SelectProps) => {
     return (
-      <Container size={size}>
+      <Container size={size} {...props}>
         {label && <Label>{label}</Label>}
         <SelectorContainer>
           {prefix && <Prefix>{prefix}</Prefix>}
@@ -59,7 +59,6 @@ const Select = styled(
             placeholder={placeholder}
             disabled={disabled}
             defaultValue={placeholder}
-            {...props}
           >
             {placeholder && (
               <option disabled value={placeholder}>
@@ -72,14 +71,7 @@ const Select = styled(
       </Container>
     );
   },
-)<SelectProps>`
-  outline: none;
-  transition: border-color 0.2s ease-in-out;
-  border-radius: ${({ theme }) => theme.radius.square};
-  background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
-  appearance: none;
-`;
+)<SelectProps>``;
 
 const Container = styled.label<{
   size: SelectProps["size"];
@@ -152,6 +144,12 @@ const Selector = styled.select<SelectProps>`
     }
   }};
   font-size: inherit;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  appearance: none;
+  border-radius: ${({ theme }) => theme.radius.square};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   ${({ theme, prefix }) => prefix && `padding-left: ${theme.gap.large};`}
   ${({ theme, suffix }) => suffix && `padding-right: ${theme.gap.large};`}

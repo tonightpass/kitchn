@@ -4,27 +4,28 @@ import styled from "styled-components";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 import Collapse from "../Collapse";
-import Link from "../Link";
+import Link, { LinkProps } from "../Link";
 
 type Props = {
   /**
    * The subfooter of the footer.
    */
-  subfooter?: string;
-
+  subfooter?: React.ReactNode;
   children?: React.ReactNode;
 };
 
 export type FooterProps = KitchenComponent<Props>;
 
-const Footer = styled(({ children, subfooter, ...props }: FooterProps) => {
-  return (
-    <footer {...props}>
-      <Nav>{children}</Nav>
-      {subfooter && <Subfooter>{subfooter}</Subfooter>}
-    </footer>
-  );
-})<FooterProps>`
+export const Footer = styled(
+  ({ children, subfooter, ...props }: FooterProps) => {
+    return (
+      <footer {...props}>
+        <Nav>{children}</Nav>
+        {subfooter && <SubFooter>{subfooter}</SubFooter>}
+      </footer>
+    );
+  },
+)<FooterProps>`
   position: relative;
   box-sizing: border-box;
   padding: ${({ theme }) => theme.gap.normal} 0;
@@ -52,9 +53,9 @@ export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
   const { isMobile } = useBreakpoint();
   if (isMobile) {
     return (
-      <FooterCollapse title={title}>
-        <List>{children}</List>
-      </FooterCollapse>
+      <Collapse title={title}>
+        <FooterList>{children}</FooterList>
+      </Collapse>
     );
   } else
     return (
@@ -62,7 +63,7 @@ export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
         <label htmlFor={title}>
           <GroupTitle>{title}</GroupTitle>
         </label>
-        <List>{children}</List>
+        <FooterList>{children}</FooterList>
       </div>
     );
 })<FooterGroupProps>`
@@ -73,37 +74,47 @@ const GroupTitle = styled.h2`
   font-weight: ${({ theme }) => theme.weight.medium};
 `;
 
-const List = styled.ul`
-  list-style-type: none;
+const FooterList = styled.ul`
   color: ${({ theme }) => theme.colors.text.light};
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: ${({ theme }) => theme.gap.tiny} ${({ theme }) => theme.gap.small};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const FooterCollapse = styled(Collapse)``;
+export type FooterLinkProps = KitchenComponent<
+  {
+    href: LinkProps["href"];
+  },
+  React.HTMLProps<HTMLLIElement>
+>;
 
-export const FooterLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.text.lighter};
-  text-decoration: none;
-  margin: ${({ theme }) => theme.gap.tiny} 0;
+export const FooterLink = styled(
+  ({ children, href, ...props }: FooterLinkProps) => {
+    return (
+      <li {...props}>
+        <Link href={href}>{children}</Link>
+      </li>
+    );
+  },
+)`
+  ${Link} {
+    color: ${({ theme }) => theme.colors.text.lighter};
+    font-size: 14px;
+    text-decoration: none;
+  }
 `;
 
-export const ListItem = styled(({ children }) => {
-  return (
-    <li>
-      <FooterLink>{children}</FooterLink>
-    </li>
-  );
-})`
-  margin-top: 24px;
-`;
-
-const Subfooter = styled.section`
+export const SubFooter = styled.section`
   font-size: ${({ theme }) => theme.size.small};
   max-width: ${({ theme }) => theme.breakpoint.laptop};
   margin: 0 auto;
   margin-top: ${({ theme }) => theme.gap.normal};
   padding: 0 ${({ theme }) => theme.gap.normal};
 `;
-
-export default Footer;
