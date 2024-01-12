@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
 
@@ -47,31 +47,34 @@ export type InputProps = KitchenComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 >;
 
-const Input = styled(
-  ({
-    size = "normal",
-    prefix,
-    suffix,
-    disabled = false,
-    prefixContainer = true,
-    suffixContainer = true,
-    prefixStyling = true,
-    suffixStyling = true,
-    clearable = false,
-    value,
-    initialValue = "",
-    readOnly = false,
-    onChange,
-    width,
-    onClearClick,
-    onFocus,
-    onBlur,
-    error,
-    type,
-    label,
-    ...props
-  }: InputProps) => {
-    const inputRef = React.useRef<HTMLInputElement>();
+const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      size = "normal",
+      prefix,
+      suffix,
+      disabled = false,
+      prefixContainer = true,
+      suffixContainer = true,
+      prefixStyling = true,
+      suffixStyling = true,
+      clearable = false,
+      value,
+      initialValue = "",
+      readOnly = false,
+      onChange,
+      width,
+      onClearClick,
+      onFocus,
+      onBlur,
+      error,
+      type,
+      label,
+      ...props
+    }: InputProps,
+    ref: React.Ref<HTMLInputElement>,
+  ) => {
+    const inputRef = React.useRef<HTMLInputElement>(null);
     const [selfValue, setSelfValue] = React.useState<string>(initialValue);
     const [focus, setFocus] = React.useState<boolean>(false);
     const [clearIconHover, setClearIconHover] = React.useState<boolean>(false);
@@ -79,6 +82,8 @@ const Input = styled(
       () => value !== undefined,
       [value],
     );
+
+    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
     const Wrapper = label ? "label" : React.Fragment;
 
@@ -223,7 +228,11 @@ const Input = styled(
       </Wrapper>
     );
   },
-)`
+);
+
+ForwardedInput.displayName = "Input";
+
+const Input = styled(ForwardedInput)`
   font: inherit;
   width: 100%;
   min-width: 0;
