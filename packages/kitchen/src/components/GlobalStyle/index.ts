@@ -1,12 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
-import mainCss from "./main";
-import resetCss from "./reset";
-import themeCss from "./theme";
+import { mainCss } from "./main";
+import { resetCss } from "./reset";
+import { themeCss } from "./theme";
 import { Themes } from "../../types";
 import { KitchenProviderProps } from "../Provider";
 
-const GlobalStyle = createGlobalStyle<{
+export const GlobalStyle = createGlobalStyle<{
   staticThemes: Themes;
   attribute: KitchenProviderProps["attribute"];
 }>`
@@ -15,4 +15,5 @@ const GlobalStyle = createGlobalStyle<{
     ${mainCss}
 `;
 
+export { mainCss, resetCss, themeCss };
 export default GlobalStyle;

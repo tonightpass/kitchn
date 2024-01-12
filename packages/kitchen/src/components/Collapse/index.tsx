@@ -17,7 +17,7 @@ type Props = {
 
 export type CollapseProps = KitchenComponent<Props>;
 
-const Collapse = styled(
+const CollapseComponent = styled(
   ({
     title,
     subtitle,
@@ -56,18 +56,18 @@ const Collapse = styled(
 
     return (
       <div {...props}>
-        <Header onClick={handleClick} isOpen={isOpen}>
-          <HeaderContent>
-            <Title size={size}>{title}</Title>
-            {subtitle && <Subtitle>{subtitle}</Subtitle>}
-          </HeaderContent>
+        <CollapseHeader onClick={handleClick} isOpen={isOpen}>
+          <CollapseHeaderContent>
+            <CollapseTitle size={size}>{title}</CollapseTitle>
+            {subtitle && <CollapseSubtitle>{subtitle}</CollapseSubtitle>}
+          </CollapseHeaderContent>
           <Icon icon={RiArrowDownSLine} />
-        </Header>
-        <Content height={height}>
-          <ContentContainer ref={contentContainerRef}>
+        </CollapseHeader>
+        <CollapseContent height={height}>
+          <CollapseContentContainer ref={contentContainerRef}>
             {children}
-          </ContentContainer>
-        </Content>
+          </CollapseContentContainer>
+        </CollapseContent>
       </div>
     );
   },
@@ -98,7 +98,7 @@ const Collapse = styled(
 `}
 `;
 
-const Header = styled.button<{ isOpen: boolean }>`
+const CollapseHeader = styled.button<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,13 +116,13 @@ const Header = styled.button<{ isOpen: boolean }>`
   }
 `;
 
-const HeaderContent = styled.div`
+const CollapseHeaderContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
 
-const Title = styled.h3<{ size?: "normal" | "small" | "medium" }>`
+const CollapseTitle = styled.h3<{ size?: "normal" | "small" | "medium" }>`
   font-size: ${({ size, theme }) => {
     switch (size) {
       case "small":
@@ -136,20 +136,20 @@ const Title = styled.h3<{ size?: "normal" | "small" | "medium" }>`
   font-weight: ${({ theme }) => theme.weight.bold};
 `;
 
-const Subtitle = styled.span`
+const CollapseSubtitle = styled.span`
   margin-top: 5px;
   font-size: ${({ theme }) => theme.size.small};
   font-weight: ${({ theme }) => theme.weight.regular};
   color: ${({ theme }) => theme.colors.text.light};
 `;
 
-const Content = styled.div<{ height?: number }>`
+const CollapseContent = styled.div<{ height?: number }>`
   overflow: hidden;
   transition: height 0.2s ease-in-out;
   height: ${({ height }) => (height ? `calc(${height}px + 10px * 2)` : "0px")};
 `;
 
-const ContentContainer = styled.span`
+const CollapseContentContainer = styled.span`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -157,4 +157,6 @@ const ContentContainer = styled.span`
   padding: 10px;
 `;
 
-export default withScale(Collapse);
+CollapseComponent.displayName = "KitchenCollapse";
+export const Collapse = withScale(CollapseComponent);
+export default Collapse;

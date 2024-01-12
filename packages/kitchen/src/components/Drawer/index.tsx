@@ -19,7 +19,7 @@ type Props = {
 
 export type DrawerProps = KitchenComponent<Props>;
 
-const Drawer = styled(
+const DrawerComponent = styled(
   ({
     children,
     show,
@@ -91,9 +91,13 @@ const Drawer = styled(
           {...bindings}
           {...props}
         >
-          <Content animationState={animationState} height={height} tabIndex={0}>
+          <DrawerContent
+            animationState={animationState}
+            height={height}
+            tabIndex={0}
+          >
             {children}
-          </Content>
+          </DrawerContent>
         </div>
       ) : null,
       portal,
@@ -114,7 +118,7 @@ const Drawer = styled(
   background-color: rgba(0, 0, 0, 0.6);
 `;
 
-const Content = styled.div<{
+export const DrawerContent = styled.div<{
   animationState: "entrance" | "exit";
   height?: number;
 }>`
@@ -135,4 +139,6 @@ const Content = styled.div<{
   ${({ height }) => height && `height: ${height}px`};
 `;
 
-export default withScale(Drawer);
+DrawerComponent.displayName = "KitchenDrawer";
+export const Drawer = withScale(DrawerComponent);
+export default Drawer;

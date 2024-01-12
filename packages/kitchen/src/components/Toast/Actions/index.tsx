@@ -15,7 +15,7 @@ type Props = {
 
 export type ToastActionsProps = KitchenComponent<Props>;
 
-const ToastActions = styled(
+const ToastActionsComponent = styled(
   ({ actions, cancelHandle, ...props }: ToastActionsProps) => {
     const handler = (
       event: React.MouseEvent<HTMLButtonElement>,
@@ -45,4 +45,6 @@ const ToastActions = styled(
   },
 )``;
 
-export default withScale(ToastActions);
+ToastActionsComponent.displayName = "KitchenToastActions";
+export const ToastActions = withScale(ToastActionsComponent);
+export default ToastActions;

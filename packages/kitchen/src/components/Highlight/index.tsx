@@ -6,13 +6,13 @@ import usePrevious from "../../hooks/usePrevious";
 import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 
-export type HighlightProps = KitchenComponent & {
+export type HighlightProps = KitchenComponent<{
   rect: ReactiveDomReact;
   visible?: boolean;
   hoverHeightRatio?: number;
   hoverWidthRatio?: number;
   activeOpacity?: number;
-};
+}>;
 
 export type HighlightPosition = {
   width: string;
@@ -22,7 +22,7 @@ export type HighlightPosition = {
   transition: string;
 };
 
-const Highlight = styled(
+const HighlightComponent = styled(
   ({
     rect,
     visible,
@@ -36,7 +36,7 @@ const Highlight = styled(
     const width = rect.width * hoverWidthRatio;
     const height = rect.height * hoverHeightRatio;
     return (
-      <Container
+      <HighlightContainer
         ref={ref}
         width={width}
         height={height}
@@ -53,7 +53,7 @@ const Highlight = styled(
   opacity: ${({ visible, activeOpacity }) => (visible ? activeOpacity : 0)};
 `;
 
-const Container = styled.div<HighlightPosition>`
+export const HighlightContainer = styled.div<HighlightPosition>`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.layout.dark};
   border-radius: 3px;
@@ -65,4 +65,6 @@ const Container = styled.div<HighlightPosition>`
   transition-property: ${({ transition }) => transition};
 `;
 
-export default withScale(Highlight);
+HighlightComponent.displayName = "KitchenHighlight";
+export const Highlight = withScale(HighlightComponent);
+export default Highlight;

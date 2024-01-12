@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import withScale from "../../hoc/withScale";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 import Collapse from "../Collapse";
@@ -16,7 +17,7 @@ type Props = {
 
 export type FooterProps = KitchenComponent<Props>;
 
-export const Footer = styled(
+const FooterComponent = styled(
   ({ children, subfooter, ...props }: FooterProps) => {
     return (
       <footer {...props}>
@@ -118,3 +119,7 @@ export const SubFooter = styled.section`
   margin-top: ${({ theme }) => theme.gap.normal};
   padding: 0 ${({ theme }) => theme.gap.normal};
 `;
+
+FooterComponent.displayName = "KitchenFooter";
+export const Footer = withScale(FooterComponent);
+export default Footer;

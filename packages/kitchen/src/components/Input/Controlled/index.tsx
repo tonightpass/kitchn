@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 
 import Input, { type InputProps } from "..";
+import withScale from "../../../hoc/withScale";
 
 type ControllerPropsEx<F extends FieldValues> = Omit<
   ControllerProps<F>,
@@ -23,11 +24,14 @@ type ControlledType<F extends FieldValues, T> = {
 
 type ControlledTextInputProps<F extends FieldValues> = ControlledType<
   F,
-  Omit<InputProps, "onChange" | "onBlur" | "value" | "errorMessage">
+  Omit<
+    InputProps,
+    "onChange" | "onBlur" | "value" | "errorMessage" | "ref" | "name"
+  >
 > &
   InputProps;
 
-const ControlledInput = React.forwardRef(
+const ControlledInputComponent = React.forwardRef(
   <F extends FieldValues>(
     { name, control, controllerProps, ...props }: ControlledTextInputProps<F>,
     ref: React.Ref<HTMLInputElement>,
@@ -36,6 +40,9 @@ const ControlledInput = React.forwardRef(
       name={name}
       control={control}
       {...controllerProps}
+      rules={{
+        ...controllerProps?.rules,
+      }}
       render={({
         field: { onBlur, onChange, value, name },
         fieldState: { error },
@@ -56,6 +63,6 @@ const ControlledInput = React.forwardRef(
   ),
 );
 
-ControlledInput.displayName = "ControlledInput";
-
+ControlledInputComponent.displayName = "KitchenControlledInput";
+export const ControlledInput = withScale(ControlledInputComponent);
 export default ControlledInput;

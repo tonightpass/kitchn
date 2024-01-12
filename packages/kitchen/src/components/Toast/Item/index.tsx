@@ -17,59 +17,61 @@ type Props = {
 
 export type ToastItemProps = KitchenComponent<Props>;
 
-const ToastItem = styled(({ toast, layout, ...props }: ToastItemProps) => {
-  const [animationState, setAnimationState] = React.useState<
-    "entrance" | "exit" | "done" | null
-  >(null);
-  const [renderable, setRenderable] = React.useState<boolean>(toast.visible);
-  const isReactNode = typeof toast.text !== "string";
+const ToastItemComponent = styled(
+  ({ toast, layout, ...props }: ToastItemProps) => {
+    const [animationState, setAnimationState] = React.useState<
+      "entrance" | "exit" | "done" | null
+    >(null);
+    const [renderable, setRenderable] = React.useState<boolean>(toast.visible);
+    const isReactNode = typeof toast.text !== "string";
 
-  const { enter, leave } = React.useMemo(
-    () => getTranslateByPlacement(layout.placement),
-    [layout.placement],
-  );
+    const { enter, leave } = React.useMemo(
+      () => getTranslateByPlacement(layout.placement),
+      [layout.placement],
+    );
 
-  React.useEffect(() => {
-    const time = 60;
-    if (toast.visible && !renderable) {
-      setRenderable(true);
-    }
+    React.useEffect(() => {
+      const time = 60;
+      if (toast.visible && !renderable) {
+        setRenderable(true);
+      }
 
-    const timer = setTimeout(() => {
-      setAnimationState(toast.visible ? "entrance" : "exit");
-      setTimeout(() => {
-        if (!toast.visible) setAnimationState("done");
-      }, 350);
-      clearTimeout(timer);
-    }, time);
+      const timer = setTimeout(() => {
+        setAnimationState(toast.visible ? "entrance" : "exit");
+        setTimeout(() => {
+          if (!toast.visible) setAnimationState("done");
+        }, 350);
+        clearTimeout(timer);
+      }, time);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [renderable, toast.visible]);
+      return () => {
+        clearTimeout(timer);
+      };
+    }, [renderable, toast.visible]);
 
-  if (!renderable) return null;
-  return (
-    <AnimationContainer
-      key={toast.id}
-      animationState={animationState}
-      enter={enter}
-      leave={leave}
-      layout={layout}
-      toast={toast}
-      {...props}
-    >
-      {isReactNode ? (
-        toast.text
-      ) : (
-        <Container row justify={"space-between"} w={"100%"}>
-          <Text>{toast.text}</Text>
-          <ToastActions actions={toast.actions} cancelHandle={toast.cancel} />
-        </Container>
-      )}
-    </AnimationContainer>
-  );
-})<ToastItemProps>`
+    if (!renderable) return null;
+    return (
+      <AnimationContainer
+        key={toast.id}
+        animationState={animationState}
+        enter={enter}
+        leave={leave}
+        layout={layout}
+        toast={toast}
+        {...props}
+      >
+        {isReactNode ? (
+          toast.text
+        ) : (
+          <Container row justify={"space-between"} w={"100%"}>
+            <Text>{toast.text}</Text>
+            <ToastActions actions={toast.actions} cancelHandle={toast.cancel} />
+          </Container>
+        )}
+      </AnimationContainer>
+    );
+  },
+)<ToastItemProps>`
   width: ${({ layout }) => layout.width};
   max-width: ${({ layout }) => layout.maxWidth};
   display: flex;
@@ -112,7 +114,7 @@ const ToastItem = styled(({ toast, layout, ...props }: ToastItemProps) => {
     }
   }};
 `;
-const AnimationContainer = styled.div<
+export const AnimationContainer = styled.div<
   ToastItemProps & {
     animationState: "entrance" | "exit" | "done";
     enter: string;
@@ -154,6 +156,7 @@ const AnimationContainer = styled.div<
     }};
 `;
 
-const ToastItemMemo = React.memo(ToastItem);
-
-export default withScale(ToastItemMemo);
+ToastItemComponent.displayName = "KitchenToastItem";
+const ToastItemMemo = React.memo(ToastItemComponent);
+export const ToastItem = withScale(ToastItemMemo);
+export default ToastItem;

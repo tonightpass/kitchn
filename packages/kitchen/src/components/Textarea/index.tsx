@@ -19,7 +19,7 @@ export type TextareaProps = KitchenComponent<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >;
 
-const Textarea = styled(
+const TextareaComponent = styled(
   ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
     return (
       <textarea
@@ -64,4 +64,6 @@ const Textarea = styled(
   }
 `;
 
-export default withScale(Textarea);
+TextareaComponent.displayName = "KitchenTextarea";
+export const Textarea = withScale(TextareaComponent);
+export default Textarea;

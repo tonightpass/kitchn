@@ -250,7 +250,7 @@ const ModalInset = styled.div`
   margin: 0 -20px;
 `;
 
-const Modal = {
+export const Modal = {
   Modal: withScale(ModalComponent),
   Body: withScale(ModalBody),
   Header: withScale(ModalHeader),

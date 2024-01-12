@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-const resetCss = css`
+export const resetCss = css`
   html,
   body,
   div,
@@ -132,5 +132,3 @@ const resetCss = css`
     border-spacing: 0;
   }
 `;
-
-export default resetCss;

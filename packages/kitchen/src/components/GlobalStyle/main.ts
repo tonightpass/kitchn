@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-const mainCss = css`
+export const mainCss = css`
   html,
   body,
   #__next {
@@ -91,5 +91,3 @@ const mainCss = css`
     }
   }
 `;
-
-export default mainCss;

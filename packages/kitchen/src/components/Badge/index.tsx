@@ -26,7 +26,7 @@ type Props = {
 
 export type BadgeProps = KitchenComponent<Props>;
 
-const Badge = styled(({ children, ...props }: BadgeProps) => {
+const BadgeComponent = styled(({ children, ...props }: BadgeProps) => {
   return (
     <span {...props}>
       {children && isString(children)
@@ -103,4 +103,6 @@ const Badge = styled(({ children, ...props }: BadgeProps) => {
   }};
 `;
 
-export default withScale(Badge);
+BadgeComponent.displayName = "KitchenBadge";
+export const Badge = withScale(BadgeComponent);
+export default Badge;

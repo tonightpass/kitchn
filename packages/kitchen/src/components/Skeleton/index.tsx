@@ -49,7 +49,7 @@ type Props = {
 
 export type SkeletonProps = KitchenComponent<Props>;
 
-const Skeleton = styled(
+const SkeletonComponent = styled(
   ({
     as: Component = "span",
     children,
@@ -167,5 +167,6 @@ const Skeleton = styled(
   }
 `;
 
-Skeleton.displayName = "Skeleton";
-export default withScale(Skeleton);
+SkeletonComponent.displayName = "KitchenSkeleton";
+export const Skeleton = withScale(SkeletonComponent);
+export default Skeleton;

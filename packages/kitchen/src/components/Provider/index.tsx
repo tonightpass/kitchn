@@ -13,6 +13,7 @@ import {
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
+import withScale from "../../hoc/withScale";
 import useCurrentState from "../../hooks/useCurrentState";
 import defaultThemes, { generateThemes } from "../../themes";
 import { Themes } from "../../types";
@@ -30,7 +31,7 @@ export type KitchenProviderProps = {
   attribute?: string | "class" | undefined;
 };
 
-const KitchenProvider: React.FC<KitchenProviderProps> = ({
+export const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
   children,
   enableSystem = true,
   defaultTheme = enableSystem ? "system" : "dark",
@@ -103,7 +104,9 @@ export type NextThemeProviderWrapperProps = NextThemeProviderProps & {
   dangerouslyDisableNextThemeProvider?: boolean;
 };
 
-const NextThemeProviderWrapper: React.FC<NextThemeProviderWrapperProps> = ({
+export const NextThemeProviderWrapper: React.FC<
+  NextThemeProviderWrapperProps
+> = ({
   children,
   dangerouslyDisableNextThemeProvider,
   ...props
@@ -115,4 +118,6 @@ const NextThemeProviderWrapper: React.FC<NextThemeProviderWrapperProps> = ({
   return <NextThemeProvider {...props}>{children}</NextThemeProvider>;
 };
 
+KitchenProviderComponent.displayName = "KitchenProvider";
+export const KitchenProvider = withScale(KitchenProviderComponent);
 export default KitchenProvider;

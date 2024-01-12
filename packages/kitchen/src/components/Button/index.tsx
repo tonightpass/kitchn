@@ -8,7 +8,7 @@ import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import isNumber from "../../utils/isNumber";
 import Spinner from "../Spinner";
 
-export type Props = {
+type Props = {
   shape?: "square" | "round";
   size?: NormalSizes;
   loading?: boolean;
@@ -30,7 +30,7 @@ export type ButtonProps = KitchenComponent<
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
-const Button = styled(
+const ButtonComponent = styled(
   ({
     as: Component = "button",
     children,
@@ -45,7 +45,7 @@ const Button = styled(
     return (
       <Component {...props}>
         {(prefix || loading) && (
-          <Prefix hasContent={children !== undefined}>
+          <ButtonPrefix hasContent={children !== undefined}>
             {loading ? (
               <Spinner
                 size={
@@ -62,10 +62,10 @@ const Button = styled(
             ) : (
               prefix
             )}
-          </Prefix>
+          </ButtonPrefix>
         )}
-        <Content width={width}>{children}</Content>
-        {suffix && <Suffix>{suffix}</Suffix>}
+        <ButtonContent width={width}>{children}</ButtonContent>
+        {suffix && <ButtonSuffix>{suffix}</ButtonSuffix>}
       </Component>
     );
   },
@@ -271,7 +271,7 @@ const Button = styled(
   }
 `;
 
-const Content = styled.span<{ width?: string | number }>`
+export const ButtonContent = styled.span<{ width?: string | number }>`
   font-weight: ${({ theme }) => theme.weight.semiBold};
   font-size: inherit;
   font-family: inherit;
@@ -282,15 +282,17 @@ const Content = styled.span<{ width?: string | number }>`
     "text-overflow: ellipsis; overflow: hidden;  white-space: nowrap;"};
 `;
 
-const Prefix = styled.span<{ hasContent: boolean }>`
+export const ButtonPrefix = styled.span<{ hasContent: boolean }>`
   font-size: inherit;
   color: inherit;
   ${({ hasContent }) => hasContent && "margin-right: 7px;"}
 `;
-const Suffix = styled.span`
+export const ButtonSuffix = styled.span`
   font-size: inherit;
   margin-left: 7px;
   color: inherit;
 `;
 
-export default withScale(Button);
+ButtonComponent.displayName = "KitchenButton";
+export const Button = withScale(ButtonComponent);
+export default Button;
