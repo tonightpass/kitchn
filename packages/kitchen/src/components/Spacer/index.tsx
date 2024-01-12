@@ -13,7 +13,7 @@ type Props = {
 
 export type SpacerProps = KitchenComponent<Props>;
 
-const Spacer = styled(({ ...props }: SpacerProps) => {
+const SpacerComponent = styled(({ ...props }: SpacerProps) => {
   return <span {...props} />;
 })<SpacerProps>`
   display: block;
@@ -41,4 +41,6 @@ const Spacer = styled(({ ...props }: SpacerProps) => {
   );
 `;
 
-export default withScale(Spacer);
+SpacerComponent.displayName = "KitchenSpacer";
+export const Spacer = withScale(SpacerComponent);
+export default Spacer;

@@ -5,7 +5,7 @@ import { convertThemeToCssVariables } from "../../themes";
 import { Themes } from "../../types";
 import { KitchenProviderProps } from "../Provider";
 
-const generateThemeCss = (
+export const generateThemeCss = (
   attribute: KitchenProviderProps["attribute"],
   themes: Themes,
   theme: keyof Themes,
@@ -19,7 +19,7 @@ const generateThemeCss = (
   `;
 };
 
-const themeCss = css<{
+export const themeCss = css<{
   staticThemes: Themes;
   attribute: KitchenProviderProps["attribute"];
 }>`
@@ -33,5 +33,3 @@ const themeCss = css<{
       .map((theme) => generateThemeCss(attribute, staticThemes, theme))}
   `}
 `;
-
-export default themeCss;

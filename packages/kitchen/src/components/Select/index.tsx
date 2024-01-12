@@ -35,7 +35,7 @@ export type SelectProps = KitchenComponent<
   React.SelectHTMLAttributes<HTMLSelectElement>
 >;
 
-const Select = styled(
+const SelectComponent = styled(
   ({
     size = "normal",
     label,
@@ -47,12 +47,12 @@ const Select = styled(
     ...props
   }: SelectProps) => {
     return (
-      <Container size={size} {...props}>
-        {label && <Label>{label}</Label>}
-        <SelectorContainer>
-          {prefix && <Prefix>{prefix}</Prefix>}
-          {suffix && <Suffix>{suffix}</Suffix>}
-          <Selector
+      <SelectContainer size={size} {...props}>
+        {label && <SelectLabel>{label}</SelectLabel>}
+        <SelectSelectorContainer>
+          {prefix && <SelectPrefix>{prefix}</SelectPrefix>}
+          {suffix && <SelectSuffix>{suffix}</SelectSuffix>}
+          <SelectSelector
             size={size}
             prefix={prefix}
             suffix={suffix}
@@ -66,14 +66,14 @@ const Select = styled(
               </option>
             )}
             {children}
-          </Selector>
-        </SelectorContainer>
-      </Container>
+          </SelectSelector>
+        </SelectSelectorContainer>
+      </SelectContainer>
     );
   },
 )<SelectProps>``;
 
-const Container = styled.label<{
+const SelectContainer = styled.label<{
   size: SelectProps["size"];
 }>`
   font-size: ${({ size, theme }) => {
@@ -89,13 +89,13 @@ const Container = styled.label<{
   }};
 `;
 
-const Label = styled.div`
+const SelectLabel = styled.div`
   margin-bottom: 8px;
   font-size: ${({ theme }) => theme.size.normal};
   color: ${({ theme }) => theme.colors.text.lightest};
 `;
 
-const Prefix = styled.span`
+const SelectPrefix = styled.span`
   box-sizing: border-box;
   display: flex;
   left: 8px;
@@ -103,7 +103,7 @@ const Prefix = styled.span`
   pointer-events: none;
 `;
 
-const Suffix = styled.span`
+const SelectSuffix = styled.span`
   box-sizing: border-box;
   display: flex;
   right: 8px;
@@ -111,26 +111,26 @@ const Suffix = styled.span`
   pointer-events: none;
 `;
 
-const SelectorContainer = styled.div`
+const SelectSelectorContainer = styled.div`
   align-items: center;
   box-sizing: border-box;
   display: flex;
   height: 32px;
   position: relative;
 
-  ${Prefix}, ${Suffix} {
+  ${SelectPrefix}, ${SelectSuffix} {
     transition: color 0.2s ease-in-out;
     color: ${({ theme }) => theme.colors.text.lighter};
   }
 
   &:hover {
-    ${Prefix}, ${Suffix} {
+    ${SelectPrefix}, ${SelectSuffix} {
       color: ${({ theme }) => theme.colors.text.lightest};
     }
   }
 `;
 
-const Selector = styled.select<SelectProps>`
+export const SelectSelector = styled.select<SelectProps>`
   padding: 0 ${({ theme }) => theme.gap.small};
   height: ${(props) => {
     switch (props.size) {
@@ -164,4 +164,6 @@ const Selector = styled.select<SelectProps>`
   }
 `;
 
-export default withScale(Select);
+SelectComponent.displayName = "KitchenSelect";
+export const Select = withScale(SelectComponent);
+export default Select;

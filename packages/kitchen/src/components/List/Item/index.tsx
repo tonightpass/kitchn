@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const ListItem = styled((props) => {
+import withScale from "../../../hoc/withScale";
+import { KitchenComponent } from "../../../types";
+
+export type ListItemProps = KitchenComponent<
+  object,
+  React.LiHTMLAttributes<HTMLElement>
+>;
+
+const ListItemComponent = styled((props: ListItemProps) => {
   return <li {...props} />;
 })`
   margin-top: 10px;
@@ -10,4 +18,6 @@ const ListItem = styled((props) => {
   }
 `;
 
+ListItemComponent.displayName = "KitchenListItem";
+export const ListItem = withScale(ListItemComponent);
 export default ListItem;

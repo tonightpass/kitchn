@@ -16,7 +16,7 @@ export type ToggleProps = KitchenComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 >;
 
-const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
+const ToggleComponent = styled(({ disabled, onChange, ...props }: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) return e.preventDefault();
     if (onChange) onChange(e);
@@ -83,4 +83,6 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
   }
 `;
 
-export default withScale(Toggle);
+ToggleComponent.displayName = "KitchenToggle";
+export const Toggle = withScale(ToggleComponent);
+export default Toggle;

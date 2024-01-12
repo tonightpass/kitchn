@@ -1,9 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+import withScale from "../../../hoc/withScale";
+import { KitchenComponent } from "../../../types";
 import ListItem from "../Item";
 
-const UnorderedList = styled((props) => {
+export type UnorderedListProps = KitchenComponent<
+  object,
+  React.OlHTMLAttributes<HTMLElement>
+>;
+
+const UnorderedListComponent = styled((props: UnorderedListProps) => {
   return <ul {...props} />;
 })`
   padding: 0;
@@ -19,4 +26,6 @@ const UnorderedList = styled((props) => {
   }
 `;
 
+UnorderedListComponent.displayName = "KitchenUnorderedList";
+export const UnorderedList = withScale(UnorderedListComponent);
 export default UnorderedList;

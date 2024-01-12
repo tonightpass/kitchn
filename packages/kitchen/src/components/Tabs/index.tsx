@@ -34,7 +34,7 @@ type Props = {
 
 export type TabsProps = KitchenComponent<Props>;
 
-const Tabs = styled(
+const TabsComponent = styled(
   ({
     tabs,
     disabled = false,
@@ -137,4 +137,6 @@ const TabContainer = styled.div<{ active?: boolean; disabled: boolean }>`
   }
 `;
 
-export default withScale(Tabs);
+TabsComponent.displayName = "KitchenTabs";
+export const Tabs = withScale(TabsComponent);
+export default Tabs;

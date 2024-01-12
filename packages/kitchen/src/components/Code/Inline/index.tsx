@@ -23,5 +23,5 @@ const InlineCodeComponent = styled((props: InlineCodeProps) => {
 `;
 
 InlineCodeComponent.displayName = "KitchenInlineCode";
-const InlineCode = withScale(InlineCodeComponent);
+export const InlineCode = withScale(InlineCodeComponent);
 export default InlineCode;

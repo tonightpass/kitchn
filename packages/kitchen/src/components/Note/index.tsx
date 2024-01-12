@@ -38,7 +38,7 @@ type Props = {
 
 export type NoteProps = KitchenComponent<Props>;
 
-const Note = styled(
+const NoteComponent = styled(
   ({
     as: Component = "div",
     type,
@@ -51,19 +51,19 @@ const Note = styled(
       <Component {...props}>
         <div>
           {label && (
-            <Label>
+            <NoteLabel>
               {typeof label === "string"
                 ? label
                 : type && type !== "secondary"
                 ? capitalize(type)
                 : "Note"}
               {label ? ": " : ""}
-            </Label>
+            </NoteLabel>
           )}
 
-          <Content>{children}</Content>
+          <NoteContent>{children}</NoteContent>
         </div>
-        {action && <Action>{action}</Action>}
+        {action && <NoteAction>{action}</NoteAction>}
       </Component>
     );
   },
@@ -173,18 +173,20 @@ const Note = styled(
   }};
 `;
 
-const Label = styled.span`
+export const NoteLabel = styled.span`
   font-size: inherit;
   font-weight: ${({ theme }) => theme.weight.semiBold};
   color: inherit;
 `;
 
-const Content = styled.span`
+export const NoteContent = styled.span`
   font-size: inherit;
   font-family: inherit;
   color: inherit;
 `;
 
-const Action = styled.div``;
+export const NoteAction = styled.div``;
 
-export default withScale(Note);
+NoteComponent.displayName = "KitchenNote";
+export const Note = withScale(NoteComponent);
+export default Note;

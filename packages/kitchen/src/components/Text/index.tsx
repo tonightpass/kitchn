@@ -79,7 +79,7 @@ type Props = {
 
 export type TextProps = KitchenComponent<Props>;
 
-const Text = styled(({ children, ...props }: TextProps) => {
+const TextComponent = styled(({ children, ...props }: TextProps) => {
   const Component = props.h1
     ? "h1"
     : props.h2
@@ -154,4 +154,6 @@ const Text = styled(({ children, ...props }: TextProps) => {
   }
 `;
 
-export default withScale(Text);
+TextComponent.displayName = "KitchenText";
+export const Text = withScale(TextComponent);
+export default Text;

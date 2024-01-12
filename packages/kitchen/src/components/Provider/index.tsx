@@ -119,5 +119,5 @@ export const NextThemeProviderWrapper: React.FC<
 };
 
 KitchenProviderComponent.displayName = "KitchenProvider";
-const KitchenProvider = withScale(KitchenProviderComponent);
+export const KitchenProvider = withScale(KitchenProviderComponent);
 export default KitchenProvider;

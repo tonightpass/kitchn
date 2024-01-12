@@ -145,10 +145,10 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <Wrapper>
-        {label && <Label>{label}</Label>}
-        <Container disabled={disabled} width={width} size={size}>
+        {label && <InputLabel>{label}</InputLabel>}
+        <InputContainer disabled={disabled} width={width} size={size}>
           {prefix && prefixContainer && (
-            <Prefix
+            <InputPrefix
               size={size}
               disabled={disabled}
               prefixStyling={prefixStyling}
@@ -157,9 +157,9 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
               type={type}
             >
               {prefix}
-            </Prefix>
+            </InputPrefix>
           )}
-          <Field
+          <InputField
             ref={inputRef}
             size={size}
             prefix={prefix}
@@ -180,7 +180,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
             {...inputProps}
           />
           {clearable && value !== undefined && (
-            <Clear
+            <InputClear
               size={size}
               disabled={disabled}
               suffix={suffix}
@@ -205,10 +205,10 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
                 }
                 size={size === "small" ? 16 : size === "large" ? 24 : 20}
               />
-            </Clear>
+            </InputClear>
           )}
           {suffix && suffixContainer && (
-            <Suffix
+            <InputSuffix
               size={size}
               disabled={disabled}
               suffixStyling={suffixStyling}
@@ -217,9 +217,9 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
               type={type}
             >
               {suffix}
-            </Suffix>
+            </InputSuffix>
           )}
-        </Container>
+        </InputContainer>
         {error && (
           <InputError size={size} width={width}>
             {error}
@@ -232,7 +232,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
 
 ForwardedInput.displayName = "Input";
 
-const Input = styled(ForwardedInput)`
+const InputComponent = styled(ForwardedInput)`
   font: inherit;
   width: 100%;
   min-width: 0;
@@ -264,7 +264,7 @@ const Input = styled(ForwardedInput)`
   }
 `;
 
-const Container = styled.div<{
+export const InputContainer = styled.div<{
   disabled: InputProps["disabled"];
   width: InputProps["width"];
   size: InputProps["size"];
@@ -289,7 +289,7 @@ const Container = styled.div<{
   ${({ disabled }) => disabled && "cursor: not-allowed;"}
 `;
 
-const Field = styled.input<
+export const InputField = styled.input<
   InputProps & {
     focus: boolean;
   }
@@ -339,7 +339,7 @@ const Field = styled.input<
     "border-right: none;"}
 `;
 
-const Prefix = styled.span<{
+export const InputPrefix = styled.span<{
   size: InputProps["size"];
   disabled: InputProps["disabled"];
   prefixStyling: InputProps["prefixStyling"];
@@ -390,7 +390,7 @@ const Prefix = styled.span<{
   }
 `;
 
-const Suffix = styled.span<{
+export const InputSuffix = styled.span<{
   size: InputProps["size"];
   disabled: InputProps["disabled"];
   suffixStyling: InputProps["suffixStyling"];
@@ -442,7 +442,7 @@ const Suffix = styled.span<{
   }
 `;
 
-const Clear = styled.span<{
+export const InputClear = styled.span<{
   disabled: InputProps["disabled"];
   size: InputProps["size"];
   suffix: InputProps["suffix"];
@@ -505,7 +505,7 @@ const Clear = styled.span<{
   }
 `;
 
-const InputError = styled(Error)<{
+export const InputError = styled(Error)<{
   width: InputProps["width"];
 }>`
   margin-top: ${({ theme }) => theme.gap.tiny};
@@ -513,7 +513,7 @@ const InputError = styled(Error)<{
     width ? (isNumber(width) ? `${width}px` : width) : "auto"};
 `;
 
-const Label = styled.span`
+export const InputLabel = styled.span`
   display: block;
   font-size: ${({ theme }) => theme.size.small};
   font-weight: ${({ theme }) => theme.weight.medium};
@@ -522,4 +522,6 @@ const Label = styled.span`
   max-width: 100%;
 `;
 
-export default withScale(Input);
+InputComponent.displayName = "KitchenInput";
+export const Input = withScale(InputComponent);
+export default Input;

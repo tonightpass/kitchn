@@ -12,7 +12,7 @@ type Props = {
 
 export type SpinnerProps = KitchenComponent<Props>;
 
-const Spinner = styled(({ ...props }: SpinnerProps) => {
+const SpinnerComponent = styled(({ ...props }: SpinnerProps) => {
   return (
     <div {...props}>
       <div className={"bounce1"} />
@@ -47,4 +47,6 @@ const Spinner = styled(({ ...props }: SpinnerProps) => {
   }
 `;
 
-export default withScale(Spinner);
+SpinnerComponent.displayName = "KitchenSpinner";
+export const Spinner = withScale(SpinnerComponent);
+export default Spinner;

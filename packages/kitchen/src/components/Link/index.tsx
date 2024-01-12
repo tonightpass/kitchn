@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
 
+import withScale from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import isString from "../../utils/isString";
 
-export type Props = {
+type Props = {
   /**
    * The link's href.
    */
@@ -37,7 +38,7 @@ export type LinkProps = KitchenComponent<
   React.AnchorHTMLAttributes<HTMLAnchorElement>
 >;
 
-const Link = styled(
+const LinkComponent = styled(
   ({
     as: Component = "a",
     href,
@@ -157,4 +158,6 @@ const Link = styled(
   }
 `;
 
+LinkComponent.displayName = "KitchenLink";
+export const Link = withScale(LinkComponent);
 export default Link;

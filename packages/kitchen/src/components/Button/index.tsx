@@ -8,7 +8,7 @@ import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 import isNumber from "../../utils/isNumber";
 import Spinner from "../Spinner";
 
-export type Props = {
+type Props = {
   shape?: "square" | "round";
   size?: NormalSizes;
   loading?: boolean;
