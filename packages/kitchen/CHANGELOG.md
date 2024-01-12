@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.4
+
+### Patch Changes
+
+- d9c754b: Add storedTheme to theme hook
+
 ## 1.10.3
 
 ### Patch Changes
