@@ -1,5 +1,5 @@
 import Logo from "@components/Logo/TonightPass";
-import kitchen, {
+import {
   Container,
   Link,
   Footer,
