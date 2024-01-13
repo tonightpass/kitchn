@@ -155,7 +155,7 @@ const CustomFooter = () => {
             </Select>
           </Container>
         )}
-        <Container mt={"auto"} mb={"small"} gap={"small"} row>
+        <Container mt={"auto"} gap={"small"} row>
           <Link href={"https://linkedin.com/company/tonightpass"}>
             <Icon icon={RiLinkedinFill} />
           </Link>
