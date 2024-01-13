@@ -12,7 +12,6 @@ type Props = {
   h4?: boolean;
   h5?: boolean;
   h6?: boolean;
-  p?: boolean;
   b?: boolean;
   i?: boolean;
   span?: boolean;
@@ -92,8 +91,6 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
     ? "h5"
     : props.h6
     ? "h6"
-    : props.p
-    ? "p"
     : props.b
     ? "b"
     : props.i
