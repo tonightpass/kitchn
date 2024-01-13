@@ -35,12 +35,26 @@ const FooterComponent = styled(
 const Nav = styled.nav`
   max-width: ${({ theme }) => theme.breakpoint.laptop};
   margin: 0 auto;
-  display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
   padding: 0 ${({ theme }) => theme.gap.normal};
+  display: grid;
+  grid-template-columns: ${({ children }) =>
+    `repeat(${Math.min(React.Children.count(children), 4)}, 1fr)`};
+  gap: ${({ theme }) => theme.gap.normal};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    grid-template-columns: ${({ children }) =>
+      `repeat(${Math.min(React.Children.count(children), 3)}, 1fr)`};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    grid-template-columns: ${({ children }) =>
+      `repeat(${Math.min(React.Children.count(children), 2)}, 1fr)`};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    flex-direction: column;
+    grid-template-columns: ${({ children }) =>
+      `repeat(${Math.min(React.Children.count(children), 1)}, 1fr)`};
   }
 `;
 
@@ -50,26 +64,27 @@ type GroupProps = {
   title: string;
 };
 export type FooterGroupProps = KitchenComponent<GroupProps>;
-export const FooterGroup = styled(({ title, children }: FooterGroupProps) => {
-  const { isMobile } = useBreakpoint();
-  if (isMobile) {
-    return (
-      <Collapse title={title}>
-        <FooterList>{children}</FooterList>
-      </Collapse>
-    );
-  } else
-    return (
-      <div>
-        <label htmlFor={title}>
-          <GroupTitle>{title}</GroupTitle>
-        </label>
-        <FooterList>{children}</FooterList>
-      </div>
-    );
-})<FooterGroupProps>`
-  margin-right: 24px;
-`;
+export const FooterGroup = styled(
+  ({ title, children, ...props }: FooterGroupProps) => {
+    const { isMobile } = useBreakpoint();
+    if (isMobile) {
+      return (
+        <Collapse title={title}>
+          <FooterList>{children}</FooterList>
+        </Collapse>
+      );
+    } else
+      return (
+        <div {...props}>
+          <label htmlFor={title}>
+            <GroupTitle>{title}</GroupTitle>
+          </label>
+          <FooterList>{children}</FooterList>
+        </div>
+      );
+  },
+)<FooterGroupProps>``;
+
 const GroupTitle = styled.h2`
   margin: ${({ theme }) => theme.gap.small} 0;
   font-weight: ${({ theme }) => theme.weight.medium};

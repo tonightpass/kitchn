@@ -5,32 +5,100 @@ import kitchen, {
   Footer,
   FooterGroup,
   FooterLink,
+  useTheme,
+  Icon,
+  Select,
 } from "@tonightpass/kitchen";
-import { ThemeSwitch } from "nextra-theme-docs";
+import React from "react";
+import {
+  RiDiscordFill,
+  RiGithubFill,
+  RiInstagramFill,
+  RiLinkedinFill,
+  RiTwitterXFill,
+} from "react-icons/ri";
 
 const navigation = {
-  kitchen: [
+  products: [
     {
-      name: "Documentation",
-      href: "/docs",
+      name: "Ticketing",
+      href: "https://tonightpass.com/ticketing",
     },
     {
-      name: "Components",
-      href: "/docs/components",
+      name: "Order Kiosk",
+      href: "https://tonightpass.com/order-kiosk",
     },
     {
-      name: "Showcase",
-      href: "/showcase",
+      name: "Agency",
+      href: "https://tonightpass.com/agency",
     },
     {
-      name: "Roadmap",
-      href: "https://github.com/orgs/tonightpass/projects/2",
+      name: "Social",
+      href: "https://tonightpass.com/social",
+    },
+    {
+      name: "Jobs",
+      href: "https://tonightpass.com/jobs",
+    },
+    {
+      name: "Artists",
+      href: "https://tonightpass.com/artists",
+    },
+    {
+      name: "Promoters",
+      href: "https://tonightpass.com/promoters",
+    },
+    {
+      name: "Suppliers",
+      href: "https://tonightpass.com/suppliers",
+    },
+    {
+      name: "Venues",
+      href: "https://tonightpass.com/venues",
+    },
+    {
+      name: "Developers",
+      href: "https://tonightpass.com/developers",
+    },
+  ],
+  ressources: [
+    {
+      name: "Help Center",
+      href: "https://tonightpass.com/help-center",
+    },
+    {
+      name: "Community",
+      href: "https://tonightpass.com/community",
+    },
+    {
+      name: "Design",
+      href: "/docs/brands/tonightpass",
+    },
+    {
+      name: "Status",
+      href: "https://status.tonightpass.com",
+    },
+    {
+      name: "Comparison",
+      href: "https://tonightpass.com/comparison",
     },
   ],
   compagny: [
     {
-      name: "Tonight Pass",
-      href: "https://tonightpass.com",
+      name: "About",
+      href: "https://tonightpass.com/about",
+    },
+    {
+      name: "News",
+      href: "https://tonightpass.com/news",
+    },
+    {
+      name: "Careers",
+      href: "https://tonightpass.com/careers",
+    },
+    {
+      name: "Contact Us",
+      href: "https://tonightpass.com/contact",
     },
     {
       name: "onRuntime Studio",
@@ -41,14 +109,8 @@ const navigation = {
       href: "https://github.com/tonightpass",
     },
     {
-      name: "Contact Sales",
-      href: "mailto:sales@tonightpass.com",
-    },
-  ],
-  legal: [
-    {
-      name: "License",
-      href: "https://github.com/tonightpass/kitchen/blob/master/LICENSE",
+      name: "Partners",
+      href: "https://tonightpass.com/partners",
     },
     {
       name: "Privacy",
@@ -58,119 +120,85 @@ const navigation = {
       name: "Terms",
       href: "https://tonightpass.com/terms",
     },
-  ],
-  support: [
     {
-      name: "GitHub",
-      href: "https://github.com/tonightpass/kitchen",
-    },
-    {
-      name: "Discord",
-      href: "https://discord.gg/VvvAkPqQ98",
+      name: "Company Details",
+      href: "https://tonightpass.com/company-details",
     },
   ],
 };
 
-const CustomFooter = ({ menu }: { menu: boolean }) => {
+const CustomFooter = () => {
+  const { storedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <Container bg={"darker"}>
-      {menu && (
-        <Container
-          maxWidth={"laptop"}
-          py={"small"}
-          px={"normal"}
-          mx={"auto"}
-          w={"100%"}
-          row
-        >
-          <ThemeSwitch />
-        </Container>
-      )}
+    <Footer subfooter={"© 2023 Tonight Pass. All rights reserved."}>
+      <Container mt={"small"} align={"flex-start"} justify={"flex-start"}>
+        <Link href={"/"}>
+          <Logo />
+        </Link>
 
-      <Footer subfooter={"© 2023 Tonight Pass. All rights reserved."}>
-        <StyledContainer
-          mt={"small"}
-          align={"flex-start"}
-          justify={"flex-start"}
-          gap={"normal"}
-        >
-          <Link href={"/"}>
-            <Logo />
-          </Link>
-
-          <Link
-            href={"https://vercel.com/?utm_source=tonightpass&utm_campaign=oss"}
-          >
-            <Vercel
-              px={"small"}
-              py={"tiny"}
-              bga={"dark"}
-              align={"center"}
-              br={"square"}
-              row
+        {mounted && (
+          <Container my={"normal"}>
+            <Select
+              value={storedTheme}
+              onChange={(e) => setTheme(e.target.value)}
+              size={"small"}
             >
-              {"Deployed by"}{" "}
-              <span role={"img"} aria-label={"Vercel logo"}>
-                {"▲\r"}
-              </span>{" "}
-              {"Vercel\r"}
-            </Vercel>
+              <option value={"system"}>{"System"}</option>
+              <option value={"dark"}>{"Dark"}</option>
+              <option value={"light"}>{"Light"}</option>
+            </Select>
+          </Container>
+        )}
+        <Container mt={"auto"} mb={"small"} gap={"small"} row>
+          <Link href={"https://linkedin.com/company/tonightpass"}>
+            <Icon icon={RiLinkedinFill} />
           </Link>
-        </StyledContainer>
+          <Link href={"https://instagram.com/tonightpass"}>
+            <Icon icon={RiInstagramFill} />
+          </Link>
+          <Link href={"https://x.com/tonightpass"}>
+            <Icon icon={RiTwitterXFill} />
+          </Link>
+          <Link href={"https://discord.gg/VvvAkPqQ98"}>
+            <Icon icon={RiDiscordFill} />
+          </Link>
+          <Link href={"https://github.com/tonightpass"}>
+            <Icon icon={RiGithubFill} />
+          </Link>
+        </Container>
+      </Container>
 
-        <FooterGroup title={"Ressources"}>
-          {navigation.kitchen.map((item, i) => (
-            <FooterLink key={i} href={item.href}>
-              {item.name}
-            </FooterLink>
-          ))}
-        </FooterGroup>
+      <FooterGroup title={"Products"}>
+        {navigation.products.map((item, i) => (
+          <FooterLink key={i} href={item.href}>
+            {item.name}
+          </FooterLink>
+        ))}
+      </FooterGroup>
 
-        <FooterGroup title={"Company"}>
-          {navigation.compagny.map((item, i) => (
-            <FooterLink key={i} href={item.href}>
-              {item.name}
-            </FooterLink>
-          ))}
-        </FooterGroup>
+      <FooterGroup title={"Ressources"}>
+        {navigation.ressources.map((item, i) => (
+          <FooterLink key={i} href={item.href}>
+            {item.name}
+          </FooterLink>
+        ))}
+      </FooterGroup>
 
-        <FooterGroup title={"Legal"}>
-          {navigation.legal.map((item, i) => (
-            <FooterLink key={i} href={item.href}>
-              {item.name}
-            </FooterLink>
-          ))}
-        </FooterGroup>
-
-        <FooterGroup title={"Support"}>
-          {navigation.support.map((item, i) => (
-            <FooterLink key={i} href={item.href}>
-              {item.name}
-            </FooterLink>
-          ))}
-        </FooterGroup>
-      </Footer>
-    </Container>
+      <FooterGroup title={"Company"}>
+        {navigation.compagny.map((item, i) => (
+          <FooterLink key={i} href={item.href}>
+            {item.name}
+          </FooterLink>
+        ))}
+      </FooterGroup>
+    </Footer>
   );
 };
-
-const Vercel = kitchen(Container)`
-  display: inline-block;
-  color: ${({ theme }) => theme.colors.accent.light};
-  span {
-    color: ${({ theme }) => theme.colors.accent.light};
-  }
-`;
-
-const StyledContainer = kitchen(Container)`
-  color: ${({ theme }) => theme.colors.accent.light};
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: ${({ theme }) => theme.gap.small} 0;
-  }
-`;
 
 export default CustomFooter;
