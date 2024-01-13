@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.6
+
+### Patch Changes
+
+- 2e812e0: Fix Text `p` props in Text component
+
 ## 1.10.5
 
 ### Patch Changes
