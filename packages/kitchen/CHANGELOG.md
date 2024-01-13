@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.10.5
+
+### Patch Changes
+
+- dd6434a: Add full exports for components
+- ad92784: Improve footer with grids
+
 ## 1.10.4
 
 ### Patch Changes
