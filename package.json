@@ -54,7 +54,7 @@
     "cross-spawn": "^7.0.3",
     "eslint": "^8.47.0",
     "eslint-config-antoine": "^1.0.13",
-    "husky": "^8.0.1",
+    "husky": "^9.0.0",
     "merge-stream": "^2.0.0",
     "path-browserify": "^1.0.1",
     "prettier": "^3.0.2",
