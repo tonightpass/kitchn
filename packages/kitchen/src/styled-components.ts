@@ -7,6 +7,7 @@ declare module "styled-components" {
   export interface DefaultTheme extends Theme, MainTheme {}
 }
 
+export type * from "styled-components/dist/types";
 // custom exports
 export {
   ThemeContext as StyledThemeContext,
