@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
 
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import isString from "../../utils/isString";
 

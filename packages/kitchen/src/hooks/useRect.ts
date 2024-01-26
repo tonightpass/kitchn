@@ -63,7 +63,7 @@ export const isUnplacedRect = (rect?: ReactiveDomReact): boolean => {
   return rect.top === defaultRect.top && rect.left === defaultRect.left;
 };
 
-const useRect = (
+export const useRect = (
   initialState?: ReactiveDomReact | (() => ReactiveDomReact),
 ) => {
   const [rect, setRect] = React.useState<ReactiveDomReact>(
@@ -87,5 +87,3 @@ const useRect = (
     setRect: updateRect,
   };
 };
-
-export default useRect;

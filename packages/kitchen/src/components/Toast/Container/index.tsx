@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import { KitchenComponent, ToastItem, withScale } from "../../..";
 import { useToastsContext } from "../../../contexts/Toasts";
-import useCurrentState from "../../../hooks/useCurrentState";
-import usePortal from "../../../hooks/usePortal";
+import { useCurrentState } from "../../../hooks/useCurrentState";
+import { usePortal } from "../../../hooks/usePortal";
 
 export type ToastContainerProps = KitchenComponent<object>;
 

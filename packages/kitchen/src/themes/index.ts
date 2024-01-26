@@ -1,21 +1,32 @@
 import { DefaultTheme } from "styled-components";
 
-import darkTheme from "./dark";
-import lightTheme from "./light";
-import mainTheme from "./main";
+import { darkTheme } from "./dark";
+import { lightTheme } from "./light";
+import { mainTheme } from "./main";
 import { PREFIX } from "../constants";
 import { Theme } from "../types/theme";
+
+export * from "./dark";
+export * from "./light";
+export * from "./main";
+export * from "./tonightpass";
 
 export const createTheme = (theme: Theme): DefaultTheme => {
   return { ...mainTheme, ...theme };
 };
 
-const defaultThemes = {
+export const defaultThemes = {
   dark: createTheme(darkTheme),
   light: createTheme(lightTheme),
 };
 
-const excludedProperties = ["name", "size", "breakpoint", "gap", "radius"];
+export const excludedProperties = [
+  "name",
+  "size",
+  "breakpoint",
+  "gap",
+  "radius",
+];
 
 export const createThemeVariables = (
   theme: DefaultTheme,
@@ -69,5 +80,3 @@ export const generateThemes = (staticThemes: Record<string, DefaultTheme>) => {
 
   return generatedThemes;
 };
-
-export default defaultThemes;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Link, { LinkProps } from "..";
-import withScale from "../../../hoc/withScale";
+import { withScale } from "../../../hoc/withScale";
 import { KitchenComponent } from "../../../types";
 
 type Props = LinkProps & {

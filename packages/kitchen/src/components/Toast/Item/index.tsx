@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { convertRGBToRGBA } from "../../../";
-import withScale from "../../../hoc/withScale";
+import { withScale } from "../../../hoc/withScale";
 import { Toast, ToastLayout } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
 import getTranslateByPlacement from "../../../utils/getTranslateByPlacement";

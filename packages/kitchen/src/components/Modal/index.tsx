@@ -2,10 +2,10 @@ import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import withScale from "../../hoc/withScale";
-import useBreakpoint from "../../hooks/useBreakpoint";
-import useKeyboard from "../../hooks/useKeyboard";
-import usePortal from "../../hooks/usePortal";
+import { withScale } from "../../hoc/withScale";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
+import { useKeyboard } from "../../hooks/useKeyboard";
+import { usePortal } from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
 import { fadeInDown, fadeOutUp } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";

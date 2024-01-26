@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";

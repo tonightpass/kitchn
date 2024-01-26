@@ -58,7 +58,7 @@ export type UseToastsResult = {
   removeOneToastByID: (ident: string) => void;
 };
 
-const useToasts = (layout?: ToastLayout): UseToastsResult => {
+export const useToasts = (layout?: ToastLayout): UseToastsResult => {
   const { updateToasts, toasts, updateToastLayout, updateLastToastId } =
     useToastsContext();
 
@@ -143,5 +143,3 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
     removeOneToastByID,
   };
 };
-
-export default useToasts;

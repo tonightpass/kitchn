@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import convertRGBToRGBA from "../../utils/convertRGBToRGBA";

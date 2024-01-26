@@ -1,7 +1,7 @@
 import React from "react";
 
-import usePortal from "./usePortal";
-import useWarning from "./useWarning";
+import { usePortal } from "./usePortal";
+import { useWarning } from "./useWarning";
 
 export type UseClipboardOptions = {
   onError: () => unknown;
@@ -16,7 +16,7 @@ const defaultOptions: UseClipboardOptions = {
   onError: () => useWarning("Failed to copy.", "useClipboard"),
 };
 
-const useClipboard = (
+export const useClipboard = (
   options: UseClipboardOptions = defaultOptions,
 ): UseClipboardResult => {
   const el = usePortal("clipboard");
@@ -55,5 +55,3 @@ const useClipboard = (
 
   return { copy };
 };
-
-export default useClipboard;

@@ -6,7 +6,7 @@ export type CurrentStateType<S> = [
   React.MutableRefObject<S>,
 ];
 
-const useCurrentState = <S>(
+export const useCurrentState = <S>(
   initialState: S | (() => S),
 ): CurrentStateType<S> => {
   const [state, setState] = React.useState<S>(() => {
@@ -31,5 +31,3 @@ const useCurrentState = <S>(
 
   return [state, setValue, ref];
 };
-
-export default useCurrentState;

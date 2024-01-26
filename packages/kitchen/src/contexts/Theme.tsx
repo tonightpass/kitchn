@@ -5,7 +5,7 @@ import {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
 
-import defaultThemes from "../themes";
+import { defaultThemes } from "../themes";
 import { Themes } from "../types";
 
 export type ThemeContextParams = {
@@ -18,7 +18,7 @@ export type ThemeContextParams = {
   themes: Record<string, DefaultTheme>;
 };
 
-const ThemeContext = React.createContext<ThemeContextParams>({
+export const ThemeContext = React.createContext<ThemeContextParams>({
   theme: defaultThemes.dark,
   setTheme: (_theme: keyof Themes | "system") => {},
   resolvedTheme: "system",
@@ -33,7 +33,11 @@ export type ThemeProviderProps = {
   themes: ThemeContextParams["themes"];
 };
 
-const ThemeProvider = ({ children, themes, ...props }: ThemeProviderProps) => {
+export const ThemeProvider = ({
+  children,
+  themes,
+  ...props
+}: ThemeProviderProps) => {
   const nextTheme = useNextTheme();
 
   const [theme, setTheme] = React.useState<DefaultTheme>(
@@ -62,5 +66,3 @@ const ThemeProvider = ({ children, themes, ...props }: ThemeProviderProps) => {
     </ThemeContext.Provider>
   );
 };
-
-export { ThemeContext, ThemeProvider };

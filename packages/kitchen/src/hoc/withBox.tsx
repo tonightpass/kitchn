@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import withScale, { handlePixelValue } from "./withScale";
+import { handlePixelValue, withScale } from "./withScale";
 import { AccentColors, LayoutColors, Radius } from "../types/theme";
 import isNumber from "../utils/isNumber";
 
@@ -50,7 +50,7 @@ export type BoxProps = {
   bbrr?: number | string | keyof Radius;
 };
 
-const withBox = <T extends object>(
+export const withBox = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
 ) => {
   const Box = styled(WrappedComponent)<BoxProps>`
@@ -213,5 +213,3 @@ const withBox = <T extends object>(
 
   return withScale(Box);
 };
-
-export default withBox;
