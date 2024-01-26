@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable import/export */
 import { kitchen } from "./styled-components";
 
 // ./styled-components
