@@ -33,7 +33,11 @@ export type UseKeyboard = (
   options?: KeyboardOptions,
 ) => KeyboardResult;
 
-const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
+export const useKeyboard: UseKeyboard = (
+  handler,
+  keyBindings,
+  options = {},
+) => {
   const bindings = Array.isArray(keyBindings)
     ? (keyBindings as number[])
     : [keyBindings];
@@ -104,5 +108,3 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
     },
   };
 };
-
-export default useKeyboard;

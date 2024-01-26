@@ -1,15 +1,15 @@
 import React from "react";
 
-import useSSR from "./useSSR";
+import { useSSR } from "./useSSR";
 import { PREFIX } from "../constants";
 import getId from "../utils/getId";
 
-const createElement = (id: string): HTMLElement => {
+export const createElement = (id: string): HTMLElement => {
   const el = document.createElement(id);
   return el;
 };
 
-const usePortal = (
+export const usePortal = (
   selectId: string = getId(),
   getContainer?: () => HTMLElement | null,
 ): HTMLElement | null => {
@@ -34,5 +34,3 @@ const usePortal = (
 
   return elSnapshot;
 };
-
-export default usePortal;

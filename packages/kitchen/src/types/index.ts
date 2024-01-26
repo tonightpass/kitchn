@@ -1,5 +1,4 @@
 export * from "./theme";
-export * from "./styled-components";
 export * from "./window";
 
 export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {

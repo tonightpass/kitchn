@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import withBox from "../../hoc/withBox";
+import { withBox } from "../../hoc/withBox";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 

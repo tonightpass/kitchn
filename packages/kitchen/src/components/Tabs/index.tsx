@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import withScale from "../../hoc/withScale";
-import useRect from "../../hooks/useRect";
+import { withScale } from "../../hoc/withScale";
+import { useRect } from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 import capitalize from "../../utils/capitalize";
 import Highlight from "../Highlight";

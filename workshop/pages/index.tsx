@@ -1,19 +1,12 @@
-import {
-  Button,
-  Container,
-  Text,
-  useTheme,
-  useThemeDetector,
-} from "@tonightpass/kitchen";
+import { Button, Container, Text, useTheme } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 
 const IndexPage: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
-  const { storedTheme, setTheme } = useTheme();
+  const { storedTheme, setTheme, systemTheme } = useTheme();
 
-  const isDarkTheme = useThemeDetector();
   React.useEffect(() => {
     setMounted(true);
   }, []);
@@ -30,7 +23,7 @@ const IndexPage: NextPage = () => {
       </Text>
       <Text>
         {"Your system theme is: "}
-        {isDarkTheme ? "dark" : "light"}
+        {mounted ? systemTheme : null}
       </Text>
       <Container gap={10} row>
         <Button type={"dark"} onClick={() => setTheme("system")}>

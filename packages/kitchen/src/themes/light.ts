@@ -1,6 +1,6 @@
 import { Theme } from "../types/theme";
 
-const lightTheme: Theme = {
+export const lightTheme: Theme = {
   name: "light",
   colors: {
     layout: {
@@ -31,5 +31,3 @@ const lightTheme: Theme = {
     },
   },
 };
-
-export default lightTheme;

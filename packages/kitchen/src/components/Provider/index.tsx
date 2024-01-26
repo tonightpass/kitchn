@@ -13,9 +13,9 @@ import {
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
-import withScale from "../../hoc/withScale";
-import useCurrentState from "../../hooks/useCurrentState";
-import defaultThemes, { generateThemes } from "../../themes";
+import { withScale } from "../../hoc/withScale";
+import { useCurrentState } from "../../hooks/useCurrentState";
+import { defaultThemes, generateThemes } from "../../themes";
 import { Themes } from "../../types";
 import GlobalStyle from "../GlobalStyle";
 import ToastContainer from "../Toast/Container";

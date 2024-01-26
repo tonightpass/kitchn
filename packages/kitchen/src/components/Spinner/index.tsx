@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { skBouncedelay } from "../../utils/animate";
 

@@ -2,7 +2,7 @@ import { NAME } from "../constants";
 
 const warningStack: { [key: string]: boolean } = {};
 
-const useWarning = (message: string, component?: string) => {
+export const useWarning = (message: string, component?: string) => {
   const tag = component ? ` [${component}]` : " ";
   const log = `[${NAME}]${tag}: ${message}`;
 
@@ -16,5 +16,3 @@ const useWarning = (message: string, component?: string) => {
 
   console.warn(log);
 };
-
-export default useWarning;

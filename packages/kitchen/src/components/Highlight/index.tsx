@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import withScale from "../../hoc/withScale";
-import usePrevious from "../../hooks/usePrevious";
+import { withScale } from "../../hoc/withScale";
+import { usePrevious } from "../../hooks/usePrevious";
 import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 

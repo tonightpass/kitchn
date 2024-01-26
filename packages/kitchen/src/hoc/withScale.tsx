@@ -89,7 +89,7 @@ export const handleFont = (
   );
 };
 
-const withScale = <T extends object>(
+export const withScale = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
 ) => {
   return styled(WrappedComponent)<ScaleProps>`
@@ -167,5 +167,3 @@ const withScale = <T extends object>(
       pointerEvents ? `pointer-events: ${pointerEvents};` : ""}
   `;
 };
-
-export default withScale;

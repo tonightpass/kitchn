@@ -1,6 +1,6 @@
 import { Theme } from "../types/theme";
 
-const tonightpassTheme: Theme = {
+export const tonightpassTheme: Theme = {
   name: "tonightpass",
   colors: {
     layout: {
@@ -31,5 +31,3 @@ const tonightpassTheme: Theme = {
     },
   },
 };
-
-export default tonightpassTheme;

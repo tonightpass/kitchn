@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import withScale from "../../hoc/withScale";
-import useBreakpoint from "../../hooks/useBreakpoint";
+import { withScale } from "../../hoc/withScale";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 
 type Props = {
