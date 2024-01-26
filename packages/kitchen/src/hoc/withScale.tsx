@@ -13,6 +13,7 @@ export type ScaleProps = {
     | "static"
     | "inherit"
     | "initial";
+  zIndex?: number;
   pos?: ScaleProps["position"];
   left?: string | number | keyof Gap | keyof Breakpoint;
   right?: string | number | keyof Gap | keyof Breakpoint;
@@ -94,6 +95,7 @@ const withScale = <T extends object>(
   return styled(WrappedComponent)<ScaleProps>`
     ${({ position, pos }) =>
       position || pos ? `position: ${position || pos};` : ""}
+    ${({ zIndex }) => (zIndex ? `z-index: ${zIndex};` : "")}
     ${({ theme, left, l }) =>
       left || l ? `left: ${handleValue(theme, left || l)};` : ""}
     ${({ theme, right, r }) =>
