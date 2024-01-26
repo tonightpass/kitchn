@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.7
+
+### Patch Changes
+
+- 9f44ff2: Add zIndex to Scale hoc
+
 ## 1.10.6
 
 ### Patch Changes
