@@ -23,5 +23,4 @@ export {
   isStyledComponent,
   keyframes,
   withTheme,
-  default as kitchen,
 } from "styled-components";

@@ -1,4 +1,4 @@
-import { kitchen } from "./styled-components";
+import styled from "styled-components";
 
 // ./styled-components
 export * from "./styled-components";
@@ -24,4 +24,5 @@ export * from "./hoc";
 // ./utils
 export * from "./utils";
 
+const kitchen = styled;
 export default kitchen;
