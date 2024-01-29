@@ -1,9 +1,9 @@
 import React from "react";
-import { Text as NText, TextComponent } from "react-native";
+import { Text as NText, TextProps as NTextProps } from "react-native";
 import styled from "styled-components/native";
 
 import capitalize from "../../../utils/capitalize";
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
@@ -61,9 +61,9 @@ type Props = {
   monospace?: boolean;
 };
 
-export type TextProps = KitchenComponent<Props, TextComponent>;
+export type TextProps = KitchenComponent<Props, NTextProps>;
 
-const Text = styled(({ children, truncate, ...props }: TextProps) => {
+const TextComponent = styled(({ children, truncate, ...props }: TextProps) => {
   return (
     <NText
       numberOfLines={truncate ? 1 : undefined}
@@ -100,4 +100,6 @@ const Text = styled(({ children, truncate, ...props }: TextProps) => {
   }};
 `;
 
-export default withScale(Text);
+TextComponent.displayName = "KitchenText";
+export const Text = withScale(TextComponent);
+export default Text;

@@ -12,9 +12,9 @@ import styled, { useTheme } from "styled-components/native";
 import capitalize from "../../../utils/capitalize";
 import convertRGBToRGBA from "../../../utils/convertRGBToRGBA";
 import isNumber from "../../../utils/isNumber";
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc/withScale";
 import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
-import Icon from "../Icon";
+import Icon, { IconProps } from "../Icon";
 import Text from "../Text";
 
 type Props = {
@@ -302,6 +302,7 @@ const Container = styled.View<{
 
 const Field = styled.TextInput<
   InputProps & {
+    ref: React.ForwardedRef<TextInput>;
     focus: boolean;
     selfValue: string | undefined;
   }
@@ -503,9 +504,11 @@ const Clear = styled.Pressable<{
   }};
 `;
 
-const ClearIcon = styled(Icon)<{
-  visible: boolean;
-}>`
+const ClearIcon = styled(Icon)<
+  IconProps & {
+    visible: boolean;
+  }
+>`
   ${({ visible }) => `opacity: ${visible ? 1 : 0};`}
 `;
 

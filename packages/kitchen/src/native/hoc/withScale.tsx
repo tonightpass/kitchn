@@ -64,10 +64,10 @@ const handleFont = (
   );
 };
 
-const withScale = <T extends object>(
-  WrappedComponent: React.ComponentType<T>,
-): React.ComponentType<T> => {
-  return styled(WrappedComponent)<ScaleProps>`
+export const withScale = <T extends object>(
+  WrappedComponent: React.ComponentType<T & ScaleProps>,
+) => {
+  return styled(WrappedComponent)<T & ScaleProps>`
     ${({ theme, width, w }) =>
       width || w ? `width: ${handleValue(theme, width || w)};` : ""}
     ${({ theme, height, h }) =>
@@ -128,5 +128,3 @@ const withScale = <T extends object>(
       font ? `font-size: ${handleFont(theme, font)};` : ""}
   `;
 };
-
-export default withScale;

@@ -1,6 +1,6 @@
 import { MainTheme } from "../types/theme";
 
-const main: MainTheme = {
+export const mainTheme: MainTheme = {
   family: {
     primary: "Figtree",
     monospace: "Figtree",
@@ -44,5 +44,3 @@ const main: MainTheme = {
     round: "99999px",
   },
 };
-
-export default main;

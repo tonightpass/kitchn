@@ -5,10 +5,10 @@ import {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components/native";
 
-import themes from "../themes";
+import { defaultThemes } from "../themes";
 
 const ThemeContext = React.createContext({
-  theme: themes.dark,
+  theme: defaultThemes.dark,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setTheme: (_theme: DefaultTheme) => {},
 });
@@ -34,16 +34,16 @@ const ThemeProvider = ({
   const isDarkTheme = colorScheme === "dark";
 
   const [theme, setTheme] = React.useState<DefaultTheme>(
-    customTheme || (isDarkTheme ? themes.dark : themes.light),
+    customTheme || (isDarkTheme ? defaultThemes.dark : defaultThemes.light),
   );
 
   React.useEffect(() => {
     if (customTheme) {
       setTheme(customTheme);
     } else if (!isDarkTheme) {
-      setTheme(themes.light);
+      setTheme(defaultThemes.light);
     } else {
-      setTheme(themes.dark);
+      setTheme(defaultThemes.dark);
     }
   }, [customTheme, isDarkTheme]);
 
