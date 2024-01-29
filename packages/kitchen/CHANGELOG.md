@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.8
+
+### Patch Changes
+
+- 96ec3da: Refactor all members with named exports
+
 ## 1.10.7
 
 ### Patch Changes
