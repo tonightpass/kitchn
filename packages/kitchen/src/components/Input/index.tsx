@@ -12,7 +12,7 @@ import Icon from "../Icon";
 
 const simulateChangeEvent = (
   el: HTMLInputElement,
-  event: React.MouseEvent<HTMLDivElement>,
+  event: React.MouseEvent<SVGElement>,
 ): React.ChangeEvent<HTMLInputElement> => {
   return {
     ...event,
@@ -37,7 +37,7 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (_event: React.MouseEvent<HTMLDivElement>) => void;
+  onClearClick?: (_event: React.MouseEvent<SVGElement>) => void;
   type?: keyof AccentColors;
   label?: string;
 };
@@ -124,7 +124,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
       setClearIconHover(false);
     };
 
-    const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
+    const handleClear = (event: React.MouseEvent<SVGElement>) => {
       if (disabled || readOnly) return;
       setSelfValue("");
       onClearClick && onClearClick(event);

@@ -34,7 +34,7 @@ jobs:
         run: pnpm lint
 
       - name: Build Packages
-        run: pnpm p:build
+        run: pnpm build:packages
 
       - name: Build Examples ${{ matrix.node }}
         if: matrix.node != '18.x'

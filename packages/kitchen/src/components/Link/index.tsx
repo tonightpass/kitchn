@@ -49,6 +49,20 @@ const LinkComponent = styled(
     children,
     ...props
   }: LinkProps) => {
+    const [NextLink, setNextLink] = React.useState<any>(null);
+
+    React.useEffect(() => {
+      const fetchNextLink = async () => {
+        try {
+          const { default: NextLinkModule } = await import("next/link");
+          setNextLink(NextLinkModule);
+        } catch (_err) {
+          // ignore
+        }
+      };
+
+      fetchNextLink();
+    }, []);
     disabled = disabled || (!onClick && !href);
 
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -74,21 +88,17 @@ const LinkComponent = styled(
       }
     }
 
-    if (typeof window !== "undefined" && window.next) {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const NextLink = require("next/link").default;
-      if (href && NextLink) {
-        return (
-          <NextLink
-            href={href}
-            className={className}
-            onClick={handleClick}
-            {...props}
-          >
-            {children}
-          </NextLink>
-        );
-      }
+    if (href && NextLink) {
+      return (
+        <NextLink
+          href={href}
+          className={className}
+          onClick={handleClick}
+          {...props}
+        >
+          {children}
+        </NextLink>
+      );
     }
 
     return (

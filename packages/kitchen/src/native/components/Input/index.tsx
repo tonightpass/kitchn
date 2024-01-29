@@ -5,16 +5,16 @@ import {
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
-  GestureResponderEvent,
+  // GestureResponderEvent, because
 } from "react-native/types";
 import styled, { useTheme } from "styled-components/native";
 
 import capitalize from "../../../utils/capitalize";
 import convertRGBToRGBA from "../../../utils/convertRGBToRGBA";
 import isNumber from "../../../utils/isNumber";
-import withScale from "../../hoc/withScale";
+import { withScale } from "../../hoc/withScale";
 import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
-import Icon from "../Icon";
+import Icon, { IconProps } from "../Icon";
 import Text from "../Text";
 
 type Props = {
@@ -34,7 +34,8 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (_event: GestureResponderEvent) => void;
+  // temporary any because 0.70.6 is not compatible with 0.73.0
+  onClearClick?: (_event: any /* GestureResponderEvent */) => void;
   type?: keyof AccentColors;
   label?: string;
   onChange?: (_event: NativeSyntheticEvent<InputChangeEventData>) => void;
@@ -139,7 +140,7 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
       onBlur && onBlur(event);
     };
 
-    const handleClear = (event: GestureResponderEvent) => {
+    const handleClear = (event: any /* GestureResponderEvent */) => {
       if (disabled || readOnly) return;
       setSelfValue("");
       onClearClick && onClearClick(event);
@@ -302,6 +303,7 @@ const Container = styled.View<{
 
 const Field = styled.TextInput<
   InputProps & {
+    ref: React.ForwardedRef<TextInput>;
     focus: boolean;
     selfValue: string | undefined;
   }
@@ -503,9 +505,11 @@ const Clear = styled.Pressable<{
   }};
 `;
 
-const ClearIcon = styled(Icon)<{
-  visible: boolean;
-}>`
+const ClearIcon = styled(Icon)<
+  IconProps & {
+    visible: boolean;
+  }
+>`
   ${({ visible }) => `opacity: ${visible ? 1 : 0};`}
 `;
 

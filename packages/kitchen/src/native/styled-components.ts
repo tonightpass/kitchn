@@ -1,4 +1,4 @@
-import "styled-components";
+import "styled-components/native";
 
 import { MainTheme, Theme } from "./types/theme";
 
@@ -7,20 +7,15 @@ declare module "styled-components" {
   export interface DefaultTheme extends Theme, MainTheme {}
 }
 
-export type * from "styled-components/dist/types";
+export type * from "styled-components/native/dist/types";
+
 // custom exports
 export {
+  ThemeConsumer,
   ThemeContext as StyledThemeContext,
   ThemeProvider as StyledThemeProvider,
-  useTheme as useStyledTheme,
-  ServerStyleSheet,
-  StyleSheetConsumer,
-  StyleSheetContext,
-  StyleSheetManager,
-  ThemeConsumer,
-  createGlobalStyle,
   css,
   isStyledComponent,
-  keyframes,
+  useTheme as useStyledTheme,
   withTheme,
-} from "styled-components";
+} from "styled-components/native";

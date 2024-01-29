@@ -23,13 +23,17 @@
     "gatsbyjs",
     "vite"
   ],
-  "main": "dist/tonightpass-kitchen.cjs.js",
-  "module": "dist/tonightpass-kitchen.esm.js",
-  "react-native": "native/dist/tonightpass-kitchen-native.cjs.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "react-native": "dist/native/index.cjs.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
   "dependencies": {
     "@fontsource/figtree": "^5.0.1",
     "@fontsource/fira-code": "^5.0.0",
-    "js-cookie": "^3.0.5",
     "next-themes": "^0.2.1",
     "react-hook-form": "^7.45.4",
     "react-icons": "^5.0.0",
@@ -62,13 +66,7 @@
     "react-dom": "^18.2.0",
     "react-native": "^0.73.0",
     "react-native-remix-icon": "^0.4.0",
+    "tsup": "^8.0.1",
     "typescript": "^5.0.3"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "native/index.ts",
-      "next/index.ts"
-    ]
   }
 }

@@ -1,17 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "//#p:build": {
-      "outputs": ["dist/**"]
-    },
-    "//#p:dev": {
-      "cache": false
-    },
-    "//#p:watch": {
-      "cache": false
-    },
     "build": {
-      "dependsOn": ["//#p:build", "^build"],
+      "dependsOn": ["^build"],
       "outputs": [
         "dist/**/*.d.ts",
         "dist/**/*.mjs",
@@ -24,6 +15,7 @@
       ]
     },
     "dev": {
+      "persistent": true,
       "cache": false
     },
     "start": {

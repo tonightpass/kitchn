@@ -1,7 +1,6 @@
 import React from "react";
 
 import getElementOffset from "../utils/getElementOffset";
-import isRefTarget from "../utils/isRefTarget";
 
 export interface ReactiveDomReact {
   top: number;
@@ -71,19 +70,22 @@ export const useRect = (
   );
 
   const updateRect = (
-    eventOrRef:
-      | React.MouseEvent<HTMLElement>
-      | React.FocusEvent<HTMLElement>
-      | React.MutableRefObject<HTMLElement | null>,
+    event: React.MouseEvent<HTMLElement> | React.FocusEvent<HTMLElement>,
     getContainer?: () => HTMLElement | null,
   ) => {
-    if (isRefTarget(eventOrRef))
-      return setRect(getRefRect(eventOrRef, getContainer));
-    setRect(getEventRect(eventOrRef, getContainer));
+    setRect(getEventRect(event, getContainer));
+  };
+
+  const updateRectWithRef = (
+    ref: React.MutableRefObject<HTMLElement | null>,
+    getContainer?: () => HTMLElement | null,
+  ) => {
+    setRect(getRefRect(ref, getContainer));
   };
 
   return {
     rect,
     setRect: updateRect,
+    setRectWithRef: updateRectWithRef,
   };
 };
