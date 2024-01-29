@@ -5,7 +5,7 @@ import {
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
-  GestureResponderEvent,
+  // GestureResponderEvent, because
 } from "react-native/types";
 import styled, { useTheme } from "styled-components/native";
 
@@ -34,7 +34,8 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (_event: GestureResponderEvent) => void;
+  // temporary any because 0.70.6 is not compatible with 0.73.0
+  onClearClick?: (_event: any /* GestureResponderEvent */) => void;
   type?: keyof AccentColors;
   label?: string;
   onChange?: (_event: NativeSyntheticEvent<InputChangeEventData>) => void;
@@ -139,7 +140,7 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
       onBlur && onBlur(event);
     };
 
-    const handleClear = (event: GestureResponderEvent) => {
+    const handleClear = (event: any /* GestureResponderEvent */) => {
       if (disabled || readOnly) return;
       setSelfValue("");
       onClearClick && onClearClick(event);
