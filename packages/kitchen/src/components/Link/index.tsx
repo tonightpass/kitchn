@@ -120,7 +120,9 @@ const LinkComponent = styled(
   font-weight: ${({ theme, variant }) =>
     variant === "blend" ? theme.weight.medium : theme.weight.regular};
   text-decoration: none;
-  transition: opacity filter 0.2s ease-in-out;
+  transition:
+    opacity 0.2s ease-in-out,
+    filter 0.2s ease-in-out;
   line-height: 1.25;
   ${({ variant }) =>
     variant === "blend" &&
