@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.9
+
+### Patch Changes
+
+- e647542: Add overflow on Scale hoc
+
 ## 1.10.8
 
 ### Patch Changes
