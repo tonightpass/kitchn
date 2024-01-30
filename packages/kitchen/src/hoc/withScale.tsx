@@ -14,6 +14,7 @@ export type ScaleProps = {
     | "inherit"
     | "initial";
   zIndex?: number;
+  overflow?: "visible" | "hidden" | "scroll" | "auto" | "inherit" | "initial";
   pos?: ScaleProps["position"];
   left?: string | number | keyof Gap | keyof Breakpoint;
   right?: string | number | keyof Gap | keyof Breakpoint;
@@ -96,6 +97,7 @@ export const withScale = <T extends object>(
     ${({ position, pos }) =>
       position || pos ? `position: ${position || pos};` : ""}
     ${({ zIndex }) => (zIndex ? `z-index: ${zIndex};` : "")}
+    ${({ overflow }) => (overflow ? `overflow: ${overflow};` : "")}
     ${({ theme, left, l }) =>
       left || l ? `left: ${handleValue(theme, left || l)};` : ""}
     ${({ theme, right, r }) =>
