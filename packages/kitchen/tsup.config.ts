@@ -5,7 +5,7 @@ const config: Options = {
   entry: ["src/index.ts", "src/next/index.ts", "src/native/index.ts"],
   splitting: true,
   sourcemap: true,
-  clean: true,
+  clean: false,
   platform: "browser",
   dts: true,
   minify: true,
