@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.10
+
+### Patch Changes
+
+- 58d19b7: Fix Link transition props
+
 ## 1.10.9
 
 ### Patch Changes
