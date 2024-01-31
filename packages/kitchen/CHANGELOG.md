@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.11
+
+### Patch Changes
+
+- 079303a: Fix Select props heriting
+
 ## 1.10.10
 
 ### Patch Changes
