@@ -47,7 +47,7 @@ const SelectComponent = styled(
     ...props
   }: SelectProps) => {
     return (
-      <SelectContainer size={size} {...props}>
+      <SelectContainer size={size}>
         {label && <SelectLabel>{label}</SelectLabel>}
         <SelectSelectorContainer>
           {prefix && <SelectPrefix>{prefix}</SelectPrefix>}
@@ -59,6 +59,7 @@ const SelectComponent = styled(
             placeholder={placeholder}
             disabled={disabled}
             defaultValue={placeholder}
+            {...props}
           >
             {placeholder && (
               <option disabled value={placeholder}>
