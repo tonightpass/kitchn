@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.12
+
+### Patch Changes
+
+- 4a4da85: Update default font size and weight for Link
+
 ## 1.10.11
 
 ### Patch Changes
