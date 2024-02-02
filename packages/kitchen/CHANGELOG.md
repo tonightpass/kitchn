@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.13
+
+### Patch Changes
+
+- 0c4ed60: Update Text size props to allow string
+
 ## 1.10.12
 
 ### Patch Changes
