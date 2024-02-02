@@ -19,7 +19,7 @@ type Props = {
   /**
    * The font size.
    */
-  size?: keyof Size;
+  size?: keyof Size | string;
   /**
    * The line height.
    */
@@ -103,7 +103,10 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
 
   return <Component {...props}>{children}</Component>;
 })<TextProps>`
-  font-size: ${(props) => props.theme.size[props.size || "normal"]};
+  font-size: ${(props) =>
+    props.size
+      ? props.theme.size[props.size as keyof Size] || props.size
+      : props.theme.size.normal};
   font-weight: ${(props) =>
     props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
   color: ${(props) =>
