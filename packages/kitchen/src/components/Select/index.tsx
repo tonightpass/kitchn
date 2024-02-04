@@ -132,6 +132,7 @@ const SelectSelectorContainer = styled.div`
 `;
 
 export const SelectSelector = styled.select<SelectProps>`
+  width: 100%;
   padding: 0 ${({ theme }) => theme.gap.small};
   height: ${(props) => {
     switch (props.size) {
