@@ -27,7 +27,18 @@ type Props = {
   /**
    * The font weight.
    */
-  weight?: keyof Weight;
+  weight?:
+    | keyof Weight
+    | number
+    | "initial"
+    | "inherit"
+    | "unset"
+    | "revert"
+    | "revert-layer"
+    | "normal"
+    | "bold"
+    | "bolder"
+    | "lighter";
   /**
    * Text transform short hand.
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
@@ -108,7 +119,11 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
       ? props.theme.size[props.size as keyof Size] || props.size
       : props.theme.size.normal};
   font-weight: ${(props) =>
-    props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
+    props.weight
+      ? props.theme.weight[props.weight as keyof Weight] || props.weight
+      : props.b
+      ? props.theme.weight.bold
+      : props.theme.weight.regular};
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
