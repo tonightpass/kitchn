@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.10.14
+
+### Patch Changes
+
+- b8c9fb2: Fix SelectSelector width
+- d36b369: Add params to Text weight prop
+
 ## 1.10.13
 
 ### Patch Changes
