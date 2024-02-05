@@ -95,77 +95,96 @@ export const withScale = <T extends object>(
 ) => {
   return styled(WrappedComponent)<ScaleProps>`
     ${({ position, pos }) =>
-      position || pos ? `position: ${position || pos};` : ""}
-    ${({ zIndex }) => (zIndex ? `z-index: ${zIndex};` : "")}
-    ${({ overflow }) => (overflow ? `overflow: ${overflow};` : "")}
+      position !== undefined || pos !== undefined
+        ? `position: ${position || pos};`
+        : ""}
+    ${({ zIndex }) => (zIndex !== undefined ? `z-index: ${zIndex};` : "")}
+    ${({ overflow }) =>
+      overflow !== undefined ? `overflow: ${overflow};` : ""}
     ${({ theme, left, l }) =>
-      left || l ? `left: ${handleValue(theme, left || l)};` : ""}
+      left !== undefined || l !== undefined
+        ? `left: ${handleValue(theme, left || l)};`
+        : ""}
     ${({ theme, right, r }) =>
-      right || r ? `right: ${handleValue(theme, right || r)};` : ""}
+      right !== undefined || r !== undefined
+        ? `right: ${handleValue(theme, right || r)};`
+        : ""}
     ${({ theme, top, t }) =>
-      top || t ? `top: ${handleValue(theme, top || t)};` : ""}
+      top !== undefined || t !== undefined
+        ? `top: ${handleValue(theme, top || t)};`
+        : ""}
     ${({ theme, bottom, b }) =>
-      bottom || b ? `bottom: ${handleValue(theme, bottom || b)};` : ""}
+      bottom !== undefined || b !== undefined
+        ? `bottom: ${handleValue(theme, bottom || b)};`
+        : ""}
     ${({ theme, width, w }) =>
-      width || w ? `width: ${handleValue(theme, width || w)};` : ""}
+      width !== undefined || w !== undefined
+        ? `width: ${handleValue(theme, width || w)};`
+        : ""}
     ${({ theme, height, h }) =>
-      height || h ? `height: ${handleValue(theme, height || h)};` : ""}
+      height !== undefined || h !== undefined
+        ? `height: ${handleValue(theme, height || h)};`
+        : ""}
     ${({ theme, padding, p }) =>
-      padding || p ? `padding: ${handleValue(theme, padding || p)};` : ""}
+      padding !== undefined || p !== undefined
+        ? `padding: ${handleValue(theme, padding || p)};`
+        : ""}
     ${({ theme, margin, m }) =>
-      margin || m ? `margin: ${handleValue(theme, margin || m)};` : ""}
+      margin !== undefined || m !== undefined
+        ? `margin: ${handleValue(theme, margin || m)};`
+        : ""}
     ${({ theme, paddingLeft, pl, px }) =>
-      paddingLeft || pl || px
+      paddingLeft !== undefined || pl !== undefined || px !== undefined
         ? `padding-left: ${handleValue(theme, paddingLeft || pl || px)};`
         : ""}
     ${({ theme, paddingRight, pr, px }) =>
-      paddingRight || pr || px
+      paddingRight !== undefined || pr !== undefined || px !== undefined
         ? `padding-right: ${handleValue(theme, paddingRight || pr || px)};`
         : ""}
     ${({ theme, paddingTop, pt, py }) =>
-      paddingTop || pt || py
+      paddingTop !== undefined || pt !== undefined || py !== undefined
         ? `padding-top: ${handleValue(theme, paddingTop || pt || py)};`
         : ""}
     ${({ theme, paddingBottom, pb, py }) =>
-      paddingBottom || pb || py
+      paddingBottom !== undefined || pb !== undefined || py !== undefined
         ? `padding-bottom: ${handleValue(theme, paddingBottom || pb || py)};`
         : ""}
     ${({ theme, marginLeft, ml, mx }) =>
-      marginLeft || ml || mx
+      marginLeft !== undefined || ml !== undefined || mx !== undefined
         ? `margin-left: ${handleValue(theme, marginLeft || ml || mx)};`
         : ""}
     ${({ theme, marginRight, mr, mx }) =>
-      marginRight || mr || mx
+      marginRight !== undefined || mr !== undefined || mx !== undefined
         ? `margin-right: ${handleValue(theme, marginRight || mr || mx)};`
         : ""}
     ${({ theme, marginTop, mt, my }) =>
-      marginTop || mt || my
+      marginTop !== undefined || mt !== undefined || my !== undefined
         ? `margin-top: ${handleValue(theme, marginTop || mt || my)};`
         : ""}
     ${({ theme, marginBottom, mb, my }) =>
-      marginBottom || mb || my
+      marginBottom !== undefined || mb !== undefined || my !== undefined
         ? `margin-bottom: ${handleValue(theme, marginBottom || mb || my)};`
         : ""}
     ${({ theme, minWidth, minW }) =>
-      minWidth || minW
+      minWidth !== undefined || minW !== undefined
         ? `min-width: ${handleValue(theme, minWidth || minW)};`
         : ""}
     ${({ theme, minHeight, minH }) =>
-      minHeight || minH
+      minHeight !== undefined || minH !== undefined
         ? `min-height: ${handleValue(theme, minHeight || minH)};`
         : ""}
     ${({ theme, maxWidth, maxW }) =>
-      maxWidth || maxW
+      maxWidth !== undefined || maxW !== undefined
         ? `max-width: ${handleValue(theme, maxWidth || maxW)};`
         : ""}
     ${({ theme, maxHeight, maxH }) =>
-      maxHeight || maxH
+      maxHeight !== undefined || maxH !== undefined
         ? `max-height: ${handleValue(theme, maxHeight || maxH)};`
         : ""}
     ${({ theme, font }) =>
-      font ? `font-size: ${handleFont(theme, font)};` : ""}
-    ${({ cursor }) => (cursor ? `cursor: ${cursor};` : "")}
+      font !== undefined ? `font-size: ${handleFont(theme, font)};` : ""}
+    ${({ cursor }) => (cursor !== undefined ? `cursor: ${cursor};` : "")}
     ${({ pointerEvents }) =>
-      pointerEvents ? `pointer-events: ${pointerEvents};` : ""}
+      pointerEvents !== undefined ? `pointer-events: ${pointerEvents};` : ""}
   `;
 };
