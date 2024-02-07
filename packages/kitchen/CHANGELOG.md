@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.15
+
+### Patch Changes
+
+- 7eab1b0: Fix scale hoc values conditions
+
 ## 1.10.14
 
 ### Patch Changes
