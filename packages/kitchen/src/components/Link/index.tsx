@@ -139,7 +139,7 @@ const LinkComponent = styled(
     } else if (variant === "secondary") {
       return theme.colors.text.lighter;
     } else {
-      return theme.colors.text.lightest;
+      return "inherit";
     }
   }};
 
