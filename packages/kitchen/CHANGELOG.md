@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.16
+
+### Patch Changes
+
+- 6021d36: Fix link default color
+
 ## 1.10.15
 
 ### Patch Changes
