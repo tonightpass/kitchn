@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.17
+
+### Patch Changes
+
+- 7923a30: Add @emotion/is-prop-valid support
+
 ## 1.10.16
 
 ### Patch Changes
