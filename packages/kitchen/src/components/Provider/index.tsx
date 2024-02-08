@@ -1,7 +1,12 @@
+import isPropValid from "@emotion/is-prop-valid";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 import { ThemeProviderProps as NextThemeProviderProps } from "next-themes/dist/types";
 import React from "react";
-import { DefaultTheme, StyleSheetManager } from "styled-components";
+import {
+  DefaultTheme,
+  StyleSheetManager,
+  ShouldForwardProp,
+} from "styled-components";
 
 import { PREFIX } from "../../constants";
 import { ThemeProvider, ThemeProviderProps } from "../../contexts/Theme";
@@ -87,7 +92,10 @@ export const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
       forcedTheme={forcedTheme}
       dangerouslyDisableNextThemeProvider={dangerouslyDisableNextThemeProvider}
     >
-      <StyleSheetManager enableVendorPrefixes>
+      <StyleSheetManager
+        shouldForwardProp={shouldForwardProp}
+        enableVendorPrefixes
+      >
         <ThemeProvider themes={themes}>
           <GlobalStyle staticThemes={staticThemes} attribute={attribute} />
           <ToastsContent.Provider value={initialValue}>
@@ -98,6 +106,17 @@ export const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
       </StyleSheetManager>
     </NextThemeProviderWrapper>
   );
+};
+
+export const shouldForwardProp: ShouldForwardProp<"web"> = (
+  propName,
+  target,
+) => {
+  if (typeof target === "string") {
+    return isPropValid(propName);
+  }
+
+  return true;
 };
 
 export type NextThemeProviderWrapperProps = NextThemeProviderProps & {
