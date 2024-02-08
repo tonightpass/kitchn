@@ -32,6 +32,7 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.1",
     "@fontsource/figtree": "^5.0.1",
     "@fontsource/fira-code": "^5.0.0",
     "next-themes": "^0.2.1",
