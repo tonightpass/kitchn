@@ -10,6 +10,7 @@ export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
    * The content, duh.
    */
   children?: React.ReactNode;
+  forwardedAs?: React.ElementType;
 } & P &
   Omit<N, keyof P>;
 
