@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.18
+
+### Patch Changes
+
+- 70383c1: Improve Text size with value handler
+
 ## 1.10.17
 
 ### Patch Changes
