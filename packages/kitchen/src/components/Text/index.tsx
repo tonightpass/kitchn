@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { handlePixelValue, withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
@@ -19,7 +19,7 @@ type Props = {
   /**
    * The font size.
    */
-  size?: keyof Size | string;
+  size?: keyof Size | number | string;
   /**
    * The line height.
    */
@@ -115,8 +115,9 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
   return <Component {...props}>{children}</Component>;
 })<TextProps>`
   font-size: ${(props) =>
-    props.size
-      ? props.theme.size[props.size as keyof Size] || props.size
+    props.size !== undefined
+      ? props.theme.size[props.size as keyof Size] ||
+        handlePixelValue(props.size)
       : props.theme.size.normal};
   font-weight: ${(props) =>
     props.weight
