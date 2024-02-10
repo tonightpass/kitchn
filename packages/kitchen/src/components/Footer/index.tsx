@@ -21,7 +21,7 @@ const FooterComponent = styled(
   ({ children, subfooter, ...props }: FooterProps) => {
     return (
       <footer {...props}>
-        <Nav>{children}</Nav>
+        <FooterNav>{children}</FooterNav>
         {subfooter && <SubFooter>{subfooter}</SubFooter>}
       </footer>
     );
@@ -32,11 +32,11 @@ const FooterComponent = styled(
   padding: ${({ theme }) => theme.gap.normal} 0;
 `;
 
-const Nav = styled.nav`
-  max-width: ${({ theme }) => theme.breakpoint.laptop};
+export const FooterNav = styled.nav`
+  max-width: ${({ theme }) => theme.breakpoint.desktop};
   margin: 0 auto;
   flex-wrap: nowrap;
-  padding: 0 ${({ theme }) => theme.gap.normal};
+  padding: 0 ${({ theme }) => theme.gap.large};
   display: grid;
   grid-template-columns: ${({ children }) =>
     `repeat(${Math.min(React.Children.count(children), 4)}, 1fr)`};
@@ -77,7 +77,7 @@ export const FooterGroup = styled(
       return (
         <div {...props}>
           <label htmlFor={title}>
-            <GroupTitle>{title}</GroupTitle>
+            <FooterGroupTitle>{title}</FooterGroupTitle>
           </label>
           <FooterList>{children}</FooterList>
         </div>
@@ -85,7 +85,7 @@ export const FooterGroup = styled(
   },
 )<FooterGroupProps>``;
 
-const GroupTitle = styled.h2`
+export const FooterGroupTitle = styled.h2`
   margin: ${({ theme }) => theme.gap.small} 0;
   font-weight: ${({ theme }) => theme.weight.medium};
 `;
