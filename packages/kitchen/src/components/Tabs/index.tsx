@@ -60,7 +60,10 @@ const TabsComponent = styled(
       }
     };
 
-    const handleClick = (event: React.MouseEvent<HTMLDivElement>, tab: Tab) => {
+    const handleClick = (
+      event: React.MouseEvent<HTMLDivElement>,
+      tab: TabProps,
+    ) => {
       disabled ? event.preventDefault() : setSelected(tab.value);
     };
 
