@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.19
+
+### Patch Changes
+
+- 85641e4: Fix Tabs types
+
 ## 1.10.18
 
 ### Patch Changes
