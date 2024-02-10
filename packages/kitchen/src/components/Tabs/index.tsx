@@ -7,7 +7,7 @@ import { KitchenComponent } from "../../types";
 import capitalize from "../../utils/capitalize";
 import Highlight from "../Highlight";
 
-export type Tab = {
+export type TabProps = {
   title: string;
   value: string;
   icon?: JSX.Element;
@@ -17,7 +17,7 @@ type Props = {
   /**
    * The titles, values and icons of the tabs.
    */
-  tabs: Tab[];
+  tabs: TabProps[];
 
   selected: string;
 
@@ -78,7 +78,7 @@ const TabsComponent = styled(
         />
         {tabs &&
           tabs.map((tab) => (
-            <TabContainer
+            <Tab
               key={tab.value}
               onClick={(event: React.MouseEvent<HTMLDivElement>) =>
                 handleClick(event, tab)
@@ -90,7 +90,7 @@ const TabsComponent = styled(
             >
               <>{tab.icon && tab.icon}</>
               <>{capitalize(tab.title)}</>
-            </TabContainer>
+            </Tab>
           ))}
       </div>
     );
@@ -106,7 +106,7 @@ const TabsComponent = styled(
   box-shadow: 0 -1px 0 ${({ theme }) => theme.colors.layout.dark} inset;
 `;
 
-export const TabContainer = styled.div<{ active?: boolean; disabled: boolean }>`
+export const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   position: relative;
   display: flex;
   align-items: center;
