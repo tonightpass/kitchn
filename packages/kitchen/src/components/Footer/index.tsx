@@ -129,10 +129,10 @@ export const FooterLink = styled(
 
 export const SubFooter = styled.section`
   font-size: ${({ theme }) => theme.size.small};
-  max-width: ${({ theme }) => theme.breakpoint.laptop};
+  max-width: ${({ theme }) => theme.breakpoint.desktop};
   margin: 0 auto;
   margin-top: ${({ theme }) => theme.gap.normal};
-  padding: 0 ${({ theme }) => theme.gap.normal};
+  padding: 0 ${({ theme }) => theme.gap.large};
 `;
 
 FooterComponent.displayName = "KitchenFooter";
