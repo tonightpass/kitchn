@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.22
+
+### Patch Changes
+
+- 4bd3a58: improve container with wrap
+
 ## 1.10.21
 
 ### Patch Changes
