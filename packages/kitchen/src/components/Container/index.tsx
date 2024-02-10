@@ -23,7 +23,7 @@ type Props = {
     | "stretch";
   header?: boolean;
   section?: boolean;
-  wrap: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
+  wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
 };
 
 export type ContainerProps = KitchenComponent<Props>;
