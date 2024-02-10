@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.10.21
+
+### Patch Changes
+
+- f0dda65: Update sub footer sizes
+
 ## 1.10.20
 
 ### Patch Changes
