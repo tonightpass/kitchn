@@ -11,7 +11,7 @@ export type Tab = {
   title: string;
   value: string;
   icon?: JSX.Element;
-};
+} & React.HTMLProps<HTMLDivElement>;
 
 type Props = {
   /**
@@ -80,10 +80,13 @@ const TabsComponent = styled(
           tabs.map((tab) => (
             <TabContainer
               key={tab.value}
-              onClick={(event: any) => handleClick(event, tab)}
+              onClick={(event: React.MouseEvent<HTMLDivElement>) =>
+                handleClick(event, tab)
+              }
               active={selected === tab.value}
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
+              {...tab}
             >
               <>{tab.icon && tab.icon}</>
               <>{capitalize(tab.title)}</>
@@ -103,7 +106,7 @@ const TabsComponent = styled(
   box-shadow: 0 -1px 0 ${({ theme }) => theme.colors.layout.dark} inset;
 `;
 
-const TabContainer = styled.div<{ active?: boolean; disabled: boolean }>`
+export const TabContainer = styled.div<{ active?: boolean; disabled: boolean }>`
   position: relative;
   display: flex;
   align-items: center;
