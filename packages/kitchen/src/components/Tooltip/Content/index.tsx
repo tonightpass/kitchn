@@ -1,6 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import styled from "styled-components";
+import styled, { RuleSet } from "styled-components";
 
 import { TooltipPlacement, TooltipTypes } from "..";
 import { useClickAnyWhere, usePortal } from "../../../hooks";
@@ -28,6 +28,7 @@ type Props = {
   hideArrow: boolean;
   offset: number;
   iconOffset: TooltipIconOffset;
+  portalCss: RuleSet<object>;
 };
 
 export type TooltipContainerProps = KitchenComponent<Props>;
@@ -42,6 +43,7 @@ const TooltipContent = styled(
     placement,
     type,
     hideArrow,
+    portalCss,
     ...props
   }: TooltipContainerProps) => {
     const el = usePortal("tooltip");
@@ -80,6 +82,7 @@ const TooltipContent = styled(
         rect={rect}
         visible={visible}
         type={type}
+        portalCss={portalCss}
         {...props}
       >
         <TooltipContentInner>
@@ -139,6 +142,7 @@ const TooltipContent = styled(
           return theme.colors.layout.dark;
       }
     }};
+  ${({ portalCss }) => portalCss};
 `;
 
 export const TooltipContentContainer = styled.div<{

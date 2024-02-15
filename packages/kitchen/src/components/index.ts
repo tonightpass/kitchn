@@ -22,6 +22,7 @@ export * from "./List/Ordered";
 export * from "./List/Unordered";
 export * from "./Link";
 export * from "./Link/Fragment";
+export * from "./Menu";
 export * from "./Modal";
 export * from "./Note";
 export * from "./Progress";
