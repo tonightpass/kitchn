@@ -2,17 +2,16 @@ import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import {
-  TooltipPlacement,
-  TooltipPosition,
-  TooltipTypes,
-  defaultTooltipPosition,
-  getPosition,
-  getTooltipRect,
-} from "..";
+import { TooltipPlacement, TooltipTypes } from "..";
 import { useClickAnyWhere, usePortal } from "../../../hooks";
 import { useResize } from "../../../hooks/useResize";
 import { KitchenComponent } from "../../../types";
+import {
+  TooltipPosition,
+  defaultTooltipPosition,
+  getPosition,
+  getTooltipRect,
+} from "../../../utils";
 import { convertRGBToRGBA } from "../../../utils/convertRGBToRGBA";
 import TooltipIcon from "../Icon";
 
