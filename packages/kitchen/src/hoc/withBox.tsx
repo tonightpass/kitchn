@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { handlePixelValue, withScale } from "./withScale";
 import { AccentColors, LayoutColors, Radius } from "../types/theme";
-import isNumber from "../utils/isNumber";
+import { isNumber } from "../utils/isNumber";
 
 export type BoxProps = {
   background?: string | keyof LayoutColors;

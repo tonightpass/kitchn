@@ -1,6 +1,6 @@
-export { default as capitalize } from "./capitalize";
-export { default as convertRGBToRGBA } from "./convertRGBToRGBA";
-export { default as getId } from "./getId";
-export { default as isNumber } from "./isNumber";
-export { default as isString } from "./isString";
-export { default as shortenName } from "./shortenName";
+export * from "./capitalize";
+export * from "./convertRGBToRGBA";
+export * from "./getId";
+export * from "./isNumber";
+export * from "./isString";
+export * from "./shortenName";

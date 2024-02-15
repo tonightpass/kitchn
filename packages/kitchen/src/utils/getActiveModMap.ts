@@ -1,6 +1,6 @@
 import { KeyMod } from "./codes";
 
-const getActiveModMap = (
+export const getActiveModMap = (
   bindings: number[],
 ): Record<keyof typeof KeyMod, boolean> => {
   const modBindings = bindings.filter((item: number) => !!KeyMod[item]);
@@ -16,5 +16,3 @@ const getActiveModMap = (
   });
   return activeModMap;
 };
-
-export default getActiveModMap;

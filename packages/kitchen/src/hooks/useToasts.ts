@@ -2,7 +2,7 @@ import React from "react";
 
 import { defaultToastLayout, useToastsContext } from "../contexts/Toasts";
 import { AccentColors } from "../types/theme";
-import getId from "../utils/getId";
+import { getId } from "../utils/getId";
 
 export interface ToastAction {
   name: string;
@@ -47,7 +47,7 @@ export type Toast = Required<ToastInput> & ToastInstance;
 
 const defaultToast = {
   delay: 2000,
-  type: "default" as ToastTypes,
+  type: "primary" as ToastTypes,
 };
 
 export type UseToastsResult = {

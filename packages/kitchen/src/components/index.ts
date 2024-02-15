@@ -36,3 +36,5 @@ export * from "./Toast/Actions";
 export * from "./Toast/Item";
 export * from "./Toast/Container";
 export * from "./Toggle";
+export * from "./Tooltip";
+export * from "./Tooltip/Content";

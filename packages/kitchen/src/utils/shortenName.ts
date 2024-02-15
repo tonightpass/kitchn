@@ -1,6 +1,6 @@
-import capitalize from "./capitalize";
+import { capitalize } from "./capitalize";
 
-const shortenName = (name: string): string => {
+export const shortenName = (name: string): string => {
   const parts = name.split(" ");
   let shortened = "";
   for (const part of parts) {
@@ -9,5 +9,3 @@ const shortenName = (name: string): string => {
   if (name.length <= 3) return capitalize(name);
   return shortened.slice(0, 3);
 };
-
-export default shortenName;

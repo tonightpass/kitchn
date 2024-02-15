@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { withScale } from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
-import isNumber from "../../utils/isNumber";
+import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
+import { isNumber } from "../../utils/isNumber";
 import Error from "../Error";
 import Icon from "../Icon";
 

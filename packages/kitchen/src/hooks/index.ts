@@ -1,5 +1,7 @@
 export * from "./useBreakpoint";
 export * from "./useCheckbox";
+export * from "./useClickAnywhere";
+export * from "./useClickAway";
 export * from "./useClipboard";
 export * from "./useCurrentState";
 export * from "./useKeyboard";
@@ -8,6 +10,7 @@ export * from "./useModal";
 export * from "./usePortal";
 export * from "./usePrevious";
 export * from "./useRect";
+export * from "./useResize";
 export * from "./useSSR";
 export * from "./useTheme";
 export * from "./useToasts";

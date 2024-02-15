@@ -2,7 +2,7 @@ import React from "react";
 import styled, { DefaultTheme } from "styled-components";
 
 import { Breakpoint, Gap, Size } from "../types/theme";
-import isNumber from "../utils/isNumber";
+import { isNumber } from "../utils/isNumber";
 
 export type ScaleProps = {
   position?:

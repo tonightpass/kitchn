@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
-import isNumber from "../../utils/isNumber";
+import { isNumber } from "../../utils/isNumber";
 
 type Props = {
   x?: number | string | keyof Gap;

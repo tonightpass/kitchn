@@ -4,7 +4,7 @@ import { UrlObject } from "url";
 
 import { withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
-import isString from "../../utils/isString";
+import { isString } from "../../utils/isString";
 
 type Props = {
   /**

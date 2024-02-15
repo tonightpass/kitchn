@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
+import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import Icon from "../Icon";
 
 type Props = {

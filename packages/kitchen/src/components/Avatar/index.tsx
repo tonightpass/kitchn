@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { withScale } from "../../hoc/withScale";
 import { KitchenComponent } from "../../types";
-import isNumber from "../../utils/isNumber";
-import shortenName from "../../utils/shortenName";
+import { isNumber } from "../../utils/isNumber";
+import { shortenName } from "../../utils/shortenName";
 import Text from "../Text";
 
 type Props = {
