@@ -1,5 +1,12 @@
 # @tonightpass/kitchen
 
+## 1.11.0
+
+### Minor Changes
+
+- 85c32b3: Add useClickAway hook
+- 85c32b3: Add Tooltip
+
 ## 1.10.22
 
 ### Patch Changes
