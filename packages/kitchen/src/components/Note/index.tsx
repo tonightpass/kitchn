@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { withScale } from "../../hoc/withScale";
 import { KitchenComponent, NormalSizes } from "../../types";
-import capitalize from "../../utils/capitalize";
+import { capitalize } from "../../utils/capitalize";
 
 type Props = {
   /**

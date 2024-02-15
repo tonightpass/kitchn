@@ -9,9 +9,9 @@ import {
 } from "react-native/types";
 import styled, { useTheme } from "styled-components/native";
 
-import capitalize from "../../../utils/capitalize";
-import convertRGBToRGBA from "../../../utils/convertRGBToRGBA";
-import isNumber from "../../../utils/isNumber";
+import { capitalize } from "../../../utils/capitalize";
+import { convertRGBToRGBA } from "../../../utils/convertRGBToRGBA";
+import { isNumber } from "../../../utils/isNumber";
 import { withScale } from "../../hoc/withScale";
 import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
 import Icon, { IconProps } from "../Icon";

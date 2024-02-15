@@ -15,3 +15,5 @@ export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
   Omit<N, keyof P>;
 
 export type NormalSizes = "small" | "normal" | "large";
+
+export type TriggerTypes = "hover" | "click";

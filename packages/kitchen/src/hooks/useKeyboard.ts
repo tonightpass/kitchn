@@ -1,8 +1,8 @@
 import React from "react";
 
 import { KeyMod } from "../utils/codes";
-import getActiveModMap from "../utils/getActiveModMap";
-import getCtrlKeysByPlatform from "../utils/getCtrlKeysByPlatform";
+import { getActiveModMap } from "../utils/getActiveModMap";
+import { getCtrlKeysByPlatform } from "../utils/getCtrlKeysByPlatform";
 
 export type KeyboardOptions = {
   disableGlobalEvent?: boolean;

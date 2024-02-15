@@ -5,7 +5,7 @@ import { convertRGBToRGBA } from "../../../";
 import { withScale } from "../../../hoc/withScale";
 import { Toast, ToastLayout } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
-import getTranslateByPlacement from "../../../utils/getTranslateByPlacement";
+import { getTranslateByPlacement } from "../../../utils/getTranslateByPlacement";
 import Container from "../../Container";
 import Text from "../../Text";
 import ToastActions from "../Actions";
@@ -51,7 +51,7 @@ const ToastItemComponent = styled(
 
     if (!renderable) return null;
     return (
-      <AnimationContainer
+      <ToastItemAnimationContainer
         key={toast.id}
         animationState={animationState}
         enter={enter}
@@ -68,7 +68,7 @@ const ToastItemComponent = styled(
             <ToastActions actions={toast.actions} cancelHandle={toast.cancel} />
           </Container>
         )}
-      </AnimationContainer>
+      </ToastItemAnimationContainer>
     );
   },
 )<ToastItemProps>`
@@ -114,7 +114,7 @@ const ToastItemComponent = styled(
     }
   }};
 `;
-export const AnimationContainer = styled.div<
+export const ToastItemAnimationContainer = styled.div<
   ToastItemProps & {
     animationState: "entrance" | "exit" | "done";
     enter: string;

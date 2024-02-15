@@ -1,6 +1,6 @@
 import React from "react";
 
-const isRefTarget = (
+export const isRefTarget = (
   eventOrRef:
     | React.MouseEvent<HTMLElement>
     | React.FocusEvent<HTMLElement>
@@ -8,5 +8,3 @@ const isRefTarget = (
 ): eventOrRef is React.MutableRefObject<HTMLElement> => {
   return !!(eventOrRef as React.MutableRefObject<HTMLElement>)?.current;
 };
-
-export default isRefTarget;

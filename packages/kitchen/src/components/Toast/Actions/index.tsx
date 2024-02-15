@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { withScale } from "../../../hoc/withScale";
 import { ToastAction } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
-import capitalize from "../../../utils/capitalize";
+import { capitalize } from "../../../utils/capitalize";
 import Button from "../../Button";
 import Container from "../../Container";
 

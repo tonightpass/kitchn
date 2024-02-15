@@ -2,7 +2,7 @@ import React from "react";
 import { Text as NText, TextProps as NTextProps } from "react-native";
 import styled from "styled-components/native";
 
-import capitalize from "../../../utils/capitalize";
+import { capitalize } from "../../../utils/capitalize";
 import { withScale } from "../../hoc";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";

@@ -2,7 +2,7 @@ import React from "react";
 
 import { useSSR } from "./useSSR";
 import { PREFIX } from "../constants";
-import getId from "../utils/getId";
+import { getId } from "../utils/getId";
 
 export const createElement = (id: string): HTMLElement => {
   const el = document.createElement(id);

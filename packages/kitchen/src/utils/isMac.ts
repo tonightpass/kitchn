@@ -1,8 +1,6 @@
-import isBrowser from "./isBrowser";
+import { isBrowser } from "./isBrowser";
 
-const isMac = (): boolean => {
+export const isMac = (): boolean => {
   if (!isBrowser()) return false;
   return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
 };
-
-export default isMac;
