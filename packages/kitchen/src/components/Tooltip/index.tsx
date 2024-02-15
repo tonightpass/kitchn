@@ -120,8 +120,6 @@ const TooltipComponent = styled(
   user-select: none;
 `;
 
-export * from "../../utils/tooltip";
-
 TooltipComponent.displayName = "KitchenTooltip";
 export const Tooltip = withScale(TooltipComponent);
 export default Tooltip;
