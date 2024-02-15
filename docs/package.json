@@ -7,8 +7,6 @@
     "start": "next start -p 3001"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.0.0",
-    "@codesandbox/sandpack-themes": "^2.0.21",
     "@preconstruct/next": "^4.0.0",
     "@tonightpass/kitchen": "workspace:*",
     "next": "^14.0.4",
