@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { RuleSet, css } from "styled-components";
 
 import TooltipContent, { TooltipIconOffset } from "./Content";
 import { withScale } from "../../hoc";
@@ -24,7 +24,7 @@ type Props = {
   leaveDelay?: number;
   offset?: number;
   className?: string;
-  portalClassName?: string;
+  portalCss?: RuleSet<object>;
   onVisibleChange?: TooltipOnVisibleChange;
 };
 
@@ -44,6 +44,7 @@ const TooltipComponent = styled(
     hideArrow = false,
     type = "primary",
     visible: customVisible,
+    portalCss = css``,
     ...props
   }: TooltipProps) => {
     const timer = React.useRef<number>();
@@ -66,6 +67,7 @@ const TooltipComponent = styled(
       hideArrow,
       iconOffset,
       parent: ref,
+      portalCss,
     };
 
     const changeVisible = (nextState: boolean) => {
