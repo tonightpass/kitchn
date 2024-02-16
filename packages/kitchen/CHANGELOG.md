@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.12.1
+
+### Patch Changes
+
+- b3161f5: Add css portal merging to menu
+
 ## 1.12.0
 
 ### Minor Changes
