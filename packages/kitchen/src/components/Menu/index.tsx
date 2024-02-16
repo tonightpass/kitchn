@@ -7,15 +7,20 @@ import Button, { ButtonProps } from "../Button";
 import Container, { ContainerProps } from "../Container";
 import Link, { LinkProps } from "../Link";
 import Text from "../Text";
-import Tooltip, { TooltipPlacement } from "../Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip";
 import { TooltipContentInner } from "../Tooltip/Content";
 
-export type MenuContainerProps = KitchenComponent<{
-  placement?: TooltipPlacement;
-}>;
+export type MenuContainerProps = Omit<TooltipProps, "text">;
 
 const MenuContainer = styled(
-  ({ children, placement = "bottomStart" }: MenuContainerProps) => {
+  ({
+    children,
+    placement = "bottomStart",
+    portalCss = css``,
+    hideArrow = true,
+    trigger = "click",
+    ...props
+  }: MenuContainerProps) => {
     const menuButtons = Children.toArray(children).filter(
       (child) => React.isValidElement(child) && child.type === MenuButton,
     );
@@ -24,13 +29,18 @@ const MenuContainer = styled(
       (child) => React.isValidElement(child) && child.type === MenuContent,
     );
 
+    const mergedPortalCss = css`
+      ${portalMenuCss} ${portalCss}
+    `;
+
     return (
       <Tooltip
-        trigger={"click"}
+        trigger={trigger}
         text={menuContent}
-        portalCss={portalCss}
-        hideArrow
+        portalCss={mergedPortalCss}
+        hideArrow={hideArrow}
         placement={placement}
+        {...props}
       >
         {menuButtons}
       </Tooltip>
@@ -38,7 +48,7 @@ const MenuContainer = styled(
   },
 )``;
 
-const portalCss = css`
+const portalMenuCss = css`
   ${TooltipContentInner} {
     padding: ${({ theme }) => theme.gap.tiny};
   }
