@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.12.0
+
+### Minor Changes
+
+- 90d35a7: Add Menu
+
 ## 1.11.0
 
 ### Minor Changes
