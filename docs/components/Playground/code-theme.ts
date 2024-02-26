@@ -7,9 +7,6 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
     color: theme.colors.text.lightest,
     fontWeight: "400",
     fontStyle: "normal",
-    fontFamily: theme.family.monospace,
-    fontSize: theme.size.small,
-    textRendering: "geometricPrecision",
   },
   styles: [
     {
