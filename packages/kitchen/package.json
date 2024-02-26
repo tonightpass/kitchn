@@ -59,7 +59,6 @@
     }
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "next": "^14.0.0",
