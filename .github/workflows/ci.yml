@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ["16.x", "18.x", "20.x"]
+        node: ["18.x", "20.x"]
         os: [ubuntu-latest]
 
     steps:
@@ -36,10 +36,5 @@ jobs:
       - name: Build Packages
         run: pnpm build:packages
 
-      - name: Build Examples ${{ matrix.node }}
-        if: matrix.node != '18.x'
-        run: pnpm turbo run build --filter='./examples/*' --filter=!gatsby-typescript
-
-      - name: Build Examples ${{ matrix.node }}
-        if: matrix.node == '18.x'
+      - name: Build Examples
         run: pnpm turbo run build --filter='./examples/*'
