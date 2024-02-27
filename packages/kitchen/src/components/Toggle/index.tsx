@@ -33,8 +33,8 @@ const ToggleComponent = styled(({ disabled, onChange, ...props }: Props) => {
     disabled
       ? theme.colors.layout.dark
       : checked
-      ? theme.colors.layout.lightest
-      : theme.colors.layout.dark};
+        ? theme.colors.layout.lightest
+        : theme.colors.layout.dark};
   position: relative;
   transition: all 0.2s;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -43,8 +43,8 @@ const ToggleComponent = styled(({ disabled, onChange, ...props }: Props) => {
       disabled
         ? theme.colors.layout.dark
         : checked
-        ? theme.colors.layout.lightest
-        : theme.colors.layout.dark};
+          ? theme.colors.layout.lightest
+          : theme.colors.layout.dark};
 
   &::before {
     content: "";
@@ -55,8 +55,8 @@ const ToggleComponent = styled(({ disabled, onChange, ...props }: Props) => {
       disabled
         ? theme.colors.layout.dark
         : checked
-        ? theme.colors.layout.lightest
-        : theme.colors.layout.dark};
+          ? theme.colors.layout.lightest
+          : theme.colors.layout.dark};
     border-radius: ${({ theme }) => theme.radius.round};
     transition: all 0.2s;
     transform: translateX(
@@ -73,8 +73,8 @@ const ToggleComponent = styled(({ disabled, onChange, ...props }: Props) => {
       disabled
         ? theme.colors.layout.darker
         : checked
-        ? theme.colors.layout.darkest
-        : theme.colors.layout.light};
+          ? theme.colors.layout.darkest
+          : theme.colors.layout.light};
     border-radius: ${({ theme }) => theme.radius.round};
     transition: all 0.2s;
     transform: translateX(

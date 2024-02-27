@@ -93,24 +93,24 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
   const Component = props.h1
     ? "h1"
     : props.h2
-    ? "h2"
-    : props.h3
-    ? "h3"
-    : props.h4
-    ? "h4"
-    : props.h5
-    ? "h5"
-    : props.h6
-    ? "h6"
-    : props.b
-    ? "b"
-    : props.i
-    ? "i"
-    : props.span
-    ? "span"
-    : props.em
-    ? "em"
-    : "p";
+      ? "h2"
+      : props.h3
+        ? "h3"
+        : props.h4
+          ? "h4"
+          : props.h5
+            ? "h5"
+            : props.h6
+              ? "h6"
+              : props.b
+                ? "b"
+                : props.i
+                  ? "i"
+                  : props.span
+                    ? "span"
+                    : props.em
+                      ? "em"
+                      : "p";
 
   return <Component {...props}>{children}</Component>;
 })<TextProps>`
@@ -123,8 +123,8 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
     props.weight
       ? props.theme.weight[props.weight as keyof Weight] || props.weight
       : props.b
-      ? props.theme.weight.bold
-      : props.theme.weight.regular};
+        ? props.theme.weight.bold
+        : props.theme.weight.regular};
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||

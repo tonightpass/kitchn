@@ -53,8 +53,8 @@ const ButtonComponent = styled(
                     ? size === "small"
                       ? 12
                       : size === "large"
-                      ? 20
-                      : 16
+                        ? 20
+                        : 16
                     : 16
                 }
                 color={theme.colors.text.dark}
