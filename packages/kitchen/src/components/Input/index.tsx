@@ -247,8 +247,8 @@ const InputComponent = styled(ForwardedInput)`
     error
       ? theme.colors.accent.danger
       : type
-      ? theme.colors.accent[type]
-      : theme.colors.text.lightest};
+        ? theme.colors.accent[type]
+        : theme.colors.text.lightest};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
   ${({ disabled }) => disabled && "cursor: not-allowed;"}
@@ -258,8 +258,8 @@ const InputComponent = styled(ForwardedInput)`
       error
         ? convertRGBToRGBA(theme.colors.accent.danger, 0.5)
         : type
-        ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
-        : theme.colors.text.light};
+          ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
+          : theme.colors.text.light};
     font-weight: ${({ theme }) => theme.weight.semiBold};
   }
 `;
@@ -313,10 +313,10 @@ export const InputField = styled.input<
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
 
   ${({ prefix, prefixContainer }) =>
     prefix &&
@@ -356,10 +356,10 @@ export const InputPrefix = styled.span<{
       error && !prefixStyling
         ? theme.colors.accent.danger
         : type && !prefixStyling
-        ? theme.colors.accent[type]
-        : focus && !prefixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !prefixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-right: none;
   font-size: inherit;
   transition: border-color 0.2s ease-in-out;
@@ -408,10 +408,10 @@ export const InputSuffix = styled.span<{
       error && !suffixStyling
         ? theme.colors.accent.danger
         : type && !suffixStyling
-        ? theme.colors.accent[type]
-        : focus && !suffixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !suffixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left: none;
   font-size: inherit;
   transition: border-color 0.2s ease-in-out;
@@ -463,10 +463,10 @@ export const InputClear = styled.span<{
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left: none;
   padding-right: ${({ theme }) => theme.gap.small};
   ${({ theme, disabled }) =>

@@ -126,8 +126,8 @@ export const ToastItemAnimationContainer = styled.div<
     animationState === null
       ? enter
       : animationState === "entrance"
-      ? "translate(0, 0)"
-      : leave};
+        ? "translate(0, 0)"
+        : leave};
   height: ${({ animationState }) =>
     animationState && animationState !== "done" ? "auto" : 0};
   padding: ${({ layout, animationState }) =>

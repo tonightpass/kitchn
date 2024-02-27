@@ -50,8 +50,8 @@ const TextareaComponent = styled(
       errored
         ? theme.colors.accent.danger
         : disabled
-        ? theme.colors.layout.darker
-        : theme.colors.layout.dark};
+          ? theme.colors.layout.darker
+          : theme.colors.layout.dark};
   color: ${({ errored, theme }) =>
     errored ? theme.colors.accent.danger : theme.colors.text.lightest};
   :placeholder {

@@ -214,8 +214,8 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
               error
                 ? convertRGBToRGBA(theme.colors.accent.danger, 0.5)
                 : type
-                ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
-                : theme.colors.text.light
+                  ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
+                  : theme.colors.text.light
             }
             {...props}
           />
@@ -237,8 +237,8 @@ const InputComponent: React.FC<InputProps> = React.forwardRef<
                   size === "large"
                     ? "normal"
                     : size === "small"
-                    ? "tiny"
-                    : "small"
+                      ? "tiny"
+                      : "small"
                 }
                 visible={Boolean(selfValue !== "")}
                 fill
@@ -321,8 +321,8 @@ const Field = styled.TextInput<
     error
       ? theme.colors.accent.danger
       : type
-      ? theme.colors.accent[type]
-      : theme.colors.text.lightest};
+        ? theme.colors.accent[type]
+        : theme.colors.text.lightest};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
 
@@ -344,10 +344,10 @@ const Field = styled.TextInput<
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
 
   ${({ prefix, prefixContainer }) =>
     prefix &&
@@ -386,10 +386,10 @@ const Prefix = styled.View<{
       error && !prefixStyling
         ? theme.colors.accent.danger
         : type && !prefixStyling
-        ? theme.colors.accent[type]
-        : focus && !prefixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !prefixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-right-width: 0;
   border-top-left-radius: ${({ theme }) => theme.radius.square};
   border-bottom-left-radius: ${({ theme }) => theme.radius.square};
@@ -427,10 +427,10 @@ const Suffix = styled.View<{
       error && !suffixStyling
         ? theme.colors.accent.danger
         : type && !suffixStyling
-        ? theme.colors.accent[type]
-        : focus && !suffixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !suffixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left-width: 0;
   border-top-right-radius: ${({ theme }) => theme.radius.square};
   border-bottom-right-radius: ${({ theme }) => theme.radius.square};
@@ -472,10 +472,10 @@ const Clear = styled.Pressable<{
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left-width: 0;
   padding-right: ${({ theme }) => theme.gap.small};
   background-color: ${({ theme, disabled }) =>

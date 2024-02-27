@@ -200,11 +200,11 @@ export const withBox = <T extends object>(
                     prop.value as keyof LayoutColors
                   ] || prop.value) as string)
                 : prop.key.endsWith("radius")
-                ? ((props.theme.radius[prop.value as keyof Radius] ||
-                    handlePixelValue(prop.value as string)) as string)
-                : prop.key.endsWith("width")
-                ? handlePixelValue(prop.value as string)
-                : prop.value
+                  ? ((props.theme.radius[prop.value as keyof Radius] ||
+                      handlePixelValue(prop.value as string)) as string)
+                  : prop.key.endsWith("width")
+                    ? handlePixelValue(prop.value as string)
+                    : prop.value
             };`,
         )
         .join("\n");

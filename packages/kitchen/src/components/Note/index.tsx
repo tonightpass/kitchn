@@ -55,8 +55,8 @@ const NoteComponent = styled(
               {typeof label === "string"
                 ? label
                 : type && type !== "secondary"
-                ? capitalize(type)
-                : "Note"}
+                  ? capitalize(type)
+                  : "Note"}
               {label ? ": " : ""}
             </NoteLabel>
           )}

@@ -39,10 +39,10 @@ const ButtonComponent = ({
     props.loading || props.disabled
       ? "lightest"
       : type === "light"
-      ? "darkest"
-      : type === "dark"
-      ? "lightest"
-      : undefined;
+        ? "darkest"
+        : type === "dark"
+          ? "lightest"
+          : undefined;
 
   return (
     <Container
@@ -62,21 +62,21 @@ const ButtonComponent = ({
               ? type === "light"
                 ? "light"
                 : type === "info"
-                ? "info"
-                : type === "success"
-                ? "success"
-                : type === "warning"
-                ? "warning"
-                : type === "danger"
-                ? "danger"
-                : type === "secondary"
-                ? "secondary"
-                : type === "primary"
-                ? "primary"
-                : undefined
+                  ? "info"
+                  : type === "success"
+                    ? "success"
+                    : type === "warning"
+                      ? "warning"
+                      : type === "danger"
+                        ? "danger"
+                        : type === "secondary"
+                          ? "secondary"
+                          : type === "primary"
+                            ? "primary"
+                            : undefined
               : !textColor
-              ? "light"
-              : undefined
+                ? "light"
+                : undefined
           }
           size={
             size === "small" ? "small" : size === "large" ? "medium" : "normal"
