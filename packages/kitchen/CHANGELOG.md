@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.12.2
+
+### Patch Changes
+
+- 1295b89: Fix menu item hover brightness
+
 ## 1.12.1
 
 ### Patch Changes
