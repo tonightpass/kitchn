@@ -111,7 +111,11 @@ export type MenuLinkProps = MenuItemProps & LinkProps & ScaleProps;
 
 const MenuLink = styled((props: MenuLinkProps) => (
   <MenuItem as={Link} {...props} />
-))``;
+))`
+  &:hover {
+    filter: brightness(1);
+  }
+`;
 
 export type MenuSectionProps = KitchenComponent<{
   title: string;
