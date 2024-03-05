@@ -16,14 +16,27 @@ export type ToggleProps = KitchenComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 >;
 
-const ToggleComponent = styled(({ disabled, onChange, ...props }: Props) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (disabled) return e.preventDefault();
-    if (onChange) onChange(e);
-  };
+const ToggleComponent = styled(
+  ({ disabled, checked, onChange, ...props }: Props) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (disabled) return e.preventDefault();
+      if (onChange) onChange(e);
+    };
 
-  return <input type={"checkbox"} onChange={handleChange} {...props} />;
-})`
+    return (
+      <input
+        aria-checked={checked}
+        aria-disabled={disabled}
+        role={"switch"}
+        type={"checkbox"}
+        onChange={handleChange}
+        checked={checked}
+        disabled={disabled}
+        {...props}
+      />
+    );
+  },
+)`
   appearance: none;
   box-sizing: border-box;
   width: ${({ large }) => (large ? "40px" : "28px")};

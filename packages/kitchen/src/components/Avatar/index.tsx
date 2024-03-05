@@ -40,7 +40,7 @@ export type AvatarProps = KitchenComponent<Props>;
 const AvatarComponent = styled(
   ({ size = 30, src, text, shape, ...props }: AvatarProps) => {
     return (
-      <div {...props}>
+      <div role={"img"} aria-label={text || "Avatar"} {...props}>
         {text && <Text size={"small"}>{shortenName(text)}</Text>}
         {src && (
           <AvatarImage

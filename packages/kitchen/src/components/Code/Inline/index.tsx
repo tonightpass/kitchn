@@ -10,7 +10,7 @@ export type InlineCodeProps = KitchenComponent<
 >;
 
 const InlineCodeComponent = styled((props: InlineCodeProps) => {
-  return <code {...props} />;
+  return <code role={"presentation"} {...props} />;
 })`
   display: inline-block;
   background: ${({ theme }) => theme.colors.layout.dark};

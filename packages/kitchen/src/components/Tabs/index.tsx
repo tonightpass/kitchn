@@ -69,6 +69,7 @@ const TabsComponent = styled(
 
     return (
       <div
+        role={"tablist"}
         ref={containerRef}
         onMouseLeave={() => setDisplayHighlight(false)}
         {...props}
@@ -82,6 +83,7 @@ const TabsComponent = styled(
         {tabs &&
           tabs.map((tab) => (
             <Tab
+              role={"tab"}
               key={tab.value}
               onClick={(event: React.MouseEvent<HTMLDivElement>) =>
                 handleClick(event, tab)

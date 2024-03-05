@@ -20,7 +20,7 @@ export type FooterProps = KitchenComponent<Props>;
 const FooterComponent = styled(
   ({ children, subfooter, ...props }: FooterProps) => {
     return (
-      <footer {...props}>
+      <footer role={"contentinfo"} {...props}>
         <FooterNav>{children}</FooterNav>
         {subfooter && <SubFooter>{subfooter}</SubFooter>}
       </footer>
@@ -114,7 +114,7 @@ export type FooterLinkProps = KitchenComponent<
 export const FooterLink = styled(
   ({ children, href, ...props }: FooterLinkProps) => {
     return (
-      <li {...props}>
+      <li role={"listitem"} {...props}>
         <Link href={href}>{children}</Link>
       </li>
     );

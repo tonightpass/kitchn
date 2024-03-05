@@ -10,7 +10,7 @@ export type ListItemProps = KitchenComponent<
 >;
 
 const ListItemComponent = styled((props: ListItemProps) => {
-  return <li {...props} />;
+  return <li role={"listitem"} {...props} />;
 })`
   margin-top: 10px;
   &:first-child {

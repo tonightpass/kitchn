@@ -112,7 +112,11 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
                       ? "em"
                       : "p";
 
-  return <Component {...props}>{children}</Component>;
+  return (
+    <Component role={"text"} {...props}>
+      {children}
+    </Component>
+  );
 })<TextProps>`
   font-size: ${(props) =>
     props.size !== undefined

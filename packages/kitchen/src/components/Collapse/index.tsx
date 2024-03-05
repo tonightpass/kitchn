@@ -55,7 +55,7 @@ const CollapseComponent = styled(
     }, [isOpen]);
 
     return (
-      <div {...props}>
+      <div role={"region"} aria-expanded={isOpen} {...props}>
         <CollapseHeader onClick={handleClick} isOpen={isOpen}>
           <CollapseHeaderContent>
             <CollapseTitle size={size}>{title}</CollapseTitle>

@@ -53,6 +53,7 @@ const SelectComponent = styled(
           {prefix && <SelectPrefix>{prefix}</SelectPrefix>}
           {suffix && <SelectSuffix>{suffix}</SelectSuffix>}
           <SelectSelector
+            aria-label={label}
             size={size}
             prefix={prefix}
             suffix={suffix}

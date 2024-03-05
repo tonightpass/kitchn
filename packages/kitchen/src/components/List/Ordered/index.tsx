@@ -10,7 +10,7 @@ export type OrderedListProps = KitchenComponent<
 >;
 
 const OrderedListComponent = styled((props: OrderedListProps) => {
-  return <ol {...props} />;
+  return <ol role={"list"} {...props} />;
 })`
   padding: 0;
   margin: 15px;

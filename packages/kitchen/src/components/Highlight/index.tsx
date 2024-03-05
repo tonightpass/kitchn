@@ -37,6 +37,8 @@ const HighlightComponent = styled(
     const height = rect.height * hoverHeightRatio;
     return (
       <HighlightContainer
+        role={"presentation"}
+        aria-hidden={!visible}
         ref={ref}
         width={width}
         height={height}

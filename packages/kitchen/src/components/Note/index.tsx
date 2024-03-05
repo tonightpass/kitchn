@@ -48,7 +48,7 @@ const NoteComponent = styled(
     ...props
   }: NoteProps) => {
     return (
-      <Component {...props}>
+      <Component role={"note"} {...props}>
         <div>
           {label && (
             <NoteLabel>

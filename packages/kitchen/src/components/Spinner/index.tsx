@@ -14,7 +14,7 @@ export type SpinnerProps = KitchenComponent<Props>;
 
 const SpinnerComponent = styled(({ ...props }: SpinnerProps) => {
   return (
-    <div {...props}>
+    <div role={"status"} aria-label={"Loading"} {...props}>
       <div className={"bounce1"} />
       <div className={"bounce2"} />
       <div className={"bounce3"} />
