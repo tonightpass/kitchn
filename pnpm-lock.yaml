@@ -249,10 +249,10 @@ importers:
         version: 1.2.2
       '@fontsource/figtree':
         specifier: ^5.0.1
-        version: 5.0.18
+        version: 5.0.19
       '@fontsource/fira-code':
         specifier: ^5.0.0
-        version: 5.0.16
+        version: 5.0.17
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
@@ -2956,12 +2956,12 @@ packages:
       find-up: 5.0.0
       js-yaml: 4.1.0
 
-  /@fontsource/figtree@5.0.18:
-    resolution: {integrity: sha512-dr9BuLeFLz270lUAzuqBrWtW2w8ZVfrkDG2rv+0hHPt2EWJ/2CmXyNiVrwbXBiNwRMHyfvJp9KtsoxlEzvxhIQ==}
+  /@fontsource/figtree@5.0.19:
+    resolution: {integrity: sha512-LOKM0zQA/N4Gs+SGltaVQHwX4MjJXpglbiFr+e6pcNb36fWqbQF8k8+Q3ow+C4k8opNGt7GuIKA7+A105A8hXw==}
     dev: false
 
-  /@fontsource/fira-code@5.0.16:
-    resolution: {integrity: sha512-mOAs/sgZz+ETOB4foFnOnbewQDJpByvR4h/pLmgkWVn/gbA8Tlb4wUSWK4QFc+SKmHaDJsT/wgWjDUcxssZn7w==}
+  /@fontsource/fira-code@5.0.17:
+    resolution: {integrity: sha512-Ai0qE5PWvm6ETny7ToAitwdhYtO3YrNIHoa0arPquXxpnlRSB+OsJfhKnfgDKm6WMmCnxKOfsIslbVw5PqQvvQ==}
     dev: false
 
   /@gar/promisify@1.1.3:
