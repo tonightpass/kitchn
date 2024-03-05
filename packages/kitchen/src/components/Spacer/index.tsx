@@ -14,7 +14,7 @@ type Props = {
 export type SpacerProps = KitchenComponent<Props>;
 
 const SpacerComponent = styled(({ ...props }: SpacerProps) => {
-  return <span {...props} />;
+  return <span role={"presentation"} {...props} />;
 })<SpacerProps>`
   display: block;
   width: 1px;

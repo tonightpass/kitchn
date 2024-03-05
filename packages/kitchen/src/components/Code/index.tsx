@@ -15,7 +15,7 @@ export type CodeProps = KitchenComponent<
 
 const CodeComponent = styled(({ children, title, ...props }: CodeProps) => {
   return (
-    <pre title={title} {...props}>
+    <pre role={"code"} aria-label={title} title={title} {...props}>
       {title && (
         <CodeHeader>
           <CodeTitle>{title}</CodeTitle>

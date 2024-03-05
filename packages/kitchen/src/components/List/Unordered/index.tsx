@@ -11,7 +11,7 @@ export type UnorderedListProps = KitchenComponent<
 >;
 
 const UnorderedListComponent = styled((props: UnorderedListProps) => {
-  return <ul {...props} />;
+  return <ul role={"list"} {...props} />;
 })`
   padding: 0;
   list-style-type: none;

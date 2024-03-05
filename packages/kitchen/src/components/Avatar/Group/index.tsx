@@ -34,7 +34,7 @@ export type AvatarGroupProps = KitchenComponent<Props>;
 const AvatarGroupComponent = styled(
   ({ members, size, limit, ...props }: AvatarGroupProps) => {
     return (
-      <div {...props}>
+      <div role={"group"} aria-label={"Avatar Group"} {...props}>
         {members
           .slice(0, limit ? limit : members.length)
           .map((member, index) => {

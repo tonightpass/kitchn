@@ -43,7 +43,13 @@ const ButtonComponent = styled(
   }: ButtonProps) => {
     const theme = useTheme();
     return (
-      <Component {...props}>
+      <Component
+        aria-label={children ? undefined : "Button"}
+        aria-busy={loading ? "true" : undefined}
+        aria-disabled={props.disabled ? "true" : undefined}
+        role={"button"}
+        {...props}
+      >
         {(prefix || loading) && (
           <ButtonPrefix hasContent={children !== undefined}>
             {loading ? (

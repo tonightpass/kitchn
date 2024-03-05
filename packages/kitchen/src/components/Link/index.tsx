@@ -75,6 +75,7 @@ const LinkComponent = styled(
       if (!internal) {
         return (
           <Component
+            aria-disabled={disabled}
             href={href}
             className={className}
             target={"_blank"}
@@ -91,6 +92,7 @@ const LinkComponent = styled(
     if (href && NextLink) {
       return (
         <NextLink
+          aria-disabled={disabled}
           href={href}
           className={className}
           onClick={handleClick}
@@ -103,6 +105,7 @@ const LinkComponent = styled(
 
     return (
       <Component
+        aria-disabled={disabled}
         className={className}
         onClick={handleClick}
         href={href}

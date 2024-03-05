@@ -23,6 +23,7 @@ const TextareaComponent = styled(
   ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
     return (
       <textarea
+        aria-disabled={disabled}
         placeholder={placeholder}
         disabled={disabled}
         defaultValue={defaultValue}

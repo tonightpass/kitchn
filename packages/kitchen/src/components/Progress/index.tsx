@@ -63,7 +63,14 @@ const ProgressComponent = styled(
     const { isMobile } = useBreakpoint();
 
     return (
-      <ProgressContainer states={states} ref={containerRef}>
+      <ProgressContainer
+        role={"progressbar"}
+        aria-valuenow={value}
+        aria-valuemin={0}
+        aria-valuemax={max}
+        states={states}
+        ref={containerRef}
+      >
         {states && title && (
           <ProgressState visible={!!state}>
             {state || "unknow state"}
@@ -80,6 +87,7 @@ const ProgressComponent = styled(
               return (
                 <>
                   <ProgressCheckpoint
+                    aria-hidden={"true"}
                     key={checkpoint}
                     value={checkpoint}
                     color={active ? background : undefined}
@@ -91,6 +99,7 @@ const ProgressComponent = styled(
                   />
                   {!isMobile && checkpointTitle && (
                     <ProgressCheckpointTitle
+                      aria-hidden={"true"}
                       first={first}
                       last={last}
                       active={

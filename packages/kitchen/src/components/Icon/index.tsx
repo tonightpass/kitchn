@@ -26,6 +26,7 @@ const IconComponent = styled(
     const theme = useTheme();
     return (
       <Component
+        role={"img"}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         size={theme.size[size as keyof Size] || size || theme.size.normal}

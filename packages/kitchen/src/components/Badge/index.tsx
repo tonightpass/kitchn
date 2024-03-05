@@ -28,7 +28,7 @@ export type BadgeProps = KitchenComponent<Props>;
 
 const BadgeComponent = styled(({ children, ...props }: BadgeProps) => {
   return (
-    <span {...props}>
+    <span role={"status"} aria-live={"polite"} {...props}>
       {children && isString(children)
         ? capitalize(children as string)
         : children}

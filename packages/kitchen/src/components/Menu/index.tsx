@@ -35,6 +35,7 @@ const MenuContainer = styled(
 
     return (
       <Tooltip
+        role={"menu"}
         trigger={trigger}
         text={menuContent}
         portalCss={mergedPortalCss}
@@ -68,7 +69,7 @@ const MenuButton = ({ unstyled, ...props }: MenuButtonProps) => {
     return React.cloneElement(props.children as React.ReactElement, props);
   }
 
-  return <Button {...props} />;
+  return <Button role={"menuitem"} {...props} />;
 };
 
 export type MenuContentProps = ContainerProps;
@@ -123,7 +124,7 @@ export type MenuSectionProps = KitchenComponent<{
 
 const MenuSection = styled(
   ({ title, children, ...props }: MenuSectionProps) => (
-    <Container as={"li"} {...props}>
+    <Container role={"presentation"} as={"li"} {...props}>
       <Text
         size={"tiny"}
         color={"light"}

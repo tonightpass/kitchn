@@ -52,6 +52,8 @@ const ToastItemComponent = styled(
     if (!renderable) return null;
     return (
       <ToastItemAnimationContainer
+        role={"alert"}
+        aria-live={"polite"}
         key={toast.id}
         animationState={animationState}
         enter={enter}

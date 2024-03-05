@@ -38,6 +38,9 @@ const CheckboxComponent = styled(
 
     return (
       <CheckboxContainer
+        role={"checkbox"}
+        aria-checked={checked}
+        aria-disabled={disabled}
         disabled={disabled}
         fullWidth={fullWidth}
         label={label}
@@ -55,6 +58,7 @@ const CheckboxComponent = styled(
               checked={checked}
               indeterminate={indeterminate}
               disabled={disabled}
+              aria-hidden={"true"}
             >
               {checked ? (
                 <Icon

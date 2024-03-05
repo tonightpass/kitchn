@@ -108,6 +108,8 @@ const ModalComponent = styled(
     return createPortal(
       (active && animationState) || animationState ? (
         <div
+          role={"dialog"}
+          aria-modal={"true"}
           onClick={handleContainerClick}
           ref={containerRef}
           tabIndex={-1}

@@ -28,7 +28,7 @@ export type ErrorProps = KitchenComponent<Props>;
 const ErrorComponent = styled(
   ({ label = true, size, error, children, ...props }: ErrorProps) => {
     return (
-      <div {...props}>
+      <div role={"alert"} aria-live={"assertive"} {...props}>
         <ErrorIconContainer>
           <Icon
             icon={RiErrorWarningLine}

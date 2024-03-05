@@ -63,6 +63,9 @@ const SkeletonComponent = styled(
     if (!show && children) return children as JSX.Element;
     return (
       <Component
+        role={"status"}
+        aria-busy={show ? "true" : "false"}
+        aria-hidden={!show}
         width={width}
         height={height}
         show={show}

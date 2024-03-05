@@ -31,7 +31,14 @@ export type ContainerProps = KitchenComponent<Props>;
 const ContainerComponent = styled(
   ({ children, header, section, ...rest }: ContainerProps) => {
     const Component = header ? "header" : section ? "section" : "div";
-    return <Component {...rest}>{children}</Component>;
+    return (
+      <Component
+        role={header ? "banner" : section ? "region" : undefined}
+        {...rest}
+      >
+        {children}
+      </Component>
+    );
   },
 )`
   display: flex;

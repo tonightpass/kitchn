@@ -85,6 +85,8 @@ const DrawerComponent = styled(
     return createPortal(
       (show && animationState) || animationState ? (
         <div
+          role={"dialog"}
+          aria-modal={"true"}
           onClick={handleContainerClick}
           tabIndex={-1}
           ref={containerRef}
