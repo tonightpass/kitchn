@@ -249,10 +249,10 @@ importers:
         version: 1.2.2
       '@fontsource/figtree':
         specifier: ^5.0.1
-        version: 5.0.18
+        version: 5.0.19
       '@fontsource/fira-code':
         specifier: ^5.0.0
-        version: 5.0.16
+        version: 5.0.17
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
@@ -286,7 +286,7 @@ importers:
         version: 0.73.5(@babel/core@7.24.0)(@babel/preset-env@7.24.0)(react@18.2.0)
       react-native-remix-icon:
         specifier: ^0.4.0
-        version: 0.4.0(react-native-svg@15.0.0)
+        version: 0.4.0(react-native-svg@15.1.0)
       tsup:
         specifier: ^8.0.1
         version: 8.0.2(typescript@5.3.3)
@@ -2956,12 +2956,12 @@ packages:
       find-up: 5.0.0
       js-yaml: 4.1.0
 
-  /@fontsource/figtree@5.0.18:
-    resolution: {integrity: sha512-dr9BuLeFLz270lUAzuqBrWtW2w8ZVfrkDG2rv+0hHPt2EWJ/2CmXyNiVrwbXBiNwRMHyfvJp9KtsoxlEzvxhIQ==}
+  /@fontsource/figtree@5.0.19:
+    resolution: {integrity: sha512-LOKM0zQA/N4Gs+SGltaVQHwX4MjJXpglbiFr+e6pcNb36fWqbQF8k8+Q3ow+C4k8opNGt7GuIKA7+A105A8hXw==}
     dev: false
 
-  /@fontsource/fira-code@5.0.16:
-    resolution: {integrity: sha512-mOAs/sgZz+ETOB4foFnOnbewQDJpByvR4h/pLmgkWVn/gbA8Tlb4wUSWK4QFc+SKmHaDJsT/wgWjDUcxssZn7w==}
+  /@fontsource/fira-code@5.0.17:
+    resolution: {integrity: sha512-Ai0qE5PWvm6ETny7ToAitwdhYtO3YrNIHoa0arPquXxpnlRSB+OsJfhKnfgDKm6WMmCnxKOfsIslbVw5PqQvvQ==}
     dev: false
 
   /@gar/promisify@1.1.3:
@@ -17456,16 +17456,16 @@ packages:
     resolution: {integrity: sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==}
     dev: false
 
-  /react-native-remix-icon@0.4.0(react-native-svg@15.0.0):
+  /react-native-remix-icon@0.4.0(react-native-svg@15.1.0):
     resolution: {integrity: sha512-rinzEJW6bgSyJ4MocvVo7o1UcGREU/tzI9JTjQfd/P0Z0/Ru40YCddlmpErx7JjEFKWrkqevosquFb/pKxXcmQ==}
     peerDependencies:
       react-native-svg: '*'
     dependencies:
-      react-native-svg: 15.0.0(react-native@0.73.5)(react@18.2.0)
+      react-native-svg: 15.1.0(react-native@0.73.5)(react@18.2.0)
     dev: true
 
-  /react-native-svg@15.0.0(react-native@0.73.5)(react@18.2.0):
-    resolution: {integrity: sha512-ZUEXlzdU3cHjhOuc4BP7fbvabmz8yIuH4ocKSEr5V3P5skk2wnbEyZd3p7dzV9IoODgguCe7tcrNRGwr9pLRig==}
+  /react-native-svg@15.1.0(react-native@0.73.5)(react@18.2.0):
+    resolution: {integrity: sha512-p0Sx0EpQNk1nu6UcMEiB8K9P04n3J7s+pNYUwf1d/Yz+v4hk961VjuVqjyndgiEbHZyWiKWLZRVNuvLpwjPY2A==}
     peerDependencies:
       react: '*'
       react-native: '*'
