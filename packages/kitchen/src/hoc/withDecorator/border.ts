@@ -1,7 +1,7 @@
 import { DefaultTheme, css } from "styled-components";
 
 import { handlePixelValue } from "./decorator";
-import { Breakpoint, Gap, LayoutColors, Radius } from "../../types/theme";
+import { LayoutColors, Radius } from "../../types/theme";
 
 export type BorderProps = {
   borderStyle?: "solid" | "dotted" | "dashed";
