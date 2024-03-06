@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.12.5
+
+### Patch Changes
+
+- [`2f8c04b`](https://github.com/tonightpass/kitchen/commit/2f8c04ba1ac6d315b338dd935b23e35b90e2094c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Pin styled-components to 6.0.7
+
 ## 1.12.4
 
 ### Patch Changes
