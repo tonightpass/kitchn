@@ -43,11 +43,10 @@ export type BorderProps = {
 
 export const handleRadius = (
   theme: DefaultTheme,
-  value?: string | number | keyof Gap | keyof Breakpoint,
+  value?: string | number | keyof Radius,
 ) => {
   return (
-    theme.gap[value as keyof Gap] ||
-    theme.breakpoint[value as keyof Breakpoint] ||
+    theme.radius[value as keyof Radius] ||
     handlePixelValue(value as string | number)
   );
 };
