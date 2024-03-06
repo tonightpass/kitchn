@@ -1,5 +1,13 @@
 # @tonightpass/kitchen
 
+## 1.12.3
+
+### Patch Changes
+
+- [#402](https://github.com/tonightpass/kitchen/pull/402) [`0557691`](https://github.com/tonightpass/kitchen/commit/0557691d2bba4f32272c3453ac0b0010f5af3d78) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add WAI-ARIA standards
+
+- [`ad821aa`](https://github.com/tonightpass/kitchen/commit/ad821aa07aa39d0e9219b23c9f73372ba066dc3e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Move from scale to decorator that merge both box and scale to fix types issues (so Box and Scale hoc are deprecated)
+
 ## 1.12.2
 
 ### Patch Changes
