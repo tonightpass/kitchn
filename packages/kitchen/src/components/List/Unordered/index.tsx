@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 import ListItem from "../Item";
 
@@ -27,5 +27,5 @@ const UnorderedListComponent = styled((props: UnorderedListProps) => {
 `;
 
 UnorderedListComponent.displayName = "KitchenUnorderedList";
-export const UnorderedList = withScale(UnorderedListComponent);
+export const UnorderedList = withDecorator(UnorderedListComponent);
 export default UnorderedList;

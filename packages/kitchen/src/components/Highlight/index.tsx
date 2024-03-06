@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { usePrevious } from "../../hooks/usePrevious";
 import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
@@ -68,5 +68,5 @@ export const HighlightContainer = styled.div<HighlightPosition>`
 `;
 
 HighlightComponent.displayName = "KitchenHighlight";
-export const Highlight = withScale(HighlightComponent);
+export const Highlight = withDecorator(HighlightComponent);
 export default Highlight;

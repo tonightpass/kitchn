@@ -2,7 +2,7 @@ import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { useKeyboard } from "../../hooks/useKeyboard";
 import { usePortal } from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
@@ -142,5 +142,5 @@ export const DrawerContent = styled.div<{
 `;
 
 DrawerComponent.displayName = "KitchenDrawer";
-export const Drawer = withScale(DrawerComponent);
+export const Drawer = withDecorator(DrawerComponent);
 export default Drawer;

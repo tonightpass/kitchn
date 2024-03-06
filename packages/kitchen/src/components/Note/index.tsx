@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { capitalize } from "../../utils/capitalize";
 
@@ -188,5 +188,5 @@ export const NoteContent = styled.span`
 export const NoteAction = styled.div``;
 
 NoteComponent.displayName = "KitchenNote";
-export const Note = withScale(NoteComponent);
+export const Note = withDecorator(NoteComponent);
 export default Note;

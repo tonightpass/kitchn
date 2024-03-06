@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 
@@ -219,5 +219,5 @@ export const ProgressCheckpoint = styled.div<{
 `;
 
 ProgressComponent.displayName = "KitchenProgress";
-export const Progress = withScale(ProgressComponent);
+export const Progress = withDecorator(ProgressComponent);
 export default Progress;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withBox } from "../../hoc/withBox";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
@@ -76,5 +76,5 @@ const ContainerComponent = styled(
 `;
 
 ContainerComponent.displayName = "KitchenContainer";
-export const Container = withBox(ContainerComponent);
+export const Container = withDecorator(ContainerComponent);
 export default Container;

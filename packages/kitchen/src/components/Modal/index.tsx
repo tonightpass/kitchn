@@ -2,7 +2,7 @@ import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { useKeyboard } from "../../hooks/useKeyboard";
 import { usePortal } from "../../hooks/usePortal";
@@ -253,14 +253,14 @@ const ModalInset = styled.div`
 `;
 
 export const Modal = {
-  Modal: withScale(ModalComponent),
-  Body: withScale(ModalBody),
-  Header: withScale(ModalHeader),
-  Title: withScale(ModalTitle),
-  Subtitle: withScale(ModalSubtitle),
-  Actions: withScale(ModalActions),
-  Action: withScale(ModalAction),
-  Inset: withScale(ModalInset),
+  Modal: withDecorator(ModalComponent),
+  Body: withDecorator(ModalBody),
+  Header: withDecorator(ModalHeader),
+  Title: withDecorator(ModalTitle),
+  Subtitle: withDecorator(ModalSubtitle),
+  Actions: withDecorator(ModalActions),
+  Action: withDecorator(ModalAction),
+  Inset: withDecorator(ModalInset),
 };
 
 export default Modal;

@@ -2,7 +2,7 @@ import React from "react";
 import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import Icon from "../Icon";
@@ -197,5 +197,5 @@ export const StyledCheckbox = styled.input`
 `;
 
 CheckboxComponent.displayName = "KitchenCheckbox";
-export const Checkbox = withScale(CheckboxComponent);
+export const Checkbox = withDecorator(CheckboxComponent);
 export default Checkbox;

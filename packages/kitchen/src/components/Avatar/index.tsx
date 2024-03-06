@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { isNumber } from "../../utils/isNumber";
 import { shortenName } from "../../utils/shortenName";
@@ -81,5 +81,5 @@ export const AvatarImage = styled.img<{ shape?: AvatarProps["shape"] }>`
 `;
 
 AvatarComponent.displayName = "KitchenAvatar";
-export const Avatar = withScale(AvatarComponent);
+export const Avatar = withDecorator(AvatarComponent);
 export default Avatar;

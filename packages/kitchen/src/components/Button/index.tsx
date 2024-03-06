@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
@@ -300,5 +300,5 @@ export const ButtonSuffix = styled.span`
 `;
 
 ButtonComponent.displayName = "KitchenButton";
-export const Button = withScale(ButtonComponent);
+export const Button = withDecorator(ButtonComponent);
 export default Button;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Link, { LinkProps } from "..";
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 
 type Props = LinkProps & {
@@ -23,5 +23,5 @@ const FragmentLinkComponent = styled(({ id, ...props }: FragmentLinkProps) => {
 })``;
 
 FragmentLinkComponent.displayName = "KitchenFragmentLink";
-export const FragmentLink = withScale(FragmentLinkComponent);
+export const FragmentLink = withDecorator(FragmentLinkComponent);
 export default FragmentLink;

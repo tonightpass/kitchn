@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 import { isNumber } from "../../utils/isNumber";
@@ -42,5 +42,5 @@ const SpacerComponent = styled(({ ...props }: SpacerProps) => {
 `;
 
 SpacerComponent.displayName = "KitchenSpacer";
-export const Spacer = withScale(SpacerComponent);
+export const Spacer = withDecorator(SpacerComponent);
 export default Spacer;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 import Collapse from "../Collapse";
@@ -136,5 +136,5 @@ export const SubFooter = styled.section`
 `;
 
 FooterComponent.displayName = "KitchenFooter";
-export const Footer = withScale(FooterComponent);
+export const Footer = withDecorator(FooterComponent);
 export default Footer;

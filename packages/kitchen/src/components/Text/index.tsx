@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { handlePixelValue, withScale } from "../../hoc/withScale";
+import { handlePixelValue, withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
@@ -175,5 +175,5 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
 `;
 
 TextComponent.displayName = "KitchenText";
-export const Text = withScale(TextComponent);
+export const Text = withDecorator(TextComponent);
 export default Text;

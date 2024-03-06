@@ -2,7 +2,7 @@ import React from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import Icon from "../Icon";
 
@@ -158,5 +158,5 @@ const CollapseContentContainer = styled.span`
 `;
 
 CollapseComponent.displayName = "KitchenCollapse";
-export const Collapse = withScale(CollapseComponent);
+export const Collapse = withDecorator(CollapseComponent);
 export default Collapse;

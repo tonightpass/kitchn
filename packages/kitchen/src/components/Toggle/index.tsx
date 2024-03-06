@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 interface Props {
@@ -97,5 +97,5 @@ const ToggleComponent = styled(
 `;
 
 ToggleComponent.displayName = "KitchenToggle";
-export const Toggle = withScale(ToggleComponent);
+export const Toggle = withDecorator(ToggleComponent);
 export default Toggle;

@@ -1,7 +1,7 @@
 import React, { Children } from "react";
 import styled, { css } from "styled-components";
 
-import { ScaleProps, withScale } from "../../hoc";
+import { DecoratorProps, withDecorator } from "../../hoc";
 import { KitchenComponent } from "../../types";
 import Button, { ButtonProps } from "../Button";
 import Container, { ContainerProps } from "../Container";
@@ -62,7 +62,7 @@ export type MenuButtonProps =
   | ({
       unstyled?: false;
     } & ButtonProps &
-      ScaleProps);
+      DecoratorProps);
 
 const MenuButton = ({ unstyled, ...props }: MenuButtonProps) => {
   if (unstyled && props.children) {
@@ -75,7 +75,7 @@ const MenuButton = ({ unstyled, ...props }: MenuButtonProps) => {
 export type MenuContentProps = ContainerProps;
 
 const MenuContent = styled(
-  ({ children, ...props }: MenuItemProps & ScaleProps) => {
+  ({ children, ...props }: MenuItemProps & DecoratorProps) => {
     return (
       <Container as={"ul"} {...props}>
         {children}
@@ -108,7 +108,7 @@ const MenuItem = styled.li<MenuItemProps>`
   }
 `;
 
-export type MenuLinkProps = MenuItemProps & LinkProps & ScaleProps;
+export type MenuLinkProps = MenuItemProps & LinkProps & DecoratorProps;
 
 const MenuLink = styled((props: MenuLinkProps) => (
   <MenuItem as={Link} {...props} />
@@ -150,7 +150,7 @@ export const Menu = {
   Container: MenuContainer,
   Button: MenuButton,
   Content: MenuContent,
-  Item: withScale(MenuItem),
+  Item: withDecorator(MenuItem),
   Link: MenuLink,
   Section: MenuSection,
   Divider: MenuDivider,

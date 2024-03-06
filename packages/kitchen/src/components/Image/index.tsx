@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withBox } from "../../hoc/withBox";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -19,5 +19,5 @@ const ImageComponent = styled(({ src, alt, ...props }: ImageProps) => {
 })<ImageProps>``;
 
 ImageComponent.displayName = "KitchenImage";
-export const Image = withBox(ImageComponent);
+export const Image = withDecorator(ImageComponent);
 export default Image;

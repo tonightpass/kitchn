@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import { KitchenComponent, ToastItem, withScale } from "../../..";
+import { KitchenComponent, ToastItem, withDecorator } from "../../..";
 import { useToastsContext } from "../../../contexts/Toasts";
 import { useCurrentState } from "../../../hooks/useCurrentState";
 import { usePortal } from "../../../hooks/usePortal";
@@ -119,5 +119,5 @@ const ToastContainerComponent = styled((props: ToastContainerProps) => {
 `;
 
 ToastContainerComponent.displayName = "KitchenToastContainer";
-export const ToastContainer = withScale(ToastContainerComponent);
+export const ToastContainer = withDecorator(ToastContainerComponent);
 export default ToastContainer;

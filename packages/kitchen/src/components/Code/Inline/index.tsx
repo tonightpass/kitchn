@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 
 export type InlineCodeProps = KitchenComponent<
@@ -23,5 +23,5 @@ const InlineCodeComponent = styled((props: InlineCodeProps) => {
 `;
 
 InlineCodeComponent.displayName = "KitchenInlineCode";
-export const InlineCode = withScale(InlineCodeComponent);
+export const InlineCode = withDecorator(InlineCodeComponent);
 export default InlineCode;

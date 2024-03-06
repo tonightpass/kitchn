@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 
 export type OrderedListProps = KitchenComponent<
@@ -19,5 +19,5 @@ const OrderedListComponent = styled((props: OrderedListProps) => {
 `;
 
 OrderedListComponent.displayName = "KitchenOrderedList";
-export const OrderedList = withScale(OrderedListComponent);
+export const OrderedList = withDecorator(OrderedListComponent);
 export default OrderedList;

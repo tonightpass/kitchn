@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -66,5 +66,5 @@ export const CodeContent = styled.code`
 `;
 
 CodeComponent.displayName = "KitchenCode";
-export const Code = withScale(CodeComponent);
+export const Code = withDecorator(CodeComponent);
 export default Code;

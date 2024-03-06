@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { skBouncedelay } from "../../utils/animate";
 
@@ -48,5 +48,5 @@ const SpinnerComponent = styled(({ ...props }: SpinnerProps) => {
 `;
 
 SpinnerComponent.displayName = "KitchenSpinner";
-export const Spinner = withScale(SpinnerComponent);
+export const Spinner = withDecorator(SpinnerComponent);
 export default Spinner;

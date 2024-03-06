@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Avatar, { AvatarProps } from "..";
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 import Text from "../../Text";
 
@@ -73,5 +73,5 @@ const AvatarGroupComponent = styled(
 `;
 
 AvatarGroupComponent.displayName = "KitchenAvatarGroup";
-export const AvatarGroup = withScale(AvatarGroupComponent);
+export const AvatarGroup = withDecorator(AvatarGroupComponent);
 export default AvatarGroup;

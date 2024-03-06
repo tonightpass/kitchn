@@ -18,7 +18,7 @@ import {
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { useCurrentState } from "../../hooks/useCurrentState";
 import { defaultThemes, generateThemes } from "../../themes";
 import { Themes } from "../../types";
@@ -138,5 +138,5 @@ export const NextThemeProviderWrapper: React.FC<
 };
 
 KitchenProviderComponent.displayName = "KitchenProvider";
-export const KitchenProvider = withScale(KitchenProviderComponent);
+export const KitchenProvider = withDecorator(KitchenProviderComponent);
 export default KitchenProvider;

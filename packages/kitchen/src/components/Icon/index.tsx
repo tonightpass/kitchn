@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
@@ -57,5 +57,5 @@ const IconComponent = styled(
 `;
 
 IconComponent.displayName = "KitchenIcon";
-export const Icon = withScale(IconComponent);
+export const Icon = withDecorator(IconComponent);
 export default Icon;

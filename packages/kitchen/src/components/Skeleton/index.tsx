@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { isString } from "../../utils/isString";
 
@@ -171,5 +171,5 @@ const SkeletonComponent = styled(
 `;
 
 SkeletonComponent.displayName = "KitchenSkeleton";
-export const Skeleton = withScale(SkeletonComponent);
+export const Skeleton = withDecorator(SkeletonComponent);
 export default Skeleton;

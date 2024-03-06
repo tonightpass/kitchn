@@ -2,7 +2,7 @@ import React from "react";
 import styled, { RuleSet, css } from "styled-components";
 
 import TooltipContent, { TooltipIconOffset } from "./Content";
-import { withScale } from "../../hoc";
+import { withDecorator } from "../../hoc";
 import { useClickAway } from "../../hooks";
 import { AccentColors, KitchenComponent, TriggerTypes } from "../../types";
 import { Placement, getTooltipRect } from "../../utils/tooltip";
@@ -123,5 +123,5 @@ const TooltipComponent = styled(
 `;
 
 TooltipComponent.displayName = "KitchenTooltip";
-export const Tooltip = withScale(TooltipComponent);
+export const Tooltip = withDecorator(TooltipComponent);
 export default Tooltip;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 
 export type ListItemProps = KitchenComponent<
@@ -19,5 +19,5 @@ const ListItemComponent = styled((props: ListItemProps) => {
 `;
 
 ListItemComponent.displayName = "KitchenListItem";
-export const ListItem = withScale(ListItemComponent);
+export const ListItem = withDecorator(ListItemComponent);
 export default ListItem;

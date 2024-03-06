@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { ToastAction } from "../../../hooks/useToasts";
 import { KitchenComponent } from "../../../types";
 import { capitalize } from "../../../utils/capitalize";
@@ -46,5 +46,5 @@ const ToastActionsComponent = styled(
 )``;
 
 ToastActionsComponent.displayName = "KitchenToastActions";
-export const ToastActions = withScale(ToastActionsComponent);
+export const ToastActions = withDecorator(ToastActionsComponent);
 export default ToastActions;

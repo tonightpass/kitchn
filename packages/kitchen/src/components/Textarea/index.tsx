@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -66,5 +66,5 @@ const TextareaComponent = styled(
 `;
 
 TextareaComponent.displayName = "KitchenTextarea";
-export const Textarea = withScale(TextareaComponent);
+export const Textarea = withDecorator(TextareaComponent);
 export default Textarea;

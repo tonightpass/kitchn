@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
@@ -523,5 +523,5 @@ export const InputLabel = styled.span`
 `;
 
 InputComponent.displayName = "KitchenInput";
-export const Input = withScale(InputComponent);
+export const Input = withDecorator(InputComponent);
 export default Input;

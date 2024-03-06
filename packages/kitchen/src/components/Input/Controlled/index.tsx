@@ -8,7 +8,7 @@ import {
 } from "react-hook-form";
 
 import Input, { type InputProps } from "..";
-import { withScale } from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 
 type ControllerPropsEx<F extends FieldValues> = Omit<
   ControllerProps<F>,
@@ -64,5 +64,5 @@ const ControlledInputComponent = React.forwardRef(
 );
 
 ControlledInputComponent.displayName = "KitchenControlledInput";
-export const ControlledInput = withScale(ControlledInputComponent);
+export const ControlledInput = withDecorator(ControlledInputComponent);
 export default ControlledInput;

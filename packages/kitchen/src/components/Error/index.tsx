@@ -2,7 +2,7 @@ import React from "react";
 import { RiErrorWarningLine, RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
 import Text from "../Text";
@@ -125,5 +125,5 @@ export const ErrorActionIcon = styled(Icon)`
 `;
 
 ErrorComponent.displayName = "KitchenError";
-export const Error = withScale(ErrorComponent);
+export const Error = withDecorator(ErrorComponent);
 export default Error;

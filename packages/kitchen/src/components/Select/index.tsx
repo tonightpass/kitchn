@@ -2,7 +2,7 @@ import React from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 
 type Props = {
@@ -168,5 +168,5 @@ export const SelectSelector = styled.select<SelectProps>`
 `;
 
 SelectComponent.displayName = "KitchenSelect";
-export const Select = withScale(SelectComponent);
+export const Select = withDecorator(SelectComponent);
 export default Select;

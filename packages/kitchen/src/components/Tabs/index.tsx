@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { useRect } from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
 import { capitalize } from "../../utils/capitalize";
@@ -146,5 +146,5 @@ export const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
 `;
 
 TabsComponent.displayName = "KitchenTabs";
-export const Tabs = withScale(TabsComponent);
+export const Tabs = withDecorator(TabsComponent);
 export default Tabs;

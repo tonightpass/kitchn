@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
 
-import { withScale } from "../../hoc/withScale";
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { isString } from "../../utils/isString";
 
@@ -173,5 +173,5 @@ const LinkComponent = styled(
 `;
 
 LinkComponent.displayName = "KitchenLink";
-export const Link = withScale(LinkComponent);
+export const Link = withDecorator(LinkComponent);
 export default Link;
