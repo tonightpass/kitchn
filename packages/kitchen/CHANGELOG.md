@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.12.4
+
+### Patch Changes
+
+- [`38728c9`](https://github.com/tonightpass/kitchen/commit/38728c9751f6ec90ed0ebd6516838dbe572b7d0c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix radius handler
+
 ## 1.12.3
 
 ### Patch Changes
