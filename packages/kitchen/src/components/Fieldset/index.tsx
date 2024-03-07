@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+
+import { convertRGBToRGBA, withDecorator } from "../..";
 import { KitchenComponent } from "../../types";
 import Text from "../Text";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
 
 type Props = {
   /**
@@ -30,14 +31,16 @@ type Props = {
 
 export type FieldsetProps = KitchenComponent<Props>;
 
-const Fieldset = styled(({ tabs, children, ...props }: FieldsetProps) => {
-  return (
-    <div>
-      {tabs && <div></div>}
-      <Container {...props}>{children}</Container>
-    </div>
-  );
-})<FieldsetProps>`
+const FieldsetComponent = styled(
+  ({ tabs, children, ...props }: FieldsetProps) => {
+    return (
+      <div>
+        {tabs && <div />}
+        <Container {...props}>{children}</Container>
+      </div>
+    );
+  },
+)<FieldsetProps>`
   position: relative;
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
@@ -49,28 +52,28 @@ const Fieldset = styled(({ tabs, children, ...props }: FieldsetProps) => {
   cursor: ${({ disabled }) => disabled && "not-allowed"};
 `;
 
-export const Container = styled.div`
+const Container = styled.div`
   border-radius: 5px;
 `;
 
-export const Content = styled.div<{ disabled?: boolean }>`
+const Content = styled.div<{ disabled?: boolean }>`
   padding: 24px;
   cursor: ${({ disabled }) => disabled && "not-allowed"};
   background: ${({ theme, disabled }) =>
     disabled && theme.colors.layout.darker};
 `;
 
-export const Title = styled(Text)<{ disabled?: boolean }>`
+const Title = styled(Text)<{ disabled?: boolean }>`
   font-size: ${({ theme }) => theme.size.medium};
   font-weight: ${({ theme }) => theme.weight.semiBold};
 `;
 
-export const Subtitle = styled(Text)`
+const Subtitle = styled(Text)`
   font-size: ${({ theme }) => theme.size.small};
   margin: 12px 0;
 `;
 
-export const Footer = styled.footer<{
+const Footer = styled.footer<{
   disabled?: boolean;
   highlight?: boolean;
 }>`
@@ -83,15 +86,23 @@ export const Footer = styled.footer<{
     disabled
       ? theme.colors.layout.darker
       : highlight
-      ? theme.colors.layout.darkest
-      : convertRGBToRGBA(theme.colors.layout.darker, 0.3)};
+        ? theme.colors.layout.darkest
+        : convertRGBToRGBA(theme.colors.layout.darker, 0.3)};
 `;
 
-export const Status = styled(Text)`
+const Status = styled(Text)`
   font-size: ${({ theme }) => theme.size.small};
   align-self: center;
 `;
 
-export const Action = styled.div``;
+const Action = styled.div``;
 
-export default Fieldset;
+export const Fieldset = {
+  Container: withDecorator(FieldsetComponent),
+  Content: withDecorator(Content),
+  Title: withDecorator(Title),
+  Subtitle: withDecorator(Subtitle),
+  Footer: withDecorator(Footer),
+  Status: withDecorator(Status),
+  Action: withDecorator(Action),
+};
