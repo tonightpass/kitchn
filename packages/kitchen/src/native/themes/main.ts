@@ -22,6 +22,7 @@ export const mainTheme: MainTheme = {
     large: "24px",
     medium: "18px",
     normal: "16px",
+    compact: "14px",
     small: "13px",
     tiny: "11px",
   },
