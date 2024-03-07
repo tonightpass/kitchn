@@ -1,13 +1,14 @@
 import React from "react";
+
 import { defaultToastLayout, useToastsContext } from "../contexts/Toasts";
 import { AccentColors } from "../types/theme";
-import getId from "../utils/getId";
+import { getId } from "../utils/getId";
 
 export interface ToastAction {
   name: string;
   handler: (
     event: React.MouseEvent<HTMLButtonElement>,
-    cancel: () => void
+    cancel: () => void,
   ) => void;
   passive?: boolean;
 }
@@ -33,7 +34,7 @@ export interface ToastInput {
   type?: ToastTypes;
   id?: string;
   delay?: number;
-  actions?: Array<ToastAction>;
+  actions?: ToastAction[];
 }
 export type ToastInstance = {
   visible: boolean;
@@ -46,18 +47,18 @@ export type Toast = Required<ToastInput> & ToastInstance;
 
 const defaultToast = {
   delay: 2000,
-  type: "default" as ToastTypes,
+  type: "primary" as ToastTypes,
 };
 
 export type UseToastsResult = {
-  toasts: Array<Toast>;
+  toasts: Toast[];
   setToast: (toast: ToastInput) => void;
   removeAll: () => void;
   findOneToastByID: (ident: string) => Toast | undefined;
   removeOneToastByID: (ident: string) => void;
 };
 
-const useToasts = (layout?: ToastLayout): UseToastsResult => {
+export const useToasts = (layout?: ToastLayout): UseToastsResult => {
   const { updateToasts, toasts, updateToastLayout, updateLastToastId } =
     useToastsContext();
 
@@ -69,17 +70,17 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
             ...defaultToastLayout,
             ...layout,
           }
-        : defaultToastLayout
+        : defaultToastLayout,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const cancel = (internalId: string) => {
-    updateToasts((currentToasts: Array<Toast>) =>
+    updateToasts((currentToasts: Toast[]) =>
       currentToasts.map((item) => {
         if (item._internalIdent !== internalId) return item;
         return { ...item, visible: false };
-      })
+      }),
     );
     updateLastToastId(() => internalId);
   };
@@ -97,7 +98,7 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
           ...toast,
           visible: false,
         };
-      })
+      }),
     );
   };
 
@@ -112,7 +113,7 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
       }
     }
 
-    updateToasts((last: Array<Toast>) => {
+    updateToasts((last: Toast[]) => {
       const newToast: Toast = {
         delay,
         text: toast.text,
@@ -142,5 +143,3 @@ const useToasts = (layout?: ToastLayout): UseToastsResult => {
     removeOneToastByID,
   };
 };
-
-export default useToasts;

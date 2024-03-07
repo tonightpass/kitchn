@@ -1,8 +1,14 @@
 import React from "react";
-import withScale from "../../../hoc/withScale";
-import { KitchenComponent, NormalSizes, AccentColors, Text } from "../../";
-import { TouchableOpacityComponent } from "react-native/types";
+import { TouchableOpacityProps } from "react-native/types";
 import styled from "styled-components/native";
+
+import {
+  KitchenComponent,
+  NormalSizes,
+  AccentColors,
+  Text as KitchenText,
+  withScale,
+} from "../../";
 
 export type Props = {
   shape?: "square" | "round";
@@ -14,11 +20,12 @@ export type Props = {
   suffix?: React.ReactNode;
   type?: keyof AccentColors;
   variant?: "ghost" | "shadow";
+  children?: string | React.ReactNode;
 };
 
-export type ButtonProps = KitchenComponent<Props, TouchableOpacityComponent>;
+export type ButtonProps = KitchenComponent<Props, TouchableOpacityProps>;
 
-const Button = ({
+const ButtonComponent = ({
   children,
   size,
   shape = "square",
@@ -32,10 +39,10 @@ const Button = ({
     props.loading || props.disabled
       ? "lightest"
       : type === "light"
-      ? "darkest"
-      : type === "dark"
-      ? "lightest"
-      : undefined;
+        ? "darkest"
+        : type === "dark"
+          ? "lightest"
+          : undefined;
 
   return (
     <Container
@@ -47,44 +54,46 @@ const Button = ({
       {...props}
     >
       {prefix && <Prefix>{prefix}</Prefix>}
-      <Text
-        color={textColor}
-        accent={
-          variant === "ghost"
-            ? type === "light"
-              ? "lightest"
-              : type === "dark"
-              ? "light"
-              : type === "info"
-              ? "info"
-              : type === "success"
-              ? "success"
-              : type === "warning"
-              ? "warning"
-              : type === "danger"
-              ? "danger"
-              : type === "secondary"
-              ? "secondary"
-              : type === "primary"
-              ? "primary"
-              : undefined
-            : !textColor
-            ? "light"
-            : undefined
-        }
-        size={
-          size === "small" ? "small" : size === "large" ? "medium" : "normal"
-        }
-        weight={"bold"}
-      >
-        {children}
-      </Text>
+      {children && typeof children === "string" ? (
+        <KitchenText
+          color={textColor}
+          accent={
+            variant === "ghost"
+              ? type === "light"
+                ? "light"
+                : type === "info"
+                  ? "info"
+                  : type === "success"
+                    ? "success"
+                    : type === "warning"
+                      ? "warning"
+                      : type === "danger"
+                        ? "danger"
+                        : type === "secondary"
+                          ? "secondary"
+                          : type === "primary"
+                            ? "primary"
+                            : undefined
+              : !textColor
+                ? "light"
+                : undefined
+          }
+          size={
+            size === "small" ? "small" : size === "large" ? "medium" : "normal"
+          }
+          weight={"bold"}
+        >
+          {children}
+        </KitchenText>
+      ) : (
+        children
+      )}
       {suffix && <Suffix>{suffix}</Suffix>}
     </Container>
   );
 };
 
-const Container = styled.TouchableOpacity<Props>`
+const Container = styled.TouchableOpacity<ButtonProps>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -166,4 +175,6 @@ const Suffix = styled.View`
   margin-left: 7px;
 `;
 
-export default withScale(Button);
+ButtonComponent.displayName = "KitchenButton";
+export const Button = withScale(ButtonComponent);
+export default Button;

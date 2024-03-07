@@ -1,6 +1,6 @@
-import kitchen, { Container, Text } from "@tonightpass/kitchen";
-import { Link } from "@tonightpass/kitchen/next";
+import kitchen, { Container, Text, Link } from "@tonightpass/kitchen";
 import showcases from "data/showcases";
+
 import ShowcaseCard from "./Card";
 
 const ShowcaseList = () => {
@@ -11,7 +11,7 @@ const ShowcaseList = () => {
       ))}
       <YourCompany href={"https://github.com/tonightpass/kitchen/issues/new"}>
         <Text title={"Your company"} weight={"bold"} align={"center"} span>
-          💖 Your company
+          {"💖 Your company\r"}
         </Text>
       </YourCompany>
     </Container>
@@ -19,8 +19,6 @@ const ShowcaseList = () => {
 };
 
 const YourCompany = kitchen(Link)`
-  background-color: ${({ theme }) => theme.colors.layout.darker};
-  border-radius: 10px;
   width: 160px;
   height: 100%;
   display: flex;
@@ -33,7 +31,7 @@ const YourCompany = kitchen(Link)`
     transition: all 1s;
   }
 
-  :hover {
+  &:hover {
     transform: scale(1.05);
     ${Text} {
       opacity: 1;

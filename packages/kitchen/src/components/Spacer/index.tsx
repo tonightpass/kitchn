@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
-import isNumber from "../../utils/isNumber";
+import { isNumber } from "../../utils/isNumber";
 
 type Props = {
   x?: number | string | keyof Gap;
@@ -12,8 +13,8 @@ type Props = {
 
 export type SpacerProps = KitchenComponent<Props>;
 
-const Spacer = styled(({ ...props }: SpacerProps) => {
-  return <span {...props}></span>;
+const SpacerComponent = styled(({ ...props }: SpacerProps) => {
+  return <span role={"presentation"} {...props} />;
 })<SpacerProps>`
   display: block;
   width: 1px;
@@ -40,4 +41,6 @@ const Spacer = styled(({ ...props }: SpacerProps) => {
   );
 `;
 
-export default withScale(Spacer);
+SpacerComponent.displayName = "KitchenSpacer";
+export const Spacer = withDecorator(SpacerComponent);
+export default Spacer;

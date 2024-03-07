@@ -5,16 +5,16 @@ import {
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
-  GestureResponderEvent,
+  // GestureResponderEvent, because
 } from "react-native/types";
 import styled, { useTheme } from "styled-components/native";
-import capitalize from "../../../utils/capitalize";
-import convertRGBToRGBA from "../../../utils/convertRGBToRGBA";
-import isNumber from "../../../utils/isNumber";
-import withScale from "../../hoc/withScale";
-import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
 
-import Icon from "../Icon";
+import { capitalize } from "../../../utils/capitalize";
+import { convertRGBToRGBA } from "../../../utils/convertRGBToRGBA";
+import { isNumber } from "../../../utils/isNumber";
+import { withScale } from "../../hoc/withScale";
+import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
+import Icon, { IconProps } from "../Icon";
 import Text from "../Text";
 
 type Props = {
@@ -34,10 +34,12 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (_event: GestureResponderEvent) => void;
+  // temporary any because 0.70.6 is not compatible with 0.73.0
+  onClearClick?: (_event: any /* GestureResponderEvent */) => void;
   type?: keyof AccentColors;
   label?: string;
   onChange?: (_event: NativeSyntheticEvent<InputChangeEventData>) => void;
+  onChangeText?: (_value: string) => void;
   pattern?: { [key: string]: RegExp };
 };
 
@@ -60,7 +62,7 @@ const defaultProps: Props = {
   readOnly: false,
 };
 
-const InputComponent = React.forwardRef<
+const InputComponent: React.FC<InputProps> = React.forwardRef<
   TextInput,
   React.PropsWithChildren<InputProps>
 >(
@@ -80,6 +82,7 @@ const InputComponent = React.forwardRef<
       initialValue,
       readOnly,
       onChange,
+      onChangeText,
       width,
       onClearClick,
       onFocus,
@@ -90,23 +93,23 @@ const InputComponent = React.forwardRef<
       pattern,
       ...props
     }: InputProps & typeof defaultProps,
-    ref: React.ForwardedRef<TextInput>
+    ref: React.ForwardedRef<TextInput>,
   ) => {
     const theme = useTheme();
     const inputRef = React.useRef<TextInput>(null);
     React.useImperativeHandle(ref, () => inputRef.current as TextInput);
 
     const [selfValue, setSelfValue] = React.useState<string | undefined>(
-      initialValue
+      initialValue,
     );
     const isControlledComponent = React.useMemo(
       () => value !== undefined,
-      [value]
+      [value],
     );
     const [focus, setFocus] = React.useState<boolean>(false);
 
     const handleChange = (
-      event: NativeSyntheticEvent<InputChangeEventData>
+      event: NativeSyntheticEvent<InputChangeEventData>,
     ) => {
       event.nativeEvent.name = name;
       event.nativeEvent.pattern = pattern;
@@ -115,8 +118,14 @@ const InputComponent = React.forwardRef<
       onChange && onChange(event);
     };
 
+    const handleChangeText = (value: string) => {
+      if (disabled || readOnly) return;
+      setSelfValue(value);
+      onChangeText && onChangeText(value);
+    };
+
     const handleFocus = (
-      event: NativeSyntheticEvent<TextInputFocusEventData>
+      event: NativeSyntheticEvent<TextInputFocusEventData>,
     ) => {
       if (disabled || readOnly) return;
       setFocus(true);
@@ -124,14 +133,14 @@ const InputComponent = React.forwardRef<
     };
 
     const handleBlur = (
-      event: NativeSyntheticEvent<TextInputFocusEventData>
+      event: NativeSyntheticEvent<TextInputFocusEventData>,
     ) => {
       if (disabled || readOnly) return;
       setFocus(false);
       onBlur && onBlur(event);
     };
 
-    const handleClear = (event: GestureResponderEvent) => {
+    const handleClear = (event: any /* GestureResponderEvent */) => {
       if (disabled || readOnly) return;
       setSelfValue("");
       onClearClick && onClearClick(event);
@@ -140,6 +149,7 @@ const InputComponent = React.forwardRef<
       inputRef.current.clear();
       inputRef.current.focus();
       onChange && onChange(event as any);
+      onChangeText && onChangeText("");
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -195,6 +205,7 @@ const InputComponent = React.forwardRef<
             value={value}
             selfValue={selfValue}
             onChange={handleChange}
+            onChangeText={handleChangeText}
             onFocus={handleFocus}
             onBlur={handleBlur}
             readOnly={readOnly}
@@ -203,8 +214,8 @@ const InputComponent = React.forwardRef<
               error
                 ? convertRGBToRGBA(theme.colors.accent.danger, 0.5)
                 : type
-                ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
-                : theme.colors.text.light
+                  ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
+                  : theme.colors.text.light
             }
             {...props}
           />
@@ -226,8 +237,8 @@ const InputComponent = React.forwardRef<
                   size === "large"
                     ? "normal"
                     : size === "small"
-                    ? "tiny"
-                    : "small"
+                      ? "tiny"
+                      : "small"
                 }
                 visible={Boolean(selfValue !== "")}
                 fill
@@ -261,7 +272,7 @@ const InputComponent = React.forwardRef<
         )}
       </Wrapper>
     );
-  }
+  },
 );
 
 const Wrapper = styled.View``;
@@ -292,6 +303,7 @@ const Container = styled.View<{
 
 const Field = styled.TextInput<
   InputProps & {
+    ref: React.ForwardedRef<TextInput>;
     focus: boolean;
     selfValue: string | undefined;
   }
@@ -299,7 +311,7 @@ const Field = styled.TextInput<
   font-family: ${({ theme }) => {
     const weight = "regular";
     return `${theme.family.primary}_${theme.weight[weight]}${capitalize(
-      weight
+      weight,
     )}`;
   }};
   flex: 1;
@@ -309,11 +321,10 @@ const Field = styled.TextInput<
     error
       ? theme.colors.accent.danger
       : type
-      ? theme.colors.accent[type]
-      : theme.colors.text.lightest};
+        ? theme.colors.accent[type]
+        : theme.colors.text.lightest};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
-  ${({ disabled }) => disabled && "cursor: not-allowed;"}
 
   padding: 0 ${({ theme }) => theme.gap.small};
   height: ${(props) => {
@@ -333,10 +344,10 @@ const Field = styled.TextInput<
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
 
   ${({ prefix, prefixContainer }) =>
     prefix &&
@@ -375,10 +386,10 @@ const Prefix = styled.View<{
       error && !prefixStyling
         ? theme.colors.accent.danger
         : type && !prefixStyling
-        ? theme.colors.accent[type]
-        : focus && !prefixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !prefixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-right-width: 0;
   border-top-left-radius: ${({ theme }) => theme.radius.square};
   border-bottom-left-radius: ${({ theme }) => theme.radius.square};
@@ -416,10 +427,10 @@ const Suffix = styled.View<{
       error && !suffixStyling
         ? theme.colors.accent.danger
         : type && !suffixStyling
-        ? theme.colors.accent[type]
-        : focus && !suffixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !suffixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left-width: 0;
   border-top-right-radius: ${({ theme }) => theme.radius.square};
   border-bottom-right-radius: ${({ theme }) => theme.radius.square};
@@ -461,10 +472,10 @@ const Clear = styled.Pressable<{
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left-width: 0;
   padding-right: ${({ theme }) => theme.gap.small};
   background-color: ${({ theme, disabled }) =>
@@ -494,9 +505,11 @@ const Clear = styled.Pressable<{
   }};
 `;
 
-const ClearIcon = styled(Icon)<{
-  visible: boolean;
-}>`
+const ClearIcon = styled(Icon)<
+  IconProps & {
+    visible: boolean;
+  }
+>`
   ${({ visible }) => `opacity: ${visible ? 1 : 0};`}
 `;
 

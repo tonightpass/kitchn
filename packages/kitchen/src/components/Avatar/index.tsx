@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
-import isNumber from "../../utils/isNumber";
-import shortenName from "../../utils/shortenName";
+import { isNumber } from "../../utils/isNumber";
+import { shortenName } from "../../utils/shortenName";
 import Text from "../Text";
 
 type Props = {
@@ -36,13 +37,13 @@ type Props = {
 
 export type AvatarProps = KitchenComponent<Props>;
 
-const Avatar = styled(
+const AvatarComponent = styled(
   ({ size = 30, src, text, shape, ...props }: AvatarProps) => {
     return (
-      <div {...props}>
+      <div role={"img"} aria-label={text || "Avatar"} {...props}>
         {text && <Text size={"small"}>{shortenName(text)}</Text>}
         {src && (
-          <Image
+          <AvatarImage
             src={src}
             shape={shape}
             alt={"Avatar"}
@@ -53,7 +54,7 @@ const Avatar = styled(
         )}
       </div>
     );
-  }
+  },
 )<AvatarProps>`
   width: ${({ size }) =>
     size ? (isNumber(size) ? `${size}px` : size) : "30px"};
@@ -71,7 +72,7 @@ const Avatar = styled(
   transition: all 0.2s;
 `;
 
-const Image = styled.img<{ shape?: AvatarProps["shape"] }>`
+export const AvatarImage = styled.img<{ shape?: AvatarProps["shape"] }>`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -79,4 +80,6 @@ const Image = styled.img<{ shape?: AvatarProps["shape"] }>`
     shape === "square" ? theme.radius.square : theme.radius.round};
 `;
 
-export default withScale(Avatar);
+AvatarComponent.displayName = "KitchenAvatar";
+export const Avatar = withDecorator(AvatarComponent);
+export default Avatar;

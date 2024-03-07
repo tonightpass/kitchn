@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { DefaultTheme } from "styled-components/native";
-import isNumber from "../../utils/isNumber";
+
+import { isNumber } from "../../utils/isNumber";
 import { Breakpoint, Gap, Size } from "../types/theme";
 
 export type ScaleProps = {
@@ -45,7 +46,7 @@ export type ScaleProps = {
 
 const handleValue = (
   theme: DefaultTheme,
-  value?: string | number | keyof Gap | keyof Breakpoint
+  value?: string | number | keyof Gap | keyof Breakpoint,
 ) => {
   return (
     theme.gap[value as keyof Gap] ||
@@ -56,17 +57,17 @@ const handleValue = (
 
 const handleFont = (
   theme: DefaultTheme,
-  value: string | number | keyof Size
+  value: string | number | keyof Size,
 ) => {
   return (
     theme.size[value as keyof Size] || (isNumber(value) ? `${value}px` : value)
   );
 };
 
-const withScale = <T extends object>(
-  WrappedComponent: React.ComponentType<T>
+export const withScale = <T extends object>(
+  WrappedComponent: React.ComponentType<T & ScaleProps>,
 ) => {
-  return styled(WrappedComponent)<ScaleProps>`
+  return styled(WrappedComponent)<T & ScaleProps>`
     ${({ theme, width, w }) =>
       width || w ? `width: ${handleValue(theme, width || w)};` : ""}
     ${({ theme, height, h }) =>
@@ -127,5 +128,3 @@ const withScale = <T extends object>(
       font ? `font-size: ${handleFont(theme, font)};` : ""}
   `;
 };
-
-export default withScale;

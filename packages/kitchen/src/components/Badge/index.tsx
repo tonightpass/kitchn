@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
-import { KitchenComponent, NormalSizes } from "../../types";
+
 import { capitalize, isString } from "../..";
+import { withDecorator } from "../../hoc/withDecorator";
+import { KitchenComponent, NormalSizes } from "../../types";
 
 type Props = {
   /**
@@ -25,9 +26,9 @@ type Props = {
 
 export type BadgeProps = KitchenComponent<Props>;
 
-const Badge = styled(({ children, ...props }: BadgeProps) => {
+const BadgeComponent = styled(({ children, ...props }: BadgeProps) => {
   return (
-    <span {...props}>
+    <span role={"status"} aria-live={"polite"} {...props}>
       {children && isString(children)
         ? capitalize(children as string)
         : children}
@@ -102,4 +103,6 @@ const Badge = styled(({ children, ...props }: BadgeProps) => {
   }};
 `;
 
-export default withScale(Badge);
+BadgeComponent.displayName = "KitchenBadge";
+export const Badge = withDecorator(BadgeComponent);
+export default Badge;

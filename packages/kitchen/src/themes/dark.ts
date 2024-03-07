@@ -1,12 +1,12 @@
 import { Theme } from "../types/theme";
 
-const dark: Theme = {
-  id: 1,
+export const darkTheme: Theme = {
+  name: "dark",
   colors: {
     layout: {
-      darkest: "rgb(5, 21, 39)",
-      darker: "rgb(6, 25, 46)",
-      dark: "rgb(52, 68, 111)",
+      darkest: "rgb(0, 0, 0)",
+      darker: "rgb(10, 10, 10)",
+      dark: "rgb(20, 20, 20)",
       light: "rgb(130, 137, 147)",
       lighter: "rgb(155, 155, 156)",
       lightest: "rgb(255, 255, 255)",
@@ -31,5 +31,3 @@ const dark: Theme = {
     },
   },
 };
-
-export default dark;

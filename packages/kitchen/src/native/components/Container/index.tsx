@@ -1,6 +1,9 @@
 import React from "react";
-import styled from "styled-components/native";
 import { View, ViewComponent } from "react-native";
+import styled from "styled-components/native";
+
+import { isNumber } from "../../../utils/isNumber";
+import { withScale } from "../../hoc";
 import {
   AccentColors,
   Gap,
@@ -8,8 +11,6 @@ import {
   LayoutColors,
   Radius,
 } from "../../types";
-import isNumber from "../../../utils/isNumber";
-import withScale from "../../hoc/withScale";
 
 type Props = {
   row?: boolean;
@@ -36,7 +37,7 @@ type Props = {
 
 export type ContainerProps = KitchenComponent<Props, ViewComponent>;
 
-const Container = styled(({ children, ...props }: ContainerProps) => {
+const ContainerComponent = styled(({ children, ...props }: ContainerProps) => {
   return <View {...props}>{children}</View>;
 })`
   display: flex;
@@ -71,4 +72,6 @@ const Container = styled(({ children, ...props }: ContainerProps) => {
     };`}
 `;
 
-export default withScale(Container);
+ContainerComponent.displayName = "KitchenContainer";
+export const Container = withScale(ContainerComponent);
+export default Container;

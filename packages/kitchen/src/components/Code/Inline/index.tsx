@@ -1,9 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../../hoc/withScale";
 
-const InlineCode = styled((props) => {
-  return <code {...props} />;
+import { withDecorator } from "../../../hoc/withDecorator";
+import { KitchenComponent } from "../../../types";
+
+export type InlineCodeProps = KitchenComponent<
+  object,
+  React.HTMLAttributes<HTMLElement>
+>;
+
+const InlineCodeComponent = styled((props: InlineCodeProps) => {
+  return <code role={"presentation"} {...props} />;
 })`
   display: inline-block;
   background: ${({ theme }) => theme.colors.layout.dark};
@@ -15,4 +22,6 @@ const InlineCode = styled((props) => {
   white-space: pre-wrap;
 `;
 
-export default withScale(InlineCode);
+InlineCodeComponent.displayName = "KitchenInlineCode";
+export const InlineCode = withDecorator(InlineCodeComponent);
+export default InlineCode;

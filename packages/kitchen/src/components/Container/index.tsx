@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import withBox from "../../hoc/withBox";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
@@ -22,15 +23,23 @@ type Props = {
     | "stretch";
   header?: boolean;
   section?: boolean;
+  wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
 };
 
 export type ContainerProps = KitchenComponent<Props>;
 
-const Container = styled(
+const ContainerComponent = styled(
   ({ children, header, section, ...rest }: ContainerProps) => {
     const Component = header ? "header" : section ? "section" : "div";
-    return <Component {...rest}>{children}</Component>;
-  }
+    return (
+      <Component
+        role={header ? "banner" : section ? "region" : undefined}
+        {...rest}
+      >
+        {children}
+      </Component>
+    );
+  },
 )`
   display: flex;
   flex-direction: ${(props) =>
@@ -39,11 +48,11 @@ const Container = styled(
   ${(props) => props.flex && `flex: ${props.flex};`}
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
+  ${(props) => props.wrap && `flex-wrap: ${props.wrap};`}
 
   ${(props) =>
     props.gap &&
     `gap: ${props.theme.gap[props.gap as keyof Gap] || `${props.gap}px`};`}
-
   @media (max-width: ${(props) => props.theme.breakpoint.laptop}) {
     ${(props) =>
       props.direction &&
@@ -66,4 +75,6 @@ const Container = styled(
   }
 `;
 
-export default withBox(Container);
+ContainerComponent.displayName = "KitchenContainer";
+export const Container = withDecorator(ContainerComponent);
+export default Container;

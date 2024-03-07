@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { handlePixelValue, withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
@@ -11,7 +12,6 @@ type Props = {
   h4?: boolean;
   h5?: boolean;
   h6?: boolean;
-  p?: boolean;
   b?: boolean;
   i?: boolean;
   span?: boolean;
@@ -19,7 +19,7 @@ type Props = {
   /**
    * The font size.
    */
-  size?: keyof Size;
+  size?: keyof Size | number | string;
   /**
    * The line height.
    */
@@ -27,7 +27,18 @@ type Props = {
   /**
    * The font weight.
    */
-  weight?: keyof Weight;
+  weight?:
+    | keyof Weight
+    | number
+    | "initial"
+    | "inherit"
+    | "unset"
+    | "revert"
+    | "revert-layer"
+    | "normal"
+    | "bold"
+    | "bolder"
+    | "lighter";
   /**
    * Text transform short hand.
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
@@ -78,41 +89,50 @@ type Props = {
 
 export type TextProps = KitchenComponent<Props>;
 
-const Text = styled(({ children, ...props }: TextProps) => {
+const TextComponent = styled(({ children, ...props }: TextProps) => {
   const Component = props.h1
     ? "h1"
     : props.h2
-    ? "h2"
-    : props.h3
-    ? "h3"
-    : props.h4
-    ? "h4"
-    : props.h5
-    ? "h5"
-    : props.h6
-    ? "h6"
-    : props.p
-    ? "p"
-    : props.b
-    ? "b"
-    : props.i
-    ? "i"
-    : props.span
-    ? "span"
-    : props.em
-    ? "em"
-    : "p";
+      ? "h2"
+      : props.h3
+        ? "h3"
+        : props.h4
+          ? "h4"
+          : props.h5
+            ? "h5"
+            : props.h6
+              ? "h6"
+              : props.b
+                ? "b"
+                : props.i
+                  ? "i"
+                  : props.span
+                    ? "span"
+                    : props.em
+                      ? "em"
+                      : "p";
 
-  return <Component {...props}>{children}</Component>;
+  return (
+    <Component role={"text"} {...props}>
+      {children}
+    </Component>
+  );
 })<TextProps>`
-  font-size: ${(props) => props.theme.size[props.size || "normal"]};
+  font-size: ${(props) =>
+    props.size !== undefined
+      ? props.theme.size[props.size as keyof Size] ||
+        handlePixelValue(props.size)
+      : props.theme.size.normal};
   font-weight: ${(props) =>
-    props.theme.weight[props.weight || (props.b ? "bold" : "regular")]};
+    props.weight
+      ? props.theme.weight[props.weight as keyof Weight] || props.weight
+      : props.b
+        ? props.theme.weight.bold
+        : props.theme.weight.regular};
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
     props.theme.colors.text.lightest};
-  };
   text-align: ${(props) => props.align || "left"};
   text-transform: ${(props) => props.transform || "initial"};
   text-decoration: ${(props) => props.decoration || "none"};
@@ -154,4 +174,6 @@ const Text = styled(({ children, ...props }: TextProps) => {
   }
 `;
 
-export default withScale(Text);
+TextComponent.displayName = "KitchenText";
+export const Text = withDecorator(TextComponent);
+export default Text;

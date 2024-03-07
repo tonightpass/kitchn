@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const { withKitchenConfig } = require("@tonightpass/kitchen/next");
 const nextra = require("nextra");
-const { withKitchen } = require("@tonightpass/kitchen/next");
 
 const withNextra = nextra({
   theme: "nextra-theme-docs",
@@ -8,7 +8,7 @@ const withNextra = nextra({
 });
 
 module.exports = withNextra(
-  withKitchen({
+  withKitchenConfig({
     reactStrictMode: true,
-  })
+  }),
 );

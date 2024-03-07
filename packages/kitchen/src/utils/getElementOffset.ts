@@ -1,4 +1,4 @@
-const getElementOffset = (el?: HTMLElement | null | undefined) => {
+export const getElementOffset = (el?: HTMLElement | null | undefined) => {
   if (!el)
     return {
       top: 0,
@@ -7,5 +7,3 @@ const getElementOffset = (el?: HTMLElement | null | undefined) => {
   const { top, left } = el.getBoundingClientRect();
   return { top, left };
 };
-
-export default getElementOffset;

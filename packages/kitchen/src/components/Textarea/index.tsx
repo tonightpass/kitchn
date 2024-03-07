@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -18,17 +19,18 @@ export type TextareaProps = KitchenComponent<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >;
 
-const Textarea = styled(
+const TextareaComponent = styled(
   ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
     return (
       <textarea
+        aria-disabled={disabled}
         placeholder={placeholder}
         disabled={disabled}
         defaultValue={defaultValue}
         {...props}
       />
     );
-  }
+  },
 )<TextareaProps>`
   position: relative;
   outline: none;
@@ -49,18 +51,20 @@ const Textarea = styled(
       errored
         ? theme.colors.accent.danger
         : disabled
-        ? theme.colors.layout.darker
-        : theme.colors.layout.dark};
+          ? theme.colors.layout.darker
+          : theme.colors.layout.dark};
   color: ${({ errored, theme }) =>
     errored ? theme.colors.accent.danger : theme.colors.text.lightest};
   :placeholder {
     color: ${({ theme }) => theme.colors.text.light};
   }
-  :focus {
+  &:focus {
     border: 1px solid
       ${({ theme, errored }) =>
         errored ? theme.colors.accent.danger : theme.colors.layout.lighter};
   }
 `;
 
-export default withScale(Textarea);
+TextareaComponent.displayName = "KitchenTextarea";
+export const Textarea = withDecorator(TextareaComponent);
+export default Textarea;

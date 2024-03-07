@@ -1,6 +1,6 @@
 import React from "react";
-import getElementOffset from "../utils/getElementOffset";
-import isRefTarget from "../utils/isRefTarget";
+
+import { getElementOffset } from "../utils/getElementOffset";
 
 export interface ReactiveDomReact {
   top: number;
@@ -22,7 +22,7 @@ const defaultRect: ReactiveDomReact = {
 
 const getRectFromDOMWithContainer = (
   domRect?: DOMRect,
-  getContainer?: () => HTMLElement | null
+  getContainer?: () => HTMLElement | null,
 ): ReactiveDomReact => {
   if (!domRect) return defaultRect;
   const container = getContainer ? getContainer() : null;
@@ -41,7 +41,7 @@ const getRectFromDOMWithContainer = (
 
 export const getRefRect = (
   ref?: React.MutableRefObject<HTMLElement | null>,
-  getContainer?: () => HTMLElement | null
+  getContainer?: () => HTMLElement | null,
 ): ReactiveDomReact => {
   if (!ref || !ref.current) return defaultRect;
   const rect = ref.current.getBoundingClientRect();
@@ -50,7 +50,7 @@ export const getRefRect = (
 
 export const getEventRect = (
   event?: React.MouseEvent<HTMLElement> | React.FocusEvent<HTMLElement>,
-  getContainer?: () => HTMLElement | null
+  getContainer?: () => HTMLElement | null,
 ) => {
   const rect = (event?.currentTarget as HTMLElement)?.getBoundingClientRect();
   if (!rect) return defaultRect;
@@ -62,29 +62,30 @@ export const isUnplacedRect = (rect?: ReactiveDomReact): boolean => {
   return rect.top === defaultRect.top && rect.left === defaultRect.left;
 };
 
-const useRect = (
-  initialState?: ReactiveDomReact | (() => ReactiveDomReact)
+export const useRect = (
+  initialState?: ReactiveDomReact | (() => ReactiveDomReact),
 ) => {
   const [rect, setRect] = React.useState<ReactiveDomReact>(
-    initialState || defaultRect
+    initialState || defaultRect,
   );
 
   const updateRect = (
-    eventOrRef:
-      | React.MouseEvent<HTMLElement>
-      | React.FocusEvent<HTMLElement>
-      | React.MutableRefObject<HTMLElement | null>,
-    getContainer?: () => HTMLElement | null
+    event: React.MouseEvent<HTMLElement> | React.FocusEvent<HTMLElement>,
+    getContainer?: () => HTMLElement | null,
   ) => {
-    if (isRefTarget(eventOrRef))
-      return setRect(getRefRect(eventOrRef, getContainer));
-    setRect(getEventRect(eventOrRef, getContainer));
+    setRect(getEventRect(event, getContainer));
+  };
+
+  const updateRectWithRef = (
+    ref: React.MutableRefObject<HTMLElement | null>,
+    getContainer?: () => HTMLElement | null,
+  ) => {
+    setRect(getRefRect(ref, getContainer));
   };
 
   return {
     rect,
     setRect: updateRect,
+    setRectWithRef: updateRectWithRef,
   };
 };
-
-export default useRect;

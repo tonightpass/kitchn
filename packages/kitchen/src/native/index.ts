@@ -1,44 +1,25 @@
-// styled-components
-import "./types/styled-components";
-import { default as kitchen } from "styled-components/native";
-export type { DefaultTheme } from "styled-components/native";
+import styled from "styled-components/native";
+
+// ./styled-components
+export * from "./styled-components";
 
 // ./types
 export * from "./types";
 
 // ./themes
-export { default as themes, createTheme } from "./themes";
+export * from "./themes";
 
 // ./components
-export {
-  default as KitchenProvider,
-  type KitchenProviderProps,
-} from "./components/Provider";
-
-export { default as Button, type ButtonProps } from "./components/Button";
-
-export {
-  default as Container,
-  type ContainerProps,
-} from "./components/Container";
-
-export { default as Icon, type IconProps } from "./components/Icon";
-
-export {
-  default as Input,
-  type InputProps,
-  type InputChangeEventData,
-} from "./components/Input";
-
-export { default as Text, type TextProps } from "./components/Text";
+export * from "./components";
 
 // ./hooks
-export { default as useTheme } from "./hooks/useTheme";
+export * from "./hooks";
 
-// .hoc
-export { default as withScale, type ScaleProps } from "./hoc/withScale";
+// ./hoc
+export * from "./hoc";
 
 // ./utils
 export * from "../utils/_collections";
 
+const kitchen = styled;
 export default kitchen;

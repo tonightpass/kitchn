@@ -1,17 +1,18 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
-import isNumber from "../../utils/isNumber";
+import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
+import { isNumber } from "../../utils/isNumber";
 import Error from "../Error";
 import Icon from "../Icon";
 
 const simulateChangeEvent = (
   el: HTMLInputElement,
-  event: React.MouseEvent<HTMLDivElement>
+  event: React.MouseEvent<SVGElement>,
 ): React.ChangeEvent<HTMLInputElement> => {
   return {
     ...event,
@@ -36,7 +37,7 @@ type Props = {
   width?: number | string;
   error?: string;
   readOnly?: boolean;
-  onClearClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClearClick?: (_event: React.MouseEvent<SVGElement>) => void;
   type?: keyof AccentColors;
   label?: string;
 };
@@ -46,38 +47,43 @@ export type InputProps = KitchenComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 >;
 
-const Input = styled(
-  ({
-    size = "normal",
-    prefix,
-    suffix,
-    disabled = false,
-    prefixContainer = true,
-    suffixContainer = true,
-    prefixStyling = true,
-    suffixStyling = true,
-    clearable = false,
-    value,
-    initialValue = "",
-    readOnly = false,
-    onChange,
-    width,
-    onClearClick,
-    onFocus,
-    onBlur,
-    error,
-    type,
-    label,
-    ...props
-  }: InputProps) => {
+const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      size = "normal",
+      prefix,
+      suffix,
+      disabled = false,
+      prefixContainer = true,
+      suffixContainer = true,
+      prefixStyling = true,
+      suffixStyling = true,
+      clearable = false,
+      value,
+      initialValue = "",
+      readOnly = false,
+      onChange,
+      width,
+      onClearClick,
+      onFocus,
+      onBlur,
+      error,
+      type,
+      label,
+      ...props
+    }: InputProps,
+    ref: React.Ref<HTMLInputElement>,
+  ) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [selfValue, setSelfValue] = React.useState<string>(initialValue);
     const [focus, setFocus] = React.useState<boolean>(false);
     const [clearIconHover, setClearIconHover] = React.useState<boolean>(false);
     const isControlledComponent = React.useMemo(
       () => value !== undefined,
-      [value]
+      [value],
     );
+
+    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
     const Wrapper = label ? "label" : React.Fragment;
 
@@ -118,7 +124,7 @@ const Input = styled(
       setClearIconHover(false);
     };
 
-    const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
+    const handleClear = (event: React.MouseEvent<SVGElement>) => {
       if (disabled || readOnly) return;
       setSelfValue("");
       onClearClick && onClearClick(event);
@@ -139,10 +145,10 @@ const Input = styled(
 
     return (
       <Wrapper>
-        {label && <Label>{label}</Label>}
-        <Container disabled={disabled} width={width} size={size}>
+        {label && <InputLabel>{label}</InputLabel>}
+        <InputContainer disabled={disabled} width={width} size={size}>
           {prefix && prefixContainer && (
-            <Prefix
+            <InputPrefix
               size={size}
               disabled={disabled}
               prefixStyling={prefixStyling}
@@ -151,9 +157,9 @@ const Input = styled(
               type={type}
             >
               {prefix}
-            </Prefix>
+            </InputPrefix>
           )}
-          <Field
+          <InputField
             ref={inputRef}
             size={size}
             prefix={prefix}
@@ -174,7 +180,7 @@ const Input = styled(
             {...inputProps}
           />
           {clearable && value !== undefined && (
-            <Clear
+            <InputClear
               size={size}
               disabled={disabled}
               suffix={suffix}
@@ -184,7 +190,7 @@ const Input = styled(
               focus={focus}
               type={type}
               visible={Boolean(
-                inputRef.current && inputRef.current.value !== ""
+                inputRef.current && inputRef.current.value !== "",
               )}
             >
               <Icon
@@ -199,10 +205,10 @@ const Input = styled(
                 }
                 size={size === "small" ? 16 : size === "large" ? 24 : 20}
               />
-            </Clear>
+            </InputClear>
           )}
           {suffix && suffixContainer && (
-            <Suffix
+            <InputSuffix
               size={size}
               disabled={disabled}
               suffixStyling={suffixStyling}
@@ -211,9 +217,9 @@ const Input = styled(
               type={type}
             >
               {suffix}
-            </Suffix>
+            </InputSuffix>
           )}
-        </Container>
+        </InputContainer>
         {error && (
           <InputError size={size} width={width}>
             {error}
@@ -221,8 +227,12 @@ const Input = styled(
         )}
       </Wrapper>
     );
-  }
-)`
+  },
+);
+
+ForwardedInput.displayName = "Input";
+
+const InputComponent = styled(ForwardedInput)`
   font: inherit;
   width: 100%;
   min-width: 0;
@@ -237,8 +247,8 @@ const Input = styled(
     error
       ? theme.colors.accent.danger
       : type
-      ? theme.colors.accent[type]
-      : theme.colors.text.lightest};
+        ? theme.colors.accent[type]
+        : theme.colors.text.lightest};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.layout.darker : theme.colors.layout.darkest};
   ${({ disabled }) => disabled && "cursor: not-allowed;"}
@@ -248,13 +258,13 @@ const Input = styled(
       error
         ? convertRGBToRGBA(theme.colors.accent.danger, 0.5)
         : type
-        ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
-        : theme.colors.text.light};
+          ? convertRGBToRGBA(theme.colors.accent[type], 0.5)
+          : theme.colors.text.light};
     font-weight: ${({ theme }) => theme.weight.semiBold};
   }
 `;
 
-const Container = styled.div<{
+export const InputContainer = styled.div<{
   disabled: InputProps["disabled"];
   width: InputProps["width"];
   size: InputProps["size"];
@@ -279,7 +289,7 @@ const Container = styled.div<{
   ${({ disabled }) => disabled && "cursor: not-allowed;"}
 `;
 
-const Field = styled.input<
+export const InputField = styled.input<
   InputProps & {
     focus: boolean;
   }
@@ -303,10 +313,10 @@ const Field = styled.input<
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
 
   ${({ prefix, prefixContainer }) =>
     prefix &&
@@ -329,7 +339,7 @@ const Field = styled.input<
     "border-right: none;"}
 `;
 
-const Prefix = styled.span<{
+export const InputPrefix = styled.span<{
   size: InputProps["size"];
   disabled: InputProps["disabled"];
   prefixStyling: InputProps["prefixStyling"];
@@ -346,10 +356,10 @@ const Prefix = styled.span<{
       error && !prefixStyling
         ? theme.colors.accent.danger
         : type && !prefixStyling
-        ? theme.colors.accent[type]
-        : focus && !prefixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !prefixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-right: none;
   font-size: inherit;
   transition: border-color 0.2s ease-in-out;
@@ -380,7 +390,7 @@ const Prefix = styled.span<{
   }
 `;
 
-const Suffix = styled.span<{
+export const InputSuffix = styled.span<{
   size: InputProps["size"];
   disabled: InputProps["disabled"];
   suffixStyling: InputProps["suffixStyling"];
@@ -398,10 +408,10 @@ const Suffix = styled.span<{
       error && !suffixStyling
         ? theme.colors.accent.danger
         : type && !suffixStyling
-        ? theme.colors.accent[type]
-        : focus && !suffixStyling
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus && !suffixStyling
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left: none;
   font-size: inherit;
   transition: border-color 0.2s ease-in-out;
@@ -432,7 +442,7 @@ const Suffix = styled.span<{
   }
 `;
 
-const Clear = styled.span<{
+export const InputClear = styled.span<{
   disabled: InputProps["disabled"];
   size: InputProps["size"];
   suffix: InputProps["suffix"];
@@ -453,10 +463,10 @@ const Clear = styled.span<{
       error
         ? theme.colors.accent.danger
         : type
-        ? theme.colors.accent[type]
-        : focus
-        ? theme.colors.layout.lighter
-        : theme.colors.layout.dark};
+          ? theme.colors.accent[type]
+          : focus
+            ? theme.colors.layout.lighter
+            : theme.colors.layout.dark};
   border-left: none;
   padding-right: ${({ theme }) => theme.gap.small};
   ${({ theme, disabled }) =>
@@ -487,13 +497,15 @@ const Clear = styled.span<{
 
   svg {
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-    transition: color, opacity 0.2s ease-in-out;
+    transition:
+      color,
+      opacity 0.2s ease-in-out;
     opacity: ${({ visible }) => (visible ? 1 : 0)};
     pointer-events: ${({ visible }) => (visible ? "auto" : "none")};
   }
 `;
 
-const InputError = styled(Error)<{
+export const InputError = styled(Error)<{
   width: InputProps["width"];
 }>`
   margin-top: ${({ theme }) => theme.gap.tiny};
@@ -501,7 +513,7 @@ const InputError = styled(Error)<{
     width ? (isNumber(width) ? `${width}px` : width) : "auto"};
 `;
 
-const Label = styled.span`
+export const InputLabel = styled.span`
   display: block;
   font-size: ${({ theme }) => theme.size.small};
   font-weight: ${({ theme }) => theme.weight.medium};
@@ -510,4 +522,6 @@ const Label = styled.span`
   max-width: 100%;
 `;
 
-export default withScale(Input);
+InputComponent.displayName = "KitchenInput";
+export const Input = withDecorator(InputComponent);
+export default Input;

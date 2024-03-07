@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+
+import { withDecorator } from "../../../hoc/withDecorator";
 import { ToastAction } from "../../../hooks/useToasts";
-import withScale from "../../../hoc/withScale";
 import { KitchenComponent } from "../../../types";
-import capitalize from "../../../utils/capitalize";
+import { capitalize } from "../../../utils/capitalize";
 import Button from "../../Button";
 import Container from "../../Container";
 
@@ -14,11 +15,11 @@ type Props = {
 
 export type ToastActionsProps = KitchenComponent<Props>;
 
-const ToastActions = styled(
+const ToastActionsComponent = styled(
   ({ actions, cancelHandle, ...props }: ToastActionsProps) => {
     const handler = (
       event: React.MouseEvent<HTMLButtonElement>,
-      userHandler: ToastAction["handler"]
+      userHandler: ToastAction["handler"],
     ) => {
       userHandler && userHandler(event, cancelHandle);
     };
@@ -41,7 +42,9 @@ const ToastActions = styled(
         </Container>
       </Container>
     );
-  }
+  },
 )``;
 
-export default withScale(ToastActions);
+ToastActionsComponent.displayName = "KitchenToastActions";
+export const ToastActions = withDecorator(ToastActionsComponent);
+export default ToastActions;

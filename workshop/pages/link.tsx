@@ -1,8 +1,12 @@
-import { Container, Note, Text } from "@tonightpass/kitchen";
+import kitchen, {
+  Container,
+  Link,
+  Note,
+  Text,
+  FragmentLink,
+} from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import kitchen from "@tonightpass/kitchen";
-import { FragmentLink, Link } from "@tonightpass/kitchen/next";
 
 const LinkPage: NextPage = () => {
   const router = useRouter();
@@ -16,24 +20,24 @@ const LinkPage: NextPage = () => {
         }}
       >
         <Container>
-          <p>default</p>
-          <Link href="/">Return to menu</Link>
+          <p>{"default"}</p>
+          <Link href={"/"}>{"Return to menu"}</Link>
         </Container>
         <Container>
-          <p>using onClick</p>
-          <Link onClick={() => router.push("/")}>Return to menu</Link>
+          <p>{"using onClick"}</p>
+          <Link onClick={() => router.push("/")}>{"Return to menu"}</Link>
         </Container>
         <Container>
-          <p>disabled</p>
-          <Link disabled>Disabled link</Link>
+          <p>{"disabled"}</p>
+          <Link disabled>{"Disabled link"}</Link>
           <Link href={undefined} onClick={undefined}>
-            Disabled link (no href or onClick)
+            {"Disabled link (no href or onClick)\r"}
           </Link>
-          <Link href="#" disabled>
+          <Link href={"#"} disabled>
             {"Disabled link (href=#)"}
           </Link>
         </Container>
-        <p>non text</p>
+        <p>{"non text"}</p>
         <div
           style={{
             display: "flex",
@@ -42,57 +46,57 @@ const LinkPage: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <Link href="/">
-            <Card>This entire div is wrapped in a link</Card>
+          <Link href={"/"}>
+            <Card>{"This entire div is wrapped in a link"}</Card>
           </Link>
         </div>
         <Container gap={10}>
-          <Text>variants</Text>
+          <Text>{"variants"}</Text>
           <Container>
-            <Text size={"small"}>highlight</Text>
-            <Link href="#" variant="highlight">
-              Highlight variant
+            <Text size={"small"}>{"highlight"}</Text>
+            <Link href={"#"} variant={"highlight"}>
+              {"Highlight variant\r"}
             </Link>
           </Container>
           <Container>
-            <Text size={"small"}>primary</Text>
-            <Link href="#" variant="primary">
-              Primary variant
+            <Text size={"small"}>{"primary"}</Text>
+            <Link href={"#"} variant={"primary"}>
+              {"Primary variant\r"}
             </Link>
           </Container>
 
           <Container align={"flex-start"}>
-            <Text size={"small"}>secondary</Text>
-            <Link href="#" variant="secondary">
-              Secondary variant
+            <Text size={"small"}>{"secondary"}</Text>
+            <Link href={"#"} variant={"secondary"}>
+              {"Secondary variant\r"}
             </Link>
           </Container>
 
           <Container>
-            <Text size={"small"}>blend</Text>
-            <Note type="danger" label={false}>
-              <Link href="#" variant="blend">
-                Blend variant
+            <Text size={"small"}>{"blend"}</Text>
+            <Note type={"danger"} label={false}>
+              <Link href={"#"} variant={"blend"}>
+                {"Blend variant\r"}
               </Link>{" "}
-              works well with themed components.
+              {"works well with themed components.\r"}
             </Note>
           </Container>
         </Container>
         <Container>
-          <p>fragment link (anchor)</p>
-          <FragmentLink id="fragment-link-example">
-            Click on this to jump to this section of the page
+          <p>{"fragment link (anchor)"}</p>
+          <FragmentLink id={"fragment-link-example"}>
+            {"Click on this to jump to this section of the page\r"}
           </FragmentLink>
         </Container>
         <Container>
-          <p>internal href</p>
-          <Link href="/">Click on this to jump back to the menu</Link>
+          <p>{"internal href"}</p>
+          <Link href={"/"}>{"Click on this to jump back to the menu"}</Link>
         </Container>
 
         <Container>
-          <p>external href</p>
-          <Link href="https://tonightpass.com/">
-            Click on this to go to our website
+          <p>{"external href"}</p>
+          <Link href={"https://tonightpass.com/"}>
+            {"Click on this to go to our website\r"}
           </Link>
         </Container>
       </Container>

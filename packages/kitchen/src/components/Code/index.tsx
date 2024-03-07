@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -12,28 +13,28 @@ export type CodeProps = KitchenComponent<
   React.HTMLAttributes<HTMLPreElement>
 >;
 
-const Code = styled(({ children, title, ...props }: CodeProps) => {
+const CodeComponent = styled(({ children, title, ...props }: CodeProps) => {
   return (
-    <pre title={title} {...props}>
+    <pre role={"code"} aria-label={title} title={title} {...props}>
       {title && (
-        <Header>
-          <Title>{title}</Title>
-        </Header>
+        <CodeHeader>
+          <CodeTitle>{title}</CodeTitle>
+        </CodeHeader>
       )}
-      <Content>{children}</Content>
+      <CodeContent>{children}</CodeContent>
     </pre>
   );
 })<CodeProps>`
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   border-radius: 8px;
-  padding: ${({ title }) => (title ? "35px 25px 25px" : "25px")};
+  padding: ${({ title }) => (title ? "35px 15px 15px" : "15px")};
   margin: 30px 0;
   white-space: pre;
   overflow: auto;
 `;
 
-const Header = styled.header`
+export const CodeHeader = styled.header`
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +43,7 @@ const Header = styled.header`
   border-radius: 6px;
 `;
 
-const Title = styled.div`
+export const CodeTitle = styled.div`
   font-size: ${({ theme }) => theme.size.small};
   background-color: ${({ theme }) => theme.colors.layout.dark};
   color: ${({ theme }) => theme.colors.text.lighter};
@@ -51,7 +52,7 @@ const Title = styled.div`
   padding: 5px;
 `;
 
-const Content = styled.code`
+export const CodeContent = styled.code`
   color: ${({ theme }) => theme.colors.text.lightest};
   text-align: left;
   white-space: pre;
@@ -64,4 +65,6 @@ const Content = styled.code`
   hyphens: none;
 `;
 
-export default withScale(Code);
+CodeComponent.displayName = "KitchenCode";
+export const Code = withDecorator(CodeComponent);
+export default Code;

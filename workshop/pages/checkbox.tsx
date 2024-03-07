@@ -19,72 +19,78 @@ const CheckboxPage: NextPage = () => {
       }}
     >
       <Container>
-        <p>default</p>
+        <p>{"default"}</p>
         <Checkbox checked={checked1} onChange={toggle1}>
-          Option 1
+          {"Option 1\r"}
         </Checkbox>
       </Container>
       <Container>
-        <p>checked</p>
+        <p>{"checked"}</p>
         <Checkbox checked={checked2} onChange={toggle2}>
-          Option 2
+          {"Option 2\r"}
         </Checkbox>
       </Container>
       <Container>
-        <p>no label</p>
+        <p>{"no label"}</p>
         <Checkbox checked={checked3} onChange={toggle3} />
       </Container>
       <Container>
-        <p>disabled</p>
+        <p>{"disabled"}</p>
         <Container>
           <Container>
-            <Checkbox disabled>Disabled</Checkbox>
+            <Checkbox disabled>{"Disabled"}</Checkbox>
           </Container>
 
           <Container>
             <Checkbox disabled checked>
-              Disabled Checked
+              {"Disabled Checked\r"}
             </Checkbox>
           </Container>
 
           <Container>
             <Checkbox disabled indeterminate>
-              Disabled Indeterminate
+              {"Disabled Indeterminate\r"}
             </Checkbox>
           </Container>
         </Container>
       </Container>
       <Container>
-        <p>indeterminate</p>
-        <Checkbox indeterminate>Indeterminate</Checkbox>
+        <p>{"indeterminate"}</p>
+        <Checkbox indeterminate>{"Indeterminate"}</Checkbox>
       </Container>
       <Container>
-        <p>overflowing text</p>
+        <p>{"overflowing text"}</p>
         <Checkbox checked={checked4} onChange={toggle4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
+          {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r"}
+          {
+            "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad\r"
+          }
+          {"minim veniam, quis nostrud exercitation ullamco laboris nisi ut\r"}
+          {"aliquip ex ea commodo consequat. Duis aute irure dolor in\r"}
+          {
+            "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla\r"
+          }
+          {
+            "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\r"
+          }
+          {"culpa qui officia deserunt mollit anim id est laborum\r"}
         </Checkbox>
       </Container>
       <Container>
-        <p>full width</p>
+        <p>{"full width"}</p>
         <Checkbox checked={checked5} onChange={toggle5} fullWidth>
-          Full Width
+          {"Full Width\r"}
         </Checkbox>
       </Container>
       <Container>
-        <p>label</p>
+        <p>{"label"}</p>
         <Checkbox label={"Checkbox"} checked={checked6} onChange={toggle6}>
-          Click me
+          {"Click me\r"}
         </Checkbox>
       </Container>
       <Container>
-        <p>Text Styles</p>
-        <Checkbox style={{ fontSize: 30 }}>Arbitrary text styles.</Checkbox>
+        <p>{"Text Styles"}</p>
+        <Checkbox style={{ fontSize: 30 }}>{"Arbitrary text styles."}</Checkbox>
       </Container>
     </Container>
   );

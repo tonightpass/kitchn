@@ -1,11 +1,13 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import useBreakpoint from "../../hooks/useBreakpoint";
-import useKeyboard from "../../hooks/useKeyboard";
-import usePortal from "../../hooks/usePortal";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
+import { useKeyboard } from "../../hooks/useKeyboard";
+import { usePortal } from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
+import { fadeInDown, fadeOutUp } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
 import Drawer from "../Drawer";
 
@@ -45,7 +47,7 @@ const ModalComponent = styled(
           if (onAnimationDone) onAnimationDone();
         }, 210);
       },
-      [animationState, onClickOutside, onAnimationDone]
+      [animationState, onClickOutside, onAnimationDone],
     );
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -85,7 +87,7 @@ const ModalComponent = styled(
       [KeyCode.Escape, KeyCode.Enter],
       {
         disableGlobalEvent: true,
-      }
+      },
     );
 
     if (!portal) return null;
@@ -106,6 +108,8 @@ const ModalComponent = styled(
     return createPortal(
       (active && animationState) || animationState ? (
         <div
+          role={"dialog"}
+          aria-modal={"true"}
           onClick={handleContainerClick}
           ref={containerRef}
           tabIndex={-1}
@@ -117,9 +121,9 @@ const ModalComponent = styled(
           </ModalContent>
         </div>
       ) : null,
-      portal
+      portal,
     );
-  }
+  },
 )`
   top: 0px;
   left: 0px;
@@ -151,30 +155,7 @@ const ModalContent = styled.div<{
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-name: ${({ animationState }) =>
-    animationState === "entrance" ? "fadeInDown" : "fadeOutUp"};
-
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translate3d(0, -70%, 0);
-    }
-
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  @keyframes fadeOutUp {
-    from {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0;
-      transform: translate3d(0, -70%, 0);
-    }
-  }
+    animationState === "entrance" ? fadeInDown : fadeOutUp};
 `;
 
 const ModalOverflow = styled.div`
@@ -221,7 +202,7 @@ export type ModalActionProps = KitchenComponent<
 >;
 
 const ModalAction = styled((props: ModalActionProps) => (
-  <button type="button" {...props} />
+  <button type={"button"} {...props} />
 ))<ModalActionProps>`
   color: ${({ theme }) => theme.colors.text.lightest};
   background-color: ${({ theme }) => theme.colors.layout.darkest};
@@ -248,12 +229,12 @@ const ModalAction = styled((props: ModalActionProps) => (
     cursor: not-allowed;
   `}
 
-  :first-child {
+  &:first-child {
     border-left: none;
     color: ${({ theme }) => theme.colors.text.light};
   }
 
-  :hover {
+  &:hover {
     ${({ disabled, theme }) =>
       !disabled &&
       `
@@ -271,15 +252,15 @@ const ModalInset = styled.div`
   margin: 0 -20px;
 `;
 
-const Modal = {
-  Modal: withScale(ModalComponent),
-  Body: withScale(ModalBody),
-  Header: withScale(ModalHeader),
-  Title: withScale(ModalTitle),
-  Subtitle: withScale(ModalSubtitle),
-  Actions: withScale(ModalActions),
-  Action: withScale(ModalAction),
-  Inset: withScale(ModalInset),
+export const Modal = {
+  Modal: withDecorator(ModalComponent),
+  Body: withDecorator(ModalBody),
+  Header: withDecorator(ModalHeader),
+  Title: withDecorator(ModalTitle),
+  Subtitle: withDecorator(ModalSubtitle),
+  Actions: withDecorator(ModalActions),
+  Action: withDecorator(ModalAction),
+  Inset: withDecorator(ModalInset),
 };
 
 export default Modal;

@@ -3,11 +3,11 @@ import React from "react";
 export type CurrentStateType<S> = [
   S,
   React.Dispatch<React.SetStateAction<S>>,
-  React.MutableRefObject<S>
+  React.MutableRefObject<S>,
 ];
 
-const useCurrentState = <S>(
-  initialState: S | (() => S)
+export const useCurrentState = <S>(
+  initialState: S | (() => S),
 ): CurrentStateType<S> => {
   const [state, setState] = React.useState<S>(() => {
     return typeof initialState === "function"
@@ -31,5 +31,3 @@ const useCurrentState = <S>(
 
   return [state, setValue, ref];
 };
-
-export default useCurrentState;

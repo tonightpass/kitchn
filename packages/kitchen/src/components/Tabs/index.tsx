@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import useRect from "../../hooks/useRect";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
+import { useRect } from "../../hooks/useRect";
 import { KitchenComponent } from "../../types";
-import capitalize from "../../utils/capitalize";
+import { capitalize } from "../../utils/capitalize";
 import Highlight from "../Highlight";
 
-export type Tab = {
+export type TabProps = {
   title: string;
   value: string;
   icon?: JSX.Element;
-};
+} & React.HTMLProps<HTMLDivElement>;
 
 type Props = {
   /**
    * The titles, values and icons of the tabs.
    */
-  tabs: Tab[];
+  tabs: TabProps[];
 
   selected: string;
 
@@ -26,21 +27,21 @@ type Props = {
 
   disabled?: boolean;
 
-  hoverHeightRatio?: 0.7;
-  hoverWidthRatio?: 1.15;
+  hoverHeightRatio?: number;
+  hoverWidthRatio?: number;
   highlight?: boolean;
 };
 
 export type TabsProps = KitchenComponent<Props>;
 
-const Tabs = styled(
+const TabsComponent = styled(
   ({
     tabs,
     disabled = false,
     selected,
     setSelected,
     hoverHeightRatio = 0.7,
-    hoverWidthRatio = 1.15,
+    hoverWidthRatio = 1.05,
     highlight = true,
     ...props
   }: TabsProps) => {
@@ -50,7 +51,7 @@ const Tabs = styled(
     const { rect, setRect } = useRect();
 
     const tabItemMouseOverHandler = (
-      event: React.MouseEvent<HTMLDivElement>
+      event: React.MouseEvent<HTMLDivElement>,
     ) => {
       if (!event.target) return;
       setRect(event, () => containerRef.current);
@@ -59,12 +60,16 @@ const Tabs = styled(
       }
     };
 
-    const handleClick = (event: React.MouseEvent<HTMLDivElement>, tab: Tab) => {
+    const handleClick = (
+      event: React.MouseEvent<HTMLDivElement>,
+      tab: TabProps,
+    ) => {
       disabled ? event.preventDefault() : setSelected(tab.value);
     };
 
     return (
       <div
+        role={"tablist"}
         ref={containerRef}
         onMouseLeave={() => setDisplayHighlight(false)}
         {...props}
@@ -78,11 +83,15 @@ const Tabs = styled(
         {tabs &&
           tabs.map((tab) => (
             <Tab
+              role={"tab"}
               key={tab.value}
-              onClick={(event) => handleClick(event, tab)}
+              onClick={(event: React.MouseEvent<HTMLDivElement>) =>
+                handleClick(event, tab)
+              }
               active={selected === tab.value}
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
+              {...tab}
             >
               <>{tab.icon && tab.icon}</>
               <>{capitalize(tab.title)}</>
@@ -90,7 +99,7 @@ const Tabs = styled(
           ))}
       </div>
     );
-  }
+  },
 )<TabsProps>`
   position: relative;
   display: flex;
@@ -102,7 +111,7 @@ const Tabs = styled(
   box-shadow: 0 -1px 0 ${({ theme }) => theme.colors.layout.dark} inset;
 `;
 
-const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
+export const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -130,10 +139,12 @@ const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
     margin-right: ${({ theme }) => theme.gap.tiny};
   }
 
-  :hover {
+  &:hover {
     color: ${({ theme, disabled }) =>
       !disabled ? theme.colors.text.lightest : theme.colors.text.darker};
   }
 `;
 
-export default withScale(Tabs);
+TabsComponent.displayName = "KitchenTabs";
+export const Tabs = withDecorator(TabsComponent);
+export default Tabs;

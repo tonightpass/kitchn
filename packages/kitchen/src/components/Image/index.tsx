@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "styled-components";
-import withBox from "../../hoc/withBox";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -14,8 +14,10 @@ export type ImageProps = KitchenComponent<
   React.ImgHTMLAttributes<HTMLImageElement>
 >;
 
-const Image = styled(({ src, alt, ...props }: ImageProps) => {
+const ImageComponent = styled(({ src, alt, ...props }: ImageProps) => {
   return <img src={src} alt={alt} draggable={false} {...props} />;
 })<ImageProps>``;
 
-export default withBox(Image);
+ImageComponent.displayName = "KitchenImage";
+export const Image = withDecorator(ImageComponent);
+export default Image;

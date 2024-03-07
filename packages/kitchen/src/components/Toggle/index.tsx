@@ -1,12 +1,13 @@
-import styled from "styled-components";
 import React from "react";
-import withScale from "../../hoc/withScale";
+import styled from "styled-components";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 
 interface Props {
   checked?: boolean;
   disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (_e: React.ChangeEvent<HTMLInputElement>) => void;
   large?: boolean;
 }
 
@@ -15,14 +16,27 @@ export type ToggleProps = KitchenComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 >;
 
-const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (disabled) return e.preventDefault();
-    if (onChange) onChange(e);
-  };
+const ToggleComponent = styled(
+  ({ disabled, checked, onChange, ...props }: Props) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (disabled) return e.preventDefault();
+      if (onChange) onChange(e);
+    };
 
-  return <input type="checkbox" onChange={handleChange} {...props} />;
-})`
+    return (
+      <input
+        aria-checked={checked}
+        aria-disabled={disabled}
+        role={"switch"}
+        type={"checkbox"}
+        onChange={handleChange}
+        checked={checked}
+        disabled={disabled}
+        {...props}
+      />
+    );
+  },
+)`
   appearance: none;
   box-sizing: border-box;
   width: ${({ large }) => (large ? "40px" : "28px")};
@@ -32,8 +46,8 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
     disabled
       ? theme.colors.layout.dark
       : checked
-      ? theme.colors.layout.lightest
-      : theme.colors.layout.dark};
+        ? theme.colors.layout.lightest
+        : theme.colors.layout.dark};
   position: relative;
   transition: all 0.2s;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -42,10 +56,10 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
       disabled
         ? theme.colors.layout.dark
         : checked
-        ? theme.colors.layout.lightest
-        : theme.colors.layout.dark};
+          ? theme.colors.layout.lightest
+          : theme.colors.layout.dark};
 
-  :before {
+  &::before {
     content: "";
     position: absolute;
     width: ${({ large }) => (large ? "18px" : "12px")};
@@ -54,8 +68,8 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
       disabled
         ? theme.colors.layout.dark
         : checked
-        ? theme.colors.layout.lightest
-        : theme.colors.layout.dark};
+          ? theme.colors.layout.lightest
+          : theme.colors.layout.dark};
     border-radius: ${({ theme }) => theme.radius.round};
     transition: all 0.2s;
     transform: translateX(
@@ -63,7 +77,7 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
     );
   }
 
-  :after {
+  &::after {
     content: "";
     position: absolute;
     width: ${({ large }) => (large ? "18px" : "12px")};
@@ -72,8 +86,8 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
       disabled
         ? theme.colors.layout.darker
         : checked
-        ? theme.colors.layout.darkest
-        : theme.colors.layout.light};
+          ? theme.colors.layout.darkest
+          : theme.colors.layout.light};
     border-radius: ${({ theme }) => theme.radius.round};
     transition: all 0.2s;
     transform: translateX(
@@ -82,4 +96,6 @@ const Toggle = styled(({ disabled, onChange, ...props }: Props) => {
   }
 `;
 
-export default withScale(Toggle);
+ToggleComponent.displayName = "KitchenToggle";
+export const Toggle = withDecorator(ToggleComponent);
+export default Toggle;

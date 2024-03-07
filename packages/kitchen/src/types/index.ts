@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export * from "./theme";
+export * from "./window";
 
 export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
   /**
@@ -10,7 +10,10 @@ export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
    * The content, duh.
    */
   children?: React.ReactNode;
+  forwardedAs?: React.ElementType;
 } & P &
   Omit<N, keyof P>;
 
 export type NormalSizes = "small" | "normal" | "large";
+
+export type TriggerTypes = "hover" | "click";

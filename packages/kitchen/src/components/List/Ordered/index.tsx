@@ -1,8 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const OrderedList = styled((props) => {
-  return <ol {...props} />;
+import { withDecorator } from "../../../hoc/withDecorator";
+import { KitchenComponent } from "../../../types";
+
+export type OrderedListProps = KitchenComponent<
+  object,
+  React.OlHTMLAttributes<HTMLElement>
+>;
+
+const OrderedListComponent = styled((props: OrderedListProps) => {
+  return <ol role={"list"} {...props} />;
 })`
   padding: 0;
   margin: 15px;
@@ -10,4 +18,6 @@ const OrderedList = styled((props) => {
   list-style-type: decimal;
 `;
 
+OrderedListComponent.displayName = "KitchenOrderedList";
+export const OrderedList = withDecorator(OrderedListComponent);
 export default OrderedList;

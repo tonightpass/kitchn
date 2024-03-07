@@ -1,18 +1,18 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
-import convertRGBToRGBA from "../../utils/convertRGBToRGBA";
-import isNumber from "../../utils/isNumber";
+import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
+import { isNumber } from "../../utils/isNumber";
 import Spinner from "../Spinner";
 
-export type Props = {
+type Props = {
   shape?: "square" | "round";
   size?: NormalSizes;
   loading?: boolean;
   disabled?: boolean;
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   width?: number | string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -30,7 +30,7 @@ export type ButtonProps = KitchenComponent<
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
-const Button = styled(
+const ButtonComponent = styled(
   ({
     as: Component = "button",
     children,
@@ -43,9 +43,15 @@ const Button = styled(
   }: ButtonProps) => {
     const theme = useTheme();
     return (
-      <Component {...props}>
+      <Component
+        aria-label={children ? undefined : "Button"}
+        aria-busy={loading ? "true" : undefined}
+        aria-disabled={props.disabled ? "true" : undefined}
+        role={"button"}
+        {...props}
+      >
         {(prefix || loading) && (
-          <Prefix hasContent={children != undefined}>
+          <ButtonPrefix hasContent={children !== undefined}>
             {loading ? (
               <Spinner
                 size={
@@ -53,8 +59,8 @@ const Button = styled(
                     ? size === "small"
                       ? 12
                       : size === "large"
-                      ? 20
-                      : 16
+                        ? 20
+                        : 16
                     : 16
                 }
                 color={theme.colors.text.dark}
@@ -62,13 +68,13 @@ const Button = styled(
             ) : (
               prefix
             )}
-          </Prefix>
+          </ButtonPrefix>
         )}
-        <Content width={width}>{children}</Content>
-        {suffix && <Suffix>{suffix}</Suffix>}
+        <ButtonContent width={width}>{children}</ButtonContent>
+        {suffix && <ButtonSuffix>{suffix}</ButtonSuffix>}
       </Component>
     );
-  }
+  },
 )<ButtonProps>`
   position: relative;
   display: flex;
@@ -200,7 +206,7 @@ const Button = styled(
     }
   }};
 
-  :hover {
+  &:hover {
     ${(props) =>
       props.hover?.background && `background: ${props.hover.background}`};
     ${(props) => props.hover?.color && `color: ${props.hover.background}`};
@@ -237,7 +243,7 @@ const Button = styled(
       if (props.variant === "ghost") {
         return `1px solid ${convertRGBToRGBA(
           props.theme.colors.accent.light,
-          0.25
+          0.25,
         )}`;
       }
 
@@ -252,7 +258,7 @@ const Button = styled(
         case "secondary":
           return `1px solid ${convertRGBToRGBA(
             props.theme.colors.accent.light,
-            0.25
+            0.25,
           )}`;
         case "primary":
         default:
@@ -260,7 +266,7 @@ const Button = styled(
       }
     }};
 
-    :focus {
+    &:focus {
       filter: brightness(
         ${(props) => {
           if (props.disabled || props.loading) return "1";
@@ -271,7 +277,7 @@ const Button = styled(
   }
 `;
 
-const Content = styled.span<{ width?: string | number }>`
+export const ButtonContent = styled.span<{ width?: string | number }>`
   font-weight: ${({ theme }) => theme.weight.semiBold};
   font-size: inherit;
   font-family: inherit;
@@ -282,15 +288,17 @@ const Content = styled.span<{ width?: string | number }>`
     "text-overflow: ellipsis; overflow: hidden;  white-space: nowrap;"};
 `;
 
-const Prefix = styled.span<{ hasContent: boolean }>`
+export const ButtonPrefix = styled.span<{ hasContent: boolean }>`
   font-size: inherit;
   color: inherit;
   ${({ hasContent }) => hasContent && "margin-right: 7px;"}
 `;
-const Suffix = styled.span`
+export const ButtonSuffix = styled.span`
   font-size: inherit;
   margin-left: 7px;
   color: inherit;
 `;
 
-export default withScale(Button);
+ButtonComponent.displayName = "KitchenButton";
+export const Button = withDecorator(ButtonComponent);
+export default Button;

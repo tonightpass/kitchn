@@ -1,10 +1,12 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import useKeyboard from "../../hooks/useKeyboard";
-import usePortal from "../../hooks/usePortal";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
+import { useKeyboard } from "../../hooks/useKeyboard";
+import { usePortal } from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
+import { slideInUp, slideOutDown } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
 
 type Props = {
@@ -17,7 +19,7 @@ type Props = {
 
 export type DrawerProps = KitchenComponent<Props>;
 
-const Drawer = styled(
+const DrawerComponent = styled(
   ({
     children,
     show,
@@ -39,10 +41,12 @@ const Drawer = styled(
         if (isDismiss && onDismiss) onDismiss();
         setTimeout(() => {
           setAnimationState(null);
-          if (onAnimationDone) onAnimationDone();
+          if (onAnimationDone && animationState === "exit") {
+            onAnimationDone();
+          }
         }, 210);
       },
-      [animationState, onDismiss, onAnimationDone]
+      [animationState, onDismiss, onAnimationDone],
     );
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -58,7 +62,7 @@ const Drawer = styled(
       KeyCode.Escape,
       {
         disableGlobalEvent: true,
-      }
+      },
     );
 
     React.useEffect(() => {
@@ -81,20 +85,26 @@ const Drawer = styled(
     return createPortal(
       (show && animationState) || animationState ? (
         <div
+          role={"dialog"}
+          aria-modal={"true"}
           onClick={handleContainerClick}
           tabIndex={-1}
           ref={containerRef}
           {...bindings}
           {...props}
         >
-          <Content animationState={animationState} height={height} tabIndex={0}>
+          <DrawerContent
+            animationState={animationState}
+            height={height}
+            tabIndex={0}
+          >
             {children}
-          </Content>
+          </DrawerContent>
         </div>
       ) : null,
-      portal
+      portal,
     );
-  }
+  },
 )<DrawerProps>`
   top: 0px;
   left: 0px;
@@ -110,7 +120,7 @@ const Drawer = styled(
   background-color: rgba(0, 0, 0, 0.6);
 `;
 
-const Content = styled.div<{
+export const DrawerContent = styled.div<{
   animationState: "entrance" | "exit";
   height?: number;
 }>`
@@ -127,28 +137,10 @@ const Content = styled.div<{
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-name: ${({ animationState }) =>
-    animationState === "entrance" ? "slideInUp" : "slideOutDown"};
+    animationState === "entrance" ? slideInUp : slideOutDown};
   ${({ height }) => height && `height: ${height}px`};
-
-  @keyframes slideInUp {
-    0% {
-      transform: translate3d(0, 100%, 0);
-      visibility: visible;
-    }
-    to {
-      transform: translateZ(0);
-    }
-  }
-
-  @keyframes slideOutDown {
-    0% {
-      transform: translateZ(0);
-    }
-    to {
-      visibility: hidden;
-      transform: translate3d(0, 100%, 0);
-    }
-  }
 `;
 
-export default withScale(Drawer);
+DrawerComponent.displayName = "KitchenDrawer";
+export const Drawer = withDecorator(DrawerComponent);
+export default Drawer;

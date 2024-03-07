@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
 type Props = {
-  icon: SVGElement;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   size?: keyof Size | number | string;
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
@@ -20,23 +21,27 @@ type Props = {
 
 export type IconProps = KitchenComponent<Props, React.SVGProps<SVGSVGElement>>;
 
-const Icon = styled(({ icon: Component, size, ...props }) => {
-  const theme = useTheme();
-  return (
-    <Component
-      size={theme.size[size as keyof Size] || size || theme.size.normal}
-      height={theme.size[size as keyof Size] || size || theme.size.normal}
-      width={theme.size[size as keyof Size] || size || theme.size.normal}
-      {...props}
-    />
-  );
-})<IconProps>`
+const IconComponent = styled(
+  ({ icon: Component, size, ...props }: IconProps) => {
+    const theme = useTheme();
+    return (
+      <Component
+        role={"img"}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        size={theme.size[size as keyof Size] || size || theme.size.normal}
+        height={theme.size[size as keyof Size] || size || theme.size.normal}
+        width={theme.size[size as keyof Size] || size || theme.size.normal}
+        {...props}
+      />
+    );
+  },
+)<IconProps>`
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
     props.color ||
     props.theme.colors.text.lightest};
-  };
   vertical-align: ${({ align }) => {
     switch (align) {
       case "top":
@@ -51,4 +56,6 @@ const Icon = styled(({ icon: Component, size, ...props }) => {
   }};
 `;
 
-export default withScale(Icon);
+IconComponent.displayName = "KitchenIcon";
+export const Icon = withDecorator(IconComponent);
+export default Icon;

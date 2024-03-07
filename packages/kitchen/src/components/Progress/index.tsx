@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import useBreakpoint from "../../hooks/useBreakpoint";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { KitchenComponent } from "../../types";
 
 type Props = {
@@ -18,7 +19,7 @@ export type ProgressProps = KitchenComponent<
   React.ProgressHTMLAttributes<HTMLProgressElement>
 >;
 
-const Progress = styled(
+const ProgressComponent = styled(
   ({
     value,
     max = 100,
@@ -45,7 +46,7 @@ const Progress = styled(
 
     const background = colors
       ? Object.keys(colors)
-          .map((key) => parseInt(key))
+          .map((key) => parseInt(key, 10))
           .filter((key) => key <= value)
           .map((key) => colors[key])
           .pop()
@@ -53,7 +54,7 @@ const Progress = styled(
 
     const state = states
       ? Object.keys(states)
-          .map((key) => parseInt(key))
+          .map((key) => parseInt(key, 10))
           .filter((key) => key <= value)
           .map((key) => states[key])
           .pop()
@@ -62,21 +63,31 @@ const Progress = styled(
     const { isMobile } = useBreakpoint();
 
     return (
-      <Container states={states} ref={containerRef}>
+      <ProgressContainer
+        role={"progressbar"}
+        aria-valuenow={value}
+        aria-valuemin={0}
+        aria-valuemax={max}
+        states={states}
+        ref={containerRef}
+      >
         {states && title && (
-          <State visible={!!state}>{state || "unknow state"}</State>
+          <ProgressState visible={!!state}>
+            {state || "unknow state"}
+          </ProgressState>
         )}
         <Component value={value} max={max} {...props} background={background} />
-        <CheckpointContainer>
+        <ProgressCheckpointContainer>
           {states &&
             Object.keys(states).map((key) => {
-              const checkpoint = parseInt(key);
+              const checkpoint = parseInt(key, 10);
               const active = checkpoint <= value;
               const first = checkpoint === 0;
               const last = checkpoint === max;
               return (
                 <>
-                  <Checkpoint
+                  <ProgressCheckpoint
+                    aria-hidden={"true"}
                     key={checkpoint}
                     value={checkpoint}
                     color={active ? background : undefined}
@@ -87,7 +98,8 @@ const Progress = styled(
                     title={states && title}
                   />
                   {!isMobile && checkpointTitle && (
-                    <CheckpointTitle
+                    <ProgressCheckpointTitle
+                      aria-hidden={"true"}
                       first={first}
                       last={last}
                       active={
@@ -95,15 +107,15 @@ const Progress = styled(
                       }
                     >
                       {states[checkpoint]}
-                    </CheckpointTitle>
+                    </ProgressCheckpointTitle>
                   )}
                 </>
               );
             })}
-        </CheckpointContainer>
-      </Container>
+        </ProgressCheckpointContainer>
+      </ProgressContainer>
     );
-  }
+  },
 )<
   ProgressProps & {
     background?: string;
@@ -116,25 +128,27 @@ const Progress = styled(
   vertical-align: unset;
   width: 100%;
 
-  ::-webkit-progress-bar {
+  &::-webkit-progress-bar {
     border-radius: 5px;
     background-color: ${({ theme }) => theme.colors.layout.dark};
   }
 
-  ::-webkit-progress-value {
+  &::-webkit-progress-value {
     border-radius: 5px;
     transition: all 0.1s ease-in-out;
   }
 `;
 
-const Component = styled.progress`
-  ::-webkit-progress-value {
+const Component = styled.progress<{
+  background?: string;
+}>`
+  &::-webkit-progress-value {
     background: ${({ theme, background }) =>
       background || theme.colors.layout.lightest};
   }
 `;
 
-const Container = styled.div<{
+export const ProgressContainer = styled.div<{
   states?: ProgressProps["states"];
 }>`
   position: relative;
@@ -146,7 +160,7 @@ const Container = styled.div<{
   ${({ states, theme }) => states && `margin-bottom: ${theme.gap.normal};`}
 `;
 
-const State = styled.span<{
+export const ProgressState = styled.span<{
   visible: boolean;
 }>`
   margin-bottom: 15px;
@@ -157,12 +171,12 @@ const State = styled.span<{
   opacity: ${({ visible }) => (visible ? 1 : 0)};
 `;
 
-const CheckpointContainer = styled.div`
+export const ProgressCheckpointContainer = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.gap.small};
 `;
 
-const CheckpointTitle = styled.span<{
+export const ProgressCheckpointTitle = styled.span<{
   active: boolean;
   first?: boolean;
   last?: boolean;
@@ -179,7 +193,7 @@ const CheckpointTitle = styled.span<{
     first ? "left" : last ? "right" : "center"};
 `;
 
-const Checkpoint = styled.div<{
+export const ProgressCheckpoint = styled.div<{
   value: number;
   color?: string;
   first?: boolean;
@@ -197,11 +211,13 @@ const Checkpoint = styled.div<{
   transform: ${({ first, last }) =>
     first ? "translateX(0)" : last ? "translateX(-100%)" : "translateX(-50%)"};
 
-  :hover {
-    ${CheckpointTitle} {
+  &:hover {
+    ${ProgressCheckpointTitle} {
       opacity: 1;
     }
   }
 `;
 
-export default withScale(Progress);
+ProgressComponent.displayName = "KitchenProgress";
+export const Progress = withDecorator(ProgressComponent);
+export default Progress;

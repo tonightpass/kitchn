@@ -1,6 +1,15 @@
+import isPropValid from "@emotion/is-prop-valid";
+import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { ThemeProviderProps as NextThemeProviderProps } from "next-themes/dist/types";
 import React from "react";
-import { DefaultTheme } from "styled-components";
-import { ThemeProvider } from "../../contexts/Theme";
+import {
+  DefaultTheme,
+  StyleSheetManager,
+  ShouldForwardProp,
+} from "styled-components";
+
+import { PREFIX } from "../../constants";
+import { ThemeProvider, ThemeProviderProps } from "../../contexts/Theme";
 import {
   defaultToastLayout,
   ToastsContent,
@@ -9,19 +18,39 @@ import {
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
-import useCurrentState from "../../hooks/useCurrentState";
+import { withDecorator } from "../../hoc/withDecorator";
+import { useCurrentState } from "../../hooks/useCurrentState";
+import { defaultThemes, generateThemes } from "../../themes";
+import { Themes } from "../../types";
 import GlobalStyle from "../GlobalStyle";
 import ToastContainer from "../Toast/Container";
 
 export type KitchenProviderProps = {
   children?: React.ReactNode;
-  theme?: DefaultTheme;
+  theme?: ThemeProviderProps["theme"];
+  enableSystem?: boolean;
+  defaultTheme?: keyof Themes | "system";
+  forcedTheme?: keyof Themes | "system";
+  themes?: Record<string, DefaultTheme>;
+  dangerouslyDisableNextThemeProvider?: boolean;
+  attribute?: string | "class" | undefined;
 };
 
-const KitchenProvider: React.FC<KitchenProviderProps> = ({
+export const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
   children,
-  theme,
+  enableSystem = true,
+  defaultTheme = enableSystem ? "system" : "dark",
+  themes: customThemes = {},
+  forcedTheme,
+  attribute = "data-theme",
+  dangerouslyDisableNextThemeProvider,
 }: KitchenProviderProps) => {
+  const staticThemes = { ...defaultThemes, ...customThemes };
+  const themes = React.useMemo(
+    () => generateThemes(staticThemes),
+    [customThemes],
+  );
+
   const [lastUpdateToastId, setLastUpdateToastId] =
     React.useState<ToastsContextParams["lastUpdateToastId"]>(null);
   const [toasts, setToasts, toastsRef] = useCurrentState<
@@ -51,18 +80,63 @@ const KitchenProvider: React.FC<KitchenProviderProps> = ({
       updateLastToastId,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [toasts, toastLayout, lastUpdateToastId]
+    [toasts, toastLayout, lastUpdateToastId],
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <ToastsContent.Provider value={initialValue}>
-        {children}
-        <ToastContainer />
-      </ToastsContent.Provider>
-    </ThemeProvider>
+    <NextThemeProviderWrapper
+      storageKey={`${PREFIX}-theme`}
+      defaultTheme={defaultTheme}
+      enableSystem={enableSystem}
+      themes={Object.keys(themes).map((key) => key.toString())}
+      forcedTheme={forcedTheme}
+      dangerouslyDisableNextThemeProvider={dangerouslyDisableNextThemeProvider}
+    >
+      <StyleSheetManager
+        shouldForwardProp={shouldForwardProp}
+        enableVendorPrefixes
+      >
+        <ThemeProvider themes={themes}>
+          <GlobalStyle staticThemes={staticThemes} attribute={attribute} />
+          <ToastsContent.Provider value={initialValue}>
+            {children}
+            <ToastContainer />
+          </ToastsContent.Provider>
+        </ThemeProvider>
+      </StyleSheetManager>
+    </NextThemeProviderWrapper>
   );
 };
 
+export const shouldForwardProp: ShouldForwardProp<"web"> = (
+  propName,
+  target,
+) => {
+  if (typeof target === "string") {
+    return isPropValid(propName);
+  }
+
+  return true;
+};
+
+export type NextThemeProviderWrapperProps = NextThemeProviderProps & {
+  dangerouslyDisableNextThemeProvider?: boolean;
+};
+
+export const NextThemeProviderWrapper: React.FC<
+  NextThemeProviderWrapperProps
+> = ({
+  children,
+  dangerouslyDisableNextThemeProvider,
+  ...props
+}: NextThemeProviderWrapperProps) => {
+  if (dangerouslyDisableNextThemeProvider) {
+    return <>{children}</>;
+  }
+
+  return <NextThemeProvider {...props}>{children}</NextThemeProvider>;
+};
+
+KitchenProviderComponent.displayName = "KitchenProvider";
+export const KitchenProvider = withDecorator(KitchenProviderComponent);
 export default KitchenProvider;

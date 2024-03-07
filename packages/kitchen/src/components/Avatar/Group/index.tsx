@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+
 import Avatar, { AvatarProps } from "..";
-import withScale from "../../../hoc/withScale";
+import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchenComponent } from "../../../types";
 import Text from "../../Text";
 
@@ -30,21 +31,24 @@ type Props = {
 
 export type AvatarGroupProps = KitchenComponent<Props>;
 
-const AvatarGroup = styled(
+const AvatarGroupComponent = styled(
   ({ members, size, limit, ...props }: AvatarGroupProps) => {
     return (
-      <div {...props}>
+      <div role={"group"} aria-label={"Avatar Group"} {...props}>
         {members
           .slice(0, limit ? limit : members.length)
           .map((member, index) => {
             return <Avatar key={index} size={size} {...member} />;
           })}
         {limit && members.length > limit && (
-          <Text size={"small"}>+{members.length - limit}</Text>
+          <Text size={"small"}>
+            {"+"}
+            {members.length - limit}
+          </Text>
         )}
       </div>
     );
-  }
+  },
 )`
   display: flex;
   align-items: center;
@@ -56,16 +60,18 @@ const AvatarGroup = styled(
   ${Avatar} {
     margin-left: -10px;
 
-    :first-child {
+    &:first-child {
       margin-left: 0;
     }
   }
 
-  :hover {
+  &:hover {
     ${Avatar} {
       margin-left: 0;
     }
   }
 `;
 
-export default withScale(AvatarGroup);
+AvatarGroupComponent.displayName = "KitchenAvatarGroup";
+export const AvatarGroup = withDecorator(AvatarGroupComponent);
+export default AvatarGroup;

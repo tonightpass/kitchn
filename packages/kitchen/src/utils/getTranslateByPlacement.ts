@@ -1,7 +1,7 @@
 import { ToastPlacement } from "../hooks/useToasts";
 
-const getTranslateByPlacement = (
-  placement: ToastPlacement
+export const getTranslateByPlacement = (
+  placement: ToastPlacement,
 ): {
   enter: string;
   leave: string;
@@ -23,5 +23,3 @@ const getTranslateByPlacement = (
     leave: translateOutByPlacement[placement],
   };
 };
-
-export default getTranslateByPlacement;

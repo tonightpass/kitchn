@@ -18,34 +18,34 @@ const CodeSandboxPage = () => {
           </Badge>
         </Container>
         <Container mt={"small"} align={"center"} justify={"space-between"} row>
-          <Text weight={"bold"}>Apartment in Paris</Text>
+          <Text weight={"bold"}>{"Apartment in Paris"}</Text>
           <Text span>
-            ⭐{" "}
+            {"⭐"}{" "}
             <Text weight={"bold"} span>
-              4.9
+              {"4.9\r"}
             </Text>{" "}
-            (20)
+            {"(20)\r"}
           </Text>
         </Container>
         <Container mt={"tiny"}>
-          <Text color={"lighter"}>Large 2 rooms flat with a terrace</Text>
-          <Text color={"lighter"}>1 king bed</Text>
-          <Text color={"lighter"}>Aug 19 - 26</Text>
+          <Text color={"lighter"}>{"Large 2 rooms flat with a terrace"}</Text>
+          <Text color={"lighter"}>{"1 king bed"}</Text>
+          <Text color={"lighter"}>{"Aug 19 - 26"}</Text>
         </Container>
         <Text color={"lighter"} mt={"tiny"}>
           <Text color={"lighter"} decoration={"line-through"} span>
-            $114
+            {"$114\r"}
           </Text>{" "}
           <Text color={"lightest"} weight={"bold"} span>
-            $120
+            {"$120\r"}
           </Text>{" "}
           <Text color={"lightest"} span>
             {"night ·"}
           </Text>{" "}
-          $735 total
+          {"$735 total\r"}
         </Text>
         <Container>
-          <Button mt={"small"}>Book now</Button>
+          <Button mt={"small"}>{"Book now"}</Button>
         </Container>
       </Container>
     </Container>

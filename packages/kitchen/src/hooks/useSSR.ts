@@ -1,12 +1,13 @@
 import React from "react";
-import isBrowser from "../utils/isBrowser";
+
+import { isBrowser } from "../utils/isBrowser";
 
 export type SSRState = {
   isBrowser: boolean;
   isServer: boolean;
 };
 
-const useSSR = (): SSRState => {
+export const useSSR = (): SSRState => {
   const [browser, setBrowser] = React.useState<boolean>(false);
   React.useEffect(() => {
     setBrowser(isBrowser());
@@ -17,5 +18,3 @@ const useSSR = (): SSRState => {
     isServer: !browser,
   };
 };
-
-export default useSSR;

@@ -13,15 +13,15 @@ const IconPage: NextPage = () => {
         minHeight: "100vh",
       }}
     >
-      <p>basic</p>
+      <p>{"basic"}</p>
       <Icon icon={RiGithubFill} />
-      <p>color</p>
+      <p>{"color"}</p>
       <Icon icon={RiGithubFill} color={"light"} />
-      <p>color - accent</p>
+      <p>{"color - accent"}</p>
       <Icon icon={RiGithubFill} accent={"primary"} />
-      <p>color - custom</p>
+      <p>{"color - custom"}</p>
       <Icon icon={RiGithubFill} color={"#ff0000"} />
-      <p>size</p>
+      <p>{"size"}</p>
       <div>
         <Icon icon={RiGithubFill} size={"tiny"} />
         <Icon icon={RiGithubFill} size={"small"} />
@@ -31,12 +31,12 @@ const IconPage: NextPage = () => {
         <Icon icon={RiGithubFill} size={"title"} />
         <Icon icon={RiGithubFill} size={"extraTitle"} />
       </div>
-      <p>size - custom</p>
+      <p>{"size - custom"}</p>
       <div>
         <Icon icon={RiGithubFill} size={30} />
         <Icon icon={RiGithubFill} size={"60px"} />
       </div>
-      <p>align</p>
+      <p>{"align"}</p>
       <div>
         <Icon icon={RiGithubFill} align={"top"} />
         <Icon icon={RiGithubFill} align={"middle"} />

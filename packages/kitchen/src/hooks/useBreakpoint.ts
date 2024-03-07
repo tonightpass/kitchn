@@ -1,5 +1,6 @@
 import { useTheme } from "styled-components";
-import useMediaQuery from "./useMediaQuery";
+
+import { useMediaQuery } from "./useMediaQuery";
 
 export type UseBreakpointResult = {
   isMobile: boolean;
@@ -8,7 +9,7 @@ export type UseBreakpointResult = {
   isDesktop: boolean;
 };
 
-const useBreakpoint = (): UseBreakpointResult => {
+export const useBreakpoint = (): UseBreakpointResult => {
   const theme = useTheme();
 
   return {
@@ -18,5 +19,3 @@ const useBreakpoint = (): UseBreakpointResult => {
     isDesktop: useMediaQuery(`(max-width: ${theme.breakpoint.desktop})`),
   };
 };
-
-export default useBreakpoint;

@@ -1,79 +1,68 @@
+import { useTheme as useNextTheme } from "next-themes";
 import React from "react";
 import {
   DefaultTheme,
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
-import { PREFIX } from "../constants";
-import useLocalStorage from "../hooks/useLocalStorage";
-import useThemeDetector from "../hooks/useThemeDetector";
-import themes from "../themes";
 
-const ThemeContext = React.createContext({
-  theme: themes.dark,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setTheme: (_theme: DefaultTheme) => {},
-  storedTheme: 0,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setStoredTheme: (_themeId: number) => {},
-});
+import { defaultThemes } from "../themes";
+import { Themes } from "../types";
 
-type ThemeProviderProps = {
-  children: React.ReactNode;
-  theme?: DefaultTheme;
+export type ThemeContextParams = {
+  theme: DefaultTheme;
+  setTheme: (theme: keyof Themes | "system") => void;
+  resolvedTheme?: keyof Themes | "system";
+  forcedTheme?: keyof Themes | "system";
+  systemTheme?: keyof Themes;
+  storedTheme?: keyof Themes | "system";
+  themes: Record<string, DefaultTheme>;
 };
 
-/**
- * System: 0
- * Dark: 1
- * Light: 2
- */
+export const ThemeContext = React.createContext<ThemeContextParams>({
+  theme: defaultThemes.dark,
+  setTheme: (_theme: keyof Themes | "system") => {},
+  resolvedTheme: "system",
+  systemTheme: "system",
+  forcedTheme: undefined,
+  themes: defaultThemes,
+});
 
-const ThemeProvider = ({
+export type ThemeProviderProps = {
+  children: React.ReactNode;
+  theme?: DefaultTheme;
+  themes: ThemeContextParams["themes"];
+};
+
+export const ThemeProvider = ({
   children,
-  theme: customTheme,
+  themes,
   ...props
 }: ThemeProviderProps) => {
-  const isDarkTheme = useThemeDetector();
-
-  const [storedTheme, setStoredTheme] = useLocalStorage<number>(
-    `${PREFIX}-theme`,
-    customTheme ? customTheme.id : 0
-  );
+  const nextTheme = useNextTheme();
 
   const [theme, setTheme] = React.useState<DefaultTheme>(
-    customTheme || storedTheme === 0
-      ? isDarkTheme
-        ? themes.dark
-        : themes.light
-      : storedTheme === 1
-      ? themes.dark
-      : storedTheme === 2
-      ? themes.light
-      : themes.dark
+    themes[nextTheme.resolvedTheme as keyof Themes] || themes.dark,
   );
 
   React.useEffect(() => {
-    if (customTheme) {
-      setTheme(customTheme);
-    } else if (storedTheme === 0) {
-      setTheme(isDarkTheme ? themes.dark : themes.light);
-    } else if (storedTheme === 1) {
-      setTheme(themes.dark);
-    } else if (storedTheme === 2) {
-      setTheme(themes.light);
-    } else {
-      setTheme(themes.dark);
-    }
-  }, [customTheme, isDarkTheme, storedTheme]);
+    setTheme(themes[nextTheme.resolvedTheme as keyof Themes] || themes.dark);
+  }, [nextTheme.resolvedTheme, setTheme]);
 
   return (
     <ThemeContext.Provider
-      value={{ theme, setTheme, storedTheme, setStoredTheme }}
+      value={{
+        ...nextTheme,
+        theme,
+        setTheme: nextTheme.setTheme,
+        resolvedTheme: nextTheme.resolvedTheme,
+        systemTheme: nextTheme.systemTheme,
+        forcedTheme: nextTheme.forcedTheme,
+        storedTheme: nextTheme.theme,
+        themes,
+      }}
       {...props}
     >
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
 };
-
-export { ThemeContext, ThemeProvider };

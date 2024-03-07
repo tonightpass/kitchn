@@ -17,7 +17,7 @@ const TabsPage: NextPage = () => {
         }}
       >
         <Container gap={5}>
-          <p>default</p>
+          <p>{"default"}</p>
           <Tabs
             tabs={[
               { title: "Apple", value: "apple" },
@@ -30,7 +30,7 @@ const TabsPage: NextPage = () => {
         </Container>
 
         <Container gap={5}>
-          <p>disabled</p>
+          <p>{"disabled"}</p>
           <Tabs
             tabs={[
               { title: "Apple", value: "apple" },
@@ -44,7 +44,7 @@ const TabsPage: NextPage = () => {
         </Container>
 
         <Container gap={5}>
-          <p>with icons</p>
+          <p>{"with icons"}</p>
           <Tabs
             tabs={[
               {

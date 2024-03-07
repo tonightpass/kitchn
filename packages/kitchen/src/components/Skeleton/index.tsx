@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import withScale from "../../hoc/withScale";
+
+import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent } from "../../types";
-import isString from "../../utils/isString";
+import { isString } from "../../utils/isString";
 
 type Props = {
   /**
@@ -48,7 +49,7 @@ type Props = {
 
 export type SkeletonProps = KitchenComponent<Props>;
 
-const Skeleton = styled(
+const SkeletonComponent = styled(
   ({
     as: Component = "span",
     children,
@@ -62,6 +63,9 @@ const Skeleton = styled(
     if (!show && children) return children as JSX.Element;
     return (
       <Component
+        role={"status"}
+        aria-busy={show ? "true" : "false"}
+        aria-hidden={!show}
         width={width}
         height={height}
         show={show}
@@ -71,12 +75,19 @@ const Skeleton = styled(
         {children}
       </Component>
     );
-  }
+  },
 )<SkeletonProps>`
-Skeleton.displayName = "Skeleton";
-${({ children, show = true, width, height, shape, theme, animated = true }) =>
-  children
-    ? `
+  ${({
+    children,
+    show = true,
+    width,
+    height,
+    shape,
+    theme,
+    animated = true,
+  }) =>
+    children
+      ? `
         position: relative;
         display: block;
         width: ${width ? "100%" : "auto"};
@@ -89,7 +100,7 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
         ${
           show
             ? `
-            ::before {
+            &::before {
               content: "";
               position: absolute;
               top: 0;
@@ -118,7 +129,7 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
             : ""
         }
       `
-    : `
+      : `
           display: block;
           width: 100%;
           user-select: none;
@@ -159,4 +170,6 @@ ${({ children, show = true, width, height, shape, theme, animated = true }) =>
   }
 `;
 
-export default withScale(Skeleton);
+SkeletonComponent.displayName = "KitchenSkeleton";
+export const Skeleton = withDecorator(SkeletonComponent);
+export default Skeleton;
