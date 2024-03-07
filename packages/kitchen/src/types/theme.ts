@@ -87,6 +87,7 @@ export type Size = {
   large: string;
   medium: string;
   normal: string;
+  compact: string;
   small: string;
   tiny: string;
 };

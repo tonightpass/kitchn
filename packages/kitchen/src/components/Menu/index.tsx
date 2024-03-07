@@ -93,7 +93,7 @@ const MenuItem = styled.li<MenuItemProps>`
   padding: ${({ theme }) => theme.gap.small} ${({ theme }) => theme.gap.normal};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   transition: background-color 0.2s ease;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.size.compact};
   border-radius: ${({ theme }) => theme.radius.square};
   width: 100%;
   ${({ disabled }) =>

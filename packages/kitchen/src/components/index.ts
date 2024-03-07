@@ -10,6 +10,7 @@ export * from "./Collapse";
 export * from "./Container";
 export * from "./Drawer";
 export * from "./Error";
+export * from "./Fieldset";
 export * from "./Footer";
 export * from "./GlobalStyle";
 export * from "./Highlight";
