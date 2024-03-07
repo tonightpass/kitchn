@@ -20,12 +20,13 @@ export type FieldsetProps = KitchenComponent<Props>;
 const FieldsetFooterActions = styled(
   ({ children, ...props }: ContainerProps) => {
     return (
-      <Container gap={"normal"} row {...props}>
+      <Container ml={"auto"} gap={"normal"} row {...props}>
         {children}
       </Container>
     );
   },
 )``;
+
 const FieldsetFooterStatus = styled(({ children, ...props }: TextProps) => {
   return (
     <Text color={"lighter"} {...props}>
@@ -82,7 +83,7 @@ const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
   }
 `;
 
-const FieldsetContent = styled.div<{ disabled?: boolean }>`
+const FieldsetContent = styled(Container)<{ disabled?: boolean }>`
   padding: 24px;
   cursor: ${({ disabled }) => disabled && "not-allowed"};
   background: ${({ theme, disabled }) =>
