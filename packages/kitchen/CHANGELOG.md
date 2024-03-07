@@ -1,5 +1,17 @@
 # @tonightpass/kitchen
 
+## 1.13.0
+
+### Minor Changes
+
+- [#139](https://github.com/tonightpass/kitchen/pull/139) [`f09f7c2`](https://github.com/tonightpass/kitchen/commit/f09f7c2fe345014f6e495de88c03372901636633) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add Fieldset
+
+### Patch Changes
+
+- [#139](https://github.com/tonightpass/kitchen/pull/139) [`ade3ce0`](https://github.com/tonightpass/kitchen/commit/ade3ce03e0a2d61c9d3638bb76c5c1629ac75b86) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add compact size to main theme
+
+- [#139](https://github.com/tonightpass/kitchen/pull/139) [`8ad95ac`](https://github.com/tonightpass/kitchen/commit/8ad95acbe3ed06703717f3b3d972e57b478d71ff) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Update button loading and disabled style
+
 ## 1.12.5
 
 ### Patch Changes
