@@ -88,7 +88,7 @@ const ButtonComponent = styled(
   font-weight: ${({ theme }) => theme.weight.bold};
   font-family: ${({ theme }) => theme.family.primary};
   cursor: ${(props) =>
-    props.disabled || props.loading ? "default" : "pointer"};
+    props.disabled || props.loading ? "not-allowed" : "pointer"};
   border-radius: ${({ shape }) => (shape === "round" ? "99999px" : "8px")};
   width: ${({ width }) =>
     width ? (isNumber(width) ? `${width}px` : width) : "auto"};
@@ -96,7 +96,7 @@ const ButtonComponent = styled(
   padding: ${(props) => {
     switch (props.size) {
       case "small":
-        return "4px 8px";
+        return "6px 8px";
       case "large":
         return "12px 16px";
       case "normal":
@@ -107,7 +107,7 @@ const ButtonComponent = styled(
 
   color: ${(props) => {
     if (props.loading || props.disabled)
-      return `${props.theme.colors.text.lightest}`;
+      return `${props.theme.colors.text.light}`;
 
     if (props.variant === "ghost") {
       switch (props.type) {
@@ -142,7 +142,7 @@ const ButtonComponent = styled(
 
   background: ${(props) => {
     if (props.loading || props.disabled)
-      return `${props.theme.colors.layout.darkest}`;
+      return `${props.theme.colors.layout.dark}`;
 
     if (props.variant === "ghost") return "transparent";
 
