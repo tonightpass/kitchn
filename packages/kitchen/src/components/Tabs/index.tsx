@@ -14,19 +14,11 @@ export type TabProps = {
 } & React.HTMLProps<HTMLDivElement>;
 
 type Props = {
-  /**
-   * The titles, values and icons of the tabs.
-   */
   tabs: TabProps[];
-
   selected: string;
-
   setSelected: React.Dispatch<React.SetStateAction<string>>;
-
   active?: boolean;
-
   disabled?: boolean;
-
   hoverHeightRatio?: number;
   hoverWidthRatio?: number;
   highlight?: boolean;

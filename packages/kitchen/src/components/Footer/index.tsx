@@ -122,7 +122,7 @@ export const FooterLink = styled(
 )`
   ${Link} {
     color: ${({ theme }) => theme.colors.text.lighter};
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.size.compact};
     text-decoration: none;
   }
 `;
