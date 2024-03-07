@@ -2,78 +2,42 @@ import React from "react";
 import styled from "styled-components";
 
 import { convertRGBToRGBA, withDecorator } from "../..";
-import { KitchenComponent } from "../../types";
-import Text from "../Text";
+import { AccentColors, KitchenComponent } from "../../types";
+import { Container, ContainerProps } from "../Container";
+import { Tab, Tabs } from "../Tabs";
+import { Text, TextProps } from "../Text";
 
 type Props = {
-  /**
-   * The color of the fieldset.
-   */
   tabs?: boolean;
-
-  /**
-   * The status of the fieldset.
-   */
   disabled?: boolean;
-
-  /**
-   * The type of the footer.
-   */
   highlight?: boolean;
-
-  /**
-   * The type of the fieldset.
-   */
-  type?: "error";
-
+  type?: keyof AccentColors;
   children?: React.ReactNode;
 };
 
 export type FieldsetProps = KitchenComponent<Props>;
 
-const FieldsetComponent = styled(
-  ({ tabs, children, ...props }: FieldsetProps) => {
+const FieldsetFooterActions = styled(
+  ({ children, ...props }: ContainerProps) => {
     return (
-      <div>
-        {tabs && <div />}
-        <Container {...props}>{children}</Container>
-      </div>
+      <Container gap={"normal"} row {...props}>
+        {children}
+      </Container>
     );
   },
-)<FieldsetProps>`
-  position: relative;
-  box-sizing: border-box;
-  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
-  border-color: ${({ theme, type }) =>
-    type === "error" && theme.colors.accent.danger};
-  width: 790px;
-  background: ${({ theme, disabled }) =>
-    disabled && theme.colors.layout.darker};
-  cursor: ${({ disabled }) => disabled && "not-allowed"};
-`;
-
-const Container = styled.div`
-  border-radius: 5px;
-`;
-
-const Content = styled.div<{ disabled?: boolean }>`
-  padding: 24px;
-  cursor: ${({ disabled }) => disabled && "not-allowed"};
-  background: ${({ theme, disabled }) =>
-    disabled && theme.colors.layout.darker};
-`;
-
-const Title = styled(Text)<{ disabled?: boolean }>`
-  font-size: ${({ theme }) => theme.size.medium};
-  font-weight: ${({ theme }) => theme.weight.semiBold};
-`;
-
-const Subtitle = styled(Text)`
+)``;
+const FieldsetFooterStatus = styled(({ children, ...props }: TextProps) => {
+  return (
+    <Text color={"lighter"} {...props}>
+      {children}
+    </Text>
+  );
+})`
   font-size: ${({ theme }) => theme.size.small};
-  margin: 12px 0;
+  align-self: center;
 `;
 
-const Footer = styled.footer<{
+const FieldsetFooter = styled.footer<{
   disabled?: boolean;
   highlight?: boolean;
 }>`
@@ -90,19 +54,116 @@ const Footer = styled.footer<{
         : convertRGBToRGBA(theme.colors.layout.darker, 0.3)};
 `;
 
-const Status = styled(Text)`
-  font-size: ${({ theme }) => theme.size.small};
-  align-self: center;
+const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
+  return <div {...props}>{children}</div>;
+})<FieldsetProps>`
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  border-color: ${({ theme, type }) => type && theme.colors.accent[type]};
+  border-radius: ${({ theme }) => theme.radius.square};
+  ${({ tabs }) =>
+    tabs &&
+    `
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  `}
+  background: ${({ theme }) => theme.colors.layout.darker};
+  cursor: ${({ disabled }) => disabled && "not-allowed"};
+
+  ${FieldsetFooter} {
+    border-color: ${({ theme, type }) => type && theme.colors.accent[type]};
+    background-color: ${({ theme, type }) =>
+      type && convertRGBToRGBA(theme.colors.accent[type], 0.2)};
+
+    ${FieldsetFooterStatus} {
+      color: ${({ theme, type }) => type && theme.colors.accent[type]};
+    }
+  }
 `;
 
-const Action = styled.div``;
+const FieldsetContent = styled.div<{ disabled?: boolean }>`
+  padding: 24px;
+  cursor: ${({ disabled }) => disabled && "not-allowed"};
+  background: ${({ theme, disabled }) =>
+    disabled && theme.colors.layout.darker};
+`;
+
+const FieldsetTitle = styled(({ children, ...props }: TextProps) => {
+  return (
+    <Text h4 {...props}>
+      {children}
+    </Text>
+  );
+})<{ disabled?: boolean }>`
+  font-size: ${({ theme }) => theme.size.medium};
+  font-weight: ${({ theme }) => theme.weight.semiBold};
+`;
+
+const FieldsetSubtitle = styled(Text)`
+  font-size: ${({ theme }) => theme.size.small};
+  margin: 12px 0;
+`;
+
+export const isFieldsetContainer = (
+  child: React.ReactNode,
+): child is React.ReactElement<any> => {
+  return React.isValidElement(child) && child.type === Fieldset.Container;
+};
+
+export type FieldsetTabsProps = KitchenComponent<
+  {
+    tabs: string[];
+  } & ContainerProps
+>;
+
+const FieldsetTabs = styled(
+  ({ children, tabs, ...props }: FieldsetTabsProps) => {
+    const [selected, setSelected] = React.useState(String(0)); // Initialize with index of the first tab
+    const childrenArray = React.Children.toArray(children);
+
+    return (
+      <Container {...props}>
+        <Tabs
+          tabs={tabs.map((tab, i) => {
+            return { title: tab, value: String(i) };
+          })}
+          selected={selected}
+          setSelected={setSelected}
+        />
+        {childrenArray.map((child, i) => {
+          if (isFieldsetContainer(child) && selected === String(i)) {
+            return React.cloneElement(child, { tabs: true });
+          } else {
+            return null;
+          }
+        })}
+      </Container>
+    );
+  },
+)`
+  ${Tabs} {
+    padding: 8px 16px 0;
+    background: ${({ theme }) => theme.colors.layout.darker};
+    box-shadow: none;
+    border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+    border-bottom: none;
+    border-top-left-radius: ${({ theme }) => theme.radius.square};
+    border-top-right-radius: ${({ theme }) => theme.radius.square};
+
+    ${Tab} {
+      font-size: ${({ theme }) => theme.size.compact};
+    }
+  }
+`;
 
 export const Fieldset = {
   Container: withDecorator(FieldsetComponent),
-  Content: withDecorator(Content),
-  Title: withDecorator(Title),
-  Subtitle: withDecorator(Subtitle),
-  Footer: withDecorator(Footer),
-  Status: withDecorator(Status),
-  Action: withDecorator(Action),
+  Content: withDecorator(FieldsetContent),
+  Title: withDecorator(FieldsetTitle),
+  Subtitle: withDecorator(FieldsetSubtitle),
+  Footer: withDecorator(FieldsetFooter),
+  FooterStatus: withDecorator(FieldsetFooterStatus),
+  FooterActions: withDecorator(FieldsetFooterActions),
+  Tabs: withDecorator(FieldsetTabs),
 };

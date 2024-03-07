@@ -1,21 +1,8 @@
-import {
-  Fieldset,
-  Content,
-  Title,
-  Subtitle,
-  Footer,
-  Status,
-  Action,
-  Button,
-  Tabs,
-  Text,
-  Container,
-} from "@tonightpass/kitchen";
+import { Fieldset, Button, Text, Container } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
 
 const FieldsetPage: NextPage = () => {
-  const [selected, setSelected] = React.useState("apple");
   return (
     <>
       <Container
@@ -27,187 +14,240 @@ const FieldsetPage: NextPage = () => {
       >
         <Text>{"default"}</Text>
         <Container gap={10}>
-          <Fieldset>
-            <Content>
-              <Title>{"The Evil Rabbit Jumped over the Fence"}</Title>
-              <Subtitle>{"The Evil Rabbit Jumped over the Fence"}</Subtitle>
-            </Content>
-            <Footer>
-              <Status accent={"light"}>
+          <Fieldset.Container>
+            <Fieldset.Content>
+              <Fieldset.Title>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Status>
-              <Action>
-                <Button size={"small"}>{"Action"}</Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.Title>
+              <Fieldset.Subtitle>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer>
+              <Fieldset.FooterStatus>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button size={"small"} type={"light"}>
+                  {"Submit"}
+                </Button>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
 
         <Text>{"tabs"}</Text>
         <Container gap={10}>
-          <Tabs
-            tabs={[
-              { title: "One", value: "one" },
-              { title: "Two", value: "two" },
-            ]}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          {selected === "one" ? (
-            <Fieldset>
-              <Content>
-                <Title>{"The Evil Rabbit Jumped over the Fence"}</Title>
-                <Subtitle>{"The Evil Rabbit Jumped over the Fence"}</Subtitle>
-              </Content>
-              <Footer>
-                <Status accent={"light"}>
+          <Fieldset.Tabs tabs={["One", "Two"]}>
+            <Fieldset.Container>
+              <Fieldset.Content>
+                <Fieldset.Title>
                   {"The Evil Rabbit Jumped over the Fence"}
-                </Status>
-                <Action>
-                  <Button size={"small"}>{"Action"}</Button>
-                </Action>
-              </Footer>
-            </Fieldset>
-          ) : (
-            <Fieldset>
-              <Content>
-                <Title>{"The Fence Jumped over The Evil Rabbit"}</Title>
-                <Subtitle>{"The Fence Jumped over The Evil Rabbit"}</Subtitle>
-              </Content>
-              <Footer>
-                <Status accent={"light"}>
+                </Fieldset.Title>
+                <Fieldset.Subtitle>
+                  {"The Evil Rabbit Jumped over the Fence"}
+                </Fieldset.Subtitle>
+              </Fieldset.Content>
+              <Fieldset.Footer>
+                <Fieldset.FooterStatus accent={"light"}>
+                  {"The Evil Rabbit Jumped over the Fence"}
+                </Fieldset.FooterStatus>
+                <Fieldset.FooterActions>
+                  <Button type={"light"} size={"small"}>
+                    {"Action"}
+                  </Button>
+                </Fieldset.FooterActions>
+              </Fieldset.Footer>
+            </Fieldset.Container>
+            <Fieldset.Container>
+              <Fieldset.Content>
+                <Fieldset.Title>
                   {"The Fence Jumped over The Evil Rabbit"}
-                </Status>
-                <Action>
-                  <Button size={"small"}>{"Action"}</Button>
-                </Action>
-              </Footer>
-            </Fieldset>
-          )}
+                </Fieldset.Title>
+                <Fieldset.Subtitle>
+                  {"The Fence Jumped over The Evil Rabbit"}
+                </Fieldset.Subtitle>
+              </Fieldset.Content>
+              <Fieldset.Footer>
+                <Fieldset.FooterStatus accent={"light"}>
+                  {"The Fence Jumped over The Evil Rabbit"}
+                </Fieldset.FooterStatus>
+                <Fieldset.FooterActions>
+                  <Button type={"light"} size={"small"}>
+                    {"Action"}
+                  </Button>
+                </Fieldset.FooterActions>
+              </Fieldset.Footer>
+            </Fieldset.Container>
+          </Fieldset.Tabs>
         </Container>
 
         <Text>{"error"}</Text>
         <Container gap={10}>
-          <Fieldset>
-            <Content>
-              <Title>{"The Evil Rabbit Jumped over the Fence"}</Title>
-              <Subtitle>{"The Evil Rabbit Jumped over the Fence"}</Subtitle>
-            </Content>
-            <Footer>
-              <Status accent={"danger"}>{"An error has occurred."}</Status>
-              <Action>
-                <Button size={"small"} disabled>
+          <Fieldset.Container>
+            <Fieldset.Content>
+              <Fieldset.Title>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Title>
+              <Fieldset.Subtitle>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer>
+              <Fieldset.FooterStatus accent={"danger"}>
+                {"An error has occurred."}
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button type={"light"} size={"small"} disabled>
                   {"Action"}
                 </Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
 
         <Text>{"disabled"}</Text>
         <Container gap={10}>
-          <Fieldset disabled>
-            <Content>
-              <Title color={"darker"}>
+          <Fieldset.Container disabled>
+            <Fieldset.Content>
+              <Fieldset.Title color={"darker"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Title>
-              <Subtitle color={"darker"}>
+              </Fieldset.Title>
+              <Fieldset.Subtitle color={"darker"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Subtitle>
-            </Content>
-            <Footer disabled>
-              <Status color={"darker"}>{"An error has occurred."}</Status>
-              <Action>
-                <Button size={"small"} disabled>
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer disabled>
+              <Fieldset.FooterStatus color={"darker"}>
+                {"An error has occurred."}
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button type={"light"} size={"small"} disabled>
                   {"Action"}
                 </Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
 
         <Text>{"disabled content only"}</Text>
         <Container gap={10}>
-          <Fieldset>
-            <Content disabled>
-              <Title color={"darker"}>
+          <Fieldset.Container>
+            <Fieldset.Content disabled>
+              <Fieldset.Title color={"darker"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Title>
-              <Subtitle color={"darker"}>
+              </Fieldset.Title>
+              <Fieldset.Subtitle color={"darker"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Subtitle>
-            </Content>
-            <Footer>
-              <Status accent={"light"}>
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer>
+              <Fieldset.FooterStatus accent={"light"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Status>
-              <Action>
-                <Button size={"small"}>{"Action"}</Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button type={"light"} size={"small"}>
+                  {"Action"}
+                </Button>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
 
         <Text>{"disabled footer only"}</Text>
         <Container gap={10}>
-          <Fieldset>
-            <Content>
-              <Title>{"The Evil Rabbit Jumped over the Fence"}</Title>
-              <Subtitle>{"The Evil Rabbit Jumped over the Fence"}</Subtitle>
-            </Content>
-            <Footer disabled>
-              <Status color={"darker"}>
+          <Fieldset.Container>
+            <Fieldset.Content>
+              <Fieldset.Title>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Status>
-              <Action>
-                <Button size={"small"} disabled>
+              </Fieldset.Title>
+              <Fieldset.Subtitle>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer disabled>
+              <Fieldset.FooterStatus color={"darker"}>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button type={"light"} size={"small"} disabled>
                   {"Action"}
                 </Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
 
         <Text>{"highlight footer"}</Text>
         <Container gap={10}>
-          <Fieldset>
-            <Content disabled>
-              <Title color={"darker"}>
+          <Fieldset.Container>
+            <Fieldset.Content disabled>
+              <Fieldset.Title color={"darker"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Title>
-              <Subtitle color={"darker"}>
+              </Fieldset.Title>
+              <Fieldset.Subtitle color={"darker"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Subtitle>
-            </Content>
-            <Footer highlight>
-              <Status color={"light"}>
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer highlight>
+              <Fieldset.FooterStatus color={"light"}>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Status>
-              <Action>
-                <Button size={"small"}>{"Action"}</Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button type={"light"} size={"small"}>
+                  {"Action"}
+                </Button>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
 
         <Text>{"error"}</Text>
         <Container gap={10}>
-          <Fieldset type={"error"}>
-            <Content>
-              <Title>{"The Evil Rabbit Jumped over the Fence"}</Title>
-              <Subtitle>{"The Evil Rabbit Jumped over the Fence"}</Subtitle>
-            </Content>
-            <Footer>
-              <Status accent={"light"}>
+          <Fieldset.Container type={"danger"}>
+            <Fieldset.Content>
+              <Fieldset.Title>
                 {"The Evil Rabbit Jumped over the Fence"}
-              </Status>
-              <Action>
+              </Fieldset.Title>
+              <Fieldset.Subtitle>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer>
+              <Fieldset.FooterStatus accent={"light"}>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
                 <Button type={"danger"} size={"small"}>
                   {"Action"}
                 </Button>
-              </Action>
-            </Footer>
-          </Fieldset>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
+        </Container>
+
+        <Text>{"warning"}</Text>
+        <Container gap={10}>
+          <Fieldset.Container type={"warning"}>
+            <Fieldset.Content>
+              <Fieldset.Title>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Title>
+              <Fieldset.Subtitle>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.Subtitle>
+            </Fieldset.Content>
+            <Fieldset.Footer>
+              <Fieldset.FooterStatus accent={"light"}>
+                {"The Evil Rabbit Jumped over the Fence"}
+              </Fieldset.FooterStatus>
+              <Fieldset.FooterActions>
+                <Button type={"warning"} size={"small"}>
+                  {"Action"}
+                </Button>
+              </Fieldset.FooterActions>
+            </Fieldset.Footer>
+          </Fieldset.Container>
         </Container>
       </Container>
     </>
