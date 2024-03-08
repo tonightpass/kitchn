@@ -131,4 +131,10 @@ export const resetCss = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 `;

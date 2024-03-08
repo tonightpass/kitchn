@@ -1,12 +1,6 @@
 import { css } from "styled-components";
 
 export const mainCss = css`
-  html,
-  body,
-  #__next {
-    height: 100%;
-  }
-
   body {
     font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
       "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif;
@@ -44,12 +38,6 @@ export const mainCss = css`
 
   ::-webkit-scrollbar-track-piece {
     height: 30px;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
   }
 
   /* fonts */
