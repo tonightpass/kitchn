@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.2
+
+### Patch Changes
+
+- [`f1c74cb`](https://github.com/tonightpass/kitchen/commit/f1c74cb44315ea8d52daaafe3f2fa3e280b40e92) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Globalstyle html and body height issue
+
 ## 1.13.1
 
 ### Patch Changes
