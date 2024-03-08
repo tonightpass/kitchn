@@ -49,7 +49,7 @@ const FieldsetPage: NextPage = () => {
                 </Fieldset.Subtitle>
               </Fieldset.Content>
               <Fieldset.Footer>
-                <Fieldset.FooterStatus accent={"light"}>
+                <Fieldset.FooterStatus>
                   {"The Evil Rabbit Jumped over the Fence"}
                 </Fieldset.FooterStatus>
                 <Fieldset.FooterActions>
@@ -69,7 +69,7 @@ const FieldsetPage: NextPage = () => {
                 </Fieldset.Subtitle>
               </Fieldset.Content>
               <Fieldset.Footer>
-                <Fieldset.FooterStatus accent={"light"}>
+                <Fieldset.FooterStatus>
                   {"The Fence Jumped over The Evil Rabbit"}
                 </Fieldset.FooterStatus>
                 <Fieldset.FooterActions>

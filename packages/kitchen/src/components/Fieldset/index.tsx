@@ -49,14 +49,18 @@ const FieldsetFooter = styled.footer<{
   cursor: ${({ disabled }) => disabled && "not-allowed"};
   background: ${({ theme, disabled, highlight }) =>
     disabled
-      ? theme.colors.layout.darker
+      ? theme.colors.layout.darkest
       : highlight
         ? theme.colors.layout.darkest
-        : convertRGBToRGBA(theme.colors.layout.darker, 0.3)};
+        : theme.colors.layout.darker};
 `;
 
 const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
-  return <div {...props}>{children}</div>;
+  return (
+    <div role={"group"} {...props}>
+      {children}
+    </div>
+  );
 })<FieldsetProps>`
   position: relative;
   box-sizing: border-box;
@@ -69,7 +73,7 @@ const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   `}
-  background: ${({ theme }) => theme.colors.layout.darker};
+  background: ${({ theme }) => theme.colors.layout.darkest};
   cursor: ${({ disabled }) => disabled && "not-allowed"};
 
   ${FieldsetFooter} {
@@ -145,7 +149,7 @@ const FieldsetTabs = styled(
 )`
   ${Tabs} {
     padding: 8px 16px 0;
-    background: ${({ theme }) => theme.colors.layout.darker};
+    background: ${({ theme }) => theme.colors.layout.darkest};
     box-shadow: none;
     border: 1px solid ${({ theme }) => theme.colors.layout.dark};
     border-bottom: none;
