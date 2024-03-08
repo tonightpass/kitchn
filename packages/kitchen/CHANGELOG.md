@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.4
+
+### Patch Changes
+
+- [`379515a`](https://github.com/tonightpass/kitchen/commit/379515a0f8f936bdcad292158c1c1883c489e17e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Fieldset styles and add wai standarts
+
 ## 1.13.3
 
 ### Patch Changes
