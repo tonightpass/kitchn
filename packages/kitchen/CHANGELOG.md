@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.3
+
+### Patch Changes
+
+- [`9136e55`](https://github.com/tonightpass/kitchen/commit/9136e551d1fe1d5fe26433a1a1d460d011691079) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add active state to MenuItem
+
 ## 1.13.2
 
 ### Patch Changes
