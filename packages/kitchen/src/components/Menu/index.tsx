@@ -86,6 +86,7 @@ const MenuContent = styled(
 
 export type MenuItemProps = ContainerProps & {
   disabled?: boolean;
+  active?: boolean;
 };
 
 const MenuItem = styled.li<MenuItemProps>`
@@ -100,6 +101,12 @@ const MenuItem = styled.li<MenuItemProps>`
     disabled &&
     `
     opacity: 0.5;
+  `}
+
+  ${({ active, theme }) =>
+    active &&
+    `
+    background-color: ${theme.colors.layout.dark};
   `}
 
   &:hover {
