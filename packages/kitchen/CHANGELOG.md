@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.1
+
+### Patch Changes
+
+- [`bf67467`](https://github.com/tonightpass/kitchen/commit/bf67467b84b929387c2da88aa51f1a3d582ef81c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Fieldset footer actions style
+
 ## 1.13.0
 
 ### Minor Changes
