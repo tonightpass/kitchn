@@ -2,7 +2,6 @@ import React, { Children } from "react";
 import styled, { css } from "styled-components";
 
 import { DecoratorProps, withDecorator } from "../../hoc";
-import { KitchenComponent } from "../../types";
 import Button, { ButtonProps } from "../Button";
 import Container, { ContainerProps } from "../Container";
 import Link, { LinkProps } from "../Link";
@@ -125,9 +124,9 @@ const MenuLink = styled((props: MenuLinkProps) => (
   }
 `;
 
-export type MenuSectionProps = KitchenComponent<{
+export type MenuSectionProps = {
   title: string;
-}>;
+} & ContainerProps;
 
 const MenuSection = styled(
   ({ title, children, ...props }: MenuSectionProps) => (
@@ -160,5 +159,5 @@ export const Menu = {
   Item: withDecorator(MenuItem),
   Link: MenuLink,
   Section: MenuSection,
-  Divider: MenuDivider,
+  Divider: withDecorator(MenuDivider),
 };
