@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.5
+
+### Patch Changes
+
+- [`b5354d4`](https://github.com/tonightpass/kitchen/commit/b5354d4c1d4f90eaf2ce7e551e8697c416ea1859) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Menu Section types
+
 ## 1.13.4
 
 ### Patch Changes
