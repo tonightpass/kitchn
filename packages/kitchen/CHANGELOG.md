@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.9
+
+### Patch Changes
+
+- [`cc32f35`](https://github.com/tonightpass/kitchen/commit/cc32f353328497edef0738ac6b91f306e5a8b3b5) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Tooltip component to handle content click
+
 ## 1.13.8
 
 ### Patch Changes
