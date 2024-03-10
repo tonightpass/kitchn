@@ -6,7 +6,7 @@ import Button, { ButtonProps } from "../Button";
 import Container, { ContainerProps } from "../Container";
 import Link, { LinkProps } from "../Link";
 import Text from "../Text";
-import Tooltip, { TooltipProps } from "../Tooltip";
+import Tooltip, { TooltipOnContentClick, TooltipProps } from "../Tooltip";
 import { TooltipContentInner } from "../Tooltip/Content";
 
 export type MenuContainerProps = Omit<TooltipProps, "text">;
@@ -32,6 +32,19 @@ const MenuContainer = styled(
       ${portalMenuCss} ${portalCss}
     `;
 
+    const onContentClick: TooltipOnContentClick = (e, _, setVisible) => {
+      const isMenuItem =
+        e.target instanceof HTMLElement &&
+        e.target.hasAttribute("data-menuitem");
+
+      if (isMenuItem) {
+        setVisible(false);
+      } else {
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+      }
+    };
+
     return (
       <Tooltip
         role={"menu"}
@@ -40,6 +53,7 @@ const MenuContainer = styled(
         portalCss={mergedPortalCss}
         hideArrow={hideArrow}
         placement={placement}
+        onContentClick={onContentClick}
         {...props}
       >
         {menuButtons}
@@ -88,7 +102,9 @@ export type MenuItemProps = ContainerProps & {
   active?: boolean;
 };
 
-const MenuItem = styled.li<MenuItemProps>`
+const MenuItem = styled.li.attrs<{
+  "data-menuitem": boolean;
+}>({ "data-menuitem": true })<MenuItemProps>`
   list-style: none;
   padding: ${({ theme }) => theme.gap.small} ${({ theme }) => theme.gap.normal};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};

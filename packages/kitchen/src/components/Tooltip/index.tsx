@@ -8,6 +8,11 @@ import { AccentColors, KitchenComponent, TriggerTypes } from "../../types";
 import { Placement, getTooltipRect } from "../../utils/tooltip";
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
+export type TooltipOnContentClick = (
+  e: React.MouseEvent,
+  visible: boolean,
+  setVisible: (visible: boolean) => void,
+) => void;
 export type TooltipTypes = keyof AccentColors;
 export type TooltipPlacement = Placement;
 export type TooltipTriggers = TriggerTypes;
@@ -26,6 +31,7 @@ type Props = {
   className?: string;
   portalCss?: RuleSet<object>;
   onVisibleChange?: TooltipOnVisibleChange;
+  onContentClick?: TooltipOnContentClick;
 };
 
 export type TooltipProps = KitchenComponent<Props>;
@@ -41,6 +47,7 @@ const TooltipComponent = styled(
     leaveDelay = 150,
     trigger = "hover",
     onVisibleChange = () => {},
+    onContentClick = () => {},
     hideArrow = false,
     type = "primary",
     visible: customVisible,
@@ -68,6 +75,7 @@ const TooltipComponent = styled(
       iconOffset,
       parent: ref,
       portalCss,
+      onClick: (e: React.MouseEvent) => onContentClick(e, visible, setVisible),
     };
 
     const changeVisible = (nextState: boolean) => {
