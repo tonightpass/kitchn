@@ -1,5 +1,13 @@
 # @tonightpass/kitchen
 
+## 1.13.8
+
+### Patch Changes
+
+- [`3e7010d`](https://github.com/tonightpass/kitchen/commit/3e7010ddddc12e71e0f6eb01d95d0344fbe2fba4) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update dark button border color
+
+- [`8fce4c9`](https://github.com/tonightpass/kitchen/commit/8fce4c9d107d367356af0ad72fc05b618e84c529) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Remove console.log statement in Tooltip
+
 ## 1.13.7
 
 ### Patch Changes
