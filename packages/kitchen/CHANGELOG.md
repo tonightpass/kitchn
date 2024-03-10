@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.6
+
+### Patch Changes
+
+- [`f80ebbb`](https://github.com/tonightpass/kitchen/commit/f80ebbb424873b2b33b6a8170d87743d4b093313) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Modal style
+
 ## 1.13.5
 
 ### Patch Changes
