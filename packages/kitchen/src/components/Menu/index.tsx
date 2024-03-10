@@ -33,16 +33,18 @@ const MenuContainer = styled(
     `;
 
     const onContentClick: TooltipOnContentClick = (e, _, setVisible) => {
-      const isMenuItem =
-        e.target instanceof HTMLElement &&
-        e.target.hasAttribute("data-menuitem");
+      let targetElement = e.target as HTMLElement | null;
 
-      if (isMenuItem) {
-        setVisible(false);
-      } else {
-        e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation();
+      while (targetElement && targetElement !== e.currentTarget) {
+        if (targetElement.hasAttribute("data-menuitem")) {
+          setVisible(false);
+          return;
+        }
+        targetElement = targetElement.parentElement;
       }
+
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
     };
 
     return (
