@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.7
+
+### Patch Changes
+
+- [`2a60461`](https://github.com/tonightpass/kitchen/commit/2a60461b9ab338b01a9eba58484ebe1245d9b508) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix decorator border types
+
 ## 1.13.6
 
 ### Patch Changes
