@@ -249,10 +249,7 @@ const ButtonComponent = styled(
 
       switch (props.type) {
         case "dark":
-          return `1px solid ${convertRGBToRGBA(
-            props.theme.colors.layout.dark,
-            0.25,
-          )}`;
+          return `1px solid ${props.theme.colors.layout.light}`;
         case "light":
         case "info":
         case "success":
