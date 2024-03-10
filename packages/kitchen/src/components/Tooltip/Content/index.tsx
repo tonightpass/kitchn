@@ -73,8 +73,6 @@ const TooltipContent = styled(
 
     if (!el) return null;
 
-    console.log("visible", visible);
-
     return createPortal(
       <TooltipContentContainer
         ref={selfRef}
