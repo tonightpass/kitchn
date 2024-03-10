@@ -9,7 +9,10 @@ import { usePortal } from "../../hooks/usePortal";
 import { KitchenComponent } from "../../types";
 import { fadeInDown, fadeOutUp } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
+import Button, { ButtonProps } from "../Button";
+import Container, { ContainerProps } from "../Container";
 import Drawer from "../Drawer";
+import Text, { TextProps } from "../Text";
 
 type Props = {
   active: boolean;
@@ -141,7 +144,7 @@ const ModalComponent = styled(
 const ModalContent = styled.div<{
   animationState: "entrance" | "exit";
 }>`
-  width: 420px;
+  width: 540px;
   max-height: 80vh;
   max-width: 100%;
   background-color: ${({ theme }) => theme.colors.layout.darkest};
@@ -167,82 +170,38 @@ const ModalBody = styled.div`
   padding: 20px;
 `;
 
-const ModalHeader = styled.header`
-  padding: 15px 5px;
-  text-align: center;
-  text-transform: uppercase;
-`;
+const ModalHeader = styled(({ ...props }: ContainerProps) => (
+  <Container header gap={"small"} mb={"small"} {...props} />
+))``;
 
-const ModalTitle = styled.h3`
-  font-size: ${({ theme }) => theme.size.large};
-  font-weight: ${({ theme }) => theme.weight.bold};
-`;
+const ModalTitle = styled(({ ...props }: TextProps) => (
+  <Text h3 size={"large"} weight={"semiBold"} {...props} />
+))``;
 
-const ModalSubtitle = styled.p`
-  margin-top: 5px;
-  font-size: ${({ theme }) => theme.size.medium};
-  color: ${({ theme }) => theme.colors.layout.light};
-`;
+const ModalSubtitle = styled(({ ...props }: TextProps) => (
+  <Text {...props} />
+))``;
 
 const ModalActions = styled.footer`
   position: sticky;
   bottom: 0;
   border-top: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  background-color: ${({ theme }) => theme.colors.layout.darker};
+  padding: 16px;
   display: flex;
+  justify-content: space-between;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   overflow: hidden;
 `;
 
-export type ModalActionProps = KitchenComponent<
-  {
-    disabled?: boolean;
-  },
-  React.ButtonHTMLAttributes<HTMLButtonElement>
->;
+export type ModalActionProps = ButtonProps & {
+  disabled?: boolean;
+};
 
-const ModalAction = styled((props: ModalActionProps) => (
-  <button type={"button"} {...props} />
-))<ModalActionProps>`
-  color: ${({ theme }) => theme.colors.text.lightest};
-  background-color: ${({ theme }) => theme.colors.layout.darkest};
-  border: none;
-  cursor: pointer;
-  font-size: ${({ theme }) => theme.size.small};
-  outline: none;
-  padding: 20px 0;
-  margin: 0;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.2s;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-left: 1px solid ${({ theme }) => theme.colors.layout.dark};
-
-  ${({ theme, disabled }) =>
-    disabled &&
-    `
-    color: ${theme.colors.layout.light};
-    background-color: ${theme.colors.layout.darkest};
-    cursor: not-allowed;
-  `}
-
-  &:first-child {
-    border-left: none;
-    color: ${({ theme }) => theme.colors.text.light};
-  }
-
-  &:hover {
-    ${({ disabled, theme }) =>
-      !disabled &&
-      `
-      background-color: ${theme.colors.layout.darker};
-      color: ${theme.colors.text.lightest};
-    `}
-  }
-`;
+const ModalAction = styled((props: ModalActionProps) => {
+  return <Button {...props} />;
+})<ModalActionProps>``;
 
 const ModalInset = styled.div`
   padding: 20px;

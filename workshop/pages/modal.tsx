@@ -29,17 +29,24 @@ const ModalPage: NextPage = () => {
         <Modal.Modal active={active1} onClickOutside={close1}>
           <Modal.Body>
             <Modal.Header>
-              <Modal.Title>{"Modal"}</Modal.Title>
-              <Modal.Subtitle>{"This is a modal."}</Modal.Subtitle>
+              <Modal.Title>{"Create Token"}</Modal.Title>
+              <Modal.Subtitle>
+                {
+                  "Enter a unique name for your token to differentiate it from other tokens and then select the scope."
+                }
+              </Modal.Subtitle>
             </Modal.Header>
 
             <Text>{"Some content contained within the modal."}</Text>
           </Modal.Body>
-
           <Modal.Actions>
-            <Modal.Action onClick={close1}>{"Cancel"}</Modal.Action>
+            <Modal.Action onClick={close1} type={"dark"}>
+              {"Cancel"}
+            </Modal.Action>
 
-            <Modal.Action onClick={close1}>{"Submit"}</Modal.Action>
+            <Modal.Action onClick={close1} type={"light"}>
+              {"Submit"}
+            </Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>
@@ -59,9 +66,11 @@ const ModalPage: NextPage = () => {
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close2}>{"Cancel"}</Modal.Action>
+            <Modal.Action onClick={close2} type={"dark"}>
+              {"Cancel"}
+            </Modal.Action>
 
-            <Modal.Action onClick={close2} disabled>
+            <Modal.Action onClick={close2} type={"light"} disabled>
               {"Submit\r"}
             </Modal.Action>
           </Modal.Actions>
@@ -87,9 +96,13 @@ const ModalPage: NextPage = () => {
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close3}>{"Cancel"}</Modal.Action>
+            <Modal.Action type={"dark"} onClick={close3}>
+              {"Cancel"}
+            </Modal.Action>
 
-            <Modal.Action onClick={submit}>{"Submit"}</Modal.Action>
+            <Modal.Action type={"light"} onClick={submit}>
+              {"Submit"}
+            </Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>
@@ -120,9 +133,13 @@ const ModalPage: NextPage = () => {
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close4}>{"Cancel"}</Modal.Action>
+            <Modal.Action onClick={close4} type={"dark"}>
+              {"Cancel"}
+            </Modal.Action>
 
-            <Modal.Action onClick={close4}>{"Submit"}</Modal.Action>
+            <Modal.Action onClick={close4} type={"light"}>
+              {"Submit"}
+            </Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>

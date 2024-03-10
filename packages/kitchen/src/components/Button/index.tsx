@@ -142,7 +142,7 @@ const ButtonComponent = styled(
 
   background: ${(props) => {
     if (props.loading || props.disabled)
-      return `${props.theme.colors.layout.dark}`;
+      return `${props.theme.colors.layout.darker}`;
 
     if (props.variant === "ghost") return "transparent";
 
@@ -169,13 +169,13 @@ const ButtonComponent = styled(
 
   border: ${(props) => {
     if (props.loading || props.disabled)
-      return `1px solid ${props.theme.colors.layout.darker}`;
+      return `1px solid ${props.theme.colors.layout.dark}`;
 
     if (props.variant === "ghost") return "1px solid transparent";
 
     switch (props.type) {
       case "dark":
-        return `1px solid ${props.theme.colors.layout.darker}`;
+        return `1px solid ${props.theme.colors.layout.dark}`;
       case "light":
         return `1px solid ${props.theme.colors.layout.lightest}`;
       case "info":
@@ -238,7 +238,7 @@ const ButtonComponent = styled(
 
     border: ${(props) => {
       if (props.loading || props.disabled)
-        return `1px solid ${props.theme.colors.layout.darker}`;
+        return `1px solid ${props.theme.colors.layout.dark}`;
 
       if (props.variant === "ghost") {
         return `1px solid ${convertRGBToRGBA(
@@ -249,7 +249,10 @@ const ButtonComponent = styled(
 
       switch (props.type) {
         case "dark":
-          return `1px solid ${props.theme.colors.layout.dark}`;
+          return `1px solid ${convertRGBToRGBA(
+            props.theme.colors.layout.dark,
+            0.25,
+          )}`;
         case "light":
         case "info":
         case "success":
