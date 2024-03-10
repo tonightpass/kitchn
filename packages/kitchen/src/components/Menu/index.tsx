@@ -103,7 +103,7 @@ export type MenuItemProps = ContainerProps & {
 };
 
 const MenuItem = styled.li.attrs<{
-  "data-menuitem": boolean;
+  "data-menuitem"?: boolean;
 }>({ "data-menuitem": true })<MenuItemProps>`
   list-style: none;
   padding: ${({ theme }) => theme.gap.small} ${({ theme }) => theme.gap.normal};
