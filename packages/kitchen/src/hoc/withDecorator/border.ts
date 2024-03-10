@@ -18,7 +18,7 @@ export type BorderProps = {
   borderBottomWidth?: BorderProps["borderWidth"];
   bbw?: BorderProps["borderWidth"];
 
-  borderColor?: keyof LayoutColors;
+  borderColor?: string | keyof LayoutColors;
   bc?: BorderProps["borderColor"];
   borderLeftColor?: BorderProps["borderColor"];
   blc?: BorderProps["borderColor"];
