@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.10
+
+### Patch Changes
+
+- [`c331919`](https://github.com/tonightpass/kitchen/commit/c331919a1cd350685f826801fe244bf9bd8a7d96) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix data-menuitem prop type in MenuItem
+
 ## 1.13.9
 
 ### Patch Changes
