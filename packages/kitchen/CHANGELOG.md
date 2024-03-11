@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.13.11
+
+### Patch Changes
+
+- [`be1d1b0`](https://github.com/tonightpass/kitchen/commit/be1d1b0d984e0f0e7f6169973db07adb06d660e7) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Refactor onContentClick function in Menu
+
 ## 1.13.10
 
 ### Patch Changes
