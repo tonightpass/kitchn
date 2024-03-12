@@ -11,6 +11,7 @@ import { Themes } from "../types";
 export type ThemeContextParams = {
   theme: DefaultTheme;
   setTheme: (theme: keyof Themes | "system") => void;
+  setThemeStyle: (theme: DefaultTheme) => void;
   resolvedTheme?: keyof Themes | "system";
   forcedTheme?: keyof Themes | "system";
   systemTheme?: keyof Themes;
@@ -21,6 +22,7 @@ export type ThemeContextParams = {
 export const ThemeContext = React.createContext<ThemeContextParams>({
   theme: defaultThemes.dark,
   setTheme: (_theme: keyof Themes | "system") => {},
+  setThemeStyle: (_theme: DefaultTheme) => {},
   resolvedTheme: "system",
   systemTheme: "system",
   forcedTheme: undefined,
@@ -54,6 +56,7 @@ export const ThemeProvider = ({
         ...nextTheme,
         theme,
         setTheme: nextTheme.setTheme,
+        setThemeStyle: setTheme,
         resolvedTheme: nextTheme.resolvedTheme,
         systemTheme: nextTheme.systemTheme,
         forcedTheme: nextTheme.forcedTheme,
