@@ -34,7 +34,7 @@ importers:
         version: 0.21.2
       '@size-limit/preset-big-lib':
         specifier: ^11.0.0
-        version: 11.0.3(size-limit@11.0.2)
+        version: 11.0.3(size-limit@11.0.3)
       babel-plugin-styled-components:
         specifier: ^2.0.7
         version: 2.1.4(@babel/core@7.24.0)(styled-components@6.1.8)
@@ -61,7 +61,7 @@ importers:
         version: 3.2.5
       size-limit:
         specifier: ^11.0.0
-        version: 11.0.2
+        version: 11.0.3
       turbo:
         specifier: ^1.10.3
         version: 1.12.5
@@ -4891,24 +4891,24 @@ packages:
       - supports-color
     dev: false
 
-  /@size-limit/file@11.0.3(size-limit@11.0.2):
+  /@size-limit/file@11.0.3(size-limit@11.0.3):
     resolution: {integrity: sha512-fuVZG+dZLLMaEi1siHHK5gU8Vfc4pvjZBxrefwZt9gOinbOgGONauEPZYipaE1tYTZPeJo8o9PuJ8Obbub+MLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       size-limit: 11.0.3
     dependencies:
-      size-limit: 11.0.2
+      size-limit: 11.0.3
     dev: false
 
-  /@size-limit/preset-big-lib@11.0.3(size-limit@11.0.2):
+  /@size-limit/preset-big-lib@11.0.3(size-limit@11.0.3):
     resolution: {integrity: sha512-nMHhbEMAu4b7YZFKiahaNqtAckY020bq/0Gy4oI38ELL8prsj9tgHJKcO5DwesoUR+GcUF95ZvivPrKveI++bw==}
     peerDependencies:
       size-limit: 11.0.3
     dependencies:
-      '@size-limit/file': 11.0.3(size-limit@11.0.2)
-      '@size-limit/time': 11.0.3(size-limit@11.0.2)
-      '@size-limit/webpack': 11.0.3(size-limit@11.0.2)
-      size-limit: 11.0.2
+      '@size-limit/file': 11.0.3(size-limit@11.0.3)
+      '@size-limit/time': 11.0.3(size-limit@11.0.3)
+      '@size-limit/webpack': 11.0.3(size-limit@11.0.3)
+      size-limit: 11.0.3
     transitivePeerDependencies:
       - '@swc/core'
       - bufferutil
@@ -4920,14 +4920,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@size-limit/time@11.0.3(size-limit@11.0.2):
+  /@size-limit/time@11.0.3(size-limit@11.0.3):
     resolution: {integrity: sha512-HBwpOS1gV/IPu24NUnqaxwomG92W//aydrpQQbY7aHy9YCxZpeDyqTeLdQ1vQcb2zqvhGok4oKgladQlPsQhmw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       size-limit: 11.0.3
     dependencies:
       estimo: 3.0.2
-      size-limit: 11.0.2
+      size-limit: 11.0.3
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -4935,14 +4935,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@size-limit/webpack@11.0.3(size-limit@11.0.2):
+  /@size-limit/webpack@11.0.3(size-limit@11.0.3):
     resolution: {integrity: sha512-yNISeEtCG0FC9uA0RDa/u/BhFN2h6aYDei8BknNpGZkcD6JEA+FKBRMhwcykivyeUJmC6bYVFQMhFDq496P36A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       size-limit: 11.0.3
     dependencies:
       nanoid: 5.0.6
-      size-limit: 11.0.2
+      size-limit: 11.0.3
       webpack: 5.90.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -9466,7 +9466,7 @@ packages:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
-      hasown: 2.0.1
+      hasown: 2.0.2
       is-core-module: 2.13.1
       is-glob: 4.0.3
       minimatch: 3.1.2
@@ -9501,7 +9501,7 @@ packages:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.1.1)(eslint-import-resolver-node@0.3.9)(eslint@8.57.0)
-      hasown: 2.0.1
+      hasown: 2.0.2
       is-core-module: 2.13.1
       is-glob: 4.0.3
       minimatch: 3.1.2
@@ -17070,8 +17070,8 @@ packages:
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  /size-limit@11.0.2:
-    resolution: {integrity: sha512-iFZ8iTR/3zPqxSwEIdGnTVYVU0F2nhodLQG/G6zpi/NxECYAK9ntq2lNr+prXH7h3gyBjx2Umt2D/oS2Qzz+eg==}
+  /size-limit@11.0.3:
+    resolution: {integrity: sha512-opXC+dOlwaKMyCx89WQq5J+LE+WdqtAFwaNwKNJv8xTCNMq6NIIY5LdayTRuRWWdsQM7hvI27afjtofN/m0gIw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     dependencies:
