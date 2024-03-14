@@ -1,5 +1,13 @@
 # @tonightpass/kitchen
 
+## 1.13.12
+
+### Patch Changes
+
+- [`c253468`](https://github.com/tonightpass/kitchen/commit/c253468a4a62eaee70178d715810355217871fa9) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update label style on select and input
+
+- [`188d2b4`](https://github.com/tonightpass/kitchen/commit/188d2b4f32866db83c7d57432700ee8e7617213e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add setThemeStyle function to ThemeContext
+
 ## 1.13.11
 
 ### Patch Changes
