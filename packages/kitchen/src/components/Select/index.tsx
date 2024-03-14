@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { KitchenComponent, NormalSizes } from "../../types";
+import Container, { ContainerProps } from "../Container";
+import Text, { TextProps } from "../Text";
 
 type Props = {
   /**
@@ -75,7 +77,9 @@ const SelectComponent = styled(
   },
 )<SelectProps>``;
 
-const SelectContainer = styled.label<{
+const SelectContainer = styled((props: ContainerProps) => (
+  <Container {...props} label />
+))<{
   size: SelectProps["size"];
 }>`
   font-size: ${({ size, theme }) => {
@@ -91,11 +95,16 @@ const SelectContainer = styled.label<{
   }};
 `;
 
-const SelectLabel = styled.div`
-  margin-bottom: 8px;
-  font-size: ${({ theme }) => theme.size.normal};
-  color: ${({ theme }) => theme.colors.text.lightest};
-`;
+const SelectLabel = styled((props: TextProps) => (
+  <Text
+    size={"compact"}
+    weight={"medium"}
+    mb={"small"}
+    color={"light"}
+    span
+    {...props}
+  />
+))``;
 
 const SelectPrefix = styled.span`
   box-sizing: border-box;

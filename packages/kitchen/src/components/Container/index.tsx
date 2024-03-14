@@ -23,14 +23,24 @@ type Props = {
     | "stretch";
   header?: boolean;
   section?: boolean;
+  form?: boolean;
+  label?: boolean;
   wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
 };
 
 export type ContainerProps = KitchenComponent<Props>;
 
 const ContainerComponent = styled(
-  ({ children, header, section, ...rest }: ContainerProps) => {
-    const Component = header ? "header" : section ? "section" : "div";
+  ({ children, header, section, form, label, ...rest }: ContainerProps) => {
+    const Component = header
+      ? "header"
+      : section
+        ? "section"
+        : form
+          ? "form"
+          : label
+            ? "label"
+            : "div";
     return (
       <Component
         role={header ? "banner" : section ? "region" : undefined}

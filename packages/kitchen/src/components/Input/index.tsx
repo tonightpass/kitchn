@@ -7,8 +7,10 @@ import { KitchenComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import { isNumber } from "../../utils/isNumber";
+import Container, { ContainerProps } from "../Container";
 import Error from "../Error";
 import Icon from "../Icon";
+import Text, { TextProps } from "../Text";
 
 const simulateChangeEvent = (
   el: HTMLInputElement,
@@ -85,7 +87,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
 
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
-    const Wrapper = label ? "label" : React.Fragment;
+    const Wrapper = label ? InputWrapper : React.Fragment;
 
     const controlledValue = isControlledComponent
       ? { value: selfValue }
@@ -231,6 +233,10 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
 );
 
 ForwardedInput.displayName = "Input";
+
+const InputWrapper = styled((props: ContainerProps) => (
+  <Container label {...props} />
+))``;
 
 const InputComponent = styled(ForwardedInput)`
   font: inherit;
@@ -513,14 +519,16 @@ export const InputError = styled(Error)<{
     width ? (isNumber(width) ? `${width}px` : width) : "auto"};
 `;
 
-export const InputLabel = styled.span`
-  display: block;
-  font-size: ${({ theme }) => theme.size.small};
-  font-weight: ${({ theme }) => theme.weight.medium};
-  color: ${({ theme }) => theme.colors.text.light};
-  margin-bottom: ${({ theme }) => theme.gap.tiny};
-  max-width: 100%;
-`;
+export const InputLabel = styled((props: TextProps) => (
+  <Text
+    size={"compact"}
+    weight={"medium"}
+    mb={"tiny"}
+    color={"light"}
+    span
+    {...props}
+  />
+))``;
 
 InputComponent.displayName = "KitchenInput";
 export const Input = withDecorator(InputComponent);
