@@ -3,6 +3,7 @@ export * from "./Avatar";
 export * from "./Avatar/Group";
 export * from "./Badge";
 export * from "./Button";
+export * from "./Calendar";
 export * from "./Checkbox";
 export * from "./Code";
 export * from "./Code/Inline";
