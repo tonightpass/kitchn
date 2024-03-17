@@ -100,6 +100,10 @@ const SkeletonComponent = styled(
         ${
           show
             ? `
+            overflow: hidden;
+            border-radius: ${
+              shape === "square" ? "0" : shape === "round" ? "99999px" : "8px"
+            };
             &::before {
               content: "";
               position: absolute;
