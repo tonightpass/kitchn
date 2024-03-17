@@ -62,6 +62,7 @@ const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
     </div>
   );
 })<FieldsetProps>`
+  overflow: hidden;
   position: relative;
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
