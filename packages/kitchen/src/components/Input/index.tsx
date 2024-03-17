@@ -42,6 +42,7 @@ type Props = {
   onClearClick?: (_event: React.MouseEvent<SVGElement>) => void;
   type?: keyof AccentColors;
   label?: string;
+  htmlType?: React.InputHTMLAttributes<HTMLInputElement>["type"];
 };
 
 export type InputProps = KitchenComponent<
@@ -72,6 +73,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
       error,
       type,
       label,
+      htmlType,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement>,
@@ -178,7 +180,8 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
             onFocus={handleFocus}
             onBlur={handleBlur}
             focus={focus}
-            type={type}
+            $type={type}
+            type={htmlType}
             {...inputProps}
           />
           {clearable && value !== undefined && (
@@ -297,6 +300,7 @@ export const InputContainer = styled.div<{
 
 export const InputField = styled.input<
   InputProps & {
+    $type: InputProps["type"];
     focus: boolean;
   }
 >`
@@ -315,11 +319,11 @@ export const InputField = styled.input<
   font-size: inherit;
 
   border: 1px solid
-    ${({ theme, error, focus, type }) =>
+    ${({ theme, error, focus, $type }) =>
       error
         ? theme.colors.accent.danger
-        : type
-          ? theme.colors.accent[type]
+        : $type
+          ? theme.colors.accent[$type]
           : focus
             ? theme.colors.layout.lighter
             : theme.colors.layout.dark};
