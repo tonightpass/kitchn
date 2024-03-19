@@ -14,6 +14,8 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc";
 import { KitchenComponent } from "../../types";
+import { ButtonProps } from "../Button";
+import { ContainerProps } from "../Container";
 import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
@@ -27,6 +29,8 @@ type Props = (
   | DayPickerRangeProps
 ) & {
   placeholder?: string;
+  containerProps: ContainerProps;
+  buttonProps: ButtonProps;
 };
 
 export type CalendarProps = KitchenComponent<Props>;
@@ -42,12 +46,18 @@ const CalendarComponent = styled(
     selected,
     mode,
     placeholder = "Select date",
+    buttonProps,
+    containerProps,
     ...props
   }: CalendarProps) => {
-    console.log(selected);
     return (
-      <Menu.Container>
-        <Menu.Button prefix={<Icon icon={RiCalendarLine} />} type={"dark"}>
+      <Menu.Container {...containerProps}>
+        <Menu.Button
+          htmlType={"button"}
+          prefix={<Icon icon={RiCalendarLine} />}
+          type={"dark"}
+          {...buttonProps}
+        >
           <Text>
             {selected instanceof Date
               ? selected.toLocaleDateString(undefined, {
