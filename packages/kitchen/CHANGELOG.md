@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.14.2
+
+### Patch Changes
+
+- [`386740f`](https://github.com/tonightpass/kitchen/commit/386740f78360f49c1fd1b01891584eb9c11b1075) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve calendar with container and button props
+
 ## 1.14.1
 
 ### Patch Changes
