@@ -56,6 +56,7 @@ const MenuContainer = styled(
         hideArrow={hideArrow}
         placement={placement}
         onContentClick={onContentClick}
+        offset={5}
         {...props}
       >
         {menuButtons}
