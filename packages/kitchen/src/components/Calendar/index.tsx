@@ -51,6 +51,7 @@ const CalendarComponent = styled(
     return (
       <Menu.Container {...menuContainerProps}>
         <Menu.Button
+          unstyled={false}
           htmlType={"button"}
           prefix={<Icon icon={RiCalendarLine} />}
           type={"dark"}
