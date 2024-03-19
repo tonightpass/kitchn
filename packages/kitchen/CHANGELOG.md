@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.14.1
+
+### Patch Changes
+
+- [`c495a29`](https://github.com/tonightpass/kitchen/commit/c495a2911f518a66a2b2724ecf735770024161a2) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Calendar placeholder
+
 ## 1.14.0
 
 ### Minor Changes
