@@ -20,11 +20,14 @@ import Text from "../Text";
 
 export type { DateRange } from "react-day-picker";
 
-type Props =
+type Props = (
   | DayPickerDefaultProps
   | DayPickerSingleProps
   | DayPickerMultipleProps
-  | DayPickerRangeProps;
+  | DayPickerRangeProps
+) & {
+  placeholder?: string;
+};
 
 export type CalendarProps = KitchenComponent<Props>;
 
@@ -35,10 +38,15 @@ export const formatWeekdayName: DateFormatter = (date, options) => {
 };
 
 const CalendarComponent = styled(
-  ({ selected, mode, ...props }: CalendarProps) => {
+  ({
+    selected,
+    mode,
+    placeholder = "Select date",
+    ...props
+  }: CalendarProps) => {
     console.log(selected);
     return (
-      <Menu.Container initialVisible>
+      <Menu.Container>
         <Menu.Button prefix={<Icon icon={RiCalendarLine} />} type={"dark"}>
           <Text>
             {selected instanceof Date
@@ -87,7 +95,7 @@ const CalendarComponent = styled(
                             day: "numeric",
                           })}`
                     : "Select an end date"
-                  : "Select date"}
+                  : placeholder}
           </Text>
         </Menu.Button>
         <Menu.Content as={"div"} width={280}>
@@ -100,7 +108,6 @@ const CalendarComponent = styled(
               formatWeekdayName,
             }}
             {...props}
-            // footer={footer}
           />
         </Menu.Content>
       </Menu.Container>
