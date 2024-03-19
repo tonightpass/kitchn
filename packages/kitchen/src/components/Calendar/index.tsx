@@ -3,10 +3,7 @@ import React from "react";
 import {
   DateFormatter,
   DayPicker,
-  DayPickerDefaultProps,
-  DayPickerMultipleProps,
-  DayPickerRangeProps,
-  DayPickerSingleProps,
+  DayPickerProps,
   isDateRange,
 } from "react-day-picker";
 import { RiCalendarLine } from "react-icons/ri";
@@ -18,14 +15,9 @@ import Icon from "../Icon";
 import { Menu, MenuButtonProps, MenuContainerProps } from "../Menu";
 import Text from "../Text";
 
-export type { DateRange } from "react-day-picker";
+export type { DateRange, DayPickerProps } from "react-day-picker";
 
-type Props = (
-  | DayPickerDefaultProps
-  | DayPickerSingleProps
-  | DayPickerMultipleProps
-  | DayPickerRangeProps
-) & {
+type Props = DayPickerProps & {
   placeholder?: string;
   menuContainerProps: MenuContainerProps & DecoratorProps;
   menuButtonProps: MenuButtonProps & DecoratorProps;
@@ -122,7 +114,7 @@ const CalendarComponent = styled(
       </Menu.Container>
     );
   },
-)``;
+)<CalendarProps>``;
 
 const StyledDayPicker = styled(DayPicker)`
   &.rdp {
