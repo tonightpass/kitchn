@@ -12,12 +12,10 @@ import {
 import { RiCalendarLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc";
+import { DecoratorProps, withDecorator } from "../../hoc";
 import { KitchenComponent } from "../../types";
-import { ButtonProps } from "../Button";
-import { ContainerProps } from "../Container";
 import Icon from "../Icon";
-import { Menu } from "../Menu";
+import { Menu, MenuButtonProps, MenuContainerProps } from "../Menu";
 import Text from "../Text";
 
 export type { DateRange } from "react-day-picker";
@@ -29,8 +27,8 @@ type Props = (
   | DayPickerRangeProps
 ) & {
   placeholder?: string;
-  containerProps: ContainerProps;
-  buttonProps: ButtonProps;
+  menuContainerProps: MenuContainerProps & DecoratorProps;
+  menuButtonProps: MenuButtonProps & DecoratorProps;
 };
 
 export type CalendarProps = KitchenComponent<Props>;
@@ -46,19 +44,19 @@ const CalendarComponent = styled(
     selected,
     mode,
     placeholder = "Select date",
-    buttonProps,
-    containerProps,
+    menuContainerProps,
+    menuButtonProps,
     ...props
   }: CalendarProps) => {
     return (
-      <Menu.Container {...containerProps}>
+      <Menu.Container {...menuContainerProps}>
         <Menu.Button
           htmlType={"button"}
           prefix={<Icon icon={RiCalendarLine} />}
           type={"dark"}
-          {...buttonProps}
+          {...menuButtonProps}
         >
-          <Text>
+          <Text size={"small"}>
             {selected instanceof Date
               ? selected.toLocaleDateString(undefined, {
                   weekday: "short",
