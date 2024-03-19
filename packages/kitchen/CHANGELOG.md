@@ -1,5 +1,17 @@
 # @tonightpass/kitchen
 
+## 1.14.3
+
+### Patch Changes
+
+- [`f35dfa6`](https://github.com/tonightpass/kitchen/commit/f35dfa64a4feedc71ff41029a68df7c17015e347) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Select Container size
+
+- [`5fcc308`](https://github.com/tonightpass/kitchen/commit/5fcc308e8d7df817df0dcd2d3c83a841c1598b29) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add htmlType prop to Button
+
+- [`f16875f`](https://github.com/tonightpass/kitchen/commit/f16875f56af854601c7657cb49cfcef5f3dbf554) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Menu offset
+
+- [`8864c28`](https://github.com/tonightpass/kitchen/commit/8864c28939ae714fea64f73916565c3b201518aa) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar props types
+
 ## 1.14.2
 
 ### Patch Changes
