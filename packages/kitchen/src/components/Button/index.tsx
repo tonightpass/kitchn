@@ -17,6 +17,7 @@ type Props = {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   type?: keyof AccentColors;
+  htmlType?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
   variant?: "ghost" | "shadow";
   hover?: {
     background: string;
