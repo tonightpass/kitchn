@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.14.4
+
+### Patch Changes
+
+- [`00857af`](https://github.com/tonightpass/kitchen/commit/00857afb08d8d7bacebead8037a6a1719c2bb8fa) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add daypicker types export
+
 ## 1.14.3
 
 ### Patch Changes
