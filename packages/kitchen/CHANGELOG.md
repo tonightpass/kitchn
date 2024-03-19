@@ -1,5 +1,19 @@
 # @tonightpass/kitchen
 
+## 1.14.0
+
+### Minor Changes
+
+- [#446](https://github.com/tonightpass/kitchen/pull/446) [`60cdc9a`](https://github.com/tonightpass/kitchen/commit/60cdc9a3df85dcc3bb5b3b9bb9ba14ae291534bc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Calendar
+
+### Patch Changes
+
+- [`6952f60`](https://github.com/tonightpass/kitchen/commit/6952f6004b48bc14abfc603184ae0257e3cbd749) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Input with htmlType prop
+
+- [`7da7178`](https://github.com/tonightpass/kitchen/commit/7da717839badef6026d44467a3109541d84d9f6a) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow hidden to Fieldset Container
+
+- [`40e8e48`](https://github.com/tonightpass/kitchen/commit/40e8e486a77fe8093ee19e4f8b36eee2f5772ea2) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow and border-radius styles to Skeleton
+
 ## 1.13.12
 
 ### Patch Changes
