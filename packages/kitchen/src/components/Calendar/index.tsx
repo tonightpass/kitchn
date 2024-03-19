@@ -201,18 +201,21 @@ const StyledDayPicker = styled(DayPicker)`
               background-color: transparent;
               cursor: pointer;
               border: 1px solid transparent;
-              transition: all 0.2s;
+              transition:
+                background-color 0.2s,
+                border 0.2s,
+                border-radius 0.2s;
 
               &.rdp-day_outside {
                 color: ${({ theme }) => theme.colors.text.light};
               }
 
-              &.rdp-day_today {
-                background-color: ${({ theme }) => theme.colors.accent.dark};
-              }
-
               &:hover {
                 border: 1px solid ${({ theme }) => theme.colors.layout.light};
+              }
+
+              &.rdp-day_today {
+                background-color: ${({ theme }) => theme.colors.layout.dark};
               }
 
               &.rdp-day_selected {
@@ -227,6 +230,15 @@ const StyledDayPicker = styled(DayPicker)`
                 color: ${({ theme }) => theme.colors.text.lightest};
                 border: 1px solid transparent;
                 border-radius: 0;
+                height: 28px;
+                line-height: 26px;
+
+                &.rdp-day_today {
+                  background-color: ${({ theme }) => theme.colors.layout.dark};
+                  height: 32px;
+                  line-height: 30px;
+                  border-radius: 4px;
+                }
               }
             }
 
