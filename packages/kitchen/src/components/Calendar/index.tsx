@@ -3,6 +3,7 @@ import { DateFormatter, DayPicker } from "react-day-picker";
 import { RiCalendarLine } from "react-icons/ri";
 import styled from "styled-components";
 
+import { withDecorator } from "../../hoc";
 import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
@@ -192,5 +193,5 @@ const StyledDayPicker = styled(DayPicker)`
 `;
 
 CalendarComponent.displayName = "KitchenCalendar";
-export const Calendar = CalendarComponent;
+export const Calendar = withDecorator(CalendarComponent);
 export default Calendar;
