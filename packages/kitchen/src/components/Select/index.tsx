@@ -126,7 +126,6 @@ const SelectSelectorContainer = styled.div`
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  height: 32px;
   position: relative;
 
   ${SelectPrefix}, ${SelectSuffix} {
