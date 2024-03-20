@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.15.1
+
+### Patch Changes
+
+- [#461](https://github.com/tonightpass/kitchen/pull/461) [`010d967`](https://github.com/tonightpass/kitchen/commit/010d967ab9915aad647343898d73d091e7350e13) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Calendar types
+
 ## 1.15.0
 
 ### Minor Changes
