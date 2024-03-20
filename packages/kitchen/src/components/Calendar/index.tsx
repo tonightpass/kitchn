@@ -18,6 +18,8 @@ export type { DateFormatter, DateRange };
 
 type Props = {
   placeholder?: string;
+  multiplePlaceholder?: string;
+  rangePlaceholder?: string;
   menuContainerProps?: MenuContainerProps & DecoratorProps;
   menuButtonProps?: MenuButtonProps & DecoratorProps;
 } & React.ComponentProps<typeof DayPicker>;
@@ -32,7 +34,9 @@ export const formatWeekdayName: DateFormatter = (date, options) => {
 
 const CalendarComponent = styled(
   ({
-    placeholder,
+    placeholder = "Select a date",
+    multiplePlaceholder = "%s days selected",
+    rangePlaceholder = "Select an end date",
     menuContainerProps,
     menuButtonProps,
     ...props
@@ -45,7 +49,7 @@ const CalendarComponent = styled(
           type={"dark"}
           {...menuButtonProps}
         >
-          <Text>
+          <Text size={"small"}>
             {props.selected instanceof Date
               ? props.selected.toLocaleDateString(undefined, {
                   weekday: "short",
@@ -63,7 +67,10 @@ const CalendarComponent = styled(
                       month: "short",
                       day: "numeric",
                     })
-                  : `${props.selected.length} days selected`
+                  : multiplePlaceholder.replace(
+                      "%s",
+                      props.selected.length.toString(),
+                    )
                 : isDateRange(props.selected) && props.mode === "range"
                   ? props.selected.from && props.selected.to
                     ? isSameDay(props.selected.from, props.selected.to)
@@ -97,7 +104,7 @@ const CalendarComponent = styled(
                               day: "numeric",
                             },
                           )}`
-                    : "Select an end date"
+                    : rangePlaceholder
                   : placeholder}
           </Text>
         </Menu.Button>
