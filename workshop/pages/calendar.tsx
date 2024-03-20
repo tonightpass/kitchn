@@ -1,11 +1,11 @@
-import { Calendar, Container, DateRange, Text } from "@tonightpass/kitchen";
+import { Calendar, Container, Text } from "@tonightpass/kitchen";
 import { NextPage } from "next";
 import React from "react";
 
 const CalendarPage: NextPage = () => {
   const [selected, setSelected] = React.useState<Date>();
   const [days, setDays] = React.useState<Date[] | undefined>();
-  const [range, setRange] = React.useState<DateRange | undefined>();
+  // const [range, setRange] = React.useState<DateRange | undefined>();
 
   return (
     <Container mx={"auto"} py={"large"} gap={"small"} maxW={"laptop"}>
@@ -21,7 +21,7 @@ const CalendarPage: NextPage = () => {
 
       <Container gap={"small"}>
         <Text>{"Range"}</Text>
-        <Calendar mode={"range"} selected={range} onSelect={setRange} />
+        {/* <Calendar mode={"range"} selected={range} onSelect={setRange} /> */}
       </Container>
     </Container>
   );
