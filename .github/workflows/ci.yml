@@ -36,5 +36,11 @@ jobs:
       - name: Build Packages
         run: pnpm build:packages
 
+      - name: Build Workshop
+        run: pnpm build:workshop
+
+      - name: Build Docs
+        run: pnpm build:docs
+
       - name: Build Examples
-        run: pnpm turbo run build --filter='./examples/*'
+        run: pnpm build:examples
