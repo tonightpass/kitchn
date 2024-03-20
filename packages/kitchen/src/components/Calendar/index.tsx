@@ -3,20 +3,11 @@ import { DateFormatter, DayPicker } from "react-day-picker";
 import { RiCalendarLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc";
-import { KitchenComponent } from "../../types";
 import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
 
-type Props = {
-  placeholder?: string;
-};
-
-export type CalendarProps = KitchenComponent<
-  Props,
-  React.ComponentProps<typeof DayPicker>
->;
+export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 export const formatWeekdayName: DateFormatter = (date, options) => {
   return date
@@ -24,7 +15,9 @@ export const formatWeekdayName: DateFormatter = (date, options) => {
     .slice(0, 1);
 };
 
-const CalendarComponent = styled(({ ...props }: CalendarProps) => {
+const CalendarComponent: React.FC<CalendarProps> = ({
+  ...props
+}: CalendarProps) => {
   return (
     <Menu.Container>
       <Menu.Button prefix={<Icon icon={RiCalendarLine} />} type={"dark"}>
@@ -42,7 +35,7 @@ const CalendarComponent = styled(({ ...props }: CalendarProps) => {
       </Menu.Content>
     </Menu.Container>
   );
-})``;
+};
 
 const StyledDayPicker = styled(DayPicker)`
   &.rdp {
@@ -199,5 +192,5 @@ const StyledDayPicker = styled(DayPicker)`
 `;
 
 CalendarComponent.displayName = "KitchenCalendar";
-export const Calendar = withDecorator(CalendarComponent);
+export const Calendar = CalendarComponent;
 export default Calendar;
