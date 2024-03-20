@@ -18,9 +18,7 @@ export const formatWeekdayName: DateFormatter = (date, options) => {
     .slice(0, 1);
 };
 
-const CalendarComponent: React.FC<CalendarProps> = ({
-  ...props
-}: CalendarProps) => {
+const CalendarComponent = styled(({ ...props }: CalendarProps) => {
   return (
     <Menu.Container>
       <Menu.Button prefix={<Icon icon={RiCalendarLine} />} type={"dark"}>
@@ -38,7 +36,7 @@ const CalendarComponent: React.FC<CalendarProps> = ({
       </Menu.Content>
     </Menu.Container>
   );
-};
+})``;
 
 const StyledDayPicker = styled(DayPicker)`
   &.rdp {
