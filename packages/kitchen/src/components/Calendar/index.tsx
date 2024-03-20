@@ -4,7 +4,6 @@ import { RiCalendarLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc";
-import { KitchenComponent } from "../../types";
 import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
@@ -15,7 +14,7 @@ type Props = {
   placeholder?: string;
 } & React.ComponentProps<typeof DayPicker>;
 
-export type CalendarProps = KitchenComponent<Props>;
+export type CalendarProps = Props;
 
 export const formatWeekdayName: DateFormatter = (date, options) => {
   return date
