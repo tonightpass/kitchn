@@ -17,6 +17,7 @@ type Props = {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   type?: keyof AccentColors;
+  htmlType?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
   variant?: "ghost" | "shadow";
   hover?: {
     background: string;
@@ -39,6 +40,8 @@ const ButtonComponent = styled(
     width,
     prefix,
     suffix,
+    type,
+    htmlType,
     ...props
   }: ButtonProps) => {
     const theme = useTheme();
@@ -48,6 +51,8 @@ const ButtonComponent = styled(
         aria-busy={loading ? "true" : undefined}
         aria-disabled={props.disabled ? "true" : undefined}
         role={"button"}
+        type={htmlType}
+        $type={type}
         {...props}
       >
         {(prefix || loading) && (
