@@ -9,95 +9,14 @@ import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
 
-export type ActiveModifiers = {
-  selected: true;
-  customModifier: true;
+type Props = {
+  placeholder?: string;
 };
 
-export type DateRange = {
-  from: Date | undefined;
-  to?: Date | undefined;
-};
-
-export type DayPickerDefaultProps = {
-  mode?: undefined | "default";
-};
-
-export type DayPickerMultipleProps = {
-  mode: "multiple";
-  /** The selected days. */
-  selected?: Date[] | undefined;
-  /** Event fired when a days added or removed to the selection. */
-  onSelect?: SelectMultipleEventHandler;
-  /** The minimum amount of days that can be selected. */
-  min?: number;
-  /** The maximum amount of days that can be selected. */
-  max?: number;
-};
-
-export type DayPickerRangeProps = {
-  mode: "range";
-  /** The selected range of days. */
-  selected?: DateRange | undefined;
-  /** Event fired when a range (or a part of the range) is selected. */
-  onSelect?: SelectRangeEventHandler;
-  /** The minimum amount of days that can be selected. */
-  min?: number;
-  /** The maximum amount of days that can be selected. */
-  max?: number;
-};
-
-export type DayPickerSingleProps = {
-  mode: "single";
-  /** The selected day. */
-  selected?: Date | undefined;
-  /** Event fired when a day is selected. */
-  onSelect?: SelectSingleEventHandler;
-  /** Make the selection required. */
-  required?: boolean;
-};
-
-/** The event handler when selecting multiple days. */
-export type SelectMultipleEventHandler = (
-  /** The selected days */
-  days: Date[] | undefined,
-  /** The day that was clicked triggering the event. */
-  selectedDay: Date,
-  /** The day that was clicked */
-  activeModifiers: ActiveModifiers,
-  /** The mouse event that triggered this event. */
-  e: MouseEvent,
-) => void;
-
-/** The event handler when selecting a range of days. */
-export type SelectRangeEventHandler = (
-  /** The current range of the selected days. */
-  range: DateRange | undefined,
-  /** The day that was selected (or clicked) triggering the event. */
-  selectedDay: Date,
-  /** The modifiers of the selected day. */
-  activeModifiers: ActiveModifiers,
-  e: MouseEvent,
-) => void;
-
-/** The event handler when selecting a single day. */
-export type SelectSingleEventHandler = (
-  /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
-  day: Date | undefined,
-  /** The day that was selected (or clicked) triggering the event. */
-  selectedDay: Date,
-  /** The modifiers of the selected day. */
-  activeModifiers: ActiveModifiers,
-  e: MouseEvent,
-) => void;
-
-type Props =
-  | DayPickerDefaultProps
-  | DayPickerSingleProps
-  | DayPickerMultipleProps
-  | DayPickerRangeProps;
-
-export type CalendarProps = KitchenComponent<Props>;
+export type CalendarProps = KitchenComponent<
+  Props,
+  React.ComponentProps<typeof DayPicker>
+>;
 
 export const formatWeekdayName: DateFormatter = (date, options) => {
   return date
