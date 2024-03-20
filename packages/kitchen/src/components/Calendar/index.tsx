@@ -1,14 +1,5 @@
-import { isSameDay, isSameMonth } from "date-fns";
 import React from "react";
-import {
-  DateFormatter,
-  DayPicker,
-  DayPickerDefaultProps,
-  DayPickerMultipleProps,
-  DayPickerRangeProps,
-  DayPickerSingleProps,
-  isDateRange,
-} from "react-day-picker";
+import { DateFormatter, DayPicker } from "react-day-picker";
 import { RiCalendarLine } from "react-icons/ri";
 import styled from "styled-components";
 
@@ -18,7 +9,87 @@ import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
 
-export type { DateRange } from "react-day-picker";
+export type ActiveModifiers = {
+  selected: true;
+  customModifier: true;
+};
+
+export type DateRange = {
+  from: Date | undefined;
+  to?: Date | undefined;
+};
+
+export type DayPickerDefaultProps = {
+  mode?: undefined | "default";
+};
+
+export type DayPickerMultipleProps = {
+  mode: "multiple";
+  /** The selected days. */
+  selected?: Date[] | undefined;
+  /** Event fired when a days added or removed to the selection. */
+  onSelect?: SelectMultipleEventHandler;
+  /** The minimum amount of days that can be selected. */
+  min?: number;
+  /** The maximum amount of days that can be selected. */
+  max?: number;
+};
+
+export type DayPickerRangeProps = {
+  mode: "range";
+  /** The selected range of days. */
+  selected?: DateRange | undefined;
+  /** Event fired when a range (or a part of the range) is selected. */
+  onSelect?: SelectRangeEventHandler;
+  /** The minimum amount of days that can be selected. */
+  min?: number;
+  /** The maximum amount of days that can be selected. */
+  max?: number;
+};
+
+export type DayPickerSingleProps = {
+  mode: "single";
+  /** The selected day. */
+  selected?: Date | undefined;
+  /** Event fired when a day is selected. */
+  onSelect?: SelectSingleEventHandler;
+  /** Make the selection required. */
+  required?: boolean;
+};
+
+/** The event handler when selecting multiple days. */
+export type SelectMultipleEventHandler = (
+  /** The selected days */
+  days: Date[] | undefined,
+  /** The day that was clicked triggering the event. */
+  selectedDay: Date,
+  /** The day that was clicked */
+  activeModifiers: ActiveModifiers,
+  /** The mouse event that triggered this event. */
+  e: MouseEvent,
+) => void;
+
+/** The event handler when selecting a range of days. */
+export type SelectRangeEventHandler = (
+  /** The current range of the selected days. */
+  range: DateRange | undefined,
+  /** The day that was selected (or clicked) triggering the event. */
+  selectedDay: Date,
+  /** The modifiers of the selected day. */
+  activeModifiers: ActiveModifiers,
+  e: MouseEvent,
+) => void;
+
+/** The event handler when selecting a single day. */
+export type SelectSingleEventHandler = (
+  /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
+  day: Date | undefined,
+  /** The day that was selected (or clicked) triggering the event. */
+  selectedDay: Date,
+  /** The modifiers of the selected day. */
+  activeModifiers: ActiveModifiers,
+  e: MouseEvent,
+) => void;
 
 type Props =
   | DayPickerDefaultProps
@@ -34,79 +105,25 @@ export const formatWeekdayName: DateFormatter = (date, options) => {
     .slice(0, 1);
 };
 
-const CalendarComponent = styled(
-  ({ selected, mode, ...props }: CalendarProps) => {
-    console.log(selected);
-    return (
-      <Menu.Container initialVisible>
-        <Menu.Button prefix={<Icon icon={RiCalendarLine} />} type={"dark"}>
-          <Text>
-            {selected instanceof Date
-              ? selected.toLocaleDateString(undefined, {
-                  weekday: "short",
-                  month: "short",
-                  day: "numeric",
-                })
-              : selected instanceof Array &&
-                  mode === "multiple" &&
-                  selected.length > 0
-                ? selected &&
-                  selected.length === 1 &&
-                  selected.every((d) => d instanceof Date)
-                  ? selected[0].toLocaleDateString(undefined, {
-                      weekday: "short",
-                      month: "short",
-                      day: "numeric",
-                    })
-                  : `${selected.length} days selected`
-                : isDateRange(selected) && mode === "range"
-                  ? selected.from && selected.to
-                    ? isSameDay(selected.from, selected.to)
-                      ? selected.from.toLocaleDateString(undefined, {
-                          weekday: "short",
-                          month: "short",
-                          day: "numeric",
-                        })
-                      : isSameMonth(selected.from, selected.to)
-                        ? `${selected.from.toLocaleDateString(undefined, {
-                            weekday: "short",
-                            day: "numeric",
-                          })} - ${selected.to.toLocaleDateString(undefined, {
-                            weekday: "short",
-                            day: "numeric",
-                          })} ${selected.to.toLocaleDateString(undefined, {
-                            month: "short",
-                          })}`
-                        : `${selected.from.toLocaleDateString(undefined, {
-                            weekday: "short",
-                            month: "short",
-                            day: "numeric",
-                          })} - ${selected.to.toLocaleDateString(undefined, {
-                            weekday: "short",
-                            month: "short",
-                            day: "numeric",
-                          })}`
-                    : "Select an end date"
-                  : "Select date"}
-          </Text>
-        </Menu.Button>
-        <Menu.Content as={"div"} width={280}>
-          <StyledDayPicker
-            weekStartsOn={1}
-            showOutsideDays
-            mode={mode}
-            selected={selected}
-            formatters={{
-              formatWeekdayName,
-            }}
-            {...props}
-            // footer={footer}
-          />
-        </Menu.Content>
-      </Menu.Container>
-    );
-  },
-)``;
+const CalendarComponent = styled(({ ...props }: CalendarProps) => {
+  return (
+    <Menu.Container>
+      <Menu.Button prefix={<Icon icon={RiCalendarLine} />} type={"dark"}>
+        <Text>{"Select date"}</Text>
+      </Menu.Button>
+      <Menu.Content as={"div"} width={280}>
+        <StyledDayPicker
+          weekStartsOn={1}
+          showOutsideDays
+          formatters={{
+            formatWeekdayName,
+          }}
+          {...props}
+        />
+      </Menu.Content>
+    </Menu.Container>
+  );
+})``;
 
 const StyledDayPicker = styled(DayPicker)`
   &.rdp {
