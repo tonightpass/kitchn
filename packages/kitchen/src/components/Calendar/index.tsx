@@ -1,5 +1,5 @@
 import React from "react";
-import { DateFormatter, DayPicker } from "react-day-picker";
+import { DateFormatter, DayPicker, DateRange } from "react-day-picker";
 import { RiCalendarLine } from "react-icons/ri";
 import styled from "styled-components";
 
@@ -7,6 +7,8 @@ import { withDecorator } from "../../hoc";
 import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Text from "../Text";
+
+export type { DateFormatter, DateRange };
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
