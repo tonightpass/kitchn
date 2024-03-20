@@ -1,5 +1,13 @@
 # @tonightpass/kitchen
 
+## 1.15.2
+
+### Patch Changes
+
+- [`fdb5842`](https://github.com/tonightpass/kitchen/commit/fdb5842d5e8ba5dab9b1e38d18908d9dd917c7f7) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix select height
+
+- [`5b53d91`](https://github.com/tonightpass/kitchen/commit/5b53d91606d3222deb9aaa109e65d3e865f95ede) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with other placeholders
+
 ## 1.15.1
 
 ### Patch Changes
