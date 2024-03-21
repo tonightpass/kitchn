@@ -10,6 +10,8 @@ export * from "./Code/Inline";
 export * from "./Collapse";
 export * from "./Container";
 export * from "./Drawer";
+export * from "./Entity";
+export * from "./Entity/Field";
 export * from "./Error";
 export * from "./Fieldset";
 export * from "./Footer";
