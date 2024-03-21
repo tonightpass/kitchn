@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.15.3
+
+### Patch Changes
+
+- [`b67b8f5`](https://github.com/tonightpass/kitchen/commit/b67b8f58efee1f46314be7164bcffb3b421bed43) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add offset to Menu
+
 ## 1.15.2
 
 ### Patch Changes
