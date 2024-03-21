@@ -17,6 +17,7 @@ import Text from "../Text";
 export type { DateFormatter, DateRange };
 
 type Props = {
+  format?: Intl.DateTimeFormatOptions;
   placeholder?: string;
   multiplePlaceholder?: string;
   rangePlaceholder?: string;
@@ -39,8 +40,41 @@ const CalendarComponent = styled(
     rangePlaceholder = "Select an end date",
     menuContainerProps,
     menuButtonProps,
+    format,
     ...props
   }: CalendarProps) => {
+    if (!format) {
+      switch (props.mode) {
+        case "range":
+          if (
+            props.selected?.from &&
+            props.selected?.to &&
+            isSameMonth(props.selected.from, props.selected.to)
+          ) {
+            format = {
+              weekday: "short",
+              day: "numeric",
+            };
+          } else {
+            format = {
+              weekday: "short",
+              month: "short",
+              day: "numeric",
+            };
+          }
+          break;
+        case "single":
+        case "multiple":
+        default:
+          format = {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          };
+          break;
+      }
+    }
+
     return (
       <Menu.Container {...menuContainerProps}>
         <Menu.Button
@@ -51,22 +85,14 @@ const CalendarComponent = styled(
         >
           <Text size={"small"}>
             {props.selected instanceof Date
-              ? props.selected.toLocaleDateString(undefined, {
-                  weekday: "short",
-                  month: "short",
-                  day: "numeric",
-                })
+              ? props.selected.toLocaleDateString(undefined, format)
               : props.selected instanceof Array &&
                   props.mode === "multiple" &&
                   props.selected.length > 0
                 ? props.selected &&
                   props.selected.length === 1 &&
                   props.selected.every((d) => d instanceof Date)
-                  ? props.selected[0].toLocaleDateString(undefined, {
-                      weekday: "short",
-                      month: "short",
-                      day: "numeric",
-                    })
+                  ? props.selected[0].toLocaleDateString(undefined, format)
                   : multiplePlaceholder.replace(
                       "%s",
                       props.selected.length.toString(),
@@ -74,35 +100,20 @@ const CalendarComponent = styled(
                 : isDateRange(props.selected) && props.mode === "range"
                   ? props.selected.from && props.selected.to
                     ? isSameDay(props.selected.from, props.selected.to)
-                      ? props.selected.from.toLocaleDateString(undefined, {
-                          weekday: "short",
-                          month: "short",
-                          day: "numeric",
-                        })
+                      ? props.selected.from.toLocaleDateString(
+                          undefined,
+                          format,
+                        )
                       : isSameMonth(props.selected.from, props.selected.to)
-                        ? `${props.selected.from.toLocaleDateString(undefined, {
-                            weekday: "short",
-                            day: "numeric",
-                          })} - ${props.selected.to.toLocaleDateString(
+                        ? `${props.selected.from.toLocaleDateString(undefined, format)} - ${props.selected.to.toLocaleDateString(
                             undefined,
-                            {
-                              weekday: "short",
-                              day: "numeric",
-                            },
+                            format,
                           )} ${props.selected.to.toLocaleDateString(undefined, {
                             month: "short",
                           })}`
-                        : `${props.selected.from.toLocaleDateString(undefined, {
-                            weekday: "short",
-                            month: "short",
-                            day: "numeric",
-                          })} - ${props.selected.to.toLocaleDateString(
+                        : `${props.selected.from.toLocaleDateString(undefined, format)} - ${props.selected.to.toLocaleDateString(
                             undefined,
-                            {
-                              weekday: "short",
-                              month: "short",
-                              day: "numeric",
-                            },
+                            format,
                           )}`
                     : rangePlaceholder
                   : placeholder}
@@ -126,6 +137,10 @@ const CalendarComponent = styled(
 const StyledDayPicker = styled(DayPicker)`
   &.rdp {
     padding: ${({ theme }) => theme.gap.tiny};
+
+    .rdp-vhidden {
+      display: none;
+    }
 
     .rdp-caption {
       display: flex;
@@ -153,6 +168,33 @@ const StyledDayPicker = styled(DayPicker)`
             height: 10px;
             width: 10px;
             color: ${({ theme }) => theme.colors.text.light};
+          }
+        }
+      }
+
+      .rdp-caption_dropdowns {
+        display: flex;
+        gap: ${({ theme }) => theme.gap.small};
+        align-items: center;
+
+        .rdp-dropdown_month,
+        .rdp-dropdown_year {
+          position: relative;
+
+          .rdp-dropdown {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+          }
+
+          .rdp-caption_label {
+            display: flex;
+            gap: ${({ theme }) => theme.gap.tiny};
+            align-items: center;
           }
         }
       }
@@ -221,12 +263,20 @@ const StyledDayPicker = styled(DayPicker)`
                 border 0.2s,
                 border-radius 0.2s;
 
-              &.rdp-day_outside {
+              &:hover {
+                border: 1px solid ${({ theme }) => theme.colors.layout.light};
+              }
+
+              &.rdp-day_outside,
+              &.rdp-day_disabled {
                 color: ${({ theme }) => theme.colors.text.light};
               }
 
-              &:hover {
-                border: 1px solid ${({ theme }) => theme.colors.layout.light};
+              &.rdp-day_disabled {
+                &:hover {
+                  border: 1px solid transparent;
+                  cursor: initial;
+                }
               }
 
               &.rdp-day_today {
