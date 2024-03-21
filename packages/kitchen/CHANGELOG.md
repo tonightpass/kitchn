@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.15.4
+
+### Patch Changes
+
+- [`ce0b7fe`](https://github.com/tonightpass/kitchen/commit/ce0b7feae3fed243fbd573a19994f04f3b7e4f34) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with custom format
+
 ## 1.15.3
 
 ### Patch Changes
