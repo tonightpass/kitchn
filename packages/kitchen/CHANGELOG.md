@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.16.0
+
+### Minor Changes
+
+- [#468](https://github.com/tonightpass/kitchen/pull/468) [`baa1e0a`](https://github.com/tonightpass/kitchen/commit/baa1e0ac968e106c03cabd4b9d87887dfccca916) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Entity
+
 ## 1.15.4
 
 ### Patch Changes
