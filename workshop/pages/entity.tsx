@@ -132,7 +132,7 @@ const EntityPage: NextPage = () => {
             </Container>
           }
         >
-          <EntityField title={"Leo Lamprecht"} description={"leo"} />
+          <EntityField title={"Younès Bessa"} description={"younes"} />
         </Entity>
       </Container>
 
@@ -147,7 +147,7 @@ const EntityPage: NextPage = () => {
           }
         >
           <EntityField
-            title={"Vercel CLI on chris.lan"}
+            title={"Tonight Pass"}
             description={"Last used just now"}
           />
         </Entity>
