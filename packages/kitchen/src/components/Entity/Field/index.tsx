@@ -43,8 +43,8 @@ export const EntityFieldDescription = styled(({ ...props }: TextProps) => {
 })``;
 
 type Props = {
-  title?: string;
-  description?: string;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
   active?: boolean;
   label?: boolean;
   placeholder?: boolean;
