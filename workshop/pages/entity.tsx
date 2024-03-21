@@ -179,7 +179,7 @@ const EntityPage: NextPage = () => {
             title={"Hello"}
             description={"6863EFA205B4680BE7928E"}
           />
-          <EntityField right description={"Connected 1h ago"} />
+          <EntityField description={"Connected 1h ago"} />
         </Entity>
         <Entity
           thumbnail={<Avatar size={32} text={"Younès Bessa"} />}
@@ -209,7 +209,7 @@ const EntityPage: NextPage = () => {
             title={"VALUE"}
             description={"6863EFA205B4680BE7928E"}
           />
-          <EntityField right width={"50%"} description={"Connected 1h ago"} />
+          <EntityField width={"50%"} description={"Connected 1h ago"} />
         </Entity>
       </Container>
 
@@ -240,7 +240,7 @@ const EntityPage: NextPage = () => {
             description={"6863EFA205B4680BE7928E"}
             descriptionSkeletonWidth={"100%"}
           />
-          <EntityField right description={"Connected 1h ago"} />
+          <EntityField description={"Connected 1h ago"} />
         </Entity>
         <Entity
           placeholder
@@ -269,7 +269,7 @@ const EntityPage: NextPage = () => {
             title={"VALUE"}
             description={"6863EFA205B4680BE7928E"}
           />
-          <EntityField right width={"50%"} description={"Connected 1h ago"} />
+          <EntityField width={"50%"} description={"Connected 1h ago"} />
         </Entity>
       </Container>
     </Container>
