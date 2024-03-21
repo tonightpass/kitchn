@@ -146,7 +146,7 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
   ${(props) =>
     props.truncate &&
     `
-    overflow: hidden;
+    overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     ${
