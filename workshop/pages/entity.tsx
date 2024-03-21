@@ -230,15 +230,12 @@ const EntityPage: NextPage = () => {
             width={160}
             title={"GitHub"}
             description={"Evil Rabbit"}
-            titleSkeletonWidth={"50%"}
-            descriptionSkeletonWidth={"80%"}
           />
           <EntityField
             label
             width={"20%"}
             title={"VALUE"}
             description={"6863EFA205B4680BE7928E"}
-            descriptionSkeletonWidth={"100%"}
           />
           <EntityField description={"Connected 1h ago"} />
         </Entity>
