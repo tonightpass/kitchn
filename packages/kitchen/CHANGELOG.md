@@ -1,5 +1,11 @@
 # @tonightpass/kitchen
 
+## 1.16.1
+
+### Patch Changes
+
+- [`8069d6d`](https://github.com/tonightpass/kitchen/commit/8069d6d700cf6a0d1d16dafcf961afa0cb77a01c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Text truncate overflow
+
 ## 1.16.0
 
 ### Minor Changes
