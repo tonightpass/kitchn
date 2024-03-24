@@ -1,5 +1,5 @@
-import kitchn, { Container, Text, Link } from "@tonightpass/kitchn";
 import showcases from "data/showcases";
+import kitchn, { Container, Text, Link } from "kitchn";
 
 import ShowcaseCard from "./Card";
 

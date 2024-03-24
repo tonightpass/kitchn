@@ -5,7 +5,7 @@ import {
   FooterColumn,
   Text,
   Container,
-} from "@tonightpass/kitchn";
+} from "kitchn";
 import { NextPage } from "next";
 
 const FooterPage: NextPage = () => {

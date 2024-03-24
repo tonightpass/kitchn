@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { withKitchnConfig } = require("@tonightpass/kitchn/next");
+const { withKitchnConfig } = require("kitchn/next");
 const nextra = require("nextra");
 
 const withNextra = nextra({

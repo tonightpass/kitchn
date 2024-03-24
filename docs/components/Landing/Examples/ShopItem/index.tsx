@@ -1,4 +1,4 @@
-import { Badge, Button, Container, Image, Text } from "@tonightpass/kitchn";
+import { Badge, Button, Container, Image, Text } from "kitchn";
 import React from "react";
 
 const ShopItemExample: React.FC = () => {

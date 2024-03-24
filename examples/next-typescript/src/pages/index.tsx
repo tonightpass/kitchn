@@ -5,7 +5,7 @@ import kitchn, {
   Text,
   Link,
   rotate,
-} from "@tonightpass/kitchn";
+} from "kitchn";
 import Head from "next/head";
 
 const IndexPage = () => {

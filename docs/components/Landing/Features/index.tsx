@@ -1,4 +1,4 @@
-import kitchn, { Container, Text } from "@tonightpass/kitchn";
+import kitchn, { Container, Text } from "kitchn";
 
 const Features = () => {
   return (

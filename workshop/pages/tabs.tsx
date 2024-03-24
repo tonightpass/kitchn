@@ -1,4 +1,4 @@
-import { Container, Tabs } from "@tonightpass/kitchn";
+import { Container, Tabs } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { RiAppleFill, RiAndroidFill, RiWindowsFill } from "react-icons/ri";

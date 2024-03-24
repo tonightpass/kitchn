@@ -1,4 +1,4 @@
-import kitchn, { Image, defaultThemes } from "@tonightpass/kitchn";
+import kitchn, { Image, defaultThemes } from "kitchn";
 import { Showcase } from "types/showcase";
 
 export type ShowcaseCardProps = {

@@ -1,9 +1,9 @@
 import GlobalStyle from "@components/GlobalStyle";
-import { KitchnProvider } from "@tonightpass/kitchn";
+import { KitchnProvider } from "kitchn";
 import { AppProps } from "next/app";
 import { useTheme as useNextraTheme } from "nextra-theme-docs";
 
-import "@tonightpass/kitchn/fonts.css";
+import "kitchn/fonts.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { resolvedTheme } = useNextraTheme();

@@ -5,7 +5,7 @@ import {
   Text,
   UnorderedList,
   Code,
-} from "@tonightpass/kitchn";
+} from "kitchn";
 
 const TextPage = () => {
   return (

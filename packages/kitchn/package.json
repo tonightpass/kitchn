@@ -1,5 +1,5 @@
 {
-  "name": "@tonightpass/kitchn",
+  "name": "kitchn",
   "version": "1.16.0",
   "description": "Tonight Pass delicious React styled-components UI kit",
   "repository": "https://github.com/tonightpass/kitchn",

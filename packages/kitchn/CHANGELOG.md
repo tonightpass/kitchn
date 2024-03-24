@@ -1,4 +1,4 @@
-# @tonightpass/kitchn
+# kitchn
 
 ## 1.16.0
 

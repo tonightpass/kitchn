@@ -1,4 +1,4 @@
-import { DefaultTheme } from "@tonightpass/kitchn";
+import { DefaultTheme } from "kitchn";
 import { PrismTheme } from "prism-react-renderer";
 
 const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({

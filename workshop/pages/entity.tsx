@@ -10,7 +10,7 @@ import {
   Menu,
   Spacer,
   Text,
-} from "@tonightpass/kitchn";
+} from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { RiGithubFill } from "react-icons/ri";

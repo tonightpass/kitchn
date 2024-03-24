@@ -1,3 +1,3 @@
-import { KitchnDocument } from "@tonightpass/kitchn/next";
+import { KitchnDocument } from "kitchn/next";
 
 export default class Document extends KitchnDocument {}

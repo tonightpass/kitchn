@@ -1,10 +1,4 @@
-import kitchn, {
-  Container,
-  Link,
-  Note,
-  Text,
-  FragmentLink,
-} from "@tonightpass/kitchn";
+import kitchn, { Container, Link, Note, Text, FragmentLink } from "kitchn";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 

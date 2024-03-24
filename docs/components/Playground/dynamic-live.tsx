@@ -1,4 +1,4 @@
-import { useTheme } from "@tonightpass/kitchn";
+import { useTheme } from "kitchn";
 import React from "react";
 import { LivePreview, LiveProvider, LiveError } from "react-live";
 

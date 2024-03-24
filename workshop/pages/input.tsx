@@ -1,4 +1,4 @@
-import { Container, Text, Input, ControlledInput } from "@tonightpass/kitchn";
+import { Container, Text, Input, ControlledInput } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { useForm } from "react-hook-form";

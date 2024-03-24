@@ -1,4 +1,4 @@
-import { Spacer, Container, Text } from "@tonightpass/kitchn";
+import { Spacer, Container, Text } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

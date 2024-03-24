@@ -6,7 +6,7 @@ category: frameworks
 ---
 
 import Playground from "@components/Playground";
-import kitchn, { Container, FragmentLink, Link } from "@tonightpass/kitchn";
+import kitchn, { Container, FragmentLink, Link } from "kitchn";
 import { Tab, Tabs } from "nextra-theme-docs";
 
 # Getting Started with Next.js
@@ -15,7 +15,7 @@ import { Tab, Tabs } from "nextra-theme-docs";
 In your Next.js project, install Kitchn by running either of the following:
 
 ```sh npm2yarn
-npm i @tonightpass/kitchn --save
+npm i kitchn --save
 ```
 
 ## Provider Setup
@@ -28,7 +28,7 @@ wrap the `Component` with the `KitchnProvider`:
 
 ```jsx
 // pages/_app.js
-import { KitchnProvider } from "@tonightpass/kitchn";
+import { KitchnProvider } from "kitchn";
 
 function App({ Component, pageProps }) {
   return (
@@ -49,7 +49,7 @@ Go to the `next.config.js` file and add the following:
 
 ```js
 // next.config.js
-const { withKitchnConfig } = require("@tonightpass/kitchn/next");
+const { withKitchnConfig } = require("kitchn/next");
 
 const config = {
   // your next config
@@ -62,7 +62,7 @@ Then, go to the `pages/_document.js` or create it if it doesn't exist and add th
 
 ```jsx
 // pages/_document.js
-import { KitchnDocument } from "@tonightpass/kitchn/next";
+import { KitchnDocument } from "kitchn/next";
 
 export default class Document extends KitchnDocument {
   // your document

@@ -1,5 +1,5 @@
 ---
-"@tonightpass/kitchn": patch
+"kitchn": patch
 ---
 
 Fix Text truncate overflow

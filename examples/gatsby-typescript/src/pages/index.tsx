@@ -1,3 +1,4 @@
+import type { HeadFC, PageProps } from "gatsby";
 import kitchn, {
   Container,
   convertRGBToRGBA,
@@ -6,10 +7,9 @@ import kitchn, {
   Link,
   KitchnProvider,
   rotate,
-} from "@tonightpass/kitchn";
-import type { HeadFC, PageProps } from "gatsby";
+} from "kitchn";
 import * as React from "react";
-import "@tonightpass/kitchn/fonts.css";
+import "kitchn/fonts.css";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (

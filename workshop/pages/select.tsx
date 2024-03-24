@@ -1,4 +1,4 @@
-import { Container, Select } from "@tonightpass/kitchn";
+import { Container, Select } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { RiArrowUpCircleLine } from "react-icons/ri";

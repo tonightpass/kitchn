@@ -1,4 +1,4 @@
-import { Avatar, Container, AvatarGroup } from "@tonightpass/kitchn";
+import { Avatar, Container, AvatarGroup } from "kitchn";
 import { NextPage } from "next";
 
 const AvatarPage: NextPage = () => {

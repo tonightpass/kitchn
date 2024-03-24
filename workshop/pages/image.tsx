@@ -1,4 +1,4 @@
-import { Image, Container } from "@tonightpass/kitchn";
+import { Image, Container } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

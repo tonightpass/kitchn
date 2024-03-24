@@ -7,7 +7,7 @@ import {
   createTheme,
   useClipboard,
   useTheme,
-} from "@tonightpass/kitchn";
+} from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

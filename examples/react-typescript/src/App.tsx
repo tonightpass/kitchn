@@ -6,9 +6,9 @@ import kitchn, {
   Text,
   Link,
   rotate,
-} from "@tonightpass/kitchn";
+} from "kitchn";
 
-import "@tonightpass/kitchn/fonts.css";
+import "kitchn/fonts.css";
 
 export default function App() {
   return (

@@ -1,10 +1,4 @@
-import {
-  Button,
-  Container,
-  Progress,
-  Text,
-  useTheme,
-} from "@tonightpass/kitchn";
+import { Button, Container, Progress, Text, useTheme } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

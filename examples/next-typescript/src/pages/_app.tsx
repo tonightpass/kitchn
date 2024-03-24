@@ -1,7 +1,7 @@
-import { KitchnProvider } from "@tonightpass/kitchn";
+import { KitchnProvider } from "kitchn";
 import { AppProps } from "next/app";
 
-import "@tonightpass/kitchn/fonts.css";
+import "kitchn/fonts.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

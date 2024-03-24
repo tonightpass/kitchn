@@ -1,4 +1,4 @@
-import { Container, Text } from "@tonightpass/kitchn";
+import { Container, Text } from "kitchn";
 
 import ShowcaseList from "./List";
 

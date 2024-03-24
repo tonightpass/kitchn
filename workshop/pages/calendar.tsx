@@ -1,4 +1,4 @@
-import { Calendar, Container, DateRange, Text } from "@tonightpass/kitchn";
+import { Calendar, Container, DateRange, Text } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

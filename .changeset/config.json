@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "commit": false,
-  "fixed": [["@tonightpass/kitchn"]],
+  "fixed": [["kitchn"]],
   "changelog": [
     "@changesets/changelog-github",
     { "repo": "tonightpass/kitchn" }

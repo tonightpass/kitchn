@@ -68,7 +68,7 @@ importers:
 
   docs:
     dependencies:
-      '@tonightpass/kitchn':
+      'kitchn':
         specifier: workspace:*
         version: link:../packages/kitchn
       next:
@@ -117,7 +117,7 @@ importers:
 
   examples/expo-typescript:
     dependencies:
-      '@tonightpass/kitchn':
+      'kitchn':
         specifier: workspace:*
         version: link:../../packages/kitchn
       expo:
@@ -151,7 +151,7 @@ importers:
 
   examples/gatsby-typescript:
     dependencies:
-      '@tonightpass/kitchn':
+      'kitchn':
         specifier: latest
         version: link:../../packages/kitchn
       babel-plugin-styled-components:
@@ -197,7 +197,7 @@ importers:
 
   examples/next-typescript:
     dependencies:
-      '@tonightpass/kitchn':
+      'kitchn':
         specifier: latest
         version: link:../../packages/kitchn
       next:
@@ -225,7 +225,7 @@ importers:
 
   examples/react-typescript:
     dependencies:
-      '@tonightpass/kitchn':
+      'kitchn':
         specifier: latest
         version: link:../../packages/kitchn
       react:
@@ -311,7 +311,7 @@ importers:
 
   workshop:
     dependencies:
-      '@tonightpass/kitchn':
+      'kitchn':
         specifier: workspace:*
         version: link:../packages/kitchn
       next:

@@ -9,8 +9,8 @@
   <a aria-label="onRuntime Studio" href="https://onruntime.com">
     <img src="https://img.shields.io/badge/MADE%20BY%20ONRUNTIME-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
   </a>
-  <a aria-label="NPM version" href="https://npmjs.com/package/@tonightpass/kitchn">
-    <img alt="" src="https://img.shields.io/npm/v/@tonightpass/kitchn.svg?style=for-the-badge&labelColor=000000">
+  <a aria-label="NPM version" href="https://npmjs.com/package/kitchn">
+    <img alt="" src="https://img.shields.io/npm/v/kitchn.svg?style=for-the-badge&labelColor=000000">
   </a>
   <a aria-label="License" href="https://github.com/tonightpass/kitchn/blob/master/LICENSE">
     <img alt="" src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000">

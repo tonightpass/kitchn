@@ -1,4 +1,4 @@
-import { useTheme } from "@tonightpass/kitchn";
+import { useTheme } from "kitchn";
 
 const Logo: React.FC = () => {
   const { theme } = useTheme();

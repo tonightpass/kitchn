@@ -1,5 +1,5 @@
-import { KitchnProvider, Text as KitchnText } from "@tonightpass/kitchn/native";
 import { StatusBar } from "expo-status-bar";
+import { KitchnProvider, Text as KitchnText } from "kitchn/native";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {

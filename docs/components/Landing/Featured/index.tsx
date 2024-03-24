@@ -1,11 +1,4 @@
-import {
-  Button,
-  Container,
-  Link,
-  Text,
-  Image,
-  useTheme,
-} from "@tonightpass/kitchn";
+import { Button, Container, Link, Text, Image, useTheme } from "kitchn";
 
 const Featured: React.FC = () => {
   const { theme } = useTheme();
