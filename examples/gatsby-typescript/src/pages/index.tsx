@@ -66,9 +66,7 @@ const IndexPage: React.FC<PageProps> = () => {
               {"Docs\r"}
             </Text>
             <Text size={"small"} color={"light"} mt={"small"}>
-              {
-                "Find in-depth information about Kitchn components, hooks and\r"
-              }
+              {"Find in-depth information about Kitchn components, hooks and\r"}
               {"more.\r"}
             </Text>
           </Card>
