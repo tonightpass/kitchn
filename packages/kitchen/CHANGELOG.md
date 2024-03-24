@@ -1,162 +1,162 @@
-# @tonightpass/kitchen
+# @tonightpass/kitchn
 
 ## 1.16.0
 
 ### Minor Changes
 
-- [#468](https://github.com/tonightpass/kitchen/pull/468) [`baa1e0a`](https://github.com/tonightpass/kitchen/commit/baa1e0ac968e106c03cabd4b9d87887dfccca916) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Entity
+- [#468](https://github.com/tonightpass/kitchn/pull/468) [`baa1e0a`](https://github.com/tonightpass/kitchn/commit/baa1e0ac968e106c03cabd4b9d87887dfccca916) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Entity
 
 ## 1.15.4
 
 ### Patch Changes
 
-- [`ce0b7fe`](https://github.com/tonightpass/kitchen/commit/ce0b7feae3fed243fbd573a19994f04f3b7e4f34) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with custom format
+- [`ce0b7fe`](https://github.com/tonightpass/kitchn/commit/ce0b7feae3fed243fbd573a19994f04f3b7e4f34) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with custom format
 
 ## 1.15.3
 
 ### Patch Changes
 
-- [`b67b8f5`](https://github.com/tonightpass/kitchen/commit/b67b8f58efee1f46314be7164bcffb3b421bed43) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add offset to Menu
+- [`b67b8f5`](https://github.com/tonightpass/kitchn/commit/b67b8f58efee1f46314be7164bcffb3b421bed43) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add offset to Menu
 
 ## 1.15.2
 
 ### Patch Changes
 
-- [`fdb5842`](https://github.com/tonightpass/kitchen/commit/fdb5842d5e8ba5dab9b1e38d18908d9dd917c7f7) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix select height
+- [`fdb5842`](https://github.com/tonightpass/kitchn/commit/fdb5842d5e8ba5dab9b1e38d18908d9dd917c7f7) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix select height
 
-- [`5b53d91`](https://github.com/tonightpass/kitchen/commit/5b53d91606d3222deb9aaa109e65d3e865f95ede) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with other placeholders
+- [`5b53d91`](https://github.com/tonightpass/kitchn/commit/5b53d91606d3222deb9aaa109e65d3e865f95ede) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with other placeholders
 
 ## 1.15.1
 
 ### Patch Changes
 
-- [#461](https://github.com/tonightpass/kitchen/pull/461) [`010d967`](https://github.com/tonightpass/kitchen/commit/010d967ab9915aad647343898d73d091e7350e13) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Calendar types
+- [#461](https://github.com/tonightpass/kitchn/pull/461) [`010d967`](https://github.com/tonightpass/kitchn/commit/010d967ab9915aad647343898d73d091e7350e13) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Calendar types
 
 ## 1.15.0
 
 ### Minor Changes
 
-- [#446](https://github.com/tonightpass/kitchen/pull/446) [`60cdc9a`](https://github.com/tonightpass/kitchen/commit/60cdc9a3df85dcc3bb5b3b9bb9ba14ae291534bc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Calendar
+- [#446](https://github.com/tonightpass/kitchn/pull/446) [`60cdc9a`](https://github.com/tonightpass/kitchn/commit/60cdc9a3df85dcc3bb5b3b9bb9ba14ae291534bc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Calendar
 
 ### Patch Changes
 
-- [`6952f60`](https://github.com/tonightpass/kitchen/commit/6952f6004b48bc14abfc603184ae0257e3cbd749) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Input with htmlType prop
+- [`6952f60`](https://github.com/tonightpass/kitchn/commit/6952f6004b48bc14abfc603184ae0257e3cbd749) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Input with htmlType prop
 
-- [`7da7178`](https://github.com/tonightpass/kitchen/commit/7da717839badef6026d44467a3109541d84d9f6a) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow hidden to Fieldset Container
+- [`7da7178`](https://github.com/tonightpass/kitchn/commit/7da717839badef6026d44467a3109541d84d9f6a) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow hidden to Fieldset Container
 
-- [`b7bf989`](https://github.com/tonightpass/kitchen/commit/b7bf98939cc57019e0917de94cca65754ae61b18) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add htmlType props to Button
+- [`b7bf989`](https://github.com/tonightpass/kitchn/commit/b7bf98939cc57019e0917de94cca65754ae61b18) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add htmlType props to Button
 
-- [`b7bf989`](https://github.com/tonightpass/kitchen/commit/b7bf98939cc57019e0917de94cca65754ae61b18) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Revert changes to 1.14.0
+- [`b7bf989`](https://github.com/tonightpass/kitchn/commit/b7bf98939cc57019e0917de94cca65754ae61b18) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Revert changes to 1.14.0
 
-- [`40e8e48`](https://github.com/tonightpass/kitchen/commit/40e8e486a77fe8093ee19e4f8b36eee2f5772ea2) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow and border-radius styles to Skeleton
+- [`40e8e48`](https://github.com/tonightpass/kitchn/commit/40e8e486a77fe8093ee19e4f8b36eee2f5772ea2) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow and border-radius styles to Skeleton
 
 ## 1.13.12
 
 ### Patch Changes
 
-- [`c253468`](https://github.com/tonightpass/kitchen/commit/c253468a4a62eaee70178d715810355217871fa9) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update label style on select and input
+- [`c253468`](https://github.com/tonightpass/kitchn/commit/c253468a4a62eaee70178d715810355217871fa9) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update label style on select and input
 
-- [`188d2b4`](https://github.com/tonightpass/kitchen/commit/188d2b4f32866db83c7d57432700ee8e7617213e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add setThemeStyle function to ThemeContext
+- [`188d2b4`](https://github.com/tonightpass/kitchn/commit/188d2b4f32866db83c7d57432700ee8e7617213e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add setThemeStyle function to ThemeContext
 
 ## 1.13.11
 
 ### Patch Changes
 
-- [`be1d1b0`](https://github.com/tonightpass/kitchen/commit/be1d1b0d984e0f0e7f6169973db07adb06d660e7) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Refactor onContentClick function in Menu
+- [`be1d1b0`](https://github.com/tonightpass/kitchn/commit/be1d1b0d984e0f0e7f6169973db07adb06d660e7) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Refactor onContentClick function in Menu
 
 ## 1.13.10
 
 ### Patch Changes
 
-- [`c331919`](https://github.com/tonightpass/kitchen/commit/c331919a1cd350685f826801fe244bf9bd8a7d96) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix data-menuitem prop type in MenuItem
+- [`c331919`](https://github.com/tonightpass/kitchn/commit/c331919a1cd350685f826801fe244bf9bd8a7d96) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix data-menuitem prop type in MenuItem
 
 ## 1.13.9
 
 ### Patch Changes
 
-- [`cc32f35`](https://github.com/tonightpass/kitchen/commit/cc32f353328497edef0738ac6b91f306e5a8b3b5) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Tooltip component to handle content click
+- [`cc32f35`](https://github.com/tonightpass/kitchn/commit/cc32f353328497edef0738ac6b91f306e5a8b3b5) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Tooltip component to handle content click
 
 ## 1.13.8
 
 ### Patch Changes
 
-- [`3e7010d`](https://github.com/tonightpass/kitchen/commit/3e7010ddddc12e71e0f6eb01d95d0344fbe2fba4) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update dark button border color
+- [`3e7010d`](https://github.com/tonightpass/kitchn/commit/3e7010ddddc12e71e0f6eb01d95d0344fbe2fba4) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update dark button border color
 
-- [`8fce4c9`](https://github.com/tonightpass/kitchen/commit/8fce4c9d107d367356af0ad72fc05b618e84c529) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Remove console.log statement in Tooltip
+- [`8fce4c9`](https://github.com/tonightpass/kitchn/commit/8fce4c9d107d367356af0ad72fc05b618e84c529) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Remove console.log statement in Tooltip
 
 ## 1.13.7
 
 ### Patch Changes
 
-- [`2a60461`](https://github.com/tonightpass/kitchen/commit/2a60461b9ab338b01a9eba58484ebe1245d9b508) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix decorator border types
+- [`2a60461`](https://github.com/tonightpass/kitchn/commit/2a60461b9ab338b01a9eba58484ebe1245d9b508) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix decorator border types
 
 ## 1.13.6
 
 ### Patch Changes
 
-- [`f80ebbb`](https://github.com/tonightpass/kitchen/commit/f80ebbb424873b2b33b6a8170d87743d4b093313) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Modal style
+- [`f80ebbb`](https://github.com/tonightpass/kitchn/commit/f80ebbb424873b2b33b6a8170d87743d4b093313) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Modal style
 
 ## 1.13.5
 
 ### Patch Changes
 
-- [`b5354d4`](https://github.com/tonightpass/kitchen/commit/b5354d4c1d4f90eaf2ce7e551e8697c416ea1859) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Menu Section types
+- [`b5354d4`](https://github.com/tonightpass/kitchn/commit/b5354d4c1d4f90eaf2ce7e551e8697c416ea1859) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Menu Section types
 
 ## 1.13.4
 
 ### Patch Changes
 
-- [`379515a`](https://github.com/tonightpass/kitchen/commit/379515a0f8f936bdcad292158c1c1883c489e17e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Fieldset styles and add wai standarts
+- [`379515a`](https://github.com/tonightpass/kitchn/commit/379515a0f8f936bdcad292158c1c1883c489e17e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Fieldset styles and add wai standarts
 
 ## 1.13.3
 
 ### Patch Changes
 
-- [`9136e55`](https://github.com/tonightpass/kitchen/commit/9136e551d1fe1d5fe26433a1a1d460d011691079) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add active state to MenuItem
+- [`9136e55`](https://github.com/tonightpass/kitchn/commit/9136e551d1fe1d5fe26433a1a1d460d011691079) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add active state to MenuItem
 
 ## 1.13.2
 
 ### Patch Changes
 
-- [`f1c74cb`](https://github.com/tonightpass/kitchen/commit/f1c74cb44315ea8d52daaafe3f2fa3e280b40e92) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Globalstyle html and body height issue
+- [`f1c74cb`](https://github.com/tonightpass/kitchn/commit/f1c74cb44315ea8d52daaafe3f2fa3e280b40e92) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Globalstyle html and body height issue
 
 ## 1.13.1
 
 ### Patch Changes
 
-- [`bf67467`](https://github.com/tonightpass/kitchen/commit/bf67467b84b929387c2da88aa51f1a3d582ef81c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Fieldset footer actions style
+- [`bf67467`](https://github.com/tonightpass/kitchn/commit/bf67467b84b929387c2da88aa51f1a3d582ef81c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Fieldset footer actions style
 
 ## 1.13.0
 
 ### Minor Changes
 
-- [#139](https://github.com/tonightpass/kitchen/pull/139) [`f09f7c2`](https://github.com/tonightpass/kitchen/commit/f09f7c2fe345014f6e495de88c03372901636633) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add Fieldset
+- [#139](https://github.com/tonightpass/kitchn/pull/139) [`f09f7c2`](https://github.com/tonightpass/kitchn/commit/f09f7c2fe345014f6e495de88c03372901636633) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add Fieldset
 
 ### Patch Changes
 
-- [#139](https://github.com/tonightpass/kitchen/pull/139) [`ade3ce0`](https://github.com/tonightpass/kitchen/commit/ade3ce03e0a2d61c9d3638bb76c5c1629ac75b86) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add compact size to main theme
+- [#139](https://github.com/tonightpass/kitchn/pull/139) [`ade3ce0`](https://github.com/tonightpass/kitchn/commit/ade3ce03e0a2d61c9d3638bb76c5c1629ac75b86) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add compact size to main theme
 
-- [#139](https://github.com/tonightpass/kitchen/pull/139) [`8ad95ac`](https://github.com/tonightpass/kitchen/commit/8ad95acbe3ed06703717f3b3d972e57b478d71ff) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Update button loading and disabled style
+- [#139](https://github.com/tonightpass/kitchn/pull/139) [`8ad95ac`](https://github.com/tonightpass/kitchn/commit/8ad95acbe3ed06703717f3b3d972e57b478d71ff) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Update button loading and disabled style
 
 ## 1.12.5
 
 ### Patch Changes
 
-- [`2f8c04b`](https://github.com/tonightpass/kitchen/commit/2f8c04ba1ac6d315b338dd935b23e35b90e2094c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Pin styled-components to 6.0.7
+- [`2f8c04b`](https://github.com/tonightpass/kitchn/commit/2f8c04ba1ac6d315b338dd935b23e35b90e2094c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Pin styled-components to 6.0.7
 
 ## 1.12.4
 
 ### Patch Changes
 
-- [`38728c9`](https://github.com/tonightpass/kitchen/commit/38728c9751f6ec90ed0ebd6516838dbe572b7d0c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix radius handler
+- [`38728c9`](https://github.com/tonightpass/kitchn/commit/38728c9751f6ec90ed0ebd6516838dbe572b7d0c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix radius handler
 
 ## 1.12.3
 
 ### Patch Changes
 
-- [#402](https://github.com/tonightpass/kitchen/pull/402) [`0557691`](https://github.com/tonightpass/kitchen/commit/0557691d2bba4f32272c3453ac0b0010f5af3d78) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add WAI-ARIA standards
+- [#402](https://github.com/tonightpass/kitchn/pull/402) [`0557691`](https://github.com/tonightpass/kitchn/commit/0557691d2bba4f32272c3453ac0b0010f5af3d78) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add WAI-ARIA standards
 
-- [`ad821aa`](https://github.com/tonightpass/kitchen/commit/ad821aa07aa39d0e9219b23c9f73372ba066dc3e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Move from scale to decorator that merge both box and scale to fix types issues (so Box and Scale hoc are deprecated)
+- [`ad821aa`](https://github.com/tonightpass/kitchn/commit/ad821aa07aa39d0e9219b23c9f73372ba066dc3e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Move from scale to decorator that merge both box and scale to fix types issues (so Box and Scale hoc are deprecated)
 
 ## 1.12.2
 
@@ -321,7 +321,7 @@
 
 ### Minor Changes
 
-- 7eae7e5: Move kitchen/next/link to kitchen/link compatible with next
+- 7eae7e5: Move kitchn/next/link to kitchn/link compatible with next
 
 ## 1.9.1
 
@@ -342,7 +342,7 @@
 
   Fix couples of things related to styled-components v6
 
-  Remove `withKitchen` hoc, now use the `KitchenProvider` component with next
+  Remove `withKitchn` hoc, now use the `KitchnProvider` component with next
 
 ## 1.8.3
 
@@ -418,7 +418,7 @@
 - bdf6007: Add a HOC for Next.js to get the theme from the server side
   Update default themes name
 
-  To migrate please update your project like by following the doc: https://kitchen.tonightpass.com/docs/frameworks/nextjs
+  To migrate please update your project like by following the doc: https://kitchn.tonightpass.com/docs/frameworks/nextjs
 
 ## 1.6.1
 

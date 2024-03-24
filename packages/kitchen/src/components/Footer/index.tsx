@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import Collapse from "../Collapse";
 import Link, { LinkProps } from "../Link";
 
@@ -15,7 +15,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export type FooterProps = KitchenComponent<Props>;
+export type FooterProps = KitchnComponent<Props>;
 
 const FooterComponent = styled(
   ({ children, subfooter, ...props }: FooterProps) => {
@@ -63,7 +63,7 @@ export const FooterColumn = styled.div``;
 type GroupProps = {
   title: string;
 };
-export type FooterGroupProps = KitchenComponent<GroupProps>;
+export type FooterGroupProps = KitchnComponent<GroupProps>;
 export const FooterGroup = styled(
   ({ title, children, ...props }: FooterGroupProps) => {
     const { isMobile } = useBreakpoint();
@@ -104,7 +104,7 @@ const FooterList = styled.ul`
   }
 `;
 
-export type FooterLinkProps = KitchenComponent<
+export type FooterLinkProps = KitchnComponent<
   {
     href: LinkProps["href"];
   },
@@ -135,6 +135,6 @@ export const SubFooter = styled.section`
   padding: 0 ${({ theme }) => theme.gap.large};
 `;
 
-FooterComponent.displayName = "KitchenFooter";
+FooterComponent.displayName = "KitchnFooter";
 export const Footer = withDecorator(FooterComponent);
 export default Footer;

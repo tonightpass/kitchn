@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { isNumber } from "../../utils/isNumber";
 import { shortenName } from "../../utils/shortenName";
 import Text from "../Text";
@@ -35,7 +35,7 @@ type Props = {
   shape?: "square" | "round";
 };
 
-export type AvatarProps = KitchenComponent<Props>;
+export type AvatarProps = KitchnComponent<Props>;
 
 const AvatarComponent = styled(
   ({ size = 30, src, text, shape, ...props }: AvatarProps) => {
@@ -80,6 +80,6 @@ export const AvatarImage = styled.img<{ shape?: AvatarProps["shape"] }>`
     shape === "square" ? theme.radius.square : theme.radius.round};
 `;
 
-AvatarComponent.displayName = "KitchenAvatar";
+AvatarComponent.displayName = "KitchnAvatar";
 export const Avatar = withDecorator(AvatarComponent);
 export default Avatar;

@@ -1,7 +1,7 @@
-import { KitchenDocument } from "@tonightpass/kitchen/next";
+import { KitchnDocument } from "@tonightpass/kitchn/next";
 import { Head, Html, Main, NextScript } from "next/document";
 
-export default class MyDocument extends KitchenDocument {
+export default class MyDocument extends KitchnDocument {
   render() {
     return (
       <Html>

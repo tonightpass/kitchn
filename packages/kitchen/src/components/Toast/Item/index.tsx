@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { convertRGBToRGBA } from "../../../";
 import { withDecorator } from "../../../hoc/withDecorator";
 import { Toast, ToastLayout } from "../../../hooks/useToasts";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 import { getTranslateByPlacement } from "../../../utils/getTranslateByPlacement";
 import Container from "../../Container";
 import Text from "../../Text";
@@ -15,7 +15,7 @@ type Props = {
   layout: Required<ToastLayout>;
 };
 
-export type ToastItemProps = KitchenComponent<Props>;
+export type ToastItemProps = KitchnComponent<Props>;
 
 const ToastItemComponent = styled(
   ({ toast, layout, ...props }: ToastItemProps) => {
@@ -158,7 +158,7 @@ export const ToastItemAnimationContainer = styled.div<
     }};
 `;
 
-ToastItemComponent.displayName = "KitchenToastItem";
+ToastItemComponent.displayName = "KitchnToastItem";
 const ToastItemMemo = React.memo(ToastItemComponent);
 export const ToastItem = withDecorator(ToastItemMemo);
 export default ToastItem;

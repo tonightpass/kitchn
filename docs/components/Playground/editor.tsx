@@ -1,4 +1,4 @@
-import { Icon, useClipboard, useTheme, useToasts } from "@tonightpass/kitchen";
+import { Icon, useClipboard, useTheme, useToasts } from "@tonightpass/kitchn";
 import React, { useState } from "react";
 import { RiArrowRightSLine, RiFileCopyLine } from "react-icons/ri";
 import { LiveEditor } from "react-live";

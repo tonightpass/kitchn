@@ -1,4 +1,4 @@
-import * as components from "@tonightpass/kitchen";
+import * as components from "@tonightpass/kitchn";
 
 const scope = {
   ...components,

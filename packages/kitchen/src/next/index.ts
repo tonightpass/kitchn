@@ -1,3 +1,3 @@
-export { default as KitchenDocument } from "./components/Document";
+export { default as KitchnDocument } from "./components/Document";
 
-export { default as withKitchenConfig } from "./hoc/withKitchenConfig";
+export { default as withKitchnConfig } from "./hoc/withKitchnConfig";

@@ -8,7 +8,7 @@ import {
   Spinner,
   Text,
   Tooltip,
-} from "@tonightpass/kitchen";
+} from "@tonightpass/kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { RiInformationFill } from "react-icons/ri";

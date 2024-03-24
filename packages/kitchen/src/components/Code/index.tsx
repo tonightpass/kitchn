@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 
 type Props = {
   title: string;
 };
 
-export type CodeProps = KitchenComponent<
+export type CodeProps = KitchnComponent<
   Props,
   React.HTMLAttributes<HTMLPreElement>
 >;
@@ -65,6 +65,6 @@ export const CodeContent = styled.code`
   hyphens: none;
 `;
 
-CodeComponent.displayName = "KitchenCode";
+CodeComponent.displayName = "KitchnCode";
 export const Code = withDecorator(CodeComponent);
 export default Code;

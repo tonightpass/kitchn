@@ -1,7 +1,7 @@
 import Examples from "@components/Landing/Examples";
 import Featured from "@components/Landing/Featured";
 import Features from "@components/Landing/Features";
-import { Container } from "@tonightpass/kitchen";
+import { Container } from "@tonightpass/kitchn";
 import Showcase from "components/Landing/Showcase";
 
 const Landing: React.FC = () => {

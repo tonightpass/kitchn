@@ -1,2 +1,2 @@
 export const PREFIX = "kc";
-export const NAME = "Kitchen";
+export const NAME = "Kitchn";

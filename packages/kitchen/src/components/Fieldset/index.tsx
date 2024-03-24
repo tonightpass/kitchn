@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { convertRGBToRGBA, withDecorator } from "../..";
-import { AccentColors, KitchenComponent } from "../../types";
+import { AccentColors, KitchnComponent } from "../../types";
 import { Container, ContainerProps } from "../Container";
 import { Tab, Tabs } from "../Tabs";
 import { Text, TextProps } from "../Text";
@@ -15,7 +15,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export type FieldsetProps = KitchenComponent<Props>;
+export type FieldsetProps = KitchnComponent<Props>;
 
 const FieldsetFooterActions = styled(
   ({ children, ...props }: ContainerProps) => {
@@ -117,7 +117,7 @@ export const isFieldsetContainer = (
   return React.isValidElement(child) && child.type === Fieldset.Container;
 };
 
-export type FieldsetTabsProps = KitchenComponent<
+export type FieldsetTabsProps = KitchnComponent<
   {
     tabs: string[];
   } & ContainerProps

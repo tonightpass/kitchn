@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { useRect } from "../../hooks/useRect";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { capitalize } from "../../utils/capitalize";
 import Highlight from "../Highlight";
 
@@ -24,7 +24,7 @@ type Props = {
   highlight?: boolean;
 };
 
-export type TabsProps = KitchenComponent<Props>;
+export type TabsProps = KitchnComponent<Props>;
 
 const TabsComponent = styled(
   ({
@@ -137,6 +137,6 @@ export const Tab = styled.div<{ active?: boolean; disabled: boolean }>`
   }
 `;
 
-TabsComponent.displayName = "KitchenTabs";
+TabsComponent.displayName = "KitchnTabs";
 export const Tabs = withDecorator(TabsComponent);
 export default Tabs;

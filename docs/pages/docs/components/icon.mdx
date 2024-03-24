@@ -6,7 +6,7 @@ description: "Display icons using well-defined styles."
 import { Callout } from "nextra-theme-docs";
 import Playground from "@components/Playground";
 import { RiHomeFill } from "react-icons/ri";
-import kitchen, { Container } from "@tonightpass/kitchen";
+import kitchn, { Container } from "@tonightpass/kitchn";
 
 # Icon
 
@@ -14,10 +14,10 @@ Display icons using well-defined styles.
 
 ## Usage
 
-First of all, you need to import the `Icon` component from the `@tonightpass/kitchen` package.
+First of all, you need to import the `Icon` component from the `@tonightpass/kitchn` package.
 
 ```js
-import { Icon } from "@tonightpass/kitchen"
+import { Icon } from "@tonightpass/kitchn"
 ```
 
 ## Props
@@ -120,7 +120,7 @@ Number and string values in pixels are accepted as well.
 
 ## Align
 
-export const IconContainer = kitchen(Container)`
+export const IconContainer = kitchn(Container)`
   height: 30px;
 `;
 

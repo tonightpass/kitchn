@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://kitchen.tonightpass.com">
-    <img src="https://kitchen.tonightpass.com/static/icon/kitchen-icon.svg" alt="Kitchen" height="50" />
-    <h3 align="center">Kitchen</h3>
+  <a href="https://kitchn.tonightpass.com">
+    <img src="https://kitchn.tonightpass.com/static/icon/kitchn-icon.svg" alt="Kitchn" height="50" />
+    <h3 align="center">Kitchn</h3>
   </a>
 </p>
 
@@ -9,10 +9,10 @@
   <a aria-label="onRuntime Studio" href="https://onruntime.com">
     <img src="https://img.shields.io/badge/MADE%20BY%20ONRUNTIME-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
   </a>
-  <a aria-label="NPM version" href="https://npmjs.com/package/@tonightpass/kitchen">
-    <img alt="" src="https://img.shields.io/npm/v/@tonightpass/kitchen.svg?style=for-the-badge&labelColor=000000">
+  <a aria-label="NPM version" href="https://npmjs.com/package/@tonightpass/kitchn">
+    <img alt="" src="https://img.shields.io/npm/v/@tonightpass/kitchn.svg?style=for-the-badge&labelColor=000000">
   </a>
-  <a aria-label="License" href="https://github.com/tonightpass/kitchen/blob/master/LICENSE">
+  <a aria-label="License" href="https://github.com/tonightpass/kitchn/blob/master/LICENSE">
     <img alt="" src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000">
   </a> 
   <br />
@@ -33,15 +33,15 @@
 
 ## Getting Started
 
-Visit [kitchen.tonightpass.com/docs](https://kitchen.tonightpass.com/docs) to get started with Kitchen.
+Visit [kitchn.tonightpass.com/docs](https://kitchn.tonightpass.com/docs) to get started with Kitchn.
 
 ## Documentation
 
-Visit [kitchen.tonightpass.com/docs](https://kitchen.tonightpass.com/docs) to view the full documentation.
+Visit [kitchn.tonightpass.com/docs](https://kitchn.tonightpass.com/docs) to view the full documentation.
 
-## Who is using Kitchen?
+## Who is using Kitchn?
 
-Kitchen is fully used by Tonight Pass and aims to be used by others to build their own products. Check out the [Kitchen Showcase](https://kitchen.tonightpass.com/showcase) to learn more.
+Kitchn is fully used by Tonight Pass and aims to be used by others to build their own products. Check out the [Kitchn Showcase](https://kitchn.tonightpass.com/showcase) to learn more.
 
 ## Community
 
@@ -59,7 +59,7 @@ To get started, check out our [contributing guide](https://docs.onruntime.com/co
 
 We'd love for you to join us! Whether it's through giving us a 🌟 star, making a 📥 pull request, or sharing your feedback, your help is always appreciated.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=tonightpass/kitchen&type=Date)](https://star-history.com/#tonightpass/kitchen&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=tonightpass/kitchn&type=Date)](https://star-history.com/#tonightpass/kitchn&Date)
 
 ## Authors
 
@@ -69,4 +69,4 @@ We'd love for you to join us! Whether it's through giving us a 🌟 star, making
 
 ## License
 
-Kitchen is [MIT licensed](LICENSE).
+Kitchn is [MIT licensed](LICENSE).

@@ -16,25 +16,25 @@ const modifyWebpackConfig = (config) => {
 
 module.exports = [
   {
-    path: "packages/kitchen/dist/index.cjs.js",
+    path: "packages/kitchn/dist/index.cjs.js",
   },
   {
-    path: "packages/kitchen/dist/index.esm.js",
+    path: "packages/kitchn/dist/index.esm.js",
   },
   {
-    path: "packages/kitchen/dist/next/index.cjs.js",
+    path: "packages/kitchn/dist/next/index.cjs.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/dist/next/index.esm.js",
+    path: "packages/kitchn/dist/next/index.esm.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/dist/native/index.cjs.js",
+    path: "packages/kitchn/dist/native/index.cjs.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/dist/native/index.esm.js",
+    path: "packages/kitchn/dist/native/index.esm.js",
     modifyWebpackConfig,
   },
 ];

@@ -1,10 +1,10 @@
-import { useTheme } from "@tonightpass/kitchen";
+import { useTheme } from "@tonightpass/kitchn";
 import React from "react";
 import { LivePreview, LiveProvider, LiveError } from "react-live";
 
 import makeCodeTheme from "./code-theme";
 import Editor from "./editor";
-import kitchenScope from "./scope";
+import kitchnScope from "./scope";
 
 export interface Props {
   code: string;
@@ -19,7 +19,7 @@ const DynamicLive: React.FC<Props> = ({ code, scope }) => {
   return (
     <LiveProvider
       code={code}
-      scope={{ ...scope, ...kitchenScope }}
+      scope={{ ...scope, ...kitchnScope }}
       theme={codeTheme}
     >
       <div className={"wrapper"}>

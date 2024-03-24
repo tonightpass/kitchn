@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { capitalize, isString } from "../..";
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchnComponent, NormalSizes } from "../../types";
 
 type Props = {
   /**
@@ -24,7 +24,7 @@ type Props = {
   bold?: boolean;
 };
 
-export type BadgeProps = KitchenComponent<Props>;
+export type BadgeProps = KitchnComponent<Props>;
 
 const BadgeComponent = styled(({ children, ...props }: BadgeProps) => {
   return (
@@ -103,6 +103,6 @@ const BadgeComponent = styled(({ children, ...props }: BadgeProps) => {
   }};
 `;
 
-BadgeComponent.displayName = "KitchenBadge";
+BadgeComponent.displayName = "KitchnBadge";
 export const Badge = withDecorator(BadgeComponent);
 export default Badge;

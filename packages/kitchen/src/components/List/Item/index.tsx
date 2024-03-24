@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc/withDecorator";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 
-export type ListItemProps = KitchenComponent<
+export type ListItemProps = KitchnComponent<
   object,
   React.LiHTMLAttributes<HTMLElement>
 >;
@@ -18,6 +18,6 @@ const ListItemComponent = styled((props: ListItemProps) => {
   }
 `;
 
-ListItemComponent.displayName = "KitchenListItem";
+ListItemComponent.displayName = "KitchnListItem";
 export const ListItem = withDecorator(ListItemComponent);
 export default ListItem;

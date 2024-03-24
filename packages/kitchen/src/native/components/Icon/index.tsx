@@ -3,7 +3,7 @@ import RemixIcon from "react-native-remix-icon";
 
 import { withScale } from "../../hoc";
 import { useTheme } from "../../hooks";
-import { AccentColors, KitchenComponent, Size, TextColors } from "../../types";
+import { AccentColors, KitchnComponent, Size, TextColors } from "../../types";
 
 type Props = {
   name: string;
@@ -19,7 +19,7 @@ type Props = {
   accent?: keyof AccentColors;
 };
 
-export type IconProps = KitchenComponent<Props>;
+export type IconProps = KitchnComponent<Props>;
 
 const IconComponent = ({
   name,
@@ -45,6 +45,6 @@ const IconComponent = ({
   );
 };
 
-IconComponent.displayName = "KitchenIcon";
+IconComponent.displayName = "KitchnIcon";
 export const Icon = withScale(IconComponent);
 export default Icon;

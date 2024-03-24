@@ -63,6 +63,6 @@ const ControlledInputComponent = React.forwardRef(
   ),
 );
 
-ControlledInputComponent.displayName = "KitchenControlledInput";
+ControlledInputComponent.displayName = "KitchnControlledInput";
 export const ControlledInput = withDecorator(ControlledInputComponent);
 export default ControlledInput;

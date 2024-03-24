@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { handlePixelValue, withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
 type Props = {
@@ -87,7 +87,7 @@ type Props = {
   monospace?: boolean;
 };
 
-export type TextProps = KitchenComponent<Props>;
+export type TextProps = KitchnComponent<Props>;
 
 const TextComponent = styled(({ children, ...props }: TextProps) => {
   const Component = props.h1
@@ -174,6 +174,6 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
   }
 `;
 
-TextComponent.displayName = "KitchenText";
+TextComponent.displayName = "KitchnText";
 export const Text = withDecorator(TextComponent);
 export default Text;

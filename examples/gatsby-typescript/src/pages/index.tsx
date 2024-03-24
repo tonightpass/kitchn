@@ -1,19 +1,19 @@
-import kitchen, {
+import kitchn, {
   Container,
   convertRGBToRGBA,
   Image,
   Text,
   Link,
-  KitchenProvider,
+  KitchnProvider,
   rotate,
-} from "@tonightpass/kitchen";
+} from "@tonightpass/kitchn";
 import type { HeadFC, PageProps } from "gatsby";
 import * as React from "react";
-import "@tonightpass/kitchen/fonts.css";
+import "@tonightpass/kitchn/fonts.css";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <KitchenProvider>
+    <KitchnProvider>
       <Container
         maxW={"laptop"}
         mx={"auto"}
@@ -33,7 +33,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <Text weight={"semiBold"} size={"small"}>
               {"by\r"}
             </Text>
-            <KitchenTypo
+            <KitchnTypo
               src={"/tonightpass.svg"}
               alt={"TonightPass"}
               w={100}
@@ -49,15 +49,15 @@ const IndexPage: React.FC<PageProps> = () => {
           gap={18}
           row
         >
-          <KitchenIcon>
-            <Image src={"/icon.svg"} alt={"Kitchen Icon"} h={50} />
-          </KitchenIcon>
-          <KitchenTypo src={"/typo.svg"} alt={"Kitchen Typo"} h={42} />
+          <KitchnIcon>
+            <Image src={"/icon.svg"} alt={"Kitchn Icon"} h={50} />
+          </KitchnIcon>
+          <KitchnTypo src={"/typo.svg"} alt={"Kitchn Typo"} h={42} />
         </Centered>
         <Container w={"100%"} gap={"small"} row>
           <Card
             as={Link}
-            href={"https://kitchen.tonightpass.com/docs"}
+            href={"https://kitchn.tonightpass.com/docs"}
             p={"small"}
             flex={1}
             br={"square"}
@@ -67,7 +67,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </Text>
             <Text size={"small"} color={"light"} mt={"small"}>
               {
-                "Find in-depth information about Kitchen components, hooks and\r"
+                "Find in-depth information about Kitchn components, hooks and\r"
               }
               {"more.\r"}
             </Text>
@@ -102,14 +102,14 @@ const IndexPage: React.FC<PageProps> = () => {
               {"Sponsor us\r"}
             </Text>
             <Text size={"small"} color={"light"} mt={"small"}>
-              {"Help us build Kitchen and support the open-source community.\r"}
+              {"Help us build Kitchn and support the open-source community.\r"}
             </Text>
           </Card>
 
           <Card
             as={Link}
             href={
-              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchen/tree/master/examples/gatsby-typescript&project-name=kitchen-app&repository-name=kitchen-app"
+              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/gatsby-typescript&project-name=kitchn-app&repository-name=kitchn-app"
             }
             p={"small"}
             flex={1}
@@ -126,11 +126,11 @@ const IndexPage: React.FC<PageProps> = () => {
           </Card>
         </Container>
       </Container>
-    </KitchenProvider>
+    </KitchnProvider>
   );
 };
 
-const Card = kitchen(Container)<{
+const Card = kitchn(Container)<{
   active?: boolean;
 }>`
   border: 1px solid ${({ theme, active }) =>
@@ -141,7 +141,7 @@ const Card = kitchen(Container)<{
   }
 `;
 
-const Centered = kitchen(Container)`
+const Centered = kitchn(Container)`
   position: relative;
 
   &::before, &::after {
@@ -176,13 +176,13 @@ const Centered = kitchen(Container)`
   }
 `;
 
-const KitchenTypo = kitchen(Image)`
+const KitchnTypo = kitchn(Image)`
   @media (prefers-color-scheme: dark) {
     filter: invert(1) hue-rotate(180deg) brightness(1) contrast(1);
   }
 `;
 
-const KitchenIcon = kitchen.div`
+const KitchnIcon = kitchn.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -235,7 +235,7 @@ export default IndexPage;
 
 export const Head: HeadFC = () => (
   <>
-    <title>{"Create Kitchen Gatsby"}</title>
+    <title>{"Create Kitchn Gatsby"}</title>
     <link rel={"icon"} href={"/favicon.ico"} />
   </>
 );

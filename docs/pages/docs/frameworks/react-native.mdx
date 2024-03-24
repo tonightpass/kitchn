@@ -1,6 +1,6 @@
 ---
 title: React Native
-description: A guide for installing Kitchen with React Native
+description: A guide for installing Kitchn with React Native
 tags: ['react-native', 'installation', 'getting-started']
 category: frameworks
 ---
@@ -15,28 +15,28 @@ import { Callout, Tab, Tabs } from "nextra-theme-docs";
 </Callout>
 
 ## Installation
-In your React Native or Expo project, install Kitchen by running either of the following:
+In your React Native or Expo project, install Kitchn by running either of the following:
 
 ```sh npm2yarn
-npm i @tonightpass/kitchen --save
+npm i @tonightpass/kitchn --save
 ```
 
 ## Provider Setup
 
-After installing Kitchen, you need to set up the `KitchenProvider` at the root 
+After installing Kitchn, you need to set up the `KitchnProvider` at the root 
 of your application. This can be either in your `App.jsx` or `App.tsx` file.
 
 ```jsx
 // App.jsx
-import { KitchenProvider } from "@tonightpass/kitchen/native";
+import { KitchnProvider } from "@tonightpass/kitchn/native";
 
 export default function App({ Component, pageProps }) {
   return (
-    <KitchenProvider>
+    <KitchnProvider>
       <TheRestOfYourApplication />
-    </KitchenProvider>
+    </KitchnProvider>
   );
 }
 ```
 
-In addition, here is a complete [project example](https://github.com/tonightpass/kitchen/tree/master/examples/expo-typescript) using Kitchen with Expo.
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/expo-typescript) using Kitchn with Expo.

@@ -3,10 +3,10 @@ import { css } from "styled-components";
 import { PREFIX } from "../../constants";
 import { convertThemeToCssVariables } from "../../themes";
 import { Themes } from "../../types";
-import { KitchenProviderProps } from "../Provider";
+import { KitchnProviderProps } from "../Provider";
 
 export const generateThemeCss = (
-  attribute: KitchenProviderProps["attribute"],
+  attribute: KitchnProviderProps["attribute"],
   themes: Themes,
   theme: keyof Themes,
 ) => {
@@ -21,7 +21,7 @@ export const generateThemeCss = (
 
 export const themeCss = css<{
   staticThemes: Themes;
-  attribute: KitchenProviderProps["attribute"];
+  attribute: KitchnProviderProps["attribute"];
 }>`
   ${({ staticThemes, attribute }) => `
     :root {

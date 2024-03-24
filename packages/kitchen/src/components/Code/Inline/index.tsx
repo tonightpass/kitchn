@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc/withDecorator";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 
-export type InlineCodeProps = KitchenComponent<
+export type InlineCodeProps = KitchnComponent<
   object,
   React.HTMLAttributes<HTMLElement>
 >;
@@ -22,6 +22,6 @@ const InlineCodeComponent = styled((props: InlineCodeProps) => {
   white-space: pre-wrap;
 `;
 
-InlineCodeComponent.displayName = "KitchenInlineCode";
+InlineCodeComponent.displayName = "KitchnInlineCode";
 export const InlineCode = withDecorator(InlineCodeComponent);
 export default InlineCode;

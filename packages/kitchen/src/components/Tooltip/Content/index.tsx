@@ -5,7 +5,7 @@ import styled, { RuleSet } from "styled-components";
 import { TooltipPlacement, TooltipTypes } from "..";
 import { useClickAnyWhere, usePortal } from "../../../hooks";
 import { useResize } from "../../../hooks/useResize";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 import {
   TooltipPosition,
   defaultTooltipPosition,
@@ -31,7 +31,7 @@ type Props = {
   portalCss: RuleSet<object>;
 };
 
-export type TooltipContainerProps = KitchenComponent<Props>;
+export type TooltipContainerProps = KitchnComponent<Props>;
 
 const TooltipContent = styled(
   ({

@@ -3,10 +3,10 @@ import { TouchableOpacityProps } from "react-native/types";
 import styled from "styled-components/native";
 
 import {
-  KitchenComponent,
+  KitchnComponent,
   NormalSizes,
   AccentColors,
-  Text as KitchenText,
+  Text as KitchnText,
   withScale,
 } from "../../";
 
@@ -23,7 +23,7 @@ export type Props = {
   children?: string | React.ReactNode;
 };
 
-export type ButtonProps = KitchenComponent<Props, TouchableOpacityProps>;
+export type ButtonProps = KitchnComponent<Props, TouchableOpacityProps>;
 
 const ButtonComponent = ({
   children,
@@ -55,7 +55,7 @@ const ButtonComponent = ({
     >
       {prefix && <Prefix>{prefix}</Prefix>}
       {children && typeof children === "string" ? (
-        <KitchenText
+        <KitchnText
           color={textColor}
           accent={
             variant === "ghost"
@@ -84,7 +84,7 @@ const ButtonComponent = ({
           weight={"bold"}
         >
           {children}
-        </KitchenText>
+        </KitchnText>
       ) : (
         children
       )}
@@ -175,6 +175,6 @@ const Suffix = styled.View`
   margin-left: 7px;
 `;
 
-ButtonComponent.displayName = "KitchenButton";
+ButtonComponent.displayName = "KitchnButton";
 export const Button = withScale(ButtonComponent);
 export default Button;

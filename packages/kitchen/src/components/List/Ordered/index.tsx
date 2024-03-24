@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc/withDecorator";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 
-export type OrderedListProps = KitchenComponent<
+export type OrderedListProps = KitchnComponent<
   object,
   React.OlHTMLAttributes<HTMLElement>
 >;
@@ -18,6 +18,6 @@ const OrderedListComponent = styled((props: OrderedListProps) => {
   list-style-type: decimal;
 `;
 
-OrderedListComponent.displayName = "KitchenOrderedList";
+OrderedListComponent.displayName = "KitchnOrderedList";
 export const OrderedList = withDecorator(OrderedListComponent);
 export default OrderedList;

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { withDecorator } from "../../hoc/withDecorator";
 import { useKeyboard } from "../../hooks/useKeyboard";
 import { usePortal } from "../../hooks/usePortal";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { slideInUp, slideOutDown } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
 
@@ -17,7 +17,7 @@ type Props = {
   height?: number;
 };
 
-export type DrawerProps = KitchenComponent<Props>;
+export type DrawerProps = KitchnComponent<Props>;
 
 const DrawerComponent = styled(
   ({
@@ -141,6 +141,6 @@ export const DrawerContent = styled.div<{
   ${({ height }) => height && `height: ${height}px`};
 `;
 
-DrawerComponent.displayName = "KitchenDrawer";
+DrawerComponent.displayName = "KitchnDrawer";
 export const Drawer = withDecorator(DrawerComponent);
 export default Drawer;

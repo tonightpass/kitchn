@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { UrlObject } from "url";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { isString } from "../../utils/isString";
 
 type Props = {
@@ -33,7 +33,7 @@ type Props = {
   variant?: "highlight" | "primary" | "secondary" | "blend";
 };
 
-export type LinkProps = KitchenComponent<
+export type LinkProps = KitchnComponent<
   Props,
   React.AnchorHTMLAttributes<HTMLAnchorElement>
 >;
@@ -172,6 +172,6 @@ const LinkComponent = styled(
   }
 `;
 
-LinkComponent.displayName = "KitchenLink";
+LinkComponent.displayName = "KitchnLink";
 export const Link = withDecorator(LinkComponent);
 export default Link;

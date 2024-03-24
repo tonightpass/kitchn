@@ -3,7 +3,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import Icon from "../Icon";
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
   size?: "normal" | "small" | "medium";
 };
 
-export type CollapseProps = KitchenComponent<Props>;
+export type CollapseProps = KitchnComponent<Props>;
 
 const CollapseComponent = styled(
   ({
@@ -157,6 +157,6 @@ const CollapseContentContainer = styled.span`
   padding: 10px;
 `;
 
-CollapseComponent.displayName = "KitchenCollapse";
+CollapseComponent.displayName = "KitchnCollapse";
 export const Collapse = withDecorator(CollapseComponent);
 export default Collapse;

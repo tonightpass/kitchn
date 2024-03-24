@@ -7,14 +7,14 @@ import urlcat from "urlcat";
 
 const config: DocsThemeConfig = {
   project: {
-    link: "https://github.com/tonightpass/kitchen",
+    link: "https://github.com/tonightpass/kitchn",
   },
-  docsRepositoryBase: "https://github.com/tonightpass/kitchen/blob/master",
+  docsRepositoryBase: "https://github.com/tonightpass/kitchn/blob/master",
   useNextSeoProps() {
     const { route } = useRouter();
     if (route !== "/") {
       return {
-        titleTemplate: `%s${"%s".includes("Kitchen") ? "" : " - Kitchen"}`,
+        titleTemplate: `%s${"%s".includes("Kitchn") ? "" : " - Kitchn"}`,
       };
     }
   },
@@ -30,8 +30,8 @@ const config: DocsThemeConfig = {
     const { title, ...meta } = useConfig().frontMatter;
 
     const finalTitle = title
-      ? `${title}${title.includes("Kitchen") ? "" : " - Kitchen"}`
-      : "Kitchen";
+      ? `${title}${title.includes("Kitchn") ? "" : " - Kitchn"}`
+      : "Kitchn";
     const finalDescription =
       meta.description || "Delicious React styled components.";
 
@@ -61,11 +61,11 @@ const config: DocsThemeConfig = {
         <meta name={"og:description"} content={finalDescription} />
         <meta name={"twitter:card"} content={"summary_large_image"} />
         <meta name={"twitter:image"} content={finalThumbnailUrl} />
-        <meta name={"twitter:site:domain"} content={"kitchen.dev"} />
-        <meta name={"twitter:url"} content={"https://kitchen.dev"} />
+        <meta name={"twitter:site:domain"} content={"kitchn.dev"} />
+        <meta name={"twitter:url"} content={"https://kitchn.dev"} />
         <meta name={"og:title"} content={finalTitle} />
         <meta name={"og:image"} content={finalThumbnailUrl} />
-        <meta name={"apple-mobile-web-app-title"} content={"Kitchen"} />
+        <meta name={"apple-mobile-web-app-title"} content={"Kitchn"} />
         <link
           rel={"apple-touch-icon"}
           sizes={"180x180"}

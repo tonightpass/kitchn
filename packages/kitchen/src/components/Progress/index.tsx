@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 
 type Props = {
   value: number;
@@ -14,7 +14,7 @@ type Props = {
   checkpointTitle?: boolean;
 };
 
-export type ProgressProps = KitchenComponent<
+export type ProgressProps = KitchnComponent<
   Props,
   React.ProgressHTMLAttributes<HTMLProgressElement>
 >;
@@ -218,6 +218,6 @@ export const ProgressCheckpoint = styled.div<{
   }
 `;
 
-ProgressComponent.displayName = "KitchenProgress";
+ProgressComponent.displayName = "KitchnProgress";
 export const Progress = withDecorator(ProgressComponent);
 export default Progress;

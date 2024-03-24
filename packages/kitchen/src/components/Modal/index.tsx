@@ -6,7 +6,7 @@ import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { useKeyboard } from "../../hooks/useKeyboard";
 import { usePortal } from "../../hooks/usePortal";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { fadeInDown, fadeOutUp } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";
 import Button, { ButtonProps } from "../Button";
@@ -22,7 +22,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export type ModalProps = KitchenComponent<Props>;
+export type ModalProps = KitchnComponent<Props>;
 
 const ModalComponent = styled(
   ({

@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 
 import { capitalize } from "../../../utils/capitalize";
 import { withScale } from "../../hoc";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { AccentColors, Size, TextColors, Weight } from "../../types/theme";
 
 type Props = {
@@ -61,7 +61,7 @@ type Props = {
   monospace?: boolean;
 };
 
-export type TextProps = KitchenComponent<Props, NTextProps>;
+export type TextProps = KitchnComponent<Props, NTextProps>;
 
 const TextComponent = styled(({ children, truncate, ...props }: TextProps) => {
   return (
@@ -100,6 +100,6 @@ const TextComponent = styled(({ children, truncate, ...props }: TextProps) => {
   }};
 `;
 
-TextComponent.displayName = "KitchenText";
+TextComponent.displayName = "KitchnText";
 export const Text = withScale(TextComponent);
 export default Text;

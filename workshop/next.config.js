@@ -1,4 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { withKitchenConfig } = require("@tonightpass/kitchen/next");
+const { withKitchnConfig } = require("@tonightpass/kitchn/next");
 
-module.exports = withKitchenConfig();
+module.exports = withKitchnConfig();

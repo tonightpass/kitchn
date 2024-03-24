@@ -8,7 +8,7 @@ import {
   useTheme,
   Icon,
   Select,
-} from "@tonightpass/kitchen";
+} from "@tonightpass/kitchn";
 import React from "react";
 import {
   RiDiscordFill,

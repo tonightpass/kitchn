@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
 type Direction = "row" | "column";
@@ -28,7 +28,7 @@ type Props = {
   wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
 };
 
-export type ContainerProps = KitchenComponent<Props>;
+export type ContainerProps = KitchnComponent<Props>;
 
 const ContainerComponent = styled(
   ({ children, header, section, form, label, ...rest }: ContainerProps) => {
@@ -85,6 +85,6 @@ const ContainerComponent = styled(
   }
 `;
 
-ContainerComponent.displayName = "KitchenContainer";
+ContainerComponent.displayName = "KitchnContainer";
 export const Container = withDecorator(ContainerComponent);
 export default Container;

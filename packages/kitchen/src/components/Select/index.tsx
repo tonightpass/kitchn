@@ -3,7 +3,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchnComponent, NormalSizes } from "../../types";
 import Container, { ContainerProps } from "../Container";
 import Text, { TextProps } from "../Text";
 
@@ -32,7 +32,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export type SelectProps = KitchenComponent<
+export type SelectProps = KitchnComponent<
   Props,
   React.SelectHTMLAttributes<HTMLSelectElement>
 >;
@@ -175,6 +175,6 @@ export const SelectSelector = styled.select<SelectProps>`
   }
 `;
 
-SelectComponent.displayName = "KitchenSelect";
+SelectComponent.displayName = "KitchnSelect";
 export const Select = withDecorator(SelectComponent);
 export default Select;

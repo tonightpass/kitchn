@@ -7,7 +7,7 @@ import { withScale } from "../../hoc";
 import {
   AccentColors,
   Gap,
-  KitchenComponent,
+  KitchnComponent,
   LayoutColors,
   Radius,
 } from "../../types";
@@ -35,7 +35,7 @@ type Props = {
   br?: number | string | keyof Radius;
 };
 
-export type ContainerProps = KitchenComponent<Props, ViewComponent>;
+export type ContainerProps = KitchnComponent<Props, ViewComponent>;
 
 const ContainerComponent = styled(({ children, ...props }: ContainerProps) => {
   return <View {...props}>{children}</View>;
@@ -72,6 +72,6 @@ const ContainerComponent = styled(({ children, ...props }: ContainerProps) => {
     };`}
 `;
 
-ContainerComponent.displayName = "KitchenContainer";
+ContainerComponent.displayName = "KitchnContainer";
 export const Container = withScale(ContainerComponent);
 export default Container;

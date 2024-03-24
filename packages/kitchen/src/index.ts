@@ -24,5 +24,5 @@ export * from "./hoc";
 // ./utils
 export * from "./utils";
 
-const kitchen = styled;
-export default kitchen;
+const kitchn = styled;
+export default kitchn;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { Gap } from "../../types/theme";
 import { isNumber } from "../../utils/isNumber";
 
@@ -11,7 +11,7 @@ type Props = {
   y?: number | string | keyof Gap;
 };
 
-export type SpacerProps = KitchenComponent<Props>;
+export type SpacerProps = KitchnComponent<Props>;
 
 const SpacerComponent = styled(({ ...props }: SpacerProps) => {
   return <span role={"presentation"} {...props} />;
@@ -41,6 +41,6 @@ const SpacerComponent = styled(({ ...props }: SpacerProps) => {
   );
 `;
 
-SpacerComponent.displayName = "KitchenSpacer";
+SpacerComponent.displayName = "KitchnSpacer";
 export const Spacer = withDecorator(SpacerComponent);
 export default Spacer;

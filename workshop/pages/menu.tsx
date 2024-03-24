@@ -1,4 +1,4 @@
-import { Container, Text, Menu, Avatar, Icon } from "@tonightpass/kitchen";
+import { Container, Text, Menu, Avatar, Icon } from "@tonightpass/kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { RiAddLine, RiArrowDownSLine, RiCheckLine } from "react-icons/ri";

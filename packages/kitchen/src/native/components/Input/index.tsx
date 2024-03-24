@@ -13,7 +13,7 @@ import { capitalize } from "../../../utils/capitalize";
 import { convertRGBToRGBA } from "../../../utils/convertRGBToRGBA";
 import { isNumber } from "../../../utils/isNumber";
 import { withScale } from "../../hoc/withScale";
-import { AccentColors, KitchenComponent, NormalSizes } from "../../types";
+import { AccentColors, KitchnComponent, NormalSizes } from "../../types";
 import Icon, { IconProps } from "../Icon";
 import Text from "../Text";
 
@@ -43,7 +43,7 @@ type Props = {
   pattern?: { [key: string]: RegExp };
 };
 
-export type InputProps = KitchenComponent<Props, TextInputProps>;
+export type InputProps = KitchnComponent<Props, TextInputProps>;
 
 export type InputChangeEventData = TextInputChangeEventData & {
   name?: string;
@@ -514,6 +514,6 @@ const ClearIcon = styled(Icon)<
 `;
 
 InputComponent.defaultProps = defaultProps;
-InputComponent.displayName = "KitchenInput";
+InputComponent.displayName = "KitchnInput";
 const Input = withScale(InputComponent);
 export default Input;

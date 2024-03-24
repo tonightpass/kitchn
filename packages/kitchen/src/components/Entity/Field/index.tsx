@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 import Container, { ContainerProps } from "../../Container";
 import Skeleton from "../../Skeleton";
 import Text, { TextProps } from "../../Text";
@@ -51,7 +51,7 @@ type Props = {
   avatar?: React.ReactNode;
 } & ContainerProps;
 
-export type EntityFieldProps = KitchenComponent<Props>;
+export type EntityFieldProps = KitchnComponent<Props>;
 
 const EntityFieldComponent = styled(
   ({ active = true, ...props }: EntityFieldProps) => {
@@ -88,6 +88,6 @@ const EntityFieldComponent = styled(
   },
 )``;
 
-EntityFieldComponent.displayName = "KitchenEntityField";
+EntityFieldComponent.displayName = "KitchnEntityField";
 export const EntityField = withDecorator(EntityFieldComponent);
 export default EntityField;

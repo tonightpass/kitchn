@@ -1,4 +1,4 @@
-import { Container, Text, Input, ControlledInput } from "@tonightpass/kitchen";
+import { Container, Text, Input, ControlledInput } from "@tonightpass/kitchn";
 import { NextPage } from "next";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -131,7 +131,7 @@ const InputPage: NextPage = () => {
           <Container>
             <Input
               placeholder={"Default"}
-              prefix={"kitchen/"}
+              prefix={"kitchn/"}
               suffix={<RiArrowUpCircleLine />}
               suffixStyling={false}
               suffixContainer={false}
@@ -180,7 +180,7 @@ const InputPage: NextPage = () => {
           <Container>
             <Input
               placeholder={"Default"}
-              prefix={"kitchen/"}
+              prefix={"kitchn/"}
               suffix={
                 <span onClick={() => alert("hey")}>
                   <RiArrowUpCircleLine />

@@ -2,7 +2,7 @@ import React from "react";
 import styled, { useTheme } from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 
 type Props = {
@@ -19,7 +19,7 @@ type Props = {
   align?: "top" | "middle" | "bottom";
 };
 
-export type IconProps = KitchenComponent<Props, React.SVGProps<SVGSVGElement>>;
+export type IconProps = KitchnComponent<Props, React.SVGProps<SVGSVGElement>>;
 
 const IconComponent = styled(
   ({ icon: Component, size, ...props }: IconProps) => {
@@ -56,6 +56,6 @@ const IconComponent = styled(
   }};
 `;
 
-IconComponent.displayName = "KitchenIcon";
+IconComponent.displayName = "KitchnIcon";
 export const Icon = withDecorator(IconComponent);
 export default Icon;

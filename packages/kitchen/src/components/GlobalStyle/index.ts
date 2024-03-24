@@ -4,11 +4,11 @@ import { mainCss } from "./main";
 import { resetCss } from "./reset";
 import { themeCss } from "./theme";
 import { Themes } from "../../types";
-import { KitchenProviderProps } from "../Provider";
+import { KitchnProviderProps } from "../Provider";
 
 export const GlobalStyle = createGlobalStyle<{
   staticThemes: Themes;
-  attribute: KitchenProviderProps["attribute"];
+  attribute: KitchnProviderProps["attribute"];
 }>`
     ${resetCss}
     ${themeCss}

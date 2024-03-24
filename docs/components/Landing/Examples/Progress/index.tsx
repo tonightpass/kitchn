@@ -1,4 +1,4 @@
-import { Button, Container, Progress, useTheme } from "@tonightpass/kitchen";
+import { Button, Container, Progress, useTheme } from "@tonightpass/kitchn";
 import React from "react";
 
 const ProgressExample: React.FC = () => {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc/withDecorator";
 import { ToastAction } from "../../../hooks/useToasts";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 import { capitalize } from "../../../utils/capitalize";
 import Button from "../../Button";
 import Container from "../../Container";
@@ -13,7 +13,7 @@ type Props = {
   cancelHandle: () => void;
 };
 
-export type ToastActionsProps = KitchenComponent<Props>;
+export type ToastActionsProps = KitchnComponent<Props>;
 
 const ToastActionsComponent = styled(
   ({ actions, cancelHandle, ...props }: ToastActionsProps) => {
@@ -45,6 +45,6 @@ const ToastActionsComponent = styled(
   },
 )``;
 
-ToastActionsComponent.displayName = "KitchenToastActions";
+ToastActionsComponent.displayName = "KitchnToastActions";
 export const ToastActions = withDecorator(ToastActionsComponent);
 export default ToastActions;

@@ -3,7 +3,7 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchnComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import { isNumber } from "../../utils/isNumber";
@@ -45,7 +45,7 @@ type Props = {
   htmlType?: React.InputHTMLAttributes<HTMLInputElement>["type"];
 };
 
-export type InputProps = KitchenComponent<
+export type InputProps = KitchnComponent<
   Props,
   React.InputHTMLAttributes<HTMLInputElement>
 >;
@@ -534,6 +534,6 @@ export const InputLabel = styled((props: TextProps) => (
   />
 ))``;
 
-InputComponent.displayName = "KitchenInput";
+InputComponent.displayName = "KitchnInput";
 export const Input = withDecorator(InputComponent);
 export default Input;

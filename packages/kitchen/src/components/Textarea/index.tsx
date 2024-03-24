@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 
 type Props = {
   placeholder?: string;
@@ -14,7 +14,7 @@ type Props = {
   resize?: "none" | "both" | "horizontal" | "vertical";
 };
 
-export type TextareaProps = KitchenComponent<
+export type TextareaProps = KitchnComponent<
   Props,
   React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >;
@@ -65,6 +65,6 @@ const TextareaComponent = styled(
   }
 `;
 
-TextareaComponent.displayName = "KitchenTextarea";
+TextareaComponent.displayName = "KitchnTextarea";
 export const Textarea = withDecorator(TextareaComponent);
 export default Textarea;

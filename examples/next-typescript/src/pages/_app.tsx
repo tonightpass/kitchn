@@ -1,13 +1,13 @@
-import { KitchenProvider } from "@tonightpass/kitchen";
+import { KitchnProvider } from "@tonightpass/kitchn";
 import { AppProps } from "next/app";
 
-import "@tonightpass/kitchen/fonts.css";
+import "@tonightpass/kitchn/fonts.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <KitchenProvider>
+    <KitchnProvider>
       <Component {...pageProps} />
-    </KitchenProvider>
+    </KitchnProvider>
   );
 };
 

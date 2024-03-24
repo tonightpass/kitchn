@@ -327,6 +327,6 @@ const StyledDayPicker = styled(DayPicker)`
   }
 `;
 
-CalendarComponent.displayName = "KitchenCalendar";
+CalendarComponent.displayName = "KitchnCalendar";
 export const Calendar = withDecorator(CalendarComponent);
 export default Calendar;

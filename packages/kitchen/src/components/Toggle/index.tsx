@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 
 interface Props {
   checked?: boolean;
@@ -11,7 +11,7 @@ interface Props {
   large?: boolean;
 }
 
-export type ToggleProps = KitchenComponent<
+export type ToggleProps = KitchnComponent<
   Props,
   React.InputHTMLAttributes<HTMLInputElement>
 >;
@@ -96,6 +96,6 @@ const ToggleComponent = styled(
   }
 `;
 
-ToggleComponent.displayName = "KitchenToggle";
+ToggleComponent.displayName = "KitchnToggle";
 export const Toggle = withDecorator(ToggleComponent);
 export default Toggle;

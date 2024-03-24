@@ -25,7 +25,7 @@ import { Themes } from "../../types";
 import GlobalStyle from "../GlobalStyle";
 import ToastContainer from "../Toast/Container";
 
-export type KitchenProviderProps = {
+export type KitchnProviderProps = {
   children?: React.ReactNode;
   theme?: ThemeProviderProps["theme"];
   enableSystem?: boolean;
@@ -36,7 +36,7 @@ export type KitchenProviderProps = {
   attribute?: string | "class" | undefined;
 };
 
-export const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
+export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
   children,
   enableSystem = true,
   defaultTheme = enableSystem ? "system" : "dark",
@@ -44,7 +44,7 @@ export const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
   forcedTheme,
   attribute = "data-theme",
   dangerouslyDisableNextThemeProvider,
-}: KitchenProviderProps) => {
+}: KitchnProviderProps) => {
   const staticThemes = { ...defaultThemes, ...customThemes };
   const themes = React.useMemo(
     () => generateThemes(staticThemes),
@@ -137,6 +137,6 @@ export const NextThemeProviderWrapper: React.FC<
   return <NextThemeProvider {...props}>{children}</NextThemeProvider>;
 };
 
-KitchenProviderComponent.displayName = "KitchenProvider";
-export const KitchenProvider = withDecorator(KitchenProviderComponent);
-export default KitchenProvider;
+KitchnProviderComponent.displayName = "KitchnProvider";
+export const KitchnProvider = withDecorator(KitchnProviderComponent);
+export default KitchnProvider;

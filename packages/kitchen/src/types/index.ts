@@ -1,7 +1,7 @@
 export * from "./theme";
 export * from "./window";
 
-export type KitchenComponent<P, N = React.HTMLAttributes<any>> = {
+export type KitchnComponent<P, N = React.HTMLAttributes<any>> = {
   /**
    * The root element.
    */

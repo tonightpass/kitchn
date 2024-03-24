@@ -1,4 +1,4 @@
-import { Container, Tabs } from "@tonightpass/kitchen";
+import { Container, Tabs } from "@tonightpass/kitchn";
 import React from "react";
 
 import ProgressExample from "./Progress";

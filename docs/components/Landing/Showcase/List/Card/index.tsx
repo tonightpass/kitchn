@@ -1,4 +1,4 @@
-import kitchen, { Image, defaultThemes } from "@tonightpass/kitchen";
+import kitchn, { Image, defaultThemes } from "@tonightpass/kitchn";
 import { Showcase } from "types/showcase";
 
 export type ShowcaseCardProps = {
@@ -23,7 +23,7 @@ const ShowcaseCard: React.FC<ShowcaseCardProps> = ({
   );
 };
 
-const ThumbnailImage = kitchen(Image)`
+const ThumbnailImage = kitchn(Image)`
   opacity: 0.3;
   width: 100%;
   max-width: 60%;
@@ -35,7 +35,7 @@ const ThumbnailImage = kitchen(Image)`
     "grayscale(0) brightness(0) invert(0)"};
 `;
 
-const Container = kitchen.div`
+const Container = kitchn.div`
   width: 160px;
   height: 64px;
   display: flex;

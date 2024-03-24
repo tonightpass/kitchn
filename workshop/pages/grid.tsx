@@ -1,4 +1,4 @@
-import kitchen, { Container, Text } from "@tonightpass/kitchen";
+import kitchn, { Container, Text } from "@tonightpass/kitchn";
 import { NextPage } from "next";
 
 const GridPage: NextPage = () => {
@@ -143,7 +143,7 @@ const GridPage: NextPage = () => {
   );
 };
 
-const TestContainer = kitchen(Container)`
+const TestContainer = kitchn(Container)`
   background: blue;
   color: white;
   padding: 10px;

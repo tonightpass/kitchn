@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { isString } from "../../utils/isString";
 
 type Props = {
@@ -47,7 +47,7 @@ type Props = {
   [key: string]: any;
 };
 
-export type SkeletonProps = KitchenComponent<Props>;
+export type SkeletonProps = KitchnComponent<Props>;
 
 const SkeletonComponent = styled(
   ({
@@ -174,6 +174,6 @@ const SkeletonComponent = styled(
   }
 `;
 
-SkeletonComponent.displayName = "KitchenSkeleton";
+SkeletonComponent.displayName = "KitchnSkeleton";
 export const Skeleton = withDecorator(SkeletonComponent);
 export default Skeleton;

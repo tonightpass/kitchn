@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { withDecorator } from "../../hoc/withDecorator";
 import { usePrevious } from "../../hooks/usePrevious";
 import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 
-export type HighlightProps = KitchenComponent<{
+export type HighlightProps = KitchnComponent<{
   rect: ReactiveDomReact;
   visible?: boolean;
   hoverHeightRatio?: number;
@@ -67,6 +67,6 @@ export const HighlightContainer = styled.div<HighlightPosition>`
   transition-property: ${({ transition }) => transition};
 `;
 
-HighlightComponent.displayName = "KitchenHighlight";
+HighlightComponent.displayName = "KitchnHighlight";
 export const Highlight = withDecorator(HighlightComponent);
 export default Highlight;

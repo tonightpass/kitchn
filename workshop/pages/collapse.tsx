@@ -1,4 +1,4 @@
-import { Collapse, Text, Container } from "@tonightpass/kitchen";
+import { Collapse, Text, Container } from "@tonightpass/kitchn";
 import { NextPage } from "next";
 
 const CollapsePage: NextPage = () => {

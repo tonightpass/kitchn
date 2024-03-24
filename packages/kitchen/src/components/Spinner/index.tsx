@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { skBouncedelay } from "../../utils/animate";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   size?: number;
 };
 
-export type SpinnerProps = KitchenComponent<Props>;
+export type SpinnerProps = KitchnComponent<Props>;
 
 const SpinnerComponent = styled(({ ...props }: SpinnerProps) => {
   return (
@@ -47,6 +47,6 @@ const SpinnerComponent = styled(({ ...props }: SpinnerProps) => {
   }
 `;
 
-SpinnerComponent.displayName = "KitchenSpinner";
+SpinnerComponent.displayName = "KitchnSpinner";
 export const Spinner = withDecorator(SpinnerComponent);
 export default Spinner;

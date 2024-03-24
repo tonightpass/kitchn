@@ -1,4 +1,4 @@
-import { Badge, Button, Container, Image, Text } from "@tonightpass/kitchen";
+import { Badge, Button, Container, Image, Text } from "@tonightpass/kitchn";
 
 const CodeSandboxPage = () => {
   return (

@@ -4,18 +4,18 @@ import { DefaultTheme } from "styled-components/native";
 import { ThemeProvider } from "../../contexts/Theme";
 import { withScale } from "../../hoc";
 
-export type KitchenProviderProps = {
+export type KitchnProviderProps = {
   children?: React.ReactNode;
   theme?: DefaultTheme;
 };
 
-const KitchenProviderComponent: React.FC<KitchenProviderProps> = ({
+const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
   children,
   theme,
-}: KitchenProviderProps) => {
+}: KitchnProviderProps) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-KitchenProviderComponent.displayName = "KitchenProvider";
-export const KitchenProvider = withScale(KitchenProviderComponent);
-export default KitchenProvider;
+KitchnProviderComponent.displayName = "KitchnProvider";
+export const KitchnProvider = withScale(KitchnProviderComponent);
+export default KitchnProvider;

@@ -4,7 +4,7 @@ import styled, { RuleSet, css } from "styled-components";
 import TooltipContent, { TooltipIconOffset } from "./Content";
 import { withDecorator } from "../../hoc";
 import { useClickAway } from "../../hooks";
-import { AccentColors, KitchenComponent, TriggerTypes } from "../../types";
+import { AccentColors, KitchnComponent, TriggerTypes } from "../../types";
 import { Placement, getTooltipRect } from "../../utils/tooltip";
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
@@ -34,7 +34,7 @@ type Props = {
   onContentClick?: TooltipOnContentClick;
 };
 
-export type TooltipProps = KitchenComponent<Props>;
+export type TooltipProps = KitchnComponent<Props>;
 
 const TooltipComponent = styled(
   ({
@@ -130,6 +130,6 @@ const TooltipComponent = styled(
   user-select: none;
 `;
 
-TooltipComponent.displayName = "KitchenTooltip";
+TooltipComponent.displayName = "KitchnTooltip";
 export const Tooltip = withDecorator(TooltipComponent);
 export default Tooltip;

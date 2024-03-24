@@ -3,7 +3,7 @@ import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import Icon from "../Icon";
 
@@ -15,7 +15,7 @@ type Props = {
   fullWidth?: boolean;
 };
 
-export type CheckboxProps = KitchenComponent<
+export type CheckboxProps = KitchnComponent<
   Props,
   React.InputHTMLAttributes<HTMLInputElement>
 >;
@@ -154,7 +154,7 @@ export const CheckboxLabel = styled.div`
   color: ${({ theme }) => theme.colors.text.dark};
 `;
 
-export type CheckboxCheckContainerProps = KitchenComponent<
+export type CheckboxCheckContainerProps = KitchnComponent<
   {
     label?: boolean;
   },
@@ -196,6 +196,6 @@ export const StyledCheckbox = styled.input`
   width: 0;
 `;
 
-CheckboxComponent.displayName = "KitchenCheckbox";
+CheckboxComponent.displayName = "KitchnCheckbox";
 export const Checkbox = withDecorator(CheckboxComponent);
 export default Checkbox;

@@ -5,7 +5,7 @@ import {
   Text,
   ToastAction,
   useToasts,
-} from "@tonightpass/kitchen";
+} from "@tonightpass/kitchn";
 import { NextPage } from "next";
 import React from "react";
 

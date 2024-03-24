@@ -2,7 +2,7 @@ import React from "react";
 import styled, { useTheme } from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchnComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import { isNumber } from "../../utils/isNumber";
@@ -26,7 +26,7 @@ type Props = {
   };
 };
 
-export type ButtonProps = KitchenComponent<
+export type ButtonProps = KitchnComponent<
   Props,
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >;
@@ -304,6 +304,6 @@ export const ButtonSuffix = styled.span`
   color: inherit;
 `;
 
-ButtonComponent.displayName = "KitchenButton";
+ButtonComponent.displayName = "KitchnButton";
 export const Button = withDecorator(ButtonComponent);
 export default Button;

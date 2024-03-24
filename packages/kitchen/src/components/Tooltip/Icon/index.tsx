@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { TooltipTypes } from "..";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 import {
   Placement,
   TooltipIconPosition,
@@ -17,7 +17,7 @@ interface Props {
   type: TooltipTypes;
 }
 
-export type TooltipIconProps = KitchenComponent<Props>;
+export type TooltipIconProps = KitchnComponent<Props>;
 
 const TooltipIcon = styled(
   ({ placement, iconOffset, type, ...props }: TooltipIconProps) => {

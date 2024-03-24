@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Link, { LinkProps } from "..";
 import { withDecorator } from "../../../hoc/withDecorator";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 
 type Props = LinkProps & {
   /**
@@ -12,7 +12,7 @@ type Props = LinkProps & {
   id: string;
 };
 
-export type FragmentLinkProps = KitchenComponent<
+export type FragmentLinkProps = KitchnComponent<
   Props,
   React.AnchorHTMLAttributes<HTMLAnchorElement>
 >;
@@ -22,6 +22,6 @@ const FragmentLinkComponent = styled(({ id, ...props }: FragmentLinkProps) => {
   return <Link id={id} href={href} {...props} />;
 })``;
 
-FragmentLinkComponent.displayName = "KitchenFragmentLink";
+FragmentLinkComponent.displayName = "KitchnFragmentLink";
 export const FragmentLink = withDecorator(FragmentLinkComponent);
 export default FragmentLink;

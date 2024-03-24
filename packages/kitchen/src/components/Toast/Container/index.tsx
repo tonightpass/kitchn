@@ -2,12 +2,12 @@ import React, { useMemo } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import { KitchenComponent, ToastItem, withDecorator } from "../../..";
+import { KitchnComponent, ToastItem, withDecorator } from "../../..";
 import { useToastsContext } from "../../../contexts/Toasts";
 import { useCurrentState } from "../../../hooks/useCurrentState";
 import { usePortal } from "../../../hooks/usePortal";
 
-export type ToastContainerProps = KitchenComponent<object>;
+export type ToastContainerProps = KitchnComponent<object>;
 
 const ToastContainerComponent = styled((props: ToastContainerProps) => {
   const portal = usePortal("toast");
@@ -118,6 +118,6 @@ const ToastContainerComponent = styled((props: ToastContainerProps) => {
   flex-direction: column;
 `;
 
-ToastContainerComponent.displayName = "KitchenToastContainer";
+ToastContainerComponent.displayName = "KitchnToastContainer";
 export const ToastContainer = withDecorator(ToastContainerComponent);
 export default ToastContainer;

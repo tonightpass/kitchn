@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchnComponent, NormalSizes } from "../../types";
 import { capitalize } from "../../utils/capitalize";
 
 type Props = {
@@ -36,7 +36,7 @@ type Props = {
   label?: boolean | string;
 };
 
-export type NoteProps = KitchenComponent<Props>;
+export type NoteProps = KitchnComponent<Props>;
 
 const NoteComponent = styled(
   ({
@@ -187,6 +187,6 @@ export const NoteContent = styled.span`
 
 export const NoteAction = styled.div``;
 
-NoteComponent.displayName = "KitchenNote";
+NoteComponent.displayName = "KitchnNote";
 export const Note = withDecorator(NoteComponent);
 export default Note;

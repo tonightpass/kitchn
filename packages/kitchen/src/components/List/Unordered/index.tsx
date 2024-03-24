@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc/withDecorator";
-import { KitchenComponent } from "../../../types";
+import { KitchnComponent } from "../../../types";
 import ListItem from "../Item";
 
-export type UnorderedListProps = KitchenComponent<
+export type UnorderedListProps = KitchnComponent<
   object,
   React.OlHTMLAttributes<HTMLElement>
 >;
@@ -26,6 +26,6 @@ const UnorderedListComponent = styled((props: UnorderedListProps) => {
   }
 `;
 
-UnorderedListComponent.displayName = "KitchenUnorderedList";
+UnorderedListComponent.displayName = "KitchnUnorderedList";
 export const UnorderedList = withDecorator(UnorderedListComponent);
 export default UnorderedList;

@@ -3,7 +3,7 @@ import { RiErrorWarningLine, RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchenComponent, NormalSizes } from "../../types";
+import { KitchnComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
 import Text from "../Text";
 
@@ -23,7 +23,7 @@ type Props = {
   error?: { message: string; action?: string; link?: string };
 };
 
-export type ErrorProps = KitchenComponent<Props>;
+export type ErrorProps = KitchnComponent<Props>;
 
 const ErrorComponent = styled(
   ({ label = true, size, error, children, ...props }: ErrorProps) => {
@@ -124,6 +124,6 @@ export const ErrorActionIcon = styled(Icon)`
   margin-left: ${({ theme }) => theme.gap.tiny};
 `;
 
-ErrorComponent.displayName = "KitchenError";
+ErrorComponent.displayName = "KitchnError";
 export const Error = withDecorator(ErrorComponent);
 export default Error;

@@ -2,7 +2,7 @@ import {
   convertRGBToRGBA,
   createGlobalStyle,
   Input,
-} from "@tonightpass/kitchen";
+} from "@tonightpass/kitchn";
 
 const GlobalStyle = createGlobalStyle`
   html body {

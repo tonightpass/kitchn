@@ -1,4 +1,4 @@
-import { Badge, Container } from "@tonightpass/kitchen";
+import { Badge, Container } from "@tonightpass/kitchn";
 import { NextPage } from "next";
 import React from "react";
 

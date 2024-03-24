@@ -3,7 +3,7 @@ import { RiMoreLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc";
-import { KitchenComponent } from "../../types";
+import { KitchnComponent } from "../../types";
 import Container, { ContainerProps } from "../Container";
 import Icon from "../Icon";
 import { Menu } from "../Menu";
@@ -17,7 +17,7 @@ type Props = ContainerProps & {
   placeholder?: boolean;
 };
 
-export type EntityProps = KitchenComponent<Props>;
+export type EntityProps = KitchnComponent<Props>;
 
 const EntityComponent = styled(
   ({
@@ -81,6 +81,6 @@ const EntityComponentWrapper = styled(EntityComponent)`
   }
 `;
 
-EntityComponentWrapper.displayName = "KitchenEntity";
+EntityComponentWrapper.displayName = "KitchnEntity";
 export const Entity = withDecorator(EntityComponentWrapper);
 export default Entity;
