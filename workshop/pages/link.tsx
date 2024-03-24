@@ -1,10 +1,4 @@
-import kitchen, {
-  Container,
-  Link,
-  Note,
-  Text,
-  FragmentLink,
-} from "@tonightpass/kitchen";
+import kitchn, { Container, Link, Note, Text, FragmentLink } from "kitchn";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
@@ -103,7 +97,7 @@ const LinkPage: NextPage = () => {
     </>
   );
 };
-const Card = kitchen.div`
+const Card = kitchn.div`
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   border-radius: 8px;
   padding: 16px;

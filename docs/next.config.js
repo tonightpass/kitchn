@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { withKitchenConfig } = require("@tonightpass/kitchen/next");
+const { withKitchnConfig } = require("kitchn/next");
 const nextra = require("nextra");
 
 const withNextra = nextra({
@@ -8,7 +8,7 @@ const withNextra = nextra({
 });
 
 module.exports = withNextra(
-  withKitchenConfig({
+  withKitchnConfig({
     reactStrictMode: true,
   }),
 );

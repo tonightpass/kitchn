@@ -1,4 +1,4 @@
-import kitchen, { Container, Text } from "@tonightpass/kitchen";
+import kitchn, { Container, Text } from "kitchn";
 
 const Features = () => {
   return (
@@ -6,7 +6,7 @@ const Features = () => {
       <Text transform={"uppercase"} weight={"bold"} align={"center"} h3>
         {"All features"}{" "}
         <Text transform={"uppercase"} weight={"bold"} accent={"primary"} span>
-          {"Kitchen contains\r"}
+          {"Kitchn contains\r"}
         </Text>
       </Text>
       <Text
@@ -29,7 +29,7 @@ const Features = () => {
               </Text>
               <Text mt={"small"} color={"lighter"}>
                 {
-                  "Kitchen strictly follows WAI-ARIA standards for all components.\r"
+                  "Kitchn strictly follows WAI-ARIA standards for all components.\r"
                 }
               </Text>
             </FeatureContainer>
@@ -59,7 +59,7 @@ const Features = () => {
               </Text>
               <Text mt={"small"} color={"lighter"}>
                 {"Whether you use React, React Native or a framework react,\r"}
-                {"Kitchen is compatible with all platforms.\r"}
+                {"Kitchn is compatible with all platforms.\r"}
               </Text>
             </FeatureContainer>
           </Container>
@@ -103,7 +103,7 @@ const Features = () => {
             </Text>
             <Text mt={"small"} color={"lighter"}>
               {
-                "Kitchen strictly follows WAI-ARIA standards for all components.\r"
+                "Kitchn strictly follows WAI-ARIA standards for all components.\r"
               }
             </Text>
           </FeatureContainer>
@@ -124,7 +124,7 @@ const Features = () => {
   );
 };
 
-const FeatureContainer = kitchen(Container)`
+const FeatureContainer = kitchn(Container)`
   border-radius: ${({ theme }) => theme.radius.square};
   background-color: ${({ theme }) => theme.colors.layout.darker};
 

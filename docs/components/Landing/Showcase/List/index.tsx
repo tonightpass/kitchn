@@ -1,5 +1,5 @@
-import kitchen, { Container, Text, Link } from "@tonightpass/kitchen";
 import showcases from "data/showcases";
+import kitchn, { Container, Text, Link } from "kitchn";
 
 import ShowcaseCard from "./Card";
 
@@ -9,7 +9,7 @@ const ShowcaseList = () => {
       {showcases.map(({ name, thumbnail }, i) => (
         <ShowcaseCard key={i} name={name} thumbnail={thumbnail} />
       ))}
-      <YourCompany href={"https://github.com/tonightpass/kitchen/issues/new"}>
+      <YourCompany href={"https://github.com/tonightpass/kitchn/issues/new"}>
         <Text title={"Your company"} weight={"bold"} align={"center"} span>
           {"💖 Your company\r"}
         </Text>
@@ -18,7 +18,7 @@ const ShowcaseList = () => {
   );
 };
 
-const YourCompany = kitchen(Link)`
+const YourCompany = kitchn(Link)`
   width: 160px;
   height: 100%;
   display: flex;

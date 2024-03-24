@@ -1,4 +1,4 @@
-import { Fieldset, Button, Text, Container } from "@tonightpass/kitchen";
+import { Fieldset, Button, Text, Container } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

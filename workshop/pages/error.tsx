@@ -1,4 +1,4 @@
-import { Container, Error, Text } from "@tonightpass/kitchen";
+import { Container, Error, Text } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

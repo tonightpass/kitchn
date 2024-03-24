@@ -1,3 +1,3 @@
-import { KitchenDocument } from "@tonightpass/kitchen/next";
+import { KitchnDocument } from "kitchn/next";
 
-export default class Document extends KitchenDocument {}
+export default class Document extends KitchnDocument {}

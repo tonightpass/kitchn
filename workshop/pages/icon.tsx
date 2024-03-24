@@ -1,4 +1,4 @@
-import { Icon } from "@tonightpass/kitchen";
+import { Icon } from "kitchn";
 import { NextPage } from "next";
 import { RiGithubFill } from "react-icons/ri";
 

@@ -5,7 +5,7 @@ import {
   Text,
   UnorderedList,
   Code,
-} from "@tonightpass/kitchen";
+} from "kitchn";
 
 const TextPage = () => {
   return (
@@ -151,7 +151,7 @@ const TextPage = () => {
         <Text align={"center"}>{"code"}</Text>
         <Text>
           {"It’s a matter of running "}
-          <InlineCode>{"kitchen"}</InlineCode> {"to get it up\r"}
+          <InlineCode>{"kitchn"}</InlineCode> {"to get it up\r"}
           {"and running instantly.\r"}
         </Text>
         <Text align={"center"}>{"codeblock"}</Text>

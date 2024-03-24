@@ -1,11 +1,4 @@
-import {
-  Button,
-  Container,
-  Link,
-  Text,
-  Image,
-  useTheme,
-} from "@tonightpass/kitchen";
+import { Button, Container, Link, Text, Image, useTheme } from "kitchn";
 
 const Featured: React.FC = () => {
   const { theme } = useTheme();
@@ -46,7 +39,7 @@ const Featured: React.FC = () => {
       <Container mt={"normal"} align={"center"}>
         <Link
           href={
-            "https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchen"
+            "https://producthunt.com/posts/kitchn?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchn"
           }
         >
           <Image
@@ -54,7 +47,7 @@ const Featured: React.FC = () => {
               theme.name === "dark" ? "light" : "neutral"
             }&period=weekly&topic_id=44`}
             alt={
-              "Kitchen - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
+              "Kitchn - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
             }
             width={"250"}
             height={"54"}
@@ -65,7 +58,7 @@ const Featured: React.FC = () => {
         <Link href={"/docs"}>
           <Button>{"Get started"}</Button>
         </Link>
-        <Link href={"https://github.com/tonightpass/kitchen"}>
+        <Link href={"https://github.com/tonightpass/kitchn"}>
           <Button type={"dark"}>{"Contribute"}</Button>
         </Link>
       </Container>

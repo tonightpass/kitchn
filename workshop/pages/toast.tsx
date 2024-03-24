@@ -1,11 +1,4 @@
-import {
-  Badge,
-  Button,
-  Container,
-  Text,
-  ToastAction,
-  useToasts,
-} from "@tonightpass/kitchen";
+import { Badge, Button, Container, Text, ToastAction, useToasts } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

@@ -1,22 +1,18 @@
-import {
-  KitchenProvider,
-  createTheme,
-  tonightpassTheme,
-} from "@tonightpass/kitchen";
+import { KitchnProvider, createTheme, tonightpassTheme } from "kitchn";
 import { AppProps } from "next/app";
 
-import "@tonightpass/kitchen/fonts.css";
+import "kitchn/fonts.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <KitchenProvider
+    <KitchnProvider
       themes={{
         tonightpass: createTheme(tonightpassTheme),
       }}
       forcedTheme={(Component as any).theme || null}
     >
       <Component {...pageProps} />
-    </KitchenProvider>
+    </KitchnProvider>
   );
 };
 

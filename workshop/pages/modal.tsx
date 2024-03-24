@@ -1,4 +1,4 @@
-import { Button, Container, Modal, Text, useModal } from "@tonightpass/kitchen";
+import { Button, Container, Modal, Text, useModal } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

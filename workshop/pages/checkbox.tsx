@@ -1,4 +1,4 @@
-import { Checkbox, Container, useCheckbox } from "@tonightpass/kitchen";
+import { Checkbox, Container, useCheckbox } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

@@ -10,7 +10,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@tonightpass/kitchen": "workspace:*",
+    "kitchn": "workspace:*",
     "expo": "~47.0.5",
     "expo-status-bar": "~1.4.2",
     "react": "^18.1.0",

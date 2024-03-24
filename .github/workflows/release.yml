@@ -7,7 +7,7 @@ env:
   NODE_OPTIONS: "--max_old_space_size=4096"
 jobs:
   release:
-    if: github.repository == 'tonightpass/kitchen'
+    if: github.repository == 'tonightpass/kitchn'
 
     runs-on: ubuntu-latest
 

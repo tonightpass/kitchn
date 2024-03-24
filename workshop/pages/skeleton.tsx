@@ -1,4 +1,4 @@
-import { Skeleton, Container, Button } from "@tonightpass/kitchen";
+import { Skeleton, Container, Button } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 

@@ -1,6 +1,6 @@
-# Contributing to Kitchen
+# Contributing to Kitchn
 
--   Before jumping into a PR be sure to search [existing PRs](https://github.com/tonightpass/kitchen/pulls) or [issues](https://github.com/tonightpass/kitchen/issues) for an open or closed item that relates to your submission.
+-   Before jumping into a PR be sure to search [existing PRs](https://github.com/tonightpass/kitchn/pulls) or [issues](https://github.com/tonightpass/kitchn/issues) for an open or closed item that relates to your submission.
 
 ## Repository
 
