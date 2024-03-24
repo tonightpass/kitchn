@@ -8,7 +8,7 @@ import {
   AccentColors,
   Text as KitchnText,
   withScale,
-} from "../../";
+} from "../..";
 
 export type Props = {
   shape?: "square" | "round";
