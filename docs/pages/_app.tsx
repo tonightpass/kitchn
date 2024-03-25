@@ -1,4 +1,5 @@
 import GlobalStyle from "@components/GlobalStyle";
+import Script from "@components/Script";
 import { KitchnProvider } from "kitchn";
 import { AppProps } from "next/app";
 import { useTheme as useNextraTheme } from "nextra-theme-docs";
@@ -16,6 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     >
       <GlobalStyle />
       <Component {...pageProps} />
+      <Script />
     </KitchnProvider>
   );
 };
