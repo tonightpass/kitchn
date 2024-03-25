@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.2
+
+### Patch Changes
+
+- [`49e8b11`](https://github.com/tonightpass/kitchn/commit/49e8b11a5db38887cc388343373ccb713df47368) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix readme symlink
+
 ## 0.0.1
 
 ### Patch Changes
