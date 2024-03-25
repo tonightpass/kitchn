@@ -1,1 +1,1 @@
-./packages/kitchen/README.md
+./packages/kitchn/README.md
