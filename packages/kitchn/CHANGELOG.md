@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.1
+
+### Patch Changes
+
+- [#472](https://github.com/tonightpass/kitchn/pull/472) [`da013a8`](https://github.com/tonightpass/kitchn/commit/da013a80139e07aff43b6946ef7cd0fc43dd8f07) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Move from @tonightpass/kitchen to kitchn
+
 ## 1.16.1
 
 ### Patch Changes
