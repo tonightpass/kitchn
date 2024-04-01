@@ -1,5 +1,5 @@
 ---
-"@tonightpass/kitchen": minor
+"kitchn": minor
 ---
 
 Add Scroller
