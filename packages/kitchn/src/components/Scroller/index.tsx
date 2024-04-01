@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { KitchenComponent } from "../../types";
+
+import { KitchnComponent } from "../../types";
 
 type Props = {
   /**
@@ -19,7 +20,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export type ScrollerProps = KitchenComponent<Props>;
+export type ScrollerProps = KitchnComponent<Props>;
 
 const Scroller = styled(({ children, ...props }: ScrollerProps) => {
   return <Container {...props}>{children}</Container>;
