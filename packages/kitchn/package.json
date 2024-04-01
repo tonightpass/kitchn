@@ -1,0 +1,74 @@
+{
+  "name": "kitchn",
+  "version": "0.0.1",
+  "description": "Tonight Pass delicious React styled-components UI kit",
+  "repository": "https://github.com/tonightpass/kitchn",
+  "bugs": "https://github.com/tonightpass/kitchn/issues",
+  "homepage": "https://kitchn.tonightpass.com",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-native",
+    "ui",
+    "ui-design",
+    "styled-components",
+    "kit",
+    "uikit",
+    "ui-components",
+    "kitchn",
+    "tonightpass",
+    "kitchn-components",
+    "nextjs",
+    "gatsbyjs",
+    "vite"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "react-native": "dist/native/index.cjs.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.1",
+    "@fontsource/figtree": "^5.0.1",
+    "@fontsource/fira-code": "^5.0.0",
+    "date-fns": "2.30.0",
+    "next-themes": "^0.3.0",
+    "react-day-picker": "^8.10.0",
+    "react-hook-form": "^7.45.4",
+    "react-icons": "^5.0.0",
+    "styled-components": "6.0.7"
+  },
+  "peerDependencies": {
+    "next": ">= 13.0.0",
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0",
+    "react-native": ">= 0.63.4",
+    "react-native-remix-icon": ">= 0.4.0"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    },
+    "react-native-remix-icon": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.73.0",
+    "react-native-remix-icon": "^0.4.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.0.3"
+  }
+}

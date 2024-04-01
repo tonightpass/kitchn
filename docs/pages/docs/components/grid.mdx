@@ -4,13 +4,13 @@ description: "Grid system used to create complex layouts."
 ---
 
 import Playground from "@components/Playground";
-import kitchen, { Container } from "@tonightpass/kitchen";
+import kitchn, { Container } from "kitchn";
 
 # Grid
 
 Grid system used to create complex layouts.
 
-export const BlueContainer = kitchen(Container)`
+export const BlueContainer = kitchn(Container)`
   background: ${({ theme }) => theme.colors.accent.info};
   color: ${({ theme }) => theme.colors.accent.white};
   padding: 10px;

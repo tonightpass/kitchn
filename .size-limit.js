@@ -9,33 +9,32 @@ const modifyWebpackConfig = (config) => {
     },
     externals: {
       "react-native": true,
+      "react-native-remix-icon": true,
     },
   };
 };
 
 module.exports = [
   {
-    path: "packages/kitchen/dist/tonightpass-kitchen.cjs.prod.js",
+    path: "packages/kitchn/dist/index.cjs.js",
+  },
+  {
+    path: "packages/kitchn/dist/index.esm.js",
+  },
+  {
+    path: "packages/kitchn/dist/next/index.cjs.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/dist/tonightpass-kitchen.esm.js",
+    path: "packages/kitchn/dist/next/index.esm.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/next/dist/tonightpass-kitchen-next.cjs.prod.js",
+    path: "packages/kitchn/dist/native/index.cjs.js",
     modifyWebpackConfig,
   },
   {
-    path: "packages/kitchen/next/dist/tonightpass-kitchen-next.esm.js",
-    modifyWebpackConfig,
-  },
-  {
-    path: "packages/kitchen/native/dist/tonightpass-kitchen-native.cjs.prod.js",
-    modifyWebpackConfig,
-  },
-  {
-    path: "packages/kitchen/native/dist/tonightpass-kitchen-native.esm.js",
+    path: "packages/kitchn/dist/native/index.esm.js",
     modifyWebpackConfig,
   },
 ];

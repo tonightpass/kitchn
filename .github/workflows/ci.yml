@@ -1,5 +1,7 @@
 name: CI
 on: [push]
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
@@ -7,20 +9,20 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ["14.x", "16.x", "18.x"]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: ["18.x", "20.x"]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v3.0.0
         with:
-          version: ${{ matrix.node == '14.x' && '6' || 'latest' }}
+          version: "latest"
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: "pnpm"
@@ -31,5 +33,14 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Build
-        run: pnpm p:build && pnpm build:examples
+      - name: Build Packages
+        run: pnpm build:packages
+
+      - name: Build Workshop
+        run: pnpm build:workshop
+
+      - name: Build Docs
+        run: pnpm build:docs
+
+      - name: Build Examples
+        run: pnpm build:examples

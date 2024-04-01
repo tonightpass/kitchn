@@ -1,0 +1,5 @@
+{
+  "main": "../dist/next/index.cjs.js",
+  "module": "../dist/next/index.esm.js",
+  "types": "../dist/next/index.d.ts"
+}

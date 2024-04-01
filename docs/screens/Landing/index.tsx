@@ -1,14 +1,14 @@
+import Examples from "@components/Landing/Examples";
 import Featured from "@components/Landing/Featured";
 import Features from "@components/Landing/Features";
-import Render from "@components/Landing/Render";
-import { Container } from "@tonightpass/kitchen";
 import Showcase from "components/Landing/Showcase";
+import { Container } from "kitchn";
 
 const Landing: React.FC = () => {
   return (
-    <Container maxW={"laptop"} mx={"auto"} px={"normal"}>
+    <Container maxW={"desktop"} mx={"auto"} px={"large"}>
       <Featured />
-      <Render />
+      <Examples />
       <Showcase />
       <Features />
     </Container>

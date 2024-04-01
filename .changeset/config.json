@@ -1,8 +1,11 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "commit": false,
-  "fixed": [["@tonightpass/kitchen"]],
+  "fixed": [["kitchn"]],
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "tonightpass/kitchn" }
+  ],
   "linked": [],
   "access": "public",
   "baseBranch": "master",

@@ -1,5 +1,5 @@
+import { DefaultTheme } from "kitchn";
 import { PrismTheme } from "prism-react-renderer";
-import { DefaultTheme } from "@tonightpass/kitchen";
 
 const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
   plain: {
@@ -7,21 +7,21 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
     color: theme.colors.text.lightest,
     fontWeight: "400",
     fontStyle: "normal",
-    fontFamily: theme.family.monospace,
-    fontSize: ".875rem",
-    textRendering: "geometricPrecision",
   },
   styles: [
     {
-      types: ["comment", "prolog", "doctype", "cdata"],
+      types: [
+        "comment",
+        "prolog",
+        "doctype",
+        "cdata",
+        "punctuation",
+        "attr-name",
+        "operator",
+        "keyword",
+      ],
       style: {
-        color: "#B362FF",
-      },
-    },
-    {
-      types: ["punctuation"],
-      style: {
-        color: "#3498db",
+        color: theme.colors.text.dark,
       },
     },
     {
@@ -31,33 +31,21 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       },
     },
     {
-      types: ["tag", "operator"],
+      types: ["tag"],
       style: {
-        color: "#9EFFFF",
-      },
-    },
-    {
-      types: ["number"],
-      style: {
-        color: "#FF628C",
+        color: theme.colors.accent.primary,
       },
     },
     {
       types: ["property", "function", "constant"],
       style: {
-        color: "#FAD000",
+        color: theme.colors.accent.success,
       },
     },
     {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: "#eeebff",
-      },
-    },
-    {
-      types: ["attr-name"],
-      style: {
-        color: "#FAD000",
+        color: theme.colors.accent.warning,
       },
     },
     {
@@ -76,31 +64,24 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
         "imports",
         "class-name",
         "property-access",
+        "string",
+        "attr-value",
+        "number",
+        "language-javascript",
       ],
       style: {
-        color: "#2980b9",
-      },
-    },
-    {
-      types: ["string", "attr-value"],
-      style: {
-        color: "#2ecc71",
-      },
-    },
-    {
-      types: ["keyword"],
-      style: {
-        color: "#FF9D00",
+        color: theme.colors.text.lightest,
       },
     },
     {
       types: ["deleted"],
       style: {
         textDecorationLine: "line-through",
+        color: theme.colors.accent.danger,
       },
     },
     {
-      types: ["language-javascript", "script"],
+      types: ["script"],
       style: {
         color: theme.colors.accent.success,
       },
@@ -109,6 +90,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
       types: ["inserted"],
       style: {
         textDecorationLine: "underline",
+        color: theme.colors.accent.success,
       },
     },
     {
@@ -126,7 +108,7 @@ const makeCodeTheme = (theme: DefaultTheme): PrismTheme => ({
     {
       types: ["important"],
       style: {
-        color: "#c4b9fe",
+        color: theme.colors.accent.warning,
       },
     },
   ],

@@ -1,7 +1,7 @@
-import { Icon, useClipboard, useTheme, useToasts } from "@tonightpass/kitchen";
+import { Icon, useClipboard, useTheme, useToasts } from "kitchn";
 import React, { useState } from "react";
-import { LiveEditor } from "react-live";
 import { RiArrowRightSLine, RiFileCopyLine } from "react-icons/ri";
+import { LiveEditor } from "react-live";
 
 interface Props {
   code: string;
@@ -26,20 +26,20 @@ const Editor: React.FC<Props> = ({ code }) => {
   };
 
   return (
-    <div className="editor">
+    <div className={"editor"}>
       <details open={visible}>
         <summary onClick={clickHandler}>
-          <div className="summary-safari">
-            <div className="action">
-              <span className="arrow">
+          <div className={"summary-safari"}>
+            <div className={"action"}>
+              <span className={"arrow"}>
                 <Icon icon={RiArrowRightSLine} />
               </span>
               <span>{"Code Editor"}</span>
             </div>
-            <div className="action">
+            <div className={"action"}>
               {visible && (
                 <span
-                  className="copy"
+                  className={"copy"}
                   onClick={copyHandler}
                   title={"Copy Code"}
                 >
@@ -49,7 +49,7 @@ const Editor: React.FC<Props> = ({ code }) => {
             </div>
           </div>
         </summary>
-        <div className="area">
+        <div className={"area"}>
           <LiveEditor />
         </div>
       </details>

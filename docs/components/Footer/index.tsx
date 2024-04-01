@@ -1,0 +1,204 @@
+import Logo from "@components/Logo/TonightPass";
+import {
+  Container,
+  Link,
+  Footer,
+  FooterGroup,
+  FooterLink,
+  useTheme,
+  Icon,
+  Select,
+} from "kitchn";
+import React from "react";
+import {
+  RiDiscordFill,
+  RiGithubFill,
+  RiInstagramFill,
+  RiLinkedinFill,
+  RiTwitterXFill,
+} from "react-icons/ri";
+
+const navigation = {
+  products: [
+    {
+      name: "Ticketing",
+      href: "https://tonightpass.com/ticketing",
+    },
+    {
+      name: "Order Kiosk",
+      href: "https://tonightpass.com/order-kiosk",
+    },
+    {
+      name: "Agency",
+      href: "https://tonightpass.com/agency",
+    },
+    {
+      name: "Social",
+      href: "https://tonightpass.com/social",
+    },
+    {
+      name: "Jobs",
+      href: "https://tonightpass.com/jobs",
+    },
+    {
+      name: "Artists",
+      href: "https://tonightpass.com/artists",
+    },
+    {
+      name: "Promoters",
+      href: "https://tonightpass.com/promoters",
+    },
+    {
+      name: "Suppliers",
+      href: "https://tonightpass.com/suppliers",
+    },
+    {
+      name: "Venues",
+      href: "https://tonightpass.com/venues",
+    },
+    {
+      name: "Developers",
+      href: "https://tonightpass.com/developers",
+    },
+  ],
+  ressources: [
+    {
+      name: "Help Center",
+      href: "https://tonightpass.com/help-center",
+    },
+    {
+      name: "Community",
+      href: "https://tonightpass.com/community",
+    },
+    {
+      name: "Design",
+      href: "/docs/brands/tonightpass",
+    },
+    {
+      name: "Status",
+      href: "https://status.tonightpass.com",
+    },
+    {
+      name: "Comparison",
+      href: "https://tonightpass.com/comparison",
+    },
+  ],
+  compagny: [
+    {
+      name: "About",
+      href: "https://tonightpass.com/about",
+    },
+    {
+      name: "News",
+      href: "https://tonightpass.com/news",
+    },
+    {
+      name: "Careers",
+      href: "https://tonightpass.com/careers",
+    },
+    {
+      name: "Contact Us",
+      href: "https://tonightpass.com/contact",
+    },
+    {
+      name: "onRuntime Studio",
+      href: "https://onruntime.com",
+    },
+    {
+      name: "Open Source",
+      href: "https://github.com/tonightpass",
+    },
+    {
+      name: "Partners",
+      href: "https://tonightpass.com/partners",
+    },
+    {
+      name: "Privacy",
+      href: "https://tonightpass.com/privacy",
+    },
+    {
+      name: "Terms",
+      href: "https://tonightpass.com/terms",
+    },
+    {
+      name: "Company Details",
+      href: "https://tonightpass.com/company-details",
+    },
+  ],
+};
+
+const CustomFooter = () => {
+  const { storedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <Footer subfooter={"© 2023 Tonight Pass. All rights reserved."}>
+      <Container mt={"small"} align={"flex-start"} justify={"flex-start"}>
+        <Link href={"/"}>
+          <Logo />
+        </Link>
+
+        {mounted && (
+          <Container my={"normal"}>
+            <Select
+              value={storedTheme}
+              onChange={(e) => setTheme(e.target.value)}
+              size={"small"}
+            >
+              <option value={"system"}>{"System"}</option>
+              <option value={"dark"}>{"Dark"}</option>
+              <option value={"light"}>{"Light"}</option>
+            </Select>
+          </Container>
+        )}
+        <Container mt={"auto"} gap={"small"} row>
+          <Link href={"https://linkedin.com/company/tonightpass"}>
+            <Icon icon={RiLinkedinFill} />
+          </Link>
+          <Link href={"https://instagram.com/tonightpass"}>
+            <Icon icon={RiInstagramFill} />
+          </Link>
+          <Link href={"https://x.com/tonightpass"}>
+            <Icon icon={RiTwitterXFill} />
+          </Link>
+          <Link href={"https://discord.gg/VvvAkPqQ98"}>
+            <Icon icon={RiDiscordFill} />
+          </Link>
+          <Link href={"https://github.com/tonightpass"}>
+            <Icon icon={RiGithubFill} />
+          </Link>
+        </Container>
+      </Container>
+
+      <FooterGroup title={"Products"}>
+        {navigation.products.map((item, i) => (
+          <FooterLink key={i} href={item.href}>
+            {item.name}
+          </FooterLink>
+        ))}
+      </FooterGroup>
+
+      <FooterGroup title={"Ressources"}>
+        {navigation.ressources.map((item, i) => (
+          <FooterLink key={i} href={item.href}>
+            {item.name}
+          </FooterLink>
+        ))}
+      </FooterGroup>
+
+      <FooterGroup title={"Company"}>
+        {navigation.compagny.map((item, i) => (
+          <FooterLink key={i} href={item.href}>
+            {item.name}
+          </FooterLink>
+        ))}
+      </FooterGroup>
+    </Footer>
+  );
+};
+
+export default CustomFooter;

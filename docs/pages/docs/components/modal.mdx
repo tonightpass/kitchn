@@ -13,10 +13,10 @@ Display popup content that requires attention or provides additional information
 
 ## Usage
 
-First of all, you need to import the `Modal` component from the `@tonightpass/kitchen` package.
+First of all, you need to import the `Modal` component from the `kitchn` package.
 
 ```js
-import { Modal } from "@tonightpass/kitchen"
+import { Modal } from "kitchn"
 ```
 
 <Callout>
@@ -46,9 +46,9 @@ import { Modal } from "@tonightpass/kitchen"
         </Modal.Body>
 
         <Modal.Actions>
-          <Modal.Action onClick={close}>Cancel</Modal.Action>
+          <Modal.Action type={"dark"} onClick={close}>Cancel</Modal.Action>
 
-          <Modal.Action onClick={close}>Submit</Modal.Action>
+          <Modal.Action type={"light"} onClick={close}>Submit</Modal.Action>
         </Modal.Actions>
       </Modal.Modal>
     </Container>
@@ -78,9 +78,9 @@ import { Modal } from "@tonightpass/kitchen"
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close}>Cancel</Modal.Action>
+            <Modal.Action type={"dark"} onClick={close}>Cancel</Modal.Action>
 
-            <Modal.Action onClick={close} disabled>
+            <Modal.Action type={"light"} onClick={close} disabled>
               Submit
             </Modal.Action>
           </Modal.Actions>
@@ -122,9 +122,9 @@ import { Modal } from "@tonightpass/kitchen"
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close}>Cancel</Modal.Action>
+            <Modal.Action type={"dark"} onClick={close}>Cancel</Modal.Action>
 
-            <Modal.Action onClick={submit}>Submit</Modal.Action>
+            <Modal.Action type={"light"} onClick={submit}>Submit</Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>
@@ -164,9 +164,9 @@ import { Modal } from "@tonightpass/kitchen"
           </Modal.Body>
 
           <Modal.Actions>
-            <Modal.Action onClick={close}>Cancel</Modal.Action>
+            <Modal.Action type={"dark"} onClick={close}>Cancel</Modal.Action>
 
-            <Modal.Action onClick={close}>Submit</Modal.Action>
+            <Modal.Action type={"light"} onClick={close}>Submit</Modal.Action>
           </Modal.Actions>
         </Modal.Modal>
       </Container>

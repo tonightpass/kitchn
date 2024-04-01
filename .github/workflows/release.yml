@@ -1,27 +1,27 @@
 name: Release
-
 on:
   push:
     branches:
       - master
-
+env:
+  NODE_OPTIONS: "--max_old_space_size=4096"
 jobs:
   release:
-    if: github.repository == 'tonightpass/kitchen'
+    if: github.repository == 'tonightpass/kitchn'
 
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v3.0.0
         with:
-          version: 7
+          version: "latest"
 
       - name: Use Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           cache: "pnpm"
 
@@ -31,8 +31,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Build
-        run: pnpm build
+      - name: Build Packages
+        run: pnpm build:packages
 
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1

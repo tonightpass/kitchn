@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "commitMessagePrefix": "⬆️",
+  "commitMessageAction": "upgrade",
+  "commitMessageTopic": "`{{depName}}`",
+  "commitMessageExtra": "to `{{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}`",
+  "assigneesFromCodeOwners": true,
+  "dependencyDashboard": true,
+  "addLabels": ["dependencies"],
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0
+}

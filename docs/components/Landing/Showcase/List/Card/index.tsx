@@ -1,4 +1,4 @@
-import kitchen, { Image, themes } from "@tonightpass/kitchen";
+import kitchn, { Image, defaultThemes } from "kitchn";
 import { Showcase } from "types/showcase";
 
 export type ShowcaseCardProps = {
@@ -23,19 +23,19 @@ const ShowcaseCard: React.FC<ShowcaseCardProps> = ({
   );
 };
 
-const ThumbnailImage = kitchen(Image)`
+const ThumbnailImage = kitchn(Image)`
   opacity: 0.3;
-  width: 60%;
+  width: 100%;
+  max-width: 60%;
   height: 100%;
   max-height: 24px;
   transition: all 1s;
   filter: ${({ theme }) =>
-    theme.id === themes.light.id && "grayscale(0) brightness(0) invert(0)"};
+    theme.name === defaultThemes.light.name &&
+    "grayscale(0) brightness(0) invert(0)"};
 `;
 
-const Container = kitchen.div`
-  background-color: ${({ theme }) => theme.colors.layout.darker};
-  border-radius: 10px;
+const Container = kitchn.div`
   width: 160px;
   height: 64px;
   display: flex;
@@ -43,7 +43,7 @@ const Container = kitchen.div`
   justify-content: center;
   transition: all 1s;
 
-  :hover {
+  &:hover {
     transform: scale(1.05);
     ${ThumbnailImage} {
       opacity: 1;
