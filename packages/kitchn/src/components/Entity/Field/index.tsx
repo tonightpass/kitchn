@@ -22,7 +22,6 @@ export const EntityFieldTitle = styled(
         transform={props.label ? "uppercase" : "none"}
         truncate
         span
-        lineHeight={1}
         {...props}
       />
     );
@@ -30,16 +29,7 @@ export const EntityFieldTitle = styled(
 )``;
 
 export const EntityFieldDescription = styled(({ ...props }: TextProps) => {
-  return (
-    <Text
-      size={"compact"}
-      color={"light"}
-      truncate
-      span
-      lineHeight={1}
-      {...props}
-    />
-  );
+  return <Text size={"compact"} color={"light"} truncate span {...props} />;
 })``;
 
 type Props = {
@@ -66,7 +56,11 @@ const EntityFieldComponent = styled(
         row
         {...props}
       >
-        <Container gap={"tiny"} minW={1} maxW={"100%"}>
+        <Container
+          minW={1}
+          gap={props.placeholder ? "tiny" : undefined}
+          maxW={"100%"}
+        >
           {props.title && (
             <Skeleton show={props.placeholder}>
               <EntityFieldTitle label={props.label} active={active}>
