@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { handlePixelValue, withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
-import { isNumber } from "../../utils/isNumber";
 import { shortenName } from "../../utils/shortenName";
 import Text from "../Text";
 
@@ -41,7 +40,7 @@ const AvatarComponent = styled(
   ({ size = 30, src, text, shape, ...props }: AvatarProps) => {
     return (
       <div role={"img"} aria-label={text || "Avatar"} {...props}>
-        {text && <Text size={"small"}>{shortenName(text)}</Text>}
+        {text && !src && <Text size={"0.4em"}>{shortenName(text)}</Text>}
         {src && (
           <AvatarImage
             src={src}
@@ -56,13 +55,12 @@ const AvatarComponent = styled(
     );
   },
 )<AvatarProps>`
-  width: ${({ size }) =>
-    size ? (isNumber(size) ? `${size}px` : size) : "30px"};
-  height: ${({ size }) =>
-    size ? (isNumber(size) ? `${size}px` : size) : "30px"};
+  width: ${({ size }) => handlePixelValue(size || 30)};
+  height: ${({ size }) => handlePixelValue(size || 30)};
   border-radius: ${({ shape, theme }) =>
     shape === "square" ? theme.radius.square : theme.radius.round};
   border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  font-size: ${({ size }) => handlePixelValue(size || 30)};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,6 +68,7 @@ const AvatarComponent = styled(
   user-select: none;
   background-color: ${({ theme }) => theme.colors.layout.darker};
   transition: all 0.2s;
+  overflow: hidden;
 `;
 
 export const AvatarImage = styled.img<{ shape?: AvatarProps["shape"] }>`
