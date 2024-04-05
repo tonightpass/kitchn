@@ -1,7 +1,7 @@
 import { capitalize } from "./capitalize";
 
 export const shortenName = (name: string): string => {
-  const parts = name.split(" ");
+  const parts = name.trim().split(" ");
   let shortened = "";
   for (const part of parts) {
     shortened += part[0].toUpperCase();
