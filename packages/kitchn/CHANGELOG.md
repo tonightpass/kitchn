@@ -1,5 +1,15 @@
 # kitchn
 
+## 0.0.2
+
+### Patch Changes
+
+- [`b2009a0`](https://github.com/tonightpass/kitchn/commit/b2009a0c6c45c71d275c14b4d588e79422255fce) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Progress bar style
+  Fix Text, Entity, Avatar style
+  Fix shortName util with trim
+
+- [`49e8b11`](https://github.com/tonightpass/kitchn/commit/49e8b11a5db38887cc388343373ccb713df47368) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix readme symlink
+
 ## 0.0.1
 
 ### Patch Changes
