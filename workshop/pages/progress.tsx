@@ -5,6 +5,7 @@ import React from "react";
 const ProgressPage: NextPage = () => {
   const [value1, setValue1] = React.useState(0);
   const [value2, setValue2] = React.useState(0);
+  const [value3, setValue3] = React.useState(0);
   const { theme } = useTheme();
 
   return (
@@ -80,6 +81,42 @@ const ProgressPage: NextPage = () => {
               {"+\r"}
             </Button>
             <Button type={"dark"} onClick={() => setValue2(0)}>
+              {"reset\r"}
+            </Button>
+          </Container>
+        </Container>
+
+        <Container gap={5}>
+          <Text>{"states"}</Text>
+          <Progress
+            value={value3}
+            colors={{
+              0: theme.colors.accent.danger,
+              1: theme.colors.accent.warning,
+              2: theme.colors.accent.success,
+              3: theme.colors.accent.info,
+              4: theme.colors.accent.primary,
+            }}
+            states={{
+              0: "Your package is in our hands",
+              1: "It is in our network",
+              2: "Your package has arrived at its delivery site",
+              3: "We are preparing your package for delivery",
+              4: "Your package has been delivered",
+            }}
+            max={4}
+            title={false}
+            checkpointStyle={"bar"}
+          />
+
+          <Container gap={5} row>
+            <Button type={"dark"} onClick={() => setValue3(value3 - 1)}>
+              {"-\r"}
+            </Button>
+            <Button type={"dark"} onClick={() => setValue3(value3 + 1)}>
+              {"+\r"}
+            </Button>
+            <Button type={"dark"} onClick={() => setValue3(0)}>
               {"reset\r"}
             </Button>
           </Container>
