@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.3
+
+### Patch Changes
+
+- [`af0989f`](https://github.com/tonightpass/kitchn/commit/af0989fc6c86eb228fca112417986414bf3d40b8) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Note style
+
 ## 0.0.2
 
 ### Patch Changes
