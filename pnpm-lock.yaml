@@ -94,7 +94,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-icons:
         specifier: ^5.0.1
-        version: 5.0.1(react@18.2.0)
+        version: 5.1.0(react@18.2.0)
       react-live:
         specifier: ^4.0.0
         version: 4.1.6(react-dom@18.2.0)(react@18.2.0)
@@ -165,7 +165,7 @@ importers:
         version: 6.13.1(babel-plugin-styled-components@2.1.4)(gatsby@5.13.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       kitchn:
         specifier: latest
-        version: link:../../packages/kitchn
+        version: 0.0.3(babel-plugin-styled-components@2.1.4)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -199,7 +199,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: link:../../packages/kitchn
+        version: 0.0.3(babel-plugin-styled-components@2.1.4)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)
       next:
         specifier: ^13.0.2
         version: 13.5.6(@babel/core@7.24.4)(react-dom@18.2.0)(react@18.2.0)
@@ -227,7 +227,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: link:../../packages/kitchn
+        version: 0.0.3(babel-plugin-styled-components@2.1.4)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -276,7 +276,7 @@ importers:
         version: 7.51.3(react@18.2.0)
       react-icons:
         specifier: ^5.0.0
-        version: 5.0.1(react@18.2.0)
+        version: 5.1.0(react@18.2.0)
       styled-components:
         specifier: 6.0.7
         version: 6.0.7(babel-plugin-styled-components@2.1.4)(react-dom@18.2.0)(react@18.2.0)
@@ -328,7 +328,7 @@ importers:
         version: 7.51.3(react@18.2.0)
       react-icons:
         specifier: ^5.0.0
-        version: 5.0.1(react@18.2.0)
+        version: 5.1.0(react@18.2.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
@@ -1632,6 +1632,19 @@ packages:
       '@babel/helper-plugin-utils': 7.24.0
       '@babel/plugin-syntax-typescript': 7.24.1(@babel/core@7.24.4)
 
+  /@babel/plugin-transform-typescript@7.24.4(@babel/core@7.24.4):
+    resolution: {integrity: sha512-79t3CQ8+oBGk/80SQ8MN3Bs3obf83zJ0YZjDmDaEZN8MqhMI760apl5z6a20kFeMXBwJX99VpKT8CKxEBp5H1g==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.24.4
+      '@babel/helper-annotate-as-pure': 7.22.5
+      '@babel/helper-create-class-features-plugin': 7.24.4(@babel/core@7.24.4)
+      '@babel/helper-plugin-utils': 7.24.0
+      '@babel/plugin-syntax-typescript': 7.24.1(@babel/core@7.24.4)
+    dev: true
+
   /@babel/plugin-transform-unicode-escapes@7.24.1(@babel/core@7.24.4):
     resolution: {integrity: sha512-RlkVIcWT4TLI96zM660S877E7beKlQw7Ig+wqkKBiWfj0zH5Q4h50q6er4wzZKRNSYpfo6ILJ+hrJAGSX2qcNw==}
     engines: {node: '>=6.9.0'}
@@ -2877,8 +2890,16 @@ packages:
     resolution: {integrity: sha512-LOKM0zQA/N4Gs+SGltaVQHwX4MjJXpglbiFr+e6pcNb36fWqbQF8k8+Q3ow+C4k8opNGt7GuIKA7+A105A8hXw==}
     dev: false
 
+  /@fontsource/figtree@5.0.20:
+    resolution: {integrity: sha512-Rn0xoiHUxSwAcpwPSoxGk0UVYKh+mnXODCRV94NnfRv/PCBPmzUsdfOL3oSU4/AfkicesejgQ1DZZ85WY4CSVA==}
+    dev: false
+
   /@fontsource/fira-code@5.0.17:
     resolution: {integrity: sha512-Ai0qE5PWvm6ETny7ToAitwdhYtO3YrNIHoa0arPquXxpnlRSB+OsJfhKnfgDKm6WMmCnxKOfsIslbVw5PqQvvQ==}
+    dev: false
+
+  /@fontsource/fira-code@5.0.18:
+    resolution: {integrity: sha512-DuH/ewp/2sSYoJw7PxB1VuCyrxo7OCEWeML7sN5yNfP8gTleIktZl/dTopcPOHv1WwDUcqRG1veRoEgfEeYfqQ==}
     dev: false
 
   /@gar/promisify@1.1.3:
@@ -4902,7 +4923,7 @@ packages:
       '@babel/plugin-transform-shorthand-properties': 7.24.1(@babel/core@7.24.4)
       '@babel/plugin-transform-spread': 7.24.1(@babel/core@7.24.4)
       '@babel/plugin-transform-sticky-regex': 7.24.1(@babel/core@7.24.4)
-      '@babel/plugin-transform-typescript': 7.24.1(@babel/core@7.24.4)
+      '@babel/plugin-transform-typescript': 7.24.4(@babel/core@7.24.4)
       '@babel/plugin-transform-unicode-regex': 7.24.1(@babel/core@7.24.4)
       '@babel/template': 7.24.0
       '@react-native/babel-plugin-codegen': 0.73.4(@babel/preset-env@7.24.4)
@@ -7620,13 +7641,17 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001603
+      caniuse-lite: 1.0.30001611
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: false
 
   /caniuse-lite@1.0.30001603:
     resolution: {integrity: sha512-iL2iSS0eDILMb9n5yKQoTBim9jMZ0Yrk8g0N9K7UzYyWnfIKzXBZD5ngpM37ZcL/cv0Mli8XtVMRYMQAfFpi5Q==}
+
+  /caniuse-lite@1.0.30001611:
+    resolution: {integrity: sha512-19NuN1/3PjA3QI8Eki55N8my4LzfkMCRLgCVfrl/slbSAchQfV0+GwjPrK3rq37As4UCLlM/DHajbKkAqbv92Q==}
+    dev: false
 
   /capital-case@1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
@@ -13384,6 +13409,39 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
+  /kitchn@0.0.3(babel-plugin-styled-components@2.1.4)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-+yrscvlbqfixE/rlnqy0KhyoabjMXiQCyhMd5zmPnTlAxdy7/Pr8SIctRDunX95L45iVkRBHogaVUM9pl5DsQA==}
+    peerDependencies:
+      next: '>= 13.0.0'
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+      react-native: '>= 0.63.4'
+      react-native-remix-icon: '>= 0.4.0'
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react-native:
+        optional: true
+      react-native-remix-icon:
+        optional: true
+    dependencies:
+      '@emotion/is-prop-valid': 1.2.2
+      '@fontsource/figtree': 5.0.20
+      '@fontsource/fira-code': 5.0.18
+      date-fns: 2.30.0
+      next: 13.5.6(@babel/core@7.24.4)(react-dom@18.2.0)(react@18.2.0)
+      next-themes: 0.3.0(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-day-picker: 8.10.1(date-fns@2.30.0)(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
+      react-hook-form: 7.51.3(react@18.2.0)
+      react-icons: 5.1.0(react@18.2.0)
+      styled-components: 6.0.7(babel-plugin-styled-components@2.1.4)(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - babel-plugin-styled-components
+      - supports-color
+    dev: false
+
   /klaw@1.3.1:
     resolution: {integrity: sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw==}
     optionalDependencies:
@@ -17073,8 +17131,17 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-icons@5.0.1(react@18.2.0):
-    resolution: {integrity: sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==}
+  /react-hook-form@7.51.3(react@18.2.0):
+    resolution: {integrity: sha512-cvJ/wbHdhYx8aviSWh28w9ImjmVsb5Y05n1+FW786vEZQJV5STNM0pW6ujS+oiBecb0ARBxJFyAnXj9+GHXACQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /react-icons@5.1.0(react@18.2.0):
+    resolution: {integrity: sha512-D3zug1270S4hbSlIRJ0CUS97QE1yNNKDjzQe3HqY0aefp2CBn9VgzgES27sRR2gOvFK+0CNx/BW0ggOESp6fqQ==}
     peerDependencies:
       react: '*'
     dependencies:
