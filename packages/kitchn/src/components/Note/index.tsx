@@ -206,6 +206,7 @@ export const NoteContent = styled.span`
   font-size: inherit;
   font-family: inherit;
   color: inherit;
+  text-align: left;
 `;
 
 export const NoteAction = styled.div``;
