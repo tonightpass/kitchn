@@ -31,7 +31,7 @@ importers:
         version: 2.27.1
       '@manypkg/cli':
         specifier: ^0.21.0
-        version: 0.21.3
+        version: 0.21.4
       '@size-limit/preset-big-lib':
         specifier: ^11.0.0
         version: 11.1.2(size-limit@11.1.2)
@@ -3457,8 +3457,8 @@ packages:
     dev: false
     optional: true
 
-  /@manypkg/cli@0.21.3:
-    resolution: {integrity: sha512-ro6j5b+44dN2AfId23voWxdlOqUCSbCwUHrUwq0LpoN/oZy6zQFAHDwYHbw50j2nL9EgpwIA03ZjaBceuUcMrw==}
+  /@manypkg/cli@0.21.4:
+    resolution: {integrity: sha512-EACxxb+c/t6G0l1FrlyewZeBnyR5V1cLkXjnBfsay5TN1UgbilFpG6POglzn+lVJet9NqnEKe3RLHABzkIDZ0Q==}
     engines: {node: '>=14.18.0'}
     hasBin: true
     dependencies:
