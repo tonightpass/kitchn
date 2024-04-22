@@ -66,7 +66,7 @@ const ToastItemComponent = styled(
           toast.text
         ) : (
           <Container row justify={"space-between"} w={"100%"}>
-            <Text>{toast.text}</Text>
+            <Text color={"inherit"}>{toast.text}</Text>
             <ToastActions actions={toast.actions} cancelHandle={toast.cancel} />
           </Container>
         )}
