@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.6
+
+### Patch Changes
+
+- [`e55294b`](https://github.com/tonightpass/kitchn/commit/e55294b56757ad9dd3e8813015ae64d936f012d3) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix entity types order
+
 ## 0.0.5
 
 ### Patch Changes
