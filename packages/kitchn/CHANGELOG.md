@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.7
+
+### Patch Changes
+
+- [`ffd4f26`](https://github.com/tonightpass/kitchn/commit/ffd4f26bc5c54741a72f40414da34614576abcff) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix all merged types
+
 ## 0.0.6
 
 ### Patch Changes
