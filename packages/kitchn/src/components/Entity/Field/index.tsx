@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc";
+import { KitchnComponent } from "../../../types";
 import Container, { ContainerProps } from "../../Container";
 import Skeleton from "../../Skeleton";
 import Text, { TextProps } from "../../Text";
@@ -31,14 +32,16 @@ export const EntityFieldDescription = styled(({ ...props }: TextProps) => {
   return <Text size={"compact"} color={"light"} truncate span {...props} />;
 })``;
 
-type EntityFieldProps = {
+type Props = ContainerProps & {
   title?: React.ReactNode;
   description?: React.ReactNode;
   active?: boolean;
   label?: boolean;
   placeholder?: boolean;
   avatar?: React.ReactNode;
-} & ContainerProps;
+};
+
+export type EntityFieldProps = KitchnComponent<Props>;
 
 const EntityFieldComponent = styled(
   ({ active = true, ...props }: EntityFieldProps) => {
