@@ -1,5 +1,13 @@
 # kitchn
 
+## 0.0.4
+
+### Patch Changes
+
+- [`eb39158`](https://github.com/tonightpass/kitchn/commit/eb39158e5e7aa2ee100971dfecd1146f0e710eda) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Note text align
+
+- [`bdcad10`](https://github.com/tonightpass/kitchn/commit/bdcad10fb5a3ab19b6841b92a6376277825c726b) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix toast text color with light theme
+
 ## 0.0.3
 
 ### Patch Changes
