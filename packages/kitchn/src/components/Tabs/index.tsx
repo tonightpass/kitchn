@@ -7,11 +7,14 @@ import { KitchnComponent } from "../../types";
 import { capitalize } from "../../utils/capitalize";
 import Highlight from "../Highlight";
 
-export type TabProps = {
-  title: string;
-  value: string;
-  icon?: JSX.Element;
-} & React.HTMLProps<HTMLDivElement>;
+export type TabProps = KitchnComponent<
+  {
+    title: string;
+    value: string;
+    icon?: JSX.Element;
+  },
+  React.HTMLProps<HTMLDivElement>
+>;
 
 type Props = {
   tabs: TabProps[];

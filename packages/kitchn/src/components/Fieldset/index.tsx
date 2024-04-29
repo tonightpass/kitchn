@@ -120,7 +120,8 @@ export const isFieldsetContainer = (
 export type FieldsetTabsProps = KitchnComponent<
   {
     tabs: string[];
-  } & ContainerProps
+  },
+  ContainerProps
 >;
 
 const FieldsetTabs = styled(

@@ -7,10 +7,13 @@ import Container, { ContainerProps } from "../../Container";
 import Skeleton from "../../Skeleton";
 import Text, { TextProps } from "../../Text";
 
-export type EntityFieldTitleProps = TextProps & {
-  active?: boolean;
-  label?: boolean;
-};
+export type EntityFieldTitleProps = KitchnComponent<
+  {
+    active?: boolean;
+    label?: boolean;
+  },
+  TextProps
+>;
 
 export const EntityFieldTitle = styled(
   ({ ...props }: EntityFieldTitleProps) => {
@@ -32,7 +35,7 @@ export const EntityFieldDescription = styled(({ ...props }: TextProps) => {
   return <Text size={"compact"} color={"light"} truncate span {...props} />;
 })``;
 
-type Props = ContainerProps & {
+type Props = {
   title?: React.ReactNode;
   description?: React.ReactNode;
   active?: boolean;
@@ -41,38 +44,42 @@ type Props = ContainerProps & {
   avatar?: React.ReactNode;
 };
 
-export type EntityFieldProps = KitchnComponent<Props>;
+export type EntityFieldProps = KitchnComponent<Props, ContainerProps>;
 
 const EntityFieldComponent = styled(
-  ({ active = true, ...props }: EntityFieldProps) => {
+  ({
+    active = true,
+    title,
+    label,
+    description,
+    placeholder,
+    ...props
+  }: EntityFieldProps) => {
     return (
       <Container
         align={"center"}
         flex={1}
         minW={1}
         maxW={"100%"}
-        active={active}
         gap={"tiny"}
         row
         {...props}
       >
         <Container
           minW={1}
-          gap={props.placeholder ? "tiny" : undefined}
+          gap={placeholder ? "tiny" : undefined}
           maxW={"100%"}
         >
-          {props.title && (
-            <Skeleton show={props.placeholder}>
-              <EntityFieldTitle label={props.label} active={active}>
-                {props.title}
+          {title && (
+            <Skeleton show={placeholder}>
+              <EntityFieldTitle label={label} active={active}>
+                {title}
               </EntityFieldTitle>
             </Skeleton>
           )}
-          {props.description && (
-            <Skeleton show={props.placeholder}>
-              <EntityFieldDescription>
-                {props.description}
-              </EntityFieldDescription>
+          {description && (
+            <Skeleton show={placeholder}>
+              <EntityFieldDescription>{description}</EntityFieldDescription>
             </Skeleton>
           )}
         </Container>
