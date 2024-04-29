@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.8
+
+### Patch Changes
+
+- [`5962e55`](https://github.com/tonightpass/kitchn/commit/5962e55033c28974322b74c3ac049452ba867de2) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Tabs title types
+
 ## 0.0.7
 
 ### Patch Changes
