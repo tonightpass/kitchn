@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.5
+
+### Patch Changes
+
+- [`7c16c86`](https://github.com/tonightpass/kitchn/commit/7c16c86afd7f854a33d6259fdb63f11d12bbcbd0) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Entity Props types
+
 ## 0.0.4
 
 ### Patch Changes
