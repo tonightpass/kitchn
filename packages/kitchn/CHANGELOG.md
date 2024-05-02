@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.9
+
+### Patch Changes
+
+- [`cddd833`](https://github.com/tonightpass/kitchn/commit/cddd83371cff4d9836164465e70b623f20b855cc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add ref forwarding in Textarea
+
 ## 0.0.8
 
 ### Patch Changes
