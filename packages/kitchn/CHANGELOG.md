@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.10
+
+### Patch Changes
+
+- [`8e322ea`](https://github.com/tonightpass/kitchn/commit/8e322ea29e08899d9ad1fd0fcdbd95fcf7a28cd8) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add ref forwarding in select
+
 ## 0.0.9
 
 ### Patch Changes
