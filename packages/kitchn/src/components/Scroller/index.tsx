@@ -4,22 +4,7 @@ import styled from "styled-components";
 import { withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
 
-type Props = {
-  /**
-   * The width of the scroller.
-   */
-  width?: string | number;
-
-  /**
-   * The height of the scroller.
-   */
-  height?: string | number;
-
-  /**
-   * The scroller's children.
-   */
-  children?: React.ReactNode;
-};
+type Props = React.PropsWithChildren;
 
 export type ScrollerProps = KitchnComponent<Props>;
 
@@ -75,10 +60,6 @@ const ScrollerComponent = styled(({ children, ...props }: ScrollerProps) => {
 })<ScrollerProps>`
   position: relative;
   overflow: hidden;
-  height: ${(props) =>
-    typeof props.height === "number" ? `${props.height}px` : props.height};
-  width: ${(props) =>
-    typeof props.width === "number" ? `${props.width}px` : props.width};
 `;
 
 const Container = styled.div`
@@ -106,9 +87,9 @@ const TopGradient = styled(Gradient)`
     to top,
     rgba(0, 0, 0, 0.1),
     rgba(0, 0, 0, 0.3) 30%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.5) 50%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.7) 70%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 1) 100%
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 1) 100%
   );
 `;
 
@@ -120,9 +101,9 @@ const BottomGradient = styled(Gradient)`
     to bottom,
     rgba(0, 0, 0, 0.1),
     rgba(0, 0, 0, 0.3) 30%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.5) 50%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.7) 70%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 1) 100%
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 1) 100%
   );
 `;
 
@@ -135,9 +116,9 @@ const LeftGradient = styled(Gradient)`
     to left,
     rgba(0, 0, 0, 0.1),
     rgba(0, 0, 0, 0.3) 30%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.5) 50%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.7) 70%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 1) 100%
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 1) 100%
   );
 `;
 
@@ -150,9 +131,9 @@ const RightGradient = styled(Gradient)`
     to right,
     rgba(0, 0, 0, 0.1),
     rgba(0, 0, 0, 0.3) 30%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.5) 50%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 0.7) 70%,
-    /* Adjust the percentage as needed */ rgba(0, 0, 0, 1) 100%
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 1) 100%
   );
 `;
 
