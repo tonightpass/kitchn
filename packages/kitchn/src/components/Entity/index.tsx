@@ -9,7 +9,7 @@ import Icon from "../Icon";
 import { Menu } from "../Menu";
 import Skeleton from "../Skeleton";
 
-type Props = ContainerProps & {
+type Props = {
   thumbnail?: React.ReactNode;
   menuContent?: React.ReactNode;
   actions?: React.ReactNode;
@@ -17,7 +17,7 @@ type Props = ContainerProps & {
   placeholder?: boolean;
 };
 
-export type EntityProps = KitchnComponent<Props>;
+export type EntityProps = KitchnComponent<Props, ContainerProps>;
 
 const EntityComponent = styled(
   ({

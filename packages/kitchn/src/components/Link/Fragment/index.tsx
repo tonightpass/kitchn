@@ -5,17 +5,14 @@ import Link, { LinkProps } from "..";
 import { withDecorator } from "../../../hoc/withDecorator";
 import { KitchnComponent } from "../../../types";
 
-type Props = LinkProps & {
+type Props = {
   /**
    * The link's id.
    */
   id: string;
 };
 
-export type FragmentLinkProps = KitchnComponent<
-  Props,
-  React.AnchorHTMLAttributes<HTMLAnchorElement>
->;
+export type FragmentLinkProps = KitchnComponent<Props, LinkProps>;
 
 const FragmentLinkComponent = styled(({ id, ...props }: FragmentLinkProps) => {
   const href = `#${id}`;

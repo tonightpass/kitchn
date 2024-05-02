@@ -4,14 +4,18 @@ import styled from "styled-components";
 import { withDecorator } from "../../hoc/withDecorator";
 import { useRect } from "../../hooks/useRect";
 import { KitchnComponent } from "../../types";
+import { isString } from "../../utils";
 import { capitalize } from "../../utils/capitalize";
 import Highlight from "../Highlight";
 
-export type TabProps = {
-  title: string;
-  value: string;
-  icon?: JSX.Element;
-} & React.HTMLProps<HTMLDivElement>;
+export type TabProps = KitchnComponent<
+  {
+    title: React.ReactNode;
+    value: string;
+    icon?: JSX.Element;
+  },
+  React.HTMLProps<HTMLDivElement>
+>;
 
 type Props = {
   tabs: TabProps[];
@@ -86,7 +90,11 @@ const TabsComponent = styled(
               {...tab}
             >
               <>{tab.icon && tab.icon}</>
-              <>{capitalize(tab.title)}</>
+              <>
+                {isString(tab.title)
+                  ? capitalize(tab.title as string)
+                  : tab.title}
+              </>
             </Tab>
           ))}
       </div>

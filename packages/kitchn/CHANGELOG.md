@@ -1,5 +1,53 @@
 # kitchn
 
+## 0.0.8
+
+### Patch Changes
+
+- [`5962e55`](https://github.com/tonightpass/kitchn/commit/5962e55033c28974322b74c3ac049452ba867de2) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Tabs title types
+
+## 0.0.7
+
+### Patch Changes
+
+- [`ffd4f26`](https://github.com/tonightpass/kitchn/commit/ffd4f26bc5c54741a72f40414da34614576abcff) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix all merged types
+
+## 0.0.6
+
+### Patch Changes
+
+- [`e55294b`](https://github.com/tonightpass/kitchn/commit/e55294b56757ad9dd3e8813015ae64d936f012d3) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix entity types order
+
+## 0.0.5
+
+### Patch Changes
+
+- [`7c16c86`](https://github.com/tonightpass/kitchn/commit/7c16c86afd7f854a33d6259fdb63f11d12bbcbd0) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Entity Props types
+
+## 0.0.4
+
+### Patch Changes
+
+- [`eb39158`](https://github.com/tonightpass/kitchn/commit/eb39158e5e7aa2ee100971dfecd1146f0e710eda) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Note text align
+
+- [`bdcad10`](https://github.com/tonightpass/kitchn/commit/bdcad10fb5a3ab19b6841b92a6376277825c726b) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix toast text color with light theme
+
+## 0.0.3
+
+### Patch Changes
+
+- [`af0989f`](https://github.com/tonightpass/kitchn/commit/af0989fc6c86eb228fca112417986414bf3d40b8) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Note style
+
+## 0.0.2
+
+### Patch Changes
+
+- [`b2009a0`](https://github.com/tonightpass/kitchn/commit/b2009a0c6c45c71d275c14b4d588e79422255fce) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Progress bar style
+  Fix Text, Entity, Avatar style
+  Fix shortName util with trim
+
+- [`49e8b11`](https://github.com/tonightpass/kitchn/commit/49e8b11a5db38887cc388343373ccb713df47368) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix readme symlink
+
 ## 0.0.1
 
 ### Patch Changes

@@ -55,7 +55,14 @@ type Props = {
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
    */
-  color?: keyof TextColors;
+  color?:
+    | keyof TextColors
+    | string
+    | "initial"
+    | "inherit"
+    | "unset"
+    | "revert"
+    | "revert-layer";
   /**
    * The accent color. Strictly limited to colors of our design system, but can be used in combination with `color` prop.
    */
@@ -132,6 +139,7 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
+    props.color ||
     props.theme.colors.text.lightest};
   text-align: ${(props) => props.align || "left"};
   text-transform: ${(props) => props.transform || "initial"};
@@ -146,9 +154,10 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
   ${(props) =>
     props.truncate &&
     `
-    overflow-x: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    word-wrap: normal;
     ${
       Number(props.truncate) > 1
         ? `

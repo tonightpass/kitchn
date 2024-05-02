@@ -15,10 +15,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract pnpm version
+        id: extract_pnpm_version
+        run: echo "::set-output name=pnpm_version::$(jq -r '.packageManager' package.json | cut -d'@' -f2)"
+
       - name: Use pnpm
         uses: pnpm/action-setup@v3.0.0
         with:
-          version: "latest"
+          version: ${{ steps.extract_pnpm_version.outputs.pnpm_version }}
 
       - name: Use Node
         uses: actions/setup-node@v4

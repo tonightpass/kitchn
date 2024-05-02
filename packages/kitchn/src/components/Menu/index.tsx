@@ -2,6 +2,7 @@ import React, { Children } from "react";
 import styled, { css } from "styled-components";
 
 import { DecoratorProps, withDecorator } from "../../hoc";
+import { KitchnComponent } from "../../types";
 import Button, { ButtonProps } from "../Button";
 import Container, { ContainerProps } from "../Container";
 import Link, { LinkProps } from "../Link";
@@ -100,10 +101,13 @@ const MenuContent = styled(
   },
 )``;
 
-export type MenuItemProps = ContainerProps & {
-  disabled?: boolean;
-  active?: boolean;
-};
+export type MenuItemProps = KitchnComponent<
+  {
+    disabled?: boolean;
+    active?: boolean;
+  },
+  ContainerProps
+>;
 
 const MenuItem = styled.li.attrs<{
   "data-menuitem"?: boolean;
@@ -133,7 +137,10 @@ const MenuItem = styled.li.attrs<{
   }
 `;
 
-export type MenuLinkProps = MenuItemProps & LinkProps & DecoratorProps;
+export type MenuLinkProps = KitchnComponent<
+  MenuItemProps,
+  LinkProps & DecoratorProps
+>;
 
 const MenuLink = styled((props: MenuLinkProps) => (
   <MenuItem as={Link} {...props} />
@@ -143,9 +150,12 @@ const MenuLink = styled((props: MenuLinkProps) => (
   }
 `;
 
-export type MenuSectionProps = {
-  title: string;
-} & ContainerProps;
+export type MenuSectionProps = KitchnComponent<
+  {
+    title: string;
+  },
+  ContainerProps
+>;
 
 const MenuSection = styled(
   ({ title, children, ...props }: MenuSectionProps) => (

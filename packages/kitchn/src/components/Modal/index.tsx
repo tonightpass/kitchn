@@ -195,9 +195,12 @@ const ModalActions = styled.footer`
   overflow: hidden;
 `;
 
-export type ModalActionProps = ButtonProps & {
-  disabled?: boolean;
-};
+export type ModalActionProps = KitchnComponent<
+  {
+    disabled?: boolean;
+  },
+  ButtonProps
+>;
 
 const ModalAction = styled((props: ModalActionProps) => {
   return <Button {...props} />;

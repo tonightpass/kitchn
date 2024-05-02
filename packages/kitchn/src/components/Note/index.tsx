@@ -1,9 +1,18 @@
 import React from "react";
+import {
+  RiAlarmWarningLine,
+  RiCheckboxCircleLine,
+  RiErrorWarningLine,
+  RiInformationLine,
+} from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
+import { useTheme } from "../../hooks";
 import { KitchnComponent, NormalSizes } from "../../types";
-import { capitalize } from "../../utils/capitalize";
+import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
+import Container from "../Container";
+import Icon from "../Icon";
 
 type Props = {
   /**
@@ -44,25 +53,40 @@ const NoteComponent = styled(
     type,
     action,
     label = true,
+    size,
     children,
     ...props
   }: NoteProps) => {
+    const { theme } = useTheme();
     return (
-      <Component role={"note"} {...props}>
-        <div>
+      <Component role={"note"} size={size} {...props}>
+        <Container align={"center"} gap={"small"} row>
           {label && (
             <NoteLabel>
-              {typeof label === "string"
-                ? label
-                : type && type !== "secondary"
-                  ? capitalize(type)
-                  : "Note"}
-              {label ? ": " : ""}
+              <Icon
+                color={"inherit"}
+                icon={
+                  type === "success"
+                    ? RiCheckboxCircleLine
+                    : type === "danger"
+                      ? RiAlarmWarningLine
+                      : type === "warning"
+                        ? RiErrorWarningLine
+                        : RiInformationLine
+                }
+                size={
+                  size === "small"
+                    ? theme.size.compact
+                    : size === "large"
+                      ? theme.size.large
+                      : theme.size.medium
+                }
+              />
             </NoteLabel>
           )}
 
           <NoteContent>{children}</NoteContent>
-        </div>
+        </Container>
         {action && <NoteAction>{action}</NoteAction>}
       </Component>
     );
@@ -75,7 +99,7 @@ const NoteComponent = styled(
   user-select: none;
   flex: 1;
   gap: 10px;
-  font-weight: ${({ theme }) => theme.weight.medium};
+  font-weight: ${({ theme }) => theme.weight.light};
   border-radius: 8px;
   background-color: ${({ theme, type, fill }) => {
     if (fill) {
@@ -97,7 +121,7 @@ const NoteComponent = styled(
     }
     return "transparent";
   }};
-  
+
   color: ${({ theme, type, fill }) => {
     if (fill) {
       switch (type) {
@@ -128,7 +152,7 @@ const NoteComponent = styled(
           return theme.colors.text.lightest;
       }
     }
-  }}};
+  }};
 
   padding: ${(props) => {
     switch (props.size) {
@@ -147,35 +171,34 @@ const NoteComponent = styled(
       case "small":
         return props.theme.size.small;
       case "large":
-        return props.theme.size.medium;
+        return props.theme.size.normal;
       case "normal":
       default:
-        return props.theme.size.normal;
+        return props.theme.size.compact;
     }
   }};
 
   border: ${({ theme, type }) => {
     switch (type) {
       case "danger":
-        return `1px solid ${theme.colors.accent.danger}`;
+        return `1px solid ${convertRGBToRGBA(theme.colors.accent.danger, 0.5)}`;
       case "warning":
-        return `1px solid ${theme.colors.accent.warning}`;
+        return `1px solid ${convertRGBToRGBA(theme.colors.accent.warning, 0.5)}`;
       case "info":
-        return `1px solid ${theme.colors.accent.info}`;
+        return `1px solid ${convertRGBToRGBA(theme.colors.accent.info, 0.5)}`;
       case "success":
-        return `1px solid ${theme.colors.accent.success}`;
+        return `1px solid ${convertRGBToRGBA(theme.colors.accent.success, 0.5)}`;
       case "secondary":
-        return `1px solid ${theme.colors.layout.light}`;
+        return `1px solid ${convertRGBToRGBA(theme.colors.layout.light, 0.5)}`;
       case "primary":
       default:
-        return `1px solid ${theme.colors.layout.dark}`;
+        return `1px solid ${convertRGBToRGBA(theme.colors.layout.dark, 0.5)}`;
     }
   }};
 `;
 
 export const NoteLabel = styled.span`
   font-size: inherit;
-  font-weight: ${({ theme }) => theme.weight.semiBold};
   color: inherit;
 `;
 
@@ -183,6 +206,7 @@ export const NoteContent = styled.span`
   font-size: inherit;
   font-family: inherit;
   color: inherit;
+  text-align: left;
 `;
 
 export const NoteAction = styled.div``;

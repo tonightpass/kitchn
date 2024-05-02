@@ -12,6 +12,7 @@ type Props = {
   states?: Record<number, string | React.ReactNode>;
   title?: boolean;
   checkpointTitle?: boolean;
+  checkpointStyle?: "round" | "bar";
 };
 
 export type ProgressProps = KitchnComponent<
@@ -27,6 +28,7 @@ const ProgressComponent = styled(
     states,
     title = true,
     checkpointTitle = true,
+    checkpointStyle = "round",
     ...props
   }: ProgressProps) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
@@ -76,7 +78,13 @@ const ProgressComponent = styled(
             {state || "unknow state"}
           </ProgressState>
         )}
-        <Component value={value} max={max} {...props} background={background} />
+        <Component
+          value={value}
+          max={max}
+          {...props}
+          background={background}
+          checkpointStyle={checkpointStyle}
+        />
         <ProgressCheckpointContainer>
           {states &&
             Object.keys(states).map((key) => {
@@ -96,6 +104,9 @@ const ProgressComponent = styled(
                     onMouseEnter={() => setIsHover(checkpoint)}
                     onMouseLeave={() => setIsHover(null)}
                     title={states && title}
+                    max={max}
+                    amount={Object.keys(states).length}
+                    checkpointStyle={checkpointStyle}
                   />
                   {!isMobile && checkpointTitle && (
                     <ProgressCheckpointTitle
@@ -130,7 +141,8 @@ const ProgressComponent = styled(
 
   &::-webkit-progress-bar {
     border-radius: 5px;
-    background-color: ${({ theme }) => theme.colors.layout.dark};
+    background-color: ${({ theme, checkpointStyle }) =>
+      checkpointStyle === "bar" ? "transparent" : theme.colors.layout.dark};
   }
 
   &::-webkit-progress-value {
@@ -141,10 +153,13 @@ const ProgressComponent = styled(
 
 const Component = styled.progress<{
   background?: string;
+  checkpointStyle: ProgressProps["checkpointStyle"];
 }>`
   &::-webkit-progress-value {
-    background: ${({ theme, background }) =>
-      background || theme.colors.layout.lightest};
+    background: ${({ theme, background, checkpointStyle }) =>
+      checkpointStyle === "bar"
+        ? "transparent"
+        : background || theme.colors.layout.lightest};
   }
 `;
 
@@ -195,21 +210,40 @@ export const ProgressCheckpointTitle = styled.span<{
 
 export const ProgressCheckpoint = styled.div<{
   value: number;
+  max: number;
   color?: string;
   first?: boolean;
   last?: boolean;
   title?: boolean;
+  amount: number;
+  checkpointStyle: ProgressProps["checkpointStyle"];
 }>`
   position: absolute;
-  top: ${({ title }) => (title ? "24px" : "-4px")};
-  left: ${({ value }) => `${value}%`};
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: ${({ theme, color }) => color || theme.colors.layout.light};
+  top: ${({ title, checkpointStyle }) =>
+    title
+      ? `${checkpointStyle === "bar" ? 28 : 24}px`
+      : `${checkpointStyle === "bar" ? 0 : -4}px`};
+  left: ${({ value, max }) => `${(value * 100) / max}%`};
+  width: ${({ checkpointStyle, amount }) =>
+    checkpointStyle === "bar" ? `calc(${100 / amount}% - 2px)` : "18px"};
+  height: ${({ checkpointStyle }) =>
+    checkpointStyle === "bar" ? "10px" : "18px"};
+  border-radius: ${({ theme }) => theme.radius.round};
+  ${({ checkpointStyle, first, last }) => `
+    ${!first && checkpointStyle === "bar" ? "border-top-left-radius: 0; border-bottom-left-radius: 0;" : ""}
+    ${!last && checkpointStyle === "bar" ? "border-top-right-radius: 0; border-bottom-right-radius: 0;" : ""}
+  `};
+  background: ${({ theme, color, checkpointStyle }) =>
+    checkpointStyle === "bar"
+      ? color || theme.colors.layout.dark
+      : color || theme.colors.layout.light};
   z-index: 1;
-  transform: ${({ first, last }) =>
-    first ? "translateX(0)" : last ? "translateX(-100%)" : "translateX(-50%)"};
+  transform: ${({ value, max, first, last }) =>
+    first
+      ? "translateX(0)"
+      : last
+        ? "translateX(-100%)"
+        : `translateX(-${(value * 100) / max}%)`};
 
   &:hover {
     ${ProgressCheckpointTitle} {

@@ -7,10 +7,13 @@ import Container, { ContainerProps } from "../../Container";
 import Skeleton from "../../Skeleton";
 import Text, { TextProps } from "../../Text";
 
-export type EntityFieldTitleProps = TextProps & {
-  active?: boolean;
-  label?: boolean;
-};
+export type EntityFieldTitleProps = KitchnComponent<
+  {
+    active?: boolean;
+    label?: boolean;
+  },
+  TextProps
+>;
 
 export const EntityFieldTitle = styled(
   ({ ...props }: EntityFieldTitleProps) => {
@@ -22,7 +25,6 @@ export const EntityFieldTitle = styled(
         transform={props.label ? "uppercase" : "none"}
         truncate
         span
-        lineHeight={1}
         {...props}
       />
     );
@@ -30,16 +32,7 @@ export const EntityFieldTitle = styled(
 )``;
 
 export const EntityFieldDescription = styled(({ ...props }: TextProps) => {
-  return (
-    <Text
-      size={"compact"}
-      color={"light"}
-      truncate
-      span
-      lineHeight={1}
-      {...props}
-    />
-  );
+  return <Text size={"compact"} color={"light"} truncate span {...props} />;
 })``;
 
 type Props = {
@@ -49,36 +42,44 @@ type Props = {
   label?: boolean;
   placeholder?: boolean;
   avatar?: React.ReactNode;
-} & ContainerProps;
+};
 
-export type EntityFieldProps = KitchnComponent<Props>;
+export type EntityFieldProps = KitchnComponent<Props, ContainerProps>;
 
 const EntityFieldComponent = styled(
-  ({ active = true, ...props }: EntityFieldProps) => {
+  ({
+    active = true,
+    title,
+    label,
+    description,
+    placeholder,
+    ...props
+  }: EntityFieldProps) => {
     return (
       <Container
         align={"center"}
         flex={1}
         minW={1}
         maxW={"100%"}
-        active={active}
         gap={"tiny"}
         row
         {...props}
       >
-        <Container gap={"tiny"} minW={1} maxW={"100%"}>
-          {props.title && (
-            <Skeleton show={props.placeholder}>
-              <EntityFieldTitle label={props.label} active={active}>
-                {props.title}
+        <Container
+          minW={1}
+          gap={placeholder ? "tiny" : undefined}
+          maxW={"100%"}
+        >
+          {title && (
+            <Skeleton show={placeholder}>
+              <EntityFieldTitle label={label} active={active}>
+                {title}
               </EntityFieldTitle>
             </Skeleton>
           )}
-          {props.description && (
-            <Skeleton show={props.placeholder}>
-              <EntityFieldDescription>
-                {props.description}
-              </EntityFieldDescription>
+          {description && (
+            <Skeleton show={placeholder}>
+              <EntityFieldDescription>{description}</EntityFieldDescription>
             </Skeleton>
           )}
         </Container>
