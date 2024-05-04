@@ -1,12 +1,7 @@
 import Logo from "@components/Logo/TonightPass";
 import { Container, Link, Footer, FooterGroup, FooterLink, Icon } from "kitchn";
 import { useRouter } from "next/router";
-import {
-  ThemeSwitch,
-  useConfig,
-  useTheme as useNextraTheme,
-  useTheme,
-} from "nextra-theme-docs";
+import { ThemeSwitch } from "nextra-theme-docs";
 import React from "react";
 import {
   RiDiscordFill,
