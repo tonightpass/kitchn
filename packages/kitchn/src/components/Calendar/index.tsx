@@ -70,12 +70,16 @@ const CalendarComponent = styled(
             format = {
               weekday: "short",
               day: "numeric",
+              hour: time ? "numeric" : undefined,
+              minute: time ? "numeric" : undefined,
             };
           } else {
             format = {
               weekday: "short",
               month: "short",
               day: "numeric",
+              hour: time ? "numeric" : undefined,
+              minute: time ? "numeric" : undefined,
             };
           }
           break;
