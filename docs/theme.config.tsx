@@ -91,7 +91,7 @@ const config: DocsThemeConfig = {
     text: "Edit this page on GitHub",
   },
   primaryHue: 290,
-  primarySaturation: 0,
+  primarySaturation: 100,
   footer: {
     component: Footer,
   },
