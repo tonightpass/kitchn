@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.0.12
+
+### Patch Changes
+
+- [`313f46f`](https://github.com/tonightpass/kitchn/commit/313f46f52634867445e24d707d90f0d30afaccbe) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve calendar range with time
+
 ## 0.0.11
 
 ### Patch Changes
