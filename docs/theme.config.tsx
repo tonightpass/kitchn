@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/tonightpass/kitchn",
   },
-  docsRepositoryBase: "https://github.com/tonightpass/kitchn/blob/master",
+  docsRepositoryBase: "https://github.com/tonightpass/kitchn/blob/master/docs",
   useNextSeoProps() {
     const { route } = useRouter();
     if (route !== "/") {
