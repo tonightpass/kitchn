@@ -53,7 +53,7 @@ Our [Code of Conduct](https://docs.onruntime.com/contributing/code-of-conduct) a
 
 ## Contributing
 
-To get started, check out our [contributing guide](https://docs.onruntime.com/contributing/introduction).
+To get started, check out our [contributing guide](https://kitchn.tonightpass.com/docs/contributing).
 
 ### Contributors
 

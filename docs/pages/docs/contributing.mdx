@@ -1,0 +1,92 @@
+---
+title: "Contribute"
+description: "Whether you're a beginner or advanced user, we welcome you to contribute to Kitchn. We have a contributing guide that will help you get started."
+---
+
+import { Callout } from "nextra-theme-docs";
+
+# Contributing
+
+Whether you're a beginner or advanced user, we welcome you to contribute to Kitchn. We have a contributing guide that will help you get started.
+
+## Developing
+
+1. Clone the Kitchn repository (download only recent commits for faster clone):
+```sh
+git clone --depth=1 https://github.com/tonightpass/kitchn.git
+```
+
+2. Create a new branch **(the branch name must be written in lower case)**:
+```sh
+git checkout -b MY_GITHUB_USERNAME/MY_BRANCH_NAME origin/master
+```
+
+3. Enable pnpm:
+```sh
+corepack enable pnpm
+```
+
+4. Install the dependencies with:
+```sh
+pnpm i
+```
+
+5. Start developing and watch for code changes:
+```sh
+pnpm dev
+```
+
+It might take a lot of ressources so you can run only the apps you need to work on:
+```sh
+# Terminal 1
+pnpm dev:packages
+
+# Terminal 2
+pnpm dev:workshop
+```
+
+6.  Install the [Gitmoji extension for VSCode](https://marketplace.visualstudio.com/items?itemName=seatonjiang.gitmoji-vscode) for git commit messages.    
+
+7.  When your changes are finished, commit them to the branch (**the commit message must be written in lower case**):
+```
+git add .
+git commit -m "INSERT_THE_APPROPRIATE_GITMOJI_HERE DESCRIBE_YOUR_CHANGES_HERE"
+```
+
+8.  To open a pull request, you can go to [the "Pull requests" tab of our GitHub repository](https://github.com/tonightpass/kitchn/pulls), open your pull request, assign yourself to it, add the relevant label(s), add it to the "Kitchn Plan" project, then create it and link the issue you're solving to the pull request.
+
+## Linting
+
+The Kitchn repository runs [ESLint](https://eslint.org) and [Prettier](https://prettier.io) to lint and format all code and documentation.
+
+To lint all code you can run:
+
+```sh
+pnpm lint
+```
+
+If you get errors, you can run the ESLint and Prettier auto-fix using:
+
+```sh
+pnpm lint-fix
+```
+
+Not all rules can be auto-fixed, those require manual changes.
+
+### ESLint
+
+We recommend installing the [ESLint plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+You can find the enabled rules in the [ESLint config](https://github.com/AntoineKM/antoine/tree/master/packages/eslint-config-antoine).
+
+### Prettier
+
+We recommend installing the [Prettier plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+
+## Building
+
+You can build Kitchn, including all type definitions and packages, with:
+
+```bash
+pnpm build
+```
