@@ -135,7 +135,7 @@ const CustomFooter = () => {
           <Logo />
         </Link>
 
-        {mounted && router.pathname.startsWith("/docs") && (
+        {mounted && !router.pathname.startsWith("/docs") && (
           <Container my={"normal"}>
             <ThemeSwitch />
           </Container>
