@@ -20,7 +20,7 @@ jobs:
         run: echo "::set-output name=pnpm_version::$(jq -r '.packageManager' package.json | cut -d'@' -f2)"
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v3.0.0
+        uses: pnpm/action-setup@v4.0.0
         with:
           version: ${{ steps.extract_pnpm_version.outputs.pnpm_version }}
 
