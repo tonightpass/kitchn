@@ -21,6 +21,7 @@ export * from "./Icon";
 export * from "./Image";
 export * from "./Input";
 export * from "./Input/Controlled";
+export * from "./Input/Password";
 export * from "./List/Item";
 export * from "./List/Ordered";
 export * from "./List/Unordered";
