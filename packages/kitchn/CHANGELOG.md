@@ -1,5 +1,15 @@
 # kitchn
 
+## 0.1.0
+
+### Minor Changes
+
+- [`0ea7470`](https://github.com/tonightpass/kitchn/commit/0ea74706dbc1d65460e72d5d18c122f8a7e7ed62) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add PasswordInput
+
+### Patch Changes
+
+- [`907c21c`](https://github.com/tonightpass/kitchn/commit/907c21cd935c98e511f5ee72ff04c1529091e5ed) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add clickable prop to Icon
+
 ## 0.0.12
 
 ### Patch Changes
