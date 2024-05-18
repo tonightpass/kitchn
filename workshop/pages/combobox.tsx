@@ -82,11 +82,6 @@ const ComboboxPage: NextPage = () => {
         />
       </Container>
 
-      <Text>{"label"}</Text>
-      <Container gap={10}>
-        <Combobox options={labelOptions} placeholder={"Enter here"} />
-      </Container>
-
       <Text>{"custom searching text"}</Text>
       <Container gap={10}>
         <Combobox searching placeholder={"Enter here"}>
