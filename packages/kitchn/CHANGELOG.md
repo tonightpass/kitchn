@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.2.1
+
+### Patch Changes
+
+- [`9127929`](https://github.com/tonightpass/kitchn/commit/9127929a4e9fe5e745d45d720849034924a30ed6) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix ComboboxItem name and export
+
 ## 0.2.0
 
 ### Minor Changes
