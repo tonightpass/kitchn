@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { withDecorator } from "../../../hoc";
 import { useCombobox } from "../../../hooks";
 import { KitchnComponent } from "../../../types";
-import Container from "../../Container";
+import Container, { ContainerProps } from "../../Container";
 import Text from "../../Text";
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
   isLabelOnly?: boolean;
 };
 
-export type ComboboxItemProps = KitchnComponent<Props>;
+export type ComboboxItemProps = KitchnComponent<Props, ContainerProps>;
 
 const ComboxItemComponent = styled(
   ({
