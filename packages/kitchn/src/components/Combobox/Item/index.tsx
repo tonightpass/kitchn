@@ -14,7 +14,7 @@ type Props = {
 
 export type ComboboxItemProps = KitchnComponent<Props, ContainerProps>;
 
-const ComboxItemComponent = styled(
+const ComboboxItemComponent = styled(
   ({
     value: identValue,
     children,
@@ -60,6 +60,6 @@ const ComboxItemComponent = styled(
   }
 `;
 
-ComboxItemComponent.displayName = "KitchenComboboxItem";
-const ComboboxItem = withDecorator(ComboxItemComponent);
+ComboboxItemComponent.displayName = "KitchenComboboxItem";
+export const ComboboxItem = withDecorator(ComboboxItemComponent);
 export default ComboboxItem;
