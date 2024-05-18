@@ -19,17 +19,12 @@ const ComboboxDropdownComponent: React.FC<ComboboxDropdownProps> = ({
   children,
 }) => {
   const { ref } = useCombobox();
-  // const isEmpty = React.useMemo(() => {
-  //   return !visible || React.Children.count(children) === 0;
-  // }, [children, visible]);
 
   const clickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
   };
-
-  console.log("in combo dropdown", ref);
 
   return (
     <Dropdown
