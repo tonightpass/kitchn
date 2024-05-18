@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.2.2
+
+### Patch Changes
+
+- [`e8b6ce8`](https://github.com/tonightpass/kitchn/commit/e8b6ce82dcadffa224d0c1767a21f748d4eff174) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix typo of children in ComboboxItem
+
 ## 0.2.1
 
 ### Patch Changes
