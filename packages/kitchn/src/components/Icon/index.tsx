@@ -17,6 +17,7 @@ type Props = {
    */
   accent?: keyof AccentColors;
   align?: "top" | "middle" | "bottom";
+  clickable?: boolean;
 };
 
 export type IconProps = KitchnComponent<Props, React.SVGProps<SVGSVGElement>>;
@@ -54,6 +55,8 @@ const IconComponent = styled(
         return "middle";
     }
   }};
+  cursor: ${({ clickable }) => (clickable ? "pointer" : "default")};
+  pointer-events: ${({ clickable }) => (clickable ? "auto" : "none")};
 `;
 
 IconComponent.displayName = "KitchnIcon";

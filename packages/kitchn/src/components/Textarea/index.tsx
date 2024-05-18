@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
@@ -19,10 +19,14 @@ export type TextareaProps = KitchnComponent<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >;
 
-const TextareaComponent = styled(
-  ({ placeholder, disabled, defaultValue, ...props }: TextareaProps) => {
+const TextareaForwarded = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  (
+    { placeholder, disabled, defaultValue, ...props }: TextareaProps,
+    ref: React.Ref<HTMLTextAreaElement>,
+  ) => {
     return (
       <textarea
+        ref={ref}
         aria-disabled={disabled}
         placeholder={placeholder}
         disabled={disabled}
@@ -31,7 +35,11 @@ const TextareaComponent = styled(
       />
     );
   },
-)<TextareaProps>`
+);
+
+TextareaForwarded.displayName = "Textarea";
+
+const TextareaComponent = styled(TextareaForwarded)<TextareaProps>`
   position: relative;
   outline: none;
   transition: all 0.2s;

@@ -39,7 +39,7 @@ const Featured: React.FC = () => {
       <Container mt={"normal"} align={"center"}>
         <Link
           href={
-            "https://producthunt.com/posts/kitchn?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchn"
+            "https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchn"
           }
         >
           <Image

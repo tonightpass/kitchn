@@ -1,5 +1,6 @@
 {
   "index": "Getting started",
+  "contributing": "Contributing",
   "frameworks": {
     "title": "Frameworks",
     "theme": {
@@ -13,10 +14,15 @@
     }
   },
   "components": "Components",
-  "hooks": "Hooks",
+  "api-reference": {
+    "title": "API Reference",
+    "href": "https://paka.dev/npm/kitchn",
+    "newWindow": true
+  },
   "roadmap": {
     "title": "Roadmap",
     "href": "https://github.com/orgs/tonightpass/projects/2",
     "newWindow": true
-  }
+  },
+  "acknowledgements": "Acknowledgements"
 }

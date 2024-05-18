@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle } from "react";
-import { RiCloseCircleLine } from "react-icons/ri";
+import { RiCloseLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
@@ -9,7 +9,7 @@ import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 import { isNumber } from "../../utils/isNumber";
 import Container, { ContainerProps } from "../Container";
 import Error from "../Error";
-import Icon from "../Icon";
+import Icon, { IconProps } from "../Icon";
 import Text, { TextProps } from "../Text";
 
 const simulateChangeEvent = (
@@ -28,6 +28,10 @@ type Props = {
   size?: NormalSizes;
   prefix?: JSX.Element | string;
   suffix?: JSX.Element | string;
+  prefixIcon?: IconProps["icon"];
+  suffixIcon?: IconProps["icon"];
+  onIconClick?: (_event: React.MouseEvent<SVGSVGElement>) => void;
+  clickableIcon?: boolean;
   initialValue?: string;
   value?: string;
   disabled?: boolean;
@@ -56,6 +60,10 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
       size = "normal",
       prefix,
       suffix,
+      // prefixIcon,
+      suffixIcon,
+      onIconClick,
+      clickableIcon,
       disabled = false,
       prefixContainer = true,
       suffixContainer = true,
@@ -141,6 +149,19 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
       inputRef.current.focus();
     };
 
+    const iconClickHandler = (e: React.MouseEvent<SVGSVGElement>) => {
+      if (disabled) return;
+      onIconClick && onIconClick(e);
+    };
+
+    const iconProps = React.useMemo(
+      () => ({
+        clickable: clickableIcon,
+        onClick: iconClickHandler,
+      }),
+      [clickableIcon, iconClickHandler],
+    );
+
     React.useEffect(() => {
       if (isControlledComponent) {
         setSelfValue(value as string);
@@ -170,6 +191,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
             suffix={suffix}
             prefixContainer={prefixContainer}
             suffixContainer={suffixContainer}
+            suffixIcon={suffixIcon}
             prefixStyling={prefixStyling}
             suffixStyling={suffixStyling}
             disabled={disabled}
@@ -197,9 +219,10 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
               visible={Boolean(
                 inputRef.current && inputRef.current.value !== "",
               )}
+              lastItem={!suffixIcon}
             >
               <Icon
-                icon={RiCloseCircleLine}
+                icon={RiCloseLine}
                 onMouseEnter={handleClearIconEnter}
                 onMouseLeave={handleClearIconLeave}
                 onClick={handleClear}
@@ -211,6 +234,26 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
                 size={size === "small" ? 16 : size === "large" ? 24 : 20}
               />
             </InputClear>
+          )}
+          {suffixIcon && (
+            <InputSuffixPart
+              size={size}
+              disabled={disabled}
+              suffix={suffix}
+              suffixContainer={suffixContainer}
+              suffixStyling={suffixStyling}
+              error={error}
+              focus={focus}
+              type={type}
+              lastItem
+            >
+              <Icon
+                icon={suffixIcon}
+                color={!disabled && !readOnly ? "lightest" : "light"}
+                size={size === "small" ? 16 : size === "large" ? 24 : 20}
+                {...iconProps}
+              />
+            </InputSuffixPart>
           )}
           {suffix && suffixContainer && (
             <InputSuffix
@@ -286,7 +329,7 @@ export const InputContainer = styled.div<{
   font-size: ${({ size, theme }) => {
     switch (size) {
       case "small":
-        return theme.size.tiny;
+        return theme.size.compact;
       case "large":
         return theme.size.normal;
       case "normal":
@@ -335,16 +378,26 @@ export const InputField = styled.input<
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   `}
-  ${({ suffix, suffixContainer, clearable, value }) =>
-    ((suffix && suffixContainer) || (clearable && value !== undefined)) &&
+  ${({ suffix, suffixContainer, suffixIcon, clearable, value }) =>
+    ((suffix && suffixContainer) ||
+      suffixIcon ||
+      (clearable && value !== undefined)) &&
     `
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   `}
   ${({ prefix, prefixContainer, prefixStyling }) =>
     prefix && prefixContainer && !prefixStyling && "border-left: none;"}
-  ${({ suffix, suffixContainer, suffixStyling, clearable, value }) =>
+  ${({
+    suffix,
+    suffixContainer,
+    suffixIcon,
+    suffixStyling,
+    clearable,
+    value,
+  }) =>
     ((suffix && suffixContainer && !suffixStyling) ||
+      suffixIcon ||
       (clearable && value !== undefined)) &&
     "border-right: none;"}
 `;
@@ -452,7 +505,7 @@ export const InputSuffix = styled.span<{
   }
 `;
 
-export const InputClear = styled.span<{
+export const InputSuffixPart = styled.span<{
   disabled: InputProps["disabled"];
   size: InputProps["size"];
   suffix: InputProps["suffix"];
@@ -461,7 +514,7 @@ export const InputClear = styled.span<{
   error: InputProps["error"];
   focus: boolean;
   type: InputProps["type"];
-  visible: boolean;
+  lastItem?: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -478,7 +531,8 @@ export const InputClear = styled.span<{
             ? theme.colors.layout.lighter
             : theme.colors.layout.dark};
   border-left: none;
-  padding-right: ${({ theme }) => theme.gap.small};
+  padding-right: ${({ theme, lastItem }) =>
+    lastItem ? theme.gap.small : theme.gap.tiny};
   ${({ theme, disabled }) =>
     disabled && `background-color: ${theme.colors.layout.darker};`};
   ${({ theme, suffix, suffixContainer }) =>
@@ -491,8 +545,9 @@ export const InputClear = styled.span<{
     border-radius: 0 ${theme.radius.square}
     ${theme.radius.square} 0;
   `}
-  ${({ suffix, suffixContainer, suffixStyling }) =>
-    suffix && suffixContainer && !suffixStyling && "border-right: none;"}
+  ${({ suffix, suffixContainer, suffixStyling, lastItem }) =>
+    ((suffix && suffixContainer && !suffixStyling) || !lastItem) &&
+    "border-right: none;"}
   height: ${(props) => {
     switch (props.size) {
       case "small":
@@ -505,8 +560,15 @@ export const InputClear = styled.span<{
     }
   }};
 
-  svg {
+  ${Icon} {
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  }
+`;
+
+export const InputClear = styled(InputSuffixPart)<{
+  visible: boolean;
+}>`
+  ${Icon} {
     transition:
       color,
       opacity 0.2s ease-in-out;

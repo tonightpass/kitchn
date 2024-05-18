@@ -1,18 +1,22 @@
-import { isSameDay, isSameMonth } from "date-fns";
-import React from "react";
+import { isSameDay, isSameMonth, isValid } from "date-fns";
+import React, { ChangeEvent, KeyboardEvent, MouseEvent } from "react";
 import {
   DateFormatter,
   DayPicker,
   DateRange,
   isDateRange,
+  ActiveModifiers,
 } from "react-day-picker";
 import { RiCalendarLine } from "react-icons/ri";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { DecoratorProps, withDecorator } from "../../hoc";
+import Container from "../Container";
 import Icon from "../Icon";
+import Input from "../Input";
 import { Menu, MenuButtonProps, MenuContainerProps } from "../Menu";
 import Text from "../Text";
+import { TooltipContentInner } from "../Tooltip/Content";
 
 export type { DateFormatter, DateRange };
 
@@ -23,6 +27,9 @@ type Props = {
   rangePlaceholder?: string;
   menuContainerProps?: MenuContainerProps & DecoratorProps;
   menuButtonProps?: MenuButtonProps & DecoratorProps;
+  time?: boolean;
+  timeStartLabel?: string;
+  timeEndLabel?: string;
 } & React.ComponentProps<typeof DayPicker>;
 
 export type CalendarProps = Props;
@@ -33,6 +40,12 @@ export const formatWeekdayName: DateFormatter = (date, options) => {
     .slice(0, 1);
 };
 
+export const formatCaption: DateFormatter = (date) =>
+  date.toLocaleDateString(undefined, {
+    month: "long",
+    year: "numeric",
+  });
+
 const CalendarComponent = styled(
   ({
     placeholder = "Select a date",
@@ -41,6 +54,9 @@ const CalendarComponent = styled(
     menuContainerProps,
     menuButtonProps,
     format,
+    time = false,
+    timeStartLabel = "Start",
+    timeEndLabel = "End",
     ...props
   }: CalendarProps) => {
     if (!format) {
@@ -54,12 +70,16 @@ const CalendarComponent = styled(
             format = {
               weekday: "short",
               day: "numeric",
+              hour: time ? "numeric" : undefined,
+              minute: time ? "numeric" : undefined,
             };
           } else {
             format = {
               weekday: "short",
               month: "short",
               day: "numeric",
+              hour: time ? "numeric" : undefined,
+              minute: time ? "numeric" : undefined,
             };
           }
           break;
@@ -75,8 +95,92 @@ const CalendarComponent = styled(
       }
     }
 
+    const activeModifiers: ActiveModifiers = {
+      selected: true,
+      customModifier: true,
+    };
+
+    const handleSingleInput = (
+      e: ChangeEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>,
+      props: CalendarProps,
+      isTimeInput: boolean = false,
+    ) => {
+      if (props.mode !== "single") return;
+
+      let date: Date;
+      if (isTimeInput) {
+        // For time input, consider today's date and set the time part
+        const currentTime = new Date(props.selected || new Date());
+        const [hours, minutes] = (e.target as HTMLInputElement).value.split(
+          ":",
+        );
+        date = new Date(
+          currentTime.getFullYear(),
+          currentTime.getMonth(),
+          currentTime.getDate(),
+          parseInt(hours, 10),
+          parseInt(minutes, 10),
+        );
+      } else {
+        // For date input, parse the input value as date
+        date = new Date((e.target as HTMLInputElement).value);
+      }
+
+      if (isValid(date)) {
+        if (props.onSelect) {
+          props.onSelect(
+            date,
+            date,
+            activeModifiers,
+            e as unknown as MouseEvent,
+          );
+        }
+      }
+    };
+
+    const handleRangeInput = (
+      e: ChangeEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>,
+      props: CalendarProps,
+      isEndInput: boolean = false,
+    ) => {
+      if (props.mode !== "range") return;
+
+      let date: Date;
+      if (isEndInput) {
+        // For end date input, parse the input value as date
+        date = new Date((e.target as HTMLInputElement).value);
+      } else {
+        // For start date input, consider today's date and set the time part
+        const currentTime = new Date(props.selected?.from || new Date());
+        date = new Date((e.target as HTMLInputElement).value);
+        date.setHours(currentTime.getHours(), currentTime.getMinutes());
+      }
+
+      if (isValid(date)) {
+        if (props.onSelect) {
+          props.onSelect(
+            {
+              from: isEndInput ? props.selected?.from : date,
+              to: isEndInput ? date : props.selected?.to,
+            },
+            date,
+            activeModifiers,
+            e as unknown as MouseEvent,
+          );
+        }
+      }
+    };
+
     return (
-      <Menu.Container {...menuContainerProps}>
+      <Menu.Container
+        portalCss={css`
+          ${TooltipContentInner} {
+            padding: 0;
+            width: 280px;
+          }
+        `}
+        {...menuContainerProps}
+      >
         <Menu.Button
           unstyled={false}
           prefix={<Icon icon={RiCalendarLine} />}
@@ -119,15 +223,147 @@ const CalendarComponent = styled(
                   : placeholder}
           </Text>
         </Menu.Button>
-        <Menu.Content as={"div"} width={280}>
-          <StyledDayPicker
-            weekStartsOn={1}
-            showOutsideDays
-            formatters={{
-              formatWeekdayName,
-            }}
-            {...props}
-          />
+        <Menu.Content as={"div"}>
+          <Container p={"small"}>
+            <StyledDayPicker
+              weekStartsOn={1}
+              showOutsideDays
+              formatters={{
+                formatWeekdayName,
+                formatCaption: (date) =>
+                  date.toLocaleDateString(undefined, {
+                    month: "long",
+                    year: "numeric",
+                  }),
+              }}
+              {...props}
+            />
+          </Container>
+          {time && (
+            <Container btw={1} p={"small"} gap={"small"}>
+              <Container gap={"tiny"}>
+                {props.mode === "single" && (
+                  <Container gap={"tiny"} row>
+                    <Input
+                      size={"small"}
+                      placeholder={"mm/dd/yyyy"}
+                      value={props.selected?.toLocaleDateString("en-US", {
+                        month: "2-digit",
+                        day: "2-digit",
+                        year: "numeric",
+                      })}
+                      onBlur={(e) => handleSingleInput(e, props)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleSingleInput(e, props);
+                        }
+                      }}
+                    />
+                    <Input
+                      size={"small"}
+                      placeholder={"hh:mm"}
+                      value={props.selected?.toLocaleTimeString("en-US", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        timeZoneName: "short",
+                      })}
+                      onBlur={(e) => handleSingleInput(e, props, true)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleSingleInput(e, props, true);
+                        }
+                      }}
+                    />
+                  </Container>
+                )}
+                {props.mode === "range" && (
+                  <Container gap={"tiny"}>
+                    <Text ml={"tiny"} size={"tiny"} color={"light"} span>
+                      {timeStartLabel}
+                    </Text>
+                    <Container gap={"tiny"} row>
+                      <Container>
+                        <Input
+                          size={"small"}
+                          placeholder={"mm/dd/yyyy"}
+                          value={props.selected?.from?.toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "2-digit",
+                              day: "2-digit",
+                              year: "numeric",
+                            },
+                          )}
+                          onBlur={(e) => handleRangeInput(e, props)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              handleRangeInput(e, props);
+                            }
+                          }}
+                        />
+                      </Container>
+                      <Container>
+                        <Input
+                          size={"small"}
+                          placeholder={"hh:mm"}
+                          value={props.selected?.from?.toLocaleTimeString(
+                            "en-US",
+                            {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              timeZoneName: "short",
+                            },
+                          )}
+                          onBlur={(e) => handleRangeInput(e, props, false)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              handleRangeInput(e, props, false);
+                            }
+                          }}
+                        />
+                      </Container>
+                    </Container>
+
+                    <Text ml={"tiny"} size={"tiny"} color={"light"} span>
+                      {timeEndLabel}
+                    </Text>
+                    <Container gap={"tiny"} row>
+                      <Input
+                        size={"small"}
+                        placeholder={"mm/dd/yyyy"}
+                        value={props.selected?.to?.toLocaleDateString("en-US", {
+                          month: "2-digit",
+                          day: "2-digit",
+                          year: "numeric",
+                        })}
+                        onBlur={(e) => handleRangeInput(e, props, true)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            handleRangeInput(e, props, true);
+                          }
+                        }}
+                      />
+                      <Input
+                        size={"small"}
+                        placeholder={"hh:mm"}
+                        value={props.selected?.to?.toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          timeZoneName: "short",
+                        })}
+                        onBlur={(e) => handleRangeInput(e, props, true)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            handleRangeInput(e, props, true);
+                          }
+                        }}
+                      />
+                    </Container>
+                  </Container>
+                )}
+              </Container>
+            </Container>
+          )}
         </Menu.Content>
       </Menu.Container>
     );
@@ -136,8 +372,6 @@ const CalendarComponent = styled(
 
 const StyledDayPicker = styled(DayPicker)`
   &.rdp {
-    padding: ${({ theme }) => theme.gap.tiny};
-
     .rdp-vhidden {
       display: none;
     }
@@ -148,7 +382,7 @@ const StyledDayPicker = styled(DayPicker)`
       align-items: center;
 
       .rdp-caption_label {
-        font-size: ${({ theme }) => theme.size.small};
+        font-size: ${({ theme }) => theme.size.compact};
       }
 
       .rdp-nav {
@@ -239,7 +473,7 @@ const StyledDayPicker = styled(DayPicker)`
             text-align: center;
             font-size: ${({ theme }) => theme.size.normal};
             transition: background-color 0.2s;
-            width: 32px;
+            width: 100%;
             height: 32px;
             padding: 0;
 
@@ -248,7 +482,7 @@ const StyledDayPicker = styled(DayPicker)`
               outline: none;
               display: block;
               line-height: 30px;
-              width: 32px;
+              width: 100%;
               height: 32px;
               border-radius: 4px;
               font-size: 14px;

@@ -1,5 +1,45 @@
 # kitchn
 
+## 0.2.0
+
+### Minor Changes
+
+- [#530](https://github.com/tonightpass/kitchn/pull/530) [`8fb9ecd`](https://github.com/tonightpass/kitchn/commit/8fb9ecd9ae6413446ddc1b1af21a0289d032e282) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Combobox
+
+## 0.1.0
+
+### Minor Changes
+
+- [`0ea7470`](https://github.com/tonightpass/kitchn/commit/0ea74706dbc1d65460e72d5d18c122f8a7e7ed62) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add PasswordInput
+
+### Patch Changes
+
+- [`907c21c`](https://github.com/tonightpass/kitchn/commit/907c21cd935c98e511f5ee72ff04c1529091e5ed) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add clickable prop to Icon
+
+## 0.0.12
+
+### Patch Changes
+
+- [`313f46f`](https://github.com/tonightpass/kitchn/commit/313f46f52634867445e24d707d90f0d30afaccbe) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve calendar range with time
+
+## 0.0.11
+
+### Patch Changes
+
+- [`8f512a4`](https://github.com/tonightpass/kitchn/commit/8f512a44b28a0eff9a8b57623f26c01ac2031409) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Calendar with time
+
+## 0.0.10
+
+### Patch Changes
+
+- [`8e322ea`](https://github.com/tonightpass/kitchn/commit/8e322ea29e08899d9ad1fd0fcdbd95fcf7a28cd8) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add ref forwarding in select
+
+## 0.0.9
+
+### Patch Changes
+
+- [`cddd833`](https://github.com/tonightpass/kitchn/commit/cddd83371cff4d9836164465e70b623f20b855cc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add ref forwarding in Textarea
+
 ## 0.0.8
 
 ### Patch Changes

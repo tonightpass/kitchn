@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
 
@@ -37,17 +37,20 @@ export type SelectProps = KitchnComponent<
   React.SelectHTMLAttributes<HTMLSelectElement>
 >;
 
-const SelectComponent = styled(
-  ({
-    size = "normal",
-    label,
-    placeholder,
-    prefix,
-    suffix = <RiArrowDownSLine />,
-    disabled,
-    children,
-    ...props
-  }: SelectProps) => {
+const SelectForwarded = forwardRef<HTMLSelectElement, SelectProps>(
+  (
+    {
+      size = "normal",
+      label,
+      placeholder,
+      prefix,
+      suffix = <RiArrowDownSLine />,
+      disabled,
+      children,
+      ...props
+    }: SelectProps,
+    ref: React.Ref<HTMLSelectElement>,
+  ) => {
     return (
       <SelectContainer size={size}>
         {label && <SelectLabel>{label}</SelectLabel>}
@@ -62,6 +65,7 @@ const SelectComponent = styled(
             placeholder={placeholder}
             disabled={disabled}
             defaultValue={placeholder}
+            ref={ref}
             {...props}
           >
             {placeholder && (
@@ -75,7 +79,11 @@ const SelectComponent = styled(
       </SelectContainer>
     );
   },
-)<SelectProps>``;
+);
+
+SelectForwarded.displayName = "Select";
+
+const SelectComponent = styled(SelectForwarded)<SelectProps>``;
 
 const SelectContainer = styled((props: ContainerProps) => (
   <Container {...props} label />

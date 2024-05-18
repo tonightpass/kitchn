@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/tonightpass/kitchn",
   },
-  docsRepositoryBase: "https://github.com/tonightpass/kitchn/blob/master",
+  docsRepositoryBase: "https://github.com/tonightpass/kitchn/blob/master/docs",
   useNextSeoProps() {
     const { route } = useRouter();
     if (route !== "/") {
@@ -91,7 +91,7 @@ const config: DocsThemeConfig = {
     text: "Edit this page on GitHub",
   },
   primaryHue: 290,
-  primarySaturation: 0,
+  primarySaturation: 100,
   footer: {
     component: Footer,
   },

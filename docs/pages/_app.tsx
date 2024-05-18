@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <KitchnProvider
       forcedTheme={resolvedTheme}
       attribute={"class"}
-      dangerouslyDisableNextThemeProvider
+      // dangerouslyDisableNextThemeProvider
     >
       <GlobalStyle />
       <Component {...pageProps} />

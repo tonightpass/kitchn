@@ -1,14 +1,7 @@
 import Logo from "@components/Logo/TonightPass";
-import {
-  Container,
-  Link,
-  Footer,
-  FooterGroup,
-  FooterLink,
-  useTheme,
-  Icon,
-  Select,
-} from "kitchn";
+import { Container, Link, Footer, FooterGroup, FooterLink, Icon } from "kitchn";
+import { useRouter } from "next/router";
+import { ThemeSwitch } from "nextra-theme-docs";
 import React from "react";
 import {
   RiDiscordFill,
@@ -128,8 +121,8 @@ const navigation = {
 };
 
 const CustomFooter = () => {
-  const { storedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const router = useRouter();
 
   React.useEffect(() => {
     setMounted(true);
@@ -142,17 +135,9 @@ const CustomFooter = () => {
           <Logo />
         </Link>
 
-        {mounted && (
+        {mounted && !router.pathname.startsWith("/docs") && (
           <Container my={"normal"}>
-            <Select
-              value={storedTheme}
-              onChange={(e) => setTheme(e.target.value)}
-              size={"small"}
-            >
-              <option value={"system"}>{"System"}</option>
-              <option value={"dark"}>{"Dark"}</option>
-              <option value={"light"}>{"Light"}</option>
-            </Select>
+            <ThemeSwitch />
           </Container>
         )}
         <Container mt={"auto"} gap={"small"} row>
