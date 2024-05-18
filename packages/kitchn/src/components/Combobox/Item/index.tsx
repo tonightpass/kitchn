@@ -47,7 +47,7 @@ const ComboboxItemComponent = styled(
           </Text>
         ) : (
           <Text size={"compact"} span>
-            {"children"}
+            {children}
           </Text>
         )}
       </Container>
