@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.2.0
+
+### Minor Changes
+
+- [#530](https://github.com/tonightpass/kitchn/pull/530) [`8fb9ecd`](https://github.com/tonightpass/kitchn/commit/8fb9ecd9ae6413446ddc1b1af21a0289d032e282) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Combobox
+
 ## 0.1.0
 
 ### Minor Changes
