@@ -10,7 +10,7 @@ import {
   withScale,
 } from "../..";
 
-export type Props = {
+type Props = {
   shape?: "square" | "round";
   size?: NormalSizes;
   loading?: boolean;

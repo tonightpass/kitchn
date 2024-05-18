@@ -11,6 +11,15 @@ import { Breakpoint, Gap, Size } from "../../types/theme";
 import { isNumber } from "../../utils/isNumber";
 
 export type DecoratorProps = {
+  display?:
+    | "block"
+    | "inline"
+    | "inline-block"
+    | "flex"
+    | "grid"
+    | "none"
+    | "initial"
+    | "inherit";
   overflow?: "visible" | "hidden" | "scroll" | "auto" | "inherit" | "initial";
   font?: string | number | keyof Size;
   cursor?: "pointer" | "auto" | "inherit" | "initial" | "unset";
@@ -51,6 +60,7 @@ export const withDecorator = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
 ) => {
   return styled(WrappedComponent)<DecoratorProps>`
+    ${({ display }) => (display !== undefined ? `display: ${display};` : "")}
     ${({ overflow }) =>
       overflow !== undefined ? `overflow: ${overflow};` : ""}
     ${({ theme, font }) =>
