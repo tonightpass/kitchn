@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle } from "react";
-import { RiCloseCircleLine } from "react-icons/ri";
+import { RiCloseLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
@@ -222,7 +222,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
               lastItem={!suffixIcon}
             >
               <Icon
-                icon={RiCloseCircleLine}
+                icon={RiCloseLine}
                 onMouseEnter={handleClearIconEnter}
                 onMouseLeave={handleClearIconLeave}
                 onClick={handleClear}

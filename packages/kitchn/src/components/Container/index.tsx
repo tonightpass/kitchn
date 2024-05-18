@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { KitchnComponent } from "../../types";
 import { Gap } from "../../types/theme";
 
 type Direction = "row" | "column";
@@ -28,10 +27,13 @@ type Props = {
   wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
 };
 
-export type ContainerProps = KitchnComponent<Props>;
+export type ContainerProps = Props & React.ComponentPropsWithRef<"div">;
 
-const ContainerComponent = styled(
-  ({ children, header, section, form, label, ...rest }: ContainerProps) => {
+const ForwardedContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
+  (
+    { children, header, section, form, label, ...rest }: ContainerProps,
+    ref: React.ForwardedRef<HTMLDivElement>,
+  ) => {
     const Component = header
       ? "header"
       : section
@@ -43,6 +45,9 @@ const ContainerComponent = styled(
             : "div";
     return (
       <Component
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        ref={ref}
         role={header ? "banner" : section ? "region" : undefined}
         {...rest}
       >
@@ -50,7 +55,11 @@ const ContainerComponent = styled(
       </Component>
     );
   },
-)`
+);
+
+ForwardedContainer.displayName = "Container";
+
+const ContainerComponent = styled(ForwardedContainer)<ContainerProps>`
   display: flex;
   flex-direction: ${(props) =>
     (props.direction && props.direction[props.direction.length - 1]) ||

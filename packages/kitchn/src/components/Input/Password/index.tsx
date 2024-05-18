@@ -6,7 +6,7 @@ import Input, { InputProps } from "..";
 import { withDecorator } from "../../../hoc";
 import { KitchnComponent } from "../../../types";
 
-export type Props = {
+type Props = {
   hideToggle?: boolean;
 };
 
