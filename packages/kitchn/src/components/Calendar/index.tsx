@@ -185,6 +185,7 @@ const CalendarComponent = styled(
           unstyled={false}
           prefix={<Icon icon={RiCalendarLine} />}
           type={"dark"}
+          htmlType={"button"}
           {...menuButtonProps}
         >
           <Text size={"small"}>
