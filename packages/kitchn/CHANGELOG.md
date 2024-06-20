@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.2.4
+
+### Patch Changes
+
+- [`3efb99e`](https://github.com/tonightpass/kitchn/commit/3efb99e9256de2f8de489b23d806973054e40164) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Checkbox Content font size
+
 ## 0.2.3
 
 ### Patch Changes
