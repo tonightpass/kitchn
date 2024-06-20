@@ -1,5 +1,13 @@
 # kitchn
 
+## 0.2.3
+
+### Patch Changes
+
+- [`0c5f867`](https://github.com/tonightpass/kitchn/commit/0c5f8674c741d472a115e48579fa9218946785cf) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Calendar Menu Button type
+
+- [`d40bc3c`](https://github.com/tonightpass/kitchn/commit/d40bc3c25c46651acd509e5cf510774656886276) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow on Combobox Dropdown
+
 ## 0.2.2
 
 ### Patch Changes
