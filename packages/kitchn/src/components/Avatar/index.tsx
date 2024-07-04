@@ -37,13 +37,13 @@ type Props = {
 export type AvatarProps = KitchnComponent<Props>;
 
 const AvatarComponent = styled(
-  ({ size = 30, src, text, shape, ...props }: AvatarProps) => {
+  ({ size = 30, src, text, shape, username, ...props }: AvatarProps) => {
     return (
       <div role={"img"} aria-label={text || "Avatar"} {...props}>
         {text && !src && <Text size={"0.4em"}>{shortenName(text)}</Text>}
         {src && (
           <AvatarImage
-            src={src}
+            src={username ? `https://tonightpass.com/@${username}.png` : src}
             shape={shape}
             alt={"Avatar"}
             width={size}
