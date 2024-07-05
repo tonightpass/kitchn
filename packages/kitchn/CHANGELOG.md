@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.2.5
+
+### Patch Changes
+
+- [`7bd7cfa`](https://github.com/tonightpass/kitchn/commit/7bd7cfa04fe1824d3692e9b228833632fb74909e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Avatar with username
+
 ## 0.2.4
 
 ### Patch Changes
