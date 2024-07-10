@@ -1,0 +1,62 @@
+---
+title: "Installation"
+description: "Getting started with Kitchn, installation, frameworks, learn and contribute."
+---
+
+import { Callout, Tab, Tabs, Card, Cards } from "nextra-theme-docs";
+import { RiReactjsLine, RiNextjsLine, RiGatsbyLine } from "react-icons/ri";
+
+# Installation
+
+Here you will find everything you need to get started with Kitchn. From installation to learning and contributing, we have you covered.
+
+## Frameworks
+
+Kitchn is designed to work with any framework. However, we have created a few guides to help you get started with Kitchn and your favorite framework.
+
+<Cards>
+  <Card icon={<RiReactjsLine size={30} />} title="Create React App or Vite React" href="/docs/frameworks/create-react-app" />
+  <Card icon={<RiReactjsLine size={30} />} title="React Native" href="/docs/frameworks/react-native" />
+  <Card icon={<RiNextjsLine size={30} />} title="Next.js" href="/docs/frameworks/nextjs" />
+  <Card icon={<RiGatsbyLine size={30} />} title="Gatsby" href="/docs/frameworks/gatsby" />
+  {/* <Card title="Blitz.js (comming soon)" href="/docs/frameworks/blitzjs" />
+  <Card title="Redwood.js (comming soon)" href="/docs/frameworks/redwoodjs" />
+  <Card title="Meteor (comming soon)" href="/docs/frameworks/meteor" /> */}
+</Cards> 
+
+## Basic Installation
+
+Kitchn is available as a [npm package](https://www.npmjs.com/package/kitchn).
+
+```sh npm2yarn
+npm i kitchn --save
+```
+
+After installing Kitchn, you need to set up the `KitchnProvider` at the root of your applications.
+This can be either in your `index.jsx`, `index.tsx` or `App.jsx` depending on the framework you use.
+
+```jsx
+import { KitchnProvider } from "kitchn";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <KitchnProvider>
+      <TheRestOfYourApplication />
+    </KitchnProvider>
+  );
+}
+```
+
+## Learn
+
+Watch our official courses and dive deeper into videos that will teach you everything you need to know about Kitchn, from the basics to advanced topics.
+
+- [Kitchn for Beginners](https://egghead.io/courses/kitchn-for-beginners) _(coming soon)_
+- [Kitchn for Advanced Users](https://egghead.io/courses/kitchn-for-advanced-users) _(coming soon)_
+- [Playground](/docs/playground) _(coming soon)_
+
+## Contribute
+
+Whether you're a beginner or advanced user, we welcome you to contribute to Kitchn. We have a [contributing guide](/docs/contributing) that will help you get started.
+
+- [Join our Discord](https://discord.gg/VvvAkPqQ98)

@@ -1,4 +1,4 @@
-import Logo from "@components/Logo/TonightPass";
+import { TonightPassLogo } from "@components/Brand";
 import { Container, Link, Footer, FooterGroup, FooterLink, Icon } from "kitchn";
 import { useRouter } from "next/router";
 import { ThemeSwitch } from "nextra-theme-docs";
@@ -132,7 +132,7 @@ const CustomFooter = () => {
     <Footer subfooter={"© 2023 Tonight Pass. All rights reserved."}>
       <Container mt={"small"} align={"flex-start"} justify={"flex-start"}>
         <Link href={"/"}>
-          <Logo />
+          <TonightPassLogo height={30} width={"auto"} />
         </Link>
 
         {mounted && !router.pathname.startsWith("/docs") && (

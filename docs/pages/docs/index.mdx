@@ -1,62 +1,21 @@
 ---
-title: "Getting started"
-description: "Getting started with Kitchn, installation, frameworks, learn and contribute."
+title: "Introduction"
+description: "What is Kitchn, who is it for, and what can you do with it."
 ---
 
-import { Callout, Tab, Tabs } from "nextra-theme-docs";
+import { Callout } from "nextra-theme-docs";
+
+# Introduction
 
 Kitchn is a [styled-components](https://styled-components.com) suite of components that are designed to work together to create a beautiful and consistent UI. Inspired by [Geist](https://geist-ui.dev/) and [Vercel Design](https://vercel.com/design) with a focus on simplicity and ease of use. This library is maintained by [Tonight Pass](https://tonightpass.com).
+
+**What do you mean by "styled-components suite of components"?**
+
+Kitchn is a collection of components that are built using styled-components. This means that you can use these components in your React applications and style them using styled-components.
 
 <Callout>
   This package is still in active development and is not yet ready for
   production use.
+  We are working hard to get it ready for you as soon as possible.
+  If you would like to help us, please check out our [contributing guide](/docs/contributing).
 </Callout>
-
-## Installation
-
-Kitchn is available as a [npm package](https://www.npmjs.com/package/kitchn).
-
-```sh npm2yarn
-npm i kitchn --save
-```
-
-After installing Kitchn, you need to set up the `KitchnProvider` at the root of your applications.
-This can be either in your `index.jsx`, `index.tsx` or `App.jsx` depending on the framework you use.
-
-```jsx
-import { KitchnProvider } from "kitchn";
-
-export default function App({ Component, pageProps }) {
-  return (
-    <KitchnProvider>
-      <TheRestOfYourApplication />
-    </KitchnProvider>
-  );
-}
-```
-
-## Framework Guide
-
-Kitchn is designed to work with any framework. However, we have created a few guides to help you get started with Kitchn and your favorite framework.
-
-- [Create React App or Vite React](/docs/frameworks/create-react-app)
-- [React Native](/docs/frameworks/react-native)
-- [Next.js](/docs/frameworks/nextjs)
-- [Gatsby](/docs/frameworks/gatsby)
-- [Blitz.js](/docs/frameworks/blitzjs) _(coming soon)_
-- [Redwood.js](/docs/frameworks/redwoodjs) _(coming soon)_
-- [Meteor](/docs/frameworks/meteor) _(coming soon)_
-
-## Learn
-
-Watch our official courses and dive deeper into videos that will teach you everything you need to know about Kitchn, from the basics to advanced topics.
-
-- [Kitchn for Beginners](https://egghead.io/courses/kitchn-for-beginners) _(coming soon)_
-- [Kitchn for Advanced Users](https://egghead.io/courses/kitchn-for-advanced-users) _(coming soon)_
-- [Playground](/docs/playground) _(coming soon)_
-
-## Contribute
-
-Whether you're a beginner or advanced user, we welcome you to contribute to Kitchn. We have a [contributing guide](/docs/contributing) that will help you get started.
-
-- [Join our Discord](https://discord.gg/VvvAkPqQ98)

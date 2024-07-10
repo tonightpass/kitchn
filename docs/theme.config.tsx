@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Footer from "@components/Footer";
 import Logo from "@components/Logo";
+import Navbar from "@components/Navbar";
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import urlcat from "urlcat";
@@ -87,10 +88,13 @@ const config: DocsThemeConfig = {
       </>
     );
   },
+  navbar: {
+    component: <Navbar />,
+  },
   editLink: {
     text: "Edit this page on GitHub",
   },
-  primaryHue: 290,
+  primaryHue: 259.1,
   primarySaturation: 100,
   footer: {
     component: Footer,
