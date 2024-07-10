@@ -5,7 +5,7 @@ export const lightTheme: Theme = {
   colors: {
     layout: {
       darkest: "rgb(255, 255, 255)",
-      darker: "rgb(250, 250, 251)",
+      darker: "rgb(235, 235, 236)",
       dark: "rgb(229, 226, 224)",
       light: "rgb(125, 118, 108)",
       lighter: "rgb(100, 100, 99)",
@@ -20,8 +20,8 @@ export const lightTheme: Theme = {
       darkest: "rgb(225, 224, 223)",
     },
     accent: {
-      primary: "rgb(176, 36, 241)",
-      secondary: "rgb(176, 96, 241)",
+      primary: "rgb(64, 0, 201)",
+      secondary: "rgb(54, 0, 270)",
       success: "rgb(46, 204, 113)",
       warning: "rgb(241, 196, 15)",
       danger: "rgb(231, 76, 60)",
