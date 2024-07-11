@@ -2,7 +2,11 @@
   "name": "kitchn",
   "version": "0.2.5",
   "description": "Tonight Pass delicious React styled-components UI kit",
-  "repository": "https://github.com/tonightpass/kitchn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonightpass/kitchn.git",
+    "directory": "packages/kitchn"
+  },
   "bugs": "https://github.com/tonightpass/kitchn/issues",
   "homepage": "https://kitchn.tonightpass.com",
   "license": "MIT",
