@@ -10,12 +10,7 @@
       "collapsed": true
     }
   },
-  "guides": {
-    "title": "Guides",
-    "theme": {
-      "collapsed": true
-    }
-  },
+  "brands": "Brands",
   "components": "Components",
   "api-reference": {
     "title": "API Reference",

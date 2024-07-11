@@ -20,16 +20,12 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled: isScrolledProp }) => {
 
   const navbarLinks: NavbarLink[] = [
     {
-      label: "Événements",
-      href: "/events",
+      label: "Documentation",
+      href: "/docs",
     },
     {
-      label: "Carte",
-      href: "/map",
-    },
-    {
-      label: "Services",
-      href: "/services",
+      label: "Components",
+      href: "/docs/components",
     },
   ];
 

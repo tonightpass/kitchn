@@ -99,6 +99,9 @@ const config: DocsThemeConfig = {
   footer: {
     component: Footer,
   },
+  sidebar: {
+    toggleButton: true,
+  },
 };
 
 export default config;
