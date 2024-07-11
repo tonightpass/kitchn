@@ -5,7 +5,6 @@ import kitchn, {
   Image,
   Text,
   Link,
-  KitchnProvider,
   rotate,
 } from "kitchn";
 import * as React from "react";
@@ -13,118 +12,116 @@ import "kitchn/fonts.css";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <KitchnProvider>
-      <Container
-        maxW={"laptop"}
-        mx={"auto"}
-        p={"extraLarge"}
-        h={"100vh"}
-        justify={"space-between"}
-        align={"center"}
-      >
-        <Container w={"100%"} align={"center"} justify={"space-between"} row>
-          <Card p={"small"} br={"square"} align={"center"} active row>
-            {"Get started by editing\r"}
-            <Text ml={"tiny"} monospace span>
-              {"src/pages/index.tsx\r"}
-            </Text>
-          </Card>
-          <Link href={"https://tonightpass.com"}>
-            <Text weight={"semiBold"} size={"small"}>
-              {"by\r"}
-            </Text>
-            <KitchnTypo
-              src={"/tonightpass.svg"}
-              alt={"TonightPass"}
-              w={100}
-              h={24}
-              ml={"tiny"}
-            />
-          </Link>
-        </Container>
-        <Centered
-          py={"extraLarge"}
-          justify={"center"}
-          align={"center"}
-          gap={18}
-          row
-        >
-          <KitchnIcon>
-            <Image src={"/icon.svg"} alt={"Kitchn Icon"} h={50} />
-          </KitchnIcon>
-          <KitchnTypo src={"/typo.svg"} alt={"Kitchn Typo"} h={42} />
-        </Centered>
-        <Container w={"100%"} gap={"small"} row>
-          <Card
-            as={Link}
-            href={"https://kitchn.tonightpass.com/docs"}
-            p={"small"}
-            flex={1}
-            br={"square"}
-          >
-            <Text size={"large"} weight={"bold"}>
-              {"Docs\r"}
-            </Text>
-            <Text size={"small"} color={"light"} mt={"small"}>
-              {"Find in-depth information about Kitchn components, hooks and\r"}
-              {"more.\r"}
-            </Text>
-          </Card>
-
-          <Card
-            as={Link}
-            href={"https://discord.gg/VvvAkPqQ98"}
-            p={"small"}
-            flex={1}
-            br={"square"}
-          >
-            <Text size={"large"} weight={"bold"}>
-              {"Discuss\r"}
-            </Text>
-            <Text size={"small"} color={"light"} mt={"small"}>
-              {
-                "Join the community and ask questions, share ideas, and get help\r"
-              }
-              {"from experts.\r"}
-            </Text>
-          </Card>
-
-          <Card
-            as={Link}
-            href={"https://patreon.com/onruntime"}
-            p={"small"}
-            flex={1}
-            br={"square"}
-          >
-            <Text size={"large"} weight={"bold"}>
-              {"Sponsor us\r"}
-            </Text>
-            <Text size={"small"} color={"light"} mt={"small"}>
-              {"Help us build Kitchn and support the open-source community.\r"}
-            </Text>
-          </Card>
-
-          <Card
-            as={Link}
-            href={
-              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/gatsby-typescript&project-name=kitchn-app&repository-name=kitchn-app"
-            }
-            p={"small"}
-            flex={1}
-            br={"square"}
-          >
-            <Text size={"large"} weight={"bold"}>
-              {"Deploy\r"}
-            </Text>
-            <Text size={"small"} color={"light"} mt={"small"}>
-              {
-                "Instantly deploy your Gatsby site to a shareable URL with Vercel.\r"
-              }
-            </Text>
-          </Card>
-        </Container>
+    <Container
+      maxW={"laptop"}
+      mx={"auto"}
+      p={"extraLarge"}
+      h={"100vh"}
+      justify={"space-between"}
+      align={"center"}
+    >
+      <Container w={"100%"} align={"center"} justify={"space-between"} row>
+        <Card p={"small"} br={"square"} align={"center"} active row>
+          {"Get started by editing\r"}
+          <Text ml={"tiny"} monospace span>
+            {"src/pages/index.tsx\r"}
+          </Text>
+        </Card>
+        <Link href={"https://tonightpass.com"}>
+          <Text weight={"semiBold"} size={"small"}>
+            {"by\r"}
+          </Text>
+          <KitchnTypo
+            src={"/tonightpass.svg"}
+            alt={"TonightPass"}
+            w={100}
+            h={24}
+            ml={"tiny"}
+          />
+        </Link>
       </Container>
-    </KitchnProvider>
+      <Centered
+        py={"extraLarge"}
+        justify={"center"}
+        align={"center"}
+        gap={18}
+        row
+      >
+        <KitchnIcon>
+          <Image src={"/icon.svg"} alt={"Kitchn Icon"} h={50} />
+        </KitchnIcon>
+        <KitchnTypo src={"/typo.svg"} alt={"Kitchn Typo"} h={42} />
+      </Centered>
+      <Container w={"100%"} gap={"small"} row>
+        <Card
+          as={Link}
+          href={"https://kitchn.tonightpass.com/docs"}
+          p={"small"}
+          flex={1}
+          br={"square"}
+        >
+          <Text size={"large"} weight={"bold"}>
+            {"Docs\r"}
+          </Text>
+          <Text size={"small"} color={"light"} mt={"small"}>
+            {"Find in-depth information about Kitchn components, hooks and\r"}
+            {"more.\r"}
+          </Text>
+        </Card>
+
+        <Card
+          as={Link}
+          href={"https://discord.gg/VvvAkPqQ98"}
+          p={"small"}
+          flex={1}
+          br={"square"}
+        >
+          <Text size={"large"} weight={"bold"}>
+            {"Discuss\r"}
+          </Text>
+          <Text size={"small"} color={"light"} mt={"small"}>
+            {
+              "Join the community and ask questions, share ideas, and get help\r"
+            }
+            {"from experts.\r"}
+          </Text>
+        </Card>
+
+        <Card
+          as={Link}
+          href={"https://patreon.com/onruntime"}
+          p={"small"}
+          flex={1}
+          br={"square"}
+        >
+          <Text size={"large"} weight={"bold"}>
+            {"Sponsor us\r"}
+          </Text>
+          <Text size={"small"} color={"light"} mt={"small"}>
+            {"Help us build Kitchn and support the open-source community.\r"}
+          </Text>
+        </Card>
+
+        <Card
+          as={Link}
+          href={
+            "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/gatsby-typescript&project-name=kitchn-app&repository-name=kitchn-app"
+          }
+          p={"small"}
+          flex={1}
+          br={"square"}
+        >
+          <Text size={"large"} weight={"bold"}>
+            {"Deploy\r"}
+          </Text>
+          <Text size={"small"} color={"light"} mt={"small"}>
+            {
+              "Instantly deploy your Gatsby site to a shareable URL with Vercel.\r"
+            }
+          </Text>
+        </Card>
+      </Container>
+    </Container>
   );
 };
 
