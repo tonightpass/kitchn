@@ -27,7 +27,7 @@ const Featured: React.FC = () => {
         </Link>
       </Container>
       <Container mt={"normal"} align={"center"}>
-        <Text align={"center"} size={"title"} weight={"bold"} h2>
+        <Text align={"center"} size={"title"} weight={"bold"} h1>
           {"delicious. modern. styled."}
         </Text>
       </Container>

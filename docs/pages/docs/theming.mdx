@@ -1,0 +1,82 @@
+---
+title: "Theming"
+description: "Theming with Kitchn is based on our Design Principles. We recommend you read through them before you start theming your application."
+category: "theming"
+---
+
+import { Container, Text } from "kitchn"
+import Builder from "../../components/Builder"
+
+# Theming
+
+The theme object is where you define your application's color palette, font stacks, breakpoints, border radius values, and more.
+
+## Design Principles
+
+Kitchn is designed with the following principles in mind:
+- **Accessible**: Accessible to all users.
+- **Consistent**: Consistent design language that is easy to understand.
+- **Customizable**: Easily customizable to fit your design.
+- **Responsive**: Work on all devices and screen sizes.
+- **Performance**: Performant and fast.
+- **Dark First**: Designed with dark mode in mind, so the `dark` key in dark mode means it will be light in light mode.
+
+## Colors
+
+Kitchn provides a sensible default theme inspired by [Tonight Pass](https://tonightpass.com/) and [Hiven](https://twitter.com/phineyes/status/1335623562892369921?s=20), but you can customize it to fit your design.
+
+<Builder workspace={"colors"} />
+
+## Build your theme
+
+You can build your theme using the `createTheme` function. This function takes a theme object and returns a theme object with the default theme values merged with your custom theme values.
+
+```tsx
+import { createTheme, KitchnProvider, Theme } from "kitchn"
+
+export const customTheme: Theme = {
+  name: "custom",
+  colors: {
+    layout: {
+      darkest: "rgb(5, 21, 39)",
+      darker: "rgb(6, 25, 46)",
+      dark: "rgb(52, 68, 111)",
+      light: "rgb(130, 137, 147)",
+      lighter: "rgb(155, 155, 156)",
+      lightest: "rgb(255, 255, 255)",
+    },
+    text: {
+      lightest: "rgb(255, 255, 255)",
+      lighter: "rgb(200, 200, 200)",
+      light: "rgb(150, 150, 150)",
+      dark: "rgb(135, 135, 135)",
+      darker: "rgb(100, 100, 100)",
+      darkest: "rgb(30, 31, 32)",
+    },
+    accent: {
+      primary: "rgb(176, 36, 241)",
+      secondary: "rgb(176, 96, 241)",
+      success: "rgb(46, 204, 113)",
+      warning: "rgb(241, 196, 15)",
+      danger: "rgb(231, 76, 60)",
+      info: "rgb(52, 152, 219)",
+      light: "rgb(255, 255, 255)",
+      dark: "rgb(0, 0, 0)",
+    },
+  },
+};
+
+const custom = createTheme(customTheme);
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <KitchnProvider
+      themes={{
+        custom,
+      }}
+    >
+      <Component {...pageProps} />
+    </KitchnProvider>
+  );
+};
+```

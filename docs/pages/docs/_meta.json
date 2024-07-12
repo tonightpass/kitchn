@@ -3,14 +3,9 @@
   "installation": "Installation",
   "theming": "Theming",
   "playground": "Playground",
-  "figma": "Figma",
-  "frameworks": {
-    "title": "Frameworks",
-    "theme": {
-      "collapsed": true
-    }
-  },
   "brands": "Brands",
+  "figma": "Figma",
+  "frameworks": "Frameworks",
   "components": "Components",
   "api-reference": {
     "title": "API Reference",

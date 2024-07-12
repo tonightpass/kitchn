@@ -3,7 +3,7 @@ import kitchn, { Container, Text } from "kitchn";
 const Features = () => {
   return (
     <Container id={"features"} py={"extraLarge"} align={"center"} section>
-      <Text transform={"uppercase"} weight={"bold"} align={"center"} h3>
+      <Text transform={"uppercase"} weight={"bold"} align={"center"} h2>
         {"All features"}{" "}
         <Text transform={"uppercase"} weight={"bold"} accent={"primary"} span>
           {"Kitchn contains\r"}

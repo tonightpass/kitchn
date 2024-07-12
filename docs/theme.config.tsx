@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { KitchnLogo } from "@components/Brand";
 import Footer from "@components/Footer";
-import Logo from "@components/Logo";
 import Navbar from "@components/Navbar";
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
@@ -19,7 +19,7 @@ const config: DocsThemeConfig = {
       };
     }
   },
-  logo: Logo,
+  logo: <KitchnLogo />,
   nextThemes: {
     defaultTheme: "dark",
     storageKey: "kc-theme",
@@ -100,7 +100,17 @@ const config: DocsThemeConfig = {
     component: Footer,
   },
   sidebar: {
+    titleComponent({ title, type }) {
+      if (type === "separator") {
+        return <span className={"cursor-default"}>{title}</span>;
+      }
+      return <>{title}</>;
+    },
     toggleButton: true,
+    defaultMenuCollapseLevel: 1,
+  },
+  toc: {
+    backToTop: true,
   },
 };
 

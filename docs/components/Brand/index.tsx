@@ -36,7 +36,7 @@ const TonightPassLogoSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
 export const TonightPassLogo = kitchn(TonightPassLogoSVG)`
   color: #4000C9;
 
-  [data-theme="dark"] & {
+  .dark &  {
     color: #fff;
   }
 `;
@@ -70,7 +70,7 @@ const TonightPassIconSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
 export const TonightPassIcon = kitchn(TonightPassIconSVG)`
   color: #4000C9;
 
-  [data-theme="dark"] & {
+  .dark &  {
     color: #fff;
   }
 `;
@@ -143,7 +143,7 @@ const KitchnLogoSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
 export const KitchnLogo = kitchn(KitchnLogoSVG)`
   color: #4000C9;
 
-  [data-theme="dark"] & {
+  .dark &  {
     color: #fff;
   }
 `;
@@ -167,5 +167,5 @@ const SlashIconSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
 );
 
 export const SlashIcon = kitchn(SlashIconSVG)`
-  color: ${({ theme }) => theme.colors.layout.darker};
+  color: ${({ theme }) => theme.colors.layout.dark};
 `;
