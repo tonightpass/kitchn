@@ -5,6 +5,7 @@ category: "theming"
 ---
 
 import { Container, Text } from "kitchn"
+import { Callout } from "nextra-theme-docs";
 import Builder from "../../components/Builder"
 
 # Theming
@@ -23,16 +24,40 @@ Kitchn is designed with the following principles in mind:
 
 ## Colors
 
-Kitchn provides a sensible default theme inspired by [Tonight Pass](https://tonightpass.com/) and [Hiven](https://twitter.com/phineyes/status/1335623562892369921?s=20), but you can customize it to fit your design.
+Kitchn provides a sensible default theme inspired by [Tonight Pass](https://tonightpass.com/) and [Hiven](https://twitter.com/phineyes/status/1335623562892369921?s=20), but you can customize it to fit your design. 
+
+<Callout>
+  Remind that the `dark` key in dark mode means it will be light in light mode.
+</Callout>
 
 <Builder workspace={"colors"} />
+
+## Fonts
+
+The default font stack is `Figtree` from [Fontsource](https://fontsource.org/). You can change the font stack by providing a `font` key in the theme object.
+
+```tsx
+import { createTheme, KitchnProvider, Theme } from "kitchn";
+
+import "@fontsource/roboto";
+import "@fontsource-variable/roboto-mono";
+
+export const customTheme: Theme = {
+  name: "custom",
+  // ... other theme values
+  family: {
+    primary: "Roboto, -apple-system, sans-serif",
+    monospace: "Roboto Mono, monospace",
+  },
+};
+```
 
 ## Build your theme
 
 You can build your theme using the `createTheme` function. This function takes a theme object and returns a theme object with the default theme values merged with your custom theme values.
 
 ```tsx
-import { createTheme, KitchnProvider, Theme } from "kitchn"
+import { createTheme, KitchnProvider, Theme } from "kitchn";
 
 export const customTheme: Theme = {
   name: "custom",
