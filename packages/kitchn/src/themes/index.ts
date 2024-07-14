@@ -4,14 +4,16 @@ import { darkTheme } from "./dark";
 import { lightTheme } from "./light";
 import { mainTheme } from "./main";
 import { PREFIX } from "../constants";
-import { Theme } from "../types/theme";
+import { MainTheme, Theme } from "../types/theme";
 
 export * from "./dark";
 export * from "./light";
 export * from "./main";
 export * from "./tonightpass";
 
-export const createTheme = (theme: Theme): DefaultTheme => {
+export const createTheme = (
+  theme: Theme | (Theme & Partial<MainTheme>),
+): DefaultTheme => {
   return { ...mainTheme, ...theme };
 };
 

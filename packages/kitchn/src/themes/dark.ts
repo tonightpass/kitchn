@@ -20,8 +20,8 @@ export const darkTheme: Theme = {
       darkest: "rgb(50, 51, 52)",
     },
     accent: {
-      secondary: "rgb(64, 0, 201)",
       primary: "rgb(54, 0, 270)",
+      secondary: "rgb(64, 0, 201)",
       success: "rgb(46, 204, 113)",
       warning: "rgb(241, 196, 15)",
       danger: "rgb(231, 76, 60)",
