@@ -1,4 +1,4 @@
-import kitchn, { Container, Text } from "kitchn";
+import { Container, Text } from "kitchn";
 
 const Features = () => {
   return (
