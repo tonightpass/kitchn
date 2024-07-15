@@ -33,7 +33,7 @@ export type KitchnProviderProps = {
   forcedTheme?: keyof Themes | "system";
   themes?: Record<string, DefaultTheme>;
   dangerouslyDisableNextThemeProvider?: boolean;
-  attribute?: string | "class" | undefined;
+  attribute?: string | "class";
 };
 
 export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
@@ -91,6 +91,7 @@ export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
       themes={Object.keys(themes).map((key) => key.toString())}
       forcedTheme={forcedTheme}
       dangerouslyDisableNextThemeProvider={dangerouslyDisableNextThemeProvider}
+      attribute={attribute}
     >
       <StyleSheetManager
         shouldForwardProp={shouldForwardProp}
