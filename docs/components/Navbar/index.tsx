@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-import { KitchnLogo, SlashIcon, TonightPassIcon } from "../Brand";
+import { KitchnLogo, SlashIcon, TonightPassIcon } from "../Brands";
 
 export type NavbarLink = {
   label: string;

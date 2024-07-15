@@ -1,4 +1,4 @@
-import { TonightPassLogo } from "@components/Brand";
+import { TonightPassLogo } from "@components/Brands";
 import { Button, Container, Icon, Input, Link, Text } from "kitchn";
 import React from "react";
 import { RiGithubFill } from "react-icons/ri";

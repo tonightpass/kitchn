@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { KitchnLogo } from "@components/Brand";
+import { KitchnLogo } from "@components/Brands";
 import Footer from "@components/Footer";
 import Navbar from "@components/Navbar";
 import { useRouter } from "next/router";

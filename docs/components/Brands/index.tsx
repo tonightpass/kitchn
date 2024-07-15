@@ -1,7 +1,7 @@
 import kitchn from "kitchn";
 import React from "react";
 
-const TonightPassLogoSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
+export const TonightPassLogoSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
   ...props
 }) => (
   <svg

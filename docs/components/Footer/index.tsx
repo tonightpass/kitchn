@@ -1,4 +1,4 @@
-import { TonightPassLogo } from "@components/Brand";
+import { TonightPassLogo } from "@components/Brands";
 import { Container, Link, Footer, FooterGroup, FooterLink, Icon } from "kitchn";
 import { useRouter } from "next/router";
 import { ThemeSwitch } from "nextra-theme-docs";
