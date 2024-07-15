@@ -27,25 +27,19 @@ export type PositionProps = {
 
 export const positionCss = css<PositionProps>`
   ${({ position, pos }) =>
-    position !== undefined || pos !== undefined
-      ? `position: ${position || pos};`
-      : ""}
+    (position ?? pos) !== undefined ? `position: ${position ?? pos};` : ""}
   ${({ zIndex, zi }) =>
-    zIndex !== undefined || zi !== undefined ? `z-index: ${zIndex || zi};` : ""}
+    (zIndex ?? zi) !== undefined ? `z-index: ${zIndex ?? zi};` : ""}
   ${({ theme, left, l }) =>
-    left !== undefined || l !== undefined
-      ? `left: ${handleValue(theme, left || l)};`
-      : ""}
+    (left ?? l) !== undefined ? `left: ${handleValue(theme, left ?? l)};` : ""}
   ${({ theme, right, r }) =>
-    right !== undefined || r !== undefined
-      ? `right: ${handleValue(theme, right || r)};`
+    (right ?? r) !== undefined
+      ? `right: ${handleValue(theme, right ?? r)};`
       : ""}
   ${({ theme, top, t }) =>
-    top !== undefined || t !== undefined
-      ? `top: ${handleValue(theme, top || t)};`
-      : ""}
+    (top ?? t) !== undefined ? `top: ${handleValue(theme, top ?? t)};` : ""}
   ${({ theme, bottom, b }) =>
-    bottom !== undefined || b !== undefined
-      ? `bottom: ${handleValue(theme, bottom || b)};`
+    (bottom ?? b) !== undefined
+      ? `bottom: ${handleValue(theme, bottom ?? b)};`
       : ""}
 `;
