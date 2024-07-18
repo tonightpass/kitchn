@@ -8,7 +8,7 @@ import {
   ScaleProps,
   Text,
 } from "kitchn";
-import { RiGithubFill, RiLink } from "react-icons/ri";
+import { RiExternalLinkFill, RiGithubFill } from "react-icons/ri";
 import { SortedProject } from "types/showcase";
 
 export type CardProps = KitchnComponent<
@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({ project, ...props }: CardProps) => {
           )}
 
           <Link href={project.url}>
-            <Icon icon={RiLink} size={"medium"} />
+            <Icon icon={RiExternalLinkFill} size={"medium"} />
           </Link>
         </Container>
       </Container>

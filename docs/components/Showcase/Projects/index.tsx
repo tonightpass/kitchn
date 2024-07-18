@@ -16,6 +16,7 @@ const Projects: React.FC<ProjectsProps> = ({
     <Container
       id={"projects"}
       w={"100%"}
+      maxW={"laptop"}
       mx={"auto"}
       py={"extraLarge"}
       align={"center"}
@@ -46,11 +47,29 @@ const Projects: React.FC<ProjectsProps> = ({
         </Text>
       </Container>
 
-      <Container mt={"normal"} w={"100%"} gap={"normal"} row>
-        <Container flex={1} bw={1} p={"normal"} br={"square"}>
+      <Container
+        mt={"normal"}
+        w={"100%"}
+        gap={"normal"}
+        direction={["column", "row", "row"]}
+        row
+      >
+        <Container
+          flex={1}
+          bw={1}
+          p={"normal"}
+          br={"square"}
+          justify={"center"}
+        >
           {"Get a backlink to your project's website or GitHub repository."}
         </Container>
-        <Container flex={1} bw={1} p={"normal"} br={"square"}>
+        <Container
+          flex={1}
+          bw={1}
+          p={"normal"}
+          br={"square"}
+          justify={"center"}
+        >
           {
             "Showcase your project to the Kitchn community and get feedback from the Tonight Pass team."
           }
