@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://kitchn.tonightpass.com">
-    <img src="https://kitchn.tonightpass.com/static/icon/kitchn-icon.svg" alt="Kitchn" height="50" />
+    <img src="https://kitchn.tonightpass.com/favicon.svg" alt="Kitchn" height="50" />
     <h3 align="center">Kitchn</h3>
   </a>
 </p>

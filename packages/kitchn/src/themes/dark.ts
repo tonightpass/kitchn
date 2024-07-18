@@ -4,9 +4,9 @@ export const darkTheme: Theme = {
   name: "dark",
   colors: {
     layout: {
-      darkest: "rgb(0, 0, 0)",
-      darker: "rgb(25, 25, 26)",
-      dark: "rgb(50, 50, 51)",
+      darkest: "rgb(17, 17, 17)",
+      darker: "rgb(25, 25, 27)",
+      dark: "rgb(34, 34, 36)",
       light: "rgb(150, 150, 150)",
       lighter: "rgb(175, 175, 176)",
       lightest: "rgb(255, 255, 255)",
@@ -20,8 +20,8 @@ export const darkTheme: Theme = {
       darkest: "rgb(50, 51, 52)",
     },
     accent: {
-      primary: "rgb(54, 0, 270)",
-      secondary: "rgb(64, 0, 201)",
+      primary: "rgb(80, 60, 245)",
+      secondary: "rgb(70,38,228)",
       success: "rgb(46, 204, 113)",
       warning: "rgb(241, 196, 15)",
       danger: "rgb(231, 76, 60)",

@@ -99,8 +99,8 @@ const config: DocsThemeConfig = {
   editLink: {
     text: "Edit this page on GitHub",
   },
-  primaryHue: 259.1,
-  primarySaturation: 100,
+  primaryHue: 246.49,
+  primarySaturation: 75.51,
   footer: {
     component: Footer,
   },
