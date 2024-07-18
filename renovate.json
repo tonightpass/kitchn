@@ -19,5 +19,8 @@
       "automerge": true
     }
   ],
-  "platformAutomerge": true
+  "platformAutomerge": true,
+  "schedule": [
+    "every weekend"
+  ]
 }
