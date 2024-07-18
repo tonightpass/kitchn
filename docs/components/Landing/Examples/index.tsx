@@ -16,7 +16,6 @@ const Examples: React.FC = () => {
   ];
   const [selected, setSelected] = React.useState("authentication");
 
-  console.log("selected", selected);
   return (
     <Container>
       <Tabs
