@@ -1,27 +1,44 @@
 import { TonightPassLogo } from "@components/Brands";
-import { Button, Container, Icon, Input, Link, Text } from "kitchn";
+import {
+  Button,
+  Container,
+  Icon,
+  Input,
+  Link,
+  Text,
+  useBreakpoint,
+} from "kitchn";
 import React from "react";
 import { RiGithubFill } from "react-icons/ri";
 
 const AuthenticationExample: React.FC = () => {
+  const { isMobile } = useBreakpoint();
   return (
-    <Container h={400} minH={"80vh"} row>
-      <Container bg={"darker"} flex={1} brw={1}>
-        <Container flex={1} align={"flex-start"} p={"large"}>
-          <Container>
-            <TonightPassLogo height={30} width={"auto"} />
-          </Container>
+    <Container h={400} minH={"80vh"} direction={["column", "row", "row"]} row>
+      {!isMobile && (
+        <Container bg={"darker"} flex={1} brw={1}>
+          <Container flex={1} align={"flex-start"} p={"large"}>
+            <Container>
+              <TonightPassLogo height={30} width={"auto"} />
+            </Container>
 
-          <Container mt={"auto"} gap={"tiny"}>
-            <Text>
-              {"“TonightPass is the best way to find events near you.”"}
-            </Text>
-            <Text size={"small"}>{"Lucas Bodin"}</Text>
+            <Container mt={"auto"} gap={"tiny"}>
+              <Text>
+                {"“TonightPass is the best way to find events near you.”"}
+              </Text>
+              <Text size={"small"}>{"Lucas Bodin"}</Text>
+            </Container>
           </Container>
         </Container>
-      </Container>
+      )}
       <Container bg={"darkest"} flex={1} align={"center"} justify={"center"}>
-        <Container maxW={300} w={"100%"} align={"center"}>
+        <Container
+          maxW={330}
+          w={"100%"}
+          align={"center"}
+          px={"normal"}
+          py={"large"}
+        >
           <Text weight={"bold"} size={"large"} align={"center"}>
             {"Create an account"}
           </Text>
