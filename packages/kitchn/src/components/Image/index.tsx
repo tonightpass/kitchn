@@ -11,6 +11,15 @@ type Props = {
   h?: Props["height"];
   src: string;
   alt: string;
+  objectFit?:
+    | "cover"
+    | "contain"
+    | "fill"
+    | "scale-down"
+    | "inherit"
+    | "initial"
+    | "unset"
+    | "none";
 };
 
 export type ImageProps = KitchnComponent<
@@ -18,23 +27,11 @@ export type ImageProps = KitchnComponent<
   React.ImgHTMLAttributes<HTMLImageElement>
 >;
 
-const ImageComponent = styled(
-  ({ src, alt, width, w, height, h, ...props }: ImageProps) => {
-    const widthValue = width || w || height || h;
-    const heightValue = height || h || width || w;
-
-    return (
-      <img
-        src={src}
-        alt={alt}
-        draggable={false}
-        width={widthValue}
-        height={heightValue}
-        {...props}
-      />
-    );
-  },
-)<ImageProps>``;
+const ImageComponent = styled(({ src, alt, ...props }: ImageProps) => {
+  return <img src={src} alt={alt} draggable={false} {...props} />;
+})<ImageProps>`
+  ${({ objectFit }) => objectFit && `object-fit: ${objectFit};`}
+`;
 
 ImageComponent.displayName = "KitchnImage";
 export const Image = withDecorator(ImageComponent);
