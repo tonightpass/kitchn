@@ -30,21 +30,21 @@ const Featured: React.FC = () => {
         <Text align={"center"} size={"title"} weight={"bold"} h1>
           {"delicious. modern. styled."}
         </Text>
+        <Balancer>
+          <Text
+            size={"medium"}
+            mt={"normal"}
+            weight={"medium"}
+            align={"center"}
+            color={"light"}
+          >
+            {
+              "Design UI like Tonight Pass in React or React Native with optimized and\r"
+            }
+            {"customizable styled-components.\r"}
+          </Text>
+        </Balancer>
       </Container>
-      <Balancer>
-        <Text
-          size={"medium"}
-          mt={"normal"}
-          weight={"medium"}
-          align={"center"}
-          color={"light"}
-        >
-          {
-            "Design UI like Tonight Pass in React or React Native with optimized and\r"
-          }
-          {"customizable styled-components.\r"}
-        </Text>
-      </Balancer>
       <Container row gap={"normal"} justify={"center"} mt={"large"}>
         <Link href={"/docs"}>
           <Button>{"Get started"}</Button>

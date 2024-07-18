@@ -1,8 +1,8 @@
 import kitchn from "kitchn";
-import { Company } from "types/showcase";
+import { Company, SortedProject } from "types/showcase";
 
 export type ShowcaseCardProps = {
-  company: Company;
+  company: Company | SortedProject["owner"];
 };
 
 const ShowcaseCard: React.FC<ShowcaseCardProps> = ({

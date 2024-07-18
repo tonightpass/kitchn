@@ -1,6 +1,6 @@
 import { TonightPassLogoSVG } from "@components/Brands";
 import { OnRuntimeLogo } from "@components/Brands/Showcase";
-import { Company, Project } from "types/showcase";
+import { Company, SortedProject } from "types/showcase";
 
 const showcases: Company[] = [
   {
@@ -8,24 +8,45 @@ const showcases: Company[] = [
     name: "Tonight Pass",
     logo: TonightPassLogoSVG,
     similarWebGlobalRank: 17872218,
-    projects: {},
+    projects: {
+      kitchn: {
+        title: "Kitchn",
+        repo: "https://github.com/tonightpass/kitchn",
+        src: "/static/images/showcases/screenshots/onruntime.com.png",
+        width: 1920,
+        height: 1080,
+        url: "https://kitchn.tonightpass.com",
+      },
+      tonightpass: {
+        title: "Tonight Pass",
+        src: "/static/images/showcases/screenshots/onruntime.com.png",
+        width: 1920,
+        height: 1080,
+        url: "https://tonightpass.com",
+      },
+    },
   },
   {
     url: "https://onruntime.com",
-    name: "onRuntime",
+    name: "onRuntime Studio",
     logo: OnRuntimeLogo,
     similarWebGlobalRank: 17872218,
-    projects: {},
+    projects: {
+      onruntime: {
+        title: "onRuntime",
+        repo: "https://github.com/onruntime/onruntime-website",
+        src: "/static/images/showcases/screenshots/onruntime.com.png",
+        width: 1920,
+        height: 1080,
+        url: "https://onruntime.com",
+      },
+    },
   },
 ];
 
 export const sortedCompanies = showcases.sort(
   (a, b) => a.similarWebGlobalRank - b.similarWebGlobalRank,
 );
-
-export type SortedProject = Project & {
-  owner: Company["name"];
-};
 
 export const sortedProjects = sortedCompanies.reduce(
   (projects, company) => ({
@@ -35,7 +56,11 @@ export const sortedProjects = sortedCompanies.reduce(
         ...projects,
         [name]: {
           ...project,
-          owner: company.name,
+          slug: name,
+          owner: {
+            ...company,
+            projects: undefined,
+          },
         },
       }),
       {},

@@ -16,3 +16,8 @@ export type Company = {
   similarWebGlobalRank: number;
   style?: React.HTMLAttributes<HTMLElement>["style"];
 };
+
+export type SortedProject = Project & {
+  slug: string;
+  owner: Omit<Company, "projects">;
+};
