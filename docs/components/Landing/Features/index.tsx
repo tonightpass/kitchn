@@ -1,6 +1,9 @@
-import { Container, Text } from "kitchn";
+import { AvatarGroup, Container, Image, Text } from "kitchn";
+import { useData } from "nextra/data";
 
 const Features = () => {
+  const { repo, contributors } = useData();
+
   return (
     <Container id={"features"} py={"extraLarge"} align={"center"} section>
       <Text transform={"uppercase"} weight={"bold"} align={"center"} h2>
@@ -22,8 +25,12 @@ const Features = () => {
       </Text>
       <Container mt={"large"} w={"100%"} gap={"normal"}>
         <Container direction={["column", "column", "row"]} gap={"normal"}>
-          <Container flex={1} gap={"normal"}>
-            <Container br={"square"} bw={1} flex={1} minH={200} p={"medium"}>
+          <Container
+            flex={1}
+            gap={"normal"}
+            direction={["column", "row", "column"]}
+          >
+            <Container br={"square"} bw={1} minH={200} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 {"Accessible\r"}
               </Text>
@@ -32,6 +39,13 @@ const Features = () => {
                   "Kitchn strictly follows WAI-ARIA standards for all components.\r"
                 }
               </Text>
+              <Image
+                mt={"small"}
+                src={"/static/images/features/accessible.svg"}
+                alt={"WAI-ARIA Accessible"}
+                w={"100%"}
+                h={"auto"}
+              />
             </Container>
             <Container br={"square"} bw={1} flex={1} minH={100} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
@@ -63,8 +77,12 @@ const Features = () => {
               </Text>
             </Container>
           </Container>
-          <Container flex={1} gap={"normal"}>
-            <Container br={"square"} bw={1} flex={1} minH={200} p={"medium"}>
+          <Container
+            flex={1}
+            gap={"normal"}
+            direction={["column", "row", "column"]}
+          >
+            <Container br={"square"} bw={1} minH={200} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 {"Active Community\r"}
               </Text>
@@ -74,14 +92,52 @@ const Features = () => {
                 }
                 {"you need, and using it for our own products.\r"}
               </Text>
+              <Container mt={"small"} br={"square"} h={"100%"}>
+                <Text color={"lighter"} weight={"medium"} size={"medium"} span>
+                  <Text color={"inherit"} weight={"bold"} size={"large"} span>
+                    {contributors.length}
+                  </Text>
+                  {" contributors"}
+                </Text>
+
+                <Text color={"lighter"} weight={"medium"} size={"medium"} span>
+                  <Text color={"inherit"} weight={"bold"} size={"large"} span>
+                    {repo.stargazers_count}
+                  </Text>
+                  {" stars"}
+                </Text>
+
+                <Text color={"lighter"} weight={"medium"} size={"medium"} span>
+                  <Text color={"inherit"} weight={"bold"} size={"large"} span>
+                    {new Date(repo.updated_at).toLocaleDateString()}
+                  </Text>
+                  {" last update"}
+                </Text>
+              </Container>
+              <AvatarGroup
+                mt={"small"}
+                members={contributors
+                  .filter((contributor) => !contributor.login.includes("[bot]"))
+                  .map((contributor) => ({
+                    src: contributor.avatar_url,
+                    alt: contributor.login,
+                  }))}
+              />
             </Container>
-            <Container br={"square"} bw={1} flex={1} minH={100} p={"medium"}>
+            <Container br={"square"} bw={1} minH={100} p={"medium"}>
               <Text size={"large"} weight={"bold"}>
                 {"Reusable hooks\r"}
               </Text>
               <Text mt={"small"} color={"lighter"}>
                 {"Lots of useful hooks to use in your applications.\r"}
               </Text>
+              <Image
+                mt={"small"}
+                src={"/static/images/features/reusable-hooks.svg"}
+                alt={"Reusable Hooks"}
+                w={"100%"}
+                h={"auto"}
+              />
             </Container>
           </Container>
         </Container>
@@ -117,6 +173,13 @@ const Features = () => {
               }
               {"already implemented.\r"}
             </Text>
+            <Image
+              mt={"small"}
+              src={"/static/images/features/stylable.svg"}
+              alt={"Stylable"}
+              w={"100%"}
+              h={"auto"}
+            />
           </Container>
         </Container>
       </Container>

@@ -5,3 +5,21 @@ description: UI kit for React developers to build beautiful web apps
 import Landing from '../screens/Landing';
 
 <Landing />
+
+export const getStaticProps = async ({ params }) => {
+  const repoRes = await fetch('https://api.github.com/repos/tonightpass/kitchn');
+  const repo = await repoRes.json();
+
+  const contributorsRes = await fetch(repo.contributors_url);
+  const contributors = await contributorsRes.json();
+
+  return {
+    props: {
+      ssg: {
+        repo,
+        contributors
+      }
+    },
+    revalidate: 60
+  };
+};
