@@ -7,8 +7,7 @@ import kitchn, {
   Link,
   rotate,
 } from "kitchn";
-import * as React from "react";
-import "kitchn/fonts.css";
+import React from "react";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
