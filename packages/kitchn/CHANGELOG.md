@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.3.0
+
+### Minor Changes
+
+- [`030a81e`](https://github.com/tonightpass/kitchn/commit/030a81efb54204107f0a81ef978163952a4cb5cd) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update default theme colors
+
 ## 0.2.5
 
 ### Patch Changes
