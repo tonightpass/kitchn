@@ -32,19 +32,36 @@ module.exports = {
 ## Provider Setup
 
 After installing Kitchn, you need to set up the `KitchnProvider` at the root 
-of your application. This can be either in your `index.jsx` or `index.tsx` file.
+of your application. This can be either in your `gatsby-browser.jsx` or `gatsby-browser.tsx` file.
 
 ```jsx
-// index.jsx
+// gatsby-browser.jsx
+import React from "react";
 import { KitchnProvider } from "kitchn";
 
-export default function IndexPage() {
+export const wrapRootElement = ({ element }) => (
   return (
     <KitchnProvider>
-      <TheRestOfYourApplication />
+      {element}
     </KitchnProvider>
   );
-}
+)
+```
+
+And if you are using SSR, you can also set up the `KitchnProvider` in your `gatsby-ssr.jsx` or `gatsby-ssr.tsx` file.
+
+```jsx
+// gatsby-ssr.jsx
+import React from "react";
+import { KitchnProvider } from "kitchn";
+
+export const wrapRootElement = ({ element }) => (
+  return (
+    <KitchnProvider>
+      {element}
+    </KitchnProvider>
+  );
+)
 ```
 
 ## Deploy your own
