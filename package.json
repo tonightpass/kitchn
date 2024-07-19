@@ -27,7 +27,6 @@
     "dev:examples:next": "turbo run dev --filter=next-typescript",
     "dev:examples:react": "turbo run dev --filter=react-typescript",
     "postinstall": "manypkg check",
-    "prepare": "husky install",
     "version": "changeset version",
     "release": "changeset publish",
     "release:alpha": "pnpm changeset publish --tag alpha",
