@@ -64,6 +64,7 @@ const IndexPage: NextPage = () => {
       <Link href={"/select"}>{"Select"}</Link>
       <Link href={"/skeleton"}>{"Skeleton"}</Link>
       <Link href={"/spacer"}>{"Spacer"}</Link>
+      <Link href={"/switch"}>{"Switch"}</Link>
       <Link href={"/tabs"}>{"Tabs"}</Link>
       <Link href={"/text"}>{"Text"}</Link>
       <Link href={"/textarea"}>{"Textarea"}</Link>
