@@ -5,120 +5,144 @@ import kitchn, {
   Image,
   Text,
   Link,
-  rotate,
+  useBreakpoint,
 } from "kitchn";
 import React from "react";
 
 const IndexPage: React.FC<PageProps> = () => {
+  const { isMobile } = useBreakpoint();
   return (
     <Container
       maxW={"laptop"}
       mx={"auto"}
-      p={"extraLarge"}
+      p={"normal"}
       h={"100vh"}
       justify={"space-between"}
       align={"center"}
     >
       <Container w={"100%"} align={"center"} justify={"space-between"} row>
         <Card p={"small"} br={"square"} align={"center"} active row>
-          {"Get started by editing\r"}
-          <Text ml={"tiny"} monospace span>
-            {"src/pages/index.tsx\r"}
+          <Text span>
+            {"Get started by editing \r"}
+            <Text size={"compact"} monospace span>
+              {"src/pages/index.tsx\r"}
+            </Text>
           </Text>
         </Card>
-        <Link href={"https://tonightpass.com"}>
-          <Text weight={"semiBold"} size={"small"}>
-            {"by\r"}
-          </Text>
-          <KitchnTypo
-            src={"/tonightpass.svg"}
-            alt={"TonightPass"}
-            w={100}
-            h={24}
-            ml={"tiny"}
-          />
-        </Link>
+        {!isMobile && (
+          <Link href={"https://tonightpass.com"}>
+            <Text weight={"semiBold"} size={"small"}>
+              {"by\r"}
+            </Text>
+            <TonightPassLogo
+              src={"/tonightpass.svg"}
+              alt={"TonightPass"}
+              w={100}
+              h={24}
+              ml={"tiny"}
+            />
+          </Link>
+        )}
       </Container>
       <Centered
         py={"extraLarge"}
         justify={"center"}
         align={"center"}
-        gap={18}
+        gap={"medium"}
+        direction={["column", "row", "row"]}
         row
       >
-        <KitchnIcon>
-          <Image src={"/icon.svg"} alt={"Kitchn Icon"} h={50} />
-        </KitchnIcon>
-        <KitchnTypo src={"/typo.svg"} alt={"Kitchn Typo"} h={42} />
+        <KitchnIcon src={"/icon.svg"} alt={"Kitchn Icon"} h={75} w={"auto"} />
+        <KitchnTypo src={"/typo.svg"} alt={"Kitchn Typo"} h={45} w={"auto"} />
       </Centered>
-      <Container w={"100%"} gap={"small"} row>
-        <Card
-          as={Link}
-          href={"https://kitchn.tonightpass.com/docs"}
-          p={"small"}
+      <Container
+        w={"100%"}
+        gap={"small"}
+        direction={["column", "column", "row"]}
+        row
+      >
+        <Container
           flex={1}
-          br={"square"}
+          gap={"small"}
+          direction={["column", "row", "row"]}
+          row
         >
-          <Text size={"large"} weight={"bold"}>
-            {"Docs\r"}
-          </Text>
-          <Text size={"small"} color={"light"} mt={"small"}>
-            {"Find in-depth information about Kitchn components, hooks and\r"}
-            {"more.\r"}
-          </Text>
-        </Card>
+          <Card
+            as={Link}
+            href={"https://kitchn.tonightpass.com/docs"}
+            p={"small"}
+            flex={1}
+            br={"square"}
+          >
+            <Text size={"large"} weight={"bold"}>
+              {"Docs\r"}
+            </Text>
+            <Text size={"small"} color={"light"} mt={"small"}>
+              {
+                "Find in-depth information about Kitchn components, hooks and more.\r"
+              }
+            </Text>
+          </Card>
 
-        <Card
-          as={Link}
-          href={"https://discord.gg/VvvAkPqQ98"}
-          p={"small"}
+          <Card
+            as={Link}
+            href={"https://discord.gg/VvvAkPqQ98"}
+            p={"small"}
+            flex={1}
+            br={"square"}
+          >
+            <Text size={"large"} weight={"bold"}>
+              {"Discuss\r"}
+            </Text>
+            <Text size={"small"} color={"light"} mt={"small"}>
+              {
+                "Join the community and ask questions, share ideas, and get help from\r"
+              }
+              {"experts.\r"}
+            </Text>
+          </Card>
+        </Container>
+
+        <Container
           flex={1}
-          br={"square"}
+          gap={"small"}
+          direction={["column", "row", "row"]}
+          row
         >
-          <Text size={"large"} weight={"bold"}>
-            {"Discuss\r"}
-          </Text>
-          <Text size={"small"} color={"light"} mt={"small"}>
-            {
-              "Join the community and ask questions, share ideas, and get help\r"
+          <Card
+            as={Link}
+            href={"https://patreon.com/onruntime"}
+            p={"small"}
+            flex={1}
+            br={"square"}
+          >
+            <Text size={"large"} weight={"bold"}>
+              {"Sponsor us\r"}
+            </Text>
+            <Text size={"small"} color={"light"} mt={"small"}>
+              {"Help us build Kitchn and support the open-source community.\r"}
+            </Text>
+          </Card>
+
+          <Card
+            as={Link}
+            href={
+              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript&project-name=kitchn-app&repository-name=kitchn-app"
             }
-            {"from experts.\r"}
-          </Text>
-        </Card>
-
-        <Card
-          as={Link}
-          href={"https://patreon.com/onruntime"}
-          p={"small"}
-          flex={1}
-          br={"square"}
-        >
-          <Text size={"large"} weight={"bold"}>
-            {"Sponsor us\r"}
-          </Text>
-          <Text size={"small"} color={"light"} mt={"small"}>
-            {"Help us build Kitchn and support the open-source community.\r"}
-          </Text>
-        </Card>
-
-        <Card
-          as={Link}
-          href={
-            "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/gatsby-typescript&project-name=kitchn-app&repository-name=kitchn-app"
-          }
-          p={"small"}
-          flex={1}
-          br={"square"}
-        >
-          <Text size={"large"} weight={"bold"}>
-            {"Deploy\r"}
-          </Text>
-          <Text size={"small"} color={"light"} mt={"small"}>
-            {
-              "Instantly deploy your Gatsby site to a shareable URL with Vercel.\r"
-            }
-          </Text>
-        </Card>
+            p={"small"}
+            flex={1}
+            br={"square"}
+          >
+            <Text size={"large"} weight={"bold"}>
+              {"Deploy\r"}
+            </Text>
+            <Text size={"small"} color={"light"} mt={"small"}>
+              {
+                "Instantly deploy your Next.js site to a shareable URL with Vercel.\r"
+              }
+            </Text>
+          </Card>
+        </Container>
       </Container>
     </Container>
   );
@@ -170,58 +194,22 @@ const Centered = kitchn(Container)`
   }
 `;
 
-const KitchnTypo = kitchn(Image)`
+const TonightPassLogo = kitchn(Image)`
+  filter: brightness(0);
   @media (prefers-color-scheme: dark) {
-    filter: invert(1) hue-rotate(180deg) brightness(1) contrast(1);
+    filter: brightness(0) invert(1);
   }
 `;
 
-const KitchnIcon = kitchn.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  padding: 25px 10px;
-  margin-left: 16px;
-  transform: translateZ(0);
-  border-radius: ${({ theme }) => theme.radius.square};
-  overflow: hidden;
-  box-shadow: 0px 2px 8px -1px ${({ theme }) =>
-    convertRGBToRGBA(theme.colors.layout.lightest, 0.1)};
-
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
+const KitchnTypo = kitchn(Image)`
+  @media (prefers-color-scheme: dark) {
+    filter: brightness(0) invert(1);
   }
+`;
 
-  &::before {
-    animation: 6s ${rotate} linear infinite;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 1)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.6)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.5)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.4)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.3)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.3)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 1)}
-    );
-  }
-
-  &::after {
-    inset: 0;
-    padding: 1px;
-    border-radius: ${({ theme }) => theme.radius.square};
-    background: linear-gradient(
-      to bottom right,
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.8)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.4)}
-    );
-    background-clip: content-box;
+const KitchnIcon = kitchn(Image)`
+  @media (prefers-color-scheme: dark) {
+    filter: brightness(0) invert(1);
   }
 `;
 
