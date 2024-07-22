@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.4.0
+
+### Minor Changes
+
+- [#580](https://github.com/tonightpass/kitchn/pull/580) [`e5478c8`](https://github.com/tonightpass/kitchn/commit/e5478c802284843918905fcb8f7193b98eec2511) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Switch
+
 ## 0.3.0
 
 ### Minor Changes
