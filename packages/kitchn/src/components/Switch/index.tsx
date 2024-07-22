@@ -92,6 +92,7 @@ const SwitchComponent = styled(
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.layout.dark}; // because border will add 2px to the hightlight rect
   border-radius: ${({ theme }) => theme.radius.square};
   padding: 4px;
+  gap: 1px;
 `;
 
 export const Control = styled.div<{ active?: boolean; disabled: boolean }>`
