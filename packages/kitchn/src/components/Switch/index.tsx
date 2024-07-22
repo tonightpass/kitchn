@@ -18,8 +18,8 @@ const SwitchComponent = styled(
     disabled = false,
     selected,
     setSelected,
-    hoverHeightRatio = 0.7,
-    hoverWidthRatio = 1.05,
+    hoverHeightRatio = 1,
+    hoverWidthRatio = 1,
     highlight = true,
     ...props
   }: SwitchProps) => {
@@ -89,7 +89,7 @@ const SwitchComponent = styled(
   align-items: center;
   color: ${({ theme }) => theme.colors.accent.dark};
   font-weight: ${({ theme }) => theme.weight.medium};
-  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.layout.dark}; // because border will add 2px to the hightlight rect
   border-radius: ${({ theme }) => theme.radius.square};
   padding: 4px;
 `;
@@ -108,7 +108,6 @@ export const Control = styled.div<{ active?: boolean; disabled: boolean }>`
   user-select: none;
   padding: 6px ${({ theme }) => theme.gap.small};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  margin-bottom: -1px;
   outline: 0;
   white-space: nowrap;
   border-radius: ${({ theme }) => theme.radius.square};
