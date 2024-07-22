@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://kitchn.tonightpass.com">
-    <img src="https://kitchn.tonightpass.com/static/icon/kitchn-icon.svg" alt="Kitchn" height="50" />
+    <img src="https://kitchn.tonightpass.com/favicon.svg" alt="Kitchn" height="50" />
     <h3 align="center">Kitchn</h3>
   </a>
 </p>
@@ -26,18 +26,15 @@
     <img alt="" src="https://img.shields.io/badge/Instagram-C13584.svg?style=for-the-badge&labelColor=000000&logo=instagram&logoColor=white&logoWidth=20">
   </a>
   <br/>
-  <a aria-label="Vercel" href="https://vercel.com/?utm_source=tonightpass&utm_campaign=oss">
-    <img alt="Powered by Vercel" height="28" src="https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg">
-  </a>
 </p>
 
 ## Getting Started
 
 Visit [kitchn.tonightpass.com/docs](https://kitchn.tonightpass.com/docs) to get started with Kitchn.
 
-## Documentation
+## Components
 
-Visit [kitchn.tonightpass.com/docs](https://kitchn.tonightpass.com/docs) to view the full documentation.
+Visit [kitchn.tonightpass.com/docs/components](https://kitchn.tonightpass.com/docs/components) to view the full documentation.
 
 ## Who is using Kitchn?
 

@@ -174,10 +174,6 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
     line-height: ${(props) => props.lineHeight || 1};
   }
 
-  strong {
-    font-weight: ${(props) => props.theme.weight.bold};
-  }
-
   em {
     font-style: italic;
   }

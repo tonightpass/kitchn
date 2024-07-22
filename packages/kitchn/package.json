@@ -1,8 +1,12 @@
 {
   "name": "kitchn",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Tonight Pass delicious React styled-components UI kit",
-  "repository": "https://github.com/tonightpass/kitchn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonightpass/kitchn.git",
+    "directory": "packages/kitchn"
+  },
   "bugs": "https://github.com/tonightpass/kitchn/issues",
   "homepage": "https://kitchn.tonightpass.com",
   "license": "MIT",
@@ -40,7 +44,7 @@
     "react-day-picker": "^8.10.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^5.0.0",
-    "styled-components": "6.1.11"
+    "styled-components": "6.1.12"
   },
   "peerDependencies": {
     "next": ">= 13.0.0",

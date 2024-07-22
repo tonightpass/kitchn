@@ -60,6 +60,11 @@ export const mainCss = css`
     line-height: 1;
   }
 
+  strong,
+  b {
+    font-weight: ${(props) => props.theme.weight.bold};
+  }
+
   a {
     text-decoration: none;
     color: inherit;

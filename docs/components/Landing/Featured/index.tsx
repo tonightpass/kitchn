@@ -1,7 +1,7 @@
-import { Button, Container, Link, Text, Image, useTheme } from "kitchn";
+import { Button, Container, Link, Text, Image } from "kitchn";
+import Balancer from "react-wrap-balancer";
 
 const Featured: React.FC = () => {
-  const { theme } = useTheme();
   return (
     <Container
       id={"header"}
@@ -11,48 +11,39 @@ const Featured: React.FC = () => {
       header
     >
       <Container align={"center"}>
-        <Text
-          align={"center"}
-          size={"extraTitle"}
-          weight={"bold"}
-          accent={"primary"}
-          h1
-        >
-          {"Tonight Pass\r"}
-        </Text>
-        <Text align={"center"} size={"title"} weight={"bold"} h2>
-          {"Delicious React styled-components\r"}
-        </Text>
-      </Container>
-      <Text
-        size={"medium"}
-        mt={"normal"}
-        weight={"medium"}
-        align={"center"}
-        color={"light"}
-      >
-        {
-          "Design UI like Tonight Pass in React or React Native with optimized and\r"
-        }
-        {"customizable styled-components.\r"}
-      </Text>
-      <Container mt={"normal"} align={"center"}>
         <Link
           href={
             "https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchn"
           }
         >
           <Image
-            src={`https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=379927&theme=${
-              theme.name === "dark" ? "light" : "neutral"
-            }&period=weekly&topic_id=44`}
+            src={`https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=379927&theme=${"neutral"}&period=weekly&topic_id=44`}
             alt={
               "Kitchn - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
             }
-            width={"250"}
-            height={"54"}
+            width={"200"}
+            height={"auto"}
           />
         </Link>
+      </Container>
+      <Container mt={"normal"} align={"center"}>
+        <Text align={"center"} size={"title"} weight={"bold"} h1>
+          {"delicious. modern. styled."}
+        </Text>
+        <Balancer>
+          <Text
+            size={"medium"}
+            mt={"normal"}
+            weight={"medium"}
+            align={"center"}
+            color={"light"}
+          >
+            {
+              "Design UI like Tonight Pass in React or React Native with optimized and\r"
+            }
+            {"customizable styled-components.\r"}
+          </Text>
+        </Balancer>
       </Container>
       <Container row gap={"normal"} justify={"center"} mt={"large"}>
         <Link href={"/docs"}>

@@ -24,6 +24,7 @@ After installing Kitchn, you need to add the `gatsby-plugin-styled-components` p
 module.exports = {
   plugins: [
     // ...
+    "babel-plugin-styled-components",
     "gatsby-plugin-styled-components",
   ],
 };
@@ -32,19 +33,55 @@ module.exports = {
 ## Provider Setup
 
 After installing Kitchn, you need to set up the `KitchnProvider` at the root 
-of your application. This can be either in your `index.jsx` or `index.tsx` file.
+of your application. This can be either in your `gatsby-browser.jsx` or `gatsby-browser.tsx` file.
 
 ```jsx
-// index.jsx
-import { KitchnProvider } from "kitchn";
+// gatsby-browser.jsx
+import { KitchnProvider, StyleSheetManager } from "kitchn";
+import React from "react";
 
-export default function IndexPage() {
+import "kitchn/fonts.css";
+
+export const wrapRootElement = ({ element }, pluginOptions) => (
+  <StyleSheetManager
+    enableVendorPrefixes={pluginOptions?.enableVendorPrefixes === false}
+  >
+    <KitchnProvider>{element}</KitchnProvider>
+  </StyleSheetManager>
+);
+```
+
+And if you are using SSR, you can also set up the `KitchnProvider` in your `gatsby-ssr.jsx` or `gatsby-ssr.tsx` file.
+
+```jsx
+// gatsby-ssr.jsx
+import { KitchnProvider, ServerStyleSheet, StyleSheetManager } from "kitchn";
+import React from "react";
+
+import "kitchn/fonts.css";
+
+const sheetByPathname = new Map();
+
+export const wrapRootElement = ({ element, pathname }, pluginOptions) => {
+  const sheet = new ServerStyleSheet();
+  sheetByPathname.set(pathname, sheet);
   return (
-    <KitchnProvider>
-      <TheRestOfYourApplication />
-    </KitchnProvider>
+    <StyleSheetManager
+      sheet={sheet.instance}
+      enableVendorPrefixes={pluginOptions?.enableVendorPrefixes}
+    >
+      <KitchnProvider>{element}</KitchnProvider>
+    </StyleSheetManager>
   );
-}
+};
+
+export const onRenderBody = ({ setHeadComponents, pathname }) => {
+  const sheet = sheetByPathname.get(pathname);
+  if (sheet) {
+    setHeadComponents([sheet.getStyleElement()]);
+    sheetByPathname.delete(pathname);
+  }
+};
 ```
 
 ## Deploy your own

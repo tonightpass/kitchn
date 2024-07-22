@@ -1,4 +1,23 @@
-export type Showcase = {
+export type Project = {
+  height: number;
+  width: number;
+  internalUrl?: string;
+  url: string;
+  repo?: string;
+  src: string;
+  title: string;
+};
+
+export type Company = {
+  url: string;
+  logo: React.ComponentType;
   name: string;
-  thumbnail: string;
+  projects: Record<string, Project>;
+  similarWebGlobalRank: number;
+  style?: React.HTMLAttributes<HTMLElement>["style"];
+};
+
+export type SortedProject = Project & {
+  slug: string;
+  owner: Omit<Company, "projects">;
 };

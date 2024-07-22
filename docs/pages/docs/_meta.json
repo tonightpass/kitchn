@@ -1,22 +1,15 @@
 {
-  "index": "Getting started",
-  "contributing": "Contributing",
-  "frameworks": {
-    "title": "Frameworks",
-    "theme": {
-      "collapsed": true
-    }
-  },
-  "guides": {
-    "title": "Guides",
-    "theme": {
-      "collapsed": true
-    }
-  },
+  "index": "Introduction",
+  "installation": "Installation",
+  "theming": "Theming",
+  "playground": "Playground",
+  "brands": "Brands",
+  "figma": "Figma",
+  "frameworks": "Frameworks",
   "components": "Components",
   "api-reference": {
     "title": "API Reference",
-    "href": "https://paka.dev/npm/kitchn",
+    "href": "https://jsdocs.io/package/kitchn",
     "newWindow": true
   },
   "roadmap": {
@@ -24,5 +17,6 @@
     "href": "https://github.com/orgs/tonightpass/projects/2",
     "newWindow": true
   },
+  "contributing": "Contributing",
   "acknowledgements": "Acknowledgements"
 }

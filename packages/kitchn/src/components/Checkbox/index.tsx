@@ -184,7 +184,7 @@ export const CheckboxCheck = styled.span`
 
 export const CheckboxContent = styled.span`
   margin-left: 8px;
-  font-size: inherit;
+  font-size: ${({ theme }) => theme.size.compact};
 `;
 
 export const StyledCheckbox = styled.input`

@@ -37,6 +37,8 @@ const ComboboxDropdownComponent: React.FC<ComboboxDropdownProps> = ({
         bc={"dark"}
         bg={"darkest"}
         p={"tiny"}
+        maxH={250}
+        overflow={"auto"}
         onClick={clickHandler}
       >
         {children}

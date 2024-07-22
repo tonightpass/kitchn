@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { KitchnLogo, SlashIcon, TonightPassIcon } from "@components/Brands";
 import Footer from "@components/Footer";
-import Logo from "@components/Logo";
-import { useRouter } from "next/router";
+import { Container, Link } from "kitchn";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import urlcat from "urlcat";
 
@@ -11,14 +11,22 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/tonightpass/kitchn/blob/master/docs",
   useNextSeoProps() {
-    const { route } = useRouter();
-    if (route !== "/") {
-      return {
-        titleTemplate: `%s${"%s".includes("Kitchn") ? "" : " - Kitchn"}`,
-      };
-    }
+    return {
+      titleTemplate: "%s",
+    };
   },
-  logo: Logo,
+  logoLink: false,
+  logo: (
+    <Container align={"center"} row gap={"tiny"}>
+      <Link href={"https://tonightpass.com"}>
+        <TonightPassIcon height={30} width={"auto"} />
+      </Link>
+      <SlashIcon height={30} />
+      <Link href={"/"}>
+        <KitchnLogo height={30} width={"auto"} />
+      </Link>
+    </Container>
+  ),
   nextThemes: {
     defaultTheme: "dark",
     storageKey: "kc-theme",
@@ -87,13 +95,27 @@ const config: DocsThemeConfig = {
       </>
     );
   },
+  // navbar: {},
   editLink: {
     text: "Edit this page on GitHub",
   },
-  primaryHue: 290,
-  primarySaturation: 100,
+  primaryHue: 246.49,
+  primarySaturation: 75.51,
   footer: {
     component: Footer,
+  },
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === "separator") {
+        return <span className={"cursor-default"}>{title}</span>;
+      }
+      return <>{title}</>;
+    },
+    toggleButton: true,
+    defaultMenuCollapseLevel: 1,
+  },
+  toc: {
+    backToTop: true,
   },
 };
 

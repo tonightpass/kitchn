@@ -19,12 +19,16 @@ const ComboboxItemComponent = styled(
     value: identValue,
     children,
     isLabelOnly,
+    onClick,
     ...props
   }: ComboboxItemProps) => {
     const { value, updateValue, updateVisible } = useCombobox();
-    const selectHandler = () => {
+    const selectHandler = (
+      event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    ) => {
       updateValue && updateValue(identValue);
       updateVisible && updateVisible(false);
+      onClick && onClick(event);
     };
 
     const isActive = React.useMemo(
@@ -47,7 +51,7 @@ const ComboboxItemComponent = styled(
           </Text>
         ) : (
           <Text size={"compact"} span>
-            {"children"}
+            {children}
           </Text>
         )}
       </Container>

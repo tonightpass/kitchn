@@ -1,41 +1,98 @@
-import showcases from "data/showcases";
-import kitchn, { Container, Text, Link } from "kitchn";
+import kitchn, { Container, keyframes } from "kitchn";
+import React from "react";
+import { Company } from "types/showcase";
 
 import ShowcaseCard from "./Card";
 
-const ShowcaseList = () => {
+const getSlide = (childIndex: number, reverse?: boolean) => keyframes`
+  from {
+    transform: translateX(${childIndex * 100}%);
+  }
+  to {
+    transform: translateX(${(reverse ? -100 : 100) + 100 * childIndex}%);
+  }
+`;
+
+export type ShowcaseListProps = {
+  companies: Company[];
+  reverse?: boolean;
+};
+
+const ShowcaseList: React.FC<ShowcaseListProps> = ({
+  companies,
+  reverse = false,
+}: ShowcaseListProps) => {
+  const [animationPaused, setAnimationPaused] = React.useState(false);
+
+  companies =
+    companies.length < 10
+      ? Array.from(
+          { length: 10 },
+          (_, index) => companies[index % companies.length],
+        )
+      : companies;
+
+  const toggleAnimation = () => {
+    setAnimationPaused((prevState) => !prevState);
+  };
+
   return (
-    <Container row gap={"small"} mt={"large"} h={64} flex={"auto"}>
-      {showcases.map(({ name, thumbnail }, i) => (
-        <ShowcaseCard key={i} name={name} thumbnail={thumbnail} />
-      ))}
-      <YourCompany href={"https://github.com/tonightpass/kitchn/issues/new"}>
-        <Text title={"Your company"} weight={"bold"} align={"center"} span>
-          {"💖 Your company\r"}
-        </Text>
-      </YourCompany>
+    <Container align={"center"} h={80} pos={"relative"} overflow={"hidden"} row>
+      <CompaniesSlider
+        $offset={-1}
+        $reverse={reverse}
+        onClick={toggleAnimation}
+        style={{ animationPlayState: animationPaused ? "paused" : "running" }}
+      >
+        <Container wrap={"nowrap"} overflow={"hidden"} py={"small"}>
+          {companies.map((company, index) => (
+            <ShowcaseCard key={index} company={company} />
+          ))}
+        </Container>
+      </CompaniesSlider>
+      <CompaniesSlider
+        $offset={0}
+        $reverse={reverse}
+        onClick={toggleAnimation}
+        style={{ animationPlayState: animationPaused ? "paused" : "running" }}
+      >
+        <Container wrap={"nowrap"} overflow={"hidden"} py={"small"}>
+          {companies.map((company, index) => (
+            <ShowcaseCard key={index} company={company} />
+          ))}
+        </Container>
+      </CompaniesSlider>
+      <CompaniesSlider
+        $offset={1}
+        $reverse={reverse}
+        onClick={toggleAnimation}
+        style={{ animationPlayState: animationPaused ? "paused" : "running" }}
+      >
+        <Container wrap={"nowrap"} overflow={"hidden"} py={"small"}>
+          {companies.map((company, index) => (
+            <ShowcaseCard key={index} company={company} />
+          ))}
+        </Container>
+      </CompaniesSlider>
     </Container>
   );
 };
 
-const YourCompany = kitchn(Link)`
-  width: 160px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 1s;
-
-  ${Text} {
-    opacity: 0.3;
-    transition: all 1s;
+const CompaniesSlider = kitchn.span<{ $offset?: number; $reverse?: boolean }>`
+  display: inline-block;
+  animation: ${({ $offset, $reverse }) => getSlide($offset || 0, $reverse)} 150s
+    linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer;
+  
+  ${Container} {
+    flex-direction: ${({ $reverse }) => ($reverse ? "row" : "row-reverse")};
   }
 
-  &:hover {
-    transform: scale(1.05);
-    ${Text} {
-      opacity: 1;
-    }
+  @media (prefers-reduced-motion) {
+    animation: none;
   }
 `;
 

@@ -27,7 +27,6 @@
     "dev:examples:next": "turbo run dev --filter=next-typescript",
     "dev:examples:react": "turbo run dev --filter=react-typescript",
     "postinstall": "manypkg check",
-    "prepare": "husky install",
     "version": "changeset version",
     "release": "changeset publish",
     "release:alpha": "pnpm changeset publish --tag alpha",
@@ -55,7 +54,7 @@
     "path-browserify": "^1.0.1",
     "prettier": "^3.0.2",
     "size-limit": "^11.0.0",
-    "turbo": "^1.10.3"
+    "turbo": "^2.0.4"
   },
-  "packageManager": "pnpm@9.1.1"
+  "packageManager": "pnpm@9.5.0"
 }

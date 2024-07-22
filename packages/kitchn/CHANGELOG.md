@@ -1,5 +1,43 @@
 # kitchn
 
+## 0.3.0
+
+### Minor Changes
+
+- [`030a81e`](https://github.com/tonightpass/kitchn/commit/030a81efb54204107f0a81ef978163952a4cb5cd) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update default theme colors
+
+## 0.2.5
+
+### Patch Changes
+
+- [`7bd7cfa`](https://github.com/tonightpass/kitchn/commit/7bd7cfa04fe1824d3692e9b228833632fb74909e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve Avatar with username
+
+## 0.2.4
+
+### Patch Changes
+
+- [`3efb99e`](https://github.com/tonightpass/kitchn/commit/3efb99e9256de2f8de489b23d806973054e40164) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Checkbox Content font size
+
+## 0.2.3
+
+### Patch Changes
+
+- [`0c5f867`](https://github.com/tonightpass/kitchn/commit/0c5f8674c741d472a115e48579fa9218946785cf) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Calendar Menu Button type
+
+- [`d40bc3c`](https://github.com/tonightpass/kitchn/commit/d40bc3c25c46651acd509e5cf510774656886276) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add overflow on Combobox Dropdown
+
+## 0.2.2
+
+### Patch Changes
+
+- [`e8b6ce8`](https://github.com/tonightpass/kitchn/commit/e8b6ce82dcadffa224d0c1767a21f748d4eff174) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix typo of children in ComboboxItem
+
+## 0.2.1
+
+### Patch Changes
+
+- [`9127929`](https://github.com/tonightpass/kitchn/commit/9127929a4e9fe5e745d45d720849034924a30ed6) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix ComboboxItem name and export
+
 ## 0.2.0
 
 ### Minor Changes
