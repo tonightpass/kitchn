@@ -5,14 +5,11 @@ import "kitchn/fonts.css";
 
 const sheetByPathname = new Map();
 
-export const wrapRootElement = ({ element, pathname }, pluginOptions) => {
+export const wrapRootElement = ({ element, pathname }) => {
   const sheet = new ServerStyleSheet();
   sheetByPathname.set(pathname, sheet);
   return (
-    <StyleSheetManager
-      sheet={sheet.instance}
-      enableVendorPrefixes={pluginOptions?.enableVendorPrefixes}
-    >
+    <StyleSheetManager sheet={sheet.instance}>
       <KitchnProvider>{element}</KitchnProvider>
     </StyleSheetManager>
   );

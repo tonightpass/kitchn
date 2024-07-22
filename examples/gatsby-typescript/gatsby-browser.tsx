@@ -3,10 +3,8 @@ import React from "react";
 
 import "kitchn/fonts.css";
 
-export const wrapRootElement = ({ element }, pluginOptions) => (
-  <StyleSheetManager
-    enableVendorPrefixes={pluginOptions?.enableVendorPrefixes === false}
-  >
+export const wrapRootElement = ({ element }) => (
+  <StyleSheetManager>
     <KitchnProvider>{element}</KitchnProvider>
   </StyleSheetManager>
 );
