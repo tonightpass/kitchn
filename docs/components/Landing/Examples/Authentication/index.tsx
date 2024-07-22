@@ -19,7 +19,7 @@ const AuthenticationExample: React.FC = () => {
         <Container bg={"darker"} flex={1} brw={1}>
           <Container flex={1} align={"flex-start"} p={"large"}>
             <Container>
-              <TonightPassLogo height={30} width={"auto"} />
+              <TonightPassLogo height={30} width={"100%"} />
             </Container>
 
             <Container mt={"auto"} gap={"tiny"}>

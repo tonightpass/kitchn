@@ -132,7 +132,7 @@ const CustomFooter = () => {
     <Footer subfooter={"© 2023 Tonight Pass. All rights reserved."}>
       <Container mt={"small"} align={"flex-start"} justify={"flex-start"}>
         <Link href={"/"}>
-          <TonightPassLogo height={30} width={"auto"} />
+          <TonightPassLogo height={30} width={"100%"} />
         </Link>
 
         {mounted && !router.pathname.startsWith("/docs") && (
