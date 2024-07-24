@@ -42,6 +42,7 @@ export * from "./Select";
 export * from "./Skeleton";
 export * from "./Spacer";
 export * from "./Spinner";
+export * from "./Switch";
 export * from "./Tabs";
 export * from "./Text";
 export * from "./Textarea";

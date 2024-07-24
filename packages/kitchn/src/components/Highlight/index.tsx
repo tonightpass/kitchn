@@ -58,7 +58,7 @@ const HighlightComponent = styled(
 export const HighlightContainer = styled.div<HighlightPosition>`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.layout.dark};
-  border-radius: 3px;
+  border-radius: ${({ theme }) => theme.radius.square};
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
   left: ${({ left }) => left}px;

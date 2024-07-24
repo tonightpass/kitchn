@@ -158,9 +158,7 @@ const Features = () => {
               {"Light & Dark support\r"}
             </Text>
             <Text mt={"small"} color={"lighter"}>
-              {
-                "Kitchn strictly follows WAI-ARIA standards for all components.\r"
-              }
+              {"Kitchn supports both light and dark themes."}
             </Text>
           </Container>
           <Container br={"square"} bw={1} flex={1} p={"medium"}>

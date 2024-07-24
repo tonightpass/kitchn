@@ -19,11 +19,11 @@ const config: DocsThemeConfig = {
   logo: (
     <Container align={"center"} row gap={"tiny"}>
       <Link href={"https://tonightpass.com"}>
-        <TonightPassIcon height={30} width={"auto"} />
+        <TonightPassIcon height={30} width={"100%"} />
       </Link>
       <SlashIcon height={30} />
       <Link href={"/"}>
-        <KitchnLogo height={30} width={"auto"} />
+        <KitchnLogo height={30} width={"100%"} />
       </Link>
     </Container>
   ),
