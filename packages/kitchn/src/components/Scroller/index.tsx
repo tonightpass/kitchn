@@ -51,10 +51,10 @@ const ScrollerComponent = styled(({ children, ...props }: ScrollerProps) => {
   return (
     <Container {...props}>
       <ScrollerContainer ref={containerRef}>{children}</ScrollerContainer>
-      {showTopGradient && <TopGradient />}
-      {showBottomGradient && <BottomGradient />}
-      {showLeftGradient && <LeftGradient />}
-      {showRightGradient && <RightGradient />}
+      <TopGradient show={showTopGradient} />
+      <BottomGradient show={showBottomGradient} />
+      <LeftGradient show={showLeftGradient} />
+      <RightGradient show={showRightGradient} />
     </Container>
   );
 })<ScrollerProps>`
@@ -74,9 +74,11 @@ const ScrollerContainer = styled.div`
   scrollbar-width: none;
 `;
 
-const Gradient = styled.div`
+const Gradient = styled.div<{ show: boolean }>`
   position: absolute;
   width: 100%;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: opacity 0.2s ease-in-out;
 `;
 
 const TopGradient = styled(Gradient)`
