@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.5.0
+
+### Minor Changes
+
+- [#126](https://github.com/tonightpass/kitchn/pull/126) [`3961754`](https://github.com/tonightpass/kitchn/commit/39617540f006961a875305bb46d93ed076d274d6) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add Scroller
+
 ## 0.4.0
 
 ### Minor Changes
