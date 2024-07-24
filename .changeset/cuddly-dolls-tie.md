@@ -1,0 +1,5 @@
+---
+"kitchn": minor
+---
+
+Add Scroller

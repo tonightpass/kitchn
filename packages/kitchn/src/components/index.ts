@@ -37,6 +37,7 @@ export * from "./Menu";
 export * from "./Modal";
 export * from "./Note";
 export * from "./Progress";
+export * from "./Scroller";
 export * from "./Select";
 export * from "./Skeleton";
 export * from "./Spacer";
