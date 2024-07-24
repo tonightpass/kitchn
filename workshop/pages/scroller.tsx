@@ -17,17 +17,13 @@ const ScrollerPage: NextPage = () => {
           <Scroller width={"100%"} height={220}>
             <Container>
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
               />
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
@@ -40,17 +36,19 @@ const ScrollerPage: NextPage = () => {
           <Scroller width={"100%"} height={"100%"}>
             <Container row>
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
               />
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
@@ -63,17 +61,19 @@ const ScrollerPage: NextPage = () => {
           <Scroller width={"100%"} height={220}>
             <Container row>
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
               />
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
@@ -81,17 +81,19 @@ const ScrollerPage: NextPage = () => {
             </Container>
             <Container row>
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}
               />
               <img
-                src={
-                  "https://assets.vercel.com/image/upload/q_auto/front/assets/design/black-triangle.png"
-                }
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
+                width={540}
+                height={309}
+                alt={"image"}
+              />
+              <img
+                src={"https://kitchn.tonightpass.com/favicon.svg"}
                 width={540}
                 height={309}
                 alt={"image"}

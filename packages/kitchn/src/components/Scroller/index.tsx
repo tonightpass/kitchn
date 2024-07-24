@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
+import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
 
 type Props = React.PropsWithChildren;
 
@@ -85,28 +86,32 @@ const TopGradient = styled(Gradient)`
   top: 0;
   left: 0;
   height: 20px;
-  background: linear-gradient(
+  background: ${({ theme }) => `
+      linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.7) 70%,
-    rgba(0, 0, 0, 1) 100%
-  );
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.1)},
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.3)} 30%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.5)} 50%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.7)} 70%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 1)} 100%
+  )
+  `};
 `;
 
 const BottomGradient = styled(Gradient)`
   bottom: 0;
   left: 0;
   height: 20px;
-  background: linear-gradient(
+  background: ${({ theme }) => `
+      linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.7) 70%,
-    rgba(0, 0, 0, 1) 100%
-  );
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.1)},
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.3)} 30%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.5)} 50%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.7)} 70%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 1)} 100%
+  )
+  `};
 `;
 
 const LeftGradient = styled(Gradient)`
@@ -114,14 +119,16 @@ const LeftGradient = styled(Gradient)`
   top: 0;
   bottom: 0;
   width: 20px;
-  background: linear-gradient(
+  background: ${({ theme }) => `
+      linear-gradient(
     to left,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.7) 70%,
-    rgba(0, 0, 0, 1) 100%
-  );
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.1)},
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.3)} 30%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.5)} 50%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.7)} 70%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 1)} 100%
+  )
+  `};
 `;
 
 const RightGradient = styled(Gradient)`
@@ -129,14 +136,16 @@ const RightGradient = styled(Gradient)`
   top: 0;
   bottom: 0;
   width: 20px;
-  background: linear-gradient(
+  background: ${({ theme }) => `
+      linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.7) 70%,
-    rgba(0, 0, 0, 1) 100%
-  );
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.1)},
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.3)} 30%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.5)} 50%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 0.7)} 70%,
+    ${convertRGBToRGBA(theme.colors.layout.darkest, 1)} 100%
+  )
+  `};
 `;
 
 ScrollerComponent.displayName = "KitchnSelect";
