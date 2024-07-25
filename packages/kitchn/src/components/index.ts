@@ -40,6 +40,7 @@ export * from "./Progress";
 export * from "./Scroller";
 export * from "./Select";
 export * from "./Skeleton";
+export * from "./Snippet";
 export * from "./Spacer";
 export * from "./Spinner";
 export * from "./Switch";

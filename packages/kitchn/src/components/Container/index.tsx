@@ -25,6 +25,7 @@ type Props = {
   form?: boolean;
   label?: boolean;
   wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
+  transform?: string;
 };
 
 export type ContainerProps = Props & React.ComponentPropsWithRef<"div">;
@@ -68,6 +69,7 @@ const ContainerComponent = styled(ForwardedContainer)<ContainerProps>`
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
   ${(props) => props.wrap && `flex-wrap: ${props.wrap};`}
+  ${(props) => props.transform && `transform: ${props.transform};`}
 
   ${(props) =>
     props.gap &&

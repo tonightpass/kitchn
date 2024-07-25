@@ -16,6 +16,7 @@ type Props = {
   i?: boolean;
   span?: boolean;
   em?: boolean;
+  pre?: boolean;
   /**
    * The font size.
    */
@@ -117,7 +118,9 @@ const TextComponent = styled(({ children, ...props }: TextProps) => {
                     ? "span"
                     : props.em
                       ? "em"
-                      : "p";
+                      : props.pre
+                        ? "pre"
+                        : "p";
 
   return (
     <Component role={"text"} {...props}>
