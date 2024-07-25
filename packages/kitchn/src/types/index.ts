@@ -17,3 +17,16 @@ export type KitchnComponent<P, N = React.HTMLAttributes<any>> = {
 export type NormalSizes = "small" | "normal" | "large";
 
 export type TriggerTypes = "hover" | "click";
+
+export type BreakpointTuple<T> = [
+  // mobile
+  T?,
+  // tablet
+  T?,
+  // laptop
+  T?,
+  // desktop
+  T?,
+  // default
+  T?,
+];

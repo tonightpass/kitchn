@@ -1,46 +1,92 @@
-import { css } from "styled-components";
+import { css, DefaultTheme } from "styled-components";
 
 import { handleValue } from "./decorator";
+import { BreakpointTuple } from "../../types";
 import { Breakpoint, Gap } from "../../types/theme";
 
-export type AreaProps = {
+type Props = {
   width?: string | number | keyof Gap | keyof Breakpoint;
   height?: string | number | keyof Gap | keyof Breakpoint;
-  w?: AreaProps["width"];
-  h?: AreaProps["height"];
-  minWidth?: AreaProps["width"];
-  minHeight?: AreaProps["height"];
-  maxWidth?: AreaProps["width"];
-  maxHeight?: AreaProps["height"];
-  minW?: AreaProps["minWidth"];
-  minH?: AreaProps["minHeight"];
-  maxW?: AreaProps["maxWidth"];
-  maxH?: AreaProps["maxHeight"];
+  w?: Props["width"];
+  h?: Props["height"];
+  minWidth?: Props["width"];
+  minHeight?: Props["height"];
+  maxWidth?: Props["width"];
+  maxHeight?: Props["height"];
+  minW?: Props["minWidth"];
+  minH?: Props["minHeight"];
+  maxW?: Props["maxWidth"];
+  maxH?: Props["maxHeight"];
+};
+
+export type AreaProps = {
+  [K in keyof Props]: Props[K] | BreakpointTuple<Props[K]>;
+};
+
+const generateCssForProps = (
+  theme: DefaultTheme,
+  props: Props | AreaProps,
+  index?: number,
+) => {
+  const styles: { [key: string]: string } = {};
+
+  const handleAndAssignValue = (
+    key: string,
+    value: string | number | undefined,
+  ) => {
+    if (value !== undefined) {
+      styles[key] = String(handleValue(theme, value));
+    }
+  };
+
+  const extractValue = (
+    value:
+      | string
+      | number
+      | BreakpointTuple<string | number | undefined>
+      | undefined,
+  ) => {
+    if (Array.isArray(value)) {
+      return value[index !== undefined ? index : value.length - 1];
+    }
+    return value;
+  };
+
+  handleAndAssignValue("width", extractValue(props.width || props.w));
+  handleAndAssignValue("height", extractValue(props.height || props.h));
+  handleAndAssignValue("minWidth", extractValue(props.minWidth || props.minW));
+  handleAndAssignValue(
+    "minHeight",
+    extractValue(props.minHeight || props.minH),
+  );
+  handleAndAssignValue("maxWidth", extractValue(props.maxWidth || props.maxW));
+  handleAndAssignValue(
+    "maxHeight",
+    extractValue(props.maxHeight || props.maxH),
+  );
+
+  return css`
+    ${Object.entries(styles)
+      .filter(([, value]) => value !== undefined)
+      .map(([key, value]) => `${key}: ${value};`)
+      .join("\n")}
+  `;
 };
 
 export const areaCss = css<AreaProps>`
-  ${({ theme, width, w }) =>
-    width !== undefined || w !== undefined
-      ? `width: ${handleValue(theme, width || w)};`
-      : ""}
-  ${({ theme, height, h }) =>
-    height !== undefined || h !== undefined
-      ? `height: ${handleValue(theme, height || h)};`
-      : ""}
-  ${({ theme, minWidth, minW }) =>
-    minWidth !== undefined || minW !== undefined
-      ? `min-width: ${handleValue(theme, minWidth || minW)};`
-      : ""}
-  ${({ theme, minHeight, minH }) =>
-    minHeight !== undefined || minH !== undefined
-      ? `min-height: ${handleValue(theme, minHeight || minH)};`
-      : ""}
-  ${({ theme, maxWidth, maxW }) =>
-    maxWidth !== undefined || maxW !== undefined
-      ? `max-width: ${handleValue(theme, maxWidth || maxW)};`
-      : ""}
-  ${({ theme, maxHeight, maxH }) =>
-    maxHeight !== undefined || maxH !== undefined
-      ? `max-height: ${handleValue(theme, maxHeight || maxH)};`
-      : ""}
+  ${({ theme, ...props }) => generateCssForProps(theme, props)}
+
+  ${({ theme, ...props }) =>
+    theme.breakpoint &&
+    Object.keys(theme.breakpoint)
+      .reverse()
+      .map((breakpoint, index) => {
+        return css`
+          @media (max-width: ${theme.breakpoint[
+              breakpoint as keyof Breakpoint
+            ]}) {
+            ${generateCssForProps(theme, props, index)}
+          }
+        `;
+      })}
 `;
