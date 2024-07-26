@@ -1,5 +1,0 @@
----
-"kitchn": minor
----
-
-Add Snippet

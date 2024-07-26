@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.6.0
+
+### Minor Changes
+
+- [#583](https://github.com/tonightpass/kitchn/pull/583) [`eb3cb21`](https://github.com/tonightpass/kitchn/commit/eb3cb210f906de903d8fbde3d4ccad39b4ee617e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Snippet
+
 ## 0.5.0
 
 ### Minor Changes
