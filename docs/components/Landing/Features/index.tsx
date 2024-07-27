@@ -1,4 +1,4 @@
-import { AvatarGroup, Container, Image, Text } from "kitchn";
+import { Container, Image, Text } from "kitchn";
 import { useData } from "nextra/data";
 
 import {
