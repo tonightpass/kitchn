@@ -37,12 +37,12 @@ Kitchn provides a sensible default theme inspired by [Tonight Pass](https://toni
 The default font stack is `Figtree` from [Fontsource](https://fontsource.org/). You can change the font stack by providing a `font` key in the theme object.
 
 ```tsx
-import { createTheme, KitchnProvider, Theme } from "kitchn";
+import { createTheme, KitchnProvider, DefaultTheme } from "kitchn";
 
 import "@fontsource/roboto";
 import "@fontsource-variable/roboto-mono";
 
-export const customTheme: Theme = {
+export const customTheme: DefaultTheme = {
   name: "custom",
   // ... other theme values
   family: {
@@ -57,9 +57,9 @@ export const customTheme: Theme = {
 You can build your theme using the `createTheme` function. This function takes a theme object and returns a theme object with the default theme values merged with your custom theme values.
 
 ```tsx
-import { createTheme, KitchnProvider, Theme } from "kitchn";
+import { createTheme, KitchnProvider, DefaultTheme } from "kitchn";
 
-export const customTheme: Theme = {
+export const customTheme: DefaultTheme = {
   name: "custom",
   colors: {
     layout: {
