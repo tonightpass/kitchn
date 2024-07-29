@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.6.1
+
+### Patch Changes
+
+- [#594](https://github.com/tonightpass/kitchn/pull/594) [`6ae47ca`](https://github.com/tonightpass/kitchn/commit/6ae47cabc8f8401befda2295f153c52918b8f316) Thanks [@jerembdn](https://github.com/jerembdn)! - Add 'src' prop to Icon component
+
 ## 0.6.0
 
 ### Minor Changes
