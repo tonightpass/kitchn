@@ -10,7 +10,7 @@ import Builder from "../../components/Builder"
 
 # Theming
 
-The theme object is where you define your application's color palette, font stacks, breakpoints, border radius values, and more.
+Theming in Kitchn is designed to be straightforward yet powerful, allowing you to customize every aspect of your application's visual style. This guide walks you through defining color palettes, typography, breakpoints, and other design elements to suit your needs.
 
 ## Design Principles
 
@@ -21,6 +21,33 @@ Kitchn is designed with the following principles in mind:
 - **Responsive**: Work on all devices and screen sizes.
 - **Performance**: Performant and fast.
 - **Dark First**: Designed with dark mode in mind, so the `dark` key in dark mode means it will be light in light mode.
+
+## Name
+
+The `name` key in your theme object identifies the theme. It's crucial for switching between themes using the `KitchnProvider`. By default, Kitchn supports switching between `light` and `dark` themes.
+
+```tsx
+import { createTheme, KitchnProvider, DefaultTheme } from "kitchn";
+
+export const customTheme: DefaultTheme = {
+  name: "custom",
+  // ... other theme values
+};
+
+const custom = createTheme(customTheme);
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <KitchnProvider
+      themes={{
+        custom,
+      }}
+    >
+      <Component {...pageProps} />
+    </KitchnProvider>
+  );
+};
+```
 
 ## Colors
 
@@ -36,7 +63,7 @@ Kitchn provides a sensible default theme inspired by [Tonight Pass](https://toni
 
 The default font stack is `Figtree` from [Fontsource](https://fontsource.org/). You can change the font stack by providing a `font` key in the theme object.
 
-```tsx
+```ts
 import { createTheme, KitchnProvider, DefaultTheme } from "kitchn";
 
 import "@fontsource/roboto";
@@ -51,6 +78,123 @@ export const customTheme: DefaultTheme = {
   },
 };
 ```
+
+### Size
+
+Customizing the `size` key in the theme object allows you to define consistent dimensions for various elements in your application.
+
+```ts
+import { createTheme, DefaultTheme } from "kitchn";
+
+export const customTheme: DefaultTheme = {
+  name: "custom",
+  size: {
+    extraTitle: "48px",
+    title: "32px",
+    large: "24px",
+    medium: "18px",
+    normal: "16px",
+    compact: "14px",
+    small: "13px",
+    tiny: "11px",
+  },
+};
+
+const custom = createTheme(customTheme);
+```
+
+Adjust the values (`extraTitle`, `title`, `large`, `medium`, `normal`, `compact`, `small`, `tiny`) according to your application's design specifications.
+
+<Callout type="warning">
+  We recommend using the default values of the `size` key, as it may break the layout of the components.
+</Callout>
+
+### Weight
+
+Defining the `weight` key in the theme object allows you to establish typographic hierarchy and emphasis within your application.
+
+```ts
+import { createTheme, DefaultTheme } from "kitchn";
+
+export const customTheme: DefaultTheme = {
+  name: "custom",
+  weight: {
+    thin: 100,
+    extraLight: 200,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700,
+    extraBold: 800,
+    black: 900,
+  },
+};
+
+const custom = createTheme(customTheme);
+```
+
+Modify the numeric values (`thin`, `extraLight`, `light`, `regular`, `medium`, `semiBold`, `bold`, `extraBold`, `black`) to adjust the weight levels according to your design needs.
+
+<Callout type="warning">
+  We recommend using the default values of the `weight` key, as it may break the layout of the components.
+</Callout>
+
+## Radius
+
+Setting the `radius` key in the theme object helps in creating consistent and visually appealing rounded corners for elements in your application.
+
+```ts
+import { createTheme, DefaultTheme } from "kitchn";
+
+export const customTheme: DefaultTheme = {
+  name: "custom",
+  radius: {
+    square: "8px",
+    round: "99999px",
+  },
+};
+
+const custom = createTheme(customTheme);
+```
+
+Adjust the `square` and `round` values to set the desired radius for square and rounded corners respectively.
+
+<Callout type="warning">
+  We recommend using the default values of the `weight` key, as it may break the layout of the components.
+</Callout>
+
+<Callout type="info">
+  We know this principles is not perfect, but [we are working on it](https://github.com/tonightpass/kitchn/issues/596).
+</Callout>
+
+## Gap
+
+The `gap` key in the theme object defines the spacing between elements, maintaining consistent visual rhythm and layout structure in your application.
+
+```ts
+import { createTheme, DefaultTheme } from "kitchn";
+
+export const customTheme: DefaultTheme = {
+  name: "custom",
+  gap: {
+    tiny: "5px",
+    small: "10px",
+    normal: "15px",
+    medium: "20px",
+    large: "30px",
+    extraLarge: "60px",
+  },
+};
+
+const custom = createTheme(customTheme);
+```
+
+Modify the values (`tiny`, `small`, `normal`, `medium`, `large`, `extraLarge`) to adjust the spacing between elements according to your design requirements.
+
+<Callout type="warning">
+  We recommend using the default values of the `gap` key, as it may break the layout of the components.
+</Callout>
 
 ## Build your theme
 
@@ -105,3 +249,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 ```
+
+## Custom Theme and Typescript 
+
+<Callout>
+  This is a work in progress. We are working on a better way to define the theme object and types.
+</Callout>

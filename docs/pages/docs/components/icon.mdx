@@ -26,8 +26,8 @@ import { Icon } from "kitchn"
 | :--- | :--- | :-----: | :------: | :---------- | :-------------- |
 | `icon` | `SVGElement` | `undefined` | ✅ | The icon as a svg element. | - |
 | `size` | `number` \| `string` \| `Size` | `undefined` | - | The size of the icon. | [Size](#size) |
-| `color` | `string` \| `TextColors` | `undefined` | - | The text color of the icon. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`. | [TextColors](/docs/guides/colors#text-colors) |
-| `accent` | `string` \| `AccentColors` | `undefined` | - | The accent color of the ico. Strictly limited to colors of our design system, but can be used in combination with `color` prop. | [AccentColors](/docs/guides/colors#accent-colors) |
+| `color` | `string` \| `TextColors` | `undefined` | - | The text color of the icon. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`. | [TextColors](/docs/theming#text) |
+| `accent` | `string` \| `AccentColors` | `undefined` | - | The accent color of the ico. Strictly limited to colors of our design system, but can be used in combination with `color` prop. | [AccentColors](/docs/theming#accent) |
 | `align` | `string` | `undefined` | - | The alignement of the icon. | `'top'` \| `'middle'` \| `'bottom'` |
 
 ## Examples
@@ -51,7 +51,7 @@ For the following examples, we will use the `AiFillHome` icon from the React Ico
 
 ## Color
 
-Color `light` from [TextColors](/docs/guides/colors#text-colors):
+Color `light` from [TextColors](/docs/theming#text):
 <Playground
   scope={{ RiHomeFill }}
   code={`
@@ -63,7 +63,7 @@ Color `light` from [TextColors](/docs/guides/colors#text-colors):
 
 ### Accent color
 
-Color `primary` from [AccentColors](/docs/guides/colors#accent-colors):
+Color `primary` from [AccentColors](/docs/theming#accent):
 <Playground
   scope={{ RiHomeFill }}
   code={`
@@ -87,7 +87,7 @@ Color as hex value (you can do anything color value type you want):
 
 ## Size
 
-Sizes are defined in the [Size](/docs/guides/size) enum.
+Sizes are defined in the [Size](/docs/theming#size) enum.
 <Playground
   scope={{ RiHomeFill }}
   code={`
