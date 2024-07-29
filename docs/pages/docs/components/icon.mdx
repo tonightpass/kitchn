@@ -8,6 +8,8 @@ import Playground from "@components/Playground";
 import { RiHomeFill } from "react-icons/ri";
 import kitchn, { Container } from "kitchn";
 
+export const iconUrl = "/favicon.svg";
+
 # Icon
 
 Display icons using well-defined styles.
@@ -20,19 +22,13 @@ First of all, you need to import the `Icon` component from the `kitchn` package.
 import { Icon } from "kitchn"
 ```
 
-## Props
-
-| Name | Type | Default | Required | Description | Accepted values |
-| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
-| `icon` | `SVGElement` | `undefined` | ✅ | The icon as a svg element. | - |
-| `size` | `number` \| `string` \| `Size` | `undefined` | - | The size of the icon. | [Size](#size) |
-| `color` | `string` \| `TextColors` | `undefined` | - | The text color of the icon. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`. | [TextColors](/docs/theming#text) |
-| `accent` | `string` \| `AccentColors` | `undefined` | - | The accent color of the ico. Strictly limited to colors of our design system, but can be used in combination with `color` prop. | [AccentColors](/docs/theming#accent) |
-| `align` | `string` | `undefined` | - | The alignement of the icon. | `'top'` \| `'middle'` \| `'bottom'` |
-
 ## Examples
 
-For the following examples, we will use the `AiFillHome` icon from the React Icons library. But you can use any icon or library as long as it is a svg element.
+The `Icon` component has multiple ways to display icons. You can use a SVG Element icon or a link pointing to a SVG file or any image.
+
+For the following examples, we will use the `AiFillHome` icon from the React Icons library for uses with SVG Element. You can use any icon or library as long as it is a svg element.
+
+Then we will use an image icon from the link `/favicon.svg` ([https://kitchn.tonightpass.com/favicon.svg](https://kitchn.tonightpass.com/favicon.svg)).
 
 <Callout>
   Referenced working icons libraries [here](#icons-libraries)
@@ -41,15 +37,20 @@ For the following examples, we will use the `AiFillHome` icon from the React Ico
 ## Basic
 
 <Playground
-  scope={{ RiHomeFill }}
+  scope={{ RiHomeFill, iconUrl }}
   code={`
-<Container>
+<Container row>
   <Icon icon={RiHomeFill} />
+  <Icon src={iconUrl} />
 </Container>
 `}
 />
 
 ## Color
+
+<Callout type={"warning"} emoji={"⚠️"}>
+  The `Icon` component is designed to work with SVG elements and some props like `color` might not work if a `src` prop is used. If you want to display an image, you can use the [`Image`](/docs/components/image) component. This feature is here for users that maybe have some custom SVG icons or images as icons.
+</Callout>
 
 Color `light` from [TextColors](/docs/theming#text):
 <Playground
@@ -89,17 +90,30 @@ Color as hex value (you can do anything color value type you want):
 
 Sizes are defined in the [Size](/docs/theming#size) enum.
 <Playground
-  scope={{ RiHomeFill }}
+  scope={{ RiHomeFill, iconUrl }}
   code={`
-<Container>
-  <Icon icon={RiHomeFill} size={"tiny"} />
-  <Icon icon={RiHomeFill} size={"small"} />
-  <Icon icon={RiHomeFill} size={"normal"} />
-  <Icon icon={RiHomeFill} size={"medium"} />
-  <Icon icon={RiHomeFill} size={"large"} />
-  <Icon icon={RiHomeFill} size={"extraTitle"} />
-  <Icon icon={RiHomeFill} size={52} />
-  <Icon icon={RiHomeFill} size={"64"} />
+<Container row>
+  <Container>
+    <Icon icon={RiHomeFill} size={"tiny"} />
+    <Icon icon={RiHomeFill} size={"small"} />
+    <Icon icon={RiHomeFill} size={"normal"} />
+    <Icon icon={RiHomeFill} size={"medium"} />
+    <Icon icon={RiHomeFill} size={"large"} />
+    <Icon icon={RiHomeFill} size={"extraTitle"} />
+    <Icon icon={RiHomeFill} size={52} />
+    <Icon icon={RiHomeFill} size={"64"} />
+  </Container>
+
+  <Container>
+    <Icon src={iconUrl} size={"tiny"} />
+    <Icon src={iconUrl} size={"small"} />
+    <Icon src={iconUrl} size={"normal"} />
+    <Icon src={iconUrl} size={"medium"} />
+    <Icon src={iconUrl} size={"large"} />
+    <Icon src={iconUrl} size={"extraTitle"} />
+    <Icon src={iconUrl} size={52} />
+    <Icon src={iconUrl} size={"64"} />
+  </Container>
 </Container>
 `}
 />
@@ -108,12 +122,20 @@ Sizes are defined in the [Size](/docs/theming#size) enum.
 
 Number and string values in pixels are accepted as well.
 <Playground
-  scope={{ RiHomeFill }}
+  scope={{ RiHomeFill, iconUrl }}
   code={`
-<Container>
-  <Icon icon={RiHomeFill} size={30} />
-  <Icon icon={RiHomeFill} size={"42"} />
-  <Icon icon={RiHomeFill} size={"60px"} />
+<Container row>
+  <Container>
+    <Icon icon={RiHomeFill} size={30} />
+    <Icon icon={RiHomeFill} size={"42"} />
+    <Icon icon={RiHomeFill} size={"60px"} />
+  </Container>
+
+  <Container>
+    <Icon src={iconUrl} size={30} />
+    <Icon src={iconUrl} size={"42"} />
+    <Icon src={iconUrl} size={"60px"} />
+  </Container>
 </Container>
 `}
 />
@@ -125,15 +147,34 @@ export const IconContainer = kitchn(Container)`
 `;
 
 <Playground
-  scope={{ RiHomeFill, IconContainer }}
+  scope={{ RiHomeFill, IconContainer, iconUrl }}
   code={`
-<IconContainer row gap={10}>
-  <Icon icon={RiHomeFill} align={"top"} />
-  <Icon icon={RiHomeFill} align={"middle"} />
-  <Icon icon={RiHomeFill} align={"bottom"} />
-</IconContainer>
+<Container>
+  <IconContainer row gap={10}>
+    <Icon icon={RiHomeFill} align={"top"} />
+    <Icon icon={RiHomeFill} align={"middle"} />
+    <Icon icon={RiHomeFill} align={"bottom"} />
+  </IconContainer>
+
+  <IconContainer row gap={10}>
+    <Icon src={iconUrl} align={"top"} />
+    <Icon src={iconUrl} align={"middle"} />
+    <Icon src={iconUrl} align={"bottom"} />
+  </IconContainer>
+</Container>
 `}
 />
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `icon` | `SVGElement` | `undefined` | ~ | The icon as a svg element. | - |
+| `src` | `string` | `undefined` | ~ | The icon as a link pointing to a svg file or any image. | - |
+| `size` | `number` \| `string` \| `Size` | `undefined` | - | The size of the icon. | [Size](#size) |
+| `color` | `string` \| `TextColors` | `undefined` | - | The text color of the icon. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`. | [TextColors](/docs/theming#text) |
+| `accent` | `string` \| `AccentColors` | `undefined` | - | The accent color of the ico. Strictly limited to colors of our design system, but can be used in combination with `color` prop. | [AccentColors](/docs/theming#accent) |
+| `align` | `string` | `undefined` | - | The alignement of the icon. | `'top'` \| `'middle'` \| `'bottom'` |
 
 ## Icons libraries
 
