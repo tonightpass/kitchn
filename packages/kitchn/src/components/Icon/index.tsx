@@ -32,39 +32,41 @@ type Props = IconSource & {
 
 export type IconProps = KitchnComponent<Props, React.SVGProps<SVGSVGElement>>;
 
-const IconComponent = styled((props: IconProps) => {
-  const theme = useTheme();
+const IconComponent = styled(
+  ({ size, src, icon: IconComponent, ...rest }: IconProps) => {
+    const theme = useTheme();
 
-  const { size, ...rest } = props;
+    console.log(src, IconComponent);
 
-  if (props.src) {
-    return (
-      <Image
-        src={props.src}
-        alt={""}
-        height={theme.size[size as keyof Size] || size || theme.size.normal}
-        width={theme.size[size as keyof Size] || size || theme.size.normal}
-        {...rest}
-      />
-    );
-  }
+    if (src) {
+      return (
+        <Image
+          src={src}
+          alt={""}
+          height={theme.size[size as keyof Size] || size || theme.size.normal}
+          width={theme.size[size as keyof Size] || size || theme.size.normal}
+          {...rest}
+        />
+      );
+    }
 
-  if (props.icon) {
-    return (
-      <IconComponent
-        role={"img"}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        size={theme.size[size as keyof Size] || size || theme.size.normal}
-        height={theme.size[size as keyof Size] || size || theme.size.normal}
-        width={theme.size[size as keyof Size] || size || theme.size.normal}
-        {...rest}
-      />
-    );
-  }
+    if (IconComponent) {
+      return (
+        <IconComponent
+          role={"img"}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          size={theme.size[size as keyof Size] || size || theme.size.normal}
+          height={theme.size[size as keyof Size] || size || theme.size.normal}
+          width={theme.size[size as keyof Size] || size || theme.size.normal}
+          {...rest}
+        />
+      );
+    }
 
-  return null;
-})<IconProps>`
+    return null;
+  },
+)<IconProps>`
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
