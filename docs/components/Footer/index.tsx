@@ -65,7 +65,7 @@ const navigation = {
     },
     {
       name: "Design",
-      href: "/docs/brands/tonightpass",
+      href: "/docs/brands",
     },
     {
       name: "Status",
