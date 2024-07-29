@@ -14,6 +14,22 @@ const GlobalStyle = createGlobalStyle`
     background-clip: border-box;
   }
 
+  .nx-text-primary-600 {
+    color: ${({ theme }) => theme.colors.accent.primary};
+  }
+
+  .nx-text-primary-800 {
+    color: ${({ theme }) => theme.colors.accent.primary};
+  }
+
+  .nx-bg-primary-100 {
+    background-color: ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.1)};
+  }
+
+  .nx-border-primary-500 {
+    border-color: ${({ theme }) => theme.colors.accent.primary};
+  }
+
   html.dark {
     body {
       background: ${({ theme }) => theme.colors.layout.darkest};
@@ -70,6 +86,18 @@ const GlobalStyle = createGlobalStyle`
       span {
         color: inherit;
       }
+    }
+
+    .nx-text-primary-600 {
+      color: ${({ theme }) => theme.colors.accent.primary};
+    }
+    
+    .nx-text-primary-800 {
+      color: ${({ theme }) => theme.colors.accent.primary};
+    }
+
+    .nx-bg-primary-100 {
+      background-color: ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.1)};
     }
   }
 
