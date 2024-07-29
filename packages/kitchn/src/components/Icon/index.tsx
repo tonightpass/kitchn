@@ -14,6 +14,7 @@ type IconSource =
   | {
       icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
       src: string;
+      alt?: string;
     };
 
 type Props = IconSource & {
@@ -42,7 +43,6 @@ const IconComponent = styled(
       return (
         <Image
           src={src}
-          alt={""}
           height={theme.size[size as keyof Size] || size || theme.size.normal}
           width={theme.size[size as keyof Size] || size || theme.size.normal}
           {...rest}
@@ -67,6 +67,7 @@ const IconComponent = styled(
     return null;
   },
 )<IconProps>`
+  user-select: none;
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||
