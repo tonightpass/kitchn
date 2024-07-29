@@ -100,7 +100,6 @@ const config: DocsThemeConfig = {
           content={"width=device-width, initial-scale=1.0"}
         />
         <meta httpEquiv={"Content-Language"} content={"en"} />
-        <meta name={"description"} content={finalDescription} />
         <meta name={"og:description"} content={finalDescription} />
         <meta name={"twitter:card"} content={"summary_large_image"} />
         <meta name={"twitter:image"} content={finalThumbnailUrl} />
