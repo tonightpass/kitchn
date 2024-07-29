@@ -37,8 +37,6 @@ const IconComponent = styled(
   ({ size, src, icon: IconComponent, ...rest }: IconProps) => {
     const theme = useTheme();
 
-    console.log(src, IconComponent);
-
     if (src) {
       return (
         <Image
