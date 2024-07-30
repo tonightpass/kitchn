@@ -4,7 +4,14 @@ description: "Brands and trademarks guidelines for Tonight Pass and Kitchn."
 ---
 
 import { Container, Button, Icon, Link } from "kitchn"
+import {
+  KitchnMark,
+  KitchnWordmark,
+  TonightPassMark,
+  TonightPassWordmark,
+} from "kitchn/logos";
 import { RiDownload2Line } from "react-icons/ri";
+import { SpacingConsiderations } from "../../components/Brands";
 
 # Brands
 
@@ -27,8 +34,10 @@ For more information on correct usage, see [Usage and misuse](#usage).
 
 <Container mt={"normal"}>
   <Container bga={"light"} px={"large"} py={128}>
+    <TonightPassWordmark height={64} />
   </Container>
   <Container bga={"dark"} px={"large"} py={128}>
+    <TonightPassWordmark height={64} fill={"white"} />
   </Container>
 </Container>
 
@@ -36,9 +45,19 @@ For more information on correct usage, see [Usage and misuse](#usage).
 
 <Container mt={"normal"} row>
   <Container bga={"light"} px={"large"} py={128} w={"100%"}>
+    <TonightPassMark height={32} />
   </Container>
   <Container bga={"dark"} px={"large"} py={128} w={"100%"}>
+    <TonightPassMark height={32} fill={"white"} />
   </Container>
+</Container>
+
+### Spacing considerations
+
+This “safety zone” ensures that graphic elements are included on printed matter, even in the event of printer offset. But also to let the logo breathe and not to stick elements to it.
+
+<Container mt={"normal"} bga={"light"} px={"large"} py={"normal"}>
+  <SpacingConsiderations height={256} />
 </Container>
 
 ### Spelling
@@ -67,8 +86,10 @@ Please don’t modify the marks or use them in a confusing way, including sugges
 
 <Container mt={"normal"}>
   <Container bga={"light"} px={"large"} py={128}>
+    <KitchnWordmark height={64} />
   </Container>
   <Container bga={"dark"} px={"large"} py={128}>
+    <KitchnWordmark height={64} fill={"white"} />
   </Container>
 </Container>
 
@@ -76,8 +97,10 @@ Please don’t modify the marks or use them in a confusing way, including sugges
 
 <Container mt={"normal"} row>
   <Container bga={"light"} px={"large"} py={128} w={"100%"}>
+    <KitchnMark height={32} />
   </Container>
   <Container bga={"dark"} px={"large"} py={128} w={"100%"}>
+    <KitchnMark height={32} fill={"white"} />
   </Container>
 </Container>
 
