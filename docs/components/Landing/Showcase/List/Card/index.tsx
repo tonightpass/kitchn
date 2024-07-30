@@ -23,7 +23,6 @@ const Container = kitchn.span`
   margin: 0 1rem;
   bottom: 0;
   opacity: 0.8;
-  filter: grayscale(1);
   transition: opacity 125ms ease-in-out;
 
   .dark & {

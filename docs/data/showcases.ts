@@ -1,12 +1,12 @@
-import { TonightPassLogoSVG } from "@components/Brands";
 import { OnRuntimeLogo } from "@components/Brands/Showcase";
+import { TonightPassWordmark } from "kitchn/logos";
 import { Company, SortedProject } from "types/showcase";
 
 const showcases: Company[] = [
   {
     url: "https://tonightpass.com",
     name: "Tonight Pass",
-    logo: TonightPassLogoSVG,
+    logo: TonightPassWordmark,
     similarWebGlobalRank: 17872218,
     projects: {
       kitchn: {
