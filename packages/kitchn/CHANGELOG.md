@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.7.0
+
+### Minor Changes
+
+- [`2b1d68e`](https://github.com/tonightpass/kitchn/commit/2b1d68ee219e52fd7c9fca769679a4e4b7adffd9) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add logos
+
 ## 0.6.1
 
 ### Patch Changes
