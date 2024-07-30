@@ -9,14 +9,44 @@ import { Tab, Tabs } from "nextra-theme-docs";
 
 # Getting Started with Create React App or Vite React
 
-## Installation
+## Automatic Installation
+
+### Template
+
+To generate the starter template for your Create React App or Vite React project, run the following command:
+
+```sh
+npx degit tonightpass/kitchn/examples/react-typescript my-react-kitchn-app
+
+cd my-react-kitchn-app
+npm install
+npm run dev
+
+git init
+git add .
+git commit -m "initial commit"
+```
+
+### What's Included
+
+This template is similar to the default Vite React template, but with Kitchn pre-installed.
+
+#### Pre-install dependencies
+
+- `kitchn`
+- `react`
+- `react-dom`
+
+## Manual Installation
+
+### Installation
 In your Create React App or Vite React project, install Kitchn by running either of the following:
 
 ```sh npm2yarn
 npm i kitchn --save
 ```
 
-## Provider Setup
+### Provider Setup
 
 After installing Kitchn, you need to set up the `KitchnProvider` at the root 
 of your application. This can be either in your `App.jsx` or `App.tsx` file.

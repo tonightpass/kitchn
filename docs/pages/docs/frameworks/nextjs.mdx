@@ -11,14 +11,40 @@ import { Tab, Tabs } from "nextra-theme-docs";
 
 # Getting Started with Next.js
 
-## Installation
+## Automatic Installation
+
+### Template
+
+To generate the starter template for your Next.js project, run the following command:
+
+```sh
+npx create-next-app@latest --example https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript my-next-kitchn-app
+
+cd my-next-kitchn-app
+npm run dev
+```
+
+### What's Included
+
+This template is similar to the default Next.js template, but with Kitchn pre-installed.
+
+#### Pre-install dependencies
+
+- `kitchn`
+- `next`
+- `react`
+- `react-dom`
+
+## Manual Installation
+
+### Installation
 In your Next.js project, install Kitchn by running either of the following:
 
 ```sh npm2yarn
 npm i kitchn --save
 ```
 
-## Provider Setup
+### Provider Setup
 
 After installing Kitchn, you need to set up the `KitchnProvider` at the root 
 of your application.
@@ -41,7 +67,7 @@ function App({ Component, pageProps }) {
 export default App;
 ```
 
-## Server Side Rendering
+### Server Side Rendering
 {/* talk about withcKitchn HOC in next.config.js and pages/_document.js to edit */}
 Now that everything is working you should be interested in Server Side Rendering.
 
