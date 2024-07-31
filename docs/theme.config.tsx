@@ -74,6 +74,7 @@ const config: DocsThemeConfig = {
     const router = useRouter();
     const url = new URL(`https://kitchn.tonightpass.com${router.asPath}`);
     url.hash = "";
+    url.search = "";
     const { title, ...meta } = useConfig().frontMatter;
 
     const finalTitle = title || "Kitchn";
