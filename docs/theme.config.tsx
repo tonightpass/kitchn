@@ -80,8 +80,8 @@ const config: DocsThemeConfig = {
 
     const finalThumbnailUrl =
       urlcat("https://kitchn.tonightpass.com/api/og", {
-        title: encodeURIComponent(finalTitle || ""),
-        description: encodeURIComponent(finalDescription || ""),
+        title: finalTitle || "",
+        description: finalDescription || "",
         // thumbnail: meta.image,
       }) || "https://tonightpass.com/static/images/open-graph-image.jpg";
 
