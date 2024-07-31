@@ -79,17 +79,11 @@ const config: DocsThemeConfig = {
       meta.description || "Delicious React styled components.";
 
     const finalThumbnailUrl =
-      urlcat(
-        `https://og-image.onruntime.com/${encodeURIComponent(finalTitle)}.jpeg`,
-        {
-          description: encodeURIComponent(finalDescription || ""),
-          theme: "night",
-          md: 1,
-          fontSize: "100px",
-          images: "https://tonightpass.com/static/images/logo/tonightpass.svg",
-          thumbnail: meta.image,
-        },
-      ) || "https://tonightpass.com/static/images/open-graph-image.jpg";
+      urlcat("https://kitchn.tonightpass.com/api/og", {
+        title: encodeURIComponent(finalTitle || ""),
+        description: encodeURIComponent(finalDescription || ""),
+        // thumbnail: meta.image,
+      }) || "https://tonightpass.com/static/images/open-graph-image.jpg";
 
     return (
       <>
