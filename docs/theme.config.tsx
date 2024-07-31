@@ -72,9 +72,7 @@ const config: DocsThemeConfig = {
   head: () => {
     const { title, ...meta } = useConfig().frontMatter;
 
-    const finalTitle = title
-      ? `${title}${title.includes("Kitchn") ? "" : " - Kitchn"}`
-      : "Kitchn";
+    const finalTitle = title || "Kitchn";
     const finalDescription =
       meta.description || "Delicious React styled components.";
 
