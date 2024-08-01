@@ -40,6 +40,7 @@
     "@fontsource/figtree": "^5.0.1",
     "@fontsource/fira-code": "^5.0.0",
     "date-fns": "2.30.0",
+    "lodash.merge": "^4.6.2",
     "next-themes": "^0.3.0",
     "react-day-picker": "^8.10.0",
     "react-hook-form": "^7.45.4",
@@ -65,6 +66,7 @@
     }
   },
   "devDependencies": {
+    "@types/lodash.merge": "^4.6.9",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "next": "^14.0.0",
