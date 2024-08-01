@@ -17,3 +17,7 @@ export type KitchnComponent<P, N = React.HTMLAttributes<any>> = {
 export type NormalSizes = "small" | "normal" | "large";
 
 export type TriggerTypes = "hover" | "click";
+
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
