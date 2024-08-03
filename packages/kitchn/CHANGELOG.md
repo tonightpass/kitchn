@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.7.1
+
+### Patch Changes
+
+- [`19dd721`](https://github.com/tonightpass/kitchn/commit/19dd72162ff5c6d8437bd80d0d44f995a37d41c6) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add DeepPartial types to theme creation and loadash merge
+
 ## 0.7.0
 
 ### Minor Changes
