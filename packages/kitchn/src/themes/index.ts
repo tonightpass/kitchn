@@ -1,4 +1,4 @@
-import merge from "lodash.merge";
+import { deepmerge } from "deepmerge-ts";
 import { DefaultTheme } from "styled-components";
 
 import { darkTheme } from "./dark";
@@ -16,7 +16,7 @@ export * from "./tonightpass";
 export const createTheme = (
   theme: Theme | (Theme & DeepPartial<MainTheme>),
 ): DefaultTheme => {
-  return merge(mainTheme, theme);
+  return deepmerge(mainTheme, theme);
 };
 
 export const defaultThemes = {
