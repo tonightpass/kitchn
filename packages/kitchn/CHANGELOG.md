@@ -1,5 +1,11 @@
 # kitchn
 
+## 0.7.2
+
+### Patch Changes
+
+- [`1ae781e`](https://github.com/tonightpass/kitchn/commit/1ae781e47a01ed82b160374c44dc47fc3f75d355) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Input width (w) props
+
 ## 0.7.1
 
 ### Patch Changes
