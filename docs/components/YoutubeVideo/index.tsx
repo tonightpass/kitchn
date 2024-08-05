@@ -14,9 +14,10 @@ const YoutubeVideo: React.FC = ({ ...props }) => {
 };
 
 const Iframe = kitchn.iframe`
-  aspect-ratio: 863/540;
+  aspect-ratio: 16 / 9;
   width: 100%;
   border: none;
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
   border-radius: ${({ theme }) => theme.radius.square};
   margin-top: 1rem;
   margin-bottom: 1rem;
