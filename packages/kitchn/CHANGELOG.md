@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.0.0
+
+### Major Changes
+
+- [`9075a2c`](https://github.com/tonightpass/kitchn/commit/9075a2c56f5f6d78c0c8f814f3630364c64eaa34) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Launching v1: https://www.producthunt.com/posts/kitchn
+
 ## 0.7.2
 
 ### Patch Changes
