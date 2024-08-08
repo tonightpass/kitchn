@@ -207,8 +207,8 @@ importers:
   examples/next-app:
     dependencies:
       kitchn:
-        specifier: workspace:*
-        version: link:../../packages/kitchn
+        specifier: latest
+        version: 1.0.1(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0)(react-native@0.74.4(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^14.2.5
         version: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
