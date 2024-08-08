@@ -1,4 +1,3 @@
-import type { HeadFC, PageProps } from "gatsby";
 import kitchn, {
   Container,
   convertRGBToRGBA,
@@ -7,9 +6,8 @@ import kitchn, {
   Link,
   useBreakpoint,
 } from "kitchn";
-import React from "react";
 
-const IndexPage: React.FC<PageProps> = () => {
+export default function Template() {
   const { isMobile } = useBreakpoint();
   return (
     <Container
@@ -21,14 +19,14 @@ const IndexPage: React.FC<PageProps> = () => {
       align={"center"}
     >
       <Container w={"100%"} align={"center"} justify={"space-between"} row>
-        <Card p={"small"} br={"square"} align={"center"} bw={1} row>
+        <Container p={"small"} br={"square"} align={"center"} bw={1} row>
           <Text span>
             {"Get started by editing \r"}
             <Text size={"compact"} monospace span>
               {"src/pages/index.tsx\r"}
             </Text>
           </Text>
-        </Card>
+        </Container>
         {!isMobile && (
           <Link href={"https://tonightpass.com"}>
             <Text weight={"semiBold"} size={"small"}>
@@ -127,7 +125,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <Card
             forwardedAs={Link}
             href={
-              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript&project-name=kitchn-app&repository-name=kitchn-app"
+              "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-pages&project-name=kitchn-app&repository-name=kitchn-app"
             }
             p={"small"}
             flex={1}
@@ -146,7 +144,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Container>
     </Container>
   );
-};
+}
 
 const Card = kitchn(Container)`
   border: 1px solid transparent;
@@ -209,12 +207,3 @@ const KitchnIcon = kitchn(Image)`
     filter: brightness(0) invert(1);
   }
 `;
-
-export default IndexPage;
-
-export const Head: HeadFC = () => (
-  <>
-    <title>{"Create Kitchn Gatsby"}</title>
-    <link rel={"icon"} href={"/favicon.ico"} />
-  </>
-);

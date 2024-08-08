@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-typescript",
+  "name": "gatsby",
   "private": true,
   "scripts": {
     "develop": "gatsby develop -p 3003",

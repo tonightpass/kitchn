@@ -1,14 +1,8 @@
-import kitchn, {
-  Container,
-  convertRGBToRGBA,
-  Image,
-  Text,
-  Link,
-  useBreakpoint,
-} from "kitchn";
+import { Container, Text, Link } from "kitchn";
 
-const TemplatePage = () => {
-  const { isMobile } = useBreakpoint();
+import { Brand, Card, Centered, KitchnIcon, KitchnTypo } from "./components";
+
+const IndexPage = () => {
   return (
     <Container
       maxW={"laptop"}
@@ -27,20 +21,7 @@ const TemplatePage = () => {
             </Text>
           </Text>
         </Container>
-        {!isMobile && (
-          <Link href={"https://tonightpass.com"}>
-            <Text weight={"semiBold"} size={"small"}>
-              {"by\r"}
-            </Text>
-            <TonightPassLogo
-              src={"/tonightpass.svg"}
-              alt={"TonightPass"}
-              w={100}
-              h={24}
-              ml={"tiny"}
-            />
-          </Link>
-        )}
+        <Brand />
       </Container>
       <Centered
         py={"extraLarge"}
@@ -146,69 +127,4 @@ const TemplatePage = () => {
   );
 };
 
-const Card = kitchn(Container)<{
-  $active?: boolean;
-}>`
-  border: 1px solid ${({ theme, $active }) =>
-    $active ? theme.colors.layout.dark : "transparent"};
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.layout.dark};
-  }
-`;
-
-const Centered = kitchn(Container)`
-  position: relative;
-
-  &::before, &::after {
-    content: '';
-    left: 50%;
-    position: absolute;
-    filter: blur(45px);
-    transform: translateZ(0);
-  }
-
-  &::before {
-    background: linear-gradient(
-      to bottom right,
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0)},
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.3)}
-    );
-    border-radius: 50%;
-    width: 480px;
-    height: 360px;
-    margin-left: -400px;
-  }
-
-  &::after {
-    background: radial-gradient(
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0.4)}, 
-      ${({ theme }) => convertRGBToRGBA(theme.colors.accent.primary, 0)}
-    );
-    width: 240px;
-    height: 180px;
-    z-index: -1;
-  }
-`;
-
-const TonightPassLogo = kitchn(Image)`
-  filter: brightness(0);
-  @media (prefers-color-scheme: dark) {
-    filter: brightness(0) invert(1);
-  }
-`;
-
-const KitchnTypo = kitchn(Image)`
-  @media (prefers-color-scheme: dark) {
-    filter: brightness(0) invert(1);
-  }
-`;
-
-const KitchnIcon = kitchn(Image)`
-  @media (prefers-color-scheme: dark) {
-    filter: brightness(0) invert(1);
-  }
-`;
-
-export default TemplatePage;
+export default IndexPage;
