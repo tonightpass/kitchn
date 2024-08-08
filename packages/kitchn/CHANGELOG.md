@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.0.1
+
+### Patch Changes
+
+- [#617](https://github.com/tonightpass/kitchn/pull/617) [`ec86ea2`](https://github.com/tonightpass/kitchn/commit/ec86ea2649ce441518a524996ebb37630b1c8ecc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Remove all React warnings from console
+
 ## 1.0.0
 
 ### Major Changes
