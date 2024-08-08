@@ -21,7 +21,14 @@ export type TextareaProps = KitchnComponent<
 
 const TextareaForwarded = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
-    { placeholder, disabled, defaultValue, ...props }: TextareaProps,
+    {
+      placeholder,
+      disabled,
+      defaultValue,
+      // Prevents the 'errored' prop from being passed to the textarea element
+      errored: _errored,
+      ...props
+    }: TextareaProps,
     ref: React.Ref<HTMLTextAreaElement>,
   ) => {
     return (

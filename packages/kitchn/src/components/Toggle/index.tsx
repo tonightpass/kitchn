@@ -17,7 +17,14 @@ export type ToggleProps = KitchnComponent<
 >;
 
 const ToggleComponent = styled(
-  ({ disabled, checked, onChange, ...props }: Props) => {
+  ({
+    disabled,
+    checked,
+    onChange,
+    // Prevents the 'large' prop from being passed to the input element
+    large: _large,
+    ...props
+  }: Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (disabled) return e.preventDefault();
       if (onChange) onChange(e);

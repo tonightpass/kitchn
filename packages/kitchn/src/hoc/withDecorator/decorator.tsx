@@ -59,7 +59,27 @@ export const handleFont = (
 export const withDecorator = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
 ) => {
-  return styled(WrappedComponent)<DecoratorProps>`
+  return styled(
+    // This prevents 'w', 'h', 'minW', 'minH', 'maxW', 'maxH', 'zi' from being passed to the DOM element, avoiding React warnings
+
+    ({
+      w: _w,
+      h: _h,
+      minW: _minW,
+      minH: _minH,
+      maxW: _maxW,
+      maxH: _maxH,
+      width: _width,
+      height: _height,
+      minWidth: _minWidth,
+      minHeight: _minHeight,
+      maxWidth: _maxWidth,
+      maxHeight: _maxHeight,
+      zi: _zi,
+      zIndex: _zIndex,
+      ...props
+    }: DecoratorProps & T) => <WrappedComponent {...(props as T)} />,
+  )<DecoratorProps>`
     ${({ display }) => (display !== undefined ? `display: ${display};` : "")}
     ${({ overflow }) =>
       overflow !== undefined ? `overflow: ${overflow};` : ""}

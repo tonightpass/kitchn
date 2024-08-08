@@ -58,7 +58,7 @@ const TabsComponent = styled(
 
     const handleClick = (
       event: React.MouseEvent<HTMLDivElement>,
-      tab: TabProps,
+      tab: Omit<TabProps, "title" | "icon">,
     ) => {
       disabled ? event.preventDefault() : setSelected(tab.value);
     };
@@ -77,24 +77,20 @@ const TabsComponent = styled(
           hoverWidthRatio={hoverWidthRatio}
         />
         {tabs &&
-          tabs.map((tab) => (
+          tabs.map(({ title, icon, ...tabProps }) => (
             <Tab
               role={"tab"}
-              key={tab.value}
+              key={tabProps.value}
               onClick={(event: React.MouseEvent<HTMLDivElement>) =>
-                handleClick(event, tab)
+                handleClick(event, tabProps)
               }
-              active={selected === tab.value}
+              active={selected === tabProps.value}
               onMouseOver={tabItemMouseOverHandler}
               disabled={disabled}
-              {...tab}
+              {...tabProps}
             >
-              <>{tab.icon && tab.icon}</>
-              <>
-                {isString(tab.title)
-                  ? capitalize(tab.title as string)
-                  : tab.title}
-              </>
+              <>{icon && icon}</>
+              <>{isString(title) ? capitalize(title as string) : title}</>
             </Tab>
           ))}
       </div>

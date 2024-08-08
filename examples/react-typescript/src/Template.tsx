@@ -19,7 +19,7 @@ export default function Template() {
       align={"center"}
     >
       <Container w={"100%"} align={"center"} justify={"space-between"} row>
-        <Card p={"small"} br={"square"} align={"center"} active row>
+        <Card p={"small"} br={"square"} align={"center"} bw={1} row>
           <Text span>
             {"Get started by editing \r"}
             <Text size={"compact"} monospace span>
@@ -66,7 +66,7 @@ export default function Template() {
           row
         >
           <Card
-            as={Link}
+            forwardedAs={Link}
             href={"https://kitchn.tonightpass.com/docs"}
             p={"small"}
             flex={1}
@@ -83,7 +83,7 @@ export default function Template() {
           </Card>
 
           <Card
-            as={Link}
+            forwardedAs={Link}
             href={"https://discord.gg/VvvAkPqQ98"}
             p={"small"}
             flex={1}
@@ -108,7 +108,7 @@ export default function Template() {
           row
         >
           <Card
-            as={Link}
+            forwardedAs={Link}
             href={"https://patreon.com/onruntime"}
             p={"small"}
             flex={1}
@@ -123,7 +123,7 @@ export default function Template() {
           </Card>
 
           <Card
-            as={Link}
+            forwardedAs={Link}
             href={
               "https://vercel.com/new/git/external?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript&project-name=kitchn-app&repository-name=kitchn-app"
             }
@@ -146,11 +146,8 @@ export default function Template() {
   );
 }
 
-const Card = kitchn(Container)<{
-  active?: boolean;
-}>`
-  border: 1px solid ${({ theme, active }) =>
-    active ? theme.colors.layout.dark : "transparent"};
+const Card = kitchn(Container)`
+  border: 1px solid transparent;
   transition: all 0.2s ease-in-out;
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.layout.dark};

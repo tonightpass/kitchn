@@ -34,7 +34,13 @@ type Props = IconSource & {
 export type IconProps = KitchnComponent<Props, React.SVGProps<SVGSVGElement>>;
 
 const IconComponent = styled(
-  ({ size, src, icon: IconComponent, ...rest }: IconProps) => {
+  ({
+    size,
+    src,
+    icon: IconComponent,
+    clickable: _clickable,
+    ...rest
+  }: IconProps) => {
     const theme = useTheme();
 
     if (src) {

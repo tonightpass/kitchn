@@ -97,37 +97,65 @@ type Props = {
 
 export type TextProps = KitchnComponent<Props>;
 
-const TextComponent = styled(({ children, ...props }: TextProps) => {
-  const Component = props.h1
-    ? "h1"
-    : props.h2
-      ? "h2"
-      : props.h3
-        ? "h3"
-        : props.h4
-          ? "h4"
-          : props.h5
-            ? "h5"
-            : props.h6
-              ? "h6"
-              : props.b
-                ? "b"
-                : props.i
-                  ? "i"
-                  : props.span
-                    ? "span"
-                    : props.em
-                      ? "em"
-                      : props.pre
-                        ? "pre"
-                        : "p";
+const TextComponent = styled(
+  ({
+    children,
+    // Prevents 'truncate', 'size', 'weight', 'color', 'accent', 'align', 'transform', 'decoration', 'lineHeight', 'wrap', 'monospace' from being passed to the DOM element, avoiding React warnings
+    truncate: _truncate,
+    size: _size,
+    weight: _weight,
+    color: _color,
+    accent: _accent,
+    align: _align,
+    transform: _transform,
+    decoration: _decoration,
+    lineHeight: _lineHeight,
+    wrap: _wrap,
+    monospace: _monospace,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    b,
+    i,
+    span,
+    em,
+    pre,
+    ...props
+  }: TextProps) => {
+    const Component = h1
+      ? "h1"
+      : h2
+        ? "h2"
+        : h3
+          ? "h3"
+          : h4
+            ? "h4"
+            : h5
+              ? "h5"
+              : h6
+                ? "h6"
+                : b
+                  ? "b"
+                  : i
+                    ? "i"
+                    : span
+                      ? "span"
+                      : em
+                        ? "em"
+                        : pre
+                          ? "pre"
+                          : "p";
 
-  return (
-    <Component role={"text"} {...props}>
-      {children}
-    </Component>
-  );
-})<TextProps>`
+    return (
+      <Component role={"text"} {...props}>
+        {children}
+      </Component>
+    );
+  },
+)<TextProps>`
   font-size: ${(props) =>
     props.size !== undefined
       ? props.theme.size[props.size as keyof Size] ||

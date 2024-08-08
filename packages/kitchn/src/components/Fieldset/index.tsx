@@ -55,13 +55,20 @@ const FieldsetFooter = styled.footer<{
         : theme.colors.layout.darker};
 `;
 
-const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
-  return (
-    <div role={"group"} {...props}>
-      {children}
-    </div>
-  );
-})<FieldsetProps>`
+const FieldsetComponent = styled(
+  ({
+    children,
+    // Prevents the 'tabs' prop from being passed down to the DOM element
+    tabs: _tabs,
+    ...props
+  }: FieldsetProps) => {
+    return (
+      <div role={"group"} {...props}>
+        {children}
+      </div>
+    );
+  },
+)<FieldsetProps>`
   overflow: hidden;
   position: relative;
   box-sizing: border-box;

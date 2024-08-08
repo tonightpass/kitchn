@@ -40,7 +40,6 @@ export const FooterNav = styled.nav`
   display: grid;
   grid-template-columns: ${({ children }) =>
     `repeat(${Math.min(React.Children.count(children), 4)}, 1fr)`};
-  gap: ${({ theme }) => theme.gap.normal};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     grid-template-columns: ${({ children }) =>

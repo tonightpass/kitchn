@@ -98,7 +98,7 @@ const BadgeComponent = styled(({ children, ...props }: BadgeProps) => {
         return theme.colors.layout.light;
       case "primary":
       default:
-        return theme.colors.layout.darkest;
+        return theme.colors.layout.darker;
     }
   }};
 `;
