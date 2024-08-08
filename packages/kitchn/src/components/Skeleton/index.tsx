@@ -56,7 +56,9 @@ const SkeletonComponent = styled(
     width,
     height,
     show = true,
-    animated = true,
+    animated: _animated = true,
+    // Prevents the 'boxHeight' prop from being passed to the DOM element
+    boxHeight: _boxHeight,
     ...props
   }: SkeletonProps) => {
     if (!show && !children) return <></>;
@@ -68,8 +70,6 @@ const SkeletonComponent = styled(
         aria-hidden={!show}
         width={width}
         height={height}
-        show={show}
-        animated={animated}
         {...props}
       >
         {children}

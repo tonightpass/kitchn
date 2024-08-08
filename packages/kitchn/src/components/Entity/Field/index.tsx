@@ -16,13 +16,13 @@ export type EntityFieldTitleProps = KitchnComponent<
 >;
 
 export const EntityFieldTitle = styled(
-  ({ ...props }: EntityFieldTitleProps) => {
+  ({ active, label, ...props }: EntityFieldTitleProps) => {
     return (
       <Text
-        size={props.label ? "small" : "compact"}
-        weight={props.label ? "regular" : "semiBold"}
-        color={props.label ? "light" : !props.active ? "light" : "lightest"}
-        transform={props.label ? "uppercase" : "none"}
+        size={label ? "small" : "compact"}
+        weight={label ? "regular" : "semiBold"}
+        color={label ? "light" : !active ? "light" : "lightest"}
+        transform={label ? "uppercase" : "none"}
         truncate
         span
         {...props}

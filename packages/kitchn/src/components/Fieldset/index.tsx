@@ -55,7 +55,7 @@ const FieldsetFooter = styled.footer<{
         : theme.colors.layout.darker};
 `;
 
-const FieldsetComponent = styled(({ children, ...props }: FieldsetProps) => {
+const FieldsetComponent = styled(({ children, tabs, ...props }: FieldsetProps) => {
   return (
     <div role={"group"} {...props}>
       {children}

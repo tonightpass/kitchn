@@ -54,6 +54,8 @@ const NoteComponent = styled(
     action,
     label = true,
     size,
+    // Prevents the 'fill' prop from being passed to the DOM element
+    fill: _fill,
     children,
     ...props
   }: NoteProps) => {

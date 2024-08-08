@@ -40,7 +40,6 @@ const ButtonComponent = styled(
     width,
     prefix,
     suffix,
-    type,
     htmlType,
     ...props
   }: ButtonProps) => {
@@ -52,7 +51,6 @@ const ButtonComponent = styled(
         aria-disabled={props.disabled ? "true" : undefined}
         role={"button"}
         type={htmlType}
-        $type={type}
         {...props}
       >
         {(prefix || loading) && (

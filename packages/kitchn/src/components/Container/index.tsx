@@ -32,7 +32,17 @@ export type ContainerProps = Props & React.ComponentPropsWithRef<"div">;
 
 const ForwardedContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
   (
-    { children, header, section, form, label, ...rest }: ContainerProps,
+    {
+      children,
+      header,
+      section,
+      form,
+      label,
+      // This prevents 'row' and 'gap' from being passed to the DOM element, avoiding React warnings
+      row: _row,
+      gap: _gap,
+      ...rest
+    }: ContainerProps,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const Component = header

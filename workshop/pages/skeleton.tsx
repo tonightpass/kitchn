@@ -53,8 +53,10 @@ const SkeletonPage: NextPage = () => {
         }}
       >
         <p>{"wrapping children with fixed size"}</p>
-        <Skeleton width={"100%"} height={100}>
-          {null}
+        <Skeleton>
+          <Container height={100} width={200}>
+            {null}
+          </Container>
         </Skeleton>
 
         <Skeleton width={"100%"} height={100} show={false}>

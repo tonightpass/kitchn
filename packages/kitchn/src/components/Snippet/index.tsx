@@ -7,7 +7,7 @@ import { useClipboard, useToasts } from "../../hooks";
 import { AccentColors, KitchnComponent } from "../../types";
 import Container, { ContainerProps } from "../Container";
 import Icon from "../Icon";
-import Text from "../Text";
+import Text, { TextProps } from "../Text";
 
 type Props = {
   text: string | string[];
@@ -83,11 +83,11 @@ const SnippetComponent = styled(
           onClick={copyHandler}
           title={"Copy Code"}
         >
-          <Text span>
+          <Text color={"inherit"} span>
             {isCopied ? (
-              <Icon icon={RiCheckLine} />
+              <Icon icon={RiCheckLine} color={"inherit"} />
             ) : (
-              <Icon icon={RiFileCopyLine} />
+              <Icon icon={RiFileCopyLine} color={"inherit"} />
             )}
           </Text>
         </Container>
@@ -147,9 +147,13 @@ const SnippetComponent = styled(
     }};
 `;
 
-export const SnippetLine = styled(Text)<{
-  prompt?: SnippetProps["prompt"];
-}>`
+export type SnippetLineProps = TextProps & {
+  prompt?: boolean;
+};
+
+export const SnippetLine = styled(
+  ({ prompt: _prompt, ...props }: SnippetLineProps) => <Text {...props} />,
+)<SnippetLineProps>`
   &::before {
     content: "${(props) => (props.prompt ? "$ " : "")}";
     user-select: none;
