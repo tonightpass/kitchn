@@ -31,6 +31,12 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "react-native": "dist/native/index.cjs.js",
+  "files": [
+    "dist",
+    "logos",
+    "native",
+    "next"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
