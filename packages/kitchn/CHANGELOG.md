@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.2
+
+### Patch Changes
+
+- [`b1f4916`](https://github.com/tonightpass/kitchn/commit/b1f491632b3898fde2fab25791d32214cf0a40fe) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add missing fonts.css to files
+
 ## 1.1.1
 
 ### Patch Changes
