@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.0
+
+### Minor Changes
+
+- [#619](https://github.com/tonightpass/kitchn/pull/619) [`835bd9b`](https://github.com/tonightpass/kitchn/commit/835bd9b63773eb41bdd3f1b66a3470f0c9594ca4) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Next.js App Router Support
+
 ## 1.0.1
 
 ### Patch Changes
