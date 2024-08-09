@@ -169,5 +169,10 @@ const SkeletonComponent = styled(
 `;
 
 SkeletonComponent.displayName = "KitchnSkeleton";
-export const Skeleton = withDecorator(SkeletonComponent, ["width", "height"]);
+export const Skeleton = withDecorator(SkeletonComponent, [
+  "width",
+  "w",
+  "height",
+  "h",
+]);
 export default Skeleton;
