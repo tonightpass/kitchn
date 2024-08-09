@@ -1,0 +1,97 @@
+---
+title: Getting Started with Next.js (App Router)
+description: A guide for installing Kitchn with Nextjs projects using App Router
+tags: ['nextjs']
+category: frameworks
+---
+
+import Playground from "@components/Playground";
+import kitchn, { Container, FragmentLink, Link } from "kitchn";
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Getting Started with Next.js (App Router)
+
+## Automatic Installation
+
+### Template
+
+To generate the starter template for your Next.js project, run the following command:
+
+```sh
+npx create-next-app@latest --example https://github.com/tonightpass/kitchn/tree/master/examples/next-app my-next-kitchn-app
+
+cd my-next-kitchn-app
+npm run dev
+```
+
+### What's Included
+
+This template is similar to the default Next.js template, but with Kitchn pre-installed.
+
+#### Pre-install dependencies
+
+- `kitchn`
+- `next`
+- `react`
+- `react-dom`
+
+## Manual Installation
+
+### Installation
+In your Next.js project, install Kitchn by running either of the following:
+
+```sh npm2yarn
+npm i kitchn --save
+```
+
+### Provider Setup
+
+After installing Kitchn, you need to set up the `KitchnRegistry` and `KitchnProvider` 
+at the root of your application.
+
+Go to `app/layout.js` or `app/layout.tsx` (create it if it doesn't exist) and
+wrap the `KitchnProvider` with the `KitchnRegistry` and the `children` with the `KitchnProvider`:
+
+```jsx
+// app/layout.js
+import { KitchnProvider } from "kitchn";
+import { KitchnRegistry } from "kitchn/next";
+
+export default function RootLayout({ children }) {
+  return (
+    <html suppressHydrationWarning>
+      <body>
+        <KitchnRegistry>
+          <KitchnProvider>{children}</KitchnProvider>
+        </KitchnRegistry>
+      </body>
+    </html>
+  );
+}
+```
+
+We also need to add `suppressHydrationWarning` to the `html` tag to avoid [the warning message](https://github.com/vercel/next.js/discussions/22388#discussioncomment-8271118).
+
+### Server Side Rendering
+Now that everything is working you should be interested in Server Side Rendering.
+
+Go to the `next.config.js` file and add the following:
+
+```js
+// next.config.js
+const { withKitchnConfig } = require("kitchn/next");
+
+const config = {
+  // your next config
+};
+
+module.exports = withKitchnConfig(config);
+```
+
+## Deploy your own
+
+Deploy the example using [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-app&project-name=kitchn-next&repository-name=kitchn-next) or preview live with [StackBlitz](https://stackblitz.com/github/tonightpass/kitchn/tree/master/examples/next-app) or [CodeSandbox](https://codesandbox.io/s/github/tonightpass/kitchn/tree/master/examples/next-app).
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-app&project-name=kitchn-next&repository-name=kitchn-next)
+
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/next-app) using Kitchn with Next.js.

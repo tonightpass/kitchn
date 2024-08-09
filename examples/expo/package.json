@@ -1,0 +1,26 @@
+{
+  "name": "expo",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "dev": "pnpm start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "kitchn": "workspace:*",
+    "expo": "~47.0.5",
+    "expo-status-bar": "~1.4.2",
+    "react": "^18.1.0",
+    "react-native": "^0.70.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@types/expo": "^33.0.1",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "@types/react-native": "^0.70.6"
+  }
+}

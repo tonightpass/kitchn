@@ -1,6 +1,6 @@
 {
   "name": "kitchn",
-  "version": "0.4.0",
+  "version": "1.1.3",
   "description": "Tonight Pass delicious React styled-components UI kit",
   "repository": {
     "type": "git",
@@ -31,6 +31,13 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "react-native": "dist/native/index.cjs.js",
+  "files": [
+    "dist",
+    "logos",
+    "native",
+    "next",
+    "fonts.css"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
@@ -40,6 +47,7 @@
     "@fontsource/figtree": "^5.0.1",
     "@fontsource/fira-code": "^5.0.0",
     "date-fns": "2.30.0",
+    "deepmerge-ts": "^7.1.0",
     "next-themes": "^0.3.0",
     "react-day-picker": "^8.10.0",
     "react-hook-form": "^7.45.4",

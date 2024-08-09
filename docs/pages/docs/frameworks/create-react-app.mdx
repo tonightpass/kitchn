@@ -6,17 +6,52 @@ category: frameworks
 ---
 
 import { Tab, Tabs } from "nextra-theme-docs";
+import YoutubeVideo from '../../../components/YoutubeVideo';
 
 # Getting Started with Create React App or Vite React
 
-## Installation
+<YoutubeVideo
+  src="https://www.youtube.com/embed/-wG_sXuAEb0"
+/>
+
+## Automatic Installation
+
+### Template
+
+To generate the starter template for your Create React App or Vite React project, run the following command:
+
+```sh
+npx degit tonightpass/kitchn/examples/react my-react-kitchn-app
+
+cd my-react-kitchn-app
+npm install
+npm run dev
+
+git init
+git add .
+git commit -m "initial commit"
+```
+
+### What's Included
+
+This template is similar to the default Vite React template, but with Kitchn pre-installed.
+
+#### Pre-install dependencies
+
+- `kitchn`
+- `react`
+- `react-dom`
+
+## Manual Installation
+
+### Installation
 In your Create React App or Vite React project, install Kitchn by running either of the following:
 
 ```sh npm2yarn
 npm i kitchn --save
 ```
 
-## Provider Setup
+### Provider Setup
 
 After installing Kitchn, you need to set up the `KitchnProvider` at the root 
 of your application. This can be either in your `App.jsx` or `App.tsx` file.
@@ -36,8 +71,8 @@ export default function App({ Component, pageProps }) {
 
 ## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/react-typescript&project-name=kitchn-react&repository-name=kitchn-react) or preview live with [StackBlitz](https://stackblitz.com/github/tonightpass/kitchn/tree/master/examples/react-typescript) or [CodeSandbox](https://codesandbox.io/s/github/tonightpass/kitchn/tree/master/examples/react-typescript).
+Deploy the example using [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/react&project-name=kitchn-react&repository-name=kitchn-react) or preview live with [StackBlitz](https://stackblitz.com/github/tonightpass/kitchn/tree/master/examples/react) or [CodeSandbox](https://codesandbox.io/s/github/tonightpass/kitchn/tree/master/examples/react).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/react-typescript&project-name=kitchn-react&repository-name=kitchn-react)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/react&project-name=kitchn-react&repository-name=kitchn-react)
 
-In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/react-typescript) using Kitchn with Next.js.
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/react) using Kitchn with Next.js.

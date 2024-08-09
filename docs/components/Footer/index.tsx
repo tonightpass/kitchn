@@ -1,5 +1,13 @@
 import { TonightPassLogo } from "@components/Brands";
-import { Container, Link, Footer, FooterGroup, FooterLink, Icon } from "kitchn";
+import {
+  Container,
+  Link,
+  Footer,
+  FooterGroup,
+  FooterLink,
+  Icon,
+  useBreakpoint,
+} from "kitchn";
 import { useRouter } from "next/router";
 import { ThemeSwitch } from "nextra-theme-docs";
 import React from "react";
@@ -65,7 +73,7 @@ const navigation = {
     },
     {
       name: "Design",
-      href: "/docs/brands/tonightpass",
+      href: "/docs/brands",
     },
     {
       name: "Status",
@@ -122,6 +130,7 @@ const navigation = {
 
 const CustomFooter = () => {
   const [mounted, setMounted] = React.useState(false);
+  const { isMobile } = useBreakpoint();
   const router = useRouter();
 
   React.useEffect(() => {
@@ -140,7 +149,12 @@ const CustomFooter = () => {
             <ThemeSwitch />
           </Container>
         )}
-        <Container mt={"auto"} gap={"small"} row>
+        <Container
+          mt={"auto"}
+          gap={"small"}
+          mb={isMobile ? "small" : undefined}
+          row
+        >
           <Link href={"https://linkedin.com/company/tonightpass"}>
             <Icon icon={RiLinkedinFill} />
           </Link>

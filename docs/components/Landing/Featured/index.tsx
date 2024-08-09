@@ -1,4 +1,4 @@
-import { Button, Container, Link, Text, Image } from "kitchn";
+import kitchn, { Button, Container, Link, Text, Image, Snippet } from "kitchn";
 import Balancer from "react-wrap-balancer";
 
 const Featured: React.FC = () => {
@@ -13,7 +13,7 @@ const Featured: React.FC = () => {
       <Container align={"center"}>
         <Link
           href={
-            "https://producthunt.com/posts/kitchen?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchn"
+            "https://producthunt.com/posts/kitchn?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-kitchn"
           }
         >
           <Image
@@ -53,8 +53,18 @@ const Featured: React.FC = () => {
           <Button type={"dark"}>{"Contribute"}</Button>
         </Link>
       </Container>
+      <Container mt={"large"} align={"center"}>
+        <CustomSnippet text={"npm install kitchn"} prompt={false} />
+      </Container>
     </Container>
   );
 };
+
+export const CustomSnippet = kitchn(Snippet)`
+  ${Text} {
+    padding-left: 0;
+    padding-right: 0;
+  }
+`;
 
 export default Featured;

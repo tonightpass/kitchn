@@ -87,13 +87,13 @@ const ProgressComponent = styled(
         />
         <ProgressCheckpointContainer>
           {states &&
-            Object.keys(states).map((key) => {
+            Object.keys(states).map((key, index) => {
               const checkpoint = parseInt(key, 10);
               const active = checkpoint <= value;
               const first = checkpoint === 0;
               const last = checkpoint === max;
               return (
-                <>
+                <React.Fragment key={index}>
                   <ProgressCheckpoint
                     aria-hidden={"true"}
                     key={checkpoint}
@@ -103,7 +103,7 @@ const ProgressComponent = styled(
                     last={last}
                     onMouseEnter={() => setIsHover(checkpoint)}
                     onMouseLeave={() => setIsHover(null)}
-                    title={states && title}
+                    hasTitle={states && title}
                     max={max}
                     amount={Object.keys(states).length}
                     checkpointStyle={checkpointStyle}
@@ -120,7 +120,7 @@ const ProgressComponent = styled(
                       {states[checkpoint]}
                     </ProgressCheckpointTitle>
                   )}
-                </>
+                </React.Fragment>
               );
             })}
         </ProgressCheckpointContainer>
@@ -214,7 +214,7 @@ export const ProgressCheckpoint = styled.div<{
   color?: string;
   first?: boolean;
   last?: boolean;
-  title?: boolean;
+  hasTitle?: boolean;
   amount: number;
   checkpointStyle: ProgressProps["checkpointStyle"];
 }>`

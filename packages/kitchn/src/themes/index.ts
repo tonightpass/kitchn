@@ -1,9 +1,11 @@
+import { deepmerge } from "deepmerge-ts";
 import { DefaultTheme } from "styled-components";
 
 import { darkTheme } from "./dark";
 import { lightTheme } from "./light";
 import { mainTheme } from "./main";
 import { PREFIX } from "../constants";
+import { DeepPartial } from "../types";
 import { MainTheme, Theme } from "../types/theme";
 
 export * from "./dark";
@@ -12,9 +14,9 @@ export * from "./main";
 export * from "./tonightpass";
 
 export const createTheme = (
-  theme: Theme | (Theme & Partial<MainTheme>),
+  theme: Theme | (Theme & DeepPartial<MainTheme>),
 ): DefaultTheme => {
-  return { ...mainTheme, ...theme };
+  return deepmerge(mainTheme, theme);
 };
 
 export const defaultThemes = {

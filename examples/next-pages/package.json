@@ -1,0 +1,21 @@
+{
+  "name": "next-pages",
+  "private": true,
+  "scripts": {
+    "dev": "next -p 3004",
+    "build": "next build",
+    "start": "next start -p 3004"
+  },
+  "dependencies": {
+    "kitchn": "latest",
+    "next": "^13.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.0.4"
+  }
+}

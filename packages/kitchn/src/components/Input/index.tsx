@@ -41,6 +41,7 @@ type Props = {
   suffixContainer?: boolean;
   clearable?: boolean;
   width?: number | string;
+  w?: Props["width"];
   error?: string;
   readOnly?: boolean;
   onClearClick?: (_event: React.MouseEvent<SVGElement>) => void;
@@ -75,6 +76,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
       readOnly = false,
       onChange,
       width,
+      w,
       onClearClick,
       onFocus,
       onBlur,
@@ -171,7 +173,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
     return (
       <Wrapper>
         {label && <InputLabel>{label}</InputLabel>}
-        <InputContainer disabled={disabled} width={width} size={size}>
+        <InputContainer disabled={disabled} width={width || w} size={size}>
           {prefix && prefixContainer && (
             <InputPrefix
               size={size}
@@ -269,7 +271,7 @@ const ForwardedInput = forwardRef<HTMLInputElement, InputProps>(
           )}
         </InputContainer>
         {error && (
-          <InputError size={size} width={width}>
+          <InputError size={size} width={width || w}>
             {error}
           </InputError>
         )}

@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import {
+  DecoratorProps,
+  handleValue,
+  withDecorator,
+} from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
-import { isString } from "../../utils/isString";
 
 type Props = {
   /**
@@ -14,12 +17,22 @@ type Props = {
   /**
    * The skeleton's width.
    */
-  width?: number | string;
+  width?: DecoratorProps["width"];
+
+  /**
+   * The skeleton's width.
+   */
+  w?: DecoratorProps["w"];
 
   /**
    * The skeleton's height.
    */
-  height?: number | string;
+  height?: DecoratorProps["height"];
+
+  /**
+   * The skeleton's height.
+   */
+  h?: DecoratorProps["h"];
 
   /**
    * The skeleton's box height.
@@ -54,9 +67,13 @@ const SkeletonComponent = styled(
     as: Component = "span",
     children,
     width,
+    w,
     height,
+    h,
     show = true,
-    animated = true,
+    animated: _animated = true,
+    // Prevents the 'boxHeight' prop from being passed to the DOM element
+    boxHeight: _boxHeight,
     ...props
   }: SkeletonProps) => {
     if (!show && !children) return <></>;
@@ -66,10 +83,8 @@ const SkeletonComponent = styled(
         role={"status"}
         aria-busy={show ? "true" : "false"}
         aria-hidden={!show}
-        width={width}
-        height={height}
-        show={show}
-        animated={animated}
+        width={width || w}
+        height={height || h}
         {...props}
       >
         {children}
@@ -77,77 +92,41 @@ const SkeletonComponent = styled(
     );
   },
 )<SkeletonProps>`
-  ${({
-    children,
-    show = true,
-    width,
-    height,
-    shape,
-    theme,
-    animated = true,
-  }) =>
+  position: relative;
+  display: block;
+  user-select: none;
+  cursor: default;
+  overflow: hidden;
+  border-radius: ${({ shape, theme }) =>
+    shape === "square"
+      ? "0"
+      : shape === "round"
+        ? theme.radius.round
+        : theme.radius.square};
+
+  ${({ children, shape, width, w, height, h, theme, animated = true }) =>
     children
       ? `
-        position: relative;
-        display: block;
         width: ${width ? "100%" : "auto"};
-        max-width: ${
-          width ? (isString(width) ? width : `${width}px`) : "unset"
-        };
-        min-height: ${
-          height ? (isString(height) ? height : `${height}px`) : "auto"
-        };
-        ${
-          show
-            ? `
-            overflow: hidden;
-            border-radius: ${
-              shape === "square" ? "0" : shape === "round" ? "99999px" : "8px"
-            };
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              z-index: 100;
-              user-select: none;
-              cursor: default;
-              border-radius: ${
-                shape === "square" ? "0" : shape === "round" ? "99999px" : "8px"
-              };
-              background-image: linear-gradient(
-                270deg,
-                ${theme.colors.layout.darkest},
-                ${theme.colors.layout.dark},
-                ${theme.colors.layout.dark},
-                ${theme.colors.layout.darkest}
-              );
-              background-size: 400% 100%;
-              animation: ${
-                animated ? "skeleton 8s ease-in-out infinite" : "none"
-              };
-            }
-        `
-            : ""
-        }
-      `
-      : `
-          display: block;
-          width: 100%;
+        max-width: ${width ? handleValue(theme, width || w) : "unset"};
+        min-height: ${height ? handleValue(theme, height || h) : "auto"};
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 100;
           user-select: none;
           cursor: default;
-          max-width: ${
-            width ? (isString(width) ? width : `${width}px`) : "24px"
-          };
-          min-height: ${
-            height ? (isString(height) ? height : `${height}px`) : "24px"
-          };
           border-radius: ${
-            shape === "square" ? "0" : shape === "round" ? "99999px" : "8px"
+            shape === "square"
+              ? "0"
+              : shape === "round"
+                ? theme.radius.round
+                : theme.radius.square
           };
-          background-size: 400% 100%;
           background-image: linear-gradient(
             270deg,
             ${theme.colors.layout.darkest},
@@ -155,14 +134,29 @@ const SkeletonComponent = styled(
             ${theme.colors.layout.dark},
             ${theme.colors.layout.darkest}
           );
+          background-size: 400% 100%;
           animation: ${animated ? "skeleton 8s ease-in-out infinite" : "none"};
+        }
+      `
+      : `
+        width: 100%;
+        max-width: ${width ? handleValue(theme, width || w) : "24px"};
+        min-height: ${height ? handleValue(theme, height || h) : "24px"};
+        background-size: 400% 100%;
+        background-image: linear-gradient(
+          270deg,
+          ${theme.colors.layout.darkest},
+          ${theme.colors.layout.dark},
+          ${theme.colors.layout.dark},
+          ${theme.colors.layout.darkest}
+        );
+        animation: ${animated ? "skeleton 8s ease-in-out infinite" : "none"};
   `}
 
   ${({ boxHeight, height }) =>
     boxHeight &&
-    Number.isFinite(height) &&
-    boxHeight - ((height as number) || 24) > 0 &&
-    `margin-bottom: ${boxHeight - ((height as number) || 24)}px`};
+    height &&
+    `margin-bottom: calc(${boxHeight}px - ${height || 24}px);`}
 
   @keyframes skeleton {
     0% {
@@ -175,5 +169,10 @@ const SkeletonComponent = styled(
 `;
 
 SkeletonComponent.displayName = "KitchnSkeleton";
-export const Skeleton = withDecorator(SkeletonComponent);
+export const Skeleton = withDecorator(SkeletonComponent, [
+  "width",
+  "w",
+  "height",
+  "h",
+]);
 export default Skeleton;

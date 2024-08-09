@@ -10,5 +10,14 @@ const withNextra = nextra({
 module.exports = withNextra(
   withKitchnConfig({
     reactStrictMode: true,
+    async redirects() {
+      return [
+        {
+          source: "/docs/frameworks/nextjs",
+          destination: "/docs/frameworks/nextjs-pages",
+          permanent: true,
+        },
+      ];
+    },
   }),
 );

@@ -1,0 +1,102 @@
+---
+title: Getting Started with Next.js (Pages Router)
+description: A guide for installing Kitchn with Nextjs projects using Pages Router
+tags: ['nextjs']
+category: frameworks
+---
+
+import Playground from "@components/Playground";
+import kitchn, { Container, FragmentLink, Link } from "kitchn";
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Getting Started with Next.js (Pages Router)
+
+## Automatic Installation
+
+### Template
+
+To generate the starter template for your Next.js project, run the following command:
+
+```sh
+npx create-next-app@latest --example https://github.com/tonightpass/kitchn/tree/master/examples/next-pages my-next-kitchn-app
+
+cd my-next-kitchn-app
+npm run dev
+```
+
+### What's Included
+
+This template is similar to the default Next.js template, but with Kitchn pre-installed.
+
+#### Pre-install dependencies
+
+- `kitchn`
+- `next`
+- `react`
+- `react-dom`
+
+## Manual Installation
+
+### Installation
+In your Next.js project, install Kitchn by running either of the following:
+
+```sh npm2yarn
+npm i kitchn --save
+```
+
+### Provider Setup
+
+After installing Kitchn, you need to set up the `KitchnProvider` at the root 
+of your application.
+
+Go to `pages/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and
+wrap the `Component` with the `KitchnProvider`:
+
+```jsx
+// pages/_app.js
+import { KitchnProvider } from "kitchn";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <KitchnProvider>
+      <Component {...pageProps} />
+    </KitchnProvider>
+  );
+}
+```
+
+### Server Side Rendering
+{/* talk about withcKitchn HOC in next.config.js and pages/_document.js to edit */}
+Now that everything is working you should be interested in Server Side Rendering.
+
+Go to the `next.config.js` file and add the following:
+
+```js
+// next.config.js
+const { withKitchnConfig } = require("kitchn/next");
+
+const config = {
+  // your next config
+};
+
+module.exports = withKitchnConfig(config);
+```
+
+Then, go to the `pages/_document.js` or create it if it doesn't exist and add the following:
+
+```jsx
+// pages/_document.js
+import { KitchnDocument } from "kitchn/next";
+
+export default class Document extends KitchnDocument {
+  // your document
+}
+```
+
+## Deploy your own
+
+Deploy the example using [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-pages&project-name=kitchn-next&repository-name=kitchn-next) or preview live with [StackBlitz](https://stackblitz.com/github/tonightpass/kitchn/tree/master/examples/next-pages) or [CodeSandbox](https://codesandbox.io/s/github/tonightpass/kitchn/tree/master/examples/next-pages).
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-pages&project-name=kitchn-next&repository-name=kitchn-next)
+
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/next-pages) using Kitchn with Next.js.

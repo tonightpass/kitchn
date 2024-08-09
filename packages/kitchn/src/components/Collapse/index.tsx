@@ -24,6 +24,8 @@ const CollapseComponent = styled(
     children,
     defaultExpanded = false,
     size = "medium",
+    // Prevent 'card' from being passed to the DOM element
+    card: _card,
     ...props
   }: CollapseProps) => {
     const contentContainerRef = React.useRef<HTMLDivElement>(null);

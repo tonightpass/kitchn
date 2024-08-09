@@ -1,0 +1,23 @@
+import GlobalStyle from "@components/GlobalStyle";
+import Script from "@components/Script";
+import { KitchnProvider } from "kitchn";
+import { useTheme as useNextraTheme } from "nextra-theme-docs";
+
+import "kitchn/fonts.css";
+
+export default function App({ Component, pageProps }) {
+  const { resolvedTheme } = useNextraTheme();
+
+  return (
+    // eslint-disable-next-line react/jsx-filename-extension
+    <KitchnProvider
+      forcedTheme={resolvedTheme}
+      attribute={"class"}
+      dangerouslyDisableNextThemeProvider
+    >
+      <GlobalStyle />
+      <Component {...pageProps} />
+      <Script />
+    </KitchnProvider>
+  );
+}

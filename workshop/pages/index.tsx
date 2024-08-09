@@ -40,6 +40,7 @@ const IndexPage: NextPage = () => {
         </Button>
       </Container>
 
+      <Link href={"/app-router"}>{"App Router"}</Link>
       <Link href={"/avatar"}>{"Avatar"}</Link>
       <Link href={"/badge"}>{"Badge"}</Link>
       <Link href={"/button"}>{"Button"}</Link>
@@ -61,6 +62,7 @@ const IndexPage: NextPage = () => {
       <Link href={"/modal"}>{"Modal"}</Link>
       <Link href={"/note"}>{"Note"}</Link>
       <Link href={"/progress"}>{"Progress"}</Link>
+      <Link href={"/scroller"}>{"Scroller"}</Link>
       <Link href={"/select"}>{"Select"}</Link>
       <Link href={"/skeleton"}>{"Skeleton"}</Link>
       <Link href={"/spacer"}>{"Spacer"}</Link>

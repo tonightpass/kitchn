@@ -1,5 +1,77 @@
 # kitchn
 
+## 1.1.3
+
+### Patch Changes
+
+- [`059eba2`](https://github.com/tonightpass/kitchn/commit/059eba219a4f96b7164bd4502f87b69770037823) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix withDecorator HOC to handle prop types correctly
+
+## 1.1.2
+
+### Patch Changes
+
+- [`b1f4916`](https://github.com/tonightpass/kitchn/commit/b1f491632b3898fde2fab25791d32214cf0a40fe) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add missing fonts.css to files
+
+## 1.1.1
+
+### Patch Changes
+
+- [`174fd56`](https://github.com/tonightpass/kitchn/commit/174fd5647b0329f7dda46cff0beae49be8ed3e9a) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve package size using files field
+
+## 1.1.0
+
+### Minor Changes
+
+- [#619](https://github.com/tonightpass/kitchn/pull/619) [`835bd9b`](https://github.com/tonightpass/kitchn/commit/835bd9b63773eb41bdd3f1b66a3470f0c9594ca4) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Next.js App Router Support
+
+## 1.0.1
+
+### Patch Changes
+
+- [#617](https://github.com/tonightpass/kitchn/pull/617) [`ec86ea2`](https://github.com/tonightpass/kitchn/commit/ec86ea2649ce441518a524996ebb37630b1c8ecc) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Remove all React warnings from console
+
+## 1.0.0
+
+### Major Changes
+
+- [`9075a2c`](https://github.com/tonightpass/kitchn/commit/9075a2c56f5f6d78c0c8f814f3630364c64eaa34) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Launching v1: https://www.producthunt.com/posts/kitchn
+
+## 0.7.2
+
+### Patch Changes
+
+- [`1ae781e`](https://github.com/tonightpass/kitchn/commit/1ae781e47a01ed82b160374c44dc47fc3f75d355) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix Input width (w) props
+
+## 0.7.1
+
+### Patch Changes
+
+- [`19dd721`](https://github.com/tonightpass/kitchn/commit/19dd72162ff5c6d8437bd80d0d44f995a37d41c6) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add DeepPartial types to theme creation and loadash merge
+
+## 0.7.0
+
+### Minor Changes
+
+- [`2b1d68e`](https://github.com/tonightpass/kitchn/commit/2b1d68ee219e52fd7c9fca769679a4e4b7adffd9) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add logos
+
+## 0.6.1
+
+### Patch Changes
+
+- [#594](https://github.com/tonightpass/kitchn/pull/594) [`6ae47ca`](https://github.com/tonightpass/kitchn/commit/6ae47cabc8f8401befda2295f153c52918b8f316) Thanks [@jerembdn](https://github.com/jerembdn)! - Add 'src' prop to Icon component
+
+## 0.6.0
+
+### Minor Changes
+
+- [#583](https://github.com/tonightpass/kitchn/pull/583) [`eb3cb21`](https://github.com/tonightpass/kitchn/commit/eb3cb210f906de903d8fbde3d4ccad39b4ee617e) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add Snippet
+
+## 0.5.0
+
+### Minor Changes
+
+- [#126](https://github.com/tonightpass/kitchn/pull/126) [`3961754`](https://github.com/tonightpass/kitchn/commit/39617540f006961a875305bb46d93ed076d274d6) Thanks [@YounesBessa](https://github.com/YounesBessa)! - Add Scroller
+
 ## 0.4.0
 
 ### Minor Changes

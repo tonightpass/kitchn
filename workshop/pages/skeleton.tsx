@@ -25,7 +25,7 @@ const SkeletonPage: NextPage = () => {
         }}
       >
         <p>{"default with box height"}</p>
-        <Skeleton width={160} boxHeight={42} />
+        <Skeleton width={160} boxHeight={42} height={42} />
       </Container>
       <Container
         gap={10}
@@ -53,8 +53,8 @@ const SkeletonPage: NextPage = () => {
         }}
       >
         <p>{"wrapping children with fixed size"}</p>
-        <Skeleton width={"100%"} height={100}>
-          {null}
+        <Skeleton width={"100%"} height={100} show>
+          <Button width={"200px"}>{"Not hidden by Skeleton"}</Button>
         </Skeleton>
 
         <Skeleton width={"100%"} height={100} show={false}>

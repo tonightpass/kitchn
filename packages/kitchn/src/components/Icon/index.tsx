@@ -4,9 +4,20 @@ import styled, { useTheme } from "styled-components";
 import { withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
+import Image from "../Image";
 
-type Props = {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+type IconSource =
+  | {
+      icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+      src?: string;
+    }
+  | {
+      icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+      src: string;
+      alt?: string;
+    };
+
+type Props = IconSource & {
   size?: keyof Size | number | string;
   /**
    * The text color. Strictly limited to colors of our design system. If you want to pass accent color make sure to pass `accent` instead of `color`.
@@ -23,21 +34,44 @@ type Props = {
 export type IconProps = KitchnComponent<Props, React.SVGProps<SVGSVGElement>>;
 
 const IconComponent = styled(
-  ({ icon: Component, size, ...props }: IconProps) => {
+  ({
+    size,
+    src,
+    icon: IconComponent,
+    clickable: _clickable,
+    ...rest
+  }: IconProps) => {
     const theme = useTheme();
-    return (
-      <Component
-        role={"img"}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        size={theme.size[size as keyof Size] || size || theme.size.normal}
-        height={theme.size[size as keyof Size] || size || theme.size.normal}
-        width={theme.size[size as keyof Size] || size || theme.size.normal}
-        {...props}
-      />
-    );
+
+    if (src) {
+      return (
+        <Image
+          src={src}
+          height={theme.size[size as keyof Size] || size || theme.size.normal}
+          width={theme.size[size as keyof Size] || size || theme.size.normal}
+          {...rest}
+        />
+      );
+    }
+
+    if (IconComponent) {
+      return (
+        <IconComponent
+          role={"img"}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          size={theme.size[size as keyof Size] || size || theme.size.normal}
+          height={theme.size[size as keyof Size] || size || theme.size.normal}
+          width={theme.size[size as keyof Size] || size || theme.size.normal}
+          {...rest}
+        />
+      );
+    }
+
+    return null;
   },
 )<IconProps>`
+  user-select: none;
   color: ${(props) =>
     props.theme.colors.accent[props.accent as keyof AccentColors] ||
     props.theme.colors.text[props.color as keyof TextColors] ||

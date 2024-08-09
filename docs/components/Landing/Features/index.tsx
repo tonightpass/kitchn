@@ -1,5 +1,12 @@
-import { AvatarGroup, Container, Image, Text } from "kitchn";
+import { Container, Image, Text } from "kitchn";
 import { useData } from "nextra/data";
+
+import {
+  AllPlatformSupportThumbnail,
+  ContributingThumbnail,
+  ResponsiveThumbnail,
+  ThemeableThumbnail,
+} from "./Thumbnails";
 
 const Features = () => {
   const { repo, contributors } = useData();
@@ -47,34 +54,59 @@ const Features = () => {
                 h={"auto"}
               />
             </Container>
-            <Container br={"square"} bw={1} flex={1} minH={100} p={"medium"}>
-              <Text size={"large"} weight={"bold"}>
-                {"Responsive support\r"}
-              </Text>
-              <Text mt={"small"} color={"lighter"}>
-                {"Build simple web apps with our simple responsive system.\r"}
-              </Text>
+            <Container br={"square"} bw={1} flex={1} minH={100} gap={"small"}>
+              <Container gap={"small"} p={"medium"}>
+                <Text size={"large"} weight={"bold"}>
+                  {"Responsive support\r"}
+                </Text>
+                <Text color={"lighter"}>
+                  {"Build simple web apps with our simple responsive system.\r"}
+                </Text>
+              </Container>
+              <Container h={"100%"} justify={"center"}>
+                <ResponsiveThumbnail />
+              </Container>
             </Container>
           </Container>
           <Container flex={1} gap={"normal"}>
-            <Container br={"square"} bw={1} flex={1} minH={100} p={"medium"}>
+            <Container
+              br={"square"}
+              bw={1}
+              flex={1}
+              minH={100}
+              p={"medium"}
+              gap={"small"}
+            >
               <Text size={"large"} weight={"bold"}>
                 {"Themeable\r"}
               </Text>
-              <Text mt={"small"} color={"lighter"}>
+              <Text color={"lighter"}>
                 {
                   "Customize any part of our components to match your design needs.\r"
                 }
               </Text>
+              <Container h={"100%"} justify={"center"}>
+                <ThemeableThumbnail />
+              </Container>
             </Container>
-            <Container br={"square"} bw={1} flex={1} minH={200} p={"medium"}>
+            <Container
+              br={"square"}
+              bw={1}
+              flex={1}
+              minH={200}
+              p={"medium"}
+              gap={"small"}
+            >
               <Text size={"large"} weight={"bold"}>
                 {"All platform support\r"}
               </Text>
-              <Text mt={"small"} color={"lighter"}>
+              <Text color={"lighter"}>
                 {"Whether you use React, React Native or a framework react,\r"}
                 {"Kitchn is compatible with all platforms.\r"}
               </Text>
+              <Container h={"100%"} justify={"center"}>
+                <AllPlatformSupportThumbnail />
+              </Container>
             </Container>
           </Container>
           <Container
@@ -82,47 +114,62 @@ const Features = () => {
             gap={"normal"}
             direction={["column", "row", "column"]}
           >
-            <Container br={"square"} bw={1} minH={200} p={"medium"}>
+            <Container
+              br={"square"}
+              bw={1}
+              minH={200}
+              p={"medium"}
+              gap={"small"}
+            >
               <Text size={"large"} weight={"bold"}>
                 {"Active Community\r"}
               </Text>
-              <Text mt={"small"} color={"lighter"}>
+              <Text color={"lighter"}>
                 {
                   "We are a team of active maintainers ready to help you whenever\r"
                 }
                 {"you need, and using it for our own products.\r"}
               </Text>
-              <Container mt={"small"} br={"square"} h={"100%"}>
-                <Text color={"lighter"} weight={"medium"} size={"medium"} span>
-                  <Text color={"inherit"} weight={"bold"} size={"large"} span>
-                    {contributors.length}
-                  </Text>
-                  {" contributors"}
-                </Text>
-
-                <Text color={"lighter"} weight={"medium"} size={"medium"} span>
-                  <Text color={"inherit"} weight={"bold"} size={"large"} span>
-                    {repo.stargazers_count}
-                  </Text>
-                  {" stars"}
-                </Text>
-
-                <Text color={"lighter"} weight={"medium"} size={"medium"} span>
-                  <Text color={"inherit"} weight={"bold"} size={"large"} span>
-                    {new Date(repo.updated_at).toLocaleDateString()}
-                  </Text>
-                  {" last update"}
-                </Text>
+              <Container
+                h={"100%"}
+                justify={"center"}
+                align={"center"}
+                gap={"normal"}
+                my={"normal"}
+              >
+                <ContributingThumbnail
+                  contributors={contributors
+                    .filter(
+                      (contributor) => !contributor.login.includes("[bot]"),
+                    )
+                    .reverse()
+                    .slice(0, 5)
+                    .map((contributor) => contributor.avatar_url)}
+                />
+                <Container
+                  justify={"center"}
+                  align={"center"}
+                  gap={"tiny"}
+                  wrap={"wrap"}
+                  row
+                >
+                  <Container bw={1} br={"round"} py={"tiny"} px={"small"}>
+                    <Text size={"tiny"} weight={"bold"}>
+                      {`${contributors.length} contributors on GitHub`}
+                    </Text>
+                  </Container>
+                  <Container bw={1} br={"round"} py={"tiny"} px={"small"}>
+                    <Text size={"tiny"} weight={"bold"}>
+                      {`${repo.stargazers_count} ⭐`}
+                    </Text>
+                  </Container>
+                  <Container bw={1} br={"round"} py={"tiny"} px={"small"}>
+                    <Text size={"tiny"} weight={"bold"}>
+                      {`last updated on ${new Date(repo.updated_at).toLocaleDateString()}`}
+                    </Text>
+                  </Container>
+                </Container>
               </Container>
-              <AvatarGroup
-                mt={"small"}
-                members={contributors
-                  .filter((contributor) => !contributor.login.includes("[bot]"))
-                  .map((contributor) => ({
-                    src: contributor.avatar_url,
-                    alt: contributor.login,
-                  }))}
-              />
             </Container>
             <Container br={"square"} bw={1} minH={100} p={"medium"}>
               <Text size={"large"} weight={"bold"}>

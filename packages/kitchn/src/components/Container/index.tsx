@@ -25,13 +25,24 @@ type Props = {
   form?: boolean;
   label?: boolean;
   wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
+  transform?: string;
 };
 
 export type ContainerProps = Props & React.ComponentPropsWithRef<"div">;
 
 const ForwardedContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
   (
-    { children, header, section, form, label, ...rest }: ContainerProps,
+    {
+      children,
+      header,
+      section,
+      form,
+      label,
+      // This prevents 'row' and 'gap' from being passed to the DOM element, avoiding React warnings
+      row: _row,
+      gap: _gap,
+      ...rest
+    }: ContainerProps,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const Component = header
@@ -68,6 +79,7 @@ const ContainerComponent = styled(ForwardedContainer)<ContainerProps>`
   justify-content: ${(props) => props.justify || "flex-start"};
   align-items: ${(props) => props.align || "stretch"};
   ${(props) => props.wrap && `flex-wrap: ${props.wrap};`}
+  ${(props) => props.transform && `transform: ${props.transform};`}
 
   ${(props) =>
     props.gap &&
