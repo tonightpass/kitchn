@@ -58,28 +58,36 @@ export const handleFont = (
 
 export const withDecorator = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
+  passThroughProps: string[] = [],
 ) => {
-  return styled(
-    // This prevents 'w', 'h', 'minW', 'minH', 'maxW', 'maxH', 'zi' from being passed to the DOM element, avoiding React warnings
+  return styled(({ ...props }: DecoratorProps & T) => {
+    const filteredProps = Object.entries(props).reduce((acc, [key, value]) => {
+      if (
+        ![
+          "w",
+          "h",
+          "height",
+          "width",
+          "minW",
+          "minH",
+          "maxW",
+          "maxH",
+          "zi",
+          "zIndex",
+        ].includes(key) ||
+        passThroughProps.includes(key)
+      ) {
+        (
+          acc as {
+            [key: string]: any;
+          }
+        )[key] = value;
+      }
+      return acc;
+    }, {} as T);
 
-    ({
-      w: _w,
-      h: _h,
-      minW: _minW,
-      minH: _minH,
-      maxW: _maxW,
-      maxH: _maxH,
-      width: _width,
-      height: _height,
-      minWidth: _minWidth,
-      minHeight: _minHeight,
-      maxWidth: _maxWidth,
-      maxHeight: _maxHeight,
-      zi: _zi,
-      zIndex: _zIndex,
-      ...props
-    }: DecoratorProps & T) => <WrappedComponent {...(props as T)} />,
-  )<DecoratorProps>`
+    return <WrappedComponent {...filteredProps} />;
+  })<DecoratorProps>`
     ${({ display }) => (display !== undefined ? `display: ${display};` : "")}
     ${({ overflow }) =>
       overflow !== undefined ? `overflow: ${overflow};` : ""}
