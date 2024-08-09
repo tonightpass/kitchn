@@ -1,9 +1,11 @@
 import { KitchnProvider } from "kitchn";
 import { KitchnRegistry } from "kitchn/next";
 
+import "kitchn/fonts.css";
+
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <head>
         <title>{"Create Kitchn Next"}</title>
         <link rel={"icon"} href={"/favicon.ico"} />

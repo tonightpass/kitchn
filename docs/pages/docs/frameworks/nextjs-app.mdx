@@ -59,7 +59,7 @@ import { KitchnRegistry } from "kitchn/next";
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <body>
         <KitchnRegistry>
           <KitchnProvider>{children}</KitchnProvider>
@@ -69,6 +69,8 @@ export default function RootLayout({ children }) {
   );
 }
 ```
+
+We also need to add `suppressHydrationWarning` to the `html` tag to avoid [the warning message](https://github.com/vercel/next.js/discussions/22388#discussioncomment-8271118).
 
 ### Server Side Rendering
 Now that everything is working you should be interested in Server Side Rendering.
