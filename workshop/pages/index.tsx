@@ -40,6 +40,7 @@ const IndexPage: NextPage = () => {
         </Button>
       </Container>
 
+      <Link href={"/app-router"}>{"App Router"}</Link>
       <Link href={"/avatar"}>{"Avatar"}</Link>
       <Link href={"/badge"}>{"Badge"}</Link>
       <Link href={"/button"}>{"Button"}</Link>

@@ -1,5 +1,5 @@
 {
-  "name": "next-typescript",
+  "name": "next-pages",
   "private": true,
   "scripts": {
     "dev": "next -p 3004",

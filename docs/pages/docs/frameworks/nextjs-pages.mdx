@@ -1,19 +1,15 @@
 ---
-title: Getting Started with Next.js
-description: A guide for installing Kitchn with Nextjs projects
+title: Getting Started with Next.js (Pages Router)
+description: A guide for installing Kitchn with Nextjs projects using Pages Router
 tags: ['nextjs']
 category: frameworks
 ---
 
 import Playground from "@components/Playground";
 import kitchn, { Container, FragmentLink, Link } from "kitchn";
-import { Callout, Tab, Tabs } from "nextra-theme-docs";
+import { Tab, Tabs } from "nextra-theme-docs";
 
-# Getting Started with Next.js
-
-<Callout>
-  Kitchn only support Next.js Pages Router for now, we are working on [supporting Next.js App Router](https://github.com/tonightpass/kitchn/issues/598).
-</Callout>
+# Getting Started with Next.js (Pages Router)
 
 ## Automatic Installation
 
@@ -22,7 +18,7 @@ import { Callout, Tab, Tabs } from "nextra-theme-docs";
 To generate the starter template for your Next.js project, run the following command:
 
 ```sh
-npx create-next-app@latest --example https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript my-next-kitchn-app
+npx create-next-app@latest --example https://github.com/tonightpass/kitchn/tree/master/examples/next-pages my-next-kitchn-app
 
 cd my-next-kitchn-app
 npm run dev
@@ -60,15 +56,13 @@ wrap the `Component` with the `KitchnProvider`:
 // pages/_app.js
 import { KitchnProvider } from "kitchn";
 
-function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
     <KitchnProvider>
       <Component {...pageProps} />
     </KitchnProvider>
   );
 }
-
-export default App;
 ```
 
 ### Server Side Rendering
@@ -101,8 +95,8 @@ export default class Document extends KitchnDocument {
 
 ## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript&project-name=kitchn-next&repository-name=kitchn-next) or preview live with [StackBlitz](https://stackblitz.com/github/tonightpass/kitchn/tree/master/examples/next-typescript) or [CodeSandbox](https://codesandbox.io/s/github/tonightpass/kitchn/tree/master/examples/next-typescript).
+Deploy the example using [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-pages&project-name=kitchn-next&repository-name=kitchn-next) or preview live with [StackBlitz](https://stackblitz.com/github/tonightpass/kitchn/tree/master/examples/next-pages) or [CodeSandbox](https://codesandbox.io/s/github/tonightpass/kitchn/tree/master/examples/next-pages).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript&project-name=kitchn-next&repository-name=kitchn-next)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tonightpass/kitchn/tree/master/examples/next-pages&project-name=kitchn-next&repository-name=kitchn-next)
 
-In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/next-typescript) using Kitchn with Next.js.
+In addition, here is a complete [project example](https://github.com/tonightpass/kitchn/tree/master/examples/next-pages) using Kitchn with Next.js.
