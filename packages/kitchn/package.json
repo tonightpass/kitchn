@@ -35,7 +35,8 @@
     "dist",
     "logos",
     "native",
-    "next"
+    "next",
+    "fonts.css"
   ],
   "scripts": {
     "build": "tsup",
