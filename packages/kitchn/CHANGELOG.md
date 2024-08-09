@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.3
+
+### Patch Changes
+
+- [`059eba2`](https://github.com/tonightpass/kitchn/commit/059eba219a4f96b7164bd4502f87b69770037823) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix withDecorator HOC to handle prop types correctly
+
 ## 1.1.2
 
 ### Patch Changes
