@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.1
+
+### Patch Changes
+
+- [`174fd56`](https://github.com/tonightpass/kitchn/commit/174fd5647b0329f7dda46cff0beae49be8ed3e9a) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve package size using files field
+
 ## 1.1.0
 
 ### Minor Changes
