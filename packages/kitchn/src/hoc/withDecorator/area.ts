@@ -76,17 +76,22 @@ const generateCssForProps = (
 export const areaCss = css<AreaProps>`
   ${({ theme, ...props }) => generateCssForProps(theme, props)}
 
-  ${({ theme, ...props }) =>
-    theme.breakpoint &&
-    Object.keys(theme.breakpoint)
-      .reverse()
-      .map((breakpoint, index) => {
-        return css`
-          @media (max-width: ${theme.breakpoint[
-              breakpoint as keyof Breakpoint
-            ]}) {
-            ${generateCssForProps(theme, props, index)}
-          }
-        `;
-      })}
+  ${({ theme, ...props }) => {
+    if (!theme.breakpoint) {
+      return;
+    }
+
+    const breakpointKeys = Object.keys(theme.breakpoint);
+    const reversedBreakpointKeys = breakpointKeys.reverse();
+
+    return reversedBreakpointKeys.map((breakpoint, index) => {
+      return css`
+        @media (max-width: ${theme.breakpoint[
+            breakpointKeys[index - 1] as keyof typeof theme.breakpoint
+          ]}) {
+          ${generateCssForProps(theme, props, index)}
+        }
+      `;
+    });
+  }}
 `;

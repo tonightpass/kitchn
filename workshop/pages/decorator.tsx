@@ -7,7 +7,7 @@ const DecoratorPage: NextPage = () => {
       mx={"auto"}
       bg={"red"}
       h={500}
-      width={["100%", 500, 400, 300, 200]}
+      width={["100%", 200, 300, 400, 500]}
     >
       {/* Decorator */}
     </Container>
