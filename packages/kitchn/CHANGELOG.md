@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.4
+
+### Patch Changes
+
+- [`8fd49e7`](https://github.com/tonightpass/kitchn/commit/8fd49e76b7960f093d6f3fce98901b701aaf26b8) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix htmlWidth and htmlHeight props in Image
+
 ## 1.1.3
 
 ### Patch Changes
