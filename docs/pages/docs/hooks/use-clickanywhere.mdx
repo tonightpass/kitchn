@@ -1,0 +1,50 @@
+---
+title: "useClickAnyWhere"
+description: "A custom hook that triggers a callback whenever a click occurs anywhere on the document."
+---
+
+import Playground from "@components/Playground";
+
+# useClickAnyWhere
+
+The `useClickAnyWhere` hook allows you to execute a function whenever a click event occurs anywhere in the document. This can be useful for implementing features like closing a modal or dropdown when the user clicks outside of it.
+
+## Usage
+
+First, you need to import the `useClickAnyWhere` hook from your custom hooks file.
+
+```jsx
+import { useClickAnyWhere } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useClickAnyWhere` hook in a component:
+
+<Playground
+code={`
+() => {
+  const handleClick = (event) => {
+    console.log("Clicked somewhere on the document", event);
+  };
+
+  useClickAnyWhere(handleClick);
+
+  return (
+    <p>Click anywhere on the document and check the console.</p>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useClickAnyWhere` hook accepts the following parameter:
+
+| Name      | Type                     | Description
+|-----------|--------------------------|-------------------------------------------------------
+| `handler` | `(event: Event) => void` | A function to be called whenever a click event occurs.
+
+## Return Value
+
+The useClickAnyWhere hook does not return any value.
