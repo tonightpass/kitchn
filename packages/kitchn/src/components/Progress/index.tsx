@@ -219,8 +219,8 @@ export const ProgressCheckpoint = styled.div<{
   checkpointStyle: ProgressProps["checkpointStyle"];
 }>`
   position: absolute;
-  top: ${({ title, checkpointStyle }) =>
-    title
+  top: ${({ hasTitle, checkpointStyle }) =>
+    hasTitle
       ? `${checkpointStyle === "bar" ? 28 : 24}px`
       : `${checkpointStyle === "bar" ? 0 : -4}px`};
   left: ${({ value, max }) => `${(value * 100) / max}%`};
