@@ -1,0 +1,54 @@
+---
+title: "useBreakpoint"
+description: "A custom hook that provides boolean values indicating the current viewport size based on theme breakpoints."
+---
+
+import Playground from "@components/Playground";
+
+# useBreakpoint
+
+The `useBreakpoint` hook provides an easy way to determine the current viewport size based on predefined theme breakpoints. It returns an object with boolean values representing whether the viewport is considered mobile, tablet, laptop, or desktop.
+
+## Usage
+
+First, you need to import the `useBreakpoint` hook from the `kitchn` package.
+
+```jsx
+import { useBreakpoint } from "kitchn";
+```
+
+## Example
+
+You can use the `useBreakpoint` hook to conditionally render components based on the current viewport size.
+
+<Playground
+code={`
+() => {
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoint();
+
+  return (
+  <div>
+    {isMobile && <p>You are on a mobile device</p>}
+    {isTablet && <p>You are on a tablet</p>}
+    {isLaptop && <p>You are on a laptop</p>}
+    {isDesktop && <p>You are on a desktop</p>}
+  </div>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useBreakpoint` hook does not accept any parameters.
+
+## Return Value
+
+The `useBreakpoint` hook returns an object with the following properties:
+
+| Name        | Type      | Description
+|-------------|-----------|---------------------------------------------------------------------------------------------------
+| `isMobile`  | `boolean` | `true` if the viewport width is equal to or less than the mobile breakpoint defined in the theme.
+| `isTablet`  | `boolean` | `true` if the viewport width is equal to or less than the tablet breakpoint defined in the theme.
+| `isLaptop`  | `boolean` | `true` if the viewport width is equal to or less than the laptop breakpoint defined in the theme.
+| `isDesktop` | `boolean` | `true` if the viewport width is equal to or less than the desktop breakpoint defined in the theme.
