@@ -1,0 +1,53 @@
+---
+title: "useCheckbox"
+description: "A custom hook to manage the state of a checkbox, providing a boolean value and a toggle function."
+---
+
+import Playground from "@components/Playground";
+
+# useCheckbox
+
+The `useCheckbox` hook simplifies the management of checkbox state by providing a boolean value and a toggle function. It can be used for any scenario where a binary toggle is required, such as checkboxes, switches, or other on/off controls.
+
+## Usage
+
+First, you need to import the `useCheckbox` hook from the `kitchn` package.
+
+```jsx
+import { useCheckbox } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the useCheckbox hook in a component:
+
+<Playground
+code={`
+() => {
+  const [checked, toggle] = useCheckbox();
+
+  return (
+    <Checkbox checked={checked} onChange={toggle}>
+      Checkbox is {checked ? "checked" : "unchecked"}
+    </Checkbox>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useCheckbox` hook accepts the following parameter:
+
+| Name           | Type               | Default | Description
+|----------------|--------------------|---------|----------------------------------------------------------------
+| `defaultValue` | `UseCheckboxValue` | `false `| The initial state of the checkbox. Should be `true` or `false`.
+
+## Return Value
+
+The `useCheckbox` hook returns a tuple with the following elements:
+
+| Name      | Type         | Description
+|-----------|--------------|-----------------------------------------------------------------------
+| `checked` | `boolean`    | The current state of the checkbox (either true or false).
+| `toggle`  | `() => void` | A function to toggle the state of the checkbox between true and false.
