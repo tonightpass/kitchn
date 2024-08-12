@@ -52,6 +52,9 @@ const Features = () => {
                 alt={"WAI-ARIA Accessible"}
                 w={"100%"}
                 h={"auto"}
+                htmlWidth={421}
+                htmlHeight={238}
+                loading={"lazy"}
               />
             </Container>
             <Container br={"square"} bw={1} flex={1} minH={100} gap={"small"}>
@@ -184,6 +187,9 @@ const Features = () => {
                 alt={"Reusable Hooks"}
                 w={"100%"}
                 h={"auto"}
+                htmlWidth={449}
+                htmlHeight={417}
+                loading={"lazy"}
               />
             </Container>
           </Container>
@@ -224,6 +230,9 @@ const Features = () => {
               alt={"Stylable"}
               w={"100%"}
               h={"auto"}
+              htmlWidth={683}
+              htmlHeight={350}
+              loading={"lazy"}
             />
           </Container>
         </Container>

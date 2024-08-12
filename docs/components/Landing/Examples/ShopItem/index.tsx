@@ -13,6 +13,8 @@ const ShopItemExample: React.FC = () => {
             br={"square"}
             alt={"Example"}
             w={"100%"}
+            htmlWidth={245}
+            htmlHeight={245}
           />
           <Badge pos={"absolute"} t={"small"} l={"small"}>
             {"Superhost"}
