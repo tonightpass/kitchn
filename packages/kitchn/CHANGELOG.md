@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.5
+
+### Patch Changes
+
+- [`764c076`](https://github.com/tonightpass/kitchn/commit/764c076f82778576c3700474f19c542ea9118ddb) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix ProgressCheckpoint hasTitle
+
 ## 1.1.4
 
 ### Patch Changes
