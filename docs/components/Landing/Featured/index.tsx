@@ -21,8 +21,10 @@ const Featured: React.FC = () => {
             alt={
               "Kitchn - Delicious&#0032;React&#0032;styled&#0032;components | Product Hunt"
             }
-            width={"200"}
+            width={200}
             height={"auto"}
+            htmlWidth={200}
+            htmlHeight={43}
           />
         </Link>
       </Container>

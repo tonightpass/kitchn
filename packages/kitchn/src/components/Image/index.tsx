@@ -5,8 +5,8 @@ import { withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
 
 type Props = {
-  htmlWidth?: string;
-  htmlHeight?: string;
+  htmlWidth?: string | number;
+  htmlHeight?: string | number;
   src: string;
   alt: string;
   objectFit?:
@@ -26,7 +26,15 @@ export type ImageProps = KitchnComponent<
 >;
 
 const ImageComponent = styled(
-  ({ src, alt, htmlWidth, htmlHeight, ...props }: ImageProps) => {
+  ({
+    src,
+    alt,
+    htmlWidth,
+    htmlHeight,
+    width: _width,
+    height: _height,
+    ...props
+  }: ImageProps) => {
     return (
       <img
         src={src}
