@@ -1,0 +1,55 @@
+---
+title: "useClickAway"
+description: "A custom hook that triggers a callback when a click occurs outside a specified element."
+---
+
+import Playground from "@components/Playground";
+
+# useClickAway
+
+The `useClickAway` hook allows you to execute a function when a click occurs outside a specified element. This is useful for scenarios such as closing a dropdown, modal, or tooltip when the user clicks outside of it.
+
+## Usage
+
+First, you need to import the `useClickAway` hook from your custom hooks file.
+
+```jsx
+import { useClickAway } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useClickAway` hook in a component:
+
+<Playground
+code={`
+() => {
+  const ref = React.useRef(null);
+
+  const handleClickAway = (event) => {
+    console.log("Clicked outside of the element", event);
+  };
+
+  useClickAway(ref, handleClickAway);
+
+  return (
+    <Container ref={ref} p={"normal"} bg={"dark"}>
+      <Text>Click outside this box to trigger the event.</Text>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useClickAway` hook accepts the following parameters:
+
+| Name      | Type                                  | Description
+|-----------|---------------------------------------|-------------------------------------------------------
+| `ref`     | `React.MutableRefObject<HTMLElement>` | A `React.MutableRefObject` that should be attached to the element you want to monitor for outside clicks.
+| `handler` | `(event: Event) => void`              | A function to be called whenever a click event occurs.
+
+## Return Value
+
+The `useClickAway` hook does not return any value.
