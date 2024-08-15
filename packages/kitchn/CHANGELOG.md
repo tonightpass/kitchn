@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.7
+
+### Patch Changes
+
+- [`438184c`](https://github.com/tonightpass/kitchn/commit/438184ce2d8269a9d461807156a2eb2856a63029) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve decorator hoc with user select
+
 ## 1.1.6
 
 ### Patch Changes
