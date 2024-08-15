@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.6
+
+### Patch Changes
+
+- [`fbcad7f`](https://github.com/tonightpass/kitchn/commit/fbcad7fe4907634584628a5102018e0f4f242689) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix decorator hoc not returning refs
+
 ## 1.1.5
 
 ### Patch Changes
