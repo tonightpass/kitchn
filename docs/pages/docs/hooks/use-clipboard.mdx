@@ -1,0 +1,65 @@
+---
+title: "useClipboard"
+description: "A custom hook that allows you to copy text to the clipboard programmatically with error handling."
+---
+
+import Playground from "@components/Playground";
+
+# useClipboard
+
+The `useClipboard` hook enables you to copy text to the clipboard programmatically. It also provides error handling to notify you if the copy operation fails. This hook is useful in scenarios where you need to provide a copy-to-clipboard functionality, such as copying text from an input field or copying a URL.
+
+## Usage
+
+First, you need to import the `useClipboard` hook from your custom hooks file.
+
+```jsx
+import { useClipboard } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useClipboard` hook in a component:
+
+<Playground
+code={`
+() => {
+  const { copy } = useClipboard();
+
+  const handleCopy = () => {
+    copy("This text is now copied to the clipboard!");
+  };
+
+  return (
+    <Container>
+      <Button onClick={handleCopy}>Copy Text</Button>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useClipboard` hook accepts the following parameter:
+
+| Name      | Type                  | Description
+|-----------|-----------------------|---------------------------------------------------
+| `options` | `UseClipboardOptions` | Configuration options for the clipboard operation.
+
+### UseClipboardOptions
+
+The `UseClipboardOptions` object can include the following properties:
+
+| Name      | Type            | Description
+|-----------|-----------------|--------------------------------------------------------------------
+| `onError` | `() => unknown` | A callback function that gets executed if the copy operation fails.
+
+## Return Value
+
+The `useClipboard` hook returns an object with the following property:
+
+| Name    | Type                     | Description
+|---------|--------------------------|-----------------------------------------------------------
+| `copy`  | `(text: string) => void` | A function that copies the provided text to the clipboard.
+
