@@ -60,7 +60,10 @@ export const withDecorator = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
   passThroughProps: string[] = [],
 ) => {
-  return styled(({ ...props }: DecoratorProps & T) => {
+  const WithDecoratorComponent = React.forwardRef<
+    HTMLElement,
+    DecoratorProps & T
+  >((props, ref) => {
     const filteredProps = Object.entries(props).reduce((acc, [key, value]) => {
       if (
         ![
@@ -77,17 +80,17 @@ export const withDecorator = <T extends object>(
         ].includes(key) ||
         passThroughProps.includes(key)
       ) {
-        (
-          acc as {
-            [key: string]: any;
-          }
-        )[key] = value;
+        (acc as { [key: string]: any })[key] = value;
       }
       return acc;
     }, {} as T);
 
-    return <WrappedComponent {...filteredProps} />;
-  })<DecoratorProps>`
+    return <WrappedComponent {...filteredProps} ref={ref} />;
+  });
+
+  WithDecoratorComponent.displayName = `WithDecorator(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
+
+  return styled(WithDecoratorComponent)<DecoratorProps>`
     ${({ display }) => (display !== undefined ? `display: ${display};` : "")}
     ${({ overflow }) =>
       overflow !== undefined ? `overflow: ${overflow};` : ""}
