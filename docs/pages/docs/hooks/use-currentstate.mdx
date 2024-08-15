@@ -1,0 +1,60 @@
+---
+title: "useCurrentState"
+description: "A custom hook that provides state management along with a mutable ref to track the current state value."
+---
+
+import Playground from "@components/Playground";
+
+# useCurrentState
+
+The `useCurrentState` hook combines the functionality of React's state and ref hooks. It provides state management along with a mutable ref that always contains the most up-to-date value of the state. This is particularly useful in scenarios where you need synchronous access to the current state value within asynchronous functions or event handlers.
+
+## Usage
+
+First, you need to import the `useCurrentState` hook from your custom hooks file.
+
+```jsx
+import { useCurrentState } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useCurrentState` hook in a component:
+
+<Playground
+code={`
+() => {
+  const [count, setCount, countRef] = useCurrentState(0);
+
+  const handleIncrement = () => {
+    setCount((prev) => prev + 1);
+    console.log("Current count (from ref):", countRef.current);
+  };
+
+  return (
+    <Container gap={"small"}>
+      <Text>Count: {count}</Text>
+      <Button onClick={handleIncrement}>Increment</Button>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useCurrentState` hook accepts the following parameter:
+
+| Name           | Type             | Description
+|----------------|------------------|---------------------------------------------------
+| `initialState` | `S` or `() => S` | The initial state value, or a function that returns the initial state.
+
+## Return Value
+
+The `useCurrentState` hook returns a tuple with the following elements:
+
+| Name       | Type                                      | Description
+|------------|-------------------------------------------|-----------------------------------------------------------
+| `state`    | `S`                                       | The current state value.
+| `setState` | `React.Dispatch<React.SetStateAction<S>>` | A function to update the state, similar to `setState` in React.
+| `ref`      | `React.MutableRefObject<S>`               | A ref object containing the most up-to-date state value.
