@@ -24,6 +24,15 @@ export type DecoratorProps = {
   font?: string | number | keyof Size;
   cursor?: "pointer" | "auto" | "inherit" | "initial" | "unset";
   pointerEvents?: "auto" | "none" | "inherit" | "initial" | "revert" | "unset";
+  userSelect?:
+    | "auto"
+    | "none"
+    | "text"
+    | "all"
+    | "contain"
+    | "inherit"
+    | "initial"
+    | "unset";
 } & AreaProps &
   BackgroundProps &
   BorderProps &
@@ -99,6 +108,8 @@ export const withDecorator = <T extends object>(
     ${({ cursor }) => (cursor !== undefined ? `cursor: ${cursor};` : "")}
     ${({ pointerEvents }) =>
       pointerEvents !== undefined ? `pointer-events: ${pointerEvents};` : ""}
+    ${({ userSelect }) =>
+      userSelect !== undefined ? `user-select: ${userSelect};` : ""}
     ${areaCss}
     ${backgroundCss}
     ${borderCss}
