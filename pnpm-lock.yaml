@@ -64,7 +64,7 @@ importers:
         version: 11.1.4
       turbo:
         specifier: ^2.0.4
-        version: 2.0.12
+        version: 2.0.14
 
   docs:
     dependencies:
@@ -168,7 +168,7 @@ importers:
         version: 5.13.6(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@1.4.0)(typescript@5.5.4)
       kitchn:
         specifier: latest
-        version: 1.1.4(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+        version: 1.1.7(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -211,7 +211,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.1.4(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+        version: 1.1.7(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^14.2.5
         version: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -239,7 +239,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.1.4(next@13.5.6(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+        version: 1.1.7(next@13.5.6(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^13.0.2
         version: 13.5.6(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -267,7 +267,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.1.4(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+        version: 1.1.7(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -5249,8 +5249,8 @@ packages:
       typescript:
         optional: true
 
-  eslint-config-turbo@2.0.12:
-    resolution: {integrity: sha512-3PUzoyeJi2SjsTSjfWgTUIHK7kOqsapDEaOT7sCjFnZXvuhYLKxW37lysjq7+55abGGm0yQTXxNFLjrQKUORag==}
+  eslint-config-turbo@2.0.14:
+    resolution: {integrity: sha512-VkzAH/AR1/fjMsqzuurfWkEgyGVTTzfZQB1umDB8dMWzFhqo8p/2KEWbvRQLEvSFxjVfeJl5ErQAJ7h7DYglxg==}
     peerDependencies:
       eslint: '>6.6.0'
 
@@ -5393,8 +5393,8 @@ packages:
     peerDependencies:
       eslint: ^7.5.0 || ^8.0.0
 
-  eslint-plugin-turbo@2.0.12:
-    resolution: {integrity: sha512-vXWKer7F0RPTcVy1B+hFTEK4mlEOpouB8MCAFD3WW4C6t98wvuDCsIPjxIldpxg7CnwmRxALpNWgNVkU2LVVEQ==}
+  eslint-plugin-turbo@2.0.14:
+    resolution: {integrity: sha512-E++MSAEeWZTU0FYARrfakMPq+7XeltqeY4JBDQTzbGEWG3kgYJPeYBMWsypcvBujVihQLlMu0S6ImnfV692mHg==}
     peerDependencies:
       eslint: '>6.6.0'
 
@@ -6973,8 +6973,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  kitchn@1.1.4:
-    resolution: {integrity: sha512-Ef8xpFEbK6BZuPNPLFShitd//86LNNoCcUFord4nwB+6vYvTqNmr/D47tkVXt1uSdPfYP/u8ZApAKQdd+T/vyg==}
+  kitchn@1.1.7:
+    resolution: {integrity: sha512-7NlctuDIgGusdIa3lovjlKN2MMh47+M/GFWxVLMBQhEWwUtcLLr/Ld1l0HNP095nxO//wknT5VaThMf6vqE64A==}
     peerDependencies:
       next: '>= 13.0.0'
       react: '>= 16.8.0'
@@ -9946,38 +9946,38 @@ packages:
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
 
-  turbo-darwin-64@2.0.12:
-    resolution: {integrity: sha512-NAgfgbXxX/JScWQmmQnGbPuFZq7LIswHfcMk5JwyBXQM/xmklNOxxac7MnGGIOf19Z2f6S3qHy17VIj0SeGfnA==}
+  turbo-darwin-64@2.0.14:
+    resolution: {integrity: sha512-kwfDmjNwlNfvtrvT29+ZBg5n1Wvxl891bFHchMJyzMoR0HOE9N1NSNdSZb9wG3e7sYNIu4uDkNk+VBEqJW0HzQ==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@2.0.12:
-    resolution: {integrity: sha512-cP02uer5KSJ+fXL+OfRRk5hnVjV0c60hxDgNcJxrZpfhun7HHoKDDR7w2xhQntiA45aC6ZZEXRqMKpj6GAmKbg==}
+  turbo-darwin-arm64@2.0.14:
+    resolution: {integrity: sha512-m3LXYEshCx3wc4ZClM6gb01KYpFmtjQ9IBF3A7ofjb6ahux3xlYZJZ3uFCLAGHuvGLuJ3htfiPbwlDPTdknqqw==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@2.0.12:
-    resolution: {integrity: sha512-+mQgGfg1eq5qF+wenK/FKJaNMNAo5DQLC4htQy+8osW+fx6U+8+6UlPQPaycAWDEqwOI7NwuqkeHfkEQLQUTyQ==}
+  turbo-linux-64@2.0.14:
+    resolution: {integrity: sha512-7vBzCPdoTtR92SNn2JMgj1FlMmyonGmpMaQdgAB1OVYtuQ6NVGoh7/lODfaILqXjpvmFSVbpBIDrKOT6EvcprQ==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@2.0.12:
-    resolution: {integrity: sha512-KFyEZDXfPU1DK4zimxdCcqAcK7IIttX4mfsgB7NsSEOmH0dhHOih/YFYiyEDC1lTRx0C2RlzQ0Kjjdz48AN5Eg==}
+  turbo-linux-arm64@2.0.14:
+    resolution: {integrity: sha512-jwH+c0bfjpBf26K/tdEFatmnYyXwGROjbr6bZmNcL8R+IkGAc/cglL+OToqJnQZTgZvH7uDGbeSyUo7IsHyjuA==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@2.0.12:
-    resolution: {integrity: sha512-kJj4KCkZTkDTDCqsSw1m1dbO4WeoQq1mYUm/thXOH0OkeqYbSMt0EyoTcJOgKUDsrMnzZD2gPfYrlYHtV69lVA==}
+  turbo-windows-64@2.0.14:
+    resolution: {integrity: sha512-w9/XwkHSzvLjmioo6cl3S1yRfI6swxsV1j1eJwtl66JM4/pn0H2rBa855R0n7hZnmI6H5ywLt/nLt6Ae8RTDmw==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@2.0.12:
-    resolution: {integrity: sha512-TY3ROxguDilN2olCwcZMaePdW01Xhma0pZU7bNhsQEqca9RGAmsZBuzfGnTMcWPmv4tpnb/PlX1hrt1Hod/44Q==}
+  turbo-windows-arm64@2.0.14:
+    resolution: {integrity: sha512-XaQlyYk+Rf4xS5XWCo8XCMIpssgGGy8blzLfolN6YBp4baElIWMlkLZHDbGyiFmCbNf9I9gJI64XGRG+LVyyjA==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@2.0.12:
-    resolution: {integrity: sha512-8s2KwqjwQj7z8Z53SUZSKVkQOZ2/Sl4D2F440oaBY/k2lGju60dW6srEpnn8/RIDeICZmQn3pQHF79Jfnc5Skw==}
+  turbo@2.0.14:
+    resolution: {integrity: sha512-00JjdCMD/cpsjP0Izkjcm8Oaor5yUCfDwODtaLb+WyblyadkaDEisGhy3Dbd5az9n+5iLSPiUgf+WjPbns6MRg==}
     hasBin: true
 
   type-check@0.4.0:
@@ -14835,7 +14835,7 @@ snapshots:
 
   agent-base@7.1.1:
     dependencies:
-      debug: 4.3.6
+      debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
 
@@ -16859,7 +16859,7 @@ snapshots:
       eslint: 8.57.0
       eslint-config-next: 14.2.5(eslint@8.57.0)(typescript@5.5.4)
       eslint-config-prettier: 9.1.0(eslint@8.57.0)
-      eslint-config-turbo: 2.0.12(eslint@8.57.0)
+      eslint-config-turbo: 2.0.14(eslint@8.57.0)
       eslint-config-universe: 12.1.0(@types/eslint@8.56.10)(eslint@8.57.0)(prettier@3.3.3)(typescript@5.5.4)
       eslint-plugin-prettier: 5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
       eslint-plugin-react: 7.33.2(eslint@8.57.0)
@@ -16881,7 +16881,7 @@ snapshots:
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.13.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.9.0(eslint@8.57.0)
-      eslint-plugin-react: 7.34.2(eslint@8.57.0)
+      eslint-plugin-react: 7.33.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
     optionalDependencies:
       typescript: 5.5.4
@@ -16939,10 +16939,10 @@ snapshots:
       - jest
       - supports-color
 
-  eslint-config-turbo@2.0.12(eslint@8.57.0):
+  eslint-config-turbo@2.0.14(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
-      eslint-plugin-turbo: 2.0.12(eslint@8.57.0)
+      eslint-plugin-turbo: 2.0.14(eslint@8.57.0)
 
   eslint-config-universe@12.1.0(@types/eslint@8.56.10)(eslint@8.57.0)(prettier@3.3.3)(typescript@5.5.4):
     dependencies:
@@ -17251,28 +17251,6 @@ snapshots:
       semver: 6.3.1
       string.prototype.matchall: 4.0.11
 
-  eslint-plugin-react@7.34.2(eslint@8.57.0):
-    dependencies:
-      array-includes: 3.1.8
-      array.prototype.findlast: 1.2.5
-      array.prototype.flatmap: 1.3.2
-      array.prototype.toreversed: 1.1.2
-      array.prototype.tosorted: 1.1.4
-      doctrine: 2.1.0
-      es-iterator-helpers: 1.0.19
-      eslint: 8.57.0
-      estraverse: 5.3.0
-      jsx-ast-utils: 3.3.5
-      minimatch: 3.1.2
-      object.entries: 1.1.8
-      object.fromentries: 2.0.8
-      object.hasown: 1.1.4
-      object.values: 1.2.0
-      prop-types: 15.8.1
-      resolve: 2.0.0-next.5
-      semver: 6.3.1
-      string.prototype.matchall: 4.0.11
-
   eslint-plugin-testing-library@5.11.1(eslint@7.32.0)(typescript@5.5.4):
     dependencies:
       '@typescript-eslint/utils': 5.62.0(eslint@7.32.0)(typescript@5.5.4)
@@ -17281,7 +17259,7 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-turbo@2.0.12(eslint@8.57.0):
+  eslint-plugin-turbo@2.0.14(eslint@8.57.0):
     dependencies:
       dotenv: 16.0.3
       eslint: 8.57.0
@@ -17701,7 +17679,7 @@ snapshots:
 
   extract-zip@2.0.1:
     dependencies:
-      debug: 4.3.6
+      debug: 4.3.4
       get-stream: 5.2.0
       yauzl: 2.10.0
     optionalDependencies:
@@ -18468,7 +18446,7 @@ snapshots:
     dependencies:
       basic-ftp: 5.0.5
       data-uri-to-buffer: 6.0.2
-      debug: 4.3.6
+      debug: 4.3.4
       fs-extra: 11.2.0
     transitivePeerDependencies:
       - supports-color
@@ -18857,7 +18835,7 @@ snapshots:
   http-proxy-agent@7.0.2:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
 
@@ -18881,7 +18859,7 @@ snapshots:
   https-proxy-agent@7.0.4:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
 
@@ -19508,7 +19486,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kitchn@1.1.4(next@13.5.6(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1):
+  kitchn@1.1.7(next@13.5.6(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -19527,7 +19505,7 @@ snapshots:
       react-native: 0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1)
       react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))
 
-  kitchn@1.1.4(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1):
+  kitchn@1.1.7(next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -21400,7 +21378,7 @@ snapshots:
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.4
       get-uri: 6.0.3
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.4
@@ -21893,7 +21871,7 @@ snapshots:
   proxy-agent@6.4.0:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.4
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.4
       lru-cache: 7.18.3
@@ -22880,7 +22858,7 @@ snapshots:
   socks-proxy-agent@8.0.3:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.4
       socks: 2.8.3
     transitivePeerDependencies:
       - supports-color
@@ -23447,32 +23425,32 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  turbo-darwin-64@2.0.12:
+  turbo-darwin-64@2.0.14:
     optional: true
 
-  turbo-darwin-arm64@2.0.12:
+  turbo-darwin-arm64@2.0.14:
     optional: true
 
-  turbo-linux-64@2.0.12:
+  turbo-linux-64@2.0.14:
     optional: true
 
-  turbo-linux-arm64@2.0.12:
+  turbo-linux-arm64@2.0.14:
     optional: true
 
-  turbo-windows-64@2.0.12:
+  turbo-windows-64@2.0.14:
     optional: true
 
-  turbo-windows-arm64@2.0.12:
+  turbo-windows-arm64@2.0.14:
     optional: true
 
-  turbo@2.0.12:
+  turbo@2.0.14:
     optionalDependencies:
-      turbo-darwin-64: 2.0.12
-      turbo-darwin-arm64: 2.0.12
-      turbo-linux-64: 2.0.12
-      turbo-linux-arm64: 2.0.12
-      turbo-windows-64: 2.0.12
-      turbo-windows-arm64: 2.0.12
+      turbo-darwin-64: 2.0.14
+      turbo-darwin-arm64: 2.0.14
+      turbo-linux-64: 2.0.14
+      turbo-linux-arm64: 2.0.14
+      turbo-windows-64: 2.0.14
+      turbo-windows-arm64: 2.0.14
 
   type-check@0.4.0:
     dependencies:
