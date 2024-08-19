@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
 export function useMediaQuery(query: string): boolean {
   const getMatches = (query: string): boolean => {
@@ -9,13 +9,13 @@ export function useMediaQuery(query: string): boolean {
     return false;
   };
 
-  const [matches, setMatches] = useState<boolean>(getMatches(query));
+  const [matches, setMatches] = React.useState<boolean>(getMatches(query));
 
   function handleChange() {
     setMatches(getMatches(query));
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     const matchMedia = window.matchMedia(query);
 
     // Triggered at the first client-side load and if query changes
