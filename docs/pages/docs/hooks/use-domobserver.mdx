@@ -1,0 +1,69 @@
+---
+title: "useDOMObserver"
+description: "A custom hook that observes changes to a DOM element and triggers a callback function when mutations occur."
+---
+
+import Playground from "@components/Playground";
+
+# useDOMObserver
+
+The `useDOMObserver` hook allows you to observe changes to a DOM element and execute a callback function whenever mutations occur. This can be useful for scenarios where you need to react to changes in the DOM, such as when elements are added, removed, or modified.
+
+## Usage
+
+First, you need to import the `useDOMObserver` hook from your custom hooks file.
+
+```jsx
+import { useDOMObserver } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useDOMObserver` hook in a component:
+
+<Playground
+code={`
+() => {
+  const ref = React.useRef(null);
+
+  useDOMObserver(ref, (mutationsList) => {
+    mutationsList.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        console.log('A child node has been added or removed.');
+      } else if (mutation.type === 'attributes') {
+        console.log('The attributes of the target node have changed.');
+      }
+    });
+  });
+
+  return (
+  <Container gap={"tiny"} ref={ref}>
+    <p>Observe changes to this element.</p>
+    
+    <Button
+      onClick={() => {
+        const newElement = document.createElement('p');
+        newElement.textContent = 'A new paragraph!';
+        ref.current?.appendChild(newElement);
+      }}
+    >
+      Add Paragraph
+    </Button>
+  </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useDOMObserver` hook accepts the following parameter:
+
+| Name       | Type                                  | Description
+|------------|---------------------------------------|---------------------------------------------------
+| `ref`      | `React.MutableRefObject<HTMLElement>` | A ref object that points to the DOM element you want to observe.
+| `callback` | `MutationCallback`                    | A function to be called whenever mutations are observed.
+
+## Return Value
+
+The `useDOMObserver` hook does not return any value.
