@@ -1,0 +1,77 @@
+---
+title: "usePortal"
+description: "A custom hook to create and manage a DOM element for rendering portals."
+---
+
+import Playground from "@components/Playground";
+
+# usePortal
+
+The `usePortal` hook simplifies the creation and management of a DOM element that can be used as a portal target. Portals allow you to render components outside the normal DOM hierarchy, which is useful for UI elements like modals, tooltips, and dropdowns.
+
+## Usage
+
+First, you need to import the `usePortal` hook from your custom hooks file.
+
+```jsx
+import { usePortal } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `usePortal` hook to create a portal for rendering a modal:
+
+<Playground
+code={`
+() => {
+  const [active, open, close] = useModal();
+  const modalRoot = usePortal("modal-root");
+
+  return (
+    <Container>
+      <Button size={"normal"} onClick={open}>
+        Open Modal
+      </Button>
+      {modalRoot && createPortal((
+        <Container
+          position="fixed"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+          bg="rgba(0, 0, 0, 0.5)"
+          display={active ? "flex" : "none"}
+          zi="999"
+          align="center"
+          justify="center"
+        >
+          <Container bg="darkest" p="small" br="square" gap={"small"}>
+            <Text>This is a modal rendered in a portal!</Text>
+            <Button onClick={close}>Close Modal</Button>
+          </Container>
+        </Container>
+      ),
+      modalRoot
+      )}
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `usePortal` hook accepts the following parameters:
+
+| Name           | Type                | Description
+|----------------|---------------------|---------------------------------------------------
+| `selectId`     | `string`            | An optional ID used to uniquely identify the portal element. Defaults to a generated ID.
+| `getContainer` | `() => HTMLElement` | An optional function that returns a container element where the portal will be appended.
+
+## Return Value
+
+The `usePortal` hook returns a tuple with the following elements:
+
+| Name         | Type                    | Description
+|--------------|-------------------------|-----------------------------------------------------------
+| `elSnapshot` | `HTMLElement` or `null` | The DOM element created by the hook, or `null` if the hook is used in a non-browser environment.
