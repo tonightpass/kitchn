@@ -1,0 +1,66 @@
+---
+title: "usePrevious"
+description: "A custom hook that tracks the previous value of a state or prop."
+---
+
+import Playground from "@components/Playground";
+
+# usePrevious
+
+The `usePrevious`  hook allows you to capture and use the previous value of a state or prop in a React component. This can be particularly useful when you need to compare the current value with its previous state, such as implementing animations, tracking changes, or conditionally executing logic based on value changes.
+
+## Usage
+
+First, you need to import the `usePrevious` hook from your custom hooks file.
+
+```jsx
+import { usePrevious } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `usePrevious` hook in a component:
+
+<Playground
+code={`
+() => {
+  const [count, setCount] = React.useState(0);
+  const prevCount = usePrevious(count);
+
+  useEffect(() => {
+    if (prevCount !== undefined && prevCount !== count) {
+      console.log(\`Count changed from $\{prevCount} to $\{count}\`);
+    }
+  }, [count, prevCount]);
+
+  return (
+    <Container gap={"tiny"}>
+      <Text>Current Count: {count}</Text>
+      <Text>Previous Count: {prevCount}</Text>
+
+      <Button
+        onClick={() => setCount((prev) => prev + 1)}
+      >
+        Increment Count
+      </Button>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `usePrevious` hook accepts the following parameters:
+
+| Name    | Type | Description
+|---------|------|---------------------------------------------------
+| `state` | `T`  | The current state or prop whose previous value you want to track.
+
+## Return Value
+
+The `usePrevious` hook returns a tuple with the following elements:
+
+| Name        | Type                         | Description
+|-------------|------------------------------|-----------------------------------------------------------
+| `prevState` | `T` or `undefined` or `null` | The previous value of the state or prop passed to the hook.
