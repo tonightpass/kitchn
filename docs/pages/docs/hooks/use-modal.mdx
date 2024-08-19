@@ -1,0 +1,66 @@
+---
+title: "useModal"
+description: "A custom hook to manage the open and close state of a modal."
+---
+
+import Playground from "@components/Playground";
+
+# useModal
+
+The `useModal` hook provides a simple way to manage the state of a modal, allowing you to easily open and close the modal with provided functions. This hook returns the current state of the modal (whether it is open or closed) along with functions to open and close the modal.
+
+## Usage
+
+First, you need to import the `useModal` hook from your custom hooks file.
+
+```jsx
+import { useModal } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useModal` hook in a component:
+
+<Playground code={`() => {
+  const [active, open, close] = useModal();
+
+  return (
+    <Container>
+      <Button size={"normal"} onClick={open}>
+        Open Modal
+      </Button>
+      
+      <Modal.Modal active={active} onClickOutside={close}>
+        <Modal.Body>
+          <Modal.Header>
+            <Modal.Title>Modal</Modal.Title>
+            <Modal.Subtitle>This is a modal.</Modal.Subtitle>
+          </Modal.Header>
+
+          <Text>Some content contained within the modal.</Text>
+        </Modal.Body>
+
+        <Modal.Actions>
+          <Modal.Action type={"dark"} onClick={close}>Cancel</Modal.Action>
+
+          <Modal.Action type={"light"} onClick={close}>Submit</Modal.Action>
+        </Modal.Actions>
+      </Modal.Modal>
+    </Container>
+  );
+}`}
+/>
+
+## Parameters
+
+The `useModal` hook does not accept any parameters.
+
+## Return Value
+
+The `useModal` hook returns a tuple with the following elements:
+
+| Name     | Type         | Description
+|----------|--------------|-----------------------------------------------------------
+| `isOpen` | `boolean`    | A boolean value indicating whether the modal is currently open.
+| `open`   | `() => void` | A function to open the modal by setting its state to `true`.
+| `close`  | `() => void` | A function to close the modal by setting its state to `false`.
