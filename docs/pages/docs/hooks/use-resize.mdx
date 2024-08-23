@@ -1,0 +1,60 @@
+---
+title: "useResize"
+description: "A custom hook that triggers a callback function whenever the window is resized, with an option to invoke the callback immediately upon mounting."
+---
+
+import Playground from "@components/Playground";
+
+# useResize
+
+The `useResize` hook allows you to execute a callback function whenever the window is resized. This can be useful for handling responsive layouts, recalculating element positions, or performing other actions that depend on the window's dimensions. Additionally, the hook provides an option to invoke the callback immediately when the component mounts.
+
+## Usage
+
+First, you need to import the `useResize` hook from your custom hooks file.
+
+```jsx
+import { useResize } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useResize` hook in a component:
+
+<Playground
+code={`
+() => {
+  const [windowSize, setWindowSize] = React.useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useResize(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  });
+
+  return (
+    <Container>
+      <Text>Window Width: {windowSize.width}px</Text>
+      <Text>Window Height: {windowSize.height}px</Text>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useResize` hook accepts the following parameters:
+
+| Name           | Type                                            | Description
+|----------------|-------------------------------------------------|---------------------------------------------------
+| `callback` | `() => unknown`  | A function to be called whenever the window is resized.
+| `immediatelyInvoke` | `boolean`  | Whether to invoke the callback immediately upon component mount.
+
+## Return Value
+
+The `useResize` hook does not return any value.
