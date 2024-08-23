@@ -1,0 +1,50 @@
+---
+title: "useSSR"
+description: "A custom hook that helps determine whether your code is running on the server or the browser, providing flags for both environments."
+---
+
+import Playground from "@components/Playground";
+
+# useSSR
+
+The `useSSR` hook allows you to identify whether your code is running in a server-side or client-side environment. This is particularly useful for handling logic that should only execute in the browser, such as DOM manipulations or accessing browser-specific APIs.
+
+## Usage
+
+First, you need to import the `useSSR` hook from your custom hooks file.
+
+```jsx
+import { useSSR } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useSSR` hook in a component:
+
+<Playground
+code={`
+() => {
+  const { isBrowser, isServer } = useSSR();
+
+  return (
+    <Container>
+      <Text>Is this running in the browser? {isBrowser ? "Yes" : "No"}</Text>
+      <Text>Is this running on the server? {isServer ? "Yes" : "No"}</Text>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useSSR` hook returns an object with the following properties:
+
+| Name        | Type       | Description
+|-------------|------------|---------------------------------------------------
+| `isBrowser` | `boolean`  | `true` if the code is running in the browser; `false` otherwise.
+| `isServer	` | `boolean`  | `true` if the code is running on the server; `false` otherwise.
+
+## Return Value
+
+The `useResize` hook does not return any value.
