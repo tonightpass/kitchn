@@ -1,0 +1,81 @@
+---
+title: "useRect"
+description: "A custom hook to manage and update the DOM element's position and dimensions in relation to the viewport or a specified container."
+---
+
+import Playground from "@components/Playground";
+
+# useRect
+
+The `useRect` hook provides a simple way to track and update the position and dimensions of a DOM element in relation to the viewport or a specified container. It can be particularly useful for tasks like positioning popups, tooltips, or tracking element visibility.
+
+## Usage
+
+First, you need to import the `useRect` hook from your custom hooks file.
+
+```jsx
+import { useRect } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useRect` hook in a component:
+
+<Playground
+code={`
+() => {
+  const ref = useRef();
+  const { rect, setRect } = useRect();
+
+  const handleMouseOver = (event) => {
+      if (!event.target) return;
+      setRect(event, () => ref.current);
+  };
+
+  return (
+    <Container ref={ref}
+      onMouseOver={handleMouseOver}
+      p={"medium"}
+      bw={1}
+      br={"square"}
+    >
+      <Text>Hover over this box to get its dimensions and position.</Text>
+      <Text>Top: {rect.top}px</Text>
+      <Text>Left: {rect.left}px</Text>
+      <Text>Width: {rect.width}px</Text>
+      <Text>Height: {rect.height}px</Text>
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useRect` hook accepts the following parameters:
+
+| Name           | Type                                            | Description
+|----------------|-------------------------------------------------|---------------------------------------------------
+| `initialState` | `ReactiveDomReact` or `() => ReactiveDomReact`  | (Optional) Initial state for the rectangle dimensions and position.
+
+### ReactiveDomReact
+
+| Name           | Type     | Description
+|----------------|----------|---------------------------------------------------
+| `top`          | `number` | The top position of the element relative to the container or viewport.
+| `left`         | `number` | The left position of the element relative to the container or viewport.
+| `right`        | `number` | The right position of the element relative to the container or viewport.
+| `bottom`       | `number` | The bottom position of the element relative to the container or viewport.
+| `width`        | `number` | The width of the element.
+| `height`       | `number` | The height of the element.
+| `elementTop`   | `number` | The top position of the element relative to the container or viewport, including any scrolling.
+
+## Return Value
+
+The `useRect` hook returns an object with the following properties and functions:
+
+| Name             | Type                         | Description
+|------------------|------------------------------|-----------------------------------------------------------
+| `rect`           | `ReactiveDomReact`           | The current position and dimensions of the tracked element.
+| `setRect`        | `(event: React.MouseEvent<HTMLElement> or React.FocusEvent<HTMLElement>, getContainer?: () => HTMLElement or null)` | A function to update the position and dimensions of the tracked element.
+| `setRectWithRef` | `(React.MutableRefObject<HTMLElement or null>, getContainer?: () => HTMLElement or null)` | A function to update the position and dimensions of the tracked element using a ref.
