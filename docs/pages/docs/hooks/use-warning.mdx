@@ -1,0 +1,47 @@
+---
+title: "useWarning"
+description: "A custom hook for logging warnings to the console, with an optional component tag for better traceability."
+---
+
+import Playground from "@components/Playground";
+
+# useWarning
+
+The `useWarning` hook provides a way to log warnings to the console in a consistent and controlled manner. This hook is particularly useful for development purposes, allowing you to flag potential issues in your code with clear messages that can optionally be associated with a specific component.
+
+## Usage
+
+First, you need to import the `useWarning` hook from the `kitchn` package.
+
+```jsx
+import { useWarning } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useWarning` hook in a component:
+
+<Playground
+code={`
+() => {
+  useWarning("This is a warning message", "ExampleComponent");
+
+  return (
+    <Text>Check the console for a warning message.</Text>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useWarning` hook accepts the following parameters:
+
+| Name        | Type       | Description
+|-------------|------------|---------------------------------------------------
+| `isBrowser` | `boolean`  | `true` if the code is running in the browser; `false` otherwise.
+| `isServer	` | `boolean`  | `true` if the code is running on the server; `false` otherwise.
+
+## Return Value
+
+The `useWarning` hook does not return any value.

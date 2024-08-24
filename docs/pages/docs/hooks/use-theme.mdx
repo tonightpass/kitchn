@@ -1,0 +1,59 @@
+---
+title: "useTheme"
+description: "A custom hook that provides access to the current theme and related theme management functions."
+---
+
+# useTheme
+
+The `useTheme` hook is a powerful tool for managing and accessing the current theme in your React application. It allows you to easily switch between different themes, apply a theme directly, and retrieve various theme-related properties. This hook is particularly useful in applications that support multiple themes, including light, dark, and system-preferred themes.
+
+## Usage
+
+First, you need to import the `useTheme` hook from the `kitchn` package.
+
+```jsx
+import { useTheme } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useTheme` hook in a component:
+
+
+```jsx
+import React from "react";
+import { Button, Container, Text,useTheme } from "kitchn";
+
+const ThemeSwitcher = () => {
+  const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
+
+  return (
+    <Container>
+      <Text>Current Theme: {resolvedTheme}</Text>
+      <Text>System Theme: {systemTheme}</Text>
+      <Button onClick={() => setTheme('light')}>Switch to Light Theme</Button>
+      <Button onClick={() => setTheme('dark')}>Switch to Dark Theme</Button>
+      <Button onClick={() => setTheme('system')}>Use System Theme</Button>
+    </Container>
+  );
+};
+```
+
+## Parameters
+
+The `useTheme` hook does not accept any parameters.
+
+## Return Value
+
+The `useTheme` hook returns an object containing the following properties and functions:
+
+| Name           | Type       | Description
+|----------------|------------|---------------------------------------------------
+| `theme`        | `DefaultTheme`   | The current theme object containing colors, fonts, spacing, etc.
+| `setTheme`     | `(theme: keyof Themes \| "system") => void`  | Function to set the current theme by name or switch to the system theme.
+| `setThemeStyle`| `(theme: DefaultTheme) => void` | Function to apply a custom theme directly by passing a theme object.
+| `resolvedTheme`| `keyof Themes \| "system"` | The name of the theme that is currently active, which could be a named theme or "system".
+| `systemTheme`  | `keyof Themes` | The theme that matches the user's system preference, typically "light" or "dark".
+| `forcedTheme`  | `keyof Themes \| "system"` | If set, this forces the application to use a specific theme regardless of user choice.
+| `storedTheme`  | `keyof Themes \| "system"` | The theme that was last stored or selected by the user.
+| `themes`       | `Record<string, DefaultTheme>` | A record of all available themes, keyed by theme name.
