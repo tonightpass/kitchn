@@ -1,0 +1,56 @@
+---
+title: "useMediaQuery"
+description: "A custom React hook that allows you to monitor and respond to media query changes, enabling responsive design in your components."
+---
+
+import Playground from "@components/Playground";
+
+# useMediaQuery
+
+The `useMediaQuery` hook provides an easy way to track and respond to media query changes in a React component. This is particularly useful for implementing responsive design where you need to conditionally render or style components based on the viewport or device characteristics.
+
+## Usage
+
+First, you need to import the `useMediaQuery` hook from the `kitchn` package.
+
+```jsx
+import { useMediaQuery } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useMediaQuery` hook in a component:
+
+<Playground
+code={`
+() => {
+  const isDesktop = useMediaQuery("(min-width: 1224px)");
+
+  return (
+    <Container>
+      {isDesktop ? (
+        <Text>You are on a desktop or laptop screen.</Text>
+      ) : (
+        <Text>You are on a mobile or tablet screen.</Text>
+      )}
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useMediaQuery` hook accepts the following parameter:
+
+| Name      | Type     | Description
+|-----------|----------|-----------------------------------
+| `query`   | `string` | The media query string to match against. This should be a valid CSS media query.
+
+## Return Value
+
+The `useMediaQuery` hook returns a boolean value:
+
+| Type     | Description
+|----------|-----------------------------------
+| `boolean`| `true` if the media query matches the current viewport, `false` otherwise.
