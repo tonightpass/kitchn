@@ -316,7 +316,7 @@ importers:
         version: 8.10.1(date-fns@2.30.0)(react@18.3.1)
       react-hook-form:
         specifier: ^7.45.4
-        version: 7.52.2(react@18.3.1)
+        version: 7.53.0(react@18.3.1)
       react-icons:
         specifier: ^5.0.0
         version: 5.3.0(react@18.3.1)
@@ -368,7 +368,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-hook-form:
         specifier: ^7.45.4
-        version: 7.52.2(react@18.3.1)
+        version: 7.53.0(react@18.3.1)
       react-icons:
         specifier: ^5.0.0
         version: 5.3.0(react@18.3.1)
@@ -8858,6 +8858,12 @@ packages:
 
   react-hook-form@7.52.2:
     resolution: {integrity: sha512-pqfPEbERnxxiNMPd0bzmt1tuaPcVccywFDpyk2uV5xCIBphHV5T8SVnX9/o3kplPE1zzKt77+YIoq+EMwJp56A==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+
+  react-hook-form@7.53.0:
+    resolution: {integrity: sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -22250,6 +22256,10 @@ snapshots:
   react-error-overlay@6.0.11: {}
 
   react-hook-form@7.52.2(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
+  react-hook-form@7.53.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
