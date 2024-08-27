@@ -1,0 +1,66 @@
+---
+title: "useCombobox"
+description: "A custom React hook that provides access to the combobox's context, allowing you to manage and interact with its state and visibility."
+---
+
+# useCombobox
+
+The `useCombobox` hook is a custom React hook that allows you to access and interact with the combobox's context. This hook is particularly useful when building components that need to manage the combobox's value, visibility, and reference to the DOM element.
+
+## Usage
+
+First, you need to import the `useCombobox` hook from the `kitchn` package.
+
+```jsx
+import { useCombobox } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useCombobox` hook in a component:
+
+```jsx
+import React from "react";
+import { useCombobox } from "kitchn";
+
+const ComboboxComponent = () => {
+  const { value, updateValue, visible, updateVisible } = useCombobox();
+
+  const handleChange = (event) => {
+    if (updateValue) {
+      updateValue(event.target.value);
+    }
+  };
+
+  return (
+    <div>
+      {visible && (
+        <input
+          type="text"
+          value={value || ""}
+          onChange={handleChange}
+        />
+      )}
+      <button onClick={() => updateVisible && updateVisible(!visible)}>
+        Toggle Combobox
+      </button>
+    </div>
+  );
+};
+```
+
+## Parameters
+
+The `useCombobox` hook does not accept any parameters.
+
+## Return Value
+
+The `useCombobox` hook returns an object with the following properties:
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `value` | `string \| undefined` | The current value of the combobox. |
+| `updateValue` | `(value: string) => unknown \| undefined` | Function to update the combobox's value. |
+| `visible` | `boolean \| undefined` | Indicates whether the combobox is visible. |
+| `updateVisible` | `(next: boolean) => unknown \| undefined` | Function to update the visibility of the combobox. |
+| `ref` | `MutableRefObject<HTMLElement \| null> \| undefined` | Reference to the combobox's DOM element. |
