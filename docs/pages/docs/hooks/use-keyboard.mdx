@@ -1,0 +1,79 @@
+---
+title: "useKeyboard"
+description: "A custom React hook that enables you to handle keyboard events with specific key bindings, providing flexible options for managing key combinations and event behaviors."
+---
+
+import Playground from "@components/Playground";
+
+# useKeyboard
+
+The `useKeyboard` hook is a powerful utility that allows you to handle keyboard events with specific key bindings in your React components. This hook supports a wide range of configurations, including handling modifier keys (like Ctrl, Cmd, Shift, and Alt), and provides options for controlling the behavior of the keyboard event, such as stopping propagation or preventing default actions.
+
+## Usage
+
+First, you need to import the `useKeyboard` hook from the `kitchn` package.
+
+```jsx
+import { useKeyboard } from "kitchn";
+```
+
+## Example
+
+Here is an example of how to use the `useKeyboard` hook in a component:
+
+<Playground
+code={`
+() => {
+  const globalHandler = (event) => {
+    alert("Ctrl+S pressed");
+  };
+
+  const inputHandler = (event) => {
+    alert("Ctrl+J pressed");
+  };
+
+  useKeyboard(globalHandler, [KeyMod.CtrlCmd, KeyCode.KEY_S]);
+
+  const { bindings } = useKeyboard(inputHandler, [KeyMod.CtrlCmd, KeyCode.KEY_J], {
+    disableGlobalEvent: true,
+  });
+
+  return (
+    <Container gap="small">
+      <Text>Press Ctrl+S</Text>
+      <Text span>or</Text>
+      <Input placeholder="Press Ctrl+J" {...bindings} />
+    </Container>
+  );
+};
+`}
+/>
+
+## Parameters
+
+The `useKeyboard` hook accepts the following parameter:
+
+| Name      | Type     | Description
+|-----------|----------|-----------------------------------
+| `handler`   | `(event: React.KeyboardEvent \| KeyboardEvent) => void` | The function to execute when the specified key(s) are pressed.
+| `keyBindings`   | `number[] \| number` | The key code(s) to bind. These can include key codes and modifier keys from the `KeyMod` enum.
+| `options`   | [`KeyboardOptions`](#keyboardoptions) (optional) | An object to configure the behavior of the event listener.
+
+### KeyboardOptions
+
+| Name | Type | Default | Description
+|------|------|---------|-------------
+| `disableGlobalEvent` | `boolean` | `false` | If `true`, the hook will not bind the event listener globally to the `document`.
+| `stopPropagation` | `boolean` | `false` | If `true`, the event propagation will be stopped when the key is pressed.
+| `preventDefault` | `boolean` | `false` | If `true`, the default action for the event will be prevented.
+| `capture` | `boolean` | `false` | If `true`, the event will be captured during the capture phase.
+| `event` | `"keydown" \| "keypress" \| "keyup"` | `"keydown"` | The type of keyboard event to listen for.
+
+
+## Return Value
+
+The `useKeyboard` hook returns an object with the following properties:
+
+| Property | Type | Description
+|----------|------|-----------------------------------
+| `bindings` | `React.HTMLProps<HTMLInputElement>` | An object containing event handlers (`onKeyDown`, `onKeyUp`, `onKeyPress`, etc.) that can be spread onto elements to bind the key events.
