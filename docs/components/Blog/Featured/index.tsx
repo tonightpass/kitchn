@@ -7,7 +7,8 @@ const Featured: React.FC = () => {
       id={"header"}
       maxW={"mobile"}
       mx={"auto"}
-      py={"extraLarge"}
+      pt={"calc(60px - 1rem)"}
+      pb={"extraLarge"}
       header
     >
       <Container align={"center"}>
