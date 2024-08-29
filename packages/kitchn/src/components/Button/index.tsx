@@ -31,21 +31,25 @@ export type ButtonProps = KitchnComponent<
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
-const ButtonComponent = styled(
-  ({
-    as: Component = "button",
-    children,
-    loading,
-    size,
-    width,
-    prefix,
-    suffix,
-    htmlType,
-    ...props
-  }: ButtonProps) => {
+const ForwardedButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      as: Component = "button",
+      children,
+      loading,
+      size,
+      width,
+      prefix,
+      suffix,
+      htmlType,
+      ...props
+    },
+    ref: React.ForwardedRef<HTMLButtonElement>,
+  ) => {
     const theme = useTheme();
     return (
       <Component
+        ref={ref}
         aria-label={children ? undefined : "Button"}
         aria-busy={loading ? "true" : undefined}
         aria-disabled={props.disabled ? "true" : undefined}
@@ -78,7 +82,11 @@ const ButtonComponent = styled(
       </Component>
     );
   },
-)<ButtonProps>`
+);
+
+ForwardedButton.displayName = "Button";
+
+const ButtonComponent = styled(ForwardedButton)<ButtonProps>`
   position: relative;
   display: flex;
   align-items: center;
