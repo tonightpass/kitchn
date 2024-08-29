@@ -1,0 +1,71 @@
+---
+title: "Snippet"
+description: "The Snippet component is used to display blocks of code or text with a copy-to-clipboard feature. It can be styled with different accent colors and includes an optional prompt."
+---
+
+import Playground from "@components/Playground";
+
+# Snippet
+
+The Snippet component is used to display blocks of code or text with a convenient copy-to-clipboard feature. It supports customization through different accent colors and can optionally display a command-line prompt before each line.
+
+## Usage
+
+First of all, you need to import the `Snippet` component from the `kitchn` package.
+
+```js
+import { Snippet } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Snippet text={"npm install kitchn"} w={300} />
+`}
+/>
+
+## Multi-line
+
+<Playground
+  code={`
+<Snippet text={[ "git init", "git add .", "git commit -m 'Initial commit'", ]} />
+`}
+/>
+
+## No prompt
+
+<Playground
+  code={`
+<Snippet text={"npm install kitchn"} w={300} prompt={false} />
+`}
+/>
+
+## Callback
+
+<Playground
+  code={`
+<Snippet text={"npm install kitchn"} w={300} onCopy={() => alert("copied")} />
+`}
+/>
+
+## Type
+
+<Playground
+  code={`
+<Container gap={"small"}>
+  <Snippet text={"npm install kitchn"} w={300} type={"success"} />
+  <Snippet text={"npm install kitchn"} w={300} type={"warning"} />
+  <Snippet text={"npm install kitchn"} w={300} type={"danger"} />
+</Container>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `text` | `string \| string[]` | `""` | Yes | The text or code to be displayed in the snippet. Can be a single string or an array of strings for multi-line snippets.
+| `prompt` | `boolean` | `true` | No | If `true`, displays a command-line prompt (`$`) before each line of text.
+| `type` | [`keyof AccentColors`](/docs/theming#accent) | `"primary"` | No | Defines the accent color for the snippet.
+| `onCopy` | `(text: string) => void` | `null` | No | Callback function that gets triggered when the text is copied.
