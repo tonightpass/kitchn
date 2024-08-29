@@ -1,0 +1,125 @@
+---
+title: "Scroller"
+description: "The Scroller component is used to create scrollable containers with gradient indicators showing scrollable areas. It automatically detects when the content overflows and displays gradients accordingly."
+---
+
+import Playground from "@components/Playground";
+
+# Scroller
+
+The Scroller component is designed to create scrollable containers with smooth gradient indicators. These gradients dynamically appear at the edges of the container when there is overflow content, providing a visual cue to users that the content is scrollable.
+
+## Usage
+
+First of all, you need to import the `Scroller` component from the `kitchn` package.
+
+```js
+import { Scroller } from "kitchn"
+```
+
+## Vertical
+
+<Playground
+  code={`
+<Scroller width={"100%"} height={220}>
+  <Container>
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+  </Container>
+</Scroller>
+`}
+/>
+
+## Horizontal
+
+<Playground
+  code={`
+<Scroller width={"100%"} height={"100%"}>
+  <Container row>
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+  </Container>
+</Scroller>
+`}
+/>
+
+## Free
+
+<Playground
+  code={`
+<Scroller width={"100%"} height={220}>
+  <Container row>
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+  </Container>
+  <Container row>
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+    <Image
+      src={"https://kitchn.tonightpass.com/favicon.svg"}
+      width={300}
+      height={300}
+      alt={"Kitchn Favicon"}
+    />
+  </Container>
+</Scroller>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `children` | `React.ReactNode	` | `null` | Yes | The content to be displayed inside the scrollable container.
