@@ -1,0 +1,114 @@
+---
+title: "Switch"
+description: "The Switch component allows users to toggle between different views or options within a container. It supports highlights, hover effects, and icons."
+---
+
+import Playground from "@components/Playground";
+
+# Switch
+
+The Switch component allows users to toggle between different views or options within a container. It supports highlights, hover effects, and icons, making it an interactive and visually appealing navigation element.
+
+## Usage
+
+First of all, you need to import the `Switch` component from the `kitchn` package.
+
+```js
+import { Switch } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+() => {
+  const [selected, setSelected] = useState("apple");
+
+  const tabs = [
+    { title: "Apple", value: "apple" },
+    { title: "Orange", value: "orange" },
+    { title: "Mango", value: "mango" },
+  ];
+
+  return (
+    <Container align="flex-start">
+      <Switch
+        tabs={tabs}
+        selected={selected}
+        setSelected={setSelected}
+      />
+    </Container>
+  )
+}
+`}
+/>
+
+## Disabled
+
+You can disable the dropdown's automatic width matching to its parent element using the `disableMatchWidth` prop.
+
+<Playground
+  code={`
+() => {
+  const [selected, setSelected] = useState("apple");
+
+  const tabs = [
+    { title: "Apple", value: "apple" },
+    { title: "Orange", value: "orange" },
+    { title: "Mango", value: "mango" },
+  ];
+
+  return (
+    <Container align="flex-start">
+      <Switch
+        tabs={tabs}
+        selected={selected}
+        setSelected={setSelected}
+        disabled
+      />
+    </Container>
+  )
+}
+`}
+/>
+
+## With Icons
+
+import { RiAppleFill, RiAndroidFill, RiWindowsFill } from "react-icons/ri";
+
+<Playground
+  scope={{ RiAppleFill, RiAndroidFill, RiWindowsFill }}
+  code={`
+() => {
+  const [selected, setSelected] = useState("apple");
+
+  const tabs = [
+    { title: "Apple", value: "apple", icon: <RiAppleFill /> },
+    { title: "Orange", value: "orange", icon: <RiAndroidFill /> },
+    { title: "Mango", value: "mango", icon: <RiWindowsFill /> },
+  ];
+
+  return (
+    <Container align="flex-start">
+      <Switch
+        tabs={tabs}
+        selected={selected}
+        setSelected={setSelected}
+      />
+    </Container>
+  )
+}
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `tabs` | `Array<{ value: string; title: React.ReactNode; icon?: React.ReactNode }>` | `[]` | Yes | An array of tabs, each containing a `value`, `title`, and optionally an `icon`.
+| `selected` | `string` | `""` | Yes | The value of the currently selected tab.
+| `setSelected` | `(value: string) => void`  | `null` | Yes | Function to update the selected tab value.
+| `disabled` | `boolean` | `false` | No | If `true`, all tabs will be disabled, preventing user interaction.
+| `highlight` | `boolean` | `true` | No | If `true`, a highlight effect will be shown on hover.
+| `hoverHeightRatio` | `number` | `1` | No | Adjusts the height of the hover highlight relative to the tab.
+| `hoverWidthRatio` | `number` | `1` | No | Adjusts the width of the hover highlight relative to the tab.
