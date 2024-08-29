@@ -1,0 +1,37 @@
+---
+title: "Spacer"
+description: "The Spacer component is a utility for creating consistent spacing between elements. It allows for flexible and responsive gaps in your layout."
+---
+
+import Playground from "@components/Playground";
+
+# Spacer
+
+The Spacer component is a versatile utility designed to simplify the process of adding consistent spacing between elements in your layout. By using the `x` and `y` props, you can easily control the horizontal and vertical spacing, respectively.
+
+## Usage
+
+First of all, you need to import the `Spacer` component from the `kitchn` package.
+
+```js
+import { Spacer } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Container>
+  <Text>Before</Text>
+  <Spacer y={2} />
+  <Text>After</Text>
+</Container>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `x` | `number \| string \| keyof Gap` | `1px` | No | Specifies the horizontal spacing. Can be a theme gap key, a number multiplier, or a CSS length unit.
+| `y` | `number \| string \| keyof Gap` | `1px` | No | Specifies the vertical spacing. Can be a theme gap key, a number multiplier, or a CSS length unit.
