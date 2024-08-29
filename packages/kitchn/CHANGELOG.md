@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.8
+
+### Patch Changes
+
+- [`95c1f94`](https://github.com/tonightpass/kitchn/commit/95c1f9496951e4fe649054fe27b10fce99973c1c) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add ref to Button
+
 ## 1.1.7
 
 ### Patch Changes
