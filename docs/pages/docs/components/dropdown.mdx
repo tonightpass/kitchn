@@ -1,0 +1,104 @@
+---
+title: "Dropdown"
+description: "Dropdowns are used to display a list of options or actions triggered by a parent element. The dropdown aligns and positions itself relative to its parent."
+---
+
+import Playground from "@components/Playground";
+
+# Dropdown
+
+Dropdowns are used to display a list of options or actions triggered by a parent element. The dropdown aligns and positions itself relative to its parent, with the option to match the parent's width.
+
+## Usage
+
+First of all, you need to import the `Dropdown` component from the `kitchn` package.
+
+```js
+import { Dropdown } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+() => {
+  const [visible, setVisible] = useState(false);
+  const parentRef = useRef(null);
+
+  console.log("parentRef", parentRef);
+
+  return (
+    <Container py={"extraLarge"}>
+      <Button
+        ref={parentRef}
+        onClick={() => setVisible(!visible)}
+      >
+        Toggle Dropdown
+      </Button>
+      <Dropdown
+        visible={visible}
+        parent={parentRef}
+      >
+        <Container
+          bg={"darker"}
+          br={"square"}
+          padding={"small"}
+          bw={1}
+        >
+          Dropdown Content
+        </Container>
+      </Dropdown>
+    </Container>
+  )
+}
+`}
+/>
+
+## Disable Match Width
+
+You can disable the dropdown's automatic width matching to its parent element using the `disableMatchWidth` prop.
+
+<Playground
+  code={`
+() => {
+  const [visible, setVisible] = useState(false);
+  const parentRef = useRef(null);
+
+  console.log("parentRef", parentRef);
+
+  return (
+    <Container py={"extraLarge"}>
+      <Button
+        ref={parentRef}
+        onClick={() => setVisible(!visible)}
+      >
+        Toggle Dropdown
+      </Button>
+      <Dropdown
+        visible={visible}
+        parent={parentRef}
+        disableMatchWidth
+      >
+        <Container
+          bg={"darker"}
+          br={"square"}
+          padding={"small"}
+          bw={1}
+          width={200}
+        >
+          Custom Width Dropdown Content
+        </Container>
+      </Dropdown>
+    </Container>
+  )
+}
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `visible` | `boolean` | `false` | Yes | Controls the visibility of the dropdown.
+| `disableMatchWidth` | `boolean` | `false` | No | If `true`, the dropdown width will not automatically match the parent's width.
+| `parent` | `React.MutableRefObject<HTMLElement \| null> \| undefined` | `null` | Yes | A reference to the parent element that triggers the dropdown. This is required for correct positioning.
