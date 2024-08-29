@@ -1,0 +1,49 @@
+---
+title: "Spinner"
+description: "The Spinner component is used to indicate loading states in your application. It displays animated bouncing dots to convey progress."
+---
+
+import Playground from "@components/Playground";
+
+# Spinner
+
+The Spinner component is a simple yet effective way to indicate that a process or action is currently loading. It displays three animated bouncing dots, making it clear to users that they should wait for the process to complete.
+
+## Usage
+
+First of all, you need to import the `Spinner` component from the `kitchn` package.
+
+```js
+import { Spinner } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Spinner />
+`}
+/>
+
+## Size
+
+<Playground
+  code={`
+<Spinner size={25} />
+`}
+/>
+
+## Color
+
+<Playground
+  code={`
+<Spinner color={"#ff0000"} />
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `size` | `number` | `20` | No | The size of the Spinner, which controls both width and height in pixels.
+| `color` | `string` | `theme.colors.accent.light` | No | The color of the bouncing dots. Can be any valid CSS color value.
