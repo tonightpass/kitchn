@@ -1,0 +1,335 @@
+---
+title: "Entity"
+description: "The Entity component is a versatile container that combines elements like thumbnails, actions, menus, and checkboxes into a single UI element, with support for placeholders and responsive design."
+---
+
+import Playground from "@components/Playground";
+
+# Entity
+
+The Entity component serves as a comprehensive container designed to display various elements like thumbnails, actions, menus, and checkboxes in a structured format. It is highly customizable, supporting placeholders for loading states and responsive layouts.
+
+## Usage
+
+First of all, you need to import the `Entity` component along with its related subcomponents from the `kitchn` package.
+
+```js
+import { Entity, EntityField, EntityFieldTitle, EntityFieldDescription } from "kitchn"
+```
+
+## Fields
+
+<Playground
+  code={`
+<Entity>
+  <EntityField title={"GitHub"} description={"Jéremy Baudrin"} />
+  <EntityField
+    active={false}
+    title={"Inactive"}
+    description={"This field is inactive"}
+  />
+  <EntityField
+    width={"20%"}
+    title={"Fixed Width"}
+    description={<Link href={"/"}>{"Open docs"}</Link>}
+  />
+  <EntityField
+    label
+    width={100}
+    title={"Label"}
+    description={"Encrypted"}
+  />
+  <EntityField
+    justify={"flex-end"}
+    description={"Right Aligned"}
+    avatar={<Avatar size={24} text={"Younès Bessa"} />}
+  />
+</Entity>
+`}
+/>
+
+## Thumbnails
+
+import { RiGithubFill } from "react-icons/ri";
+
+<Playground
+  scope={{ RiGithubFill }}
+  code={`
+ <Container>
+  <Entity thumbnail={<Icon icon={RiGithubFill} size={24} />}>
+    <EntityField
+      title={"Twitter X"}
+      description={
+        <>
+          {"Lucas Bodin ("}
+          <Link href={"https://x.com/imazyx"} variant={"highlight"}>
+            {"@imazyx"}
+          </Link>
+          {")"}
+        </>
+      }
+    />
+    <EntityField justify={"flex-end"} description={"Connected 1h ago"} />
+  </Entity>
+
+  <Spacer y={"small"} />
+
+  <Entity thumbnail={<Avatar size={36} text={"Younès Bessa"} />}>
+    <EntityField
+      title={"Younès Bessa"}
+      description={"Thumbnail size and wrap options"}
+    />
+    <EntityField justify={"flex-end"} description={"Connected 1h ago"} />
+  </Entity>
+</Container>
+`}
+/>
+
+## Menu
+
+<Playground
+  scope={{ RiGithubFill }}
+  code={`
+<Entity
+  thumbnail={<Icon icon={RiGithubFill} size={24} />}
+  menuContent={
+    <>
+      <Menu.Item onClick={() => alert("clicked")}>{"Inspect"}</Menu.Item>
+      <Menu.Item onClick={() => alert("clicked")}>
+        <Text size={"inherit"} accent={"danger"}>
+          {"Remove"}
+        </Text>
+      </Menu.Item>
+    </>
+  }
+>
+  <EntityField title={"PUBLIC_KEY"} description={"Production"} />
+  <EntityField
+    label
+    title={"VALUE"}
+    description={"6863EFA205B4680BE7928E"}
+  />
+  <EntityField
+    justify={"flex-end"}
+    width={200}
+    description={"Added 1h ago"}
+    avatar={<Avatar size={24} text={"Younès Bessa"} />}
+  />
+</Entity>
+`}
+/>
+
+## Actions
+
+<Playground
+  code={`
+<Entity
+  thumbnail={<Avatar size={32} text={"Younès Bessa"} />}
+  menuContent={
+    <>
+      <Menu.Item onClick={() => alert("clicked")}>
+        {"Inspect"}
+      </Menu.Item>
+      <Menu.Item onClick={() => alert("clicked")}>
+        <Text size={"inherit"} accent={"danger"}>
+          {"Remove"}
+        </Text>
+      </Menu.Item>
+    </>
+  }
+  actions={
+    <Container row gap={"tiny"}>
+      <Button type={"dark"} size={"small"}>
+        {"Decline"}
+      </Button>
+      <Container>
+        <Button type={"light"} size={"small"}>
+          {"Accept"}
+        </Button>
+      </Container>
+    </Container>
+  }
+>
+  <EntityField title={"Younès Bessa"} description={"younes"} />
+</Entity>
+`}
+/>
+
+## Checkbox
+
+<Playground
+  code={`
+<Entity
+  checkbox={<Checkbox onChange={() => alert("clicked")} />}
+  actions={
+    <Button size={"small"} type={"dark"}>
+      {"Revoke"}
+    </Button>
+  }
+>
+  <EntityField
+    title={"Tonight Pass"}
+    description={"Last used just now"}
+  />
+</Entity>
+`}
+/>
+
+## Mixed
+
+<Playground
+  code={`
+<Container>
+  <Entity
+    thumbnail={<Avatar size={32} text={"Younès Bessa"} />}
+    checkbox={<Checkbox onChange={() => alert("clicked")} checked />}
+    menuContent={<Menu.Item>{"Foo"}</Menu.Item>}
+    actions={
+      <Container row gap={"small"}>
+        <Button size={"small"} type={"light"}>
+          {"Accept"}
+        </Button>
+      </Container>
+    }
+  >
+    <EntityField
+      flex={0}
+      width={160}
+      title={"GitHub"}
+      description={"Evil Rabbit"}
+    />
+    <EntityField
+      label
+      width={"20%"}
+      title={"Hello"}
+      description={"6863EFA205B4680BE7928E"}
+    />
+    <EntityField description={"Connected 1h ago"} />
+  </Entity>
+  <Entity
+    thumbnail={<Avatar size={32} text={"Younès Bessa"} />}
+    menuContent={<Menu.Item>{"Foo"}</Menu.Item>}
+    actions={
+      <>
+        <Container row gap={"small"}>
+          <Button size={"small"} type={"dark"}>
+            {"Decline"}
+          </Button>
+          <Container>
+            <Button size={"small"} type={"light"}>
+              {"Accept"}
+            </Button>
+          </Container>
+        </Container>
+      </>
+    }
+  >
+    <EntityField
+      width={120}
+      title={"GitHub"}
+      description={"Evil Rabbit"}
+    />
+    <EntityField
+      label
+      title={"VALUE"}
+      description={"6863EFA205B4680BE7928E"}
+    />
+    <EntityField width={"50%"} description={"Connected 1h ago"} />
+  </Entity>
+</Container>
+`}
+/>
+
+## Skeleton
+
+<Playground
+  code={`
+<Container>
+  <Entity
+    placeholder
+    thumbnail={<Avatar size={32} text={"Younès Bessa"} />}
+    checkbox={<Checkbox onChange={() => alert("clicked")} checked />}
+    menuContent={<Menu.Item>{"Foo"}</Menu.Item>}
+    actions={
+      <>
+        <Button size={"small"}>{"Accept"}</Button>
+      </>
+    }
+  >
+    <EntityField
+      width={160}
+      title={"GitHub"}
+      description={"Evil Rabbit"}
+    />
+    <EntityField
+      label
+      width={"20%"}
+      title={"VALUE"}
+      description={"6863EFA205B4680BE7928E"}
+    />
+    <EntityField description={"Connected 1h ago"} />
+  </Entity>
+  <Entity
+    placeholder
+    thumbnail={<Avatar size={32} text={"Younès Bessa"} />}
+    menuContent={<Menu.Item>{"Foo"}</Menu.Item>}
+    actions={
+      <Container row gap={0.5}>
+        <Container>
+          <Button size={"small"} type={"secondary"}>
+            {"Decline"}
+          </Button>
+        </Container>
+        <Container>
+          <Button size={"small"}>{"Accept"}</Button>
+        </Container>
+      </Container>
+    }
+  >
+    <EntityField
+      width={120}
+      title={"GitHub"}
+      description={"Evil Rabbit"}
+    />
+    <EntityField
+      label
+      title={"VALUE"}
+      description={"6863EFA205B4680BE7928E"}
+    />
+    <EntityField width={"50%"} description={"Connected 1h ago"} />
+  </Entity>
+</Container>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `thumbnail` | `React.ReactNode` | `undefined` | No | Thumbnail to be displayed on the left side of the entity.
+| `menuContent` | `React.ReactNode` | `undefined` | No | Content for the dropdown menu associated with the entity.
+| `actions` | `React.ReactNode` | `undefined` | No | Actions (e.g., buttons) to be displayed on the right side of the entity.
+| `checkbox` | `React.ReactNode` | `undefined` | No | Checkbox element to be displayed on the left side of the entity.
+| `placeholder` | `boolean` | `false` | No | If `true`, displays placeholder skeletons for all content.
+
+### EntityField Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `title` | `string` | `undefined` | Yes | Title text to be displayed in the field.
+| `description` | `React.ReactNode` | `undefined` | No | Description text to be displayed below the title.
+| `active` | `boolean` | `true` | No | If `false`, dims the title and description to indicate inactive state.
+| `label` | `boolean` | `false` | No | If `true`, applies a label style to the title, including uppercase transformation.
+| `placeholder` | `boolean` | `false` | No | If `true`, displays a skeleton placeholder for the field.
+| `avatar` | `React.ReactNode` | `undefined` | No | Avatar or any additional element to be displayed on the right side of the field.
+
+### EntityFieldTitle Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `active` | `boolean` | `true` | No | If `false`, dims the title text.
+| `label` | `boolean` | `false` | No | If `true`, applies a label style (uppercase, lighter color) to the title.
+
+### EntityFieldDescription Props
+
+All props from [`TextProps`](/docs/components/text#props) are supported.
