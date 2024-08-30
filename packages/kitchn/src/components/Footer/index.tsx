@@ -36,6 +36,7 @@ export const FooterNav = styled.nav`
   max-width: ${({ theme }) => theme.breakpoint.desktop};
   margin: 0 auto;
   flex-wrap: nowrap;
+  gap: ${({ theme }) => theme.gap.small};
   padding: 0 ${({ theme }) => theme.gap.large};
   display: grid;
   grid-template-columns: ${({ children }) =>
@@ -52,6 +53,7 @@ export const FooterNav = styled.nav`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    gap: 0;
     grid-template-columns: ${({ children }) =>
       `repeat(${Math.min(React.Children.count(children), 1)}, 1fr)`};
   }
