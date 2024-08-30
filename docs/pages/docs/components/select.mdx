@@ -1,0 +1,135 @@
+---
+title: "Select"
+description: "The Select component provides a customizable dropdown menu for selecting options, supporting labels, prefixes, suffixes, and various sizes."
+---
+
+import Playground from "@components/Playground";
+
+# Select
+
+The Select component is a customizable dropdown menu that allows users to choose from a list of options. It supports various sizes, labels, and additional elements like prefixes and suffixes, making it versatile for different UI needs.
+
+## Usage
+
+First of all, you need to import the `Select` component from the `kitchn` package.
+
+```js
+import { Select } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Container row>
+  <Select placeholder={"Select your animal"}>
+    <option value={"dog"}>{"Dog"}</option>
+    <option value={"cat"}>{"Cat"}</option>
+  </Select>
+</Container>
+`}
+/>
+
+## Sizes
+
+<Playground
+  code={`
+<Container gap={10} align={"center"} row>
+  <Container>
+    <Select size={"small"} placeholder={"Small"}>
+      <option value={"dog"}>{"Dog"}</option>
+      <option value={"cat"}>{"Cat"}</option>
+    </Select>
+  </Container>
+  <Container>
+    <Select size={"normal"} placeholder={"Default"} />
+  </Container>
+  <Container>
+    <Select size={"large"} placeholder={"Large"} />
+  </Container>
+</Container>
+`}
+/>
+
+## Sizes, Prefix and Suffix
+
+import { RiArrowUpCircleLine } from "react-icons/ri";
+
+<Playground
+  scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container gap={10} align={"center"} row>
+  <Container>
+    <Select
+      size={"small"}
+      placeholder={"Small"}
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+    />
+  </Container>
+  <Container>
+    <Select
+      size={"normal"}
+      placeholder={"Default"}
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+    />
+  </Container>
+  <Container>
+    <Select
+      size={"large"}
+      placeholder={"Large"}
+      prefix={<RiArrowUpCircleLine />}
+      suffix={<RiArrowUpCircleLine />}
+    />
+  </Container>
+</Container>
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+<Container row>
+  <Select placeholder={"Disabled with placeholder"} disabled />
+</Container>
+`}
+/>
+
+## Prefix and suffix disabled
+
+<Playground
+  scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container row>
+  <Select
+    placeholder={"Default"}
+    prefix={<RiArrowUpCircleLine />}
+    disabled
+  />
+</Container>
+`}
+/>
+
+## Label
+
+<Playground
+  scope={{ RiArrowUpCircleLine }}
+  code={`
+<Container row>
+  <Select placeholder={"With label"} label={"My label"} />
+</Container>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `size` | `"small" \| "normal" \| "large"` | `"normal"` | No | The size of the select dropdown.
+| `label` | `string` | `undefined` | No | The label displayed above the select dropdown.
+| `placeholder` | `string` | `undefined` | No | The placeholder text shown in the dropdown before any option is selected.
+| `prefix` | `JSX.Element \| string` | `undefined` | No | An element or text to display before the dropdown selector.
+| `suffix` | `JSX.Element \| string` | `Arrow Icon` | No | An element or text to display after the dropdown selector. By default, an arrow icon is used.
+| `disabled` | `boolean` | `false` | No | If `true`, disables the select input.
