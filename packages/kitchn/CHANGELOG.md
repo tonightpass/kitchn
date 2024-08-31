@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.9
+
+### Patch Changes
+
+- [`7e04f44`](https://github.com/tonightpass/kitchn/commit/7e04f44341c87af39397d8bd8ecac14f43c88cbf) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Improve footer nav style with gap
+
 ## 1.1.8
 
 ### Patch Changes
