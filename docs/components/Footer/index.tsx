@@ -77,7 +77,7 @@ const navigation = {
     },
     {
       name: "Status",
-      href: "https://status.tonightpass.com",
+      href: "https://tonightpass.openstatus.dev",
     },
     {
       name: "Comparison",
