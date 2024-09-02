@@ -94,7 +94,7 @@ importers:
         version: 2.13.4(next@14.2.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(next@14.2.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       prism-react-renderer:
         specifier: ^2.0.0
-        version: 2.3.1(react@18.3.1)
+        version: 2.4.0(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -8735,8 +8735,8 @@ packages:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  prism-react-renderer@2.3.1:
-    resolution: {integrity: sha512-Rdf+HzBLR7KYjzpJ1rSoxT9ioO85nZngQEoFIhL07XhtJHlCU3SOz0GJ6+qvMyQe0Se+BV3qpe6Yd/NmQF5Juw==}
+  prism-react-renderer@2.4.0:
+    resolution: {integrity: sha512-327BsVCD/unU4CNLZTWVHyUHKnsqcvj2qbPlQ8MiBE2eq2rgctjigPA1Gp9HLF83kZ20zNN6jgizHJeEsyFYOw==}
     peerDependencies:
       react: '>=16.0.0'
 
@@ -22162,7 +22162,7 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.3.1
 
-  prism-react-renderer@2.3.1(react@18.3.1):
+  prism-react-renderer@2.4.0(react@18.3.1):
     dependencies:
       '@types/prismjs': 1.26.4
       clsx: 2.1.1
@@ -22393,7 +22393,7 @@ snapshots:
 
   react-live@4.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      prism-react-renderer: 2.3.1(react@18.3.1)
+      prism-react-renderer: 2.4.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       sucrase: 3.35.0
