@@ -1,0 +1,184 @@
+---
+title: "Tooltip"
+description: "The Tooltip component provides contextual information when users hover, click, or focus on an element. It supports multiple placements, triggers, and customization options."
+---
+
+import Playground from "@components/Playground";
+
+# Tooltip
+
+The Tooltip component displays additional information when users interact with an element, such as hovering, clicking, or focusing. It supports customizable triggers, placements, and styles, making it a versatile tool for enhancing user experience.
+
+## Usage
+
+First of all, you need to import the `Tooltip` component from the `kitchn` package.
+
+```js
+import { Tooltip } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Tooltip text={"Push to Git and your website is live."}>
+  {"Tooltip"}
+</Tooltip>
+`}
+/>
+
+## Trigger
+
+<Playground
+  code={`
+<Tooltip
+  text={"Push to Git and your website is live."}
+  trigger={"click"}
+  type={"dark"}
+>
+  <span>{"Click me"}</span>
+</Tooltip>
+`}
+/>
+
+## With Components
+
+<Playground
+  code={`
+<Container align={"center"} gap={"normal"} row>
+  <Tooltip text={"Push to Git and your website is live."} type={"dark"}>
+    <Button>{"Button"}</Button>
+  </Tooltip>
+  <Tooltip text={"Push to Git and your website is live."} type={"dark"}>
+    <Badge>{"1000+"}</Badge>
+  </Tooltip>
+  <Tooltip text={"Push to Git and your website is live."} type={"dark"}>
+    <Link href={"#"}>{"Hyperlink"}</Link>
+  </Tooltip>
+</Container>
+`}
+/>
+
+## Custom Content
+
+<Playground
+  code={`
+<Container gap={"normal"}>
+  <Tooltip
+    text={
+      <>
+        {"Perfect for working with a "}
+        <InlineCode>{"CMS"}</InlineCode>
+        {"."}
+      </>
+    }
+  >
+    <span>{"Top"}</span>
+  </Tooltip>
+  <Tooltip
+    text={
+      <>
+        <Text weight={"bold"} span>
+          {"Perfect"}
+        </Text>{" "}
+        {"for working with a CMS."}
+      </>
+    }
+    placement={"bottom"}
+  >
+    <span>{"Bottom"}</span>
+  </Tooltip>
+</Container>
+`}
+/>
+
+## Types
+
+<Playground
+  code={`
+<Container gap={"normal"}>
+  <Tooltip text={"Perfect for working with a CMS."} type={"dark"}>
+    <span>{"Dark"}</span>
+  </Tooltip>
+  <Tooltip text={"Perfect for working with a CMS."} type={"info"}>
+    <span>{"Info"}</span>
+  </Tooltip>
+  <Tooltip text={"Perfect for working with a CMS."} type={"success"}>
+    <span>{"Success"}</span>
+  </Tooltip>
+  <Tooltip text={"Perfect for working with a CMS."} type={"warning"}>
+    <span>{"Warning"}</span>
+  </Tooltip>
+  <Tooltip text={"Perfect for working with a CMS."} type={"danger"}>
+    <span>{"Danger"}</span>
+  </Tooltip>
+  <Tooltip
+    text={"Perfect for working with a CMS."}
+    type={"secondary"}
+  >
+    <span>{"Secondary"}</span>
+  </Tooltip>
+</Container>
+`}
+/>
+
+## Placement
+
+import { RiInformationFill } from "react-icons/ri";
+
+<Playground
+  scope={{ RiInformationFill }}
+  code={`
+<Container gap={"normal"} align={"center"} row>
+  <Container>
+    <Tooltip text={"The Evil Rabbit Jumped over the Fence"}>
+      <Icon icon={RiInformationFill} />
+    </Tooltip>
+  </Container>
+
+  <Container>
+    <Tooltip
+      text={"The Evil Rabbit Jumped over the Fence"}
+      placement={"bottom"}
+    >
+      <Button size={"small"}>{"Bottom"}</Button>
+    </Tooltip>
+  </Container>
+
+  <Container>
+    <Tooltip
+      text={"The Evil Rabbit Jumped over the Fence"}
+      placement={"left"}
+    >
+      <Badge size={"small"}>{"LEFT"}</Badge>
+    </Tooltip>
+  </Container>
+
+  <Container>
+    <Tooltip
+      text={"The Evil Rabbit Jumped over the Fence"}
+      placement={"right"}
+    >
+      <Spinner size={20} />
+    </Tooltip>
+  </Container>
+</Container>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `text` | `React.ReactNode` | `undefined` | Yes | The content to display inside the tooltip.
+| `placement` | `TooltipPlacement` | `"top"` | No | Specifies where the tooltip should appear relative to the target element (`top`, `right`, `bottom`, `left`).
+| `type` | `TooltipTypes` | `"primary"` | No | Defines the tooltip's color from [accent colors](/docs/theming#accent)
+| `visible` | `boolean` | `undefined` | No | Controls the visibility of the tooltip programmatically.
+| `initialVisible` | `boolean` | `false` | No | Sets the initial visibility state of the tooltip.
+| `hideArrow` | `boolean` | `false` | No | Hides the tooltip's arrow if set to `true`.
+| `trigger` | `TooltipTriggers` | `"hover"` | No | Specifies the event that triggers the tooltip to appear (`hover`, `click`, `focus`).
+| `enterDelay` | `number` | `150` | No | Delay in milliseconds before the tooltip becomes visible.
+| `leaveDelay` | `number` | `150` | No | Delay in milliseconds before the tooltip disappears.
+| `offset` | `number` | `12` | No | Offset distance between the tooltip and the target element.
+| `onVisibleChange` | `TooltipOnVisibleChange` | `() => {}` | No | Callback function invoked when the tooltip visibility changes.
+| `onContentClick` | `TooltipOnContentClick` | `() => {}` | No | Callback function invoked when the tooltip content is clicked.
