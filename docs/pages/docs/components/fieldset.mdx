@@ -1,0 +1,315 @@
+---
+title: "Fieldset"
+description: "The Fieldset component is a flexible container with options for tabs, footers, and customizable content areas, designed to group related form elements or content blocks with visual emphasis and interactivity."
+---
+
+import Playground from "@components/Playground";
+
+# Fieldset
+
+The Fieldset component is a container that groups related elements, such as form fields or content sections, within a distinct visual boundary. It supports a range of features, including tabs for organizing content, footer actions, and customizable styles based on accent colors.
+
+## Usage
+
+First of all, you need to import the `Fieldset` component from the `kitchn` package.
+
+```js
+import { Fieldset } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Fieldset.Container>
+  <Fieldset.Content>
+    <Fieldset.Title>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer>
+    <Fieldset.FooterStatus>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button size={"small"} type={"light"}>
+        {"Submit"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Tabs
+
+<Playground
+  code={`
+<Fieldset.Tabs tabs={["One", "Two"]}>
+  <Fieldset.Container>
+    <Fieldset.Content>
+      <Fieldset.Title>
+        {"The Evil Rabbit Jumped over the Fence"}
+      </Fieldset.Title>
+      <Fieldset.Subtitle>
+        {"The Evil Rabbit Jumped over the Fence"}
+      </Fieldset.Subtitle>
+    </Fieldset.Content>
+    <Fieldset.Footer>
+      <Fieldset.FooterStatus>
+        {"The Evil Rabbit Jumped over the Fence"}
+      </Fieldset.FooterStatus>
+      <Fieldset.FooterActions>
+        <Button type={"light"} size={"small"}>
+          {"Action"}
+        </Button>
+      </Fieldset.FooterActions>
+    </Fieldset.Footer>
+  </Fieldset.Container>
+  <Fieldset.Container>
+    <Fieldset.Content>
+      <Fieldset.Title>
+        {"The Fence Jumped over The Evil Rabbit"}
+      </Fieldset.Title>
+      <Fieldset.Subtitle>
+        {"The Fence Jumped over The Evil Rabbit"}
+      </Fieldset.Subtitle>
+    </Fieldset.Content>
+    <Fieldset.Footer>
+      <Fieldset.FooterStatus>
+        {"The Fence Jumped over The Evil Rabbit"}
+      </Fieldset.FooterStatus>
+      <Fieldset.FooterActions>
+        <Button type={"light"} size={"small"}>
+          {"Action"}
+        </Button>
+      </Fieldset.FooterActions>
+    </Fieldset.Footer>
+  </Fieldset.Container>
+</Fieldset.Tabs>
+`}
+/>
+
+## Error
+
+<Playground
+  code={`
+<Fieldset.Container>
+  <Fieldset.Content>
+    <Fieldset.Title>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer>
+    <Fieldset.FooterStatus accent={"danger"}>
+      {"An error has occurred."}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"light"} size={"small"} disabled>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+<Fieldset.Container disabled>
+  <Fieldset.Content>
+    <Fieldset.Title color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer disabled>
+    <Fieldset.FooterStatus color={"darker"}>
+      {"An error has occurred."}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"light"} size={"small"} disabled>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Disabled Content Only
+
+<Playground
+  code={`
+<Fieldset.Container>
+  <Fieldset.Content disabled>
+    <Fieldset.Title color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer>
+    <Fieldset.FooterStatus accent={"light"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"light"} size={"small"}>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Disabled Footer Only
+
+<Playground
+  code={`
+<Fieldset.Container>
+  <Fieldset.Content>
+    <Fieldset.Title>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer disabled>
+    <Fieldset.FooterStatus color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"light"} size={"small"} disabled>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Highlight Footer
+
+<Playground
+  code={`
+<Fieldset.Container>
+  <Fieldset.Content disabled>
+    <Fieldset.Title color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle color={"darker"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer highlight>
+    <Fieldset.FooterStatus color={"light"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"light"} size={"small"}>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Danger
+
+<Playground
+  code={`
+<Fieldset.Container type={"danger"}>
+  <Fieldset.Content>
+    <Fieldset.Title>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer>
+    <Fieldset.FooterStatus accent={"light"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"danger"} size={"small"}>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Warning
+
+<Playground
+  code={`
+<Fieldset.Container type={"warning"}>
+  <Fieldset.Content>
+    <Fieldset.Title>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Title>
+    <Fieldset.Subtitle>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.Subtitle>
+  </Fieldset.Content>
+  <Fieldset.Footer>
+    <Fieldset.FooterStatus accent={"light"}>
+      {"The Evil Rabbit Jumped over the Fence"}
+    </Fieldset.FooterStatus>
+    <Fieldset.FooterActions>
+      <Button type={"warning"} size={"small"}>
+        {"Action"}
+      </Button>
+    </Fieldset.FooterActions>
+  </Fieldset.Footer>
+</Fieldset.Container>
+`}
+/>
+
+## Props
+
+### Fieldset Container Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `tabs` | `boolean` | `false` | No | Indicates if the fieldset is part of a tabbed layout.
+| `disabled` | `boolean` | `false` | No | Disables all interactive elements within the fieldset.
+| `highlight` | `boolean` | `false` | No | Highlights the fieldset, typically when a user hovers over or focuses on it.
+| `type` | [`keyof AccentColors`](/docs/theming#accent) | `undefined` | No | Applies an accent color to the fieldset's border and footer elements.
+
+### Fieldset Footer Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `disabled` | `boolean` | `false` | No | Disables interactions with the footer, such as clicking actions.
+| `highlight` | `boolean` | `false` | No | Highlights the footer, typically for user interactions.
+
+### Fieldset Tabs Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `tabs` | `string[]` | `undefined` | Yes | An array of tab titles that will be used in the tab menu.
+
+### Fieldset Content Props
+
+All props from [`ContainerProps`](/docs/components/grid#props) are supported.
+
+### Fieldset Title and Subtitle Props
+
+All props from [`TextProps`](/docs/components/text#props) are supported.
