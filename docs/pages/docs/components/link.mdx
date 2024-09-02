@@ -1,0 +1,148 @@
+---
+title: "Link"
+description: "The Link component is a versatile element that supports various behaviors, including internal and external navigation, different visual styles, and handling click events."
+---
+
+import Playground from "@components/Playground";
+
+# Link
+
+The Link component is designed to provide a consistent and accessible way to handle both internal and external links in your application.
+
+## Usage
+
+First of all, you need to import the `Link` component from the `kitchn` package.
+
+```js
+import { Link } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Link href={"/"}>{"Return to menu"}</Link>
+`}
+/>
+
+## Using onClick
+
+<Playground
+  code={`
+<Link onClick={() => router.push("/")}>{"Return to menu"}</Link>
+`}
+/>
+
+## Disabled
+
+<Playground
+  code={`
+<Container gap={"small"}>
+  <Link disabled>{"Disabled link"}</Link>
+  <Link href={undefined} onClick={undefined}>
+    {"Disabled link (no href or onClick)"}
+  </Link>
+  <Link href={"#"} disabled>
+    {"Disabled link (href=#)"}
+  </Link>
+</Container>
+`}
+/>
+
+## Non Text
+
+<Playground
+  code={`
+<Link href={"/"}>
+  <Badge>{"This entire badge is wrapped in a link"}</Badge>
+</Link>
+`}
+/>
+
+## Variants
+
+### Highlight
+
+<Playground
+  code={`
+<Link href={"#"} variant={"highlight"}>
+  {"Highlight variant"}
+</Link>
+`}
+/>
+
+### Primary
+
+<Playground
+  code={`
+<Link href={"#"} variant={"primary"}>
+  {"Primary variant"}
+</Link>
+`}
+/>
+
+### Secondary
+
+<Playground
+  code={`
+<Link href={"#"} variant={"secondary"}>
+  {"Secondary variant"}
+</Link>
+`}
+/>
+
+### Blend
+
+<Playground
+  code={`
+<Note type={"danger"} label={false}>
+  <Link href={"#"} variant={"blend"}>
+    {"Blend variant"}
+  </Link>{" "}
+  {"works well with themed components."}
+</Note>
+`}
+/>
+
+## Fragment Link (Anchor)
+
+<Playground
+  code={`
+<FragmentLink id={"fragment-link-example"}>
+  {"Click on this to jump to this section of the page"}
+</FragmentLink>
+`}
+/>
+
+## Internal Href
+
+<Playground
+  code={`
+<Link href={"/"}>{"Click on this to jump back to the menu"}</Link>
+`}
+/>
+
+## External Href
+
+<Playground
+  code={`
+<Link href={"https://tonightpass.com/"}>
+  {"Click on this to go to our website"}
+</Link>
+`}
+/>
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `href` | `string \| UrlObject` | `undefined` | No | The URL to navigate to when the link is clicked.
+| `onClick` | `(_event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void` | `undefined` | No | Function to handle click events.
+| `disabled` | `boolean` | `false` | No | Disables the link, preventing navigation and modifying its styling.
+| `variant` | `"highlight" \| "primary" \| "secondary" \| "blend"` | `undefined` | No | Specifies the visual style of the link.
+
+### FragmentLink Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `id` | `string` | `undefined` | Yes | The ID of the element to link to within the page.
