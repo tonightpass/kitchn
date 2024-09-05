@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.10
+
+### Patch Changes
+
+- [`bd289fe`](https://github.com/tonightpass/kitchn/commit/bd289fed1de4f71ec9f3c51eca8c3dbcac24f7fb) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Fix button html type props
+
 ## 1.1.9
 
 ### Patch Changes
