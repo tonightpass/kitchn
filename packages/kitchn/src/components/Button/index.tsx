@@ -41,7 +41,8 @@ const ForwardedButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       width,
       prefix,
       suffix,
-      htmlType,
+      type: _type,
+      htmlType = "button",
       ...props
     },
     ref: React.ForwardedRef<HTMLButtonElement>,
