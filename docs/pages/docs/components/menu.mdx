@@ -1,0 +1,171 @@
+---
+title: "Menu"
+description: "The Menu component provides an accessible and customizable dropdown menu system. It supports various triggers, placements, and content structures like buttons, links, sections, and dividers."
+---
+
+import Playground from "@components/Playground";
+
+# Menu
+
+The Menu component is a versatile dropdown system that allows for contextual actions or navigation. It can be triggered by various events, such as clicks, and includes a range of customizable components like `Menu.Item`, `Menu.Link`, `Menu.Section`, and more.
+
+## Usage
+
+First of all, you need to import the `Menu` component from the `kitchn` package.
+
+```js
+import { Menu } from "kitchn"
+```
+
+## Default
+
+<Playground
+  code={`
+<Menu.Container>
+  <Menu.Button>{"Actions"}</Menu.Button>
+  <Menu.Content width={200}>
+    <Menu.Item onClick={() => alert("One")}>{"One"}</Menu.Item>
+    <Menu.Item onClick={() => alert("Two")}>{"Two"}</Menu.Item>
+    <Menu.Item onClick={() => alert("Three")}>{"Three"}</Menu.Item>
+    <Menu.Item onClick={() => alert("Four")}>{"Four"}</Menu.Item>
+  </Menu.Content>
+</Menu.Container>
+`}
+/>
+
+## Disabled Items
+
+<Playground
+  code={`
+<Menu.Container>
+  <Menu.Button>{"Actions"}</Menu.Button>
+  <Menu.Content width={200}>
+    <Menu.Item disabled>{"One"}</Menu.Item>
+    <Menu.Item>{"Two"}</Menu.Item>
+    <Menu.Item disabled>{"Three"}</Menu.Item>
+    <Menu.Item>{"Four"}</Menu.Item>
+  </Menu.Content>
+</Menu.Container>
+`}
+/>
+
+## Link Items
+
+<Playground
+  code={`
+<Menu.Container>
+  <Menu.Button>{"Links"}</Menu.Button>
+  <Menu.Content width={200}>
+    <Menu.Link href={"#"}>{"One"}</Menu.Link>
+    <Menu.Link href={"#"}>{"Two"}</Menu.Link>
+    <Menu.Link href={"#"}>{"Three"}</Menu.Link>
+  </Menu.Content>
+</Menu.Container>
+`}
+/>
+
+## Unstyled
+
+<Playground
+  code={`
+<Menu.Container>
+  <Menu.Button unstyled>
+    <Avatar text={"Hello world"} />
+  </Menu.Button>
+  <Menu.Content width={200}>
+    <Menu.Item onClick={() => alert("One")}>{"One"}</Menu.Item>
+    <Menu.Item onClick={() => alert("Two")}>{"Two"}</Menu.Item>
+    <Menu.Item onClick={() => alert("Three")}>{"Three"}</Menu.Item>
+    <Menu.Item onClick={() => alert("Four")}>{"Four"}</Menu.Item>
+  </Menu.Content>
+</Menu.Container>
+`}
+/>
+
+## Scope Switcher
+
+import { RiAddLine, RiArrowDownSLine, RiCheckLine } from "react-icons/ri";
+
+<Playground
+  scope={{ RiAddLine, RiArrowDownSLine, RiCheckLine }}
+  code={`
+<Menu.Container>
+  <Menu.Button>
+    <Icon icon={RiArrowDownSLine} />
+  </Menu.Button>
+  <Menu.Content width={240}>
+    <Menu.Section title={"Personal Account"}>
+      <Menu.Link href={"#"}>
+        <Container w={"100%"} gap={"small"} align={"center"} row>
+          <Avatar size={22} src={"https://picsum.photos/200/300"} />
+          {"Lucas"}
+        </Container>
+      </Menu.Link>
+    </Menu.Section>
+
+    <Menu.Divider />
+
+    <Menu.Section title={"Teams"}>
+      <Menu.Link href={"#"}>
+        <Container w={"100%"} gap={"small"} align={"center"} row>
+          <Avatar size={22} src={"https://picsum.photos/200/300"} />
+          {"Acme"}
+        </Container>
+      </Menu.Link>
+      <Menu.Link href={"#"}>
+        <Container w={"100%"} gap={"small"} align={"center"} row>
+          <Avatar size={22} src={"https://picsum.photos/200/300"} />
+          {"onRuntime Studio"}
+          <Icon ml={"auto"} icon={RiCheckLine} />
+        </Container>
+      </Menu.Link>
+      <Menu.Link href={"#"}>
+        <Container w={"100%"} gap={"small"} align={"center"} row>
+          <Avatar size={22} src={"https://picsum.photos/200/300"} />
+          {"Ibiza Club"}
+        </Container>
+      </Menu.Link>
+    </Menu.Section>
+
+    <Menu.Divider />
+
+    <Menu.Link href={"#"}>
+      <Container w={"100%"} gap={"small"} align={"center"} row>
+        {"Create a Team"}
+        <Icon ml={"auto"} icon={RiAddLine} />
+      </Container>
+    </Menu.Link>
+  </Menu.Content>
+</Menu.Container>
+`}
+/>
+
+## Props
+
+### `Menu.Container`
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `placement` | `string` | `"bottomStart"` | No | Determines the position of the menu relative to the button.
+| `trigger` | `string` | `"click"` | No | Specifies the event that triggers the menu.
+| `hideArrow` | `boolean` | `true` | No | If `true`, the menu arrow is hidden.
+| `portalCss` | `css` | `undefined` | No | Additional styles for the menu portal.
+
+### `Menu.Button`
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `unstyled` | `boolean` | `false` | No | If `true`, the button renders without styles.
+
+### `Menu.Item`
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `disabled` | `boolean` | `false` | No | If `true`, the menu item is disabled and cannot be clicked.
+| `active` | `boolean` | `false` | No | If `true`, the menu item is highlighted as active.
+
+### `Menu.Section`
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `title` | `string` | `undefined` | Yes | The title for the section, displayed above the section's items.
