@@ -298,10 +298,10 @@ importers:
         version: 1.3.0
       '@fontsource/figtree':
         specifier: ^5.0.1
-        version: 5.0.22
+        version: 5.1.0
       '@fontsource/fira-code':
         specifier: ^5.0.0
-        version: 5.0.20
+        version: 5.1.0
       date-fns:
         specifier: 2.30.0
         version: 2.30.0
@@ -1767,14 +1767,14 @@ packages:
   '@fontsource/figtree@5.0.20':
     resolution: {integrity: sha512-Rn0xoiHUxSwAcpwPSoxGk0UVYKh+mnXODCRV94NnfRv/PCBPmzUsdfOL3oSU4/AfkicesejgQ1DZZ85WY4CSVA==}
 
-  '@fontsource/figtree@5.0.22':
-    resolution: {integrity: sha512-MLzpEsg9SH4jizB3UMj71T+AUHhphFmec5lcV2WzaWWz5nXZgVHMdV/YdShBopKJrjyxLydhcbbLFIO7HAWKXA==}
+  '@fontsource/figtree@5.1.0':
+    resolution: {integrity: sha512-MBSWXnYMqjbxuWIbkgZJw0hi8phwP0eYYyeRSyKjli9TSJKQs/5az5BKfeUgoKSIVystHsP3rT83zyxPTx1KQg==}
 
   '@fontsource/fira-code@5.0.18':
     resolution: {integrity: sha512-DuH/ewp/2sSYoJw7PxB1VuCyrxo7OCEWeML7sN5yNfP8gTleIktZl/dTopcPOHv1WwDUcqRG1veRoEgfEeYfqQ==}
 
-  '@fontsource/fira-code@5.0.20':
-    resolution: {integrity: sha512-od+SECX6aC5mRY+bCOi/3KUt4x8WE4zzEKxmsF6oNl3dfs9/qPHufyeqQgm/IuVg0eBDzLe9vXCZRuguVWxjlg==}
+  '@fontsource/fira-code@5.1.0':
+    resolution: {integrity: sha512-ti2XDP0qthaTDu44QawNP3PjEZIZ/cNl5VUZzvF9oYS/WY4LgmbF43IMTgTUZL33hknwFWBfmLmZCheOQmzJDg==}
 
   '@gar/promisify@1.1.3':
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
@@ -12710,11 +12710,11 @@ snapshots:
 
   '@fontsource/figtree@5.0.20': {}
 
-  '@fontsource/figtree@5.0.22': {}
+  '@fontsource/figtree@5.1.0': {}
 
   '@fontsource/fira-code@5.0.18': {}
 
-  '@fontsource/fira-code@5.0.20': {}
+  '@fontsource/fira-code@5.1.0': {}
 
   '@gar/promisify@1.1.3': {}
 
