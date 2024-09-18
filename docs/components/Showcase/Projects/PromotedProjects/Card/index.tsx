@@ -34,6 +34,8 @@ const Card: React.FC<CardProps> = ({ project, ...props }: CardProps) => {
         alt={project.title}
         w={"100%"}
         h={"100%"}
+        htmlWidth={1280}
+        htmlHeight={720}
         objectFit={"cover"}
       />
       <Container p={"normal"} gap={"normal"} justify={"space-between"} row>
