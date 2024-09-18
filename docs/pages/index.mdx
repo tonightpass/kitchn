@@ -4,6 +4,10 @@ description: UI kit for React developers to build beautiful web apps
 ---
 import Landing from '../screens/Landing';
 
+<Head>
+  {/* https://github.com/shuding/nextra/issues/3264 */}
+  <link rel={"canonical"} href={"https://kitchn.tonightpass.com"} /> 
+</Head>
 <Landing />
 
 export const getStaticProps = async ({ params }) => {
