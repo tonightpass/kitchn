@@ -130,16 +130,16 @@ const config: DocsThemeConfig = {
         />
         <link
           rel={"canonical"}
-          href={url.href
-            .replace(
-              "https://kitchn.tonightpass.com/",
-              "https://kitchn.tonightpass.com",
-            )
-            .replace(
-              "https://kitchn.tonightpass.com/index",
-              "https://kitchn.tonightpass.com",
-            )}
+          href={
+            url.pathname === "/"
+              ? "https://kitchn.tonightpass.com"
+              : url.href.replace(
+                  "https://kitchn.tonightpass.com/index",
+                  "https://kitchn.tonightpass.com",
+                )
+          }
         />
+
         <link rel={"manifest"} href={"/manifest.json"} />
       </>
     );
