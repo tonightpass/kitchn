@@ -1,11 +1,14 @@
 import Featured from "@components/Blog/Featured";
 import List from "@components/Blog/List";
+import { Container } from "kitchn";
 
 const Blog: React.FC = () => {
   return (
     <>
       <Featured />
-      <List />
+      <Container gap={"small"}>
+        <List />
+      </Container>
     </>
   );
 };
