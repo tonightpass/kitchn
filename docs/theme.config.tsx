@@ -72,9 +72,15 @@ const config: DocsThemeConfig = {
   },
   head: () => {
     const router = useRouter();
+    // replace "/index" by ""
+    // replace "/" by ""
+
     const url = new URL(`https://kitchn.tonightpass.com${router.asPath}`);
     url.hash = "";
     url.search = "";
+
+    console.log("pathname", url.pathname);
+
     const { title, ...meta } = useConfig().frontMatter;
 
     const finalTitle = title || "Kitchn";
@@ -122,7 +128,18 @@ const config: DocsThemeConfig = {
           sizes={"16x16"}
           href={"/favicon-16x16.png"}
         />
-        <link rel={"canonical"} href={url.href} />
+        <link
+          rel={"canonical"}
+          href={url.href
+            .replace(
+              "https://kitchn.tonightpass.com/",
+              "https://kitchn.tonightpass.com",
+            )
+            .replace(
+              "https://kitchn.tonightpass.com/index",
+              "https://kitchn.tonightpass.com",
+            )}
+        />
         <link rel={"manifest"} href={"/manifest.json"} />
       </>
     );
