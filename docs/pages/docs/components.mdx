@@ -4,42 +4,14 @@ description: "A collection of components that can be used to build a React websi
 ---
 
 import { Card, Cards } from 'nextra-theme-docs'
+import componentsMetadata from './components/_meta.json'
 
 # Components
 
 Kitchn provides prebuild components to help you build your projects faster. Here is an overview of all the components that are available:
 
 <Cards>
-  <Card title="Avatar" href="/docs/components/avatar" />
-  <Card title="Badge" href="/docs/components/badge" />
-  <Card title="Button" href="/docs/components/button" />
-  <Card title="Checkbox" href="/docs/components/checkbox" />
-  <Card title="Collapse" href="/docs/components/collapse" />
-  <Card title="Drawer" href="/docs/components/drawer" />
-  <Card title="Dropdown" href="/docs/components/dropdown" />
-  <Card title="Entity" href="/docs/components/entity" />
-  <Card title="Error" href="/docs/components/error" />
-  <Card title="Fieldset" href="/docs/components/fieldset" />
-  <Card title="Footer" href="/docs/components/footer" />
-  <Card title="Grid" href="/docs/components/grid" />
-  <Card title="Icon" href="/docs/components/icon" />
-  <Card title="Image" href="/docs/components/image" />
-  <Card title="Input" href="/docs/components/input" />
-  <Card title="Link" href="/docs/components/link" />
-  <Card title="Modal" href="/docs/components/modal" />
-  <Card title="Note" href="/docs/components/note" />
-  <Card title="Progress" href="/docs/components/progress" />
-  <Card title="Scroller" href="/docs/components/scroller" />
-  <Card title="Select" href="/docs/components/select" />
-  <Card title="Skeleton" href="/docs/components/skeleton" />
-  <Card title="Snippet" href="/docs/components/snippet" />
-  <Card title="Spacer" href="/docs/components/spacer" />
-  <Card title="Spinner" href="/docs/components/spinner" />
-  <Card title="Switch" href="/docs/components/switch" />
-  <Card title="Tabs" href="/docs/components/tabs" />
-  <Card title="Text" href="/docs/components/text" />
-  <Card title="Textarea" href="/docs/components/textarea" />
-  <Card title="Toast" href="/docs/components/toast" />
-  <Card title="Toggle" href="/docs/components/toggle" />
-  <Card title="Tooltip" href="/docs/components/tooltip" />
-</Cards>  
+  {Object.entries(componentsMetadata).map(([key, value]) => (
+    <Card key={key} title={value} href={`/docs/components/${key}`} />
+  ))}
+</Cards>

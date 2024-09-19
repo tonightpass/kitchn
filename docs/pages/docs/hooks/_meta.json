@@ -1,0 +1,21 @@
+{
+  "use-breakpoint": "useBreakpoint",
+  "use-checkbox": "useCheckbox",
+  "use-clickanywhere": "useClickAnyWhere",
+  "use-clickaway": "useClickAway",
+  "use-clipboard": "useClipboard",
+  "use-combobox": "useCombobox",
+  "use-currentstate": "useCurrentState",
+  "use-domobserver": "useDOMObserver",
+  "use-keyboard": "useKeyboard",
+  "use-mediaquery": "useMediaQuery",
+  "use-modal": "useModal",
+  "use-portal": "usePortal",
+  "use-previous": "usePrevious",
+  "use-rect": "useRect",
+  "use-resize": "useResize",
+  "use-ssr": "useSSR",
+  "use-theme": "useTheme",
+  "use-toasts": "useToasts",
+  "use-warning": "useWarning"
+}
