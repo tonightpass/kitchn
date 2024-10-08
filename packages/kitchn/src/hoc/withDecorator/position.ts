@@ -1,24 +1,18 @@
+import { CSSProperties } from "react";
 import { css } from "styled-components";
 
 import { handleValue } from "./decorator";
 import { Breakpoint, Gap } from "../../types/theme";
 
 export type PositionProps = {
-  position?:
-    | "relative"
-    | "absolute"
-    | "fixed"
-    | "sticky"
-    | "static"
-    | "inherit"
-    | "initial";
+  position?: CSSProperties["position"];
   pos?: PositionProps["position"];
-  zIndex?: number;
+  zIndex?: CSSProperties["zIndex"];
   zi?: PositionProps["zIndex"];
-  left?: string | number | keyof Gap | keyof Breakpoint;
-  right?: string | number | keyof Gap | keyof Breakpoint;
-  top?: string | number | keyof Gap | keyof Breakpoint;
-  bottom?: string | number | keyof Gap | keyof Breakpoint;
+  left?: CSSProperties["left"] | keyof Gap | keyof Breakpoint;
+  right?: CSSProperties["right"] | keyof Gap | keyof Breakpoint;
+  top?: CSSProperties["top"] | keyof Gap | keyof Breakpoint;
+  bottom?: CSSProperties["bottom"] | keyof Gap | keyof Breakpoint;
   l?: PositionProps["left"];
   r?: PositionProps["right"];
   t?: PositionProps["top"];

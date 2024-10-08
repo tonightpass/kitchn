@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { DefaultTheme } from "styled-components";
+import { CSSProperties } from "styled-components/native";
 
 import { AreaProps, areaCss } from "./area";
 import { BackgroundProps, backgroundCss } from "./background";
@@ -11,28 +12,12 @@ import { Breakpoint, Gap, Size } from "../../types/theme";
 import { isNumber } from "../../utils/isNumber";
 
 export type DecoratorProps = {
-  display?:
-    | "block"
-    | "inline"
-    | "inline-block"
-    | "flex"
-    | "grid"
-    | "none"
-    | "initial"
-    | "inherit";
-  overflow?: "visible" | "hidden" | "scroll" | "auto" | "inherit" | "initial";
-  font?: string | number | keyof Size;
-  cursor?: "pointer" | "auto" | "inherit" | "initial" | "unset";
-  pointerEvents?: "auto" | "none" | "inherit" | "initial" | "revert" | "unset";
-  userSelect?:
-    | "auto"
-    | "none"
-    | "text"
-    | "all"
-    | "contain"
-    | "inherit"
-    | "initial"
-    | "unset";
+  display?: CSSProperties["display"];
+  overflow?: CSSProperties["overflow"];
+  font?: CSSProperties["fontSize"] | keyof Size;
+  cursor?: CSSProperties["cursor"];
+  pointerEvents?: CSSProperties["pointerEvents"];
+  userSelect?: CSSProperties["userSelect"];
 } & AreaProps &
   BackgroundProps &
   BorderProps &
@@ -67,7 +52,7 @@ export const handleFont = (
 
 export const withDecorator = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
-  passThroughProps: string[] = [],
+  passThroughProps: (keyof DecoratorProps)[] = [],
 ) => {
   const WithDecoratorComponent = React.forwardRef<
     HTMLElement,
@@ -87,7 +72,7 @@ export const withDecorator = <T extends object>(
           "zi",
           "zIndex",
         ].includes(key) ||
-        passThroughProps.includes(key)
+        passThroughProps.includes(key as keyof DecoratorProps)
       ) {
         (acc as { [key: string]: any })[key] = value;
       }

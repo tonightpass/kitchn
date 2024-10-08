@@ -1,43 +1,48 @@
+import { CSSProperties } from "react";
 import { DefaultTheme, css } from "styled-components";
 
 import { handlePixelValue } from "./decorator";
 import { LayoutColors, Radius } from "../../types/theme";
 
 export type BorderProps = {
-  borderStyle?: "solid" | "dotted" | "dashed";
+  borderStyle?: CSSProperties["borderStyle"];
   bs?: BorderProps["borderStyle"];
 
-  borderWidth?: number | string;
+  borderWidth?: CSSProperties["borderWidth"];
   bw?: BorderProps["borderWidth"];
-  borderLeftWidth?: BorderProps["borderWidth"];
+  borderLeftWidth?: CSSProperties["borderLeftWidth"];
   blw?: BorderProps["borderWidth"];
-  borderRightWidth?: BorderProps["borderWidth"];
+  borderRightWidth?: CSSProperties["borderRightWidth"];
   brw?: BorderProps["borderWidth"];
-  borderTopWidth?: BorderProps["borderWidth"];
+  borderTopWidth?: CSSProperties["borderTopWidth"];
   btw?: BorderProps["borderWidth"];
-  borderBottomWidth?: BorderProps["borderWidth"];
+  borderBottomWidth?: CSSProperties["borderBottomWidth"];
   bbw?: BorderProps["borderWidth"];
 
-  borderColor?: string | keyof LayoutColors;
+  borderColor?: CSSProperties["borderColor"] | keyof LayoutColors;
   bc?: BorderProps["borderColor"];
-  borderLeftColor?: BorderProps["borderColor"];
+  borderLeftColor?: CSSProperties["borderLeftColor"] | keyof LayoutColors;
   blc?: BorderProps["borderColor"];
-  borderRightColor?: BorderProps["borderColor"];
+  borderRightColor?: CSSProperties["borderRightColor"] | keyof LayoutColors;
   brc?: BorderProps["borderColor"];
-  borderTopColor?: BorderProps["borderColor"];
+  borderTopColor?: CSSProperties["borderTopColor"] | keyof LayoutColors;
   btc?: BorderProps["borderColor"];
-  borderBottomColor?: BorderProps["borderColor"];
+  borderBottomColor?: CSSProperties["borderBottomColor"] | keyof LayoutColors;
   bbc?: BorderProps["borderColor"];
 
-  borderRadius?: number | string | keyof Radius;
+  borderRadius?: CSSProperties["borderRadius"] | keyof Radius;
   br?: BorderProps["borderRadius"];
-  borderTopLeftRadius?: BorderProps["borderRadius"];
+  borderTopLeftRadius?: CSSProperties["borderTopLeftRadius"] | keyof Radius;
   btlr?: BorderProps["borderRadius"];
-  borderTopRightRadius?: BorderProps["borderRadius"];
+  borderTopRightRadius?: CSSProperties["borderTopRightRadius"] | keyof Radius;
   btrr?: BorderProps["borderRadius"];
-  borderBottomLeftRadius?: BorderProps["borderRadius"];
+  borderBottomLeftRadius?:
+    | CSSProperties["borderBottomLeftRadius"]
+    | keyof Radius;
   bblr?: BorderProps["borderRadius"];
-  borderBottomRightRadius?: BorderProps["borderRadius"];
+  borderBottomRightRadius?:
+    | CSSProperties["borderBottomRightRadius"]
+    | keyof Radius;
   bbrr?: BorderProps["borderRadius"];
 };
 

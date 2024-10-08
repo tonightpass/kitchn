@@ -1,15 +1,16 @@
+import { CSSProperties } from "react";
 import { css } from "styled-components";
 
 import { handleValue } from "./decorator";
 import { Gap } from "../../types/theme";
 
 export type MarginProps = {
-  margin?: string | number | keyof Gap;
+  margin?: CSSProperties["margin"] | keyof Gap;
   m?: MarginProps["margin"];
-  marginLeft?: MarginProps["margin"];
-  marginRight?: MarginProps["margin"];
-  marginTop?: MarginProps["margin"];
-  marginBottom?: MarginProps["margin"];
+  marginLeft?: CSSProperties["marginLeft"] | keyof Gap;
+  marginRight?: CSSProperties["marginRight"] | keyof Gap;
+  marginTop?: CSSProperties["marginTop"] | keyof Gap;
+  marginBottom?: CSSProperties["marginBottom"] | keyof Gap;
   ml?: MarginProps["marginLeft"];
   mr?: MarginProps["marginRight"];
   mt?: MarginProps["marginTop"];

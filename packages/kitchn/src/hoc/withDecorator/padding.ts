@@ -1,15 +1,16 @@
+import { CSSProperties } from "react";
 import { css } from "styled-components";
 
 import { handleValue } from "./decorator";
 import { Gap } from "../../types/theme";
 
 export type PaddingProps = {
-  padding?: string | number | keyof Gap;
+  padding?: CSSProperties["padding"] | keyof Gap;
   p?: PaddingProps["padding"];
-  paddingLeft?: PaddingProps["padding"];
-  paddingRight?: PaddingProps["padding"];
-  paddingTop?: PaddingProps["padding"];
-  paddingBottom?: PaddingProps["padding"];
+  paddingLeft?: CSSProperties["paddingLeft"] | keyof Gap;
+  paddingRight?: CSSProperties["paddingRight"] | keyof Gap;
+  paddingTop?: CSSProperties["paddingTop"] | keyof Gap;
+  paddingBottom?: CSSProperties["paddingBottom"] | keyof Gap;
   pl?: PaddingProps["paddingLeft"];
   pr?: PaddingProps["paddingRight"];
   pt?: PaddingProps["paddingTop"];

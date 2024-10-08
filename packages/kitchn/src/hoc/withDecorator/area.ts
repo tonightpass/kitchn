@@ -1,17 +1,18 @@
+import { CSSProperties } from "react";
 import { css } from "styled-components";
 
 import { handleValue } from "./decorator";
 import { Breakpoint, Gap } from "../../types/theme";
 
 export type AreaProps = {
-  width?: string | number | keyof Gap | keyof Breakpoint;
-  height?: string | number | keyof Gap | keyof Breakpoint;
+  width?: CSSProperties["width"] | keyof Gap | keyof Breakpoint;
+  height?: CSSProperties["height"] | keyof Gap | keyof Breakpoint;
   w?: AreaProps["width"];
   h?: AreaProps["height"];
-  minWidth?: AreaProps["width"];
-  minHeight?: AreaProps["height"];
-  maxWidth?: AreaProps["width"];
-  maxHeight?: AreaProps["height"];
+  minWidth?: CSSProperties["minWidth"] | keyof Gap | keyof Breakpoint;
+  minHeight?: CSSProperties["minHeight"] | keyof Gap | keyof Breakpoint;
+  maxWidth?: CSSProperties["maxWidth"] | keyof Gap | keyof Breakpoint;
+  maxHeight?: CSSProperties["maxHeight"] | keyof Gap | keyof Breakpoint;
   minW?: AreaProps["minWidth"];
   minH?: AreaProps["minHeight"];
   maxW?: AreaProps["maxWidth"];

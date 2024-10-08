@@ -1,11 +1,12 @@
+import { CSSProperties } from "react";
 import { css } from "styled-components";
 
 import { AccentColors, LayoutColors } from "../../types/theme";
 
 export type BackgroundProps = {
-  background?: string | keyof LayoutColors;
+  background?: CSSProperties["background"] | keyof LayoutColors;
   bg?: BackgroundProps["background"];
-  backgroundColor?: keyof LayoutColors;
+  backgroundColor?: CSSProperties["backgroundColor"] | keyof LayoutColors;
   bgc?: BackgroundProps["backgroundColor"];
   backgroundAccent?: keyof AccentColors;
   bga?: BackgroundProps["backgroundAccent"];
