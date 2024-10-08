@@ -1,0 +1,116 @@
+---
+title: "Advanced Styling"
+description: "A comprehensive guide to enhancing React components with advanced styling capabilities."
+---
+
+import Playground from "@components/Playground";
+
+# Advanced Styling
+
+Kitchn provides a powerful set of styling capabilities that allow you to create highly customizable and responsive React components. This guide will walk you through how to use these styling features effectively and provide a detailed props reference.
+
+## Usage
+
+Here's a simple example of how to use the styling props:
+
+<Playground
+  code={`
+<Container
+  br={"square"}
+  py={"extraLarge"}
+  align={"center"}
+  justify={"center"}
+  bg={"yellow"}
+  bc={"red"}
+>
+  <Text accent={"dark"}>Hello, world!</Text>
+</Container>
+`}
+/>
+
+## Props
+
+### Layout Props
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `display` | [`CSSProperties["display"]`](https://developer.mozilla.org/docs/Web/CSS/display) | The `display` CSS property. |
+| `width` \| `w` | [`CSSProperties["width"]`](https://developer.mozilla.org/docs/Web/CSS/width) \| [`keyof Gap`](/docs/theming#gap) \| [`keyof Breakpoint`](/docs/theming#breakpoint) | The `width` CSS property. |
+| `height` \| `h` | [`CSSProperties["height"]`](https://developer.mozilla.org/docs/Web/CSS/height) \| [`keyof Gap`](/docs/theming#gap) \| [`keyof Breakpoint`](/docs/theming#breakpoint) | The `height` CSS property. |
+| `minWidth` \| `minW` | [`CSSProperties["minWidth"]`](https://developer.mozilla.org/docs/Web/CSS/min-width) \| [`keyof Gap`](/docs/theming#gap) \| [`keyof Breakpoint`](/docs/theming#breakpoint) | The `min-width` CSS property. |
+| `minHeight` \| `minH` | [`CSSProperties["minHeight"]`](https://developer.mozilla.org/docs/Web/CSS/min-height) \| [`keyof Gap`](/docs/theming#gap) \| [`keyof Breakpoint`](/docs/theming#breakpoint) | The `min-height` CSS property. |
+| `maxWidth` \| `maxW` | [`CSSProperties["maxWidth"]`](https://developer.mozilla.org/docs/Web/CSS/max-width) \| [`keyof Gap`](/docs/theming#gap) \| [`keyof Breakpoint`](/docs/theming#breakpoint) | The `max-width` CSS property. |
+| `maxHeight` \| `maxH` | [`CSSProperties["maxHeight"]`](https://developer.mozilla.org/docs/Web/CSS/max-height) \| [`keyof Gap`](/docs/theming#gap) \| [`keyof Breakpoint`](/docs/theming#breakpoint) | The `max-height` CSS property. |
+
+### Typography Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `font` | [`CSSProperties["fontSize"]`](https://developer.mozilla.org/docs/Web/CSS/font-size) \| [`keyof Size`](/docs/theming#size) | The `font-size` CSS property. |
+
+### Background Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `background` \| `bg` | [`CSSProperties["background"]`](https://developer.mozilla.org/docs/Web/CSS/background) \| [`keyof LayoutColors`](/docs/theming#colors) | The `background` CSS property. |
+| `backgroundColor` \| `bgc` | [`CSSProperties["backgroundColor"]`](https://developer.mozilla.org/docs/Web/CSS/background-color) \| [`keyof LayoutColors`](/docs/theming#colors) | The `background-color` CSS property. |
+| `backgroundAccent` \| `bga` | [`keyof AccentColors`](/docs/theming#accent) | The `background` CSS property. |
+
+### Border Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `borderStyle` \| `bs` | [`CSSProperties["borderStyle"]`](https://developer.mozilla.org/docs/Web/CSS/border-style) | The `border-style` CSS property. |
+| `borderWidth` \| `bw` | [`CSSProperties["borderWidth"]`](https://developer.mozilla.org/docs/Web/CSS/border-width) | The `border-width` CSS property. |
+| `borderLeftWidth` \| `blw` | [`CSSProperties["borderLeftWidth"]`](https://developer.mozilla.org/docs/Web/CSS/border-left-width) | The `border-left-width` CSS property. |
+| `borderRightWidth` \| `brw` | [`CSSProperties["borderRightWidth"]`](https://developer.mozilla.org/docs/Web/CSS/border-right-width) | The `border-right-width` CSS property. |
+| `borderTopWidth` \| `btw` | [`CSSProperties["borderTopWidth"]`](https://developer.mozilla.org/docs/Web/CSS/border-top-width) | The `border-top-width` CSS property. |
+| `borderBottomWidth` \| `bbw` | [`CSSProperties["borderBottomWidth"]`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-width) | The `border-bottom-width` CSS property. |
+| `borderColor` \| `bc` | [`CSSProperties["borderColor"]`](https://developer.mozilla.org/docs/Web/CSS/border-color) \| [`keyof LayoutColors`](/docs/theming#colors) | The `border-color` CSS property. |
+| `borderLeftColor` \| `blc` | [`CSSProperties["borderLeftColor"]`](https://developer.mozilla.org/docs/Web/CSS/border-left-color) \| [`keyof LayoutColors`](/docs/theming#colors) | The `border-left-color` CSS property. |
+| `borderRightColor` \| `brc` | [`CSSProperties["borderRightColor"]`](https://developer.mozilla.org/docs/Web/CSS/border-right-color) \| [`keyof LayoutColors`](/docs/theming#colors) | The `border-right-color` CSS property. |
+| `borderTopColor` \| `btc` | [`CSSProperties["borderTopColor"]`](https://developer.mozilla.org/docs/Web/CSS/border-top-color) \| [`keyof LayoutColors`](/docs/theming#colors) | The `border-top-color` CSS property. |
+| `borderBottomColor` \| `bbc` | [`CSSProperties["borderBottomColor"]`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-color) \| [`keyof LayoutColors`](/docs/theming#colors) | The `border-bottom-color` CSS property. |
+| `borderRadius` \| `br` | [`CSSProperties["borderRadius"]`](https://developer.mozilla.org/docs/Web/CSS/border-radius) \| [`keyof Radius`](/docs/theming#radius) | The `border-radius` CSS property. |
+| `borderTopLeftRadius` \| `btlr` | [`CSSProperties["borderTopLeftRadius"]`](https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius) \| [`keyof Radius`](/docs/theming#radius) | The `border-top-left-radius` CSS property. |
+| `borderTopRightRadius` \| `btrr` | [`CSSProperties["borderTopRightRadius"]`](https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius) \| [`keyof Radius`](/docs/theming#radius) | The `border-top-right-radius` CSS property. |
+| `borderBottomLeftRadius` \| `bblr` | [`CSSProperties["borderBottomLeftRadius"]`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius) \| [`keyof Radius`](/docs/theming#radius) | The `border-bottom-left-radius` CSS property. |
+| `borderBottomRightRadius` \| `bbrr` | [`CSSProperties["borderBottomRightRadius"]`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-right-radius) \| [`keyof Radius`](/docs/theming#radius) | The `border-bottom-right-radius` CSS property. |
+
+### Spacing Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `margin` \| `m` | [`CSSProperties["margin"]`](https://developer.mozilla.org/docs/Web/CSS/margin) \| [`keyof Gap`](/docs/theming#gap) | The `margin` CSS property. |
+| `marginLeft` \| `ml` | [`CSSProperties["marginLeft"]`](https://developer.mozilla.org/docs/Web/CSS/margin-left) \| [`keyof Gap`](/docs/theming#gap) | The `margin-left` CSS property. |
+| `marginRight` \| `mr` | [`CSSProperties["marginRight"]`](https://developer.mozilla.org/docs/Web/CSS/margin-right) \| [`keyof Gap`](/docs/theming#gap) | The `margin-right` CSS property. |
+| `marginTop` \| `mt` | [`CSSProperties["marginTop"]`](https://developer.mozilla.org/docs/Web/CSS/margin-top) \| [`keyof Gap`](/docs/theming#gap) | The `margin-top` CSS property. |
+| `marginBottom` \| `mb` | [`CSSProperties["marginBottom"]`](https://developer.mozilla.org/docs/Web/CSS/margin-bottom) \| [`keyof Gap`](/docs/theming#gap) | The `margin-bottom` CSS property. |
+| `mx` | [`CSSProperties["margin"]`](https://developer.mozilla.org/docs/Web/CSS/margin) \| [`keyof Gap`](/docs/theming#gap) | The `margin` CSS property for the x-axis. |
+| `my` | [`CSSProperties["margin"]`](https://developer.mozilla.org/docs/Web/CSS/margin) \| [`keyof Gap`](/docs/theming#gap) | The `margin` CSS property for the y-axis. |
+| `padding` \| `p` | [`CSSProperties["padding"]`](https://developer.mozilla.org/docs/Web/CSS/padding) \| [`keyof Gap`](/docs/theming#gap) | The `padding` CSS property. |
+| `paddingLeft` \| `pl` | [`CSSProperties["paddingLeft"]`](https://developer.mozilla.org/docs/Web/CSS/padding-left) \| [`keyof Gap`](/docs/theming#gap) | The `padding-left` CSS property. |
+| `paddingRight` \| `pr` | [`CSSProperties["paddingRight"]`](https://developer.mozilla.org/docs/Web/CSS/padding-right) \| [`keyof Gap`](/docs/theming#gap) | The `padding-right` CSS property. |
+| `paddingTop` \| `pt` | [`CSSProperties["paddingTop"]`](https://developer.mozilla.org/docs/Web/CSS/padding-top) \| [`keyof Gap`](/docs/theming#gap) | The `padding-top` CSS property. |
+| `paddingBottom` \| `pb` | [`CSSProperties["paddingBottom"]`](https://developer.mozilla.org/docs/Web/CSS/padding-bottom) \| [`keyof Gap`](/docs/theming#gap) | The `padding-bottom` CSS property. |
+| `px` | [`CSSProperties["padding"]`](https://developer.mozilla.org/docs/Web/CSS/padding) \| [`keyof Gap`](/docs/theming#gap) | The `padding` CSS property for the x-axis. |
+| `py` | [`CSSProperties["padding"]`](https://developer.mozilla.org/docs/Web/CSS/padding) \| [`keyof Gap`](/docs/theming#gap) | The `padding` CSS property for the y-axis. |
+
+### Positioning Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `position` \| `pos` | [`CSSProperties["position"]`](https://developer.mozilla.org/docs/Web/CSS/position) | The `position` CSS property. |
+| `zIndex` \| `zi` | [`CSSProperties["zIndex"]`](https://developer.mozilla.org/docs/Web/CSS/z-index) | The `z-index` CSS property. |
+| `left` \| `l` | [`CSSProperties["left"]`](https://developer.mozilla.org/docs/Web/CSS/left) | The `left` CSS property. |
+| `right` \| `r` | [`CSSProperties["right"]`](https://developer.mozilla.org/docs/Web/CSS/right) | The `right` CSS property. |
+| `top` \| `t` | [`CSSProperties["top"]`](https://developer.mozilla.org/docs/Web/CSS/top) | The `top` CSS property. |
+| `bottom` \| `b` | [`CSSProperties["bottom"]`](https://developer.mozilla.org/docs/Web/CSS/bottom) | The `bottom` CSS property. |
+
+### Interaction Props
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `overflow` | [`CSSProperties["overflow"]`](https://developer.mozilla.org/docs/Web/CSS/overflow) | The `overflow` CSS property. |
+| `cursor` | [`CSSProperties["cursor"]`](https://developer.mozilla.org/docs/Web/CSS/cursor) | The `cursor` CSS property. |
+| `pointerEvents` | [`CSSProperties["pointerEvents"]`](https://developer.mozilla.org/docs/Web/CSS/pointer-events) | The `pointer-events` CSS property. |
+| `userSelect` | [`CSSProperties["userSelect"]`](https://developer.mozilla.org/docs/Web/CSS/user-select) | The `user-select` CSS property. |
