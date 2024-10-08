@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.11
+
+### Patch Changes
+
+- [`b1c9879`](https://github.com/tonightpass/kitchn/commit/b1c987932299a8f95a610513ffede25efe5c5142) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update decorator types with React CSSProperties
+
 ## 1.1.10
 
 ### Patch Changes
