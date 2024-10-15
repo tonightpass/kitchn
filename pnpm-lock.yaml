@@ -119,7 +119,7 @@ importers:
         version: 20.16.10
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -153,7 +153,7 @@ importers:
         version: 33.0.1(@babel/core@7.25.2)
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -168,7 +168,7 @@ importers:
         version: 5.13.6(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@1.4.0)(typescript@5.6.2)
       kitchn:
         specifier: latest
-        version: 1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
+        version: 1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -181,7 +181,7 @@ importers:
         version: 18.19.54
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -211,7 +211,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
+        version: 1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
       next:
         specifier: ^14.2.5
         version: 14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -227,7 +227,7 @@ importers:
         version: 18.19.54
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -239,7 +239,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.1.10(next@13.5.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
+        version: 1.1.10(next@13.5.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
       next:
         specifier: ^13.0.2
         version: 13.5.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -255,7 +255,7 @@ importers:
         version: 18.19.54
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -267,7 +267,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)
+        version: 1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -277,7 +277,7 @@ importers:
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -326,7 +326,7 @@ importers:
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -341,10 +341,10 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-native:
         specifier: ^0.75.0
-        version: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2)
+        version: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2)
       react-native-remix-icon:
         specifier: ^0.4.0
-        version: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1))
+        version: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1))
       tsup:
         specifier: ^8.0.1
         version: 8.3.0(@swc/core@1.6.1(@swc/helpers@0.5.5))(jiti@1.21.6)(postcss@8.4.38)(typescript@5.6.2)(yaml@2.5.1)
@@ -375,7 +375,7 @@ importers:
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.10
+        version: 18.3.11
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.0
@@ -3222,8 +3222,8 @@ packages:
   '@types/react-native@0.70.19':
     resolution: {integrity: sha512-c6WbyCgWTBgKKMESj/8b4w+zWcZSsCforson7UdXtXMecG3MxCinYi6ihhrHVPyUrVzORsvEzK8zg32z4pK6Sg==}
 
-  '@types/react@18.3.10':
-    resolution: {integrity: sha512-02sAAlBnP39JgXwkAq3PeU9DVaaGpZyF3MGcC0MKgQVkZor5IiiDAipVaxQHtDJAmO4GIy/rVBy/LzVj76Cyqg==}
+  '@types/react@18.3.11':
+    resolution: {integrity: sha512-r6QZ069rFTjrEYgFdOck1gK7FLVsgJE7tTz0pQBczlBNUhBNk0MQH4UbnFSwjpQLMkLzgqvBBa+qGpLje16eTQ==}
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
@@ -13196,7 +13196,7 @@ snapshots:
   '@mdx-js/react@2.3.0(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
       react: 18.3.1
 
   '@mischnic/json-sourcemap@0.1.1':
@@ -14194,24 +14194,24 @@ snapshots:
 
   '@react-native/polyfills@2.0.0': {}
 
-  '@react-native/virtualized-lists@0.75.3(@types/react@18.3.10)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)':
+  '@react-native/virtualized-lists@0.75.3(@types/react@18.3.11)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)':
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
       react: 18.3.1
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5)
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5)
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
     optional: true
 
-  '@react-native/virtualized-lists@0.75.3(@types/react@18.3.10)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)':
+  '@react-native/virtualized-lists@0.75.3(@types/react@18.3.11)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)':
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
       react: 18.3.1
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2)
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2)
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
 
   '@resvg/resvg-wasm@2.4.0': {}
 
@@ -14644,17 +14644,17 @@ snapshots:
 
   '@types/reach__router@1.3.15':
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
 
   '@types/react-dom@18.3.0':
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
 
   '@types/react-native@0.70.19':
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
 
-  '@types/react@18.3.10':
+  '@types/react@18.3.11':
     dependencies:
       '@types/prop-types': 15.7.13
       csstype: 3.1.3
@@ -15131,7 +15131,7 @@ snapshots:
 
   agent-base@7.1.1:
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
@@ -18050,7 +18050,7 @@ snapshots:
 
   extract-zip@2.0.1:
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.7
       get-stream: 5.2.0
       yauzl: 2.10.0
     optionalDependencies:
@@ -18818,7 +18818,7 @@ snapshots:
     dependencies:
       basic-ftp: 5.0.5
       data-uri-to-buffer: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.7
       fs-extra: 11.2.0
     transitivePeerDependencies:
       - supports-color
@@ -19198,7 +19198,7 @@ snapshots:
   http-proxy-agent@7.0.2:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
@@ -19222,7 +19222,7 @@ snapshots:
   https-proxy-agent@7.0.5:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
@@ -19855,7 +19855,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kitchn@1.1.10(next@13.5.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1):
+  kitchn@1.1.10(next@13.5.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -19871,10 +19871,10 @@ snapshots:
       styled-components: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
       next: 13.5.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2)
-      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1))
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2)
+      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1))
 
-  kitchn@1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1):
+  kitchn@1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -19890,10 +19890,10 @@ snapshots:
       styled-components: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
       next: 14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5)
-      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1))
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5)
+      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1))
 
-  kitchn@1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1):
+  kitchn@1.1.10(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -19909,8 +19909,8 @@ snapshots:
       styled-components: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
       next: 14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2)
-      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1))
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2)
+      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1))
 
   klaw@1.3.1:
     optionalDependencies:
@@ -21756,7 +21756,7 @@ snapshots:
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
       get-uri: 6.0.3
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.5
@@ -22246,7 +22246,7 @@ snapshots:
   proxy-agent@6.4.0:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.5
       lru-cache: 7.18.3
@@ -22447,29 +22447,29 @@ snapshots:
 
   react-native-gradle-plugin@0.70.3: {}
 
-  react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)):
+  react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)):
     dependencies:
-      react-native-svg: 15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)
+      react-native-svg: 15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)
     optional: true
 
-  react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)):
+  react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)):
     dependencies:
-      react-native-svg: 15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
+      react-native-svg: 15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
 
-  react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1):
+  react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1):
     dependencies:
       css-select: 5.1.0
       css-tree: 1.1.3
       react: 18.3.1
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5)
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5)
     optional: true
 
-  react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1):
+  react-native-svg@15.3.0(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1):
     dependencies:
       css-select: 5.1.0
       css-tree: 1.1.3
       react: 18.3.1
-      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2)
+      react-native: 0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2)
 
   react-native@0.70.15(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(react@18.3.1):
     dependencies:
@@ -22514,7 +22514,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5):
+  react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5):
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@react-native-community/cli': 14.1.0(typescript@4.9.5)
@@ -22526,7 +22526,7 @@ snapshots:
       '@react-native/gradle-plugin': 0.75.3
       '@react-native/js-polyfills': 0.75.3
       '@react-native/normalize-colors': 0.75.3
-      '@react-native/virtualized-lists': 0.75.3(@types/react@18.3.10)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)
+      '@react-native/virtualized-lists': 0.75.3(@types/react@18.3.11)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@4.9.5))(react@18.3.1)
       abort-controller: 3.0.0
       anser: 1.4.10
       ansi-regex: 5.0.1
@@ -22557,7 +22557,7 @@ snapshots:
       ws: 6.2.3
       yargs: 17.7.2
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/preset-env'
@@ -22568,7 +22568,7 @@ snapshots:
       - utf-8-validate
     optional: true
 
-  react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2):
+  react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2):
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@react-native-community/cli': 14.1.0(typescript@5.6.2)
@@ -22580,7 +22580,7 @@ snapshots:
       '@react-native/gradle-plugin': 0.75.3
       '@react-native/js-polyfills': 0.75.3
       '@react-native/normalize-colors': 0.75.3
-      '@react-native/virtualized-lists': 0.75.3(@types/react@18.3.10)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.10)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
+      '@react-native/virtualized-lists': 0.75.3(@types/react@18.3.11)(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.11)(react@18.3.1)(typescript@5.6.2))(react@18.3.1)
       abort-controller: 3.0.0
       anser: 1.4.10
       ansi-regex: 5.0.1
@@ -22611,7 +22611,7 @@ snapshots:
       ws: 6.2.3
       yargs: 17.7.2
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/preset-env'
@@ -23342,7 +23342,7 @@ snapshots:
   socks-proxy-agent@8.0.4:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
       socks: 2.8.3
     transitivePeerDependencies:
       - supports-color
