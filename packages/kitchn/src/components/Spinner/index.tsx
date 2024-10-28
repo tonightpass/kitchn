@@ -23,6 +23,7 @@ const SpinnerComponent = styled(({ ...props }: SpinnerProps) => {
 })`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: ${({ size }) => size || 50}px;
   height: ${({ size }) => size || 50}px;
   text-align: center;
