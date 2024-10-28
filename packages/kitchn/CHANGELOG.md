@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.1.12
+
+### Patch Changes
+
+- [`6c796af`](https://github.com/tonightpass/kitchn/commit/6c796af1ec152be961b208d3f57f2c64b4d8b73f) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update Spinner component to center align content
+
 ## 1.1.11
 
 ### Patch Changes
