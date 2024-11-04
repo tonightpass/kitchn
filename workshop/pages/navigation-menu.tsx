@@ -1,8 +1,17 @@
 import { Container, Text, NavigationMenu } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
-import { RiArrowDropDownLine } from "react-icons/ri";
-
+import {
+  RiArrowDropDownLine,
+  RiStoreLine,
+  RiPencilRulerLine,
+  RiCodeLine,
+  RiRocketLine,
+  RiCloudLine,
+  RiServerLine,
+  RiHospitalLine,
+  RiBankLine,
+} from "react-icons/ri";
 const NavigationMenuPage: NextPage = () => {
   return (
     <Container
@@ -24,21 +33,80 @@ const NavigationMenuPage: NextPage = () => {
                   {"Products"}
                 </NavigationMenu.Button>
                 <NavigationMenu.Content>
-                  <li>
-                    <span>{"DX Platform"}</span>
-                    <ul>
-                      <li>{"Design"}</li>
-                      <li>{"Develop"}</li>
-                      <li>{"Deploy"}</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span>{"Managed Infrastructure"}</span>
-                    <ul>
-                      <li>{"Cloud"}</li>
-                      <li>{"On-Prem"}</li>
-                    </ul>
-                  </li>
+                  <NavigationMenu.Section>
+                    <NavigationMenu.SectionHeader>
+                      {"DX Platform"}
+                    </NavigationMenu.SectionHeader>
+                    <NavigationMenu.SectionContent>
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon
+                          icon={RiPencilRulerLine}
+                        />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"Design"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Create beautiful and intuitive user experiences"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon icon={RiCodeLine} />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"Develop"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Build robust and scalable applications"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon icon={RiRocketLine} />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"Deploy"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Ship your products with confidence"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+                    </NavigationMenu.SectionContent>
+                  </NavigationMenu.Section>
+                  <NavigationMenu.Section>
+                    <NavigationMenu.SectionHeader>
+                      {"Managed Infrastructure"}
+                    </NavigationMenu.SectionHeader>
+                    <NavigationMenu.SectionContent>
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon icon={RiCloudLine} />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"Cloud"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Scalable cloud infrastructure solutions"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon icon={RiServerLine} />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"On-Prem"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Secure on-premise deployment options"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+                    </NavigationMenu.SectionContent>
+                  </NavigationMenu.Section>
                 </NavigationMenu.Content>
               </NavigationMenu.Item>
               <NavigationMenu.Item>
@@ -48,22 +116,88 @@ const NavigationMenuPage: NextPage = () => {
                   {"Solutions"}
                 </NavigationMenu.Button>
                 <NavigationMenu.Content>
-                  <li>
-                    <span>{"Use Cases"}</span>
-                    <ul>
-                      <li>{"Retail"}</li>
-                      <li>{"Healthcare"}</li>
-                      <li>{"Finance"}</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span>{"Industries"}</span>
-                    <ul>
-                      <li>{"Retail"}</li>
-                      <li>{"Healthcare"}</li>
-                      <li>{"Finance"}</li>
-                    </ul>
-                  </li>
+                  <NavigationMenu.Section>
+                    <NavigationMenu.SectionHeader>
+                      {"Use Cases"}
+                    </NavigationMenu.SectionHeader>
+                    <NavigationMenu.SectionContent>
+                      <NavigationMenu.SectionContent>
+                        <NavigationMenu.SectionItem>
+                          <NavigationMenu.SectionItemIcon icon={RiStoreLine} />
+                          <Container>
+                            <NavigationMenu.SectionItemName>
+                              {"Retail"}
+                            </NavigationMenu.SectionItemName>
+                            <NavigationMenu.SectionItemDescription>
+                              {
+                                "Helping retailers deliver a seamless shopping experience"
+                              }
+                            </NavigationMenu.SectionItemDescription>
+                          </Container>
+                        </NavigationMenu.SectionItem>
+
+                        <NavigationMenu.SectionItem>
+                          <NavigationMenu.SectionItemIcon
+                            icon={RiHospitalLine}
+                          />
+                          <Container>
+                            <NavigationMenu.SectionItemName>
+                              {"Healthcare"}
+                            </NavigationMenu.SectionItemName>
+                            <NavigationMenu.SectionItemDescription>
+                              {
+                                "Revolutionizing patient care and medical services"
+                              }
+                            </NavigationMenu.SectionItemDescription>
+                          </Container>
+                        </NavigationMenu.SectionItem>
+
+                        <NavigationMenu.SectionItem>
+                          <NavigationMenu.SectionItemIcon icon={RiBankLine} />
+                          <Container>
+                            <NavigationMenu.SectionItemName>
+                              {"Finance"}
+                            </NavigationMenu.SectionItemName>
+                            <NavigationMenu.SectionItemDescription>
+                              {
+                                "Empowering financial institutions with modern solutions"
+                              }
+                            </NavigationMenu.SectionItemDescription>
+                          </Container>
+                        </NavigationMenu.SectionItem>
+                      </NavigationMenu.SectionContent>
+                    </NavigationMenu.SectionContent>
+                  </NavigationMenu.Section>
+                  <NavigationMenu.Section>
+                    <NavigationMenu.SectionHeader>
+                      {"Industries"}
+                    </NavigationMenu.SectionHeader>
+                    <NavigationMenu.SectionContent>
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon icon={RiHospitalLine} />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"Healthcare"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Transforming patient care delivery"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+
+                      <NavigationMenu.SectionItem>
+                        <NavigationMenu.SectionItemIcon icon={RiBankLine} />
+                        <Container>
+                          <NavigationMenu.SectionItemName>
+                            {"Finance"}
+                          </NavigationMenu.SectionItemName>
+                          <NavigationMenu.SectionItemDescription>
+                            {"Innovative financial technology solutions"}
+                          </NavigationMenu.SectionItemDescription>
+                        </Container>
+                      </NavigationMenu.SectionItem>
+                    </NavigationMenu.SectionContent>
+                  </NavigationMenu.Section>
                 </NavigationMenu.Content>
               </NavigationMenu.Item>
               <NavigationMenu.Item>
