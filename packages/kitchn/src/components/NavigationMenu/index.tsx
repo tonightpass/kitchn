@@ -1,5 +1,12 @@
-import React, { createContext, useContext, useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import React, {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
+import styled, { css, keyframes } from "styled-components";
+import { Keyframes, RuleSet } from "styled-components/dist/types";
 
 import { DecoratorProps, withDecorator } from "../../hoc";
 import { useRect } from "../../hooks";
@@ -10,6 +17,7 @@ import Highlight from "../Highlight";
 import Icon, { IconProps } from "../Icon";
 import Text, { TextProps } from "../Text";
 import Tooltip, { TooltipProps } from "../Tooltip";
+import { TooltipContentInner } from "../Tooltip/Content";
 import TooltipIcon from "../Tooltip/Icon";
 
 // Context type definitions
@@ -19,6 +27,7 @@ type NavigationMenuContextType = {
   handleTooltipMouseEnter: () => void;
   handleTooltipMouseLeave: () => void;
   activeId: string | null;
+  previousId: string | null; // Add this to track previous active item
   setTooltipContent: (content: React.ReactNode) => void;
   highlight: boolean;
   hoverHeightRatio: number;
@@ -59,6 +68,7 @@ const NavigationMenuContainer = styled(
     const timeoutRef = useRef<number>();
     const [displayHighlight, setDisplayHighlight] = useState<boolean>(false);
     const [activeId, setActiveId] = useState<string | null>(null);
+    const [previousId, setPreviousId] = useState<string | null>(null); // Add this state
     const [tooltipContent, setTooltipContent] = useState<React.ReactNode>(null);
     const [isTooltipHovered, setIsTooltipHovered] = useState(false);
     const { rect, setRect } = useRect();
@@ -91,14 +101,17 @@ const NavigationMenuContainer = styled(
         if (highlight) {
           setDisplayHighlight(true);
         }
+        setPreviousId(activeId);
         setActiveId(id);
       },
-      [activeId, highlight, setRect],
+      [activeId, highlight],
     );
 
     const handleMouseLeave = React.useCallback(() => {
       if (!isTooltipHovered) {
-        closeTooltip();
+        timeoutRef.current = window.setTimeout(() => {
+          closeTooltip();
+        }, 150);
       }
     }, [isTooltipHovered, closeTooltip]);
 
@@ -121,6 +134,7 @@ const NavigationMenuContainer = styled(
         handleTooltipMouseEnter,
         handleTooltipMouseLeave,
         activeId,
+        previousId, // Include previousId in context
         setTooltipContent,
         highlight,
         hoverHeightRatio,
@@ -132,6 +146,7 @@ const NavigationMenuContainer = styled(
         handleTooltipMouseEnter,
         handleTooltipMouseLeave,
         activeId,
+        previousId, // Add to dependency array
         highlight,
         hoverHeightRatio,
         hoverWidthRatio,
@@ -147,8 +162,7 @@ const NavigationMenuContainer = styled(
           leaveDelay={0}
           enterDelay={0}
           visible={
-            tooltipContent !== null
-            //  && displayHighlight
+            tooltipContent !== null && (displayHighlight || isTooltipHovered)
           }
           portalCss={css`
             left: ${rect.left +
@@ -156,9 +170,13 @@ const NavigationMenuContainer = styled(
             transform: translateX(0) !important;
             transition: left 0.15s !important;
 
-            ${TooltipIcon} {
-              left: ${rect.width / 2}px;
-              transition: left 0.15s !important;
+            ${TooltipContentInner} {
+              padding: 0;
+
+              ${TooltipIcon} {
+                left: ${rect.width / 2}px;
+                transition: left 0.15s !important;
+              }
             }
 
             & > div {
@@ -224,15 +242,19 @@ export type NavigationMenuButtonProps = {
 
 const NavigationMenuButton = styled(
   ({ active, disabled, unstyled, id, ...props }: NavigationMenuButtonProps) => {
-    const { handleMouseOver } = useNavigationMenu();
+    const { handleMouseOver, setTooltipContent } = useNavigationMenu();
     const itemContext = React.useContext(NavigationMenuItemContext);
     const buttonId = itemContext?.id || id || getId();
 
     const handleHover = React.useCallback(
       (e: React.MouseEvent<HTMLElement>) => {
+        // Clear tooltip content if this is a simple button without dropdown content
+        if (!itemContext?.hasContent) {
+          setTooltipContent(null);
+        }
         handleMouseOver(e, buttonId);
       },
-      [buttonId, handleMouseOver],
+      [buttonId, handleMouseOver, setTooltipContent, itemContext?.hasContent],
     );
 
     if (unstyled && props.children) {
@@ -267,11 +289,165 @@ const NavigationMenuButton = styled(
   }
 `;
 
-const StyledContent = styled.ul`
+const enterFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const enterFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const exitToRight = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+`;
+
+const exitToLeft = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+`;
+
+export const animationConfig = {
+  duration: "250ms", // Slightly faster for more snappy feel
+  easing: "cubic-bezier(0.4, 0.0, 0.2, 1)", // Smooth easing
+  delayBeforeRemove: 200, // Time to wait before removing from DOM
+};
+
+// Direction type for animation
+export type AnimationDirection =
+  | "normal"
+  | "reverse"
+  | "alternate"
+  | "alternate-reverse";
+
+// Menu slide direction
+export type MenuDirection = "right" | "left";
+
+// Animation config type
+export interface AnimationConfig {
+  duration: string;
+  easing: string;
+}
+
+// Animation state interface
+export interface AnimationState {
+  isEntering: boolean;
+  shouldRender: boolean;
+}
+
+// Return type for useMenuAnimation hook
+export interface MenuAnimationResult extends AnimationState {
+  animationStyle: RuleSet<object>;
+}
+
+export const createAnimationStyle = (
+  animation: Keyframes,
+  direction: AnimationDirection = "normal",
+) => css`
+  animation: ${animation} ${animationConfig.duration} ${animationConfig.easing}
+    ${direction} forwards;
+`;
+
+export const useMenuAnimation = (
+  isVisible: boolean,
+  direction: MenuDirection = "right",
+): {
+  shouldRender: boolean;
+  isEntering: boolean;
+  direction: MenuDirection;
+} => {
+  const [animationState, setAnimationState] = useState<AnimationState>({
+    isEntering: false,
+    shouldRender: isVisible,
+  });
+
+  useEffect(() => {
+    let timer: number;
+
+    if (isVisible) {
+      // Immediately show and start enter animation
+      setAnimationState({
+        isEntering: true,
+        shouldRender: true,
+      });
+    } else {
+      // Start exit animation but keep rendered
+      setAnimationState((prev) => ({
+        isEntering: false,
+        shouldRender: true,
+      }));
+
+      // Remove from DOM after animation completes
+      timer = window.setTimeout(() => {
+        setAnimationState({
+          isEntering: false,
+          shouldRender: false,
+        });
+      }, animationConfig.delayBeforeRemove);
+    }
+
+    return () => {
+      if (timer) {
+        window.clearTimeout(timer);
+      }
+    };
+  }, [isVisible]);
+
+  return {
+    ...animationState,
+    direction,
+  };
+};
+
+// StyledContent component using the animations
+export const StyledContent = styled.ul<{
+  isEntering: boolean;
+  direction: MenuDirection;
+}>`
   pointer-events: all;
   display: flex;
   flex-direction: row;
   gap: ${({ theme }) => theme.gap.normal};
+  opacity: 0;
+  transform: translateX(
+    ${({ direction }) => (direction === "right" ? "100px" : "-100px")}
+  );
+  ${({ isEntering, direction }) =>
+    isEntering
+      ? css`
+          animation: ${direction === "right" ? enterFromRight : enterFromLeft}
+            ${animationConfig.duration} ${animationConfig.easing} forwards;
+        `
+      : css`
+          animation: ${direction === "right" ? exitToRight : exitToLeft}
+            ${animationConfig.duration} ${animationConfig.easing} forwards;
+        `}
 `;
 
 type NavigationMenuContentProps = {
@@ -279,26 +455,66 @@ type NavigationMenuContentProps = {
   id?: string;
 } & DecoratorProps;
 
-const NavigationMenuContent = styled(
-  ({ children, id, ...props }: NavigationMenuContentProps) => {
-    const { activeId, setTooltipContent } = useNavigationMenu();
-    const itemContext = React.useContext(NavigationMenuItemContext);
-    const contentId = itemContext?.id || id;
+const NavigationMenuContent = ({
+  children,
+  id,
+  ...props
+}: NavigationMenuContentProps) => {
+  const { activeId, previousId, setTooltipContent } = useNavigationMenu();
+  const itemContext = React.useContext(NavigationMenuItemContext);
+  const contentId = itemContext?.id || id;
+  const isActive = activeId === contentId;
 
-    const content = React.useMemo(
-      () => <StyledContent {...props}>{children}</StyledContent>,
-      [children, props],
-    );
+  // Determine animation direction based on IDs
+  const getAnimationDirection = (): MenuDirection => {
+    if (!previousId || !activeId) return "right";
 
-    React.useEffect(() => {
-      if (contentId && activeId === contentId) {
-        setTooltipContent(content);
+    // Get all menu items to determine their order
+    const menuItems = document.querySelectorAll('[role="menuitem"]');
+    let previousIndex = -1;
+    let currentIndex = -1;
+
+    menuItems.forEach((item, index) => {
+      if (item.closest("li")?.getAttribute("data-id") === previousId) {
+        previousIndex = index;
       }
-    }, [activeId, content, contentId, setTooltipContent]);
+      if (item.closest("li")?.getAttribute("data-id") === activeId) {
+        currentIndex = index;
+      }
+    });
 
-    return null;
-  },
-)``;
+    return previousIndex < currentIndex ? "right" : "left";
+  };
+
+  const { shouldRender, isEntering, direction } = useMenuAnimation(
+    isActive,
+    getAnimationDirection(),
+  );
+
+  const content = React.useMemo(
+    () =>
+      shouldRender && (
+        <Container px={12} py={8} overflow={"hidden"}>
+          <StyledContent
+            {...props}
+            isEntering={isEntering}
+            direction={direction}
+          >
+            {children}
+          </StyledContent>
+        </Container>
+      ),
+    [children, props, shouldRender, isEntering, direction],
+  );
+
+  React.useEffect(() => {
+    if (contentId && isActive) {
+      setTooltipContent(content);
+    }
+  }, [contentId, isActive, content, setTooltipContent]);
+
+  return null;
+};
 
 const NavigationMenuIcon = styled(Icon).attrs({
   color: "light",
@@ -310,8 +526,12 @@ const NavigationMenuIcon = styled(Icon).attrs({
   }
 `;
 
-const NavigationMenuItemContext = createContext<{ id: string | null }>({
+const NavigationMenuItemContext = createContext<{
+  id: string | null;
+  hasContent: boolean;
+}>({
   id: null,
+  hasContent: false,
 });
 
 type NavigationMenuItemProps = {
@@ -324,9 +544,18 @@ const NavigationMenuItemWithContext = ({
 }: NavigationMenuItemProps) => {
   const itemId = getId();
 
+  // Check if this menu item has a NavigationMenu.Content child
+  const hasContent = React.Children.toArray(children).some(
+    (child) =>
+      React.isValidElement(child) &&
+      (child.type as any)?.name === NavigationMenuContent.name,
+  );
+
   return (
-    <NavigationMenuItemContext.Provider value={{ id: itemId }}>
-      <NavigationMenuItem {...props}>{children}</NavigationMenuItem>
+    <NavigationMenuItemContext.Provider value={{ id: itemId, hasContent }}>
+      <NavigationMenuItem data-id={itemId} {...props}>
+        {children}
+      </NavigationMenuItem>
     </NavigationMenuItemContext.Provider>
   );
 };
