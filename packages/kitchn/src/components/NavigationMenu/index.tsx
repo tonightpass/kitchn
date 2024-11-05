@@ -1,213 +1,17 @@
-import React, {
-  createContext,
-  useContext,
-  useRef,
-  useState,
-  useEffect,
-} from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Keyframes, RuleSet } from "styled-components/dist/types";
 
+import NavigationMenuContainerWithContext from "./Container";
+import NavigationMenuItemWithContext from "./Item";
 import { DecoratorProps, withDecorator } from "../../hoc";
-import { useRect } from "../../hooks";
+import useNavigationMenu from "../../hooks/useNavigationMenu";
+import useNavigationMenuItem from "../../hooks/useNavigationMenuItem";
 import { getId } from "../../utils";
 import Button, { ButtonProps } from "../Button";
 import Container, { ContainerProps } from "../Container";
-import Highlight from "../Highlight";
 import Icon, { IconProps } from "../Icon";
 import Text, { TextProps } from "../Text";
-import Tooltip, { TooltipProps } from "../Tooltip";
-import { TooltipContentInner } from "../Tooltip/Content";
-import TooltipIcon from "../Tooltip/Icon";
-
-// Context type definitions
-type NavigationMenuContextType = {
-  handleMouseOver: (event: React.MouseEvent<HTMLElement>, id: string) => void;
-  handleMouseLeave: () => void;
-  handleTooltipMouseEnter: () => void;
-  handleTooltipMouseLeave: () => void;
-  activeId: string | null;
-  previousId: string | null; // Add this to track previous active item
-  setTooltipContent: (content: React.ReactNode) => void;
-  highlight: boolean;
-  hoverHeightRatio: number;
-  hoverWidthRatio: number;
-};
-
-const NavigationMenuContext = createContext<NavigationMenuContextType | null>(
-  null,
-);
-
-const useNavigationMenu = () => {
-  const context = useContext(NavigationMenuContext);
-  if (!context) {
-    throw new Error(
-      "Navigation menu components must be used within NavigationMenuContainer",
-    );
-  }
-  return context;
-};
-
-export type NavigationMenuContainerProps = Omit<TooltipProps, "text"> &
-  DecoratorProps & {
-    hoverHeightRatio?: number;
-    hoverWidthRatio?: number;
-    highlight?: boolean;
-    children?: React.ReactNode;
-  };
-
-const NavigationMenuContainer = styled(
-  ({
-    children,
-    hoverHeightRatio = 1,
-    hoverWidthRatio = 1,
-    highlight = true,
-    ...props
-  }: NavigationMenuContainerProps) => {
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const timeoutRef = useRef<number>();
-    const [displayHighlight, setDisplayHighlight] = useState<boolean>(false);
-    const [activeId, setActiveId] = useState<string | null>(null);
-    const [previousId, setPreviousId] = useState<string | null>(null); // Add this state
-    const [tooltipContent, setTooltipContent] = useState<React.ReactNode>(null);
-    const [isTooltipHovered, setIsTooltipHovered] = useState(false);
-    const { rect, setRect } = useRect();
-
-    // Clear any existing timeout to prevent stale closures
-    const clearTimeout = () => {
-      if (timeoutRef.current) {
-        window.clearTimeout(timeoutRef.current);
-        timeoutRef.current = undefined;
-      }
-    };
-
-    // Clean up timeout on unmount
-    React.useEffect(() => {
-      return () => clearTimeout();
-    }, []);
-
-    const closeTooltip = React.useCallback(() => {
-      setDisplayHighlight(false);
-      setActiveId(null);
-      setTooltipContent(null);
-    }, []);
-
-    const handleMouseOver = React.useCallback(
-      (event: React.MouseEvent<HTMLElement>, id: string) => {
-        clearTimeout();
-        if (!event.target) return;
-        if (activeId === id) return;
-        setRect(event, () => containerRef.current);
-        if (highlight) {
-          setDisplayHighlight(true);
-        }
-        setPreviousId(activeId);
-        setActiveId(id);
-      },
-      [activeId, highlight],
-    );
-
-    const handleMouseLeave = React.useCallback(() => {
-      if (!isTooltipHovered) {
-        timeoutRef.current = window.setTimeout(() => {
-          closeTooltip();
-        }, 150);
-      }
-    }, [isTooltipHovered, closeTooltip]);
-
-    const handleTooltipMouseEnter = React.useCallback(() => {
-      clearTimeout();
-      setIsTooltipHovered(true);
-    }, []);
-
-    const handleTooltipMouseLeave = React.useCallback(() => {
-      setIsTooltipHovered(false);
-      timeoutRef.current = window.setTimeout(() => {
-        closeTooltip();
-      }, 100); // Small delay to handle edge cases
-    }, [closeTooltip]);
-
-    const contextValue = React.useMemo(
-      () => ({
-        handleMouseOver,
-        handleMouseLeave,
-        handleTooltipMouseEnter,
-        handleTooltipMouseLeave,
-        activeId,
-        previousId, // Include previousId in context
-        setTooltipContent,
-        highlight,
-        hoverHeightRatio,
-        hoverWidthRatio,
-      }),
-      [
-        handleMouseOver,
-        handleMouseLeave,
-        handleTooltipMouseEnter,
-        handleTooltipMouseLeave,
-        activeId,
-        previousId, // Add to dependency array
-        highlight,
-        hoverHeightRatio,
-        hoverWidthRatio,
-      ],
-    );
-
-    return (
-      <NavigationMenuContext.Provider value={contextValue}>
-        <Tooltip
-          offset={8}
-          placement={"bottom"}
-          text={tooltipContent}
-          leaveDelay={0}
-          enterDelay={0}
-          visible={
-            tooltipContent !== null && (displayHighlight || isTooltipHovered)
-          }
-          portalCss={css`
-            left: ${rect.left +
-            (containerRef.current?.offsetLeft || 0)}px !important;
-            transform: translateX(0) !important;
-            transition: left 0.15s !important;
-
-            ${TooltipContentInner} {
-              padding: 0;
-
-              ${TooltipIcon} {
-                left: ${rect.width / 2}px;
-                transition: left 0.15s !important;
-              }
-            }
-
-            & > div {
-              pointer-events: all !important;
-            }
-          `}
-          onMouseEnter={handleTooltipMouseEnter}
-          onMouseLeave={handleTooltipMouseLeave}
-          {...props}
-        >
-          <Container
-            onMouseLeave={handleMouseLeave}
-            ref={containerRef}
-            pos={"relative"}
-            w={"100%"}
-            nav
-          >
-            <Highlight
-              br={"round"}
-              rect={rect}
-              visible={displayHighlight}
-              hoverHeightRatio={hoverHeightRatio}
-              hoverWidthRatio={hoverWidthRatio}
-            />
-            {children}
-          </Container>
-        </Tooltip>
-      </NavigationMenuContext.Provider>
-    );
-  },
-)``;
 
 const NavigationMenuList = styled.ul`
   list-style: none;
@@ -215,14 +19,6 @@ const NavigationMenuList = styled.ul`
   margin: 0;
   display: flex;
   align-items: center;
-`;
-
-const NavigationMenuItem = styled.li`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  position: relative;
 `;
 
 export type NavigationMenuButtonProps = {
@@ -243,18 +39,18 @@ export type NavigationMenuButtonProps = {
 const NavigationMenuButton = styled(
   ({ active, disabled, unstyled, id, ...props }: NavigationMenuButtonProps) => {
     const { handleMouseOver, setTooltipContent } = useNavigationMenu();
-    const itemContext = React.useContext(NavigationMenuItemContext);
-    const buttonId = itemContext?.id || id || getId();
+    const { id: itemId, hasContent } = useNavigationMenuItem();
+    const buttonId = itemId || id || getId();
 
     const handleHover = React.useCallback(
       (e: React.MouseEvent<HTMLElement>) => {
         // Clear tooltip content if this is a simple button without dropdown content
-        if (!itemContext?.hasContent) {
+        if (!hasContent) {
           setTooltipContent(null);
         }
         handleMouseOver(e, buttonId);
       },
-      [buttonId, handleMouseOver, setTooltipContent, itemContext?.hasContent],
+      [buttonId, handleMouseOver, setTooltipContent, hasContent],
     );
 
     if (unstyled && props.children) {
@@ -398,10 +194,10 @@ export const useMenuAnimation = (
       });
     } else {
       // Start exit animation but keep rendered
-      setAnimationState((prev) => ({
+      setAnimationState({
         isEntering: false,
         shouldRender: true,
-      }));
+      });
 
       // Remove from DOM after animation completes
       timer = window.setTimeout(() => {
@@ -455,14 +251,14 @@ type NavigationMenuContentProps = {
   id?: string;
 } & DecoratorProps;
 
-const NavigationMenuContent = ({
+export const NavigationMenuContent = ({
   children,
   id,
   ...props
 }: NavigationMenuContentProps) => {
   const { activeId, previousId, setTooltipContent } = useNavigationMenu();
-  const itemContext = React.useContext(NavigationMenuItemContext);
-  const contentId = itemContext?.id || id;
+  const { id: itemId } = useNavigationMenuItem();
+  const contentId = itemId || id;
   const isActive = activeId === contentId;
 
   // Determine animation direction based on IDs
@@ -470,6 +266,7 @@ const NavigationMenuContent = ({
     if (!previousId || !activeId) return "right";
 
     // Get all menu items to determine their order
+    // eslint-disable-next-line quotes
     const menuItems = document.querySelectorAll('[role="menuitem"]');
     let previousIndex = -1;
     let currentIndex = -1;
@@ -525,40 +322,6 @@ const NavigationMenuIcon = styled(Icon).attrs({
     transform: rotate(180deg);
   }
 `;
-
-const NavigationMenuItemContext = createContext<{
-  id: string | null;
-  hasContent: boolean;
-}>({
-  id: null,
-  hasContent: false,
-});
-
-type NavigationMenuItemProps = {
-  children: React.ReactNode;
-} & React.HTMLAttributes<HTMLLIElement>;
-
-const NavigationMenuItemWithContext = ({
-  children,
-  ...props
-}: NavigationMenuItemProps) => {
-  const itemId = getId();
-
-  // Check if this menu item has a NavigationMenu.Content child
-  const hasContent = React.Children.toArray(children).some(
-    (child) =>
-      React.isValidElement(child) &&
-      (child.type as any)?.name === NavigationMenuContent.name,
-  );
-
-  return (
-    <NavigationMenuItemContext.Provider value={{ id: itemId, hasContent }}>
-      <NavigationMenuItem data-id={itemId} {...props}>
-        {children}
-      </NavigationMenuItem>
-    </NavigationMenuItemContext.Provider>
-  );
-};
 
 export type NavigationMenuSectionProps = ContainerProps;
 
@@ -658,7 +421,7 @@ const NavigationMenuSectionItemDescription = styled(
 )``;
 
 export const NavigationMenu = {
-  Container: NavigationMenuContainer,
+  Container: NavigationMenuContainerWithContext,
   List: withDecorator(NavigationMenuList),
   Item: withDecorator(NavigationMenuItemWithContext),
   Button: NavigationMenuButton,
