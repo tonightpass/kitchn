@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.2.0
+
+### Minor Changes
+
+- [#754](https://github.com/tonightpass/kitchn/pull/754) [`2172c8d`](https://github.com/tonightpass/kitchn/commit/2172c8d5a5e9dc94b980328b256b4d023459b945) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add NavigationMenu
+
 ## 1.1.12
 
 ### Patch Changes
