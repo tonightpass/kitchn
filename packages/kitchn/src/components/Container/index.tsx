@@ -24,6 +24,10 @@ type Props = {
   section?: boolean;
   form?: boolean;
   label?: boolean;
+  footer?: boolean;
+  nav?: boolean;
+  aside?: boolean;
+  main?: boolean;
   wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
   transform?: string;
 };
@@ -38,6 +42,10 @@ const ForwardedContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
       section,
       form,
       label,
+      footer,
+      nav,
+      aside,
+      main,
       // This prevents 'row' and 'gap' from being passed to the DOM element, avoiding React warnings
       row: _row,
       gap: _gap,
@@ -53,7 +61,15 @@ const ForwardedContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
           ? "form"
           : label
             ? "label"
-            : "div";
+            : footer
+              ? "footer"
+              : nav
+                ? "nav"
+                : aside
+                  ? "aside"
+                  : main
+                    ? "main"
+                    : "div";
     return (
       <Component
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

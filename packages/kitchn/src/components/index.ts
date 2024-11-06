@@ -35,6 +35,7 @@ export * from "./Link";
 export * from "./Link/Fragment";
 export * from "./Menu";
 export * from "./Modal";
+export * from "./NavigationMenu";
 export * from "./Note";
 export * from "./Progress";
 export * from "./Scroller";
