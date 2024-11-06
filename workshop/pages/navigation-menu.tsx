@@ -1,4 +1,4 @@
-import { Container, Text, NavigationMenu } from "kitchn";
+import { Container, Text, NavigationMenu, Link } from "kitchn";
 import { NextPage } from "next";
 import React from "react";
 import {
@@ -28,7 +28,9 @@ const NavigationMenuPage: NextPage = () => {
             <NavigationMenu.List>
               <NavigationMenu.Item>
                 <NavigationMenu.Button
-                  suffix={<NavigationMenu.Icon icon={RiArrowDropDownLine} />}
+                  suffix={
+                    <NavigationMenu.ButtonIcon icon={RiArrowDropDownLine} />
+                  }
                 >
                   {"Products"}
                 </NavigationMenu.Button>
@@ -38,31 +40,37 @@ const NavigationMenuPage: NextPage = () => {
                       {"DX Platform"}
                     </NavigationMenu.SectionHeader>
                     <NavigationMenu.SectionContent>
-                      <NavigationMenu.SectionItem>
-                        <NavigationMenu.SectionItemIcon
-                          icon={RiPencilRulerLine}
-                        />
-                        <Container>
-                          <NavigationMenu.SectionItemName>
-                            {"Design"}
-                          </NavigationMenu.SectionItemName>
-                          <NavigationMenu.SectionItemDescription>
-                            {"Create beautiful and intuitive user experiences"}
-                          </NavigationMenu.SectionItemDescription>
-                        </Container>
-                      </NavigationMenu.SectionItem>
+                      <Link href={"#"}>
+                        <NavigationMenu.SectionItem>
+                          <NavigationMenu.SectionItemIcon
+                            icon={RiPencilRulerLine}
+                          />
+                          <Container>
+                            <NavigationMenu.SectionItemName>
+                              {"Design"}
+                            </NavigationMenu.SectionItemName>
+                            <NavigationMenu.SectionItemDescription>
+                              {
+                                "Create beautiful and intuitive user experiences"
+                              }
+                            </NavigationMenu.SectionItemDescription>
+                          </Container>
+                        </NavigationMenu.SectionItem>
+                      </Link>
 
-                      <NavigationMenu.SectionItem>
-                        <NavigationMenu.SectionItemIcon icon={RiCodeLine} />
-                        <Container>
-                          <NavigationMenu.SectionItemName>
-                            {"Develop"}
-                          </NavigationMenu.SectionItemName>
-                          <NavigationMenu.SectionItemDescription>
-                            {"Build robust and scalable applications"}
-                          </NavigationMenu.SectionItemDescription>
-                        </Container>
-                      </NavigationMenu.SectionItem>
+                      <Link href={"#"}>
+                        <NavigationMenu.SectionItem>
+                          <NavigationMenu.SectionItemIcon icon={RiCodeLine} />
+                          <Container>
+                            <NavigationMenu.SectionItemName>
+                              {"Develop"}
+                            </NavigationMenu.SectionItemName>
+                            <NavigationMenu.SectionItemDescription>
+                              {"Build robust and scalable applications"}
+                            </NavigationMenu.SectionItemDescription>
+                          </Container>
+                        </NavigationMenu.SectionItem>
+                      </Link>
 
                       <NavigationMenu.SectionItem>
                         <NavigationMenu.SectionItemIcon icon={RiRocketLine} />
@@ -111,7 +119,9 @@ const NavigationMenuPage: NextPage = () => {
               </NavigationMenu.Item>
               <NavigationMenu.Item>
                 <NavigationMenu.Button
-                  suffix={<NavigationMenu.Icon icon={RiArrowDropDownLine} />}
+                  suffix={
+                    <NavigationMenu.ButtonIcon icon={RiArrowDropDownLine} />
+                  }
                 >
                   {"Solutions"}
                 </NavigationMenu.Button>

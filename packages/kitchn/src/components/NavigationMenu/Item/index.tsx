@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import { NavigationMenuContent } from "..";
 import { NavigationMenuItemContext } from "../../../contexts/NavigationMenuItem";
+import useNavigationMenu from "../../../hooks/useNavigationMenu";
 import { getId } from "../../../utils";
+import NavigationMenuContent from "../Content";
 
 type NavigationMenuItemProps = {
   children: React.ReactNode;
@@ -21,17 +22,37 @@ const NavigationMenuItemWithContext = ({
   children,
   ...props
 }: NavigationMenuItemProps) => {
-  const itemId = getId();
+  const { menuItems, setMenuItems } = useNavigationMenu();
+  const [itemId] = React.useState(getId());
 
-  // Check if this menu item has a NavigationMenu.Content child
   const hasContent = React.Children.toArray(children).some(
     (child) =>
-      React.isValidElement(child) &&
-      (child.type as any)?.name === NavigationMenuContent.name,
+      React.isValidElement(child) && child.type === NavigationMenuContent,
   );
 
+  React.useEffect(() => {
+    if (menuItems.includes(itemId)) return;
+    setMenuItems((prev) => {
+      const newItems = [...prev];
+      if (!newItems.includes(itemId)) {
+        newItems.push(itemId);
+      }
+      return newItems;
+    });
+
+    return () => {
+      setMenuItems((prev) => prev.filter((id) => id !== itemId));
+    };
+  }, []);
+
   return (
-    <NavigationMenuItemContext.Provider value={{ id: itemId, hasContent }}>
+    <NavigationMenuItemContext.Provider
+      value={{
+        id: itemId,
+        hasContent,
+        position: menuItems.indexOf(itemId),
+      }}
+    >
       <NavigationMenuItem data-id={itemId} {...props}>
         {children}
       </NavigationMenuItem>
