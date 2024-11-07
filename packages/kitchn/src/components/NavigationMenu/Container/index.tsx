@@ -20,7 +20,7 @@ export type NavigationMenuContainerProps = Omit<TooltipProps, "text"> &
   };
 
 const NavigationMenuContainer = styled(
-  ({ children, ...props }: NavigationMenuContainerProps) => {
+  ({ children, portalCss, ...props }: NavigationMenuContainerProps) => {
     const {
       tooltipContent,
       displayHighlight,
@@ -33,6 +33,30 @@ const NavigationMenuContainer = styled(
       hoverHeightRatio,
       hoverWidthRatio,
     } = useNavigationMenu();
+
+    const navigationMenuCss = css`
+      left: ${rect.left + (containerRef.current?.offsetLeft || 0)}px !important;
+      transform: translateX(0) !important;
+      transition: left 0.15s !important;
+
+      ${TooltipContentInner} {
+        padding: 0;
+
+        ${TooltipIcon} {
+          left: ${rect.width / 2}px;
+          transition: left 0.15s !important;
+        }
+      }
+
+      & > div {
+        pointer-events: all !important;
+      }
+    `;
+
+    const mergedPortalCss = css`
+      ${navigationMenuCss} ${portalCss}
+    `;
+
     return (
       <Tooltip
         offset={8}
@@ -43,25 +67,7 @@ const NavigationMenuContainer = styled(
         visible={
           tooltipContent !== null && (displayHighlight || isTooltipHovered)
         }
-        portalCss={css`
-          left: ${rect.left +
-          (containerRef.current?.offsetLeft || 0)}px !important;
-          transform: translateX(0) !important;
-          transition: left 0.15s !important;
-
-          ${TooltipContentInner} {
-            padding: 0;
-
-            ${TooltipIcon} {
-              left: ${rect.width / 2}px;
-              transition: left 0.15s !important;
-            }
-          }
-
-          & > div {
-            pointer-events: all !important;
-          }
-        `}
+        portalCss={mergedPortalCss}
         onMouseEnter={handleTooltipMouseEnter}
         onMouseLeave={handleTooltipMouseLeave}
         {...props}
