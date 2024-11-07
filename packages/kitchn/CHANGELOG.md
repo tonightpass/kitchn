@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.2.1
+
+### Patch Changes
+
+- [`0d2a81c`](https://github.com/tonightpass/kitchn/commit/0d2a81c4ec76532c6ddbc3b2c3fc79154fb4c075) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Update navigationmenu container to merge portal css for improved tooltip positioning and transitions
+
 ## 1.2.0
 
 ### Minor Changes
