@@ -6,11 +6,14 @@ description: "Kitchn Figma design system, components, and styles."
 import kitchn, { Container } from "kitchn";
 import { Callout } from "nextra-theme-docs";
 
-export const CustomIframe = kitchn.iframe`
-  margin-top: 1rem;
+export const Iframe = kitchn.iframe`
+  aspect-ratio: 16 / 9;
   width: 100%;
-  height: 100%;
-  aspect-ratio: 16/9;
+  border: none;
+  border: 1px solid ${({ theme }) => theme.colors.layout.dark};
+  border-radius: ${({ theme }) => theme.radius.square};
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `;
 
 # Figma
@@ -23,11 +26,9 @@ The Figma UI Kit is open-source and available for anyone to use.
   an issue](https://github.com/tonightpass/kitchn/issues/new).
 </Callout>
 
-<Container styles={{ aspectRatio: "16/9" }}>
-  <CustomIframe
-    src="https://embed.figma.com/file/1393011417870200862/hf_embed?community_viewer=true&embed_host=tonightpass&hub_file_id=1393011417870200862&kind=&viewer=1"
-  />
-</Container>
+<Iframe
+  src="https://embed.figma.com/file/1393011417870200862/hf_embed?community_viewer=true&embed_host=tonightpass&hub_file_id=1393011417870200862&kind=&viewer=1"
+/>
 
 ## Grab a copy
 
