@@ -21,7 +21,7 @@ export const darkTheme: Theme = {
     },
     accent: {
       primary: "rgb(80, 60, 245)",
-      secondary: "rgb(70,38,228)",
+      secondary: "rgb(70, 38, 228)",
       success: "rgb(46, 204, 113)",
       warning: "rgb(241, 196, 15)",
       danger: "rgb(231, 76, 60)",
