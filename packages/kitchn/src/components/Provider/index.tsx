@@ -1,6 +1,8 @@
 import isPropValid from "@emotion/is-prop-valid";
-import { ThemeProvider as NextThemeProvider } from "next-themes";
-import { ThemeProviderProps as NextThemeProviderProps } from "next-themes/dist/types";
+import {
+  type ThemeProviderProps as NextThemeProviderProps,
+  ThemeProvider as NextThemeProvider,
+} from "next-themes";
 import React from "react";
 import {
   DefaultTheme,
