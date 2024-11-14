@@ -35,7 +35,7 @@ export type KitchnProviderProps = {
   forcedTheme?: keyof Themes | "system";
   themes?: Record<string, DefaultTheme>;
   dangerouslyDisableNextThemeProvider?: boolean;
-  attribute?: string | "class";
+  attribute?: NextThemeProviderProps["attribute"];
 };
 
 export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
