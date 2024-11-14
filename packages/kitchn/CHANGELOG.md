@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.2.2
+
+### Patch Changes
+
+- [`596dae7`](https://github.com/tonightpass/kitchn/commit/596dae7a0cdce10fa8ecbb6bd9f34413f3e6619f) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add support for preserved toasts and enhance toast actions
+
 ## 1.2.1
 
 ### Patch Changes
