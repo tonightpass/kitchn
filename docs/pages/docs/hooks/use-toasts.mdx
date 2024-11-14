@@ -74,8 +74,17 @@ The `useToasts` hook returns an object with the following properties:
 
 | Name | Type | Default | Description
 |------|------|---------|-------------
-| `text` | `string | React.ReactNode` | `(required)` | The content of the toast, which can be a string or a React node.
+| `text` | `string \| React.ReactNode` | `(required)` | The content of the toast, which can be a string or a React node.
 | `type` | `ToastTypes` | `"primary"` | The type of the toast, determining its color based on [`AccentColors`](/docs/theming#accent).
 | `id` | `string` | Generated ID | An optional unique ID for the toast. If not provided, an ID will be generated automatically.
 | `delay` | `number` | `2000` | How long the toast should be visible (in milliseconds) before it is automatically removed.
 | `actions` | `ToastAction[]` | `[]` | An array of actions (buttons) that can be included in the toast.
+| `preserve` | `boolean` | `false` | If true, the toast will remain visible until manually closed. Automatically set to true if any non-passive action is present.
+
+### ToastAction
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `name` | `string` | Yes | The text displayed on the action button. |
+| `handler` | `(event: React.MouseEvent<HTMLButtonElement>, cancel: () => void) => void` | Yes | Function called when the action is triggered. Receives the click event and a cancel function to close the toast. |
+| `passive` | `boolean` | No | If `false`, the toast will be preserved until an action is taken. If `true`, the toast can auto-dismiss. |

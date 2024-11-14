@@ -85,7 +85,29 @@ import { useToasts } from "kitchn"
 `}
 />
 
-## Action
+### Preserve
+
+<Playground
+  code={`
+  () => {
+  const { setToast } = useToasts();
+  return (
+    <Button
+      onClick={() => {
+        setToast({
+          text: "This toast will stay until you close it",
+          preserve: true
+        });
+      }}
+    >
+      Show Preserved Toast
+    </Button>
+  );
+}
+`}
+/>
+
+### Actions
 
 <Playground
   code={`
@@ -198,9 +220,4 @@ import { useToasts } from "kitchn"
 
 ## Props
 
-| Name | Type | Default | Required | Description | Accepted values |
-| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
-| `text` | `JSX.Element` \| `string` | `-` | - | The content displayed in the toast. | - |
-| `delay` | `number` | `3000` | - | The delay (in milliseconds) before the toast closes. | - |
-| `actions` | `ToastInput.actions?: ToastAction[]` | `-` | - | The default action of the toast. | - |
-| `type` | `string` | `primary` | - | The type of the toast. | `primary`, `secondary`, `info`, `success`, `warning`, `danger` |
+See the [Toast Return Value](/docs/hooks/use-toasts#return-value) section for more information on the return value of the `useToasts` hook.

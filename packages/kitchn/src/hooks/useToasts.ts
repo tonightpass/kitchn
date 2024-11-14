@@ -35,6 +35,7 @@ export interface ToastInput {
   id?: string;
   delay?: number;
   actions?: ToastAction[];
+  preserve?: boolean;
 }
 export type ToastInstance = {
   visible: boolean;
@@ -72,20 +73,30 @@ export const useToasts = (layout?: ToastLayout): UseToastsResult => {
           }
         : defaultToastLayout,
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const cancel = (internalId: string) => {
     updateToasts((currentToasts: Toast[]) =>
       currentToasts.map((item) => {
         if (item._internalIdent !== internalId) return item;
-        return { ...item, visible: false };
+        if (item._timeout) {
+          window.clearTimeout(item._timeout);
+        }
+        return { ...item, visible: false, _timeout: null };
       }),
     );
     updateLastToastId(() => internalId);
   };
+
   const removeAll = () => {
-    updateToasts((last) => last.map((toast) => ({ ...toast, visible: false })));
+    updateToasts((last) =>
+      last.map((toast) => {
+        if (toast._timeout) {
+          window.clearTimeout(toast._timeout);
+        }
+        return { ...toast, visible: false, _timeout: null };
+      }),
+    );
   };
 
   const findOneToastByID = (id: string) => toasts.find((t) => t.id === id);
@@ -94,9 +105,13 @@ export const useToasts = (layout?: ToastLayout): UseToastsResult => {
     updateToasts((last) =>
       last.map((toast) => {
         if (toast.id !== id) return toast;
+        if (toast._timeout) {
+          window.clearTimeout(toast._timeout);
+        }
         return {
           ...toast,
           visible: false,
+          _timeout: null,
         };
       }),
     );
@@ -104,7 +119,6 @@ export const useToasts = (layout?: ToastLayout): UseToastsResult => {
 
   const setToast = (toast: ToastInput): void => {
     const internalIdent = `toast-${getId()}`;
-    const delay = toast.delay || defaultToast.delay;
     if (toast.id) {
       const hasIdent = toasts.find((t) => t.id === toast.id);
       if (hasIdent) {
@@ -113,6 +127,17 @@ export const useToasts = (layout?: ToastLayout): UseToastsResult => {
       }
     }
 
+    const hasNonPassiveAction =
+      toast.actions?.some((action) => !action.passive) ?? false;
+    const shouldPreserve = toast.preserve ?? hasNonPassiveAction ?? false;
+
+    const delay = toast.delay || (shouldPreserve ? 0 : defaultToast.delay);
+
+    const createTimeout = (internalId: string) =>
+      window.setTimeout(() => {
+        cancel(internalId);
+      }, delay);
+
     updateToasts((last: Toast[]) => {
       const newToast: Toast = {
         delay,
@@ -120,15 +145,23 @@ export const useToasts = (layout?: ToastLayout): UseToastsResult => {
         visible: true,
         type: toast.type || defaultToast.type,
         id: toast.id || internalIdent,
-        actions: toast.actions || [],
+        actions:
+          toast.actions?.map((action) => ({
+            ...action,
+            handler: (event, cancelFn) => {
+              action.handler(event, cancelFn);
+              if (
+                !action.passive &&
+                !toast.preserve &&
+                newToast._timeout === null
+              ) {
+                newToast._timeout = createTimeout(internalIdent);
+              }
+            },
+          })) || [],
+        preserve: shouldPreserve,
         _internalIdent: internalIdent,
-        _timeout: window.setTimeout(() => {
-          cancel(internalIdent);
-          if (newToast._timeout) {
-            window.clearTimeout(newToast._timeout);
-            newToast._timeout = null;
-          }
-        }, delay),
+        _timeout: shouldPreserve ? null : createTimeout(internalIdent),
         cancel: () => cancel(internalIdent),
       };
       return [...last, newToast];
