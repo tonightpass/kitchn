@@ -35,7 +35,8 @@
     "size": "size-limit",
     "size:why": "size-limit --why"
   },
-  "dependencies": {
+  "packageManager": "pnpm@9.14.2",
+  "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
@@ -54,6 +55,5 @@
     "prettier": "^3.0.2",
     "size-limit": "^11.0.0",
     "turbo": "^2.0.4"
-  },
-  "packageManager": "pnpm@9.14.2"
+  }
 }
