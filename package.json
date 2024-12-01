@@ -68,11 +68,9 @@
     "react-dom": "^18.2.0",
     "size-limit": "^11.0.0",
     "storybook": "^7.6.20",
+    "styled-components": "6.1.13",
     "turbo": "^2.0.4",
     "webpack": "5.90.3"
   },
-  "packageManager": "pnpm@9.14.2",
-  "devDependencies": {
-    "styled-components": "6.1.13"
-  }
+  "packageManager": "pnpm@9.14.2"
 }
