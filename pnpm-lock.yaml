@@ -116,10 +116,10 @@ importers:
         version: 22.9.0
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       typescript:
         specifier: ^5.0.3
         version: 5.6.3
@@ -150,10 +150,10 @@ importers:
         version: 33.0.1(@babel/core@7.26.0)
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       '@types/react-native':
         specifier: ^0.70.6
         version: 0.70.19
@@ -165,7 +165,7 @@ importers:
         version: 5.13.6(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@1.4.0)(typescript@5.6.3)
       kitchn:
         specifier: latest
-        version: 1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+        version: 1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -178,10 +178,10 @@ importers:
         version: 18.19.64
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       ajv:
         specifier: ^7
         version: 7.2.4
@@ -208,7 +208,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+        version: 1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^14.2.5
         version: 14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -224,10 +224,10 @@ importers:
         version: 18.19.64
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       typescript:
         specifier: ^5.0.4
         version: 5.6.3
@@ -236,7 +236,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.2.2(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+        version: 1.2.2(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^13.0.2
         version: 13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -252,10 +252,10 @@ importers:
         version: 18.19.64
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       typescript:
         specifier: ^5.0.4
         version: 5.6.3
@@ -264,7 +264,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+        version: 1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -274,10 +274,10 @@ importers:
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       '@vitejs/plugin-react-swc':
         specifier: ^3.0.0
         version: 3.7.0(@swc/helpers@0.5.5)(vite@4.5.3(@types/node@22.10.1)(terser@5.36.0))
@@ -323,10 +323,10 @@ importers:
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
       next:
         specifier: ^14.0.0
         version: 14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -338,10 +338,10 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-native:
         specifier: ^0.76.0
-        version: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1)
+        version: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1)
       react-native-remix-icon:
         specifier: ^0.4.0
-        version: 0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))
+        version: 0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1))
       tsup:
         specifier: ^8.0.1
         version: 8.3.5(@swc/core@1.6.1(@swc/helpers@0.5.5))(jiti@2.3.3)(postcss@8.4.38)(typescript@5.6.3)(yaml@2.5.1)
@@ -372,10 +372,10 @@ importers:
     devDependencies:
       '@types/react':
         specifier: ^18.2.67
-        version: 18.3.12
+        version: 18.3.16
       '@types/react-dom':
         specifier: ^18.2.22
-        version: 18.3.1
+        version: 18.3.5(@types/react@18.3.16)
 
 packages:
 
@@ -3215,20 +3215,22 @@ packages:
   '@types/prismjs@1.26.4':
     resolution: {integrity: sha512-rlAnzkW2sZOjbqZ743IHUhFcvzaGbqijwOu8QZnZCjfQzBqFE3s4lOTJEsxikImav9uzz/42I+O7YUs1mWgMlg==}
 
-  '@types/prop-types@15.7.13':
-    resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
+  '@types/prop-types@15.7.14':
+    resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
 
   '@types/reach__router@1.3.15':
     resolution: {integrity: sha512-5WEHKGglRjq/Ae3F8UQxg+GYUIhTUEiyBT9GKPoOLU/vPTn8iZrRbdzxqvarOaGludIejJykHLMdOCdhgWqaxA==}
 
-  '@types/react-dom@18.3.1':
-    resolution: {integrity: sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==}
+  '@types/react-dom@18.3.5':
+    resolution: {integrity: sha512-P4t6saawp+b/dFrUr2cvkVsfvPguwsxtH6dNIYRllMsefqFzkZk5UIjzyDOv5g1dXIPdG4Sp1yCR4Z6RCUsG/Q==}
+    peerDependencies:
+      '@types/react': ^18.0.0
 
   '@types/react-native@0.70.19':
     resolution: {integrity: sha512-c6WbyCgWTBgKKMESj/8b4w+zWcZSsCforson7UdXtXMecG3MxCinYi6ihhrHVPyUrVzORsvEzK8zg32z4pK6Sg==}
 
-  '@types/react@18.3.12':
-    resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
+  '@types/react@18.3.16':
+    resolution: {integrity: sha512-oh8AMIC4Y2ciKufU8hnKgs+ufgbA/dhPTACaZPM86AbwX9QwnFtSoPWEeRUj8fge+v6kFt78BXcDhAU1SrrAsw==}
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
@@ -6689,6 +6691,10 @@ packages:
     resolution: {integrity: sha512-NGnrKwXzSms2qUUih/ILZ5JBqNTSa1+ZmP6flaIp6KmSElgE9qdndzS3cqjrDovwFdmwsGsLdeFgB6suw+1e9g==}
     engines: {node: '>= 0.4'}
 
+  internal-slot@1.1.0:
+    resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
+    engines: {node: '>= 0.4'}
+
   internmap@1.0.1:
     resolution: {integrity: sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw==}
 
@@ -6760,8 +6766,8 @@ packages:
     resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
     engines: {node: '>= 0.4'}
 
-  is-boolean-object@1.2.0:
-    resolution: {integrity: sha512-kR5g0+dXf/+kXnqI+lu0URKYPKgICtHGGNCDSB10AaUFj3o/HkB3u7WfpRBJGFopxxY0oH3ux7ZsDjLtK7xqvw==}
+  is-boolean-object@1.2.1:
+    resolution: {integrity: sha512-l9qO6eFlUETHtuihLcYOaLKByJ1f+N4kthcU9YjHy3N+B3hWv0y/2Nd0mu/7lTFnRQHTrSdXF50HQ3bl5fEnng==}
     engines: {node: '>= 0.4'}
 
   is-buffer@1.1.6:
@@ -6789,12 +6795,24 @@ packages:
     resolution: {integrity: sha512-z0vtXSwucUJtANQWldhbtbt7BnL0vxiFjIdDLAatwhDYty2bad6s+rijD6Ri4YuYJubLzIJLUidCh09e1djEVQ==}
     engines: {node: '>= 0.4'}
 
+  is-core-module@2.16.0:
+    resolution: {integrity: sha512-urTSINYfAYgcbLb0yDQ6egFm6h3Mo1DcF9EkyXSRjjzdHbsulg01qhwWuXdOoUBuTkbQ80KDboXa0vFJ+BDH+g==}
+    engines: {node: '>= 0.4'}
+
   is-data-view@1.0.1:
     resolution: {integrity: sha512-AHkaJrsUVW6wq6JS8y3JnM/GJF/9cf+k20+iDzlSaJrinEo5+7vRiteOSwBhHRiAyQATN1AmY4hwzxJKPmYf+w==}
     engines: {node: '>= 0.4'}
 
+  is-data-view@1.0.2:
+    resolution: {integrity: sha512-RKtWF8pGmS87i2D6gqQu/l7EYRlVdfzemCJN/P3UOs//x1QE7mfhvzHIApBTRf7axvT6DMGwSwBXYCT0nfB9xw==}
+    engines: {node: '>= 0.4'}
+
   is-date-object@1.0.5:
     resolution: {integrity: sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==}
+    engines: {node: '>= 0.4'}
+
+  is-date-object@1.1.0:
+    resolution: {integrity: sha512-PwwhEakHVKTdRNVOw+/Gyh0+MzlCl4R6qKvkhuvLtPMggI1WAHt9sOwZxQLSGpUaDnrdyDsomoRgNnCfKNSXXg==}
     engines: {node: '>= 0.4'}
 
   is-decimal@2.0.1:
@@ -6934,6 +6952,10 @@ packages:
     resolution: {integrity: sha512-B6ohK4ZmoftlUe+uvenXSbPJFo6U37BH7oO1B3nQH8f/7h27N56s85MhUtbFJAziz5dcmuR3i8ovUl35zp8pFA==}
     engines: {node: '>= 0.4'}
 
+  is-regex@1.2.1:
+    resolution: {integrity: sha512-MjYsKHO5O7mCsmRGxWcLWheFqN9DJ/2TmngvjKXihe6efViPqc274+Fx/4fYj/r03+ESvBdTXK0V6tA3rgez1g==}
+    engines: {node: '>= 0.4'}
+
   is-relative-url@3.0.0:
     resolution: {integrity: sha512-U1iSYRlY2GIMGuZx7gezlB5dp1Kheaym7zKzO1PV06mOihiWTXejLwm4poEJysPyXF+HtK/BEd0DVlcCh30pEA==}
     engines: {node: '>=8'}
@@ -6985,8 +7007,8 @@ packages:
     resolution: {integrity: sha512-C/CPBqKWnvdcxqIARxyOh4v1UUEOCHpgDa0WYgpKDFMszcrPcffg5uhwSgPCLD2WWxmq6isisz87tzT01tuGhg==}
     engines: {node: '>= 0.4'}
 
-  is-symbol@1.1.0:
-    resolution: {integrity: sha512-qS8KkNNXUZ/I+nX6QT8ZS1/Yx0A444yhzdTKxCzKkNjQ9sHErBxJnJAgh+f5YhusYECEcjo4XcyH87hn6+ks0A==}
+  is-symbol@1.1.1:
+    resolution: {integrity: sha512-9gGx6GTtCQM73BgmHQXfDmLtfjjTUDSyoxTCbp5WtoixAhfgsDirWIcVQ/IHpvI5Vgd5i/J5F7B9cN/WlVbC/w==}
     engines: {node: '>= 0.4'}
 
   is-typed-array@1.1.13:
@@ -7020,6 +7042,10 @@ packages:
 
   is-weakref@1.0.2:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
+
+  is-weakref@1.1.0:
+    resolution: {integrity: sha512-SXM8Nwyys6nT5WP6pltOwKytLV7FqQ4UiibxVmW+EIosHcmCqkkjViTb5SNssDlkCiEYRP1/pdWUKVvZBmsR2Q==}
+    engines: {node: '>= 0.4'}
 
   is-weakset@2.0.3:
     resolution: {integrity: sha512-LvIm3/KWzS9oRFHugab7d+M/GcBXuXX5xZkzPmN+NxihdQlZUQ4dWuSV1xR/sq6upL1TJEDrfBgRepHFdBtSNQ==}
@@ -7069,8 +7095,8 @@ packages:
   iterator.prototype@1.1.2:
     resolution: {integrity: sha512-DR33HMMr8EzwuRL8Y9D3u2BMj8+RqSE850jfGu59kS7tbmPLzGkZmVSfyCFSDxuZiEY6Rzt3T2NA/qU+NwVj1w==}
 
-  iterator.prototype@1.1.3:
-    resolution: {integrity: sha512-FW5iMbeQ6rBGm/oKgzq2aW4KvAGpxPzYES8N4g4xNXUKpL1mclMvOe+76AcLDTvD+Ze+sOpVhgdAQEKF4L9iGQ==}
+  iterator.prototype@1.1.4:
+    resolution: {integrity: sha512-x4WH0BWmrMmg4oHHl+duwubhrvczGlyuGAZu3nvrf0UXOfPu8IhZObFEr7DE/iv01YgVZrsOiRcqw2srkKEDIA==}
     engines: {node: '>= 0.4'}
 
   jackspeak@3.4.3:
@@ -9501,6 +9527,10 @@ packages:
     resolution: {integrity: sha512-vj6RsCsWBCf19jIeHEfkRMw8DPiBb+DMXklQ/1SGDHOMlHdPUkZXFQ2YdplS23zESTijAcurb1aSgJA3AgMu1Q==}
     engines: {node: '>=0.4'}
 
+  safe-array-concat@1.1.3:
+    resolution: {integrity: sha512-AURm5f0jYEOydBj7VQlVvDrjeFgthDdEF5H1dP+6mNpoXOMo1quQqJ4wvJDyRZ9+pO3kGWoOdmV08cSv2aJV6Q==}
+    engines: {node: '>=0.4'}
+
   safe-buffer@5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
 
@@ -9512,6 +9542,10 @@ packages:
 
   safe-regex-test@1.0.3:
     resolution: {integrity: sha512-CdASjNJPvRa7roO6Ra/gLYBTzYzzPyyBXxIMdGW3USQLyjWEls2RgW5UBTXaQVp+OrpeCK3bLem8smtmheoRuw==}
+    engines: {node: '>= 0.4'}
+
+  safe-regex-test@1.1.0:
+    resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
   safer-buffer@2.1.2:
@@ -9681,8 +9715,24 @@ packages:
   shiki@0.14.7:
     resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
 
+  side-channel-list@1.0.0:
+    resolution: {integrity: sha512-FCLHtRD/gnpCiCHEiJLOwdmFP+wzCmDEkc9y7NsYxeF4u7Btsn1ZuwgwJGxImImHicJArLP4R0yX4c2KCrMrTA==}
+    engines: {node: '>= 0.4'}
+
+  side-channel-map@1.0.1:
+    resolution: {integrity: sha512-VCjCNfgMsby3tTdo02nbjtM/ewra6jPHmpThenkTYh8pG9ucZ/1P8So4u4FGBek/BjpOVsDCMoLA/iuBKIFXRA==}
+    engines: {node: '>= 0.4'}
+
+  side-channel-weakmap@1.0.2:
+    resolution: {integrity: sha512-WPS/HvHQTYnHisLo9McqBHOJk2FkHO/tlpvldyrnem4aeQp4hai3gythswg6p01oSoTl58rcpiFAjF2br2Ak2A==}
+    engines: {node: '>= 0.4'}
+
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
+    engines: {node: '>= 0.4'}
+
+  side-channel@1.1.0:
+    resolution: {integrity: sha512-ZX99e6tRweoUXqR+VBrslhda51Nh5MTQwou5tnUDgbtyM0dBgmhEDtWGP/xbKn6hqfPRHujUNwz5fy/wbbhnpw==}
     engines: {node: '>= 0.4'}
 
   signal-exit@3.0.7:
@@ -10841,8 +10891,8 @@ packages:
     resolution: {integrity: sha512-YmjsSMDBYsM1CaFiayOVT06+KJeXf0o5M/CAd4o1lTadFAtacTUM49zoYxr/oroopFDfhvN6iEcBxUyc3gvKmw==}
     engines: {node: '>= 0.4'}
 
-  which-builtin-type@1.2.0:
-    resolution: {integrity: sha512-I+qLGQ/vucCby4tf5HsLmGueEla4ZhwTBSqaooS+Y0BuxN4Cp+okmGuV+8mXZ84KDI9BA+oklo+RzKg0ONdSUA==}
+  which-builtin-type@1.2.1:
+    resolution: {integrity: sha512-6iBczoX+kDQ7a3+YJBnh3T+KZRxM/iYNPXicqk66/Qfm1b93iu+yOImkg0zHbj5LNOcNv1TEADiZ0xa34B4q6Q==}
     engines: {node: '>= 0.4'}
 
   which-collection@1.0.2:
@@ -13374,7 +13424,7 @@ snapshots:
   '@mdx-js/react@2.3.0(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.12
+      '@types/react': 18.3.16
       react: 18.3.1
 
   '@mischnic/json-sourcemap@0.1.1':
@@ -14227,14 +14277,14 @@ snapshots:
 
   '@react-native/polyfills@2.0.0': {}
 
-  '@react-native/virtualized-lists@0.76.2(@types/react@18.3.12)(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)':
+  '@react-native/virtualized-lists@0.76.2(@types/react@18.3.16)(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)':
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
       react: 18.3.1
-      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1)
+      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.12
+      '@types/react': 18.3.16
 
   '@resvg/resvg-wasm@2.4.0': {}
 
@@ -14698,23 +14748,23 @@ snapshots:
 
   '@types/prismjs@1.26.4': {}
 
-  '@types/prop-types@15.7.13': {}
+  '@types/prop-types@15.7.14': {}
 
   '@types/reach__router@1.3.15':
     dependencies:
-      '@types/react': 18.3.12
+      '@types/react': 18.3.16
 
-  '@types/react-dom@18.3.1':
+  '@types/react-dom@18.3.5(@types/react@18.3.16)':
     dependencies:
-      '@types/react': 18.3.12
+      '@types/react': 18.3.16
 
   '@types/react-native@0.70.19':
     dependencies:
-      '@types/react': 18.3.12
+      '@types/react': 18.3.16
 
-  '@types/react@18.3.12':
+  '@types/react@18.3.16':
     dependencies:
-      '@types/prop-types': 15.7.13
+      '@types/prop-types': 15.7.14
       csstype: 3.1.3
 
   '@types/responselike@1.0.3':
@@ -17204,22 +17254,22 @@ snapshots:
       has-proto: 1.2.0
       has-symbols: 1.1.0
       hasown: 2.0.2
-      internal-slot: 1.0.7
+      internal-slot: 1.1.0
       is-array-buffer: 3.0.4
       is-callable: 1.2.7
-      is-data-view: 1.0.1
+      is-data-view: 1.0.2
       is-negative-zero: 2.0.3
-      is-regex: 1.2.0
+      is-regex: 1.2.1
       is-shared-array-buffer: 1.0.3
       is-string: 1.1.0
       is-typed-array: 1.1.13
-      is-weakref: 1.0.2
+      is-weakref: 1.1.0
       object-inspect: 1.13.3
       object-keys: 1.1.1
       object.assign: 4.1.5
       regexp.prototype.flags: 1.5.3
-      safe-array-concat: 1.1.2
-      safe-regex-test: 1.0.3
+      safe-array-concat: 1.1.3
+      safe-regex-test: 1.1.0
       string.prototype.trim: 1.2.10
       string.prototype.trimend: 1.0.9
       string.prototype.trimstart: 1.0.8
@@ -17269,9 +17319,9 @@ snapshots:
       has-property-descriptors: 1.0.2
       has-proto: 1.2.0
       has-symbols: 1.1.0
-      internal-slot: 1.0.7
-      iterator.prototype: 1.1.3
-      safe-array-concat: 1.1.2
+      internal-slot: 1.1.0
+      iterator.prototype: 1.1.4
+      safe-array-concat: 1.1.3
 
   es-module-lexer@1.5.3: {}
 
@@ -17300,8 +17350,8 @@ snapshots:
   es-to-primitive@1.3.0:
     dependencies:
       is-callable: 1.2.7
-      is-date-object: 1.0.5
-      is-symbol: 1.1.0
+      is-date-object: 1.1.0
+      is-symbol: 1.1.1
 
   es5-ext@0.10.64:
     dependencies:
@@ -17431,7 +17481,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.7.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.2(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.1.0(eslint@8.57.1)
@@ -17537,7 +17587,7 @@ snapshots:
       is-glob: 4.0.3
       stable-hash: 0.0.4
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -17646,7 +17696,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -17659,7 +17709,7 @@ snapshots:
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       hasown: 2.0.2
-      is-core-module: 2.15.1
+      is-core-module: 2.16.0
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.fromentries: 2.0.8
@@ -17701,7 +17751,7 @@ snapshots:
       language-tags: 1.0.9
       minimatch: 3.1.2
       object.fromentries: 2.0.8
-      safe-regex-test: 1.0.3
+      safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
   eslint-plugin-jsx-a11y@6.8.0(eslint@7.32.0):
@@ -19550,6 +19600,12 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.0.6
 
+  internal-slot@1.1.0:
+    dependencies:
+      es-errors: 1.3.0
+      hasown: 2.0.2
+      side-channel: 1.1.0
+
   internmap@1.0.1: {}
 
   internmap@2.0.3: {}
@@ -19615,9 +19671,9 @@ snapshots:
       call-bind: 1.0.7
       has-tostringtag: 1.0.2
 
-  is-boolean-object@1.2.0:
+  is-boolean-object@1.2.1:
     dependencies:
-      call-bind: 1.0.8
+      call-bound: 1.0.2
       has-tostringtag: 1.0.2
 
   is-buffer@1.1.6: {}
@@ -19642,12 +19698,27 @@ snapshots:
     dependencies:
       hasown: 2.0.2
 
+  is-core-module@2.16.0:
+    dependencies:
+      hasown: 2.0.2
+
   is-data-view@1.0.1:
     dependencies:
       is-typed-array: 1.1.13
 
+  is-data-view@1.0.2:
+    dependencies:
+      call-bound: 1.0.2
+      get-intrinsic: 1.2.6
+      is-typed-array: 1.1.13
+
   is-date-object@1.0.5:
     dependencies:
+      has-tostringtag: 1.0.2
+
+  is-date-object@1.1.0:
+    dependencies:
+      call-bound: 1.0.2
       has-tostringtag: 1.0.2
 
   is-decimal@2.0.1: {}
@@ -19753,6 +19824,13 @@ snapshots:
       has-tostringtag: 1.0.2
       hasown: 2.0.2
 
+  is-regex@1.2.1:
+    dependencies:
+      call-bound: 1.0.2
+      gopd: 1.2.0
+      has-tostringtag: 1.0.2
+      hasown: 2.0.2
+
   is-relative-url@3.0.0:
     dependencies:
       is-absolute-url: 3.0.3
@@ -19796,11 +19874,11 @@ snapshots:
     dependencies:
       has-symbols: 1.0.3
 
-  is-symbol@1.1.0:
+  is-symbol@1.1.1:
     dependencies:
-      call-bind: 1.0.8
+      call-bound: 1.0.2
       has-symbols: 1.1.0
-      safe-regex-test: 1.0.3
+      safe-regex-test: 1.1.0
 
   is-typed-array@1.1.13:
     dependencies:
@@ -19831,6 +19909,10 @@ snapshots:
   is-weakref@1.0.2:
     dependencies:
       call-bind: 1.0.7
+
+  is-weakref@1.1.0:
+    dependencies:
+      call-bound: 1.0.2
 
   is-weakset@2.0.3:
     dependencies:
@@ -19881,9 +19963,10 @@ snapshots:
       reflect.getprototypeof: 1.0.6
       set-function-name: 2.0.2
 
-  iterator.prototype@1.1.3:
+  iterator.prototype@1.1.4:
     dependencies:
-      define-properties: 1.2.1
+      define-data-property: 1.1.4
+      es-object-atoms: 1.0.0
       get-intrinsic: 1.2.6
       has-symbols: 1.1.0
       reflect.getprototypeof: 1.0.8
@@ -20148,7 +20231,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kitchn@1.2.2(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1):
+  kitchn@1.2.2(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -20164,10 +20247,10 @@ snapshots:
       styled-components: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
       next: 13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1)
-      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))
+      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1)
+      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1))
 
-  kitchn@1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1):
+  kitchn@1.2.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)))(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -20183,8 +20266,8 @@ snapshots:
       styled-components: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
       next: 14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1)
-      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))
+      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1)
+      react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1))
 
   klaw@1.3.1:
     optionalDependencies:
@@ -22737,16 +22820,16 @@ snapshots:
 
   react-native-gradle-plugin@0.70.3: {}
 
-  react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)):
+  react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)):
     dependencies:
-      react-native-svg: 15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      react-native-svg: 15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
 
-  react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1):
+  react-native-svg@15.3.0(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1):
     dependencies:
       css-select: 5.1.0
       css-tree: 1.1.3
       react: 18.3.1
-      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1)
+      react-native: 0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1)
 
   react-native@0.70.15(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(react@18.3.1):
     dependencies:
@@ -22791,7 +22874,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1):
+  react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1):
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@react-native/assets-registry': 0.76.2
@@ -22800,7 +22883,7 @@ snapshots:
       '@react-native/gradle-plugin': 0.76.2
       '@react-native/js-polyfills': 0.76.2
       '@react-native/normalize-colors': 0.76.2
-      '@react-native/virtualized-lists': 0.76.2(@types/react@18.3.12)(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@react-native/virtualized-lists': 0.76.2(@types/react@18.3.16)(react-native@0.76.2(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
       abort-controller: 3.0.0
       anser: 1.4.10
       ansi-regex: 5.0.1
@@ -22833,7 +22916,7 @@ snapshots:
       ws: 6.2.3
       yargs: 17.7.2
     optionalDependencies:
-      '@types/react': 18.3.12
+      '@types/react': 18.3.16
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/preset-env'
@@ -22948,7 +23031,7 @@ snapshots:
       es-errors: 1.3.0
       get-intrinsic: 1.2.6
       gopd: 1.2.0
-      which-builtin-type: 1.2.0
+      which-builtin-type: 1.2.1
 
   regenerate-unicode-properties@10.2.0:
     dependencies:
@@ -23235,6 +23318,14 @@ snapshots:
       has-symbols: 1.0.3
       isarray: 2.0.5
 
+  safe-array-concat@1.1.3:
+    dependencies:
+      call-bind: 1.0.8
+      call-bound: 1.0.2
+      get-intrinsic: 1.2.6
+      has-symbols: 1.1.0
+      isarray: 2.0.5
+
   safe-buffer@5.1.2: {}
 
   safe-buffer@5.2.1: {}
@@ -23247,6 +23338,12 @@ snapshots:
       call-bind: 1.0.8
       es-errors: 1.3.0
       is-regex: 1.2.0
+
+  safe-regex-test@1.1.0:
+    dependencies:
+      call-bound: 1.0.2
+      es-errors: 1.3.0
+      is-regex: 1.2.1
 
   safer-buffer@2.1.2: {}
 
@@ -23474,12 +23571,40 @@ snapshots:
       vscode-oniguruma: 1.7.0
       vscode-textmate: 8.0.0
 
+  side-channel-list@1.0.0:
+    dependencies:
+      es-errors: 1.3.0
+      object-inspect: 1.13.3
+
+  side-channel-map@1.0.1:
+    dependencies:
+      call-bound: 1.0.2
+      es-errors: 1.3.0
+      get-intrinsic: 1.2.6
+      object-inspect: 1.13.3
+
+  side-channel-weakmap@1.0.2:
+    dependencies:
+      call-bound: 1.0.2
+      es-errors: 1.3.0
+      get-intrinsic: 1.2.6
+      object-inspect: 1.13.3
+      side-channel-map: 1.0.1
+
   side-channel@1.0.6:
     dependencies:
       call-bind: 1.0.7
       es-errors: 1.3.0
       get-intrinsic: 1.2.4
       object-inspect: 1.13.1
+
+  side-channel@1.1.0:
+    dependencies:
+      es-errors: 1.3.0
+      object-inspect: 1.13.3
+      side-channel-list: 1.0.0
+      side-channel-map: 1.0.1
+      side-channel-weakmap: 1.0.2
 
   signal-exit@3.0.7: {}
 
@@ -24785,10 +24910,10 @@ snapshots:
   which-boxed-primitive@1.1.0:
     dependencies:
       is-bigint: 1.1.0
-      is-boolean-object: 1.2.0
+      is-boolean-object: 1.2.1
       is-number-object: 1.1.0
       is-string: 1.1.0
-      is-symbol: 1.1.0
+      is-symbol: 1.1.1
 
   which-builtin-type@1.1.3:
     dependencies:
@@ -24805,17 +24930,17 @@ snapshots:
       which-collection: 1.0.2
       which-typed-array: 1.1.16
 
-  which-builtin-type@1.2.0:
+  which-builtin-type@1.2.1:
     dependencies:
-      call-bind: 1.0.8
+      call-bound: 1.0.2
       function.prototype.name: 1.1.6
       has-tostringtag: 1.0.2
       is-async-function: 2.0.0
-      is-date-object: 1.0.5
+      is-date-object: 1.1.0
       is-finalizationregistry: 1.1.0
       is-generator-function: 1.0.10
-      is-regex: 1.2.0
-      is-weakref: 1.0.2
+      is-regex: 1.2.1
+      is-weakref: 1.1.0
       isarray: 2.0.5
       which-boxed-primitive: 1.1.0
       which-collection: 1.0.2
