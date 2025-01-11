@@ -20,7 +20,9 @@
 
 ## Getting Started
 
-Visit [kitchn.tonightpass.com/docs](https://kitchn.tonightpass.com/docs) to get started with Kitchn.
+Kitchn is a styled-components suite for React that helps you build beautiful and consistent user interfaces. Get started with our introduction video:
+
+[![Getting Started with Kitchn](https://i3.ytimg.com/vi/-wG_sXuAEb0/maxresdefault.jpg)](https://www.youtube.com/embed/-wG_sXuAEb0)
 
 ## Documentation
 
