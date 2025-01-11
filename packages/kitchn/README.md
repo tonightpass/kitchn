@@ -1,11 +1,9 @@
-<p align="center">
+<div align="center">
   <a href="https://kitchn.tonightpass.com">
-    <img src="https://kitchn.tonightpass.com/favicon.svg" alt="Kitchn" height="128" />
-    <h1 align="center">Kitchn</h1>
+    <img src="https://kitchn.tonightpass.com/favicon.svg" alt="kitchn" height="128" />
   </a>
-</p>
+  <h1>kitchn</h1>
 
-<p align="center">
   <a aria-label="onRuntime Studio" href="https://onruntime.com">
     <img src="https://img.shields.io/badge/MADE%20BY%20ONRUNTIME-000.svg?style=for-the-badge&labelColor=000" alt="Made by onRuntime Studio">
   </a>
@@ -18,7 +16,7 @@
   <a aria-label="Discord" href="https://discord.gg/VvvAkPqQ98">
     <img alt="" src="https://img.shields.io/discord/829290979092856833?label=Discord&style=for-the-badge&labelColor=000000&logo=discord&logoColor=white&logoWidth=20">
   </a>
-</p>
+</div>
 
 ## Getting Started
 
@@ -40,7 +38,7 @@ Our [Code of Conduct](https://docs.onruntime.com/contributing/code-of-conduct) a
 
 We welcome and greatly value contributions to kitchn! Before diving in, please review our [Contribution Guidelines](https://kitchn.tonightpass.com/docs/contributing) to ensure a smooth experience.
 
-### Good First Issues:
+### Good First Issues
 
 We maintain a [list of beginner-friendly issues](https://github.com/tonightpass/kitchn/labels/good%20first%20issue) with a limited scope, making them perfect for newcomers to get started, gain experience, and learn about our contribution process.
 
@@ -57,7 +55,3 @@ A list of the original co-authors who played a key role in bringing the incredib
 - Antoine Kingue ([@antoinekm](https://github.com/antoinekm))
 - Jérémy Baudrin ([@jerembdn](https://github.com/jerembdn))
 - Younès Bessa ([@younesbessa](https://github.com/younesbessa))
-
-## License
-
-Kitchn is [MIT licensed](LICENSE).
