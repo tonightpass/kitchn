@@ -1,0 +1,112 @@
+title: "Combobox: Auto-complete input field for enhanced user selection"
+description: "A composable combobox component that provides an enhanced input field with auto-completion and customizable suggestions."
+import Playground from "@components/Playground";
+Combobox
+A composable combobox component that combines an input field with a dropdown list of suggestions, providing auto-completion functionality and keyboard navigation support.
+Import
+jsxCopyimport { Combobox } from "kitchn";
+Usage
+The Combobox component consists of multiple subcomponents that can be composed together to create a customized auto-complete experience:
+jsxCopy<Combobox>
+  <Combobox.Input placeholder="Search..." />
+  <Combobox.List>
+    <Combobox.Option value="option1">Option 1</Combobox.Option>
+    <Combobox.Option value="option2">Option 2</Combobox.Option>
+  </Combobox.List>
+</Combobox>
+Examples
+Basic Usage
+<Playground
+code={`
+() => {
+const [value, setValue] = useState("");
+const options = ["Apple", "Banana", "Orange", "Pear"];
+return (
+<Combobox value={value} onChange={setValue}>
+<Combobox.Input placeholder="Select a fruit..." />
+<Combobox.List>
+{options.map((option) => (
+<Combobox.Option key={option} value={option}>
+{option}
+</Combobox.Option>
+))}
+</Combobox.List>
+</Combobox>
+);
+}
+`}
+/>
+With Custom Filtering
+<Playground
+code={`
+() => {
+const [value, setValue] = useState("");
+const options = ["React", "Vue", "Angular", "Svelte"];
+const filterOptions = (inputValue) => {
+return options.filter(option =>
+option.toLowerCase().includes(inputValue.toLowerCase())
+);
+};
+return (
+<Combobox 
+   value={value} 
+   onChange={setValue}
+   onFilter={filterOptions}
+ >
+<Combobox.Input placeholder="Search frameworks..." />
+<Combobox.List>
+{options.map((option) => (
+<Combobox.Option key={option} value={option}>
+{option}
+</Combobox.Option>
+))}
+</Combobox.List>
+</Combobox>
+);
+}
+`}
+/>
+With Custom Rendering
+<Playground
+code={`
+() => {
+const [value, setValue] = useState("");
+const users = [
+{ id: 1, name: "John Doe", email: "john@example.com" },
+{ id: 2, name: "Jane Smith", email: "jane@example.com" }
+];
+return (
+<Combobox value={value} onChange={setValue}>
+<Combobox.Input placeholder="Select a user..." />
+<Combobox.List>
+{users.map((user) => (
+<Combobox.Option key={user.id} value={user.name}>
+<Container row gap="small">
+<Text weight="bold">{user.name}</Text>
+<Text color="lighter">{user.email}</Text>
+</Container>
+</Combobox.Option>
+))}
+</Combobox.List>
+</Combobox>
+);
+}
+`}
+/>
+API Reference
+Combobox
+The main wrapper component that provides context and state management for the combobox functionality.
+Props
+PropTypeDefaultDescriptionvaluestring""The current value of the combobox.defaultValuestring""The initial value of the combobox.onChange(value: string) => voidCallback function called when the value changes.onFilter(input: string) => string[]Optional function for custom filtering of options.disabledbooleanfalseWhether the combobox is disabled.childrenReactNodeThe combobox subcomponents.
+Combobox.Input
+The input field component of the combobox.
+Props
+PropTypeDefaultDescriptionplaceholderstring""Placeholder text for the input.disabledbooleanfalseWhether the input is disabled.classNamestringAdditional CSS classes to apply.styleCSSPropertiesAdditional CSS styles to apply....InputHTMLAttributesAll standard input HTML attributes are supported.
+Combobox.List
+The container component for the dropdown list of options.
+Props
+PropTypeDefaultDescriptionchildrenReactNodeThe list of Combobox.Option components.classNamestringAdditional CSS classes to apply.styleCSSPropertiesAdditional CSS styles to apply.
+Combobox.Option
+The individual option items in the dropdown list.
+Props
+PropTypeDefaultDescriptionvaluestringThe value associated with this option.childrenReactNodeThe content to display for this option.disabledbooleanfalseWhether this option is disabled.classNamestringAdditional CSS classes to apply.styleCSSPropertiesAdditional CSS styles to apply.
