@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.3.0
+
+### Minor Changes
+
+- [`2f044d3`](https://github.com/tonightpass/kitchn/commit/2f044d351c14b3abfb80531b0c439b306a1e21ce) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Add breakpoint badge to display current viewport size in development mode
+
 ## 1.2.2
 
 ### Patch Changes
