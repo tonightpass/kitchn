@@ -21,10 +21,15 @@ import {
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
 import { withDecorator } from "../../hoc/withDecorator";
+import { useBreakpoint } from "../../hooks";
 import { useCurrentState } from "../../hooks/useCurrentState";
 import { defaultThemes, generateThemes } from "../../themes";
 import { Themes } from "../../types";
+import { isDevelopment } from "../../utils/isDevelopment";
+import Badge from "../Badge";
+import Container from "../Container";
 import GlobalStyle from "../GlobalStyle";
+import Text from "../Text";
 import ToastContainer from "../Toast/Container";
 
 export type KitchnProviderProps = {
@@ -36,6 +41,35 @@ export type KitchnProviderProps = {
   themes?: Record<string, DefaultTheme>;
   dangerouslyDisableNextThemeProvider?: boolean;
   attribute?: NextThemeProviderProps["attribute"];
+  showBreakpointBadge?: boolean;
+};
+
+const BreakpointBadge = ({ show }: { show?: boolean }) => {
+  const [mounted, setMounted] = React.useState(false);
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoint();
+
+  // Pour éviter les problèmes d'hydration avec Next.js
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !show || !isDevelopment()) return null;
+
+  let breakpoint = "unknown";
+  if (isMobile) breakpoint = "mobile";
+  else if (isTablet) breakpoint = "tablet";
+  else if (isLaptop) breakpoint = "laptop";
+  else if (isDesktop) breakpoint = "desktop";
+
+  return (
+    <Container position={"fixed"} bottom={"small"} left={"small"} zIndex={1000}>
+      <Badge type={"primary"}>
+        <Text size={"inherit"} color={"inherit"} span>
+          {breakpoint}
+        </Text>
+      </Badge>
+    </Container>
+  );
 };
 
 export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
@@ -46,6 +80,7 @@ export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
   forcedTheme,
   attribute = "data-theme",
   dangerouslyDisableNextThemeProvider,
+  showBreakpointBadge = true,
 }: KitchnProviderProps) => {
   const staticThemes = { ...defaultThemes, ...customThemes };
   const themes = React.useMemo(
@@ -104,6 +139,7 @@ export const KitchnProviderComponent: React.FC<KitchnProviderProps> = ({
           <ToastsContent.Provider value={initialValue}>
             {children}
             <ToastContainer />
+            <BreakpointBadge show={showBreakpointBadge} />
           </ToastsContent.Provider>
         </ThemeProvider>
       </StyleSheetManager>
