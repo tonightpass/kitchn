@@ -12,6 +12,7 @@ import React from "react";
 
 The **Calendar** component provides an intuitive and customizable way to select dates in your application.
 
+
 ## Usage
 
 First of all, you need to import the `Calendar` component from the `kitchn` package.
@@ -20,7 +21,7 @@ First of all, you need to import the `Calendar` component from the `kitchn` pack
 import { Calendar } from "kitchn";
 ```
 
-  ## Single Date Selection
+  ## Single date selection
 
 <Playground
 code={`
@@ -80,3 +81,16 @@ onSelect={setDateRange}
 }
 `}
 />
+
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `mode` | `string` | `"single"` | ✅ | The selection mode of the calendar. | `"single"`, `"multiple"`, `"range"` |
+| `selected` | `Date \| Date[] \| DateRange \| undefined` | `undefined` | - | The currently selected date(s). Type depends on mode. | - |
+| `onSelect` | `(date: Date \| Date[] \| DateRange) => void` | `-` | ✅ | Callback function when a date is selected. | - |
+
+## About
+
+The Calendar component is built on top of React DayPicker.
