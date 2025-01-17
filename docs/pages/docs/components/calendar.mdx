@@ -24,62 +24,66 @@ import { Calendar } from "kitchn";
   ## Single date selection
 
 <Playground
-code={`
-() => {
-const [selected, setSelected] = React.useState(new Date());
-return (
-<Container gap={"small"}>
-<Text>{"Single Date Selection"}</Text>
-<Calendar
-mode={"single"}
-selected={selected}
-onSelect={setSelected}
-/>
-</Container>
-);
-}
+  code={`
+  () => {
+    const [selected, setSelected] = React.useState(new Date());
+    
+    return (
+      <Container gap={"small"}>
+        <Text>{"Single Date Selection"}</Text>
+        <Calendar 
+          mode={"single"} 
+          selected={selected} 
+          onSelect={setSelected}
+        />
+      </Container>
+    );
+  }
 `}
 />
-
 
 ## Multiple date selection
 
 <Playground
-code={`
-() => {
-const [selectedDays, setSelectedDays] = React.useState([]);
-return (
-<Container gap={"small"}>
-<Text>{"Multiple Date Selection"}</Text>
-<Calendar
-mode={"multiple"}
-selected={selectedDays}
-onSelect={setSelectedDays}
-/>
-</Container>
-);
-}
+  code={`
+  () => {
+    const [selectedDays, setSelectedDays] = React.useState([]);
+    
+    return (
+      <Container gap={"small"}>
+        <Text>{"Multiple Date Selection"}</Text>
+        <Calendar 
+          mode={"multiple"} 
+          selected={selectedDays} 
+          onSelect={setSelectedDays}
+        />
+      </Container>
+    );
+  }
 `}
 />
+
  ## Date Range Selection
+ 
 <Playground
-code={`
-() => {
-const [dateRange, setDateRange] = React.useState({
-from: undefined,
-to: undefined
-});
-return (
-<Container gap={"small"}>
-<Text>{"Date Range Selection"}</Text>
-<Calendar
-mode={"range"}
-selected={dateRange}
-onSelect={setDateRange}
-/>
-</Container>
-);
-}
+  code={`
+  () => {
+    const [dateRange, setDateRange] = React.useState({
+      from: undefined,
+      to: undefined
+    });
+    
+    return (
+      <Container gap={"small"}>
+        <Text>{"Date Range Selection"}</Text>
+        <Calendar 
+          mode={"range"} 
+          selected={dateRange} 
+          onSelect={setDateRange}
+        />
+      </Container>
+    );
+  }
 `}
 />
 
