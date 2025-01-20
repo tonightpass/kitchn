@@ -4,6 +4,7 @@
   "button": "Button",
   "checkbox": "Checkbox",
   "collapse": "Collapse",
+  "combobox": "Combobox",
   "drawer": "Drawer",
   "dropdown": "Dropdown",
   "entity": "Entity",

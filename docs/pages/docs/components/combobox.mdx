@@ -1,112 +1,264 @@
-title: "Combobox: Auto-complete input field for enhanced user selection"
-description: "A composable combobox component that provides an enhanced input field with auto-completion and customizable suggestions."
+---
+title: "React Combobox component"
+description: "The Combobox component combines a text input with a dropdown list of options, supporting search, custom rendering, and various selection modes."
+---
+
 import Playground from "@components/Playground";
-Combobox
-A composable combobox component that combines an input field with a dropdown list of suggestions, providing auto-completion functionality and keyboard navigation support.
-Import
-jsxCopyimport { Combobox } from "kitchn";
-Usage
-The Combobox component consists of multiple subcomponents that can be composed together to create a customized auto-complete experience:
-jsxCopy<Combobox>
-  <Combobox.Input placeholder="Search..." />
-  <Combobox.List>
-    <Combobox.Option value="option1">Option 1</Combobox.Option>
-    <Combobox.Option value="option2">Option 2</Combobox.Option>
-  </Combobox.List>
-</Combobox>
-Examples
-Basic Usage
+
+# Combobox
+
+The Combobox component provides an enhanced input field with autocomplete functionality, allowing users to either select from predefined options or enter custom values.
+
+## Usage
+
+First of all, you need to import the `Combobox` component from the `kitchn` package.
+
+```js
+import { Combobox } from "kitchn"
+```
+
+## Default
+
+
+<Playground
+  code={`() => {
+    const [options1, setOptions1] = React.useState();
+    const options = [
+      { 
+        label: "London", 
+        value: "london" 
+      },
+      { 
+        label: "Sydney", 
+        value: "sydney" 
+      },
+      { 
+        label: "Shanghai", 
+        value: "shanghai" 
+      }
+    ];
+
+    return (
+      <Container gap={"small"}>
+        <Text>{"default"}</Text>
+        <Container gap={10}>
+          <Combobox placeholder={"Enter here"} options={options} />
+        </Container>
+      </Container>
+    );
+  }`}
+/>
+
+## Disabled
 <Playground
 code={`
 () => {
-const [value, setValue] = useState("");
-const options = ["Apple", "Banana", "Orange", "Pear"];
+const options = [
+{ label: "London", value: "london" },
+{ label: "Sydney", value: "sydney" },
+{ label: "Shanghai", value: "shanghai" },
+];
 return (
-<Combobox value={value} onChange={setValue}>
-<Combobox.Input placeholder="Select a fruit..." />
-<Combobox.List>
-{options.map((option) => (
-<Combobox.Option key={option} value={option}>
-{option}
-</Combobox.Option>
-))}
-</Combobox.List>
-</Combobox>
+<Combobox 
+   disabled 
+   initialValue="London" 
+   options={options} 
+ />
 );
 }
 `}
 />
-With Custom Filtering
+## Search
 <Playground
 code={`
 () => {
-const [value, setValue] = useState("");
-const options = ["React", "Vue", "Angular", "Svelte"];
-const filterOptions = (inputValue) => {
-return options.filter(option =>
-option.toLowerCase().includes(inputValue.toLowerCase())
+const options = [
+{ label: "London", value: "london" },
+{ label: "Sydney", value: "sydney" },
+{ label: "Shanghai", value: "shanghai" },
+];
+const [filteredOptions, setFilteredOptions] = React.useState();
+const searchHandler = (currentValue) => {
+if (!currentValue) return setFilteredOptions([]);
+const relatedOptions = options.filter((item) =>
+item.value.includes(currentValue)
 );
+setFilteredOptions(relatedOptions);
 };
 return (
 <Combobox 
-   value={value} 
-   onChange={setValue}
-   onFilter={filterOptions}
- >
-<Combobox.Input placeholder="Search frameworks..." />
-<Combobox.List>
-{options.map((option) => (
-<Combobox.Option key={option} value={option}>
-{option}
-</Combobox.Option>
-))}
-</Combobox.List>
-</Combobox>
+   options={filteredOptions}
+   placeholder="Enter here"
+   onSearch={searchHandler}
+ />
 );
 }
 `}
 />
-With Custom Rendering
+
+## Only Allow Selected
+
 <Playground
-code={`
-() => {
-const [value, setValue] = useState("");
-const users = [
-{ id: 1, name: "John Doe", email: "john@example.com" },
-{ id: 2, name: "Jane Smith", email: "jane@example.com" }
-];
-return (
-<Combobox value={value} onChange={setValue}>
-<Combobox.Input placeholder="Select a user..." />
-<Combobox.List>
-{users.map((user) => (
-<Combobox.Option key={user.id} value={user.name}>
-<Container row gap="small">
-<Text weight="bold">{user.name}</Text>
-<Text color="lighter">{user.email}</Text>
-</Container>
-</Combobox.Option>
-))}
-</Combobox.List>
-</Combobox>
-);
-}
-`}
+ code={`() => {
+   const options = [
+     { 
+       label: "London", 
+       value: "london" 
+     },
+     { 
+       label: "Sydney", 
+       value: "sydney" 
+     },
+     { 
+       label: "Shanghai", 
+       value: "shanghai" 
+     }
+   ];
+
+   return (
+     <Container gap={"small"}>
+       <Text>{"only allow selected"}</Text>
+       <Container gap={10}>
+         <Combobox 
+           disableFreeSolo 
+           options={options} 
+           initialValue={"sydney"} 
+         />
+       </Container>
+     </Container>
+   );
+ }`}
 />
-API Reference
-Combobox
-The main wrapper component that provides context and state management for the combobox functionality.
-Props
-PropTypeDefaultDescriptionvaluestring""The current value of the combobox.defaultValuestring""The initial value of the combobox.onChange(value: string) => voidCallback function called when the value changes.onFilter(input: string) => string[]Optional function for custom filtering of options.disabledbooleanfalseWhether the combobox is disabled.childrenReactNodeThe combobox subcomponents.
-Combobox.Input
-The input field component of the combobox.
-Props
-PropTypeDefaultDescriptionplaceholderstring""Placeholder text for the input.disabledbooleanfalseWhether the input is disabled.classNamestringAdditional CSS classes to apply.styleCSSPropertiesAdditional CSS styles to apply....InputHTMLAttributesAll standard input HTML attributes are supported.
-Combobox.List
-The container component for the dropdown list of options.
-Props
-PropTypeDefaultDescriptionchildrenReactNodeThe list of Combobox.Option components.classNamestringAdditional CSS classes to apply.styleCSSPropertiesAdditional CSS styles to apply.
-Combobox.Option
-The individual option items in the dropdown list.
-Props
-PropTypeDefaultDescriptionvaluestringThe value associated with this option.childrenReactNodeThe content to display for this option.disabledbooleanfalseWhether this option is disabled.classNamestringAdditional CSS classes to apply.styleCSSPropertiesAdditional CSS styles to apply.
+
+## Loading State
+
+<Playground
+ code={`() => {
+   const options = [
+     { 
+       label: "London", 
+       value: "london" 
+     },
+     { 
+       label: "Sydney", 
+       value: "sydney" 
+     },
+     { 
+       label: "Shanghai", 
+       value: "shanghai" 
+     }
+   ];
+
+   const [filteredOptions, setFilteredOptions] = React.useState();
+   const [isSearching, setIsSearching] = React.useState(false);
+
+   const searchHandler = (currentValue) => {
+     if (!currentValue) return setFilteredOptions([]);
+     setIsSearching(true);
+
+     // Simulate API call
+     setTimeout(() => {
+       const relatedOptions = options.filter((item) =>
+         item.value.includes(currentValue)
+       );
+       setFilteredOptions(relatedOptions);
+       setIsSearching(false);
+     }, 1000);
+   };
+
+   return (
+     <Container gap={"small"}>
+       <Text>{"loading state"}</Text>
+       <Container gap={10}>
+         <Combobox 
+           searching={isSearching}
+           options={filteredOptions}
+           placeholder="Enter here"
+           onSearch={searchHandler}
+         />
+       </Container>
+     </Container>
+   );
+ }`}
+/>
+
+## Waiting in Search
+
+<Playground
+ code={`() => {
+   const options = [
+     { 
+       label: "London", 
+       value: "london" 
+     },
+     { 
+       label: "Sydney", 
+       value: "sydney" 
+     },
+     { 
+       label: "Shanghai", 
+       value: "shanghai" 
+     }
+   ];
+
+   const [options2, setOptions2] = React.useState();
+   const [searching1, setSearching1] = React.useState(false);
+   const timer = React.useRef();
+
+   const searchHandler2 = (currentValue) => {
+     if (!currentValue) return setOptions2([]);
+     setSearching1(true);
+
+     timer.current && clearTimeout(timer.current);
+     timer.current = setTimeout(() => {
+       const relatedOptions = options.filter((item) =>
+         item.value.includes(currentValue)
+       );
+       setOptions2(relatedOptions);
+       setSearching1(false);
+       clearTimeout(timer.current);
+     }, 1000);
+   };
+
+   return (
+     <Container gap={"small"}>
+       <Text>{"waiting in search"}</Text>
+       <Container gap={10}>
+         <Combobox
+           searching={searching1}
+           options={options2}
+           placeholder={"Enter here"}
+           onSearch={searchHandler2}
+         />
+       </Container>
+     </Container>
+   );
+ }`}
+/>
+## Props
+
+### Combobox Props
+
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :-----: | :------: | :---------- |
+| `options` | `Array<{ label: string; value: string }>` | `[]` | No | Array of options to display in the dropdown |
+| `placeholder` | `string` | `""` | No | Placeholder text for the input field |
+| `initialValue` | `string` | `undefined` | No | Initial value for the input field |
+| `disabled` | `boolean` | `false` | No | If `true`, the combobox becomes non-interactive |
+| `disableFreeSolo` | `boolean` | `false` | No | If `true`, only allows selection from provided options |
+| `searching` | `boolean` | `false` | No | Indicates if the component is in a loading state |
+| `clearable` | `boolean` | `false` | No | If `true`, shows a clear button when there is input |
+| `onSearch` | `(value: string) => void` | `undefined` | No | Callback function triggered on input change |
+| `onChange` | `(value: string) => void` | `undefined` | No | Callback function triggered when value changes |
+
+### ComboboxSearching Props
+
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :-----: | :------: | :---------- |
+| `children` | `React.ReactNode` | `undefined` | No | Custom content to display during loading state |
+
+### ComboboxEmpty Props
+
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :-----: | :------: | :---------- |
+| `children` | `React.ReactNode` | `undefined` | No | Custom content to display when no options match |
