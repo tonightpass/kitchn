@@ -238,3 +238,20 @@ These sizes are standardized across form components.
 </Container>
 `}
 />
+
+## Props
+
+| Name | Type | Default | Required | Description
+|------|------|---------|----------|-------------
+| `children` | `React.ReactNode` | `undefined` | Yes | Content to be displayed inside the button.
+| `size` | `'small' \| 'normal' \| 'large'` | `'normal'` | No | Size of the button.
+| `shape` | `'round' \| 'square'` | `'square'` | No | Shape of the button corners.
+| `prefix` | `React.ReactNode` | `undefined` | No | Content to be displayed before the button text.
+| `suffix` | `React.ReactNode` | `undefined` | No | Content to be displayed after the button text.
+| `type` | `'primary' \| 'secondary' \| 'danger' \| 'warning' \| 'success' \| 'info' \| 'dark' \| 'light'` | `'primary'` | No | Visual style variant of the button.
+| `variant` | `'ghost'` | `undefined` | No | Alternative style variant that shows only outlines.
+| `loading` | `boolean` | `false` | No | Shows a loading spinner and disables the button.
+| `disabled` | `boolean` | `false` | No | Disables button interactions and dims its appearance.
+| `className` | `string` | `undefined` | No | Additional CSS classes to be applied.
+| `style` | `CSSProperties` | `undefined` | No | Inline CSS styles to be applied.
+| `onClick` | `(event: React.MouseEvent) => void` | `undefined` | No | Function called when the button is clicked.
