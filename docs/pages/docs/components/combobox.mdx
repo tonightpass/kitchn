@@ -51,50 +51,58 @@ import { Combobox } from "kitchn"
 
 ## Disabled
 <Playground
-code={`
-() => {
-const options = [
-{ label: "London", value: "london" },
-{ label: "Sydney", value: "sydney" },
-{ label: "Shanghai", value: "shanghai" },
-];
-return (
-<Combobox 
-   disabled 
-   initialValue="London" 
-   options={options} 
- />
-);
-}
-`}
+  code={`
+    () => {
+      const options = [
+        { label: "London", value: "london" },
+        { label: "Sydney", value: "sydney" },
+        { label: "Shanghai", value: "shanghai" },
+      ];
+      
+      return (
+        <Combobox 
+          disabled 
+          initialValue="London" 
+          options={options} 
+        />
+      );
+    }
+  `}
 />
+
 ## Search
 <Playground
-code={`
-() => {
-const options = [
-{ label: "London", value: "london" },
-{ label: "Sydney", value: "sydney" },
-{ label: "Shanghai", value: "shanghai" },
-];
-const [filteredOptions, setFilteredOptions] = React.useState();
-const searchHandler = (currentValue) => {
-if (!currentValue) return setFilteredOptions([]);
-const relatedOptions = options.filter((item) =>
-item.value.includes(currentValue)
-);
-setFilteredOptions(relatedOptions);
-};
-return (
-<Combobox 
-   options={filteredOptions}
-   placeholder="Enter here"
-   onSearch={searchHandler}
- />
-);
-}
-`}
+  code={`
+    () => {
+      const options = [
+        { label: "London", value: "london" },
+        { label: "Sydney", value: "sydney" },
+        { label: "Shanghai", value: "shanghai" },
+      ];
+
+      const [filteredOptions, setFilteredOptions] = React.useState();
+
+      const searchHandler = (currentValue) => {
+        if (!currentValue) return setFilteredOptions([]);
+
+        const relatedOptions = options.filter((item) =>
+          item.value.includes(currentValue)
+        );
+
+        setFilteredOptions(relatedOptions);
+      };
+
+      return (
+        <Combobox 
+          options={filteredOptions}
+          placeholder="Enter here"
+          onSearch={searchHandler}
+        />
+      );
+    }
+  `}
 />
+
 
 ## Only Allow Selected
 
