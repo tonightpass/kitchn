@@ -1,0 +1,101 @@
+---
+title: "React Calendar Component"
+description: "The Calendar component is a versatile element that supports various behaviors, including date selection, different visual styles, and handling selection events."
+---
+
+import Playground from "@components/Playground";
+import { Calendar, Container, DateRange, Text } from "kitchn";
+import { NextPage } from "next";
+import React from "react";
+
+# Calendar
+
+The Calendar component provides an intuitive and customizable way to select dates in your application.
+
+
+## Usage
+
+First of all, you need to import the `Calendar` component from the `kitchn` package.
+
+```js
+import { Calendar } from "kitchn";
+```
+
+  ## Single date selection
+
+<Playground
+  code={`
+  () => {
+    const [selected, setSelected] = React.useState(new Date());
+    
+    return (
+      <Container gap={"small"}>
+        <Text>{"Single Date Selection"}</Text>
+        <Calendar 
+          mode={"single"} 
+          selected={selected} 
+          onSelect={setSelected}
+        />
+      </Container>
+    );
+  }
+`}
+/>
+
+## Multiple date selection
+
+<Playground
+  code={`
+  () => {
+    const [selectedDays, setSelectedDays] = React.useState([]);
+    
+    return (
+      <Container gap={"small"}>
+        <Text>{"Multiple Date Selection"}</Text>
+        <Calendar 
+          mode={"multiple"} 
+          selected={selectedDays} 
+          onSelect={setSelectedDays}
+        />
+      </Container>
+    );
+  }
+`}
+/>
+
+ ## Date Range Selection
+ 
+<Playground
+  code={`
+  () => {
+    const [dateRange, setDateRange] = React.useState({
+      from: undefined,
+      to: undefined
+    });
+    
+    return (
+      <Container gap={"small"}>
+        <Text>{"Date Range Selection"}</Text>
+        <Calendar 
+          mode={"range"} 
+          selected={dateRange} 
+          onSelect={setDateRange}
+        />
+      </Container>
+    );
+  }
+`}
+/>
+
+
+## Props
+
+| Name | Type | Default | Required | Description | Accepted values |
+| :--- | :--- | :-----: | :------: | :---------- | :-------------- |
+| `mode` | `string` | `"single"` | ✅ | The selection mode of the calendar. | `"single"`, `"multiple"`, `"range"` |
+| `selected` | `Date \| Date[] \| DateRange \| undefined` | `undefined` | - | The currently selected date(s). Type depends on mode. | - |
+| `onSelect` | `(date: Date \| Date[] \| DateRange) => void` | `-` | ✅ | Callback function when a date is selected. | - |
+
+## About
+
+The Calendar component is built on top of React [DayPicker](https://daypicker.dev/), providing a robust foundation for date picking functionality.
