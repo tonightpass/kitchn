@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.3.1
+
+### Patch Changes
+
+- [`7be4a72`](https://github.com/tonightpass/kitchn/commit/7be4a72eb0c09f334f5a08e70c4e4cc90d987948) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Export all members of Collapse
+
 ## 1.3.0
 
 ### Minor Changes
