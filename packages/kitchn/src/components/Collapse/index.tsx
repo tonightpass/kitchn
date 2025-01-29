@@ -100,7 +100,7 @@ const CollapseComponent = styled(
 `}
 `;
 
-const CollapseHeader = styled.button<{ isOpen: boolean }>`
+export const CollapseHeader = styled.button<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -118,13 +118,15 @@ const CollapseHeader = styled.button<{ isOpen: boolean }>`
   }
 `;
 
-const CollapseHeaderContent = styled.div`
+export const CollapseHeaderContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
 
-const CollapseTitle = styled.h3<{ size?: "normal" | "small" | "medium" }>`
+export const CollapseTitle = styled.h3<{
+  size?: "normal" | "small" | "medium";
+}>`
   font-size: ${({ size, theme }) => {
     switch (size) {
       case "small":
@@ -138,20 +140,20 @@ const CollapseTitle = styled.h3<{ size?: "normal" | "small" | "medium" }>`
   font-weight: ${({ theme }) => theme.weight.bold};
 `;
 
-const CollapseSubtitle = styled.span`
+export const CollapseSubtitle = styled.span`
   margin-top: 5px;
   font-size: ${({ theme }) => theme.size.small};
   font-weight: ${({ theme }) => theme.weight.regular};
   color: ${({ theme }) => theme.colors.text.light};
 `;
 
-const CollapseContent = styled.div<{ height?: number }>`
+export const CollapseContent = styled.div<{ height?: number }>`
   overflow: hidden;
   transition: height 0.2s ease-in-out;
   height: ${({ height }) => (height ? `calc(${height}px + 10px * 2)` : "0px")};
 `;
 
-const CollapseContentContainer = styled.span`
+export const CollapseContentContainer = styled.span`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
