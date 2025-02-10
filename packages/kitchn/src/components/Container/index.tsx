@@ -1,25 +1,18 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { Gap } from "../../types/theme";
 
-type Direction = "row" | "column";
+type Direction = CSSProperties["flexDirection"];
 
 type Props = {
   row?: boolean;
-  flex?: number | string;
+  flex?: CSSProperties["flex"];
   direction?: [Direction, Direction, Direction];
   gap?: keyof Gap | number;
-  align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
-  justify?:
-    | "center"
-    | "flex-start"
-    | "flex-end"
-    | "space-between"
-    | "space-around"
-    | "space-evenly"
-    | "stretch";
+  align?: CSSProperties["alignItems"];
+  justify?: CSSProperties["justifyContent"];
   header?: boolean;
   section?: boolean;
   form?: boolean;
@@ -28,8 +21,8 @@ type Props = {
   nav?: boolean;
   aside?: boolean;
   main?: boolean;
-  wrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "unset";
-  transform?: string;
+  wrap?: CSSProperties["flexWrap"];
+  transform?: CSSProperties["transform"];
 };
 
 export type ContainerProps = Props & React.ComponentPropsWithRef<"div">;
