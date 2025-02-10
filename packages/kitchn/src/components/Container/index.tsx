@@ -1,3 +1,4 @@
+/// <reference types="csstype" />
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
 
