@@ -3,8 +3,8 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { useKeyboard } from "../../hooks/useKeyboard";
-import { usePortal } from "../../hooks/usePortal";
+import { useKeyboard } from "../../hooks/use-keyboard";
+import { usePortal } from "../../hooks/use-portal";
 import { KitchnComponent } from "../../types";
 import { slideInUp, slideOutDown } from "../../utils/animate";
 import { KeyCode } from "../../utils/codes";

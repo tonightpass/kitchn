@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { useRect } from "../../hooks/useRect";
+import { useRect } from "../../hooks/use-rect";
 import { isString } from "../../utils";
 import { capitalize } from "../../utils/capitalize";
 import Highlight from "../Highlight";

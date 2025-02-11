@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Toast, ToastLayout } from "../hooks/useToasts";
+import { Toast, ToastLayout } from "../hooks/use-toasts";
 
 export type UpdateToastsFunction = (fn: (toasts: Toast[]) => Toast[]) => void;
 export type UpdateToastsLayoutFunction = (

@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import { NavigationMenuContext } from "../../../contexts/NavigationMenu";
 import { DecoratorProps } from "../../../hoc";
 import { useRect } from "../../../hooks";
-import useNavigationMenu from "../../../hooks/useNavigationMenu";
+import useNavigationMenu from "../../../hooks/use-navigation-menu";
 import Container from "../../Container";
 import Highlight from "../../Highlight";
 import Tooltip, { TooltipProps } from "../../Tooltip";

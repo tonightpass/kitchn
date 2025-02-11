@@ -1,7 +1,7 @@
 import React from "react";
 
-import { usePortal } from "./usePortal";
-import { useWarning } from "./useWarning";
+import { usePortal } from "./use-portal";
+import { useWarning } from "./use-warning";
 
 export type UseClipboardOptions = {
   onError: () => unknown;

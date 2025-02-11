@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../../hoc/withDecorator";
-import { ToastAction } from "../../../hooks/useToasts";
+import { ToastAction } from "../../../hooks/use-toasts";
 import { KitchnComponent } from "../../../types";
 import { capitalize } from "../../../utils/capitalize";
 import Button from "../../Button";

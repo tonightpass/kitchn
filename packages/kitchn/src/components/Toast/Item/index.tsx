@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { convertRGBToRGBA } from "../../..";
 import { withDecorator } from "../../../hoc/withDecorator";
-import { Toast, ToastLayout } from "../../../hooks/useToasts";
+import { Toast, ToastLayout } from "../../../hooks/use-toasts";
 import { KitchnComponent } from "../../../types";
 import { getTranslateByPlacement } from "../../../utils/getTranslateByPlacement";
 import Container from "../../Container";

@@ -4,7 +4,7 @@ import styled, { RuleSet } from "styled-components";
 
 import { TooltipPlacement, TooltipTypes } from "..";
 import { useClickAnyWhere, usePortal } from "../../../hooks";
-import { useResize } from "../../../hooks/useResize";
+import { useResize } from "../../../hooks/use-resize";
 import { KitchnComponent } from "../../../types";
 import {
   TooltipPosition,

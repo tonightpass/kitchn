@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { DecoratorProps } from "../../../hoc";
-import useNavigationMenu from "../../../hooks/useNavigationMenu";
-import useNavigationMenuItem from "../../../hooks/useNavigationMenuItem";
+import useNavigationMenu from "../../../hooks/use-navigation-menu";
+import useNavigationMenuItem from "../../../hooks/use-navigation-menu-item";
 import { getId } from "../../../utils";
 import Button, { ButtonProps } from "../../Button";
 import Icon, { IconProps } from "../../Icon";

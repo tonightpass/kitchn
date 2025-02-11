@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import { KitchnComponent, ToastItem, withDecorator } from "../../..";
 import { useToastsContext } from "../../../contexts/Toasts";
-import { useCurrentState } from "../../../hooks/useCurrentState";
-import { usePortal } from "../../../hooks/usePortal";
+import { useCurrentState } from "../../../hooks/use-current-state";
+import { usePortal } from "../../../hooks/use-portal";
 
 export type ToastContainerProps = KitchnComponent<object>;
 

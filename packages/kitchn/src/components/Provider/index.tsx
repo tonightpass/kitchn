@@ -22,7 +22,7 @@ import {
 } from "../../contexts/Toasts";
 import { withDecorator } from "../../hoc/withDecorator";
 import { useBreakpoint } from "../../hooks";
-import { useCurrentState } from "../../hooks/useCurrentState";
+import { useCurrentState } from "../../hooks/use-current-state";
 import { defaultThemes, generateThemes } from "../../themes";
 import { Themes } from "../../types";
 import { isDevelopment } from "../../utils/isDevelopment";

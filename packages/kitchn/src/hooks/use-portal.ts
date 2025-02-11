@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSSR } from "./useSSR";
+import { useSSR } from "./use-ssr";
 import { PREFIX } from "../constants";
 import { getId } from "../utils/getId";
 

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { useBreakpoint } from "../../hooks/useBreakpoint";
+import { useBreakpoint } from "../../hooks/use-breakpoint";
 import { KitchnComponent } from "../../types";
 import Collapse from "../Collapse";
 import Link, { LinkProps } from "../Link";

@@ -1,4 +1,4 @@
-import { ToastPlacement } from "../hooks/useToasts";
+import { ToastPlacement } from "../hooks/use-toasts";
 
 export const getTranslateByPlacement = (
   placement: ToastPlacement,

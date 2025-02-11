@@ -3,8 +3,8 @@ import styled, { css, keyframes, RuleSet } from "styled-components";
 import { Keyframes } from "styled-components/dist/types";
 
 import { DecoratorProps } from "../../../hoc";
-import useNavigationMenu from "../../../hooks/useNavigationMenu";
-import useNavigationMenuItem from "../../../hooks/useNavigationMenuItem";
+import useNavigationMenu from "../../../hooks/use-navigation-menu";
+import useNavigationMenuItem from "../../../hooks/use-navigation-menu-item";
 import Container from "../../Container";
 
 const enterFromRight = keyframes`

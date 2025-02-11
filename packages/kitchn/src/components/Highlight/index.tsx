@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
-import { usePrevious } from "../../hooks/usePrevious";
-import { isUnplacedRect, ReactiveDomReact } from "../../hooks/useRect";
+import { usePrevious } from "../../hooks/use-previous";
+import { isUnplacedRect, ReactiveDomReact } from "../../hooks/use-rect";
 import { KitchnComponent } from "../../types";
 
 export type HighlightProps = KitchnComponent<{
