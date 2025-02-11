@@ -28,7 +28,8 @@ const SpacerComponent = styled(({ ...props }: SpacerProps) => {
             (isNumber(props.x)
               ? `${props.theme.gap.normal} * ${props.x}`
               : props.x)
-          : "1px"} - 1px
+          : "1px"} -
+      1px
   );
   margin-top: calc(
     ${(props) =>
@@ -37,7 +38,8 @@ const SpacerComponent = styled(({ ...props }: SpacerProps) => {
             (isNumber(props.y)
               ? `${props.theme.gap.normal} * ${props.y}`
               : props.y)
-          : "1px"} - 1px
+          : "1px"} -
+      1px
   );
 `;
 

@@ -178,7 +178,8 @@ const MenuDivider = styled.div`
   height: 1px;
   width: calc(100% + ${({ theme }) => theme.gap.tiny} * 2);
   background-color: ${({ theme }) => theme.colors.layout.dark};
-  margin: ${({ theme }) => theme.gap.tiny} 0 ${({ theme }) => theme.gap.tiny} -${({ theme }) => theme.gap.tiny};
+  margin: ${({ theme }) => theme.gap.tiny} 0
+    ${({ theme }) => theme.gap.tiny} -${({ theme }) => theme.gap.tiny};
 `;
 
 export const Menu = {

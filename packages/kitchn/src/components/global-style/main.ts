@@ -2,8 +2,9 @@ import { css } from "styled-components";
 
 export const mainCss = css`
   body {
-    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
-      "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans",
+      Avenir, "Helvetica Neue", "Lucida Grande", sans-serif;
     background-color: ${({ theme }) => theme.colors.layout.darkest};
   }
 
