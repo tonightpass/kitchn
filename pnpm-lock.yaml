@@ -43,7 +43,7 @@ importers:
         version: 8.57.1
       eslint-config-antoine:
         specifier: ^1.0.13
-        version: 1.0.14(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.3.3)(turbo@2.3.3)(typescript@5.7.3)
+        version: 1.0.14(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.5.0)(turbo@2.3.3)(typescript@5.7.3)
       husky:
         specifier: ^9.0.0
         version: 9.1.7
@@ -55,7 +55,7 @@ importers:
         version: 1.0.1
       prettier:
         specifier: ^3.0.2
-        version: 3.3.3
+        version: 3.5.0
       size-limit:
         specifier: ^11.0.0
         version: 11.1.6
@@ -165,7 +165,7 @@ importers:
         version: 5.13.6(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@1.4.0)(typescript@5.7.3)
       kitchn:
         specifier: latest
-        version: 1.3.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+        version: 1.4.0(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -208,7 +208,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.3.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+        version: 1.4.0(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^14.2.5
         version: 14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -236,7 +236,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.3.2(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+        version: 1.4.0(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^13.0.2
         version: 13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -264,7 +264,7 @@ importers:
     dependencies:
       kitchn:
         specifier: latest
-        version: 1.3.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+        version: 1.4.0(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -7464,8 +7464,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  kitchn@1.3.2:
-    resolution: {integrity: sha512-BNd43TO82qIMc8QKzGpsEAbLxOKocsV+FPAUXL56NsXhpCGfk8R+mIr9ov+1nt1n9w6e0JUf/Agj+8CK8djEvA==}
+  kitchn@1.4.0:
+    resolution: {integrity: sha512-tE+LmPcpRbGcMZhMJ0LqZwBK99tL9gl2NgW9cTYbAjdHUTqo1xuJzBHuAPWouopbwQ1ED5/EmUxR5r1/arnFXA==}
     peerDependencies:
       next: '>= 13.0.0'
       react: '>= 16.8.0'
@@ -9145,8 +9145,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+  prettier@3.5.0:
+    resolution: {integrity: sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -17835,7 +17835,7 @@ snapshots:
     optionalDependencies:
       source-map: 0.6.1
 
-  eslint-config-antoine@1.0.14(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.3.3)(turbo@2.3.3)(typescript@5.7.3):
+  eslint-config-antoine@1.0.14(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.5.0)(turbo@2.3.3)(typescript@5.7.3):
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.13.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/parser': 7.13.0(eslint@8.57.1)(typescript@5.7.3)
@@ -17843,10 +17843,10 @@ snapshots:
       eslint-config-next: 15.1.7(eslint@8.57.1)(typescript@5.7.3)
       eslint-config-prettier: 9.1.0(eslint@8.57.1)
       eslint-config-turbo: 2.4.1(eslint@8.57.1)(turbo@2.3.3)
-      eslint-config-universe: 12.1.0(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.3.3)(typescript@5.7.3)
-      eslint-plugin-prettier: 5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3)
+      eslint-config-universe: 12.1.0(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.5.0)(typescript@5.7.3)
+      eslint-plugin-prettier: 5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.0)
       eslint-plugin-react: 7.33.2(eslint@8.57.1)
-      prettier: 3.3.3
+      prettier: 3.5.0
     transitivePeerDependencies:
       - '@types/eslint'
       - eslint-import-resolver-typescript
@@ -17932,7 +17932,7 @@ snapshots:
       eslint-plugin-turbo: 2.4.1(eslint@8.57.1)(turbo@2.3.3)
       turbo: 2.3.3
 
-  eslint-config-universe@12.1.0(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.3.3)(typescript@5.7.3):
+  eslint-config-universe@12.1.0(@types/eslint@8.56.10)(eslint@8.57.1)(prettier@3.5.0)(typescript@5.7.3):
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/parser': 6.21.0(eslint@8.57.1)(typescript@5.7.3)
@@ -17940,11 +17940,11 @@ snapshots:
       eslint-config-prettier: 8.10.0(eslint@8.57.1)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)
       eslint-plugin-node: 11.1.0(eslint@8.57.1)
-      eslint-plugin-prettier: 5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@8.10.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3)
+      eslint-plugin-prettier: 5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@8.10.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.0)
       eslint-plugin-react: 7.33.2(eslint@8.57.1)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.1)
     optionalDependencies:
-      prettier: 3.3.3
+      prettier: 3.5.0
     transitivePeerDependencies:
       - '@types/eslint'
       - eslint-import-resolver-typescript
@@ -18169,20 +18169,20 @@ snapshots:
       resolve: 1.22.8
       semver: 6.3.1
 
-  eslint-plugin-prettier@5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@8.10.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3):
+  eslint-plugin-prettier@5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@8.10.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.0):
     dependencies:
       eslint: 8.57.1
-      prettier: 3.3.3
+      prettier: 3.5.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     optionalDependencies:
       '@types/eslint': 8.56.10
       eslint-config-prettier: 8.10.0(eslint@8.57.1)
 
-  eslint-plugin-prettier@5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3):
+  eslint-plugin-prettier@5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.0):
     dependencies:
       eslint: 8.57.1
-      prettier: 3.3.3
+      prettier: 3.5.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     optionalDependencies:
@@ -20688,7 +20688,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kitchn@1.3.2(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
+  kitchn@1.4.0(next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -20707,7 +20707,7 @@ snapshots:
       react-native: 0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1)
       react-native-remix-icon: 0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))
 
-  kitchn@1.3.2(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
+  kitchn@1.4.0(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-native-remix-icon@0.4.0(react-native-svg@15.3.0(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@14.1.0)(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fontsource/figtree': 5.0.20
@@ -23024,7 +23024,7 @@ snapshots:
 
   prettier@2.8.8: {}
 
-  prettier@3.3.3: {}
+  prettier@3.5.0: {}
 
   pretty-bytes@5.6.0: {}
 
