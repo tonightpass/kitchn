@@ -1,6 +1,7 @@
-import { OnRuntimeLogo } from "@components/brands/showcase";
 import { TonightPassWordmark } from "kitchn/logos";
-import { Company, SortedProject } from "types/showcase";
+
+import { OnRuntimeLogo } from "@/components/brands/showcase";
+import { Company, SortedProject } from "@/types/showcase";
 
 const showcases: Company[] = [
   {
