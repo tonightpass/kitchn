@@ -1,4 +1,4 @@
-import { OnRuntimeLogo } from "@components/Brands/Showcase";
+import { OnRuntimeLogo } from "@components/brands/showcase";
 import { TonightPassWordmark } from "kitchn/logos";
 import { Company, SortedProject } from "types/showcase";
 

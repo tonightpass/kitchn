@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { KitchnLogo, SlashIcon, TonightPassIcon } from "@components/Brands";
-import Footer from "@components/Footer";
+import { KitchnLogo, SlashIcon, TonightPassIcon } from "@components/brands";
+import Footer from "@components/footer";
 import { Container, Link } from "kitchn";
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
