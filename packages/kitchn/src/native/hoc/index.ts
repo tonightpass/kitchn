@@ -1,1 +1,1 @@
-export * from "./withScale";
+export * from "./with-scale";

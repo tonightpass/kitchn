@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Link, { LinkProps } from "..";
-import { withDecorator } from "../../../hoc/withDecorator";
+import { withDecorator } from "../../../hoc/with-decorator";
 import { KitchnComponent } from "../../../types";
 
 type Props = {

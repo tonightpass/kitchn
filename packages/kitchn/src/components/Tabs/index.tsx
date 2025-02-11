@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { useRect } from "../../hooks/use-rect";
 import { KitchnComponent } from "../../types";
 import { isString } from "../../utils";

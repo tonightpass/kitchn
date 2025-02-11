@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convert-rgb-to-rgba";

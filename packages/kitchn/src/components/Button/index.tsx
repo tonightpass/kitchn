@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent, NormalSizes } from "../../types";
 import { AccentColors } from "../../types/theme";
 import { convertRGBToRGBA } from "../../utils/convert-rgb-to-rgba";

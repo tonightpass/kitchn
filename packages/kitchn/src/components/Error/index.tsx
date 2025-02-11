@@ -2,7 +2,7 @@ import React from "react";
 import { RiErrorWarningLine, RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent, NormalSizes } from "../../types";
 import Icon from "../Icon";
 import Text from "../Text";

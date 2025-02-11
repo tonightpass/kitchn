@@ -7,7 +7,7 @@ import {
 } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { useTheme } from "../../hooks";
 import { KitchnComponent, NormalSizes } from "../../types";
 import { convertRGBToRGBA } from "../../utils/convert-rgb-to-rgba";

@@ -20,7 +20,7 @@ import {
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
 } from "../../contexts/Toasts";
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { useBreakpoint } from "../../hooks";
 import { useCurrentState } from "../../hooks/use-current-state";
 import { defaultThemes, generateThemes } from "../../themes";

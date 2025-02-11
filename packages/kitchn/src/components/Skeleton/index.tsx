@@ -5,7 +5,7 @@ import {
   DecoratorProps,
   handleValue,
   withDecorator,
-} from "../../hoc/withDecorator";
+} from "../../hoc/with-decorator";
 import { KitchnComponent } from "../../types";
 
 type Props = {

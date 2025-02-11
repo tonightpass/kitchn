@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent } from "../../types";
 import { AccentColors, Size, TextColors } from "../../types/theme";
 import Image from "../Image";

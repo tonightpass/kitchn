@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { UrlObject } from "url";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent } from "../../types";
 import { isString } from "../../utils/is-string";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { RiCheckLine, RiSubtractLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent } from "../../types";
 import { convertRGBToRGBA } from "../../utils/convert-rgb-to-rgba";
 import Icon from "../Icon";

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent, NormalSizes } from "../../types";
 import Container, { ContainerProps } from "../Container";
 import Text, { TextProps } from "../Text";

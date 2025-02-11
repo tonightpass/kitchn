@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { convertRGBToRGBA } from "../../..";
-import { withDecorator } from "../../../hoc/withDecorator";
+import { withDecorator } from "../../../hoc/with-decorator";
 import { Toast, ToastLayout } from "../../../hooks/use-toasts";
 import { KitchnComponent } from "../../../types";
 import { getTranslateByPlacement } from "../../../utils/get-translate-by-placement";

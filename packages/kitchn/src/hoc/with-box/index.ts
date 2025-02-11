@@ -1,5 +1,5 @@
 import { useWarning } from "../../hooks";
-import { DecoratorProps, withDecorator } from "../withDecorator";
+import { DecoratorProps, withDecorator } from "../with-decorator";
 
 export type BoxProps = DecoratorProps;
 

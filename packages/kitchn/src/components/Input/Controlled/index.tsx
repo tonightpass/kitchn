@@ -8,7 +8,7 @@ import {
 } from "react-hook-form";
 
 import Input, { type InputProps } from "..";
-import { withDecorator } from "../../../hoc/withDecorator";
+import { withDecorator } from "../../../hoc/with-decorator";
 
 type ControllerPropsEx<F extends FieldValues> = Omit<
   ControllerProps<F>,

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { handlePixelValue, withDecorator } from "../../hoc/withDecorator";
+import { handlePixelValue, withDecorator } from "../../hoc/with-decorator";
 import { KitchnComponent } from "../../types";
 import { shortenName } from "../../utils/shorten-name";
 import Text from "../Text";

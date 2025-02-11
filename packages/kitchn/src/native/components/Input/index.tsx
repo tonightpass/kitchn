@@ -12,7 +12,7 @@ import styled, { useTheme } from "styled-components/native";
 import { capitalize } from "../../../utils/capitalize";
 import { convertRGBToRGBA } from "../../../utils/convert-rgb-to-rgba";
 import { isNumber } from "../../../utils/is-number";
-import { withScale } from "../../hoc/withScale";
+import { withScale } from "../../hoc/with-scale";
 import { AccentColors, KitchnComponent, NormalSizes } from "../../types";
 import Icon, { IconProps } from "../Icon";
 import Text from "../Text";

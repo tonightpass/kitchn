@@ -2,7 +2,7 @@
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { Gap } from "../../types/theme";
 
 type Direction = CSSProperties["flexDirection"];

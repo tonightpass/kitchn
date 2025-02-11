@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { withDecorator } from "../../../hoc/withDecorator";
+import { withDecorator } from "../../../hoc/with-decorator";
 import { ToastAction } from "../../../hooks/use-toasts";
 import { KitchnComponent } from "../../../types";
 import { capitalize } from "../../../utils/capitalize";

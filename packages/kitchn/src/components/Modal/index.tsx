@@ -2,7 +2,7 @@ import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import { withDecorator } from "../../hoc/withDecorator";
+import { withDecorator } from "../../hoc/with-decorator";
 import { useBreakpoint } from "../../hooks/use-breakpoint";
 import { useKeyboard } from "../../hooks/use-keyboard";
 import { usePortal } from "../../hooks/use-portal";
