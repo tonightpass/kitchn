@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.4.0
+
+### Minor Changes
+
+- [#820](https://github.com/tonightpass/kitchn/pull/820) [`59af73f`](https://github.com/tonightpass/kitchn/commit/59af73f6bc953ca253647e4f931a382cd4a8d8b3) Thanks [@AntoineKM](https://github.com/AntoineKM)! - Rename directories to kebab-case
+
 ## 1.3.2
 
 ### Patch Changes
