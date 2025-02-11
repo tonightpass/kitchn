@@ -1,6 +1,6 @@
 import React from "react";
 
-import { isBrowser } from "../utils/isBrowser";
+import { isBrowser } from "../utils/is-browser";
 
 export type SSRState = {
   isBrowser: boolean;

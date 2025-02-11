@@ -4,7 +4,7 @@ import { UrlObject } from "url";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
-import { isString } from "../../utils/isString";
+import { isString } from "../../utils/is-string";
 
 type Props = {
   /**

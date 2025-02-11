@@ -1,4 +1,4 @@
-import { isMac } from "./isMac";
+import { isMac } from "./is-mac";
 
 export const getCtrlKeysByPlatform = (): Record<
   string,

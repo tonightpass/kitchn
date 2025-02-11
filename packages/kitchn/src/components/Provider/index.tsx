@@ -25,7 +25,7 @@ import { useBreakpoint } from "../../hooks";
 import { useCurrentState } from "../../hooks/use-current-state";
 import { defaultThemes, generateThemes } from "../../themes";
 import { Themes } from "../../types";
-import { isDevelopment } from "../../utils/isDevelopment";
+import { isDevelopment } from "../../utils/is-development";
 import Badge from "../Badge";
 import Container from "../Container";
 import GlobalStyle from "../GlobalStyle";

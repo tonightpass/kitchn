@@ -9,7 +9,7 @@ import { MarginProps, marginCss } from "./margin";
 import { PaddingProps, paddingCss } from "./padding";
 import { PositionProps, positionCss } from "./position";
 import { Breakpoint, Gap, Size } from "../../types/theme";
-import { isNumber } from "../../utils/isNumber";
+import { isNumber } from "../../utils/is-number";
 
 export type DecoratorProps = {
   display?: CSSProperties["display"];

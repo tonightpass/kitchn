@@ -5,7 +5,7 @@ import { convertRGBToRGBA } from "../../..";
 import { withDecorator } from "../../../hoc/withDecorator";
 import { Toast, ToastLayout } from "../../../hooks/use-toasts";
 import { KitchnComponent } from "../../../types";
-import { getTranslateByPlacement } from "../../../utils/getTranslateByPlacement";
+import { getTranslateByPlacement } from "../../../utils/get-translate-by-placement";
 import Container from "../../Container";
 import Text from "../../Text";
 import ToastActions from "../Actions";

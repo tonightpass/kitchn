@@ -2,7 +2,7 @@ import React from "react";
 
 import { defaultToastLayout, useToastsContext } from "../contexts/Toasts";
 import { AccentColors } from "../types/theme";
-import { getId } from "../utils/getId";
+import { getId } from "../utils/get-id";
 
 export interface ToastAction {
   name: string;

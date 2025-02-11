@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getElementOffset } from "../utils/getElementOffset";
+import { getElementOffset } from "../utils/get-element-offset";
 
 export interface ReactiveDomReact {
   top: number;

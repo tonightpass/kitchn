@@ -12,7 +12,7 @@ import {
   getPosition,
   getTooltipRect,
 } from "../../../utils";
-import { convertRGBToRGBA } from "../../../utils/convertRGBToRGBA";
+import { convertRGBToRGBA } from "../../../utils/convert-rgb-to-rgba";
 import TooltipIcon from "../Icon";
 
 export type TooltipIconOffset = {

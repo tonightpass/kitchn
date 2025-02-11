@@ -2,7 +2,7 @@ import React from "react";
 import { View, ViewComponent } from "react-native";
 import styled from "styled-components/native";
 
-import { isNumber } from "../../../utils/isNumber";
+import { isNumber } from "../../../utils/is-number";
 import { withScale } from "../../hoc";
 import {
   AccentColors,

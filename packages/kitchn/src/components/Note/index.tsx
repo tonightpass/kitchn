@@ -10,7 +10,7 @@ import styled from "styled-components";
 import { withDecorator } from "../../hoc/withDecorator";
 import { useTheme } from "../../hooks";
 import { KitchnComponent, NormalSizes } from "../../types";
-import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
+import { convertRGBToRGBA } from "../../utils/convert-rgb-to-rgba";
 import Container from "../Container";
 import Icon from "../Icon";
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { withDecorator } from "../../hoc/withDecorator";
 import { KitchnComponent } from "../../types";
-import { convertRGBToRGBA } from "../../utils/convertRGBToRGBA";
+import { convertRGBToRGBA } from "../../utils/convert-rgb-to-rgba";
 
 type Props = React.PropsWithChildren;
 
