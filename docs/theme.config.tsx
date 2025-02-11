@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { KitchnLogo, SlashIcon, TonightPassIcon } from "@components/Brands";
-import Footer from "@components/Footer";
 import { Container, Link } from "kitchn";
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import urlcat from "urlcat";
+
+import { KitchnLogo, SlashIcon, TonightPassIcon } from "@/components/brands";
+import Footer from "@/components/footer";
 
 const rgbToHsl = (r, g, b) => {
   r /= 255;
