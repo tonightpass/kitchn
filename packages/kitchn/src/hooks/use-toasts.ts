@@ -1,6 +1,6 @@
 import React from "react";
 
-import { defaultToastLayout, useToastsContext } from "../contexts/Toasts";
+import { defaultToastLayout, useToastsContext } from "../contexts/toasts";
 import { AccentColors } from "../types/theme";
 import { getId } from "../utils/get-id";
 

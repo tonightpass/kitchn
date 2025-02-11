@@ -1,7 +1,7 @@
 import React from "react";
 import { DefaultTheme } from "styled-components/native";
 
-import { ThemeProvider } from "../../contexts/Theme";
+import { ThemeProvider } from "../../contexts/theme";
 import { withScale } from "../../hoc";
 
 export type KitchnProviderProps = {

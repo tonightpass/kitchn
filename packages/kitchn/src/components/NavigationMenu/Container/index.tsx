@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { NavigationMenuContext } from "../../../contexts/NavigationMenu";
+import { NavigationMenuContext } from "../../../contexts/navigation-menu";
 import { DecoratorProps } from "../../../hoc";
 import { useRect } from "../../../hooks";
 import useNavigationMenu from "../../../hooks/use-navigation-menu";

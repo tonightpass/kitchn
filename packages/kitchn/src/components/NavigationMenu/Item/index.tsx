@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { NavigationMenuItemContext } from "../../../contexts/NavigationMenuItem";
+import { NavigationMenuItemContext } from "../../../contexts/navigation-menu-item";
 import useNavigationMenu from "../../../hooks/use-navigation-menu";
 import { getId } from "../../../utils";
 import NavigationMenuContent from "../Content";

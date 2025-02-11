@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NavigationMenuContext } from "../contexts/NavigationMenu";
+import { NavigationMenuContext } from "../contexts/navigation-menu";
 
 const useNavigationMenu = () => {
   const context = React.useContext(NavigationMenuContext);

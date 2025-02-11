@@ -11,7 +11,7 @@ import {
 } from "styled-components";
 
 import { PREFIX } from "../../constants";
-import { ThemeProvider, ThemeProviderProps } from "../../contexts/Theme";
+import { ThemeProvider, ThemeProviderProps } from "../../contexts/theme";
 import {
   defaultToastLayout,
   ToastsContent,
@@ -19,7 +19,7 @@ import {
   UpdateToastsFunction,
   UpdateToastsIDFunction,
   UpdateToastsLayoutFunction,
-} from "../../contexts/Toasts";
+} from "../../contexts/toasts";
 import { withDecorator } from "../../hoc/with-decorator";
 import { useBreakpoint } from "../../hooks";
 import { useCurrentState } from "../../hooks/use-current-state";

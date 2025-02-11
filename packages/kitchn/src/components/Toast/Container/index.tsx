@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 import { KitchnComponent, ToastItem, withDecorator } from "../../..";
-import { useToastsContext } from "../../../contexts/Toasts";
+import { useToastsContext } from "../../../contexts/toasts";
 import { useCurrentState } from "../../../hooks/use-current-state";
 import { usePortal } from "../../../hooks/use-portal";
 
