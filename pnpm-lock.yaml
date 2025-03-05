@@ -34,7 +34,7 @@ importers:
         version: 0.23.0
       '@size-limit/preset-big-lib':
         specifier: ^11.0.0
-        version: 11.2.0(size-limit@11.1.6)
+        version: 11.2.0(size-limit@11.2.0)
       babel-plugin-styled-components:
         specifier: ^2.0.7
         version: 2.1.4(@babel/core@7.26.9)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -58,7 +58,7 @@ importers:
         version: 3.5.3
       size-limit:
         specifier: ^11.0.0
-        version: 11.1.6
+        version: 11.2.0
       turbo:
         specifier: ^2.0.4
         version: 2.4.1
@@ -8907,8 +8907,8 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
-  readdirp@4.1.1:
-    resolution: {integrity: sha512-h80JrZu/MHUZCyHu5ciuoI0+WxsCxzxJTILn6Fs8rxSnFPh+UVHYfeIxK1nVGugMqkfC4vJcBOYbkfkwYK0+gw==}
+  readdirp@4.1.2:
+    resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
   reading-time@1.5.0:
@@ -9383,8 +9383,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  size-limit@11.1.6:
-    resolution: {integrity: sha512-S5ux2IB8rU26xwVgMskmknGMFkieaIAqDLuwgKiypk6oa4lFsie8yFPrzRFV+yrLDY2GddjXuCaVk5PveVOHiQ==}
+  size-limit@11.2.0:
+    resolution: {integrity: sha512-2kpQq2DD/pRpx3Tal/qRW1SYwcIeQ0iq8li5CJHQgOC+FtPn2BVmuDtzUCgNnpCrbgtfEHqh+iWzxK+Tq6C+RQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
@@ -9874,10 +9874,6 @@ packages:
 
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
-
-  tinyglobby@0.2.10:
-    resolution: {integrity: sha512-Zc+8eJlFMvgatPZTl6A9L/yht8QqdmUNtURHaKZLmKBE12hNPSrqNkUp2cs3M/UKmNVVAMFQYSjYIVHDjW5zew==}
-    engines: {node: '>=12.0.0'}
 
   tinyglobby@0.2.12:
     resolution: {integrity: sha512-qkf4trmKSIiMTs/E63cxH+ojC2unam7rJ0WrauAzpT3ECNTxGRMlaXxVbfxMUC/w0LaYk6jQ4y/nGR9uBO3tww==}
@@ -13807,16 +13803,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@size-limit/file@11.2.0(size-limit@11.1.6)':
+  '@size-limit/file@11.2.0(size-limit@11.2.0)':
     dependencies:
-      size-limit: 11.1.6
+      size-limit: 11.2.0
 
-  '@size-limit/preset-big-lib@11.2.0(size-limit@11.1.6)':
+  '@size-limit/preset-big-lib@11.2.0(size-limit@11.2.0)':
     dependencies:
-      '@size-limit/file': 11.2.0(size-limit@11.1.6)
-      '@size-limit/time': 11.2.0(size-limit@11.1.6)
-      '@size-limit/webpack': 11.2.0(size-limit@11.1.6)
-      size-limit: 11.1.6
+      '@size-limit/file': 11.2.0(size-limit@11.2.0)
+      '@size-limit/time': 11.2.0(size-limit@11.2.0)
+      '@size-limit/webpack': 11.2.0(size-limit@11.2.0)
+      size-limit: 11.2.0
     transitivePeerDependencies:
       - '@swc/core'
       - bare-buffer
@@ -13827,20 +13823,20 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@size-limit/time@11.2.0(size-limit@11.1.6)':
+  '@size-limit/time@11.2.0(size-limit@11.2.0)':
     dependencies:
       estimo: 3.0.3
-      size-limit: 11.1.6
+      size-limit: 11.2.0
     transitivePeerDependencies:
       - bare-buffer
       - bufferutil
       - supports-color
       - utf-8-validate
 
-  '@size-limit/webpack@11.2.0(size-limit@11.1.6)':
+  '@size-limit/webpack@11.2.0(size-limit@11.2.0)':
     dependencies:
       nanoid: 5.1.2
-      size-limit: 11.1.6
+      size-limit: 11.2.0
       webpack: 5.98.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -15515,7 +15511,7 @@ snapshots:
 
   chokidar@4.0.3:
     dependencies:
-      readdirp: 4.1.1
+      readdirp: 4.1.2
 
   chownr@1.1.4: {}
 
@@ -22115,7 +22111,7 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.1.1: {}
+  readdirp@4.1.2: {}
 
   reading-time@1.5.0: {}
 
@@ -22725,7 +22721,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  size-limit@11.1.6:
+  size-limit@11.2.0:
     dependencies:
       bytes-iec: 3.1.1
       chokidar: 4.0.3
@@ -22733,7 +22729,7 @@ snapshots:
       lilconfig: 3.1.3
       nanospinner: 1.2.2
       picocolors: 1.1.1
-      tinyglobby: 0.2.10
+      tinyglobby: 0.2.12
 
   slash@3.0.0: {}
 
@@ -23283,11 +23279,6 @@ snapshots:
   tiny-inflate@1.0.3: {}
 
   tinyexec@0.3.2: {}
-
-  tinyglobby@0.2.10:
-    dependencies:
-      fdir: 6.4.3(picomatch@4.0.2)
-      picomatch: 4.0.2
 
   tinyglobby@0.2.12:
     dependencies:
