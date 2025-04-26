@@ -1,5 +1,11 @@
 # kitchn
 
+## 1.5.0
+
+### Minor Changes
+
+- [#851](https://github.com/tonightpass/kitchn/pull/851) [`ccb5b7e`](https://github.com/tonightpass/kitchn/commit/ccb5b7ee5c3dac1816d03c596c371ffe12989332) Thanks [@jerembdn](https://github.com/jerembdn)! - Update Registry and Document import
+
 ## 1.4.0
 
 ### Minor Changes
