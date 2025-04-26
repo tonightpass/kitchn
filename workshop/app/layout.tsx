@@ -1,5 +1,5 @@
 import { KitchnProvider } from "kitchn";
-import { KitchnRegistry } from "kitchn/next";
+import { KitchnRegistry } from "kitchn/next/registry";
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
