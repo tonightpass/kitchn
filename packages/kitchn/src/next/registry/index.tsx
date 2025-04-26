@@ -1,10 +1,7 @@
 import { useServerInsertedHTML } from "next/navigation";
 import React from "react";
 
-import {
-  ServerStyleSheet,
-  StyleSheetManager,
-} from "../../../styled-components";
+import { ServerStyleSheet, StyleSheetManager } from "../../styled-components";
 
 export type KitchnRegistryProps = {
   children?: React.ReactNode;

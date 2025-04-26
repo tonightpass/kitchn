@@ -1,10 +1,12 @@
-import { defineConfig, Options } from "tsup";
+import { defineConfig, type Options } from "tsup";
 
 const config: Options = {
   format: ["cjs", "esm"],
   entry: [
     "src/index.ts",
     "src/next/index.ts",
+    "src/next/document/index.tsx",
+    "src/next/registry/index.tsx",
     "src/native/index.ts",
     "src/logos/index.ts",
   ],
