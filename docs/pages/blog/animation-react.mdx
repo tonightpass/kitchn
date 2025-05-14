@@ -1,0 +1,738 @@
+---
+title: "Animation in React: Creating fluid and performant motion effects"
+date: "05/14/2025"
+description: "Learn how to implement smooth, purposeful animations in your React applications using CSS transitions, React Spring, and Framer Motion to enhance user experience."
+---
+
+import { Button, Link, Container, Text } from "kitchn";
+import Playground from "@/components/playground";
+
+# Creating engaging animations in React applications
+
+Animation is more than just eye candy in modern web applications—it's an essential tool for guiding users, providing feedback, and creating engaging, intuitive interfaces. When implemented thoughtfully, animations can transform a static experience into something that feels alive and responsive.
+
+## Why animation matters in user interfaces
+
+Well-designed animations serve several crucial purposes:
+
+1. **Orienting users** by establishing spatial relationships between elements
+2. **Providing feedback** about system status and user actions
+3. **Directing attention** to important elements or changes
+4. **Creating continuity** between different states and screens
+5. **Adding personality** and emotional connection to your application
+
+> 📝 **Note:** Animations should enhance the user experience, not distract from it. The best animations are often those that users don't consciously notice but would miss if they were absent.
+
+## Approaches to animation in React
+
+React offers multiple ways to implement animations, each with different strengths and use cases:
+
+### 1. CSS transitions and animations
+
+The simplest approach uses CSS transitions and animations, which are well-supported across browsers and optimized for performance:
+
+<Playground
+  code={`
+() => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  return (
+    <Container gap={"medium"}>
+      <Button onClick={() => setIsExpanded(!isExpanded)}>
+        {isExpanded ? "Collapse" : "Expand"}
+      </Button>
+      
+      <Container
+        p={"medium"}
+        bw={1}
+        br={"square"}
+        style={{
+          maxHeight: isExpanded ? "200px" : "50px",
+          overflow: "hidden",
+          transition: "max-height 0.3s ease-in-out"
+        }}
+      >
+        <Text>
+          This content smoothly expands and collapses using a simple CSS transition.
+          It demonstrates how basic animations can enhance the user experience by
+          providing visual continuity between states.
+        </Text>
+      </Container>
+    </Container>
+  );
+}
+`}
+/>
+
+CSS transitions work well for simple state changes like hover effects, expansions, and color changes. For more complex animations, CSS keyframes provide additional control:
+
+```css
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+```
+
+### 2. React Spring for physics-based animations
+
+For more natural-feeling animations that respond to user input, physics-based animation libraries like React Spring provide greater control:
+
+<Playground
+  code={`
+() => {
+  const [isActive, setIsActive] = useState(false);
+  
+  // Simple spring animation for demonstration purposes
+  // In a real app, you would import useSpring from react-spring
+  const useSimulatedSpring = (active) => {
+    const [style, setStyle] = useState({
+      transform: active ? 'scale(1.2)' : 'scale(1)',
+      opacity: active ? 1 : 0.7,
+      transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)'
+    });
+    
+    useEffect(() => {
+      setStyle({
+        transform: active ? 'scale(1.2)' : 'scale(1)',
+        opacity: active ? 1 : 0.7,
+        transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)'
+      });
+    }, [active]);
+    
+    return style;
+  };
+  
+  const springStyle = useSimulatedSpring(isActive);
+  
+  return (
+    <Container align={"center"} gap={"medium"}>
+      <Button onClick={() => setIsActive(!isActive)}>
+        Toggle Animation
+      </Button>
+      
+      <Container 
+        p={"large"}
+        br={"square"} 
+        bw={1}
+        bg={"darker"}
+        style={springStyle}
+      >
+        <Text weight={"bold"}>Spring Animation</Text>
+      </Container>
+      
+      <Text size={"small"} color={"lighter"}>
+        This simulates a spring animation with bouncy easing. 
+        In a real app, you would use react-spring's useSpring hook.
+      </Text>
+    </Container>
+  );
+}
+`}
+/>
+
+React Spring is particularly effective for:
+- Drag gestures with momentum
+- Interactive elements that respond to user input
+- Animations that need to be interrupted mid-way
+- Creating natural motion that feels physical
+
+In a real application, you would install and import the actual `react-spring` library:
+
+```jsx
+import { useSpring, animated } from 'react-spring';
+
+function SpringCard() {
+  const [isActive, setIsActive] = useState(false);
+  const springProps = useSpring({
+    scale: isActive ? 1.2 : 1,
+    opacity: isActive ? 1 : 0.7,
+    config: { tension: 280, friction: 20 }
+  });
+  
+  return (
+    <animated.div
+      style={{
+        transform: springProps.scale.to(scale => `scale(${scale})`),
+        opacity: springProps.opacity
+      }}
+    >
+      <Text>Spring Animation</Text>
+    </animated.div>
+  );
+}
+```
+
+### 3. Framer Motion for gesture-based animations
+
+Framer Motion provides a declarative API for animations with strong support for gestures and variants:
+
+```jsx
+import { motion } from 'framer-motion';
+
+function AnimatedCard() {
+  const variants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    hover: { scale: 1.05 },
+    tap: { scale: 0.95 }
+  };
+  
+  return (
+    <motion.div
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      whileTap="tap"
+      variants={variants}
+      transition={{ duration: 0.3 }}
+    >
+      <Text>Framer Motion Example</Text>
+    </motion.div>
+  );
+}
+```
+
+Framer Motion excels at:
+- Complex animation sequences
+- Page transitions
+- Drag, pan, and gesture interactions
+- Accessible animations with reduced motion support
+
+### 4. CSS-in-JS libraries
+
+When using styled-components or Emotion, you can create animations that integrate with your component styles:
+
+```jsx
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const AnimatedContainer = styled.div`
+  animation: ${fadeIn} 0.5s ease-out forwards;
+`;
+
+function FadeInContent() {
+  return (
+    <AnimatedContainer>
+      <Text>This content fades in smoothly</Text>
+    </AnimatedContainer>
+  );
+}
+```
+
+## Animation patterns for common UI elements
+
+Let's explore some practical animation patterns for common UI components:
+
+### Page transitions
+
+<Playground
+  code={`
+() => {
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const getPageStyle = (pageNumber) => ({
+    position: currentPage === pageNumber ? 'relative' : 'absolute',
+    opacity: currentPage === pageNumber ? 1 : 0,
+    transform: currentPage === pageNumber 
+      ? 'translateX(0)' 
+      : \`translateX(\${currentPage > pageNumber ? '-30px' : '30px'})\`,
+    transition: 'all 0.5s ease-in-out',
+    width: '100%'
+  });
+  
+  return (
+    <Container maxW={400}>
+      <Container row justify={"space-between"} mb={"medium"}>
+        <Button 
+          onClick={() => setCurrentPage(1)} 
+          type={currentPage === 1 ? "primary" : "dark"}
+        >
+          Page 1
+        </Button>
+        <Button 
+          onClick={() => setCurrentPage(2)} 
+          type={currentPage === 2 ? "primary" : "dark"}
+        >
+          Page 2
+        </Button>
+        <Button 
+          onClick={() => setCurrentPage(3)} 
+          type={currentPage === 3 ? "primary" : "dark"}
+        >
+          Page 3
+        </Button>
+      </Container>
+      
+      <Container 
+        p={"medium"} 
+        bw={1} 
+        br={"square"} 
+        position={"relative"}
+        h={150}
+        overflow={"hidden"}
+      >
+        <Container style={getPageStyle(1)}>
+          <Text weight={"bold"} size={"large"}>Welcome</Text>
+          <Text>This is the first page with an introduction.</Text>
+        </Container>
+        
+        <Container style={getPageStyle(2)}>
+          <Text weight={"bold"} size={"large"}>Features</Text>
+          <Text>Explore our amazing features and capabilities.</Text>
+        </Container>
+        
+        <Container style={getPageStyle(3)}>
+          <Text weight={"bold"} size={"large"}>Get Started</Text>
+          <Text>Ready to begin? Create your account now.</Text>
+        </Container>
+      </Container>
+    </Container>
+  );
+}
+`}
+/>
+
+### List item transitions
+
+When displaying lists of items, especially when they change dynamically, animations help users track changes:
+
+<Playground
+  code={`
+() => {
+  const [items, setItems] = useState([
+    { id: 1, text: "First item" },
+    { id: 2, text: "Second item" },
+    { id: 3, text: "Third item" }
+  ]);
+  
+  const addItem = () => {
+    const newId = items.length > 0 
+      ? Math.max(...items.map(i => i.id)) + 1
+      : 1;
+    
+    setItems([...items, { 
+      id: newId, 
+      text: \`Item #\${newId}\` 
+    }]);
+  };
+  
+  const removeItem = (id) => {
+    setItems(items.filter(item => item.id !== id));
+  };
+  
+  return (
+    <Container gap={"medium"}>
+      <Button onClick={addItem}>Add Item</Button>
+      
+      <Container>
+        {items.map((item) => (
+          <Container 
+            key={item.id}
+            style={{
+              animation: 'fadeIn 0.3s ease-out forwards',
+            }}
+            p={"small"}
+            br={"square"}
+            bw={1}
+            mb={"small"}
+            row
+            justify={"space-between"}
+            align={"center"}
+          >
+            <Text>{item.text}</Text>
+            <Button 
+              size={"small"} 
+              type={"danger"}
+              onClick={() => removeItem(item.id)}
+            >
+              Remove
+            </Button>
+          </Container>
+        ))}
+      </Container>
+      
+      <style jsx global>{\`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      \`}</style>
+    </Container>
+  );
+}
+`}
+/>
+
+In production applications, you would use a library like React Transition Group to handle mounting and unmounting animations:
+
+```jsx
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+function AnimatedList({ items }) {
+  return (
+    <TransitionGroup>
+      {items.map(item => (
+        <CSSTransition
+          key={item.id}
+          timeout={300}
+          classNames="item"
+        >
+          <ListItem item={item} />
+        </CSSTransition>
+      ))}
+    </TransitionGroup>
+  );
+}
+```
+
+### Notification and toast animations
+
+When displaying temporary notifications, smooth entrance and exit animations make the experience less jarring:
+
+```jsx
+import { useToasts } from "kitchn";
+
+function NotificationExample() {
+  const { setToast } = useToasts();
+  
+  const showToast = () => {
+    setToast({
+      text: "Operation completed successfully!",
+      type: "success"
+    });
+  };
+  
+  return (
+    <Button onClick={showToast}>
+      Show Notification
+    </Button>
+  );
+}
+```
+
+The Kitchn `useToasts` hook already implements smooth animations for notifications.
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/hooks/use-toasts"}>
+    <Button>Explore Toast hooks</Button>
+  </Link>
+</Container>
+
+## Animation best practices
+
+### 1. Prioritize performance
+
+Animation performance is critical for a smooth user experience:
+
+- Use CSS `transform` and `opacity` properties when possible, as they are optimized for animation
+- Avoid animating layout properties like `width`, `height`, or `margin` which trigger expensive reflows
+- Use the `will-change` CSS property sparingly for complex animations
+- Monitor performance with browser dev tools
+
+```css
+/* More performant */
+.good-animation {
+  transform: translateX(100px);
+  opacity: 0.5;
+}
+
+/* Less performant */
+.bad-animation {
+  left: 100px;
+  height: auto;
+}
+```
+
+### 2. Be purposeful
+
+Every animation should serve a specific purpose:
+
+- Guide users to important content
+- Show relationships between elements
+- Provide feedback for user actions
+- Create a sense of spatial continuity
+
+Animations without a clear purpose can distract users and make your interface feel less professional.
+
+### 3. Maintain appropriate timing
+
+The duration of animations significantly impacts how they're perceived:
+
+- **Very short (under 100ms):** May be imperceptible
+- **Short (100-300ms):** Good for small UI elements, feedback
+- **Medium (300-500ms):** Appropriate for most transitions
+- **Long (500ms+):** Use sparingly, only for significant transitions
+
+> ⚠️ **Warning:** Animations that are too long will make your interface feel sluggish, while animations that are too short may be jarring or go unnoticed.
+
+### 4. Respect accessibility preferences
+
+Some users experience motion sickness or discomfort from animations:
+
+<Playground
+  code={`
+() => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  
+  // In a real app, you would use a media query to detect this preference
+  const toggleMotionPreference = () => {
+    setPrefersReducedMotion(!prefersReducedMotion);
+  };
+  
+  const getAnimationStyle = () => ({
+    transform: 'translateX(0)',
+    opacity: 1,
+    transition: prefersReducedMotion 
+      ? 'none' 
+      : 'all 0.5s ease-in-out'
+  });
+  
+  return (
+    <Container gap={"medium"}>
+      <Button onClick={toggleMotionPreference}>
+        {prefersReducedMotion 
+          ? "Enable animations" 
+          : "Reduce animations"
+        }
+      </Button>
+      
+      <Container 
+        p={"medium"} 
+        bw={1} 
+        br={"square"}
+        style={getAnimationStyle()}
+      >
+        <Text weight={"bold"}>Animation example</Text>
+        <Text>This content respects user motion preferences.</Text>
+      </Container>
+      
+      <Text size={"small"} color={"lighter"}>
+        In a real application, you would detect this preference
+        using the prefers-reduced-motion media query.
+      </Text>
+    </Container>
+  );
+}
+`}
+/>
+
+In a production application, you would detect this preference using a media query:
+
+```jsx
+function useReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+  
+  return prefersReducedMotion;
+}
+```
+
+## Advanced animation techniques
+
+### 1. Coordinated animations
+
+For complex interfaces, coordinating multiple animations can create a cohesive experience:
+
+```jsx
+function StaggeredList({ items }) {
+  return (
+    <Container>
+      {items.map((item, index) => (
+        <motion.div
+          key={item.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            delay: index * 0.1, // Staggered delay based on index
+            duration: 0.3 
+          }}
+        >
+          <Text>{item.text}</Text>
+        </motion.div>
+      ))}
+    </Container>
+  );
+}
+```
+
+### 2. Scroll-triggered animations
+
+Triggering animations as elements enter the viewport creates engaging scrolling experiences:
+
+```jsx
+import { useInView } from 'react-intersection-observer';
+
+function ScrollReveal() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+  
+  return (
+    <Container
+      ref={ref}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'translateY(0)' : 'translateY(50px)',
+        transition: 'all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1)'
+      }}
+    >
+      <Text>This content animates when scrolled into view</Text>
+    </Container>
+  );
+}
+```
+
+### 3. Canvas-based animations
+
+For highly complex animations like particle effects or data visualizations, using Canvas or WebGL through libraries like Three.js can provide better performance:
+
+```jsx
+import { useRef, useEffect } from 'react';
+
+function ParticleEffect() {
+  const canvasRef = useRef(null);
+  
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    
+    // Setup canvas and animation loop
+    // This is a simplified example - real particle systems would be more complex
+    const particles = [];
+    
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw particles
+      particles.forEach(particle => {
+        // Update position
+        // Draw particle
+      });
+    }
+    
+    animate();
+    
+    return () => {
+      // Cleanup
+    };
+  }, []);
+  
+  return <canvas ref={canvasRef} width={500} height={300} />;
+}
+```
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/components"}>
+    <Button>Explore Kitchn components</Button>
+  </Link>
+</Container>
+
+## Debugging animations
+
+When animations don't behave as expected, several tools can help:
+
+1. **Browser Dev Tools**: Chrome and Firefox have animation inspectors that visualize the timeline
+2. **Slow-motion playback**: Temporarily increase animation duration to see issues more clearly
+3. **Transform visualizers**: Tools like CSS containment highlighting can show which properties cause reflows
+
+```jsx
+// Debugging tip: Add a class to troubleshoot animations
+function DebugAnimation() {
+  return (
+    <Container className="debug-animation">
+      <YourAnimatedComponent />
+      
+      <style jsx global>{`
+        .debug-animation * {
+          transition-duration: 3s !important; /* Slow down all animations */
+          outline: 1px solid rgba(255, 0, 0, 0.2); /* Visualize elements */
+        }
+      `}</style>
+    </Container>
+  );
+}
+```
+
+## Frequently asked questions
+
+### How do animations affect performance?
+
+Animations can impact performance if not implemented carefully. CSS properties like `transform` and `opacity` are optimized for animation as they only affect compositing. In contrast, animating properties like `width`, `height`, or `margin` trigger layout recalculations, which are more expensive. For complex animations, consider using `requestAnimationFrame` for manual control or libraries optimized for performance.
+
+### When should I use CSS animations vs. JavaScript animations?
+
+Use CSS animations for simple, fire-and-forget animations that don't need precise control or interaction with JavaScript state. JavaScript animation libraries like React Spring or Framer Motion are better suited for:
+- Animations that need to react to dynamic data
+- Physics-based animations with natural movement
+- Animations that need to be interrupted or reversed
+- Complex choreography between multiple elements
+
+### How can I ensure my animations are accessible?
+
+Always respect the `prefers-reduced-motion` setting, which users can enable in their operating systems. Provide alternatives to animation where possible, and ensure that animations don't hide essential information or functionality. Keep animations subtle and purposeful, and avoid flashing content that could trigger photosensitive reactions.
+
+### What's the right animation duration?
+
+Most UI animations should be between 200-500ms. Shorter animations (100-300ms) are appropriate for small UI elements and feedback, while longer animations (300-500ms) work better for page transitions or larger elements. Animations over 500ms should be used sparingly as they can make your interface feel sluggish.
+
+### How do I animate components when they mount or unmount?
+
+For React components, use either:
+1. **React Transition Group**: A low-level API for managing transitions
+2. **Framer Motion**: Provides `AnimatePresence` for exit animations
+3. **React Spring**: Offers `useTransition` for mount/unmount animations
+
+```jsx
+import { AnimatePresence, motion } from 'framer-motion';
+
+function MyComponent({ isVisible }) {
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+        >
+          <Text>This animates in and out</Text>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+## Getting started with animations in Kitchn
+
+Many Kitchn components already include built-in animations for common interactions. To start implementing animations in your Kitchn-based projects:
+
+1. Explore the existing components like Button, Modal, and Toast that have animations
+2. Use CSS transitions for simple hover and active states
+3. Add React Spring or Framer Motion for more complex interactions
+4. Always test animations on both high and low-performance devices
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/installation"}>
+    <Button>Get started</Button>
+  </Link>
+</Container>
+
+By implementing purposeful, performant animations, you can create interfaces that not only look beautiful but also provide intuitive, engaging experiences for your users. Remember that animation is a powerful communication tool—use it thoughtfully to guide, inform, and delight.

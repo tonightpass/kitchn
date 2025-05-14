@@ -1,0 +1,935 @@
+---
+title: "Responsive web design: Building flexible interfaces for all devices"
+date: "05/14/2025"
+description: "Learn how to create responsive React applications that adapt seamlessly to any screen size using modern CSS techniques, flexible layouts, and Kitchn's responsive components."
+---
+
+import { Button, Link, Container, Text } from "kitchn";
+import Playground from "@/components/playground";
+
+# Creating adaptable interfaces with responsive web design
+
+In today's multi-device world, users expect seamless experiences regardless of whether they're on a desktop computer, tablet, smartphone, or even a smart watch. Responsive web design is no longer optional—it's a fundamental requirement for delivering effective digital experiences.
+
+## Understanding responsive web design
+
+Responsive web design (RWD) is an approach that makes web pages render well on all devices and screen sizes by automatically adapting to the screen, whether the content is being viewed on a phone, tablet, laptop or desktop.
+
+> 📝 **Note:** Responsive design is different from adaptive design, which creates multiple layouts for different screen sizes. Responsive design uses a single, fluid layout that changes based on the available screen space.
+
+The core principles of responsive design include:
+
+1. **Fluid layouts** that use relative units rather than fixed units
+2. **Flexible images and media** that scale within their containing elements
+3. **Media queries** that apply different styles based on device characteristics
+4. **Mobile-first approach** that prioritizes designing for smaller screens first
+
+## The evolution of responsive design
+
+Responsive design has evolved significantly over the years:
+
+| Era | Approach | Techniques |
+|-----|----------|------------|
+| Pre-2010 | Fixed layouts | Fixed-width designs for specific screen sizes |
+| 2010-2015 | Early responsive | Media queries, percentage-based layouts |
+| 2015-2020 | Modern responsive | Flexbox, CSS Grid, viewport units |
+| 2020+ | Intrinsic design | Container queries, min/max/clamp, logical properties |
+
+Today's responsive design approaches leverage the most powerful features of modern CSS to create layouts that are truly flexible across all contexts.
+
+## Essential responsive design techniques
+
+### Fluid layouts with relative units
+
+The foundation of responsive design is using relative units instead of fixed pixel values:
+
+<Playground
+  code={`
+<Container>
+  <Container 
+    p={"medium"} 
+    bw={1} 
+    br={"square"} 
+    mb={"medium"}
+    maxW={"100%"}
+    style={{ width: "500px" }}
+  >
+    <Text weight={"bold"}>Fixed width (500px)</Text>
+    <Text>This container has a fixed width and will overflow on small screens.</Text>
+  </Container>
+  
+  <Container 
+    p={"medium"} 
+    bw={1} 
+    br={"square"}
+    style={{ width: "80%" }}
+  >
+    <Text weight={"bold"}>Fluid width (80%)</Text>
+    <Text>This container uses a percentage width and will adapt to its parent container.</Text>
+  </Container>
+</Container>
+`}
+/>
+
+Key relative units to use in your CSS:
+
+- **Percentages (%)**: Sizing relative to the parent element
+- **em**: Relative to the font-size of the element
+- **rem**: Relative to the root font-size
+- **vw/vh**: Percentage of viewport width/height
+- **vmin/vmax**: Percentage of the smaller/larger viewport dimension
+
+```css
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem; /* Based on root font size */
+}
+
+.hero {
+  height: 50vh; /* 50% of viewport height */
+  font-size: calc(1rem + 1vw); /* Responsive font size */
+}
+```
+
+### Flexible images
+
+Images often cause responsive design issues if not handled properly:
+
+```css
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+<Playground
+  code={`
+<Container p={"medium"} bw={1} br={"square"}>
+  <Text weight={"bold"} mb={"small"}>Responsive Image</Text>
+  
+  <Image 
+    src="https://kitchn.tonightpass.com/favicon.svg"
+    alt="Kitchn logo"
+    width="100%"
+    height="auto"
+    style={{ maxWidth: "500px" }}
+  />
+  
+  <Text mt={"small"} size={"small"} color={"lighter"}>
+    This image will scale down on smaller screens but never exceed its natural size.
+  </Text>
+</Container>
+`}
+/>
+
+For modern image handling, also consider:
+
+- The `srcset` attribute for providing different image resolutions
+- The `sizes` attribute to help browsers choose the right image
+- The `picture` element for art direction across breakpoints
+
+```html
+<picture>
+  <source media="(max-width: 600px)" srcset="small-image.jpg">
+  <source media="(max-width: 1200px)" srcset="medium-image.jpg">
+  <img src="large-image.jpg" alt="Responsive image">
+</picture>
+```
+
+### Media queries
+
+Media queries allow you to apply different styles based on the device characteristics, primarily the viewport width:
+
+```css
+/* Base styles for all devices */
+.card {
+  width: 100%;
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .card {
+    width: 50%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .card {
+    width: 33.333%;
+  }
+}
+```
+
+<Playground
+  code={`
+() => {
+  const getResponsiveCardStyle = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    
+    useEffect(() => {
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
+    // Simulate media query behavior
+    let width = '100%';
+    if (windowWidth >= 768) width = '48%';
+    if (windowWidth >= 1024) width = '31%';
+    
+    return { width };
+  };
+  
+  const cardStyle = getResponsiveCardStyle();
+  
+  return (
+    <Container>
+      <Text mb={"medium"}>
+        Resize your window to see the cards respond. Current layout:
+        {window.innerWidth < 768 
+          ? ' Mobile (100% width)' 
+          : window.innerWidth < 1024 
+            ? ' Tablet (48% width)' 
+            : ' Desktop (31% width)'
+        }
+      </Text>
+      
+      <Container row gap={"medium"} wrap={"wrap"}>
+        <Container 
+          p={"medium"} 
+          bw={1} 
+          br={"square"} 
+          style={cardStyle}
+        >
+          <Text weight={"bold"}>Card 1</Text>
+          <Text>This card will change width based on screen size.</Text>
+        </Container>
+        
+        <Container 
+          p={"medium"} 
+          bw={1} 
+          br={"square"} 
+          style={cardStyle}
+        >
+          <Text weight={"bold"}>Card 2</Text>
+          <Text>This card will change width based on screen size.</Text>
+        </Container>
+        
+        <Container 
+          p={"medium"} 
+          bw={1} 
+          br={"square"} 
+          style={cardStyle}
+        >
+          <Text weight={"bold"}>Card 3</Text>
+          <Text>This card will change width based on screen size.</Text>
+        </Container>
+      </Container>
+    </Container>
+  );
+}
+`}
+/>
+
+### Mobile-first approach
+
+The mobile-first approach starts with designing for the smallest screens and then progressively enhancing the layout for larger screens:
+
+```css
+/* Mobile styles (default) */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .nav-menu {
+    flex-direction: row;
+  }
+}
+```
+
+Benefits of the mobile-first approach include:
+
+1. Prioritizing content and features for the most constrained environment
+2. Faster load times on mobile devices (by loading only what's needed)
+3. Progressive enhancement for a better experience on all devices
+4. Focus on the growing mobile user base
+
+> 💡 **Tip:** When using media queries with a mobile-first approach, use `min-width` queries to add complexity as the screen size increases, rather than `max-width` queries to remove complexity as the screen size decreases.
+
+## Implementing responsive design with Kitchn
+
+Kitchn provides built-in responsive capabilities that make it easier to create adaptive layouts:
+
+### Responsive Container component
+
+The Container component in Kitchn supports dynamic direction based on screen size:
+
+<Playground
+  code={`
+<Container mb={"medium"}>
+  <Text weight={"bold"}>Responsive Container Layout</Text>
+  <Text mb={"medium"}>Resize the window to see the layout change from column to row.</Text>
+  
+  <Container 
+    direction={["column", "row", "row"]} 
+    gap={"medium"}
+  >
+    <Container p={"medium"} bw={1} br={"square"} flex={1}>
+      <Text weight={"bold"}>Section 1</Text>
+      <Text>This section stacks vertically on mobile and aligns horizontally on larger screens.</Text>
+    </Container>
+    
+    <Container p={"medium"} bw={1} br={"square"} flex={1}>
+      <Text weight={"bold"}>Section 2</Text>
+      <Text>This section stacks vertically on mobile and aligns horizontally on larger screens.</Text>
+    </Container>
+  </Container>
+</Container>
+`}
+/>
+
+### Using useBreakpoint hook
+
+Kitchn's `useBreakpoint` hook provides an easy way to respond to viewport changes in your React components:
+
+<Playground
+  code={`
+() => {
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoint();
+  
+  return (
+    <Container p={"medium"} bw={1} br={"square"}>
+      <Text weight={"bold"} mb={"medium"}>Current Breakpoint</Text>
+      
+      <Container gap={"small"}>
+        <Text>
+          <Text weight={"bold"} span>Mobile:</Text> {isMobile ? "Yes" : "No"}
+        </Text>
+        <Text>
+          <Text weight={"bold"} span>Tablet:</Text> {isTablet ? "Yes" : "No"}
+        </Text>
+        <Text>
+          <Text weight={"bold"} span>Laptop:</Text> {isLaptop ? "Yes" : "No"}
+        </Text>
+        <Text>
+          <Text weight={"bold"} span>Desktop:</Text> {isDesktop ? "Yes" : "No"}
+        </Text>
+      </Container>
+      
+      <Container mt={"medium"} p={"small"} bw={1} bg={"darker"} br={"square"}>
+        <Text>
+          Resize your browser window to see the detected breakpoint change.
+        </Text>
+      </Container>
+    </Container>
+  );
+}
+`}
+/>
+
+You can use this hook to conditionally render components or change behaviors based on screen size:
+
+```jsx
+function ResponsiveNavigation() {
+  const { isMobile } = useBreakpoint();
+  
+  return (
+    <Container>
+      {isMobile ? (
+        <MobileMenu />
+      ) : (
+        <DesktopMenu />
+      )}
+    </Container>
+  );
+}
+```
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/hooks/use-breakpoint"}>
+    <Button>Explore useBreakpoint</Button>
+  </Link>
+</Container>
+
+### Responsive props
+
+Many Kitchn components accept responsive prop values that change based on breakpoints:
+
+```jsx
+<Container
+  p={["small", "medium", "large"]} // Padding increases with screen size
+  direction={["column", "row"]}    // Column on mobile, row on larger screens
+  align={["center", "flex-start"]} // Different alignment per breakpoint
+>
+  {/* Content */}
+</Container>
+```
+
+This approach allows you to express responsive behavior directly in your component props without writing media queries.
+
+## Advanced responsive design techniques
+
+### CSS Grid for complex layouts
+
+CSS Grid provides powerful layout capabilities that adapt naturally to available space:
+
+<Playground
+  code={`
+<Container>
+  <Text weight={"bold"} mb={"medium"}>Responsive Grid Layout</Text>
+  
+  <Container 
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+      gap: '1rem'
+    }}
+  >
+    {[1, 2, 3, 4, 5].map(i => (
+      <Container key={i} p={"medium"} bw={1} br={"square"}>
+        <Text weight={"bold"}>Card {i}</Text>
+        <Text>This grid automatically adjusts the number of columns based on available space.</Text>
+      </Container>
+    ))}
+  </Container>
+</Container>
+`}
+/>
+
+The `repeat(auto-fit, minmax(200px, 1fr))` pattern is particularly useful, as it:
+
+1. Creates as many columns as can fit, with a minimum width of 200px
+2. Expands columns equally to fill the available space
+3. Automatically reflows when the container width changes
+
+### Container queries
+
+While media queries look at the viewport size, container queries respond to the size of a specific container element:
+
+```css
+.card {
+  padding: 1rem;
+}
+
+@container (min-width: 400px) {
+  .card {
+    padding: 2rem;
+  }
+}
+```
+
+To use container queries, you need to establish a containment context:
+
+```css
+.container {
+  container-type: inline-size;
+}
+```
+
+This allows for components that respond to their available space rather than the entire viewport—a more modular approach to responsive design.
+
+### Fluid typography with CSS clamp
+
+The `clamp()` function creates fluid typography that scales smoothly between screen sizes:
+
+```css
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  /* Minimum: 1.5rem, Preferred: 5vw, Maximum: 3rem */
+}
+```
+
+<Playground
+  code={`
+<Container p={"medium"} bw={1} br={"square"}>
+  <Text 
+    weight={"bold"} 
+    style={{ fontSize: 'clamp(1.2rem, 4vw, 2.5rem)' }}
+  >
+    This heading uses fluid typography
+  </Text>
+  
+  <Text mt={"medium"}>
+    Resize the window to see the heading text size adjust smoothly between minimum and maximum values.
+  </Text>
+</Container>
+`}
+/>
+
+### Responsive images with art direction
+
+For images that need to change their crop or aspect ratio across different screen sizes, use the `picture` element:
+
+```html
+<picture>
+  <!-- Square crop for mobile -->
+  <source 
+    media="(max-width: 600px)" 
+    srcset="product-square.jpg"
+  >
+  <!-- 16:9 crop for desktop -->
+  <source 
+    media="(min-width: 601px)" 
+    srcset="product-widescreen.jpg"
+  >
+  <!-- Fallback -->
+  <img src="product-default.jpg" alt="Product image">
+</picture>
+```
+
+### Feature detection with @supports
+
+Use feature detection to provide enhanced layouts for browsers that support newer CSS features:
+
+```css
+/* Base layout for all browsers */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Enhanced layout for browsers that support grid */
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
+  }
+}
+```
+
+## Common responsive design patterns
+
+### Responsive navigation
+
+Navigation menus often need different presentations across devices:
+
+<Playground
+  code={`
+() => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { isMobile } = useBreakpoint();
+  
+  return (
+    <Container>
+      <Container 
+        p={"medium"} 
+        bw={1} 
+        br={"square"} 
+        mb={"medium"}
+        row
+        justify={"space-between"}
+        align={"center"}
+      >
+        <Text weight={"bold"} size={"large"}>Brand Logo</Text>
+        
+        {isMobile ? (
+          <Button 
+            onClick={() => setMenuOpen(!menuOpen)}
+            size={"small"}
+          >
+            {menuOpen ? 'Close' : 'Menu'}
+          </Button>
+        ) : (
+          <Container row gap={"medium"}>
+            {['Home', 'Products', 'About', 'Contact'].map(item => (
+              <Link key={item} href="#" variant={"highlight"}>
+                {item}
+              </Link>
+            ))}
+          </Container>
+        )}
+      </Container>
+      
+      {isMobile && menuOpen && (
+        <Container 
+          p={"medium"} 
+          bw={1} 
+          br={"square"} 
+          mb={"medium"}
+          gap={"small"}
+        >
+          {['Home', 'Products', 'About', 'Contact'].map(item => (
+            <Link key={item} href="#">
+              {item}
+            </Link>
+          ))}
+        </Container>
+      )}
+      
+      <Text>
+        {isMobile 
+          ? "Mobile navigation with hamburger menu" 
+          : "Desktop navigation with horizontal links"
+        }
+      </Text>
+    </Container>
+  );
+}
+`}
+/>
+
+### Card layouts
+
+Card-based interfaces adapt well to different screen sizes:
+
+<Playground
+  code={`
+<Container>
+  <Container 
+    row 
+    wrap={"wrap"} 
+    gap={"medium"}
+  >
+    {[1, 2, 3, 4, 5, 6].map(i => (
+      <Container 
+        key={i} 
+        p={"medium"} 
+        bw={1} 
+        br={"square"}
+        style={{
+          flex: '1 1 300px', // Grow, shrink, basis
+          minWidth: 0,       // Allow cards to shrink below basis
+          maxWidth: '100%'   // Prevent overflow on mobile
+        }}
+      >
+        <Text weight={"bold"}>Card {i}</Text>
+        <Text mt={"small"}>These cards will arrange themselves to fill the available space, with a minimum width of 300px.</Text>
+      </Container>
+    ))}
+  </Container>
+</Container>
+`}
+/>
+
+### Form adaptations
+
+Forms often need significant adjustments across screen sizes:
+
+<Playground
+  code={`
+() => {
+  const { isMobile } = useBreakpoint();
+  
+  return (
+    <Container 
+      p={"medium"} 
+      bw={1} 
+      br={"square"}
+      maxW={600}
+    >
+      <Text weight={"bold"} size={"large"} mb={"medium"}>
+        Contact Form
+      </Text>
+      
+      <Container gap={"medium"}>
+        <Container 
+          direction={isMobile ? "column" : "row"} 
+          gap={"medium"}
+        >
+          <Input label="First Name" placeholder="John" />
+          <Input label="Last Name" placeholder="Doe" />
+        </Container>
+        
+        <Input label="Email" placeholder="john.doe@example.com" />
+        
+        <Input label="Subject" placeholder="Inquiry about your services" />
+        
+        <Textarea 
+          label="Message" 
+          placeholder="Your message here..."
+          height={100}
+        />
+        
+        <Container 
+          direction={isMobile ? "column" : "row"} 
+          gap={"small"}
+          justify={isMobile ? "stretch" : "flex-end"}
+        >
+          <Button type={"dark"}>Cancel</Button>
+          <Button>Submit</Button>
+        </Container>
+      </Container>
+    </Container>
+  );
+}
+`}
+/>
+
+## Testing responsive designs
+
+Thorough testing is essential for responsive designs:
+
+### 1. Testing across devices
+
+Test your design on actual devices whenever possible. At minimum, test on:
+- A smartphone (both small and large)
+- A tablet (both portrait and landscape)
+- A laptop or desktop with various window sizes
+
+### 2. Browser developer tools
+
+Most modern browsers include responsive design tools:
+- Chrome DevTools Device Mode
+- Firefox Responsive Design Mode
+- Safari Responsive Design Mode
+
+<Playground
+  code={`
+<Container p={"medium"} bw={1} br={"square"}>
+  <Text weight={"bold"} mb={"small"}>Testing Checklist</Text>
+  
+  <Container gap={"tiny"}>
+    <Text>✅ Test on multiple physical devices</Text>
+    <Text>✅ Use browser developer tools</Text>
+    <Text>✅ Check all breakpoints</Text>
+    <Text>✅ Test in both orientations (portrait/landscape)</Text>
+    <Text>✅ Ensure touch targets are appropriately sized</Text>
+    <Text>✅ Verify all functionality works across devices</Text>
+    <Text>✅ Check loading performance on mobile networks</Text>
+    <Text>✅ Test with keyboard navigation</Text>
+    <Text>✅ Verify screen reader compatibility</Text>
+  </Container>
+</Container>
+`}
+/>
+
+### 3. Automated testing
+
+Use automated testing tools to catch responsive design issues:
+- Cypress for visual regression testing
+- Puppeteer for automated browser testing at different viewport sizes
+- Lighthouse for performance and accessibility testing
+
+## Common responsive design challenges
+
+### 1. Tables on small screens
+
+Tables often overflow on mobile devices. Solutions include:
+
+- Horizontal scrolling for complex tables
+- Responsive tables that stack columns vertically on small screens
+- Collapsible rows that expand to show additional information
+
+```jsx
+function ResponsiveTable() {
+  const { isMobile } = useBreakpoint();
+  
+  if (isMobile) {
+    return (
+      <Container>
+        {data.map(item => (
+          <Container key={item.id} p="small" bw={1} mb="small">
+            <Text weight="bold">{item.name}</Text>
+            <Text>Price: ${item.price}</Text>
+            <Text>Category: {item.category}</Text>
+          </Container>
+        ))}
+      </Container>
+    );
+  }
+  
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map(item => (
+          <tr key={item.id}>
+            <td>{item.name}</td>
+            <td>${item.price}</td>
+            <td>{item.category}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+```
+
+### 2. High-resolution images
+
+For high-resolution displays (e.g., Retina), provide higher resolution images without slowing down page loads:
+
+```jsx
+function ResponsiveImage() {
+  return (
+    <img
+      src="image-1x.jpg"
+      srcSet="image-1x.jpg 1x, image-2x.jpg 2x, image-3x.jpg 3x"
+      alt="Responsive image"
+    />
+  );
+}
+```
+
+### 3. Touch targets
+
+Ensure touch targets are large enough for comfortable interaction on touch devices (minimum 44×44 pixels):
+
+```css
+.button {
+  padding: 0.5rem 1rem;
+}
+
+/* Larger touch target on touch devices */
+@media (pointer: coarse) {
+  .button {
+    padding: 0.75rem 1.5rem;
+  }
+}
+```
+
+### 4. Font sizing
+
+Maintain readable font sizes across all devices:
+
+```css
+body {
+  font-size: 16px; /* Base font size */
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+```
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/components"}>
+    <Button>Explore Kitchn components</Button>
+  </Link>
+</Container>
+
+## Responsive design best practices
+
+### 1. Design for flexibility
+
+Create layouts that can accommodate varying content amounts:
+
+- Avoid fixed heights whenever possible
+- Use min-height instead of height
+- Design components that gracefully expand with content
+
+### 2. Prioritize content
+
+Identify what's most important and ensure it's accessible on all devices:
+
+- Focus on core content and functionality for mobile
+- Consider hiding or deprioritizing secondary content on smaller screens
+- Maintain a clear visual hierarchy across all breakpoints
+
+### 3. Performance matters
+
+Responsive sites should be fast on all devices:
+
+- Optimize images using responsive techniques
+- Minimize or defer non-critical resources
+- Test performance on low-end devices and slow connections
+
+> ⚠️ **Warning:** Mobile users often have slower connections and less powerful devices. Every kilobyte matters for performance, especially on mobile.
+
+### 4. Progressive enhancement
+
+Start with a solid baseline experience and enhance it for more capable browsers:
+
+- Ensure core functionality works without JavaScript
+- Use feature detection to provide enhanced experiences
+- Test what happens when features aren't available
+
+```jsx
+function ProgressiveImage() {
+  return (
+    <>
+      {/* Baseline experience */}
+      <img src="standard-image.jpg" alt="Product" />
+      
+      {/* Enhanced experience for browsers that support it */}
+      <picture>
+        <source 
+          type="image/webp" 
+          srcSet="image.webp" 
+        />
+        <source 
+          type="image/jpeg" 
+          srcSet="image.jpg" 
+        />
+        {/* No img needed here, it's in the baseline experience */}
+      </picture>
+    </>
+  );
+}
+```
+
+## Frequently asked questions
+
+### What is the difference between responsive and adaptive design?
+
+Responsive design uses fluid layouts that continuously adapt to all screen sizes using percentage-based widths and media queries. Adaptive design, on the other hand, employs distinct layouts for specific screen sizes, with little to no fluidity between them. Most modern websites use responsive design, sometimes with adaptive elements for highly optimized experiences.
+
+### How many breakpoints should I use?
+
+While there's no one-size-fits-all answer, most designs work well with 3-4 primary breakpoints:
+- Mobile (up to 767px)
+- Tablet (768px to 1023px)
+- Laptop (1024px to 1439px)
+- Desktop (1440px and above)
+
+However, let your content guide your breakpoints—add breakpoints where your layout starts to break, rather than targeting specific devices.
+
+### Is mobile-first always the best approach?
+
+Mobile-first is generally recommended because it forces you to prioritize content and ensure core functionality works in constrained environments. However, if your analytics show that the vast majority of your users access your site on desktop (e.g., for certain B2B applications), you might consider a desktop-first approach. The key is to understand your users and optimize for their primary contexts.
+
+### How do I handle images responsively?
+
+For responsive images, use a combination of:
+1. `max-width: 100%` and `height: auto` for basic responsiveness
+2. `srcset` and `sizes` attributes for resolution switching
+3. The `picture` element for art direction (different crops)
+4. Lazy loading for better performance
+
+### How can I test my responsive design effectively?
+
+Test your responsive designs by:
+1. Using real devices (not just browser emulators)
+2. Testing across multiple browsers
+3. Checking both portrait and landscape orientations
+4. Verifying touch interactions on mobile devices
+5. Testing with screen readers and keyboard navigation
+6. Using tools like Lighthouse to test performance
+
+## Getting started with responsive design in Kitchn
+
+Kitchn provides excellent built-in support for responsive design through:
+
+1. A flexible Container component that adapts to different screen sizes
+2. The useBreakpoint hook for conditional rendering
+3. Responsive props that change based on screen size
+4. CSS-in-JS styling that supports media queries
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/installation"}>
+    <Button>Get started</Button>
+  </Link>
+</Container>
+
+By embracing responsive design principles and leveraging Kitchn's responsive capabilities, you can create interfaces that provide excellent experiences across all devices—from smartphones to large desktop monitors. Remember that responsive design is not just about making things fit on different screens; it's about delivering the right experience for each context.

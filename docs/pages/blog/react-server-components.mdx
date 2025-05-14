@@ -1,0 +1,481 @@
+---
+title: "React server components: The future of UI rendering"
+date: "05/14/2025"
+description: "Discover how React Server Components transform application architecture, improve performance, and provide a better developer experience for building modern web applications."
+---
+
+import { Button, Link, Container, Text } from "kitchn";
+import Playground from "@/components/playground";
+
+# Understanding React Server Components for modern applications
+
+The React ecosystem continues to evolve with innovative approaches to building user interfaces. Among the most significant recent developments are React Server Components, fundamentally changing how we architect and deliver React applications.
+
+## What are React Server Components?
+
+React Server Components (RSCs) represent a paradigm shift in how React applications are built and rendered. Unlike traditional client components that execute entirely in the browser, server components run on the server, sending only the minimal necessary payload to the client.
+
+This architectural approach combines the best aspects of server-side rendering and client-side interactivity, creating a hybrid model that offers significant advantages for both users and developers.
+
+> 📝 **Note:** React Server Components are not a replacement for client components but rather a complementary approach that allows developers to choose the most appropriate rendering strategy for each part of their application.
+
+## The key differences between server and client components
+
+Understanding when to use server versus client components is crucial for effective implementation:
+
+| Capability | Server Component | Client Component |
+|------------|-----------------|------------------|
+| Access to backend resources | ✅ Direct access | ❌ Requires API |
+| Can use browser APIs | ❌ No | ✅ Yes |
+| Interactivity (useState, useEffect) | ❌ No | ✅ Yes |
+| Data fetching | ✅ Async/await built-in | ❌ Requires hooks |
+| File system access | ✅ Direct access | ❌ No access |
+| Bundle size impact | ✅ Zero JS sent to client | ❌ Increases bundle |
+
+Server components shine when:
+- Accessing databases or APIs directly
+- Reading from the file system
+- Handling sensitive information (API keys, etc.)
+- Rendering static or infrequently updated content
+
+Client components excel for:
+- Interactive UI elements
+- Using browser APIs
+- Implementing stateful logic
+- Handling user input
+
+```jsx
+// Server Component
+// Note the absence of 'use client' directive
+async function ProductPage({ id }) {
+  // Direct database access - no API needed
+  const product = await db.products.findById(id);
+  
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <ProductDescription description={product.description} />
+      <AddToCartButton id={product.id} /> {/* Client Component */}
+    </div>
+  );
+}
+
+// Client Component
+'use client'
+ 
+import { useState } from 'react';
+ 
+function AddToCartButton({ id }) {
+  const [isAdding, setIsAdding] = useState(false);
+  
+  return (
+    <button
+      disabled={isAdding}
+      onClick={async () => {
+        setIsAdding(true);
+        await addToCart(id);
+        setIsAdding(false);
+      }}
+    >
+      Add to Cart
+    </button>
+  );
+}
+```
+
+> ❗ **Important:** Client components can be rendered within server components, but server components cannot be imported and rendered within client components due to the execution environment differences.
+
+## Benefits of React Server Components
+
+The introduction of server components brings multiple advantages that address common challenges in modern web development:
+
+### 1. Improved performance
+
+Server components significantly reduce the JavaScript sent to the client by:
+
+- Executing component code on the server
+- Sending only rendered HTML and minimal data to the client
+- Eliminating unused JavaScript from the client bundle
+- Preventing "waterfall" network requests
+
+This approach dramatically improves key metrics like Time to Interactive (TTI) and First Contentful Paint (FCP), particularly for users on slower devices or connections.
+
+### 3. Simplified data fetching
+
+One of the most compelling benefits is the ability to fetch data directly within server components:
+
+<Playground
+  code={`
+() => {
+  // Client Component Example
+  const ClientProductList = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+      // In a client component, we need to handle loading,
+      // error states, and state management
+      setTimeout(() => {
+        setProducts(["Product A", "Product B", "Product C"]);
+        setLoading(false);
+      }, 1500);
+    }, []);
+    
+    if (loading) return <Text>Loading...</Text>;
+    if (error) return <Text>Error loading products</Text>;
+    
+    return (
+      <Container gap={"small"}>
+        <Text weight={"bold"}>Client Component</Text>
+        <Text size={"small"} color={"lighter"}>Requires loading states, error handling, and useEffect</Text>
+        {products.map((product, i) => (
+          <Text key={i}>{product}</Text>
+        ))}
+      </Container>
+    );
+  };
+  
+  // Server Component Simulation
+  // This is just for visualization - server code won't actually execute here
+  const ServerProductList = () => {
+    // In an actual server component, this would be:
+    // const products = await db.products.findAll();
+    const products = ["Product A", "Product B", "Product C"];
+    
+    return (
+      <Container gap={"small"}>
+        <Text weight={"bold"}>Server Component</Text>
+        <Text size={"small"} color={"lighter"}>No loading states, error handling, or useEffect needed</Text>
+        {products.map((product, i) => (
+          <Text key={i}>{product}</Text>
+        ))}
+      </Container>
+    );
+  };
+  
+  // Toggle between examples
+  const [showServer, setShowServer] = useState(false);
+  
+  return (
+    <Container gap={"medium"}>
+      <Button onClick={() => setShowServer(!showServer)}>
+        Toggle {showServer ? "Client" : "Server"} Component Example
+      </Button>
+      
+      {showServer ? <ServerProductList /> : <ClientProductList />}
+      
+      <Text size={"small"} color={"lighter"}>
+        Note: This is a simulation - real server components execute on the server
+      </Text>
+    </Container>
+  );
+}
+`}
+/>
+
+Server components eliminate the need for loading states, error handling, and effect dependencies in many cases, resulting in cleaner, more maintainable code.
+
+> 💡 **Tip:** When data fetching happens on the server, you can often remove entire categories of client-side state management, simplifying your application architecture.
+
+### 3. Enhanced security
+
+By keeping sensitive operations and data on the server, RSCs provide improved security:
+
+- API keys and credentials remain server-side
+- Business logic can be protected from exposure
+- Reduced attack surface in the client-side code
+
+### 4. Improved SEO
+
+Server components render content on the server before sending it to the client, ensuring that search engines can index your content effectively, even without JavaScript execution.
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/frameworks/nextjs-app"}>
+    <Button>Explore with Next.js</Button>
+  </Link>
+</Container>
+
+## Using React Server Components with Kitchn
+
+While Kitchn works beautifully with both client and server components, there are some considerations when using UI components in a server component context.
+
+### Server-compatible components
+
+When using Kitchn in server components, certain limitations apply:
+
+1. Components cannot use browser-specific APIs (localStorage, window, etc.)
+2. Interactivity must be handled by client components
+3. Styling approaches need to be server-compatible
+
+Here's how to use Kitchn effectively with server components:
+
+```jsx
+// pages/products/[id].js
+import { Container, Text, Image } from "kitchn";
+import AddToCartButton from "@/components/AddToCartButton"; // Client component
+
+// Server Component
+async function ProductPage({ params }) {
+  const product = await fetchProduct(params.id);
+  
+  return (
+    <Container maxW={"laptop"} mx={"auto"} p={"large"}>
+      <Container gap={"medium"} row>
+        <Image 
+          src={product.imageUrl} 
+          alt={product.name}
+          width={400}
+          height={400}
+        />
+        
+        <Container>
+          <Text size={"title"} weight={"bold"}>{product.name}</Text>
+          <Text size={"large"} color={"light"}>${product.price}</Text>
+          <Text mt={"medium"}>{product.description}</Text>
+          
+          {/* Client Component for interactivity */}
+          <AddToCartButton id={product.id} />
+        </Container>
+      </Container>
+    </Container>
+  );
+}
+```
+
+The above example uses Kitchn's UI components for layout and static content in a server component, while delegating interactive elements to client components.
+
+> ℹ️ **Info:** Kitchn's styled components work well in both server and client contexts because they're designed to support server-side rendering.
+
+## Implementation approaches
+
+### The "use client" directive
+
+The `"use client"` directive marks the boundary between server and client components:
+
+```jsx
+'use client'
+
+import { useState } from 'react';
+import { Button } from 'kitchn';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <Button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </Button>
+  );
+}
+```
+
+Any file with this directive at the top, and all of its imports, will be part of the client bundle. Components without this directive default to server components in frameworks that support RSCs.
+
+### Organizing components
+
+A recommended pattern for organizing components in a project using server components:
+
+```
+app/
+├── components/
+│   ├── server/           # Server components
+│   │   ├── ProductList.js
+│   │   └── UserProfile.js
+│   ├── client/           # Client components
+│   │   ├── AddToCartButton.js  # 'use client'
+│   │   └── CommentForm.js      # 'use client'
+│   └── shared/           # Components that work in both contexts
+│       ├── Card.js
+│       └── Avatar.js
+├── lib/                  # Shared utilities
+└── ...
+```
+
+This structure makes it immediately clear which components are intended for which environment, reducing potential confusion.
+
+## React Server Components with frameworks
+
+While RSCs can be implemented in various ways, they're most accessible through supporting frameworks:
+
+### Next.js App Router
+
+Next.js was the first major framework to implement React Server Components through its App Router. When using Kitchn with Next.js App Router:
+
+```jsx
+// app/layout.js
+import { KitchnProvider } from "kitchn";
+import { KitchnRegistry } from "kitchn/next/registry";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <KitchnRegistry>
+          <KitchnProvider>{children}</KitchnProvider>
+        </KitchnRegistry>
+      </body>
+    </html>
+  );
+}
+```
+
+The App Router makes server components the default, providing an intuitive development experience.
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/frameworks/nextjs-app"}>
+    <Button>Next.js integration guide</Button>
+  </Link>
+</Container>
+
+### Other frameworks
+
+While Next.js currently offers the most mature implementation, other frameworks are adopting RSCs:
+
+- Gatsby is exploring RSC integration
+- Remix is working on RSC support
+- Several other meta-frameworks are implementing experimental support
+
+## Common challenges and solutions
+
+### 1. Mixing server and client components
+
+**Challenge:** Incorrectly nesting server components inside client components.
+
+**Solution:** Remember the rule: client components can import and render server components, but not vice versa. Structure your component tree accordingly, with server components higher in the hierarchy where possible.
+
+### 2. Data freshness
+
+**Challenge:** Server-rendered content may become stale.
+
+**Solution:** Implement appropriate revalidation strategies using framework features like Next.js's Incremental Static Regeneration or using route revalidation.
+
+### 3. Missing client-side interactivity
+
+**Challenge:** Server components cannot use hooks or respond to user events.
+
+**Solution:** Create focused client components for interactive elements and keep them as small as possible.
+
+```jsx
+// Instead of making the entire form a client component
+'use client'
+function CompleteForm() {
+  // All form logic and state
+}
+
+// Break it down into server and client parts
+// ServerForm.js (Server Component)
+import SubmitButton from './SubmitButton';
+
+function ServerForm() {
+  return (
+    <form>
+      <h2>Contact Us</h2>
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <textarea name="message"></textarea>
+      <SubmitButton /> {/* Client Component */}
+    </form>
+  );
+}
+
+// SubmitButton.js (Client Component)
+'use client'
+import { useState } from 'react';
+import { Button } from 'kitchn';
+
+export default function SubmitButton() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  return (
+    <Button 
+      disabled={isSubmitting}
+      onClick={() => {
+        setIsSubmitting(true);
+        // Submission logic
+      }}
+    >
+      Submit
+    </Button>
+  );
+}
+```
+
+> 💡 **Tip:** The ideal boundary between server and client components is often at the point where user interaction begins.
+
+## Performance optimization techniques
+
+To get the most out of React Server Components:
+
+1. **Component colocation** - Keep related server and client components close together in your project structure
+2. **Progressive enhancement** - Start with server components and add client interactivity only where needed
+3. **Streaming** - Use streaming responses where supported to improve perceived performance
+4. **Parallel data fetching** - Fetch data in parallel when possible:
+
+```jsx
+async function Dashboard() {
+  // Fetch data in parallel rather than sequentially
+  const [userData, statsData, notificationsData] = await Promise.all([
+    fetchUserData(),
+    fetchStats(),
+    fetchNotifications()
+  ]);
+  
+  return (/* render using the data */);
+}
+```
+
+5. **Strategic component splitting** - Divide components along server/client boundaries to minimize client JavaScript
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/components"}>
+    <Button>Explore Kitchn components</Button>
+  </Link>
+</Container>
+
+## Future of React Server Components
+
+The introduction of React Server Components represents just the beginning of this architectural approach. Future developments likely include:
+
+- More granular control over rendering strategies
+- Enhanced tooling for optimizing server/client boundaries
+- Tighter integration with data fetching capabilities
+- Expanded framework support beyond Next.js
+
+As the React ecosystem continues to evolve, server components will become an increasingly important part of the developer toolkit.
+
+## Frequently asked questions
+
+### Are React Server Components just another form of server-side rendering?
+
+No. While both render on the server, traditional SSR sends complete HTML and JavaScript for components to the client. Server Components send only the rendered result without the component JavaScript, substantially reducing bundle size. Additionally, Server Components can be used within an otherwise client-rendered application.
+
+### Do I need to rewrite my entire application to use React Server Components?
+
+No. You can incrementally adopt Server Components, starting with data fetching components or static content. Begin by identifying components that don't need interactivity and convert those first.
+
+### How do Server Components affect my build and deployment process?
+
+Server Components require server-side execution at request time (or build time for static content). This means your deployment needs to support either server-side rendering or prerendering of these components. Frameworks like Next.js handle this complexity for you.
+
+### Can I use context with Server Components?
+
+Context providers must be client components since they use React hooks. However, you can still provide context to client components within a server component tree. Place context providers at the boundary between server and client components.
+
+### How do Server Components work with state management libraries?
+
+State management libraries like Redux or Zustand operate on the client. Server components can't directly use these libraries, but they can pass data to client components that do. For many applications, server components may reduce the need for complex client-state management.
+
+## Getting started with React Server Components
+
+Ready to incorporate React Server Components into your project? Kitchn provides seamless support for this architecture pattern, especially through its Next.js integration.
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/installation"}>
+    <Button>Get started</Button>
+  </Link>
+</Container>
+
+By combining Kitchn's design system with React Server Components, you can build fast, modern applications that provide excellent user experiences while maintaining developer productivity and code quality.
+
+As this technology continues to mature, early adopters will benefit from improved performance metrics, better SEO, and a more maintainable codebase—positioning their applications for long-term success in the evolving web landscape.

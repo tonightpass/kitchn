@@ -1,0 +1,310 @@
+---
+title: "Mastering design tokens for scalable UI systems"
+date: "05/14/2025"
+description: "Learn how design tokens can transform your development workflow, create consistent interfaces, and streamline collaboration between designers and developers."
+---
+
+import { Button, Link, Container, Text } from "kitchn";
+import Playground from "@/components/playground";
+
+# Building consistent UIs with design tokens
+
+In the ever-evolving world of UI development, maintaining consistency across platforms and design systems has become a critical challenge. Design tokens offer a powerful solution to this problem, serving as the fundamental building blocks of your design system.
+
+## What are design tokens?
+
+Design tokens are the smallest units of a design system - they're named entities that store visual design attributes. Think of them as variables that can be shared across platforms, devices, and tech stacks to ensure consistency in your product's look and feel.
+
+Instead of hard-coding values like colors, spacing, and typography throughout your codebase, design tokens allow you to define these values in a single source of truth.
+
+```jsx
+// Without design tokens
+<Button 
+  backgroundColor="#503CF5" 
+  padding="8px 16px"
+  borderRadius="4px"
+/>
+
+// With design tokens
+<Button 
+  backgroundColor={tokens.colors.primary} 
+  padding={tokens.spacing.medium}
+  borderRadius={tokens.radius.square}
+/>
+```
+
+> 💡 **Tip:** Design tokens aren't just for colors. They can represent spacing, typography, opacity, animations, and even z-index values.
+
+## Why design tokens matter for your projects
+
+Design tokens fundamentally transform how teams build products by:
+
+1. **Ensuring consistency** across all platforms and interfaces
+2. **Reducing technical debt** by centralizing visual attributes
+3. **Enabling theming** (like dark/light modes) with minimal effort
+4. **Streamlining designer-developer handoff**
+5. **Supporting scalability** for growing products and teams
+
+When implemented properly, tokens allow both large and small teams to maintain visual consistency while moving quickly.
+
+## Implementing design tokens with Kitchn
+
+Kitchn's theming system is built around the concept of design tokens. Let's explore how to implement and use them effectively:
+
+### Basic token structure in Kitchn
+
+Kitchn organizes tokens in a hierarchical structure, making them intuitive to use:
+
+```jsx
+import { createTheme, KitchnProvider } from "kitchn";
+
+const customTheme = {
+  name: "custom",
+  colors: {
+    layout: {
+      darkest: "rgb(5, 21, 39)",
+      darker: "rgb(6, 25, 46)",
+      // other layout colors...
+    },
+    text: {
+      lightest: "rgb(255, 255, 255)",
+      // other text colors...
+    },
+    accent: {
+      primary: "rgb(176, 36, 241)",
+      // other accent colors...
+    }
+  },
+  // Other token categories
+  radius: {
+    square: "8px",
+    round: "99999px",
+  },
+  gap: {
+    tiny: "5px",
+    small: "10px",
+    // other spacing values...
+  }
+};
+
+const myTheme = createTheme(customTheme);
+
+// Apply themes to your application
+const App = () => (
+  <KitchnProvider themes={{ custom: myTheme }}>
+    <YourApplication />
+  </KitchnProvider>
+);
+```
+
+> ℹ️ **Info:** Kitchn's default theme is inspired by Tonight Pass and provides a comprehensive set of tokens right out of the box.
+
+### Common token categories
+
+| Token Category | Purpose | Example Values |
+|----------------|---------|----------------|
+| Colors | Brand colors, UI states, text | `primary: "#503CF5"` |
+| Typography | Font families, sizes, weights | `medium: "18px"` |
+| Spacing | Margins, paddings, gaps | `small: "10px"` |
+| Borders | Widths, radii, styles | `square: "8px"` |
+| Animation | Durations, easing functions | `fast: "150ms"` |
+| Shadows | Elevation, depth | `card: "0 2px 8px rgba(0,0,0,0.15)"` |
+
+### Using tokens in components
+
+Once defined, using tokens in your components becomes straightforward:
+
+<Playground
+  code={`
+<Container gap={"small"} br={"square"} bw={1} p={"medium"}>
+  <Text size={"medium"} weight={"bold"} color={"lighter"}>
+    Welcome to our application
+  </Text>
+  <Button type={"primary"}>Get Started</Button>
+</Container>
+`}
+/>
+
+In this example, `small`, `square`, `medium`, `bold`, `lighter`, and `primary` are all tokens that reference values from your theme.
+
+> 📝 **Note:** When using Kitchn components, you don't need to explicitly access tokens - they're automatically applied based on the props you provide.
+
+## Setting up a design token system
+
+Implementing a token system requires thoughtful planning. Here's a step-by-step approach:
+
+1. **Audit existing designs** - Document all current design values 
+2. **Categorize tokens** - Group by purpose (colors, spacing, etc.)
+3. **Name tokens semantically** - Use purpose-based naming rather than values
+4. **Create a token hierarchy** - Organize from primitive to complex tokens
+5. **Document usage guidelines** - Define when and how tokens should be used
+6. **Implement tokens in code** - Integrate with your design system
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/theming"}>
+    <Button>Explore theming</Button>
+  </Link>
+</Container>
+
+### Token naming best practices
+
+Good token names communicate meaning rather than just appearance:
+
+```jsx
+// AVOID: Value-based naming
+colors: {
+  blue500: "#0066FF",
+  gray200: "#EEEEEE",
+}
+
+// BETTER: Purpose-based naming
+colors: {
+  primary: "#0066FF",
+  background: "#EEEEEE",
+}
+```
+
+Purpose-based naming creates resilience to design changes and clarifies token usage across teams.
+
+## Advanced design token strategies
+
+### Token transformation
+
+For more complex systems, consider creating a token pipeline that can transform design tokens for different platforms:
+
+1. Start with platform-agnostic tokens in a format like JSON
+2. Use build tools to transform tokens into platform-specific formats
+3. Deliver the right format to each platform (CSS variables, Swift constants, etc.)
+
+This approach allows you to maintain a single source of truth while supporting multiple platforms.
+
+### Design tokens and design systems
+
+Tokens form the foundation of a design system, but they're just one part of the equation:
+
+```
+Design Tokens → Components → Patterns → Pages → Product
+```
+
+Each layer builds upon the previous one, with tokens providing the consistent visual foundation.
+
+> ❗ **Important:** Changes to design tokens can have wide-reaching effects throughout your system. Establish a clear process for proposing and implementing token changes.
+
+### Theming with tokens
+
+One of the most powerful applications of design tokens is theme switching:
+
+```jsx
+import { createTheme, KitchnProvider } from "kitchn";
+
+// Define light theme
+const lightTheme = createTheme({
+  name: "light",
+  colors: {
+    background: "#FFFFFF",
+    text: "#000000",
+    // other tokens...
+  }
+});
+
+// Define dark theme
+const darkTheme = createTheme({
+  name: "dark",
+  colors: {
+    background: "#121212",
+    text: "#FFFFFF",
+    // other tokens...
+  }
+});
+
+// Switch between themes
+const App = () => (
+  <KitchnProvider
+    themes={{ light: lightTheme, dark: darkTheme }}
+  >
+    <YourApplication />
+  </KitchnProvider>
+);
+```
+
+With Kitchn, implementing theme switching becomes remarkably simple, allowing you to offer light/dark modes or even multiple brand themes with minimal effort.
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/theming#colors"}>
+    <Button>See demo</Button>
+  </Link>
+</Container>
+
+## Challenges and best practices
+
+While design tokens offer numerous benefits, implementing them effectively can present challenges:
+
+### Common pitfalls
+
+1. **Too many tokens** - Creating overly specific tokens leads to complexity
+2. **Inconsistent naming** - Confusing token names reduce adoption
+3. **Poor documentation** - Teams can't use what they don't understand
+4. **Missing token categories** - Overlooking important design attributes
+5. **No governance** - Lack of ownership leads to token drift
+
+### Solutions and best practices
+
+To avoid these issues:
+
+- Start with a minimal set of tokens and expand as needed
+- Establish clear naming conventions before implementation
+- Create comprehensive documentation with usage examples
+- Include all relevant design attributes in your token system
+- Designate token "owners" responsible for maintenance
+
+> 💡 **Tip:** Begin with the most commonly used design properties - colors, typography, and spacing. These will provide the highest initial value.
+
+## Real-world applications
+
+Design tokens have proven their value across numerous large-scale projects. Let's examine a typical transformation:
+
+| Before Design Tokens | After Design Tokens |
+|----------------------|---------------------|
+| Inconsistent UI across platforms | Unified brand experience |
+| Slow design updates | Rapid, system-wide changes |
+| Frequent design bugs | Reduced visual regressions |
+| Difficult theme implementation | Seamless theme switching |
+| Slow designer-developer handoff | Streamlined collaboration |
+
+By implementing design tokens, teams typically see improvements in design consistency, development velocity, and cross-functional collaboration.
+
+## Frequently asked questions
+
+### How do design tokens differ from CSS variables?
+
+Design tokens are platform-agnostic values that can be transformed into CSS variables, Swift constants, Android resources, or any platform-specific format. CSS variables are one possible output of a design token system, but tokens themselves exist at a higher level of abstraction.
+
+### How many design tokens should I create?
+
+Start with a focused set covering the fundamentals: colors, typography, spacing, and radius. For a typical application, you might have 50-100 tokens initially. Let your system grow organically based on real needs rather than trying to define everything upfront.
+
+### Can I use design tokens with existing codebases?
+
+Yes! Introduction of design tokens can be gradual. Start by creating tokens for your most common design values and replace hardcoded values incrementally. Kitchn makes this process easier by providing a comprehensive token system that you can customize.
+
+### How often should design tokens be updated?
+
+Design tokens should be stable but not static. Major design refreshes might require token updates, but the goal is to create a system that allows evolution without constant token changes. Typically, tokens should be reviewed quarterly in established products.
+
+### How do I encourage adoption of design tokens?
+
+Make tokens easy to use and well-documented. Create clear guidelines, provide code examples, and build tools that make working with tokens simpler than alternatives. With Kitchn, tokens are built into the component system, encouraging adoption by default.
+
+## Getting started with Kitchn's token system
+
+Ready to implement design tokens in your project? Kitchn provides a powerful, ready-to-use token system that you can customize to match your brand.
+
+<Container mx={"auto"} align={"center"} my={"medium"}>
+  <Link href={"/docs/installation"}>
+    <Button>Get started</Button>
+  </Link>
+</Container>
+
+By leveraging Kitchn's theming capabilities, you can quickly establish a comprehensive design token system that grows with your product, ensures consistency, and accelerates development.
+
+Whether you're building a new application or enhancing an existing one, design tokens provide the foundation for scalable, consistent user interfaces that delight your users.
