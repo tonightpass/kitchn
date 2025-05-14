@@ -1,10 +1,8 @@
 import { useTheme } from "kitchn";
 import React from "react";
-import { LivePreview, LiveProvider, LiveError } from "react-live";
-
 import makeCodeTheme from "./code-theme";
-import Editor from "./editor";
 import kitchnScope from "./scope";
+import EditorServer from "./editor-server";
 
 export interface Props {
   code: string;
@@ -13,20 +11,20 @@ export interface Props {
   };
 }
 
-const DynamicLive: React.FC<Props> = ({ code, scope }) => {
+const DynamicLiveServer: React.FC<Props> = ({ code, scope }) => {
   const { theme } = useTheme();
   const codeTheme = makeCodeTheme(theme);
+  
   return (
-    <LiveProvider
-      code={code}
-      scope={{ ...scope, ...kitchnScope }}
-      theme={codeTheme}
-    >
-      <div className={"wrapper"}>
-        <LivePreview />
-        <LiveError className={"live-error"} />
+    <>
+      <div className="wrapper">
+        <div className="preview">
+          {/* Simple static preview of the code */}
+          <pre>{code}</pre>
+        </div>
+        <div className="live-error"></div>
       </div>
-      <Editor code={code} />
+      <EditorServer code={code} />
       <style jsx>{`
         .wrapper {
           width: 100%;
@@ -35,21 +33,26 @@ const DynamicLive: React.FC<Props> = ({ code, scope }) => {
           flex-direction: column;
           box-sizing: border-box;
         }
-        .wrapper > :global(div) {
+        .wrapper > .preview {
           width: 100%;
           background-color: transparent;
+          font-family: ${theme.family.monospace};
+          font-size: ${theme.size.small};
+          white-space: pre-wrap;
+          color: ${theme.colors.text.light};
         }
-        .wrapper > :global(.live-error) {
+        .wrapper > .live-error {
           padding: 10px 12px 0 12px;
           margin-bottom: 0;
           border: 2px ${theme.colors.accent.danger} dotted;
           border-radius: 10px;
           color: ${theme.colors.accent.danger};
           font-size: 13px;
+          display: none;
         }
       `}</style>
-    </LiveProvider>
+    </>
   );
 };
 
-export default DynamicLive;
+export default DynamicLiveServer;
