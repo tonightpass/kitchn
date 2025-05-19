@@ -37,7 +37,7 @@
     "size": "size-limit",
     "size:why": "size-limit --why"
   },
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.11.0",
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/plugin-transform-runtime": "^7.19.6",
