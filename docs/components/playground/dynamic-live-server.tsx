@@ -1,7 +1,6 @@
 import { useTheme } from "kitchn";
 import React from "react";
-import makeCodeTheme from "./code-theme";
-import kitchnScope from "./scope";
+
 import EditorServer from "./editor-server";
 
 export interface Props {
@@ -11,18 +10,16 @@ export interface Props {
   };
 }
 
-const DynamicLiveServer: React.FC<Props> = ({ code, scope }) => {
+const DynamicLiveServer: React.FC<Props> = ({ code }) => {
   const { theme } = useTheme();
-  const codeTheme = makeCodeTheme(theme);
-  
+
   return (
     <>
-      <div className="wrapper">
-        <div className="preview">
-          {/* Simple static preview of the code */}
+      <div className={"wrapper"}>
+        <div className={"preview"}>
           <pre>{code}</pre>
         </div>
-        <div className="live-error"></div>
+        <div className={"live-error"} />
       </div>
       <EditorServer code={code} />
       <style jsx>{`
