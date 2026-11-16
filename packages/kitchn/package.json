@@ -47,7 +47,7 @@
     "@fontsource/figtree": "^5.0.1",
     "@fontsource/fira-code": "^5.0.0",
     "date-fns": "2.30.0",
-    "deepmerge-ts": "^7.1.0",
+    "deepmerge-ts": "^8.0.0",
     "next-themes": "^0.4.3",
     "react-day-picker": "^8.10.0",
     "react-hook-form": "^7.45.4",
